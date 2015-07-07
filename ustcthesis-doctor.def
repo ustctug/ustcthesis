@@ -1,0 +1,24 @@
+\newpagestyle{front}[\zihao{5}]{
+    \sethead{}{\chaptertitle}{}
+    \setfoot{}{\thepage}{}
+    \headrule
+}
+\newpagestyle{main}[\zihao{5}]{
+    \sethead{}{\CTEXthechapter\quad\chaptertitle}{}
+    \setfoot{}{\thepage}{}
+    \headrule
+}
+\renewcommand\frontmatter{
+    \cleardoublepage
+    \@mainmatterfalse
+    \pagenumbering{Roman}
+    \pagestyle{front}
+    \ctexset{chapter/pagestyle = front}
+}
+\renewcommand\mainmatter{%
+    \cleardoublepage
+    \@mainmattertrue
+    \pagenumbering{arabic}
+    \pagestyle{main}
+    \ctexset{chapter/pagestyle = main}
+}
