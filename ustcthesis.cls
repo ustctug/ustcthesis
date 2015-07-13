@@ -32,7 +32,7 @@
 
 \RequirePackage[
     left=3.17cm, right=3.17cm,
-    top=2.54cm, bottom=2.54cm,
+    top=2.54cm, bottom=2.54cm,% top margin 2.54cm
     headsep=0.74cm,
     headheight=0.5cm,
     footskip=0.79cm,
@@ -174,7 +174,7 @@
 \newcommand\make@cntitle{
     \pdfbookmark[-1]{\ustc@title}{title}
     \begin{center}
-    \vspace*{2.4cm}
+    \vspace*{2.4cm}%??????????????
     \includegraphics[width=10cm]{ustc_logo_text.eps}
     \vskip 1.4cm
     \ifUSTC@opt@doctor\textbf{\USTCHUGE{博士学位论文}} \fi
