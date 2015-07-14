@@ -65,9 +65,9 @@
 \newcommand\ustc@underline[2][6em]{
     \hskip1pt\underline{\hb@xt@ #1{\hss#2\hss}}\hskip3pt
 }
-\newcommand\USTCLarge{\fontsize{20bp}{\baselineskip}\selectfont} % 英文扉页第一行
-\newcommand\USTCLARGE{\fontsize{26bp}{\baselineskip}\selectfont} % 英文扉页第二行
-\newcommand\USTCHUGE{\fontsize{56bp}{\baselineskip}\selectfont}  % 中文扉页第二行
+\newcommand\USTCLarge{\fontsize{20}{\baselineskip}\selectfont} % 英文扉页第一行
+\newcommand\USTCLARGE{\fontsize{26}{\baselineskip}\selectfont} % 英文扉页第二行
+\newcommand\USTCHUGE{\fontsize{56}{\baselineskip}\selectfont}  % 中文扉页第二行
 \newenvironment{cnabstract}{\chapter{摘\quad 要}}{}
 \newenvironment{enabstract}{\chapter{Abstract}}{}
 \newcommand\keywords[1]{\vspace{3.5ex}\noindent{\textbf{关键词：} #1}}
