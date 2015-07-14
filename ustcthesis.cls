@@ -65,14 +65,15 @@
 \newcommand\ustc@underline[2][6em]{
     \hskip1pt\underline{\hb@xt@ #1{\hss#2\hss}}\hskip3pt
 }
-\newcommand\USTCLarge{\fontsize{20}{\baselineskip}\selectfont} % 英文扉页第一行
-\newcommand\USTCLARGE{\fontsize{26}{\baselineskip}\selectfont} % 英文扉页第二行
-\newcommand\USTCHUGE{\fontsize{56}{\baselineskip}\selectfont}  % 中文扉页第二行
+\newcommand\USTCLarge{\fontsize{20bp}{\baselineskip}\selectfont} % 英文扉页第一行
+\newcommand\USTCLARGE{\fontsize{26bp}{\baselineskip}\selectfont} % 英文扉页第二行
+\newcommand\USTCHUGE{\fontsize{56bp}{\baselineskip}\selectfont}  % 中文扉页第二行
 \newenvironment{cnabstract}{\chapter{摘\quad 要}}{}
 \newenvironment{enabstract}{\chapter{Abstract}}{}
 \newcommand\keywords[1]{\vspace{3.5ex}\noindent{\textbf{关键词：} #1}}
 \newcommand\enkeywords[1]{\vspace{3.5ex}\noindent{\textbf{Key Words：} #1}}
 \ustc@define@term{title}
+\ustc@define@term{secrettext}
 \ustc@define@term{author}
 \ustc@define@term{depart}
 \ustc@define@term{major}
@@ -81,6 +82,7 @@
 \ustc@define@term{studentid}
 \ustc@define@term{submitdate}
 \ustc@define@term{entitle}
+\ustc@define@term{ensecrettext}
 \ustc@define@term{enauthor}
 \ustc@define@term{enmajor}
 \ustc@define@term{enadvisor}
@@ -171,10 +173,22 @@
     \input{ustcthesis-doctor.def}
 \fi
 
+% 中文封面
+\newcommand{\ps@ustc@titlepage}{
+\renewcommand{\@oddhead}{\hfill {\zihao{4}\ustc@secrettext}}
+\renewcommand{\@evenhead}\@oddhead}
+
 \newcommand\make@cntitle{
+    \newgeometry{
+        top=4cm, bottom=3.8cm,
+        left=3.2cm, right=3.2cm,
+        includehead,
+        headheight=0cm, headsep=1.2cm,
+        footskip=3.0cm %, showframe=true
+    }
+    \thispagestyle{ustc@titlepage}
     \pdfbookmark[-1]{\ustc@title}{title}
     \begin{center}
-    \vspace*{2.4cm}
     \includegraphics[width=10cm]{ustc_logo_text.eps}
     \vskip 1.4cm
     \ifUSTC@opt@doctor\textbf{\USTCHUGE{博士学位论文}} \fi
@@ -200,10 +214,24 @@
     \end{tabular}
     \end{minipage}
     \end{center}
+    \restoregeometry
 }
+
+% 英文封面
+\newcommand{\ps@ustc@entitlepage}{
+\renewcommand{\@oddhead}{\hfill {\zihao{4}\ustc@ensecrettext}}
+\renewcommand{\@evenhead}\@oddhead}
+
 \newcommand\make@entitle{
+    \newgeometry{
+        top=4cm, bottom=3.8cm,
+        left=3.2cm, right=3.2cm,
+        includehead,
+        headheight=0cm, headsep=1cm,
+        footskip=3.0cm %, showframe=true
+    }
+    \thispagestyle{ustc@entitlepage}
     \begin{center}
-    \vspace*{1.7cm}
     \USTCLarge{\textsf{University of Science and Technology of China}}
     \vskip 0.3cm
     \ifUSTC@opt@doctor\textsf{\USTCLARGE{A dissertation for doctor's degree}} \fi
@@ -228,6 +256,7 @@
     \end{tabular}
     \end{minipage}
     \end{center}
+    \restoregeometry
 }
 
 \endinput
