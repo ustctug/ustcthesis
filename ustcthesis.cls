@@ -174,10 +174,7 @@
 \fi
 
 % 中文封面
-\newcommand{\ps@ustc@titlepage}{
-\renewcommand{\@oddhead}{\hfill {\zihao{4}\ustc@secrettext}}
-\renewcommand{\@evenhead}\@oddhead}
-
+\newpagestyle{ustc@titlepage}{\sethead{}{}{\fangsong \zihao{4}\ustc@secrettext}}
 \newcommand\make@cntitle{
     \newgeometry{
         top=4cm, bottom=3.8cm,
@@ -218,10 +215,7 @@
 }
 
 % 英文封面
-\newcommand{\ps@ustc@entitlepage}{
-\renewcommand{\@oddhead}{\hfill {\zihao{4}\ustc@ensecrettext}}
-\renewcommand{\@evenhead}\@oddhead}
-
+\newpagestyle{ustc@entitlepage}{\sethead{}{}{\zihao{4}\ustc@ensecrettext}}
 \newcommand\make@entitle{
     \newgeometry{
         top=4cm, bottom=3.8cm,
