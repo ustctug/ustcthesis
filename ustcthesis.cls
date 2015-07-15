@@ -174,17 +174,14 @@
 \fi
 
 % 中文封面
-\newcommand{\ps@ustc@titlepage}{
-\renewcommand{\@oddhead}{\hfill {\zihao{4}\ustc@secrettext}}
-\renewcommand{\@evenhead}\@oddhead}
-
+\newpagestyle{ustc@titlepage}{\sethead{}{}{\fangsong \zihao{4}\ustc@secrettext}}
 \newcommand\make@cntitle{
     \newgeometry{
         top=4cm, bottom=3.8cm,
         left=3.2cm, right=3.2cm,
         includehead,
         headheight=0cm, headsep=1.2cm,
-        footskip=3.0cm %, showframe=true
+        footskip=3.0cm
     }
     \thispagestyle{ustc@titlepage}
     \pdfbookmark[-1]{\ustc@title}{title}
@@ -218,17 +215,14 @@
 }
 
 % 英文封面
-\newcommand{\ps@ustc@entitlepage}{
-\renewcommand{\@oddhead}{\hfill {\zihao{4}\ustc@ensecrettext}}
-\renewcommand{\@evenhead}\@oddhead}
-
+\newpagestyle{ustc@entitlepage}{\sethead{}{}{\zihao{4}\ustc@ensecrettext}}
 \newcommand\make@entitle{
     \newgeometry{
         top=4cm, bottom=3.8cm,
         left=3.2cm, right=3.2cm,
         includehead,
         headheight=0cm, headsep=1cm,
-        footskip=3.0cm %, showframe=true
+        footskip=3.0cm
     }
     \thispagestyle{ustc@entitlepage}
     \begin{center}
