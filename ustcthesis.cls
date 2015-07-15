@@ -181,7 +181,7 @@
         left=3.2cm, right=3.2cm,
         includehead,
         headheight=0cm, headsep=1.2cm,
-        footskip=3.0cm %, showframe=true
+        footskip=3.0cm
     }
     \thispagestyle{ustc@titlepage}
     \pdfbookmark[-1]{\ustc@title}{title}
@@ -222,7 +222,7 @@
         left=3.2cm, right=3.2cm,
         includehead,
         headheight=0cm, headsep=1cm,
-        footskip=3.0cm %, showframe=true
+        footskip=3.0cm
     }
     \thispagestyle{ustc@entitlepage}
     \begin{center}
