@@ -65,9 +65,9 @@
 \newcommand\ustc@underline[2][6em]{
     \hskip1pt\underline{\hb@xt@ #1{\hss#2\hss}}\hskip3pt
 }
-\newcommand\USTCLarge{\fontsize{20}{\baselineskip}\selectfont} % 英文扉页第一行
-\newcommand\USTCLARGE{\fontsize{26}{\baselineskip}\selectfont} % 英文扉页第二行
-\newcommand\USTCHUGE{\fontsize{56}{\baselineskip}\selectfont}  % 中文扉页第二行
+\newcommand\USTCLarge{\fontsize{20bp}{\baselineskip}\selectfont} % 英文扉页第一行
+\newcommand\USTCLARGE{\fontsize{26bp}{\baselineskip}\selectfont} % 英文扉页第二行
+\newcommand\USTCHUGE{\fontsize{56bp}{\baselineskip}\selectfont}  % 中文扉页第二行
 \newenvironment{cnabstract}{\chapter{摘\quad 要}}{}
 \newenvironment{enabstract}{\chapter{Abstract}}{}
 \newcommand\keywords[1]{\vspace{3.5ex}\noindent{\textbf{关键词：} #1}}
@@ -114,21 +114,21 @@
     chapter/nameformat = {},   % 由于nameformat和titleformat的bug，这两行必须
     chapter/titleformat = {},
     chapter/number = \arabic{chapter},
-    chapter/beforeskip = 24pt,
-    chapter/afterskip = 18pt,
+    chapter/beforeskip = 24bp,
+    chapter/afterskip = 18bp,
     % section
     section/format += \bfseries\raggedright\linespread{1}\selectfont\zihao{4},
-    section/beforeskip = 24 pt,
-    section/afterskip = 6 pt,
+    section/beforeskip = 24bp,
+    section/afterskip = 6bp,
     % subsection
     subsection/format+= \bfseries\raggedright\linespread{1}\selectfont
-                        \fontsize{13pt}{\baselineskip}\selectfont,
-    subsection/beforeskip = 12 pt,
-    subsection/afterskip = 6 pt,
+                        \fontsize{13bp}{\baselineskip}\selectfont,
+    subsection/beforeskip = 12bp,
+    subsection/afterskip = 6bp,
     % subsubsection
     subsubsection/format+= \bfseries\raggedright\linespread{1}\selectfont\zihao{-4},
-    subsubsection/beforeskip = 12 pt,
-    subsubsection/afterskip = 6 pt,
+    subsubsection/beforeskip = 12bp,
+    subsubsection/afterskip = 6bp,
 }
 \setcounter{secnumdepth}{3}  % subsubsection numbering
 % 汉化
@@ -137,14 +137,14 @@
 }
 
 % 段落设置
-\setlength{\parskip}{0pt}           % 段前段后间距0磅
-\setlength{\baselineskip}{20pt}     % 行间距20磅
+\setlength{\parskip}{0bp}           % 段前段后间距0磅
+\setlength{\baselineskip}{20bp}     % 行间距20磅
 
 % 图表标题
 \RequirePackage[format=hang, labelsep=quad,
     labelfont={small,bf}, textfont=small]{caption}
-\captionsetup[figure]{position = bottom, aboveskip = 6pt, belowskip = 12pt}
-\captionsetup[table]{position = top, aboveskip = 6pt, belowskip = 6pt}
+\captionsetup[figure]{position = bottom, aboveskip = 6bp, belowskip = 12bp}
+\captionsetup[table]{position = top, aboveskip = 6bp, belowskip = 6bp}
 
 % 目录
 \RequirePackage{titletoc}
