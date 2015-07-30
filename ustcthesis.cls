@@ -192,16 +192,16 @@
         \hline
         \parbox[t][1.2cm][t]{\textwidth}{\raggedleft\fangsong\zihao{4}\ustc@secrettext} \\
         \hline
-        \parbox[t][3.3cm][t]{\textwidth}{\centering\sffamily\zihao{-0}中国科学技术大学} \\
+        \parbox[t][3.3cm][t]{\textwidth}{\centering\includegraphics[width=11cm]{ustc_logo_text.eps}} \\
         \hline
-        \parbox[t][2.6cm][t]{\textwidth}{\centering\bfseries\USTCHUGE
+        \parbox[t][2.3cm][t]{\textwidth}{\centering\bfseries\USTCHUGE
             \ifUSTC@opt@doctor 博士学位论文 \fi
             \ifUSTC@opt@master 硕士学位论文 \fi
             \ifUSTC@opt@bachelor 学士学位论文 \fi} \\
         \hline
-        \includegraphics[height=4.7cm]{ustc_logo_fig.eps} \\
+        \includegraphics[height=5.0cm]{ustc_logo_fig.eps} \\
         \hline
-        \parbox[t][4.7cm][c]{\textwidth}{\centering\bfseries\zihao{1}老年猕猴视皮层细胞\\的功能衰退} \\
+        \parbox[t][4.7cm][c]{\textwidth}{\centering\bfseries\zihao{1}\ustc@title} \\
         \hline
         \parbox[t][4.2cm][c]{\textwidth}{\zihao{3}
             \hspace*{2.8cm}{\sffamily 作者姓名：}\hfill \ustc@author \hfill\mbox{} \\
