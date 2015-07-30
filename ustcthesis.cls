@@ -174,43 +174,44 @@
 \fi
 
 % 中文封面
-\newpagestyle{ustc@titlepage}{\sethead{}{}{\fangsong \zihao{4}\ustc@secrettext}}
+% \renewcommand{\hline}{\relax}
 \newcommand\make@cntitle{
     \newgeometry{
-        top=4cm, bottom=3.8cm,
+        top=3.8cm, bottom=3.8cm,
         left=3.2cm, right=3.2cm,
-        includehead,
-        headheight=0cm, headsep=1.2cm,
+        headheight=0cm, headsep=0.8cm,
         footskip=3.0cm
     }
-    \thispagestyle{ustc@titlepage}
+    \begin{titlepage}
     \pdfbookmark[-1]{\ustc@title}{title}
     \begin{center}
-    \includegraphics[width=10cm]{ustc_logo_text.eps}
-    \vskip 1.4cm
-    \ifUSTC@opt@doctor\textbf{\USTCHUGE{博士学位论文}} \fi
-    \ifUSTC@opt@master\textbf{\USTCHUGE{硕士学位论文}} \fi
-    \ifUSTC@opt@bachelor\textbf{\USTCHUGE{学士学位论文}} \fi
-    \vskip 1.4cm
-    \includegraphics[width=4.7cm]{ustc_logo_fig.eps}
-    \vskip 1.5cm
-
-    \begin{minipage}[t][4cm][t]{14cm}
-    \centering
-    \doublespacing\zihao{1}\textbf{\ustc@title}
-    \end{minipage}
-
-    \begin{minipage}[t][4cm][t]{12cm}
-    \centering
-    \doublespacing\zihao{3}
-    \begin{tabular}{p{4.0cm}p{7.0cm}}
-    \textbf{作者姓名：}  &   \ustc@author    \\
-    \textbf{学科专业：}  &   \ustc@major     \\
-    \textbf{导师姓名：}  &   \ustc@advisor   \\
-    \textbf{完成时间：}  &   \ustc@submitdate \\
+    \renewcommand{\arraystretch}{0}
+    \begin{tabular}{@{}c@{}}
+        \hline
+        \\[0.2cm]
+        \hline
+        \parbox[t][1.2cm][t]{\textwidth}{\raggedleft\fangsong\zihao{4}\ustc@secrettext} \\
+        \hline
+        \parbox[t][3.3cm][t]{\textwidth}{\centering\sffamily\zihao{-0}中国科学技术大学} \\
+        \hline
+        \parbox[t][2.6cm][t]{\textwidth}{\centering\bfseries\USTCHUGE
+            \ifUSTC@opt@doctor 博士学位论文 \fi
+            \ifUSTC@opt@master 硕士学位论文 \fi
+            \ifUSTC@opt@bachelor 学士学位论文 \fi} \\
+        \hline
+        \includegraphics[height=4.7cm]{ustc_logo_fig.eps} \\
+        \hline
+        \parbox[t][4.7cm][c]{\textwidth}{\centering\bfseries\zihao{1}老年猕猴视皮层细胞\\的功能衰退} \\
+        \hline
+        \parbox[t][4.2cm][c]{\textwidth}{\zihao{3}
+            \hspace*{2.8cm}{\sffamily 作者姓名：}\hfill \ustc@author \hfill\mbox{} \\
+            \hspace*{2.8cm}{\sffamily 作者姓名：}\hfill \ustc@major\ \hfill\mbox{} \\
+            \hspace*{2.8cm}{\sffamily 作者姓名：}\hfill \ustc@advisor \hfill\mbox{} \\
+            \hspace*{2.8cm}{\sffamily 作者姓名：}\hfill \ustc@submitdate \hfill\mbox{}} \\
+        \hline
     \end{tabular}
-    \end{minipage}
     \end{center}
+    \end{titlepage}
     \restoregeometry
 }
 
