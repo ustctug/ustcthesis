@@ -7,6 +7,7 @@
     [2015/06/28 Thesis Template for University of Science and Technology of China]
 
 \RequirePackage{kvoptions}
+\RequirePackage{xparse}
 \SetupKeyvalOptions{family=USTC, prefix=USTC@opt@, setkeys=\kvsetkeys}
 \DeclareBoolOption[false]{doctor}
 \DeclareBoolOption[false]{master}
@@ -27,8 +28,10 @@
 \LoadClass[a4paper, UTF8, zihao=-4]{ctexbook}[2015/06/19]
 % 英文字体
 \setmainfont{Times New Roman}
-\setmonofont[BoldFont={Courier New Bold}]{Courier New}
-\setsansfont[BoldFont={Arial:style=Bold}]{Arial}
+\setsansfont[Scale=MatchLowercase]{Arial}
+\IfFileExists{/System/Library/Fonts/Monaco.dfont}{
+    \setmonofont[Scale=MatchLowercase]{Monaco}}{
+    \setmonofont[Scale=MatchLowercase]{Courier New}}
 
 \RequirePackage[
     left=3.17cm, right=3.17cm,
@@ -65,9 +68,14 @@
 \newcommand\ustc@underline[2][6em]{
     \hskip1pt\underline{\hb@xt@ #1{\hss#2\hss}}\hskip3pt
 }
-\newcommand\USTCLarge{\fontsize{20bp}{\baselineskip}\selectfont} % 英文扉页第一行
-\newcommand\USTCLARGE{\fontsize{26bp}{\baselineskip}\selectfont} % 英文扉页第二行
-\newcommand\USTCHUGE{\fontsize{56bp}{\baselineskip}\selectfont}  % 中文扉页第二行
+% 定义了直接调用磅数设置字体大小的命令，用法为
+% 1. \setfontsize{15bp} 设置字号15磅，默认单倍行距
+% 2. \setfontsize{15bp}[30bp] 设置字号15磅，行距30磅
+\DeclareDocumentCommand \setfontsize { m o } {
+    \IfValueTF {#2}
+        { \fontsize{#1}{#2}\linespread{1} }
+        { \fontsize{#1}{1.2 \dimexpr#1} }
+    \selectfont}
 \newenvironment{cnabstract}{\chapter{摘\quad 要}}{}
 \newenvironment{enabstract}{\chapter{Abstract}}{}
 \newcommand\keywords[1]{\vspace{3.5ex}\noindent{\textbf{关键词：} #1}}
@@ -174,82 +182,73 @@
 \fi
 
 % 中文封面
-\newpagestyle{ustc@titlepage}{\sethead{}{}{\fangsong \zihao{4}\ustc@secrettext}}
+% 封面为了排版``距离顶边xx厘米''，使用了tabular嵌套parbox的方法。使用vpace会有额外空隙，叠parbox也不行。
+% 这里没有严格按照《规范》的格式范例的尺寸，其中``学位论文''向上调整了0.7cm，
+% 论文标题和作者姓名部分分别在parbox内部进行了垂直居中处理。两个eps图片为手工测量所得。
 \newcommand\make@cntitle{
     \newgeometry{
-        top=4cm, bottom=3.8cm,
+        top=3.8cm, bottom=3.8cm,
         left=3.2cm, right=3.2cm,
-        includehead,
-        headheight=0cm, headsep=1.2cm,
-        footskip=3.0cm
+        headheight=0cm, headsep=0.8cm,
+        footskip=0.8cm
     }
-    \thispagestyle{ustc@titlepage}
+    \begin{titlepage}
     \pdfbookmark[-1]{\ustc@title}{title}
     \begin{center}
-    \includegraphics[width=10cm]{ustc_logo_text.eps}
-    \vskip 1.4cm
-    \ifUSTC@opt@doctor\textbf{\USTCHUGE{博士学位论文}} \fi
-    \ifUSTC@opt@master\textbf{\USTCHUGE{硕士学位论文}} \fi
-    \ifUSTC@opt@bachelor\textbf{\USTCHUGE{学士学位论文}} \fi
-    \vskip 1.4cm
-    \includegraphics[width=4.7cm]{ustc_logo_fig.eps}
-    \vskip 1.5cm
-
-    \begin{minipage}[t][4cm][t]{14cm}
-    \centering
-    \doublespacing\zihao{1}\textbf{\ustc@title}
-    \end{minipage}
-
-    \begin{minipage}[t][4cm][t]{12cm}
-    \centering
-    \doublespacing\zihao{3}
-    \begin{tabular}{p{4.0cm}p{7.0cm}}
-    \textbf{作者姓名：}  &   \ustc@author    \\
-    \textbf{学科专业：}  &   \ustc@major     \\
-    \textbf{导师姓名：}  &   \ustc@advisor   \\
-    \textbf{完成时间：}  &   \ustc@submitdate \\
+    \renewcommand{\arraystretch}{0}
+    \begin{tabular}{@{}c@{}}
+        \\[0.2cm]
+        \parbox[t][1.2cm][t]{\textwidth}{\raggedleft\fangsong\setfontsize{14bp}\ustc@secrettext} \\
+        \parbox[t][2.7cm][t]{\textwidth}{\centering\includegraphics[width=11cm]{ustc_logo_text.eps}} \\
+        \parbox[t][3cm][t]{\textwidth}{\centering\bfseries\setfontsize{56bp}
+            \ifUSTC@opt@doctor 博士学位论文 \fi
+            \ifUSTC@opt@master 硕士学位论文 \fi
+            \ifUSTC@opt@bachelor 学士学位论文 \fi} \\
+        \includegraphics[height=4.9cm]{ustc_logo_fig.eps} \\
+        \parbox[t][4.7cm][c]{\textwidth}{\centering\bfseries\setfontsize{26bp}\ustc@title} \\
+        \parbox[t][4.2cm][c]{\textwidth}{\setfontsize{16bp}
+            \hspace*{2.8cm}{\bfseries 作者姓名：}\hfill \ustc@author \hfill\mbox{} \\
+            \hspace*{2.8cm}{\bfseries 学科专业：}\hfill \ustc@major \hfill\mbox{} \\
+            \hspace*{2.8cm}{\bfseries 导师姓名：}\hfill \ustc@advisor \hfill\mbox{} \\
+            \hspace*{2.8cm}{\bfseries 完成时间：}\hfill \ustc@submitdate \hfill\mbox{}}
     \end{tabular}
-    \end{minipage}
     \end{center}
+    \end{titlepage}
     \restoregeometry
 }
 
 % 英文封面
-\newpagestyle{ustc@entitlepage}{\sethead{}{}{\zihao{4}\ustc@ensecrettext}}
+% Supervisor 一栏放不下两个英文名称
 \newcommand\make@entitle{
     \newgeometry{
-        top=4cm, bottom=3.8cm,
+        top=3.8cm, bottom=3.8cm,
         left=3.2cm, right=3.2cm,
-        includehead,
         headheight=0cm, headsep=1cm,
-        footskip=3.0cm
+        footskip=0.8cm
     }
-    \thispagestyle{ustc@entitlepage}
+    \begin{titlepage}
     \begin{center}
-    \USTCLarge{\textsf{University of Science and Technology of China}}
-    \vskip 0.3cm
-    \ifUSTC@opt@doctor\textsf{\USTCLARGE{A dissertation for doctor's degree}} \fi
-    \ifUSTC@opt@master\textsf{\USTCLARGE{A dissertation for master's degree}} \fi
-    \ifUSTC@opt@bachelor\textsf{\USTCLARGE{A dissertation for bachelor's degree}} \fi
-    \vskip 1.4cm
-    \includegraphics[width=4.7cm]{ustc_logo_fig.eps}
-    \vskip 1.4cm
-
-    \begin{minipage}[c][4cm][c]{14cm}
-    \centering\USTCLARGE\textsf{\ustc@entitle}
-    \end{minipage}
-
-    \vskip 2cm
-    \begin{minipage}[t][4cm][t]{14cm}
-    \centering\doublespacing\zihao{3}
-    \begin{tabular}{p{4cm}p{7cm}}
-    Author:         &   \ustc@enauthor     \\
-    Speciality:     &   \ustc@enmajor      \\
-    Supervisor:     &   \ustc@enadvisor    \\
-    Finished Time:  &   \ustc@ensubmitdate \\
+    \renewcommand{\arraystretch}{0}
+    \begin{tabular}{@{}c@{}}
+        \\[0.2cm]
+        \parbox[t][1cm][t]{\textwidth}{\raggedleft\setfontsize{14bp}\ustc@ensecrettext} \\
+        \parbox[t][1cm][t]{\textwidth}{\centering\sffamily\setfontsize{20bp}[30bp]
+            University of Science and Technology of China} \\
+        \parbox[t][2.2cm][t]{\textwidth}{\centering\bfseries\setfontsize{26bp}[30bp]
+            \ifUSTC@opt@doctor A dissertation for doctor's degree \fi
+            \ifUSTC@opt@master A dissertation for master's degree \fi
+            \ifUSTC@opt@bachelor A dissertation for bachelor's degree \fi} \\
+        \includegraphics[height=4.9cm]{ustc_logo_fig.eps} \\
+        \\[2.9cm]
+        \parbox[t][4.7cm][t]{\textwidth}{\centering\bfseries\setfontsize{26bp}[30bp]\ustc@entitle} \\
+        \parbox[t][4cm][c]{\textwidth}{\setfontsize{16bp}[30bp]
+            \hspace*{2.8cm} Author: \hspace{1.6cm}\hfill \ustc@enauthor \hfill\mbox{} \\
+            \hspace*{2.8cm} Speciality: \hspace{0.8cm}\hfill \ustc@enmajor \hfill\mbox{} \\
+            \hspace*{2.8cm} Supervisor: \hspace{0.8cm}\hfill \ustc@enadvisor \hfill\mbox{} \\
+            \hspace*{2.8cm} Finished Time: \hfill \ustc@ensubmitdate \hfill\mbox{}}
     \end{tabular}
-    \end{minipage}
     \end{center}
+    \end{titlepage}
     \restoregeometry
 }
 
