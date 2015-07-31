@@ -1,8 +1,15 @@
-.PHONY: all clean
+.PHONY : all pv clean
 
-all: main.pdf
+SOURCES = main.tex ustcthesis.cls ustcthesis-bachelor.def ustcthesis-doctor.def \
+          ustcthesis-statement.def
 
-main.pdf: main.tex ustcthesis.cls
+pv : $(SOURCES)
+	latexmk -xelatex -shell-escape -use-make -pv $<
+
+all : main.pdf
+
+main.pdf : $(SOURCES)
 	latexmk -xelatex -shell-escape -use-make $<
-clean:
+
+clean :
 	latexmk -C
