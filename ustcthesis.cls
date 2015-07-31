@@ -66,7 +66,6 @@
     \hskip1pt\underline{\hb@xt@ #1{\hss#2\hss}}\hskip3pt
 }
 \newcommand\USTCLarge{\fontsize{20bp}{\baselineskip}\selectfont} % 英文扉页第一行
-\newcommand\USTCLARGE{\fontsize{26bp}{\baselineskip}\selectfont} % 英文扉页第二行
 \newcommand\USTCHUGE{\fontsize{56bp}{\baselineskip}\selectfont}  % 中文扉页第二行
 \newenvironment{cnabstract}{\chapter{摘\quad 要}}{}
 \newenvironment{enabstract}{\chapter{Abstract}}{}
@@ -174,41 +173,35 @@
 \fi
 
 % 中文封面
-\renewcommand{\hline}{\relax}
+% 封面为了排版``距离顶边xx厘米''，使用了tabular嵌套parbox的方法。使用vpace会有额外空隙，叠parbox也不行。
+% 这里没有严格按照《规范》的格式范例的尺寸，其中``学位论文''向上调整了0.7cm，
+% 论文标题和作者姓名部分分别在parbox内部进行了垂直居中处理。两个eps图片为手工测量所得。
 \newcommand\make@cntitle{
     \newgeometry{
         top=3.8cm, bottom=3.8cm,
         left=3.2cm, right=3.2cm,
         headheight=0cm, headsep=0.8cm,
-        footskip=3.0cm
+        footskip=0.8cm
     }
     \begin{titlepage}
     \pdfbookmark[-1]{\ustc@title}{title}
     \begin{center}
     \renewcommand{\arraystretch}{0}
     \begin{tabular}{@{}c@{}}
-        \hline
         \\[0.2cm]
-        \hline
         \parbox[t][1.2cm][t]{\textwidth}{\raggedleft\fangsong\zihao{4}\ustc@secrettext} \\
-        \hline
-        \parbox[t][2.6cm][t]{\textwidth}{\centering\includegraphics[width=11cm]{ustc_logo_text.eps}} \\
-        \hline
+        \parbox[t][2.7cm][t]{\textwidth}{\centering\includegraphics[width=11cm]{ustc_logo_text.eps}} \\
         \parbox[t][3cm][t]{\textwidth}{\centering\bfseries\USTCHUGE
             \ifUSTC@opt@doctor 博士学位论文 \fi
             \ifUSTC@opt@master 硕士学位论文 \fi
             \ifUSTC@opt@bachelor 学士学位论文 \fi} \\
-        \hline
-        \includegraphics[height=5.0cm]{ustc_logo_fig.eps} \\
-        \hline
+        \includegraphics[height=4.9cm]{ustc_logo_fig.eps} \\
         \parbox[t][4.7cm][c]{\textwidth}{\centering\bfseries\zihao{1}\ustc@title} \\
-        \hline
         \parbox[t][4.2cm][c]{\textwidth}{\zihao{3}
             \hspace*{2.8cm}{\bfseries 作者姓名：}\hfill \ustc@author \hfill\mbox{} \\
-            \hspace*{2.8cm}{\bfseries 学科专业：}\hfill \ustc@major\ \hfill\mbox{} \\
+            \hspace*{2.8cm}{\bfseries 学科专业：}\hfill \ustc@major \hfill\mbox{} \\
             \hspace*{2.8cm}{\bfseries 导师姓名：}\hfill \ustc@advisor \hfill\mbox{} \\
-            \hspace*{2.8cm}{\bfseries 完成时间：}\hfill \ustc@submitdate \hfill\mbox{}} \\
-        \hline
+            \hspace*{2.8cm}{\bfseries 完成时间：}\hfill \ustc@submitdate \hfill\mbox{}}
     \end{tabular}
     \end{center}
     \end{titlepage}
@@ -216,41 +209,37 @@
 }
 
 % 英文封面
-\newpagestyle{ustc@entitlepage}{\sethead{}{}{\zihao{4}\ustc@ensecrettext}}
+% Supervisor 一栏放不下两个英文名称
 \newcommand\make@entitle{
     \newgeometry{
-        top=4cm, bottom=3.8cm,
+        top=3.8cm, bottom=3.8cm,
         left=3.2cm, right=3.2cm,
-        includehead,
         headheight=0cm, headsep=1cm,
-        footskip=3.0cm
+        footskip=0.8cm
     }
-    \thispagestyle{ustc@entitlepage}
+    \begin{titlepage}
     \begin{center}
-    \USTCLarge{\textsf{University of Science and Technology of China}}
-    \vskip 0.3cm
-    \ifUSTC@opt@doctor\textsf{\USTCLARGE{A dissertation for doctor's degree}} \fi
-    \ifUSTC@opt@master\textsf{\USTCLARGE{A dissertation for master's degree}} \fi
-    \ifUSTC@opt@bachelor\textsf{\USTCLARGE{A dissertation for bachelor's degree}} \fi
-    \vskip 1.4cm
-    \includegraphics[width=4.7cm]{ustc_logo_fig.eps}
-    \vskip 1.4cm
-
-    \begin{minipage}[c][4cm][c]{14cm}
-    \centering\USTCLARGE\textsf{\ustc@entitle}
-    \end{minipage}
-
-    \vskip 2cm
-    \begin{minipage}[t][4cm][t]{14cm}
-    \centering\doublespacing\zihao{3}
-    \begin{tabular}{p{4cm}p{7cm}}
-    Author:         &   \ustc@enauthor     \\
-    Speciality:     &   \ustc@enmajor      \\
-    Supervisor:     &   \ustc@enadvisor    \\
-    Finished Time:  &   \ustc@ensubmitdate \\
+    \renewcommand{\arraystretch}{0}
+    \begin{tabular}{@{}c@{}}
+        \\[0.2cm]
+        \parbox[t][1cm][t]{\textwidth}{\raggedleft\zihao{4}\ustc@ensecrettext} \\
+        \parbox[t][1cm][t]{\textwidth}{\centering\sffamily\USTCLarge
+            University of Science and Technology of China} \\
+        \parbox[t][2.2cm][t]{\textwidth}{\centering\bfseries\zihao{1}
+            \ifUSTC@opt@doctor A dissertation for doctor's degree \fi
+            \ifUSTC@opt@master A dissertation for master's degree \fi
+            \ifUSTC@opt@bachelor A dissertation for bachelor's degree \fi} \\
+        \includegraphics[height=4.9cm]{ustc_logo_fig.eps} \\
+        \\[2.9cm]
+        \parbox[t][4.7cm][t]{\textwidth}{\centering\bfseries\zihao{1}\ustc@entitle} \\
+        \parbox[t][4cm][c]{\textwidth}{\zihao{3}
+            \hspace*{2.8cm} Author: \hspace{1.6cm}\hfill \ustc@enauthor \hfill\mbox{} \\
+            \hspace*{2.8cm} Speciality: \hspace{0.8cm}\hfill \ustc@enmajor \hfill\mbox{} \\
+            \hspace*{2.8cm} Supervisor: \hspace{0.8cm}\hfill \ustc@enadvisor \hfill\mbox{} \\
+            \hspace*{2.8cm} Finished Time: \hfill \ustc@ensubmitdate \hfill\mbox{}}
     \end{tabular}
-    \end{minipage}
     \end{center}
+    \end{titlepage}
     \restoregeometry
 }
 
