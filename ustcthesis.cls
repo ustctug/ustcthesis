@@ -174,7 +174,7 @@
 \fi
 
 % 中文封面
-% \renewcommand{\hline}{\relax}
+\renewcommand{\hline}{\relax}
 \newcommand\make@cntitle{
     \newgeometry{
         top=3.8cm, bottom=3.8cm,
@@ -192,9 +192,9 @@
         \hline
         \parbox[t][1.2cm][t]{\textwidth}{\raggedleft\fangsong\zihao{4}\ustc@secrettext} \\
         \hline
-        \parbox[t][3.3cm][t]{\textwidth}{\centering\includegraphics[width=11cm]{ustc_logo_text.eps}} \\
+        \parbox[t][2.6cm][t]{\textwidth}{\centering\includegraphics[width=11cm]{ustc_logo_text.eps}} \\
         \hline
-        \parbox[t][2.3cm][t]{\textwidth}{\centering\bfseries\USTCHUGE
+        \parbox[t][3cm][t]{\textwidth}{\centering\bfseries\USTCHUGE
             \ifUSTC@opt@doctor 博士学位论文 \fi
             \ifUSTC@opt@master 硕士学位论文 \fi
             \ifUSTC@opt@bachelor 学士学位论文 \fi} \\
@@ -204,10 +204,10 @@
         \parbox[t][4.7cm][c]{\textwidth}{\centering\bfseries\zihao{1}\ustc@title} \\
         \hline
         \parbox[t][4.2cm][c]{\textwidth}{\zihao{3}
-            \hspace*{2.8cm}{\sffamily 作者姓名：}\hfill \ustc@author \hfill\mbox{} \\
-            \hspace*{2.8cm}{\sffamily 作者姓名：}\hfill \ustc@major\ \hfill\mbox{} \\
-            \hspace*{2.8cm}{\sffamily 作者姓名：}\hfill \ustc@advisor \hfill\mbox{} \\
-            \hspace*{2.8cm}{\sffamily 作者姓名：}\hfill \ustc@submitdate \hfill\mbox{}} \\
+            \hspace*{2.8cm}{\bfseries 作者姓名：}\hfill \ustc@author \hfill\mbox{} \\
+            \hspace*{2.8cm}{\bfseries 学科专业：}\hfill \ustc@major\ \hfill\mbox{} \\
+            \hspace*{2.8cm}{\bfseries 导师姓名：}\hfill \ustc@advisor \hfill\mbox{} \\
+            \hspace*{2.8cm}{\bfseries 完成时间：}\hfill \ustc@submitdate \hfill\mbox{}} \\
         \hline
     \end{tabular}
     \end{center}
