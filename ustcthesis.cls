@@ -73,9 +73,9 @@
 % 2. \setfontsize{15bp}[30bp] 设置字号15磅，行距30磅
 \DeclareDocumentCommand \setfontsize { m o } {
     \IfValueTF {#2}
-        { \fontsize{#1}{#2}\linespread{1} }
+        { \fontsize{#1}{#2} }
         { \fontsize{#1}{1.2 \dimexpr#1} }
-    \selectfont}
+    \linespread{1}\selectfont\relax}
 \newenvironment{cnabstract}{\chapter{摘\quad 要}}{}
 \newenvironment{enabstract}{\chapter{Abstract}}{}
 \newcommand\keywords[1]{\vspace{3.5ex}\noindent{\textbf{关键词：} #1}}
