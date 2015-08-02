@@ -7,7 +7,6 @@
     [2015/06/28 Thesis Template for University of Science and Technology of China]
 
 \RequirePackage{kvoptions}
-\RequirePackage{xparse}
 \SetupKeyvalOptions{family=USTC, prefix=USTC@opt@, setkeys=\kvsetkeys}
 \DeclareBoolOption[false]{doctor}
 \DeclareBoolOption[false]{master}
@@ -59,6 +58,7 @@
 }
 
 % useful definitions
+\RequirePackage{xparse}
 \def\ustc@define@term#1{
     \expandafter\gdef\csname #1\endcsname##1{
         \expandafter\gdef\csname ustc@#1\endcsname{##1}
@@ -78,9 +78,7 @@
     \linespread{1}\selectfont\relax}
 \newenvironment{cnabstract}{\chapter{摘\quad 要}}{}
 \newenvironment{enabstract}{
-    \ctexset {
-        chapter/format += \sffamily\bfseries\setfontsize{16bp}
-    }
+    \ctexset { chapter/format += \sffamily\bfseries\setfontsize{16bp} }
     \chapter{ABSTRACT}}{}
 \newcommand\keywords[1]{\vspace{3.5ex}\noindent{\textbf{关键词：} #1}}
 \newcommand\enkeywords[1]{\vspace{3.5ex}\noindent{\textbf{Key Words：} #1}}
@@ -108,12 +106,19 @@
 % 封面
 \input{ustcthesis-statement.def}
 \renewcommand\maketitle{
+    \newgeometry{
+        top=3.8cm, bottom=3.8cm,
+        left=3.2cm, right=3.2cm,
+        headheight=0cm, headsep=0.8cm,
+        footskip=0.8cm
+    }
     \pagestyle{empty}
-    \make@cntitle
-    \cleardoublepage
-    \make@entitle
-    \cleardoublepage
-    \ifUSTC@opt@bachelor\relax\else
+    \make@cntitle \cleardoublepage
+    \make@entitle \cleardoublepage
+    \ifUSTC@opt@bachelor
+        \restoregeometry
+    \else
+        \restoregeometry
         \make@statement \cleardoublepage
     \fi
 }
@@ -190,12 +195,6 @@
 % 这里没有严格按照《规范》的格式范例的尺寸，其中``学位论文''向上调整了0.7cm，
 % 论文标题和作者姓名部分分别在parbox内部进行了垂直居中处理。两个eps图片为手工测量所得。
 \newcommand\make@cntitle{
-    \newgeometry{
-        top=3.8cm, bottom=3.8cm,
-        left=3.2cm, right=3.2cm,
-        headheight=0cm, headsep=0.8cm,
-        footskip=0.8cm
-    }
     \begin{titlepage}
     \pdfbookmark[-1]{\ustc@title}{title}
     \begin{center}
@@ -218,18 +217,11 @@
     \end{tabular}
     \end{center}
     \end{titlepage}
-    \restoregeometry
 }
 
 % 英文封面
 % Supervisor 一栏放不下两个英文名称
 \newcommand\make@entitle{
-    \newgeometry{
-        top=3.8cm, bottom=3.8cm,
-        left=3.2cm, right=3.2cm,
-        headheight=0cm, headsep=1cm,
-        footskip=0.8cm
-    }
     \begin{titlepage}
     \begin{center}
     \renewcommand{\arraystretch}{0}
@@ -253,7 +245,6 @@
     \end{tabular}
     \end{center}
     \end{titlepage}
-    \restoregeometry
 }
 
 \endinput
