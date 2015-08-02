@@ -27,10 +27,10 @@
 \LoadClass[a4paper, UTF8, zihao=-4]{ctexbook}[2015/06/19]
 % 英文字体
 \setmainfont{Times New Roman}
-\setsansfont[Scale=MatchLowercase]{Arial}
+\setsansfont{Arial}
 \IfFileExists{/System/Library/Fonts/Monaco.dfont}{
-    \setmonofont[Scale=MatchLowercase]{Monaco}}{
-    \setmonofont[Scale=MatchLowercase]{Courier New}}
+    \setmonofont{Monaco}}{
+    \setmonofont{Courier New}}
 
 \RequirePackage[
     left=3.17cm, right=3.17cm,
@@ -118,6 +118,7 @@
     \ifUSTC@opt@bachelor
         \restoregeometry
     \else
+        \make@spine \cleardoublepage
         \restoregeometry
         \make@statement \cleardoublepage
     \fi
@@ -243,6 +244,42 @@
             \hspace*{2.8cm} Supervisor: \hspace{0.8cm}\hfill \ustc@enadvisor \hfill\mbox{} \\
             \hspace*{2.8cm} Finished Time: \hfill \ustc@ensubmitdate \hfill\mbox{}}
     \end{tabular}
+    \end{center}
+    \end{titlepage}
+}
+
+% 书脊
+% 书脊的论文题目、系别、作者姓名默认为\ustc@title, \ustc@depart, \ustc@author，
+% 竖排的内部实现是，先用 \addCJKfontfeatures{Vertical=RotatedGlyphs} 旋转每个字，
+% 再用 \rotatebox{-90}{} 旋转整个盒子，
+% 由于中文字形的旋转后的深度会变，所以使用 \raisebox 进行调整。
+% 所以留下 \spinetitle 等接口进行设置，如果标题里含有英文，要用\entext{}包括起来
+\RequirePackage{rotating}
+\ustc@define@term{spinetitle}
+\ustc@define@term{spinedepart}
+\ustc@define@term{spineauthor}
+
+\spinetitle{\ustc@title}
+\spinedepart{\ustc@depart}
+\spineauthor{\ustc@author}
+
+\newcommand\entext[1]{\raisebox{-0.75ex}{~#1{}~}}
+
+\newcommand\make@spine{
+    \begin{titlepage}
+    \begin{center}
+        书脊(此页仅用于制作书脊,不用单独打印放入论文)\par
+        \renewcommand\\{\relax}
+        \sffamily\bfseries\setfontsize{12bp}[14bp]\ziju{0.166667}
+        \addCJKfontfeatures{Vertical=RotatedGlyphs}
+        \rotatebox{-90}{\fbox{\parbox{20cm}{
+            \hspace*{3cm plus 1cm minus 2cm}
+            \raisebox{0.75ex}{\ustc@spinetitle} \hfill\quad\hfill
+            \raisebox{0.75ex}{\ustc@spinedepart} \hfill\quad\hfill
+            \raisebox{0.75ex}{\ustc@spineauthor} \hfill\quad\hfill
+            \raisebox{0.75ex}{中国科学技术大学}
+            \hspace{3cm plus 1cm minus 2cm}
+            \vskip 5.8pt\relax}}}
     \end{center}
     \end{titlepage}
 }
