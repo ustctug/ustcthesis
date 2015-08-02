@@ -77,7 +77,11 @@
         { \fontsize{#1}{1.2 \dimexpr#1} }
     \linespread{1}\selectfont\relax}
 \newenvironment{cnabstract}{\chapter{摘\quad 要}}{}
-\newenvironment{enabstract}{\chapter{Abstract}}{}
+\newenvironment{enabstract}{
+    \ctexset {
+        chapter/format += \sffamily\bfseries\setfontsize{16bp}
+    }
+    \chapter{ABSTRACT}}{}
 \newcommand\keywords[1]{\vspace{3.5ex}\noindent{\textbf{关键词：} #1}}
 \newcommand\enkeywords[1]{\vspace{3.5ex}\noindent{\textbf{Key Words：} #1}}
 \ustc@define@term{title}
