@@ -76,10 +76,11 @@
         { \fontsize{#1}{#2} }
         { \fontsize{#1}{1.2 \dimexpr#1} }
     \linespread{1}\selectfont\relax}
-\newenvironment{cnabstract}{\chapter{摘\quad 要}}{}
+\newenvironment{cnabstract}{\chapter{摘\quad 要}}{\cleardoublepage}
 \newenvironment{enabstract}{
     \ctexset { chapter/format += \sffamily\bfseries\setfontsize{16bp} }
-    \chapter{ABSTRACT}}{}
+    \chapter{ABSTRACT}}
+    {\cleardoublepage}
 \newcommand\keywords[1]{\vspace{3.5ex}\noindent{\textbf{关键词：} #1}}
 \newcommand\enkeywords[1]{\vspace{3.5ex}\noindent{\textbf{Key Words：} #1}}
 \ustc@define@term{title}
@@ -103,7 +104,7 @@
 %\RequirePackage{pagegrid}
 %\pagegridsetup{enable, tl, step=1cm, double}
 
-% 封面
+% 扉页
 \input{ustcthesis-statement.def}
 \renewcommand\maketitle{
     \newgeometry{
@@ -115,11 +116,8 @@
     \pagestyle{empty}
     \make@cntitle \cleardoublepage
     \make@entitle \cleardoublepage
-    \ifUSTC@opt@bachelor
-        \restoregeometry
-    \else
-        \make@spine \cleardoublepage
-        \restoregeometry
+    \restoregeometry
+    \ifUSTC@opt@bachelor\relax\else
         \make@statement \cleardoublepage
     \fi
 }
@@ -254,34 +252,36 @@
 % 再用 \rotatebox{-90}{} 旋转整个盒子，
 % 由于中文字形的旋转后的深度会变，所以使用 \raisebox 进行调整。
 % 所以留下 \spinetitle 等接口进行设置，如果标题里含有英文，要用\entext{}包括起来
-\RequirePackage{rotating}
-\ustc@define@term{spinetitle}
-\ustc@define@term{spinedepart}
-\ustc@define@term{spineauthor}
-
-\spinetitle{\ustc@title}
-\spinedepart{\ustc@depart}
-\spineauthor{\ustc@author}
-
-\newcommand\entext[1]{\raisebox{-0.75ex}{~#1{}~}}
-
-\newcommand\make@spine{
-    \begin{titlepage}
-    \begin{center}
-        书脊(此页仅用于制作书脊,不用单独打印放入论文)\par
-        \renewcommand\\{\relax}
-        \sffamily\bfseries\setfontsize{12bp}[14bp]\ziju{0.166667}
-        \addCJKfontfeatures{Vertical=RotatedGlyphs}
-        \rotatebox{-90}{\fbox{\parbox{20cm}{
-            \hspace*{3cm plus 1cm minus 2cm}
-            \raisebox{0.75ex}{\ustc@spinetitle} \hfill\quad\hfill
-            \raisebox{0.75ex}{\ustc@spinedepart} \hfill\quad\hfill
-            \raisebox{0.75ex}{\ustc@spineauthor} \hfill\quad\hfill
-            \raisebox{0.75ex}{中国科学技术大学}
-            \hspace{3cm plus 1cm minus 2cm}
-            \vskip 5.8pt\relax}}}
-    \end{center}
-    \end{titlepage}
-}
+% \RequirePackage{rotating}
+% \ustc@define@term{spinetitle}
+% \ustc@define@term{spinedepart}
+% \ustc@define@term{spineauthor}
+%
+% \spinetitle{\ustc@title}
+% \spinedepart{\ustc@depart}
+% \spineauthor{\ustc@author}
+%
+% \newcommand\entext[1]{\raisebox{-0.75ex}{~#1{}~}}
+%
+% \newcommand\make@spine{
+%     \begin{titlepage}
+%     \begin{center}
+%         书脊(此页仅用于制作书脊,不用单独打印放入论文)\par
+%         \renewcommand\\{\relax}
+%         \sffamily\bfseries\setfontsize{12bp}[14bp]\ziju{0.166667}
+%         \addCJKfontfeatures{Vertical=RotatedGlyphs}
+%         \rotatebox{-90}{\fbox{\parbox{20cm}{
+%             \hspace*{3cm plus 1cm minus 2cm}
+%             \raisebox{0.75ex}{\ustc@spinetitle} \hfill\quad\hfill
+%             \raisebox{0.75ex}{\ustc@spinedepart} \hfill\quad\hfill
+%             \raisebox{0.75ex}{\ustc@spineauthor} \hfill\quad\hfill
+%             \raisebox{0.75ex}{中国科学技术大学}
+%             \hspace{3cm plus 1cm minus 2cm}
+%             \vskip 5.8pt\relax}}}
+%     \end{center}
+%     \end{titlepage}
+% }
+% 
+% \spinetitle{\entext{USTC}本硕博毕业论文示例文档} % 书脊的英文文字要用 \entext{} 括起来
 
 \endinput
