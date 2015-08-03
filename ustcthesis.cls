@@ -7,7 +7,6 @@
     [2015/06/28 Thesis Template for University of Science and Technology of China]
 
 \RequirePackage{kvoptions}
-\RequirePackage{xparse}
 \SetupKeyvalOptions{family=USTC, prefix=USTC@opt@, setkeys=\kvsetkeys}
 \DeclareBoolOption[false]{doctor}
 \DeclareBoolOption[false]{master}
@@ -28,10 +27,10 @@
 \LoadClass[a4paper, UTF8, zihao=-4]{ctexbook}[2015/06/19]
 % 英文字体
 \setmainfont{Times New Roman}
-\setsansfont[Scale=MatchLowercase]{Arial}
+\setsansfont{Arial}
 \IfFileExists{/System/Library/Fonts/Monaco.dfont}{
-    \setmonofont[Scale=MatchLowercase]{Monaco}}{
-    \setmonofont[Scale=MatchLowercase]{Courier New}}
+    \setmonofont{Monaco}}{
+    \setmonofont{Courier New}}
 
 \RequirePackage[
     left=3.17cm, right=3.17cm,
@@ -59,6 +58,7 @@
 }
 
 % useful definitions
+\RequirePackage{xparse}
 \def\ustc@define@term#1{
     \expandafter\gdef\csname #1\endcsname##1{
         \expandafter\gdef\csname ustc@#1\endcsname{##1}
@@ -76,12 +76,11 @@
         { \fontsize{#1}{#2} }
         { \fontsize{#1}{1.2 \dimexpr#1} }
     \linespread{1}\selectfont\relax}
-\newenvironment{cnabstract}{\chapter{摘\quad 要}}{}
+\newenvironment{cnabstract}{\chapter{摘\quad 要}}{\cleardoublepage}
 \newenvironment{enabstract}{
-    \ctexset {
-        chapter/format += \sffamily\bfseries\setfontsize{16bp}
-    }
-    \chapter{ABSTRACT}}{}
+    \ctexset { chapter/format += \sffamily\bfseries\setfontsize{16bp} }
+    \chapter{ABSTRACT}}
+    {\cleardoublepage}
 \newcommand\keywords[1]{\vspace{3.5ex}\noindent{\textbf{关键词：} #1}}
 \newcommand\enkeywords[1]{\vspace{3.5ex}\noindent{\textbf{Key Words：} #1}}
 \ustc@define@term{title}
@@ -105,14 +104,19 @@
 %\RequirePackage{pagegrid}
 %\pagegridsetup{enable, tl, step=1cm, double}
 
-% 封面
+% 扉页
 \input{ustcthesis-statement.def}
 \renewcommand\maketitle{
+    \newgeometry{
+        top=3.8cm, bottom=3.8cm,
+        left=3.2cm, right=3.2cm,
+        headheight=0cm, headsep=0.8cm,
+        footskip=0.8cm
+    }
     \pagestyle{empty}
-    \make@cntitle
-    \cleardoublepage
-    \make@entitle
-    \cleardoublepage
+    \make@cntitle \cleardoublepage
+    \make@entitle \cleardoublepage
+    \restoregeometry
     \ifUSTC@opt@bachelor\relax\else
         \make@statement \cleardoublepage
     \fi
@@ -190,12 +194,6 @@
 % 这里没有严格按照《规范》的格式范例的尺寸，其中``学位论文''向上调整了0.7cm，
 % 论文标题和作者姓名部分分别在parbox内部进行了垂直居中处理。两个eps图片为手工测量所得。
 \newcommand\make@cntitle{
-    \newgeometry{
-        top=3.8cm, bottom=3.8cm,
-        left=3.2cm, right=3.2cm,
-        headheight=0cm, headsep=0.8cm,
-        footskip=0.8cm
-    }
     \begin{titlepage}
     \pdfbookmark[-1]{\ustc@title}{title}
     \begin{center}
@@ -218,18 +216,11 @@
     \end{tabular}
     \end{center}
     \end{titlepage}
-    \restoregeometry
 }
 
 % 英文封面
 % Supervisor 一栏放不下两个英文名称
 \newcommand\make@entitle{
-    \newgeometry{
-        top=3.8cm, bottom=3.8cm,
-        left=3.2cm, right=3.2cm,
-        headheight=0cm, headsep=1cm,
-        footskip=0.8cm
-    }
     \begin{titlepage}
     \begin{center}
     \renewcommand{\arraystretch}{0}
@@ -253,7 +244,44 @@
     \end{tabular}
     \end{center}
     \end{titlepage}
-    \restoregeometry
 }
+
+% 书脊
+% 书脊的论文题目、系别、作者姓名默认为\ustc@title, \ustc@depart, \ustc@author，
+% 竖排的内部实现是，先用 \addCJKfontfeatures{Vertical=RotatedGlyphs} 旋转每个字，
+% 再用 \rotatebox{-90}{} 旋转整个盒子，
+% 由于中文字形的旋转后的深度会变，所以使用 \raisebox 进行调整。
+% 所以留下 \spinetitle 等接口进行设置，如果标题里含有英文，要用\entext{}包括起来
+% \RequirePackage{rotating}
+% \ustc@define@term{spinetitle}
+% \ustc@define@term{spinedepart}
+% \ustc@define@term{spineauthor}
+%
+% \spinetitle{\ustc@title}
+% \spinedepart{\ustc@depart}
+% \spineauthor{\ustc@author}
+%
+% \newcommand\entext[1]{\raisebox{-0.75ex}{~#1{}~}}
+%
+% \newcommand\make@spine{
+%     \begin{titlepage}
+%     \begin{center}
+%         书脊(此页仅用于制作书脊,不用单独打印放入论文)\par
+%         \renewcommand\\{\relax}
+%         \sffamily\bfseries\setfontsize{12bp}[14bp]\ziju{0.166667}
+%         \addCJKfontfeatures{Vertical=RotatedGlyphs}
+%         \rotatebox{-90}{\fbox{\parbox{20cm}{
+%             \hspace*{3cm plus 1cm minus 2cm}
+%             \raisebox{0.75ex}{\ustc@spinetitle} \hfill\quad\hfill
+%             \raisebox{0.75ex}{\ustc@spinedepart} \hfill\quad\hfill
+%             \raisebox{0.75ex}{\ustc@spineauthor} \hfill\quad\hfill
+%             \raisebox{0.75ex}{中国科学技术大学}
+%             \hspace{3cm plus 1cm minus 2cm}
+%             \vskip 5.8pt\relax}}}
+%     \end{center}
+%     \end{titlepage}
+% }
+% 
+% \spinetitle{\entext{USTC}本硕博毕业论文示例文档} % 书脊的英文文字要用 \entext{} 括起来
 
 \endinput
