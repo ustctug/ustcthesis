@@ -114,6 +114,7 @@
         footskip=0.8cm
     }
     \pagestyle{empty}
+    \pdfbookmark[-1]{\ustc@title}{title}
     \make@cntitle \cleardoublepage
     \make@entitle \cleardoublepage
     \restoregeometry
@@ -149,7 +150,7 @@
 \setcounter{secnumdepth}{3}  % subsubsection numbering
 % 汉化
 \ctexset{
-    contentsname = {目\quad 录},
+    contentsname = {目\hspace{\ccwd}录},
 }
 
 % 段落设置
@@ -164,7 +165,7 @@
 
 % 目录
 \RequirePackage{titletoc}
-\setcounter{tocdepth}{3}
+\addtocontents{toc}{\pdfbookmark[0]{目录}{tableofcontents}}
 \titlecontents{chapter}[0em]
     {\vspace{6bp}\zihao{4}}{\thecontentslabel\hspace*{0.5em}}
     {}{\titlerule*[0.5pc]{$\cdot$}\contentspage}
@@ -195,7 +196,6 @@
 % 论文标题和作者姓名部分分别在parbox内部进行了垂直居中处理。两个eps图片为手工测量所得。
 \newcommand\make@cntitle{
     \begin{titlepage}
-    \pdfbookmark[-1]{\ustc@title}{title}
     \begin{center}
     \renewcommand{\arraystretch}{0}
     \begin{tabular}{@{}c@{}}
