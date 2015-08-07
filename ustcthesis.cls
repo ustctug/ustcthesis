@@ -170,10 +170,10 @@
     {\vspace{6bp}\zihao{4}}{\thecontentslabel\hspace*{0.5em}}
     {}{\titlerule*[0.5pc]{$\cdot$}\contentspage}
 \titlecontents{section}[\ccwd]
-    {\vspace{1bp}\zihao{-4}}{\thecontentslabel\hspace*{0.5em}}
+    {\vspace{6bp}\zihao{-4}}{\thecontentslabel\hspace*{0.5em}}
     {}{\titlerule*[0.5pc]{$\cdot$}\contentspage}
 \titlecontents{subsection}[2\ccwd]
-    {\vspace{1bp}\zihao{5}}{\thecontentslabel\hspace*{0.5em}}
+    {\vspace{6bp}\zihao{5}}{\thecontentslabel\hspace*{0.5em}}
     {}{\titlerule*[0.5pc]{$\cdot$}\contentspage}
 \titlecontents{figure}[\ccwd]
     {\zihao{-4}}{\thecontentslabel\hspace*{0.5em}}
@@ -281,7 +281,7 @@
 %     \end{center}
 %     \end{titlepage}
 % }
-% 
+%
 % \spinetitle{\entext{USTC}本硕博毕业论文示例文档} % 书脊的英文文字要用 \entext{} 括起来
 
 \endinput
