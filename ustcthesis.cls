@@ -190,6 +190,13 @@
     \input{ustcthesis-doctor.def}
 \fi
 
+% 符号说明
+\newenvironment{notation}{
+    \ctexset{chapter/format += \setfontsize{12bp}}
+    \chapter{符号说明}
+    \setfontsize{10.5bp}[16bp]
+    \setlength{\itemsep}{0bp}}{}
+
 % 中文封面
 % 封面为了排版``距离顶边xx厘米''，使用了tabular嵌套parbox的方法。使用vpace会有额外空隙，叠parbox也不行。
 % 这里没有严格按照《规范》的格式范例的尺寸，其中``学位论文''向上调整了0.7cm，
@@ -201,12 +208,12 @@
     \begin{tabular}{@{}c@{}}
         \\[0.2cm]
         \parbox[t][1.2cm][t]{\textwidth}{\raggedleft\fangsong\setfontsize{14bp}\ustc@secrettext} \\
-        \parbox[t][2.7cm][t]{\textwidth}{\centering\includegraphics[width=11cm]{ustc_logo_text.eps}} \\
+        \parbox[t][2.7cm][t]{\textwidth}{\centering\includegraphics[width=11cm]{figures/ustc_logo_text.eps}} \\
         \parbox[t][3cm][t]{\textwidth}{\centering\bfseries\setfontsize{56bp}
             \ifUSTC@opt@doctor 博士学位论文 \fi
             \ifUSTC@opt@master 硕士学位论文 \fi
             \ifUSTC@opt@bachelor 学士学位论文 \fi} \\
-        \includegraphics[height=4.9cm]{ustc_logo_fig.eps} \\
+        \includegraphics[height=4.9cm]{figures/ustc_logo_fig.eps} \\
         \parbox[t][4.7cm][c]{\textwidth}{\centering\bfseries\setfontsize{26bp}\ustc@title} \\
         \parbox[t][4.2cm][c]{\textwidth}{\setfontsize{16bp}
             \hspace*{2.8cm}{\bfseries 作者姓名：}\hfill \ustc@author \hfill\mbox{} \\
@@ -233,7 +240,7 @@
             \ifUSTC@opt@doctor A dissertation for doctor's degree \fi
             \ifUSTC@opt@master A dissertation for master's degree \fi
             \ifUSTC@opt@bachelor A dissertation for bachelor's degree \fi} \\
-        \includegraphics[height=4.9cm]{ustc_logo_fig.eps} \\
+        \includegraphics[height=4.9cm]{figures/ustc_logo_fig.eps} \\
         \\[2.9cm]
         \parbox[t][4.7cm][t]{\textwidth}{\centering\bfseries\setfontsize{26bp}[30bp]\ustc@entitle} \\
         \parbox[t][4cm][c]{\textwidth}{\setfontsize{16bp}[30bp]
