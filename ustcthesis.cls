@@ -190,6 +190,8 @@
     \input{ustcthesis-doctor.def}
 \fi
 
+\renewcommand\thefootnote{\thechapter{}.\arabic{footnote}}
+
 % 符号说明
 \newenvironment{notation}{
     \ctexset{chapter/format += \setfontsize{12bp}}
