@@ -158,10 +158,21 @@
 \setlength{\baselineskip}{20bp}     % 行间距20磅
 
 % 图表标题
-\RequirePackage[format=hang, labelsep=quad,
-    labelfont={small,bf}, textfont=small]{caption}
+\RequirePackage{caption}
+\DeclareCaptionLabelSeparator{zhspace}{\hspace{\ccwd}}
+\captionsetup{
+    format = hang,
+    font = small,
+    labelfont = {bf, small},
+    labelsep = zhspace}
 \captionsetup[figure]{position = bottom, aboveskip = 6bp, belowskip = 12bp}
 \captionsetup[table]{position = top, aboveskip = 6bp, belowskip = 6bp}
+
+% 图标的附注
+% 直接用\caption{}会导致图标的序号有误，使用bicaption会导致表注无法置于表后，而且对齐方式不对
+\newcommand\note[1]{
+    \captionsetup{position = bottom}
+    \caption*{\hangindent=2\ccwd\relax\textbf{注}：#1}}
 
 % 目录
 \RequirePackage{titletoc}
