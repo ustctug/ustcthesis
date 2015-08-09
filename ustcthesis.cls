@@ -162,9 +162,9 @@
 \DeclareCaptionLabelSeparator{zhspace}{\hspace{\ccwd}}
 \captionsetup{
     format = hang,
-    font = small,
     labelfont = {bf, small},
-    labelsep = zhspace}
+    labelsep = zhspace,
+    textfont = small}
 \captionsetup[figure]{position = bottom, aboveskip = 6bp, belowskip = 12bp}
 \captionsetup[table]{position = top, aboveskip = 6bp, belowskip = 6bp}
 
@@ -203,7 +203,7 @@
 
 % 符号说明
 \newenvironment{notation}{
-    \ctexset{chapter/format += \setfontsize{12bp}}
+    \ctexset{chapter/format += \rmfamily\setfontsize{12bp}}
     \chapter{符号说明}
     \setfontsize{10.5bp}[16bp]
     \setlength{\itemsep}{0bp}}{}
