@@ -1,11 +1,11 @@
 \newpagestyle{front}[\zihao{5}]{
     \sethead{}{\chaptertitle}{}
-    \setfoot{}{\thepage}{}
+    \setfoot[\thepage][][]{}{}{\thepage}
     \headrule
 }
 \newpagestyle{main}[\zihao{5}]{
     \sethead{}{\CTEXthechapter\quad\chaptertitle}{}
-    \setfoot{}{\thepage}{}
+    \setfoot[\thepage][][]{}{}{\thepage}
     \headrule
 }
 \renewcommand\frontmatter{
