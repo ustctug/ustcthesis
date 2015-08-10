@@ -23,6 +23,7 @@
     \PassOptionsToClass{oneside}{ctexbook}
 \fi
 
+\PassOptionsToPackage{no-math}{fontspec}
 
 \LoadClass[a4paper, UTF8, zihao=-4]{ctexbook}[2015/06/19]
 % 英文字体
