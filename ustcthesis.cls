@@ -76,13 +76,14 @@
         { \fontsize{#1}{#2} }
         { \fontsize{#1}{1.2 \dimexpr#1} }
     \linespread{1}\selectfont\relax}
+\newcommand\zhspace[1][1]{\hspace{#1\ccwd}}
 \newenvironment{cnabstract}{\chapter{摘\quad 要}}{\cleardoublepage}
 \newenvironment{enabstract}{
     \ctexset { chapter/format += \sffamily\bfseries\setfontsize{16bp} }
     \chapter{ABSTRACT}}
     {\cleardoublepage}
-\newcommand\keywords[1]{\vspace{3.5ex}\noindent{\textbf{关键词：} #1}}
-\newcommand\enkeywords[1]{\vspace{3.5ex}\noindent{\textbf{Key Words：} #1}}
+\newcommand\keywords[1]{\par\phantom{关键词}\par\noindent\hangindent=4\ccwd\relax\textbf{关键词：}#1}
+\newcommand\enkeywords[1]{\par\phantom{keywords}\par\noindent\hangindent=5.3em\relax\textbf{Key Words:} #1}
 \ustc@define@term{title}
 \ustc@define@term{secrettext}
 \ustc@define@term{author}
