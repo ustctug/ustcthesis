@@ -174,6 +174,11 @@
     \captionsetup{position = bottom}
     \caption*{\hangindent=2\ccwd\relax\textbf{注}：#1}}
 
+% 数学公式
+% LaTeX 默认 10pt 时有 \DeclareMathSizes{\@xpt}{\@xpt}{7}{5}
+% 这里按照相同的比例设置 10.5bp
+\DeclareMathSizes{10.5bp}{10.5bp}{7.35bp}{5.25bp}
+
 % 目录
 \RequirePackage{titletoc}
 \addtocontents{toc}{\pdfbookmark[0]{目录}{tableofcontents}}
