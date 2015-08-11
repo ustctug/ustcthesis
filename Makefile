@@ -13,3 +13,4 @@ main.pdf : $(SOURCES)
 
 clean :
 	latexmk -C
+	-rm -f main.bbl

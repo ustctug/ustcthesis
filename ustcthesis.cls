@@ -215,6 +215,12 @@
     \setfontsize{10.5bp}[16bp]
     \setlength{\itemsep}{0bp}}{}
 
+% 参考文献
+\usepackage{natbib}
+\setcitestyle{numbers,square}
+\bibliographystyle{ustcthesis}
+
+
 % 中文封面
 % 封面为了排版``距离顶边xx厘米''，使用了tabular嵌套parbox的方法。使用vpace会有额外空隙，叠parbox也不行。
 % 这里没有严格按照《规范》的格式范例的尺寸，其中``学位论文''向上调整了0.7cm，
