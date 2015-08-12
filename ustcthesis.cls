@@ -76,10 +76,10 @@
         { \fontsize{#1}{1.2 \dimexpr#1} }
     \linespread{1}\selectfont\relax}
 \newcommand\zhspace[1][1]{\hspace{#1\ccwd}}
-\newenvironment{cnabstract}{\chapter{摘\quad 要}}{\cleardoublepage}
+\newenvironment{cnabstract}{\chapter[摘要]{摘\quad 要}}{\cleardoublepage}
 \newenvironment{enabstract}{
     \ctexset { chapter/format += \sffamily\bfseries\setfontsize{16bp} }
-    \chapter{ABSTRACT}}
+    \chapter[Abstract]{ABSTRACT}}
     {\cleardoublepage}
 \newcommand\keywords[1]{\par\phantom{关键词}\par\noindent\hangindent=4\ccwd\relax\textbf{关键词：}#1}
 \newcommand\enkeywords[1]{\par\phantom{keywords}\par\noindent\hangindent=5.3em\relax\textbf{Key Words:} #1}
@@ -180,8 +180,9 @@
 \DeclareMathSizes{10.5bp}{10.5bp}{7.35bp}{5.25bp}
 
 % 目录
+\RequirePackage{tocbibind}
+\renewcommand{\tableofcontents}{\tocfile{目录}{toc}}
 \RequirePackage{titletoc}
-\addtocontents{toc}{\pdfbookmark[0]{目录}{tableofcontents}}
 \titlecontents{chapter}[0em]
     {\vspace{6bp}\zihao{4}}{\thecontentslabel\hspace*{0.5em}}
     {}{\titlerule*[0.5pc]{$\cdot$}\contentspage}
