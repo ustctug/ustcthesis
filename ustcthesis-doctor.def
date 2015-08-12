@@ -22,3 +22,13 @@
     \pagestyle{main}
     \ctexset{chapter/pagestyle = main}
 }
+\renewcommand\backmatter{%
+    \if@openright
+        \cleardoublepage
+    \else
+        \clearpage
+    \fi
+    \@mainmatterfalse
+    \pagestyle{front}
+    \ctexset{chapter/pagestyle = front}
+}

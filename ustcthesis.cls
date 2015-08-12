@@ -76,7 +76,7 @@
         { \fontsize{#1}{1.2 \dimexpr#1} }
     \linespread{1}\selectfont\relax}
 \newcommand\zhspace[1][1]{\hspace{#1\ccwd}}
-\newenvironment{cnabstract}{\chapter[摘要]{摘\quad 要}}{\cleardoublepage}
+\newenvironment{cnabstract}{\chapter[摘要]{摘\hspace{\ccwd}要}}{\cleardoublepage}
 \newenvironment{enabstract}{
     \ctexset { chapter/format += \sffamily\bfseries\setfontsize{16bp} }
     \chapter[Abstract]{ABSTRACT}}
@@ -130,7 +130,7 @@
     chapter/format += \bfseries\linespread{1}\selectfont\zihao{3},
     chapter/nameformat = {},   % 由于nameformat和titleformat的bug，这两行必须
     chapter/titleformat = {},
-    chapter/number = \arabic{chapter},
+    chapter/number = \chinese{chapter},
     chapter/beforeskip = 24bp,
     chapter/afterskip = 18bp,
     % section
@@ -221,6 +221,23 @@
 \renewcommand\bibfont{\setfontsize{10.5bp}[20bp]}
 \setlength{\bibsep}{0bp}
 \setlength{\bibhang}{1em}
+\let\ustc@save@bibliography\bibliography
+\renewcommand\bibliography[1]{%
+    \if@openright
+        \cleardoublepage
+    \else
+        \clearpage
+    \fi
+    \begingroup
+        \pagestyle{front}
+        \ctexset{chapter/pagestyle = front}
+        \ustc@save@bibliography{#1}
+    \endgroup}
+
+\newenvironment{acknowledgements}{\chapter[致谢]{致\hspace{\ccwd}谢}}{}
+
+\newenvironment{publications}{\chapter{在读期间发表的学术论文与取得的研究成果}}{}
+
 
 % 中文封面
 % 封面为了排版``距离顶边xx厘米''，使用了tabular嵌套parbox的方法。使用vpace会有额外空隙，叠parbox也不行。
