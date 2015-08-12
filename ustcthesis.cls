@@ -29,9 +29,7 @@
 % 英文字体
 \setmainfont{Times New Roman}
 \setsansfont{Arial}
-\IfFileExists{/System/Library/Fonts/Monaco.dfont}{
-    \setmonofont{Monaco}}{
-    \setmonofont{Courier New}}
+\setmonofont{Courier New}
 
 \RequirePackage[
     left=3.17cm, right=3.17cm,
@@ -216,8 +214,8 @@
     \setlength{\itemsep}{0bp}}{}
 
 % 参考文献
-\usepackage{natbib}
-\setcitestyle{numbers,square}
+\usepackage[super,sort&compress]{natbib}
+\setcitestyle{square}
 \bibliographystyle{ustcthesis}
 
 
