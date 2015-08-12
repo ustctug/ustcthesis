@@ -32,3 +32,13 @@
     \pagestyle{front}
     \ctexset{chapter/pagestyle = front}
 }
+\let\ustc@save@appendix=\appendix
+\renewcommand\appendix{%
+    \if@openright
+        \cleardoublepage
+    \else
+        \clearpage
+    \fi
+    \pagestyle{main}
+    \ctexset{chapter/pagestyle = main}
+    \ustc@save@appendix}

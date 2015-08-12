@@ -221,9 +221,8 @@
 \renewcommand\bibfont{\setfontsize{10.5bp}[20bp]}
 \setlength{\bibsep}{0bp}
 \setlength{\bibhang}{1em}
-\let\ustc@save@bibliography\bibliography
+\let\ustc@save@bibliography=\bibliography
 \renewcommand\bibliography[1]{%
-    % \begingroup
     \if@openright
         \cleardoublepage
     \else
@@ -232,7 +231,6 @@
     \pagestyle{front}
     \ctexset{chapter/pagestyle = front}
     \ustc@save@bibliography{#1}}
-    % \endgroup}
 
 \newenvironment{acknowledgements}{\chapter[致谢]{致\hspace{\ccwd}谢}}{}
 
