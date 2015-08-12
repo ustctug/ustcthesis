@@ -130,7 +130,7 @@
     chapter/format += \bfseries\linespread{1}\selectfont\zihao{3},
     chapter/nameformat = {},   % 由于nameformat和titleformat的bug，这两行必须
     chapter/titleformat = {},
-    chapter/number = \chinese{chapter},
+    chapter/number = \arabic{chapter},
     chapter/beforeskip = 24bp,
     chapter/afterskip = 18bp,
     % section
@@ -223,16 +223,16 @@
 \setlength{\bibhang}{1em}
 \let\ustc@save@bibliography\bibliography
 \renewcommand\bibliography[1]{%
+    % \begingroup
     \if@openright
         \cleardoublepage
     \else
         \clearpage
     \fi
-    \begingroup
-        \pagestyle{front}
-        \ctexset{chapter/pagestyle = front}
-        \ustc@save@bibliography{#1}
-    \endgroup}
+    \pagestyle{front}
+    \ctexset{chapter/pagestyle = front}
+    \ustc@save@bibliography{#1}}
+    % \endgroup}
 
 \newenvironment{acknowledgements}{\chapter[致谢]{致\hspace{\ccwd}谢}}{}
 
