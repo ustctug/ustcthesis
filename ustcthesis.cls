@@ -217,7 +217,9 @@
 \usepackage[super,sort&compress]{natbib}
 \setcitestyle{square}
 \bibliographystyle{ustcthesis}
-
+\renewcommand\bibfont{\setfontsize{10.5bp}[20bp]}
+\setlength{\bibsep}{0bp}
+\setlength{\bibhang}{1em}
 
 % 中文封面
 % 封面为了排版``距离顶边xx厘米''，使用了tabular嵌套parbox的方法。使用vpace会有额外空隙，叠parbox也不行。
