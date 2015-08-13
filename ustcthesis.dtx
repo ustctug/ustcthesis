@@ -88,52 +88,44 @@
 % \subsection{声明选项}
 %    \begin{macrocode}
 \RequirePackage{kvoptions}
-\SetupKeyvalOptions{family=USTC, prefix=USTC@opt@, setkeys=\kvsetkeys}
+\SetupKeyvalOptions{family=ustc@opt, prefix=ustc@opt@, setkeys=\kvsetkeys}
 \DeclareBoolOption[false]{doctor}
 \DeclareBoolOption[false]{master}
 \DeclareBoolOption[false]{bachelor}
 \DeclareBoolOption[false]{pdf}
 \DeclareComplementaryOption{print}{pdf}
-\DeclareBoolOption[true]{twoside}
-\DeclareComplementaryOption{oneside}{twoside}
+%    \end{macrocode}
+% |ustc@page|这一family用来设置分页方式
+%    \begin{macrocode}
+\SetupKeyvalOptions{family=ustc@page, prefix=ustc@page@, setkeys=\kvsetkeys}
+\DeclareBoolOption[false]{oneside}
+\DeclareComplementaryOption{twoside}{oneside}
 \DeclareBoolOption[true]{openany}
 \DeclareComplementaryOption{openright}{openany}
 \DeclareBoolOption[true]{pageright}
 \DeclareComplementaryOption{pagecenter}{pageright}
 \DeclareDefaultOption{\PassOptionsToClass{\CurrentOption}{ctexbook}}
+%    \end{macrocode}
+% 先处理ustc@opt这一family，然后设置本科和pdf的默认分页方式为oneside, pageright
+%    \begin{macrocode}
+\ProcessKeyvalOptions{ustc@opt}
+\ifustc@opt@bachelor
+    \ustc@page@onesidetrue
+    \ustc@page@pagerightfalse
+\fi
+\ifustc@opt@pdf
+    \ustc@page@onesidetrue
+    \ustc@page@pagerightfalse
+\fi
+%    \end{macrocode}
+% 处理其他的选项
+%    \begin{macrocode}
 \ProcessKeyvalOptions*\relax
-%    \end{macrocode}
-% 处理分页方式：
-%    \begin{macrocode}
-\ifUSTC@opt@pdf
-    \USTC@opt@twosidefalse
-    \PassOptionsToClass{oneside, openany}{ctexbook}
-\else
-    \ifUSTC@opt@master
-        \USTC@opt@twosidetrue
-    \fi
-    \ifUSTC@opt@doctor
-        \USTC@opt@twosidetrue
-    \fi
-    \ifUSTC@opt@twoside
-        \PassOptionsToClass{twoside}{ctexbook}
-        \ifUSTC@opt@openany
-            \PassOptionsToClass{openany}{ctexbook}
-        \else
-            \PassOptionsToClass{openright}{ctexbook}
-        \fi
-    \else
-        \PassOptionsToClass{oneside, openany}{ctexbook}
-    \fi
+\ifustc@page@oneside
+    \PassOptionsToClass{oneside}{ctexbook}
 \fi
-%    \end{macrocode}
-% 处理页码样式
-%    \begin{macrocode}
-\ifUSTC@opt@bachelor
-    \USTC@opt@pagecentertrue
-\fi
-\ifUSTC@opt@twoside\relax\else
-    \USTC@opt@pagecentertrue
+\ifustc@page@openany
+    \PassOptionsToClass{openany}{ctexbook}
 \fi
 %    \end{macrocode}
 % 默认情况下\textsf{fontspec}会将|\mathrm{}|的字体更改为Times New Roman，
@@ -165,7 +157,7 @@
 %    \end{macrocode}
 % 如果为pdf样式，设置hyperlink颜色
 %    \begin{macrocode}
-\ifUSTC@opt@pdf
+\ifustc@opt@pdf
     \hypersetup{
         colorlinks,
         linkcolor=blue,
@@ -261,7 +253,7 @@
 \RequirePackage{titleps}
 \newpagestyle{front}[\zihao{5}]{
     \sethead{}{\chaptertitle}{}
-    \ifUSTC@opt@pageright
+    \ifustc@page@pageright
         \setfoot[\thepage][][]{}{}{\thepage}
     \else
         \setfoot{}{\thepage}{}
@@ -269,7 +261,7 @@
     \headrule}
 \newpagestyle{main}[\zihao{5}]{
     \sethead{}{\CTEXthechapter\quad\chaptertitle}{}
-    \ifUSTC@opt@pageright
+    \ifustc@page@pageright
         \setfoot[\thepage][][]{}{}{\thepage}
     \else
         \setfoot{}{\thepage}{}
@@ -318,7 +310,7 @@
     \make@cntitle \cleardoublepage
     \make@entitle \cleardoublepage
     \restoregeometry
-    \ifUSTC@opt@bachelor\relax\else
+    \ifustc@opt@bachelor\relax\else
         \make@statement \cleardoublepage
     \fi}
 %    \end{macrocode}
@@ -342,9 +334,9 @@
             \includegraphics[width=11cm]{figures/ustc_logo_text.eps}} \\
         \parbox[t][3cm][t]{\textwidth}{
             \centering\bfseries\setfontsize{56bp}
-            \ifUSTC@opt@doctor 博士学位论文 \fi
-            \ifUSTC@opt@master 硕士学位论文 \fi
-            \ifUSTC@opt@bachelor 学士学位论文 \fi} \\
+            \ifustc@opt@doctor 博士学位论文 \fi
+            \ifustc@opt@master 硕士学位论文 \fi
+            \ifustc@opt@bachelor 学士学位论文 \fi} \\
         \includegraphics[height=4.9cm]{figures/ustc_logo_fig.eps} \\
         \parbox[t][4.7cm][c]{\textwidth}
             {\centering\bfseries\setfontsize{26bp}\ustc@title} \\
@@ -372,9 +364,9 @@
         \parbox[t][1cm][t]{\textwidth}{\centering\sffamily\setfontsize{20bp}[30bp]
             University of Science and Technology of China} \\
         \parbox[t][2.2cm][t]{\textwidth}{\centering\bfseries\setfontsize{26bp}[30bp]
-            \ifUSTC@opt@doctor A dissertation for doctor's degree \fi
-            \ifUSTC@opt@master A dissertation for master's degree \fi
-            \ifUSTC@opt@bachelor A dissertation for bachelor's degree \fi} \\
+            \ifustc@opt@doctor A dissertation for doctor's degree \fi
+            \ifustc@opt@master A dissertation for master's degree \fi
+            \ifustc@opt@bachelor A dissertation for bachelor's degree \fi} \\
         \includegraphics[height=4.9cm]{figures/ustc_logo_fig.eps} \\
         \\[2.9cm]
         \parbox[t][4.7cm][t]{\textwidth}
