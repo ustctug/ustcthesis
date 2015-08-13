@@ -34,6 +34,8 @@
 \begin{document}
     \DocInput{ustcthesis.dtx}
 \end{document}
+\usepackage{metalogo}
+\usepackage{doc}
 %</driver>
 % \fi
 %
@@ -109,14 +111,7 @@
 \setsansfont{Arial}
 \setmonofont{Courier New}
 
-\RequirePackage[
-    left=3.17cm, right=3.17cm,
-    top=2.54cm, bottom=2.54cm,
-    headsep=0.74cm,
-    headheight=0.5cm,
-    footskip=0.79cm,
-%   showframe=true,
-]{geometry}
+
 
 % 超链接与书签
 \RequirePackage[
@@ -154,13 +149,7 @@
         { \fontsize{#1}{1.2 \dimexpr#1} }
     \linespread{1}\selectfont\relax}
 \newcommand\zhspace[1][1]{\hspace{#1\ccwd}}
-\newenvironment{cnabstract}{\chapter[摘要]{摘\hspace{\ccwd}要}}{\cleardoublepage}
-\newenvironment{enabstract}{
-    \ctexset { chapter/format += \sffamily\bfseries\setfontsize{16bp} }
-    \chapter[Abstract]{ABSTRACT}}
-    {\cleardoublepage}
-\newcommand\keywords[1]{\par\phantom{关键词}\par\noindent\hangindent=4\ccwd\relax\textbf{关键词：}#1}
-\newcommand\enkeywords[1]{\par\phantom{keywords}\par\noindent\hangindent=5.3em\relax\textbf{Key Words:} #1}
+
 \ustc@define@term{title}
 \ustc@define@term{secrettext}
 \ustc@define@term{author}
@@ -177,12 +166,68 @@
 \ustc@define@term{enadvisor}
 \ustc@define@term{encoadvisor}
 \ustc@define@term{ensubmitdate}
+
+% 汉化
+\ctexset{
+    contentsname = {目\hspace{\ccwd}录},
+}
+
 %    \end{macrocode}
 %
+% \subsection{页面设置}
+% 首先用\textsf{geometry}宏包设置纸张和页面。
+%    \begin{macrocode}
+\RequirePackage{geometry}
+\geometry{
+    paper=a4paper,
+    top=2.54cm, bottom=2.54cm,
+    left=3.17cm, right=3.17cm,
+    headsep=0.74cm, headheight=0cm,
+    footskip=0.79cm}
+%    \end{macrocode}
+% 再用\textsf{titleps}宏包设置页眉页码，定义了front, main两个页面风格分别用于前言和正文。
+% 注意，《规范》在2.6.2.3节要求“页码位置居于页脚居中”，但是在3.1节又要求“宋体 10.5 磅
+% 页面下脚右端”，自相矛盾。这里遵循双面印刷的行业习惯，将页码置于外侧。
+%    \begin{macrocode}
+\RequirePackage{titleps}
+\newpagestyle{front}[\zihao{5}]{
+    \sethead{}{\chaptertitle}{}
+    \setfoot[\thepage][][]{}{}{\thepage}
+    \headrule}
+\newpagestyle{main}[\zihao{5}]{
+    \sethead{}{\CTEXthechapter\quad\chaptertitle}{}
+    \setfoot[\thepage][][]{}{}{\thepage}
+    \headrule}
+%    \end{macrocode}
+% 重新定义|\frontmatter|, |\mainmatter|, |\backmatter|，
+% 使得在恰当位置应用正确的页面风格。
+%    \begin{macrocode}
+\renewcommand\frontmatter{
+    \cleardoublepage
+    \@mainmatterfalse
+    \pagenumbering{Roman}
+    \pagestyle{front}
+    \ctexset{chapter/pagestyle = front}}
+\renewcommand\mainmatter{%
+    \cleardoublepage
+    \@mainmattertrue
+    \pagenumbering{arabic}
+    \pagestyle{main}
+    \ctexset{chapter/pagestyle = main}}
+\renewcommand\backmatter{%
+    \if@openright
+        \cleardoublepage
+    \else
+        \clearpage
+    \fi
+    \@mainmatterfalse
+    \pagestyle{front}
+    \ctexset{chapter/pagestyle = front}}
+%    \end{macrocode}
 %
 % \subsection{扉页}
 % \begin{macro}{\maketitle}
-% 重新定义|\maketitle|，注意这里是单面打印，所以用|\cleardoublepage|
+% 重新定义|\maketitle|，分别调用|\make@cntitle|, |\make@entitle|生成中、英文扉页。
 %    \begin{macrocode}
 \input{ustcthesis-statement.def}
 \renewcommand\maketitle{
@@ -204,11 +249,9 @@
 %
 % \begin{macro}{\make@cntitle}
 % 扉页为了排版``距离顶边xx厘米''，使用了tabular嵌套parbox的方法。
-% 注意，使用|\vpace{}|会有额外空隙，叠parbox也不行。
-%
-% 这里没有严格按照《规范》的格式范例的尺寸，其中``学位论文''向上调整了0.7cm，
+% 如果使用|\vpace{}|会产生额外空隙；如果叠parbox也不行。
+% 注意这里没有严格按照《规范》的格式范例的尺寸，其中``学位论文''向上调整了0.7cm，
 % 论文标题和作者姓名部分分别在parbox内部进行了垂直居中处理。另外两个eps图片为手工测量所得。
-% 中文扉页
 %    \begin{macrocode}
 \newcommand\make@cntitle{
     \begin{titlepage}
@@ -247,7 +290,8 @@
     \renewcommand{\arraystretch}{0}
     \begin{tabular}{@{}c@{}}
         \\[0.2cm]
-        \parbox[t][1cm][t]{\textwidth}{\raggedleft\setfontsize{14bp}\ustc@ensecrettext} \\
+        \parbox[t][1cm][t]{\textwidth}
+            {\raggedleft\setfontsize{14bp}\ustc@ensecrettext} \\
         \parbox[t][1cm][t]{\textwidth}{\centering\sffamily\setfontsize{20bp}[30bp]
             University of Science and Technology of China} \\
         \parbox[t][2.2cm][t]{\textwidth}{\centering\bfseries\setfontsize{26bp}[30bp]
@@ -256,7 +300,8 @@
             \ifUSTC@opt@bachelor A dissertation for bachelor's degree \fi} \\
         \includegraphics[height=4.9cm]{figures/ustc_logo_fig.eps} \\
         \\[2.9cm]
-        \parbox[t][4.7cm][t]{\textwidth}{\centering\bfseries\setfontsize{26bp}[30bp]\ustc@entitle} \\
+        \parbox[t][4.7cm][t]{\textwidth}
+            {\centering\bfseries\setfontsize{26bp}[30bp]\ustc@entitle} \\
         \parbox[t][4cm][c]{\textwidth}{\setfontsize{16bp}[30bp]
             \hspace*{2.8cm} Author: \hspace{1.6cm}\hfill \ustc@enauthor \hfill\mbox{} \\
             \hspace*{2.8cm} Speciality: \hspace{0.8cm}\hfill \ustc@enmajor \hfill\mbox{} \\
@@ -267,42 +312,118 @@
     \end{titlepage}}
 %    \end{macrocode}
 % \end{macro}
+%
+% \subsection{摘要}
+% \begin{environment}{cnabstract}
+% 中文摘要环境
 %    \begin{macrocode}
-\RequirePackage{setspace}
-% 标题设置
+\newenvironment{cnabstract}{\chapter[摘要]{摘\hspace{\ccwd}要}}{\cleardoublepage}
+%    \end{macrocode}
+% \end{environment}
+% \begin{environment}{enabstract}
+% 英文摘要环境
+%    \begin{macrocode}
+\newenvironment{enabstract}{
+    \ctexset { chapter/format += \sffamily\bfseries\setfontsize{16bp} }
+    \chapter[Abstract]{ABSTRACT}}
+    {\cleardoublepage}
+%    \end{macrocode}
+% \end{environment}
+% 两个生成关键字的命令，其中|\phantom{}|是为了空一行，
+%    \begin{macrocode}
+\newcommand\keywords[1]{\par\phantom{关键词}\par\noindent\hangindent=4\ccwd\relax
+    \textbf{关键词：}#1}
+\newcommand\enkeywords[1]{\par\phantom{keywords}\par\noindent\hangindent=5.3em\relax
+    \textbf{Key Words:} #1}
+%    \end{macrocode}
+%
+% \subsection{目录}
+% \begin{macro}{\tableofcontents}
+% 调用\textsf{tocbibind}宏包将目录、参考文献加入目录中。
+% 为了让目录中的“目录”二字中间没有空格，用\textsf{tocbibind}的方法重新定义|\tableofcontents|
+%    \begin{macrocode}
+\RequirePackage{tocbibind}
+\renewcommand{\tableofcontents}{\tocfile{目录}{toc}}
+%    \end{macrocode}
+% \end{macro}
+% 下面用\textsf{titletoc}宏包设置每级目录的格式
+%    \begin{macrocode}
+\RequirePackage{titletoc}
+\newcommand\ustc@leaders{\titlerule*[0.5pc]{$\cdot$}} % 指引线
+\titlecontents{chapter}
+    [0bp]
+    {\vspace{6bp}\zihao{4}}
+    {\thecontentslabel\hspace*{0.5em}}
+    {}{\ustc@leaders\contentspage}
+\titlecontents{section}
+    [\ccwd]
+    {\vspace{6bp}\zihao{-4}}
+    {\thecontentslabel\hspace*{0.5em}}
+    {}{\ustc@leaders\contentspage}
+\titlecontents{subsection}
+    [2\ccwd]
+    {\vspace{6bp}\zihao{5}}
+    {\thecontentslabel\hspace*{0.5em}}
+    {}{\ustc@leaders\contentspage}
+%    \end{macrocode}
+% 同时设置图、表的目录格式
+%    \begin{macrocode}
+\titlecontents{figure}
+    [\ccwd]
+    {\zihao{-4}}
+    {\thecontentslabel\hspace*{0.5em}}
+    {}{\ustc@leaders\contentspage}
+\titlecontents{table}
+    [\ccwd]
+    {\zihao{-4}}
+    {\thecontentslabel\hspace*{0.5em}}
+    {}{\ustc@leaders\contentspage}
+%    \end{macrocode}
+%
+% \subsection{正文}
+% 用\textsf{ctex}的接口设置全局的章节标题格式，注意由于\textsf{ctex} 2.1以下版本的bug，
+% chapter的nameformat和titleformat的这两行必须置空。
+% 另外摘要、参考文献等章节也是用|\chapter{}|在底层实现的
+%    \begin{macrocode}
 \ctexset{
-    % chapter
-    chapter/format += \bfseries\linespread{1}\selectfont\zihao{3},
-    chapter/nameformat = {},   % 由于nameformat和titleformat的bug，这两行必须
-    chapter/titleformat = {},
-    chapter/number = \arabic{chapter},
-    chapter/beforeskip = 24bp,
-    chapter/afterskip = 18bp,
-    % section
-    section/format += \bfseries\raggedright\linespread{1}\selectfont\zihao{4},
-    section/beforeskip = 24bp,
-    section/afterskip = 6bp,
-    % subsection
-    subsection/format+= \bfseries\raggedright\linespread{1}\selectfont
-                        \fontsize{13bp}{\baselineskip}\selectfont,
-    subsection/beforeskip = 12bp,
-    subsection/afterskip = 6bp,
-    % subsubsection
-    subsubsection/format+= \bfseries\raggedright\linespread{1}\selectfont\zihao{-4},
-    subsubsection/beforeskip = 12bp,
-    subsubsection/afterskip = 6bp,
+    chapter = {
+        format += \bfseries\setfontsize{16bp},
+        nameformat = {},
+        titleformat = {},
+        number = \arabic{chapter},
+        beforeskip = 24bp,
+        afterskip = 18bp,
+    },
+    section = {
+        format += \raggedright\bfseries\setfontsize{14bp},
+        beforeskip = 24bp,
+        afterskip = 6bp,
+    },
+    subsection = {
+        format+= \raggedright\bfseries\setfontsize{13bp},
+        beforeskip = 12bp,
+        afterskip = 6bp,
+    },
+    subsubsection = {
+        format+= \raggedright\bfseries\setfontsize{12bp},
+        beforeskip = 12bp,
+        afterskip = 6bp,
+    }
 }
-\setcounter{secnumdepth}{3}  % subsubsection numbering
-% 汉化
-\ctexset{
-    contentsname = {目\hspace{\ccwd}录},
-}
-
-% 段落设置
-\setlength{\parskip}{0bp}           % 段前段后间距0磅
-\setlength{\baselineskip}{20bp}     % 行间距20磅
-
-% 图表标题
+%    \end{macrocode}
+% 正文章节编号到3级section标题
+%    \begin{macrocode}
+\setcounter{secnumdepth}{3}
+%    \end{macrocode}
+% 正文段落文字格式设置
+%    \begin{macrocode}
+\setfontsize{12bp}[20bp]
+\setlength{\parskip}{0bp}
+%    \end{macrocode}
+%
+% \subsection{图、表}
+% 用\textsf{caption}宏包设置图、表的格式
+%    \begin{macrocode}
 \RequirePackage{caption}
 \DeclareCaptionLabelSeparator{zhspace}{\hspace{\ccwd}}
 \captionsetup{
@@ -310,62 +431,60 @@
     labelfont = {bf, small},
     labelsep = zhspace,
     textfont = small}
-\captionsetup[figure]{position = bottom, aboveskip = 6bp, belowskip = 12bp}
-\captionsetup[table]{position = top, aboveskip = 6bp, belowskip = 6bp}
-
-% 图标的附注
-% 直接用\caption{}会导致图标的序号有误，使用bicaption会导致表注无法置于表后，而且对齐方式不对
+\captionsetup[figure]{
+    position = bottom,
+    aboveskip = 6bp,
+    belowskip = 12bp}
+\captionsetup[table]{
+    position = top,
+    aboveskip = 6bp,
+    belowskip = 6bp}
+%    \end{macrocode}
+% \begin{macro}{\note}
+% 新定义了|\note{}|来生成图标的附注。
+% 如果用|\caption{}|生成图标的附注会导致图标的序号有误；
+% 如果用|\bicaption{}|会导致表注无法置于表后，而且对齐方式不对。
+%    \begin{macrocode}
 \newcommand\note[1]{
     \captionsetup{position = bottom}
     \caption*{\hangindent=2\ccwd\relax\textbf{注}：#1}}
-
-% 数学公式
-% LaTeX 默认 10pt 时有 \DeclareMathSizes{\@xpt}{\@xpt}{7}{5}
-% 这里按照相同的比例设置 10.5bp
+%    \end{macrocode}
+% \end{macro}
+%
+% \subsection{数学公式}
+% \LaTeX{}默认10pt时有|\DeclareMathSizes{\@xpt}{\@xpt}{7}{5}|，
+% 这里按照相同的比例设置 10.5bp。
+%    \begin{macrocode}
 \DeclareMathSizes{10.5bp}{10.5bp}{7.35bp}{5.25bp}
-
-% 目录
-\RequirePackage{tocbibind}
-\renewcommand{\tableofcontents}{\tocfile{目录}{toc}}
-\RequirePackage{titletoc}
-\titlecontents{chapter}[0em]
-    {\vspace{6bp}\zihao{4}}{\thecontentslabel\hspace*{0.5em}}
-    {}{\titlerule*[0.5pc]{$\cdot$}\contentspage}
-\titlecontents{section}[\ccwd]
-    {\vspace{6bp}\zihao{-4}}{\thecontentslabel\hspace*{0.5em}}
-    {}{\titlerule*[0.5pc]{$\cdot$}\contentspage}
-\titlecontents{subsection}[2\ccwd]
-    {\vspace{6bp}\zihao{5}}{\thecontentslabel\hspace*{0.5em}}
-    {}{\titlerule*[0.5pc]{$\cdot$}\contentspage}
-\titlecontents{figure}[\ccwd]
-    {\zihao{-4}}{\thecontentslabel\hspace*{0.5em}}
-    {}{\titlerule*[0.5pc]{$\cdot$}\contentspage}
-\titlecontents{table}[\ccwd]
-    {\zihao{-4}}{\thecontentslabel\hspace*{0.5em}}
-    {}{\titlerule*[0.5pc]{$\cdot$}\contentspage}
-
-% 页眉页脚
-\RequirePackage{titleps}
-\ifUSTC@opt@bachelor
-    \input{ustcthesis-bachelor.def}
-\else
-    \input{ustcthesis-doctor.def}
-\fi
-
-% 符号说明
+%    \end{macrocode}
+%
+% \subsection{符号说明}
+% \begin{environment}{notation}
+% 这里只定义了一个满足要求的环境，具体内容由用户自定义
+%    \begin{macrocode}
 \newenvironment{notation}{
     \ctexset{chapter/format += \rmfamily\setfontsize{12bp}}
     \chapter{符号说明}
     \setfontsize{10.5bp}[16bp]
     \setlength{\itemsep}{0bp}}{}
-
-% 参考文献
+%    \end{macrocode}
+% \end{environment}
+%
+% \subsection{参考文献}
+% 目前\BibTeX 使用的.bst格式是南京大学胡海星编写的
+% \footnote{https://github.com/Haixing-Hu/GBT7714-2005-BibTeX-Style}，
+% 不支持author-year式的文献标注和列表，故采用GB/T 7714-2005规定的numeric风格。
+%    \begin{macrocode}
 \usepackage[super,sort&compress]{natbib}
 \setcitestyle{square}
 \bibliographystyle{ustcthesis}
 \renewcommand\bibfont{\setfontsize{10.5bp}[20bp]}
 \setlength{\bibsep}{0bp}
 \setlength{\bibhang}{1em}
+%    \end{macrocode}
+% \begin{macro}{\bibliography}
+% 由于|\bibliography{}|位于正文中，页眉会默认显示“附录 参考文献”，所以修正页面风格：
+%    \begin{macrocode}
 \let\ustc@save@bibliography=\bibliography
 \renewcommand\bibliography[1]{%
     \if@openright
@@ -376,14 +495,38 @@
     \pagestyle{front}
     \ctexset{chapter/pagestyle = front}
     \ustc@save@bibliography{#1}}
-
+%    \end{macrocode}
+% \end{macro}
+%
+% \subsection{附录}
+% \begin{macro}{\appendix}
+% 由于|\bibilography{}|处更改了页面风格，必须将附录的再更改为main。
+%    \begin{macrocode}
+\let\ustc@save@appendix=\appendix
+\renewcommand\appendix{%
+    \if@openright
+        \cleardoublepage
+    \else
+        \clearpage
+    \fi
+    \pagestyle{main}
+    \ctexset{chapter/pagestyle = main}
+    \ustc@save@appendix}
+%    \end{macrocode}
+% \end{macro}
+% \begin{environment}{acknowledgements}
+% 定义了一个满足要求的致谢环境：
+%    \begin{macrocode}
 \newenvironment{acknowledgements}{\chapter[致谢]{致\hspace{\ccwd}谢}}{}
-
+%    \end{macrocode}
+% \end{environment}
+% \begin{environment}{acknowledgements}
+% 发表成果环境：
+%    \begin{macrocode}
 \newenvironment{publications}{\chapter{在读期间发表的学术论文与取得的研究成果}}{}
-
-
-
-
+%    \end{macrocode}
+% \end{environment}
+%    \begin{macrocode}
 % 书脊
 % 书脊的论文题目、系别、作者姓名默认为\ustc@title, \ustc@depart, \ustc@author，
 % 竖排的内部实现是，先用 \addCJKfontfeatures{Vertical=RotatedGlyphs} 旋转每个字，

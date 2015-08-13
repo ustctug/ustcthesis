@@ -1,10 +1,11 @@
-.PHONY : all theisis cls doc pv clean
+.PHONY : all theisis cls doc pv clean cleanall
 
-SOURCES = main.tex
-CLS = ustcthesis.cls ustcthesis-bachelor.def ustcthesis-doctor.def ustcthesis-statement.def
-AUX = *.aux *.bbl *.fls *.glo *.gls *.idx *.ilg *.ind *.log
+SRC = main.tex
+CLS = ustcthesis.cls ustcthesis.bst \
+      ustcthesis-bachelor.def ustcthesis-doctor.def ustcthesis-statement.def
+AUX = *.aux *.bbl *.blg *.fdb_latexmk *.fls *.glo *.gls *.idx *.ilg *.ind \
+      *.lof *.log *.lot *.out *.toc
 PDF = *.pdf
-
 
 all : thesis doc
 
@@ -14,10 +15,10 @@ cls : ustcthesis.cls
 
 doc: ustcthesis.pdf
 
-pv : $(SOURCES) $(CLS)
+pv : $(SRC) $(CLS)
 	latexmk -xelatex -shell-escape -use-make -pv $<
 
-main.pdf : $(SOURCES) $(CLS)
+main.pdf : $(SRC) $(CLS)
 	latexmk -xelatex -shell-escape -use-make $<
 
 ustcthesis.cls: ustcthesis.ins ustcthesis.dtx
@@ -31,5 +32,8 @@ ustcthesis.pdf : ustcthesis.dtx
 	xelatex ustcthesis.dtx
 
 clean :
-	latexmk -C main.tex
-	-rm -f $(AUX) chapters/${AUX} $(PDF)
+	latexmk -c main.tex
+	-rm -f $(AUX) chapters/*.aux
+
+cleanall : clean
+	-rm -f $(CLS) $(PDF)
