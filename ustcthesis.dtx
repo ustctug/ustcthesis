@@ -21,7 +21,7 @@
 %<class>\NeedsTeXFormat{LaTeX2e}[1999/12/01]
 %<class>\ProvidesClass{ustcthesis}
 %<*class>
-    [2015/06/28 v2.0 Thesis Template for University of Science and Technology of Chin]
+    [2015/06/28 v2.0 Thesis Template for University of Science and Technology of China]
 %</class>
 %
 %<*driver>
@@ -85,71 +85,138 @@
 % \StopEventually{\PrintIndex}
 %
 % \section{代码实现}
+% \subsection{声明选项}
 %    \begin{macrocode}
 \RequirePackage{kvoptions}
 \SetupKeyvalOptions{family=USTC, prefix=USTC@opt@, setkeys=\kvsetkeys}
 \DeclareBoolOption[false]{doctor}
 \DeclareBoolOption[false]{master}
 \DeclareBoolOption[false]{bachelor}
-\DeclareBoolOption[true]{twoside}   % 默认双页打印
+\DeclareBoolOption[false]{pdf}
+\DeclareComplementaryOption{print}{pdf}
+\DeclareBoolOption[true]{twoside}
 \DeclareComplementaryOption{oneside}{twoside}
-
+\DeclareBoolOption[true]{openany}
+\DeclareComplementaryOption{openright}{openany}
+\DeclareBoolOption[true]{pageright}
+\DeclareComplementaryOption{pagecenter}{pageright}
 \DeclareDefaultOption{\PassOptionsToClass{\CurrentOption}{ctexbook}}
 \ProcessKeyvalOptions*\relax
-
-\ifUSTC@opt@twoside
-    \PassOptionsToClass{twoside}{ctexbook}
+%    \end{macrocode}
+% 处理分页方式：
+%    \begin{macrocode}
+\ifUSTC@opt@pdf
+    \USTC@opt@twosidefalse
+    \PassOptionsToClass{oneside, openany}{ctexbook}
 \else
-    \PassOptionsToClass{oneside}{ctexbook}
+    \ifUSTC@opt@master
+        \USTC@opt@twosidetrue
+    \fi
+    \ifUSTC@opt@doctor
+        \USTC@opt@twosidetrue
+    \fi
+    \ifUSTC@opt@twoside
+        \PassOptionsToClass{twoside}{ctexbook}
+        \ifUSTC@opt@openany
+            \PassOptionsToClass{openany}{ctexbook}
+        \else
+            \PassOptionsToClass{openright}{ctexbook}
+        \fi
+    \else
+        \PassOptionsToClass{oneside, openany}{ctexbook}
+    \fi
 \fi
-
+%    \end{macrocode}
+% 处理页码样式
+%    \begin{macrocode}
+\ifUSTC@opt@bachelor
+    \USTC@opt@pagecentertrue
+\fi
+\ifUSTC@opt@twoside\relax\else
+    \USTC@opt@pagecentertrue
+\fi
+%    \end{macrocode}
+% 默认情况下\textsf{fontspec}会将|\mathrm{}|的字体更改为Times New Roman，
+% 而|\mathnormal|依然为Computer Modern，比Times New Roman要细，
+% 所以设置\textsf{fontspec}不处理数学字体
+%    \begin{macrocode}
 \PassOptionsToPackage{no-math}{fontspec}
-
+%    \end{macrocode}
+% 载入\textsf{ctexbook}文档类，注意要求为ctex 2.0以及更高的版本。
+%    \begin{macrocode}
 \LoadClass[a4paper, UTF8, zihao=-4]{ctexbook}[2015/06/19]
-% 英文字体
+%    \end{macrocode}
+%
+% \subsection{设置西文字体}
+% 设置西文字体，中文字体已经由ctex自动设置，
+%    \begin{macrocode}
 \setmainfont{Times New Roman}
 \setsansfont{Arial}
 \setmonofont{Courier New}
-
-
-
-% 超链接与书签
-\RequirePackage[
+%    \end{macrocode}
+%
+% \subsection{超链接与书签}
+%    \begin{macrocode}
+\RequirePackage{hyperref}
+\hypersetup{
     CJKbookmarks=true,
-    colorlinks,
-    linkcolor=blue,
-    citecolor=blue,
     bookmarksnumbered=true,
-    bookmarksopen=true,
-]{hyperref}
+    bookmarksopen=true}
+%    \end{macrocode}
+% 如果为pdf样式，设置hyperlink颜色
+%    \begin{macrocode}
+\ifUSTC@opt@pdf
+    \hypersetup{
+        colorlinks,
+        linkcolor=blue,
+        citecolor=blue}
+\fi
+%    \end{macrocode}
+% 设置pdf的信息
+%    \begin{macrocode}
 \AtBeginDocument{
     \hypersetup{
         pdftitle={\ustc@title},
         pdfauthor={\ustc@author}
     }
 }
-
-% useful definitions
+%    \end{macrocode}
+%
+% \subsection{定义命令}
+% \begin{macro}{\setfontsize}
+% 直接设置字体大小的命令，可选设置行距，默认单倍行距
+%    \begin{macrocode}
 \RequirePackage{xparse}
+\DeclareDocumentCommand \setfontsize { m o } {
+    \IfValueTF {#2}
+        { \fontsize{#1}{#2} }
+        { \fontsize{#1}{1.2 \dimexpr#1} }
+    \linespread{1}\selectfont\relax}
+%    \end{macrocode}
+% \end{macro}
+% \begin{macro}{\zhspace}
+% 生成整数倍汉字宽度的空格
+%    \begin{macrocode}
+\newcommand\zhspace[1][1]{\hspace{#1\ccwd}}
+%    \end{macrocode}
+% \end{macro}
+% \begin{macro}{\ustc@underline}
+% 生成空的下划线
+%    \begin{macrocode}
+\newcommand\ustc@underline[2][6em]{
+    \hskip1pt\underline{\hb@xt@ #1{\hss#2\hss}}\hskip3pt
+}
+%    \end{macrocode}
+% \end{macro}
+% \begin{macro}{\ustc@define@term}
+% 声明“作者姓名”等项目的命令
+%    \begin{macrocode}
 \def\ustc@define@term#1{
     \expandafter\gdef\csname #1\endcsname##1{
         \expandafter\gdef\csname ustc@#1\endcsname{##1}
     }
     \csname #1\endcsname{}
 }
-\newcommand\ustc@underline[2][6em]{
-    \hskip1pt\underline{\hb@xt@ #1{\hss#2\hss}}\hskip3pt
-}
-% 定义了直接调用磅数设置字体大小的命令，用法为
-% 1. \setfontsize{15bp} 设置字号15磅，默认单倍行距
-% 2. \setfontsize{15bp}[30bp] 设置字号15磅，行距30磅
-\DeclareDocumentCommand \setfontsize { m o } {
-    \IfValueTF {#2}
-        { \fontsize{#1}{#2} }
-        { \fontsize{#1}{1.2 \dimexpr#1} }
-    \linespread{1}\selectfont\relax}
-\newcommand\zhspace[1][1]{\hspace{#1\ccwd}}
-
 \ustc@define@term{title}
 \ustc@define@term{secrettext}
 \ustc@define@term{author}
@@ -166,12 +233,14 @@
 \ustc@define@term{enadvisor}
 \ustc@define@term{encoadvisor}
 \ustc@define@term{ensubmitdate}
-
-% 汉化
+%    \end{macrocode}
+% \end{macro}
+%
+% \subsection{汉化}
+%    \begin{macrocode}
 \ctexset{
     contentsname = {目\hspace{\ccwd}录},
 }
-
 %    \end{macrocode}
 %
 % \subsection{页面设置}
@@ -192,11 +261,19 @@
 \RequirePackage{titleps}
 \newpagestyle{front}[\zihao{5}]{
     \sethead{}{\chaptertitle}{}
-    \setfoot[\thepage][][]{}{}{\thepage}
+    \ifUSTC@opt@pageright
+        \setfoot[\thepage][][]{}{}{\thepage}
+    \else
+        \setfoot{}{\thepage}{}
+    \fi
     \headrule}
 \newpagestyle{main}[\zihao{5}]{
     \sethead{}{\CTEXthechapter\quad\chaptertitle}{}
-    \setfoot[\thepage][][]{}{}{\thepage}
+    \ifUSTC@opt@pageright
+        \setfoot[\thepage][][]{}{}{\thepage}
+    \else
+        \setfoot{}{\thepage}{}
+    \fi
     \headrule}
 %    \end{macrocode}
 % 重新定义|\frontmatter|, |\mainmatter|, |\backmatter|，
@@ -418,6 +495,7 @@
 % 正文段落文字格式设置
 %    \begin{macrocode}
 \setfontsize{12bp}[20bp]
+\renewcommand\normalsize{\setfontsize{12bp}[20bp]}
 \setlength{\parskip}{0bp}
 %    \end{macrocode}
 %

@@ -1,11 +1,8 @@
 %!TEX encoding = UTF-8 Unicode
 %!TEX program = xelatex
 
-\documentclass[doctor, twoside]{ustcthesis}
+\documentclass[doctor]{ustcthesis}
 % bachelor|master|doctor
-% fontset=adobe|windows
-% oneside|twoside: 本科论文建议单页打印，硕博论文建议双页打印
-% openany|openright: 双页打印时，每章从右边起始
 \graphicspath{{figures/}}
 
 \title{中国科学技术大学\\本硕博毕业论文模板示例文档}
@@ -24,7 +21,10 @@
 \enadvisor{Prof. Xueshen Qian}
 \ensubmitdate{June, 2099}
 
+
+
 \begin{document}
+
 \maketitle
 
 %
@@ -41,21 +41,11 @@
 %
 
 \frontmatter
-\makeatletter
-\ifUSTC@opt@bachelor
-    \include{chapters/thanks}
-    \tableofcontents
-    \listoffigures
-    \listoftables
-    \include{chapters/abstract}
-\else
-    \include{chapters/abstract}
-    \tableofcontents
-    \listoffigures
-    \listoftables
-    %\include{chapters/notation}
-\fi
-\makeatother
+\include{chapters/abstract}
+\tableofcontents
+\listoffigures
+\listoftables
+% \include{chapters/notation}
 
 \mainmatter
 \include{chapters/intro}
@@ -67,10 +57,7 @@
 \chapter{论文规范}
 
 \backmatter
-\makeatletter
-\ifUSTC@opt@bachelor\relax\else
-    \include{chapters/acknowledgements}
-    \include{chapters/publications}
-\fi
-\makeatother
+\include{chapters/acknowledgements}
+\include{chapters/publications}
+
 \end{document}

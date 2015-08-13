@@ -32,8 +32,7 @@ ustcthesis.pdf : ustcthesis.dtx
 	xelatex ustcthesis.dtx
 
 clean :
-	latexmk -c main.tex
 	-rm -f $(AUX) chapters/*.aux
 
 cleanall : clean
-	-rm -f $(CLS) $(PDF)
+	-rm -f ustcthesis.cls $(PDF)
