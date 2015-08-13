@@ -1,11 +1,89 @@
+% \iffalse meta-comment
 %
-%   University of Science and Technology of China
-%   Thesis Template for bachelor, master and doctor
+% Copyright (C) 2015-2016 by Zeping Lee <zepinglee@gmail.com>
 %
-\NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{ustcthesis}
-    [2015/06/28 Thesis Template for University of Science and Technology of China]
+% This file may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either
+% version 1.2 of this license or (at your option) any later
+% version. The latest version of this license is in:
+%
+%     http://www.latex-project.org/lppl.txt
+%
+% and version 1.2 or later is part of all distributions of
+% LaTeX version 1999/12/01 or later.
+%
+% \fi
+%
+% \iffalse
+%<*driver>
+\ProvidesFile{ustcthesis.dtx}
+%</driver>
+%<class>\NeedsTeXFormat{LaTeX2e}[1999/12/01]
+%<class>\ProvidesClass{ustcthesis}
+%<*class>
+    [2015/06/28 v2.0 Thesis Template for University of Science and Technology of Chin]
+%</class>
+%
+%<*driver>
+\documentclass[a4paper]{ltxdoc}
+\EnableCrossrefs
+\CodelineIndex
+\RecordChanges
 
+\usepackage[UTF8]{ctex}
+\begin{document}
+    \DocInput{ustcthesis.dtx}
+\end{document}
+%</driver>
+% \fi
+%
+% \CheckSum{0}
+%
+% \CharacterTable
+%  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
+%   Lower-case    \a\b\c\d\e\f\g\h\i\j\k\l\m\n\o\p\q\r\s\t\u\v\w\x\y\z
+%   Digits        \0\1\2\3\4\5\6\7\8\9
+%   Exclamation   \!     Double quote  \"     Hash (number) \#
+%   Dollar        \$     Percent       \%     Ampersand     \&
+%   Acute accent  \'     Left paren    \(     Right paren   \)
+%   Asterisk      \*     Plus          \+     Comma         \,
+%   Minus         \-     Point         \.     Solidus       \/
+%   Colon         \:     Semicolon     \;     Less than     \<
+%   Equals        \=     Greater than  \>     Question mark \?
+%   Commercial at \@     Left bracket  \[     Backslash     \\
+%   Right bracket \]     Circumflex    \^     Underscore    \_
+%   Grave accent  \`     Left brace    \{     Vertical bar  \|
+%   Right brace   \}     Tilde         \~}
+%
+% \changes{v2.0}{2015/06/26}{Initial Build}
+%
+% \GetFileInfo{ustcthesis.dtx}
+%
+% \DoNotIndex{\newcommand,\newenvironment}
+%
+% \title{\textsf{ustcthesis}使用说明\thanks{This document
+%   corresponds to \textsf{ustcthesis}~\fileversion, dated \filedate.}}
+% \author{Zeping Lee \\ \texttt{zepinglee@gmail.com}}
+%
+% \maketitle
+%
+% \section{简介}
+%
+% 中国科学技术大学论文模板(ustcthesis)是按照中国科学技术大学学士、硕 士和博士论文要求
+% 制作的 LATEX 通用论文模板。其前身是中国科学技术大学本科 论文模板(作者 XPS,最后维护
+% ywg)和中国科学技术大学研究生论文模板(作 者 Liuqs,主要维护 Liuqs、Guolicai)。
+%
+% \section{使用说明}
+%
+% \section{排版注意事项}
+% \begin{itemize}
+%   \item 英文逗号、句号、问号和叹号后面要加空格。
+% \end{itemize}
+%
+% \StopEventually{\PrintIndex}
+%
+% \section{代码实现}
+%    \begin{macrocode}
 \RequirePackage{kvoptions}
 \SetupKeyvalOptions{family=USTC, prefix=USTC@opt@, setkeys=\kvsetkeys}
 \DeclareBoolOption[false]{doctor}
@@ -99,20 +177,20 @@
 \ustc@define@term{enadvisor}
 \ustc@define@term{encoadvisor}
 \ustc@define@term{ensubmitdate}
-
-% 仅供测试使用
-%\RequirePackage{pagegrid}
-%\pagegridsetup{enable, tl, step=1cm, double}
-
-% 扉页
+%    \end{macrocode}
+%
+%
+% \subsection{扉页}
+% \begin{macro}{\maketitle}
+% 重新定义|\maketitle|，注意这里是单面打印，所以用|\cleardoublepage|
+%    \begin{macrocode}
 \input{ustcthesis-statement.def}
 \renewcommand\maketitle{
     \newgeometry{
         top=3.8cm, bottom=3.8cm,
         left=3.2cm, right=3.2cm,
         headheight=0cm, headsep=0.8cm,
-        footskip=0.8cm
-    }
+        footskip=0.8cm}
     \pagestyle{empty}
     \pdfbookmark[-1]{\ustc@title}{title}
     \make@cntitle \cleardoublepage
@@ -120,9 +198,76 @@
     \restoregeometry
     \ifUSTC@opt@bachelor\relax\else
         \make@statement \cleardoublepage
-    \fi
-}
-
+    \fi}
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\make@cntitle}
+% 扉页为了排版``距离顶边xx厘米''，使用了tabular嵌套parbox的方法。
+% 注意，使用|\vpace{}|会有额外空隙，叠parbox也不行。
+%
+% 这里没有严格按照《规范》的格式范例的尺寸，其中``学位论文''向上调整了0.7cm，
+% 论文标题和作者姓名部分分别在parbox内部进行了垂直居中处理。另外两个eps图片为手工测量所得。
+% 中文扉页
+%    \begin{macrocode}
+\newcommand\make@cntitle{
+    \begin{titlepage}
+    \begin{center}
+    \renewcommand{\arraystretch}{0}
+    \begin{tabular}{@{}c@{}}
+        \\[0.2cm]
+        \parbox[t][1.2cm][t]{\textwidth}
+            {\raggedleft\fangsong\setfontsize{14bp}\ustc@secrettext} \\
+        \parbox[t][2.7cm][t]{\textwidth}{\centering
+            \includegraphics[width=11cm]{figures/ustc_logo_text.eps}} \\
+        \parbox[t][3cm][t]{\textwidth}{
+            \centering\bfseries\setfontsize{56bp}
+            \ifUSTC@opt@doctor 博士学位论文 \fi
+            \ifUSTC@opt@master 硕士学位论文 \fi
+            \ifUSTC@opt@bachelor 学士学位论文 \fi} \\
+        \includegraphics[height=4.9cm]{figures/ustc_logo_fig.eps} \\
+        \parbox[t][4.7cm][c]{\textwidth}
+            {\centering\bfseries\setfontsize{26bp}\ustc@title} \\
+        \parbox[t][4.2cm][c]{\textwidth}{\setfontsize{16bp}
+            \hspace*{2.8cm}{\bfseries 作者姓名：}\hfill \ustc@author \hfill\mbox{} \\
+            \hspace*{2.8cm}{\bfseries 学科专业：}\hfill \ustc@major \hfill\mbox{} \\
+            \hspace*{2.8cm}{\bfseries 导师姓名：}\hfill \ustc@advisor \hfill\mbox{} \\
+            \hspace*{2.8cm}{\bfseries 完成时间：}\hfill \ustc@submitdate \hfill\mbox{}}
+    \end{tabular}
+    \end{center}
+    \end{titlepage}}
+%    \end{macrocode}
+% \end{macro}
+% \begin{macro}{\make@entitle}
+% 由于《规范》对宽度的限制，英文扉页 Supervisor 一栏放不下两个英文名称
+%    \begin{macrocode}
+\newcommand\make@entitle{
+    \begin{titlepage}
+    \begin{center}
+    \renewcommand{\arraystretch}{0}
+    \begin{tabular}{@{}c@{}}
+        \\[0.2cm]
+        \parbox[t][1cm][t]{\textwidth}{\raggedleft\setfontsize{14bp}\ustc@ensecrettext} \\
+        \parbox[t][1cm][t]{\textwidth}{\centering\sffamily\setfontsize{20bp}[30bp]
+            University of Science and Technology of China} \\
+        \parbox[t][2.2cm][t]{\textwidth}{\centering\bfseries\setfontsize{26bp}[30bp]
+            \ifUSTC@opt@doctor A dissertation for doctor's degree \fi
+            \ifUSTC@opt@master A dissertation for master's degree \fi
+            \ifUSTC@opt@bachelor A dissertation for bachelor's degree \fi} \\
+        \includegraphics[height=4.9cm]{figures/ustc_logo_fig.eps} \\
+        \\[2.9cm]
+        \parbox[t][4.7cm][t]{\textwidth}{\centering\bfseries\setfontsize{26bp}[30bp]\ustc@entitle} \\
+        \parbox[t][4cm][c]{\textwidth}{\setfontsize{16bp}[30bp]
+            \hspace*{2.8cm} Author: \hspace{1.6cm}\hfill \ustc@enauthor \hfill\mbox{} \\
+            \hspace*{2.8cm} Speciality: \hspace{0.8cm}\hfill \ustc@enmajor \hfill\mbox{} \\
+            \hspace*{2.8cm} Supervisor: \hspace{0.8cm}\hfill \ustc@enadvisor \hfill\mbox{} \\
+            \hspace*{2.8cm} Finished Time: \hfill \ustc@ensubmitdate \hfill\mbox{}}
+    \end{tabular}
+    \end{center}
+    \end{titlepage}}
+%    \end{macrocode}
+% \end{macro}
+%    \begin{macrocode}
 \RequirePackage{setspace}
 % 标题设置
 \ctexset{
@@ -237,61 +382,7 @@
 \newenvironment{publications}{\chapter{在读期间发表的学术论文与取得的研究成果}}{}
 
 
-% 中文封面
-% 封面为了排版``距离顶边xx厘米''，使用了tabular嵌套parbox的方法。使用vpace会有额外空隙，叠parbox也不行。
-% 这里没有严格按照《规范》的格式范例的尺寸，其中``学位论文''向上调整了0.7cm，
-% 论文标题和作者姓名部分分别在parbox内部进行了垂直居中处理。两个eps图片为手工测量所得。
-\newcommand\make@cntitle{
-    \begin{titlepage}
-    \begin{center}
-    \renewcommand{\arraystretch}{0}
-    \begin{tabular}{@{}c@{}}
-        \\[0.2cm]
-        \parbox[t][1.2cm][t]{\textwidth}{\raggedleft\fangsong\setfontsize{14bp}\ustc@secrettext} \\
-        \parbox[t][2.7cm][t]{\textwidth}{\centering\includegraphics[width=11cm]{figures/ustc_logo_text.eps}} \\
-        \parbox[t][3cm][t]{\textwidth}{\centering\bfseries\setfontsize{56bp}
-            \ifUSTC@opt@doctor 博士学位论文 \fi
-            \ifUSTC@opt@master 硕士学位论文 \fi
-            \ifUSTC@opt@bachelor 学士学位论文 \fi} \\
-        \includegraphics[height=4.9cm]{figures/ustc_logo_fig.eps} \\
-        \parbox[t][4.7cm][c]{\textwidth}{\centering\bfseries\setfontsize{26bp}\ustc@title} \\
-        \parbox[t][4.2cm][c]{\textwidth}{\setfontsize{16bp}
-            \hspace*{2.8cm}{\bfseries 作者姓名：}\hfill \ustc@author \hfill\mbox{} \\
-            \hspace*{2.8cm}{\bfseries 学科专业：}\hfill \ustc@major \hfill\mbox{} \\
-            \hspace*{2.8cm}{\bfseries 导师姓名：}\hfill \ustc@advisor \hfill\mbox{} \\
-            \hspace*{2.8cm}{\bfseries 完成时间：}\hfill \ustc@submitdate \hfill\mbox{}}
-    \end{tabular}
-    \end{center}
-    \end{titlepage}
-}
 
-% 英文封面
-% Supervisor 一栏放不下两个英文名称
-\newcommand\make@entitle{
-    \begin{titlepage}
-    \begin{center}
-    \renewcommand{\arraystretch}{0}
-    \begin{tabular}{@{}c@{}}
-        \\[0.2cm]
-        \parbox[t][1cm][t]{\textwidth}{\raggedleft\setfontsize{14bp}\ustc@ensecrettext} \\
-        \parbox[t][1cm][t]{\textwidth}{\centering\sffamily\setfontsize{20bp}[30bp]
-            University of Science and Technology of China} \\
-        \parbox[t][2.2cm][t]{\textwidth}{\centering\bfseries\setfontsize{26bp}[30bp]
-            \ifUSTC@opt@doctor A dissertation for doctor's degree \fi
-            \ifUSTC@opt@master A dissertation for master's degree \fi
-            \ifUSTC@opt@bachelor A dissertation for bachelor's degree \fi} \\
-        \includegraphics[height=4.9cm]{figures/ustc_logo_fig.eps} \\
-        \\[2.9cm]
-        \parbox[t][4.7cm][t]{\textwidth}{\centering\bfseries\setfontsize{26bp}[30bp]\ustc@entitle} \\
-        \parbox[t][4cm][c]{\textwidth}{\setfontsize{16bp}[30bp]
-            \hspace*{2.8cm} Author: \hspace{1.6cm}\hfill \ustc@enauthor \hfill\mbox{} \\
-            \hspace*{2.8cm} Speciality: \hspace{0.8cm}\hfill \ustc@enmajor \hfill\mbox{} \\
-            \hspace*{2.8cm} Supervisor: \hspace{0.8cm}\hfill \ustc@enadvisor \hfill\mbox{} \\
-            \hspace*{2.8cm} Finished Time: \hfill \ustc@ensubmitdate \hfill\mbox{}}
-    \end{tabular}
-    \end{center}
-    \end{titlepage}
-}
 
 % 书脊
 % 书脊的论文题目、系别、作者姓名默认为\ustc@title, \ustc@depart, \ustc@author，
@@ -331,4 +422,9 @@
 %
 % \spinetitle{\entext{USTC}本硕博毕业论文示例文档} % 书脊的英文文字要用 \entext{} 括起来
 
+\endinput
+
+%    \end{macrocode}
+%
+% \Finale
 \endinput
