@@ -1,6 +1,6 @@
 .PHONY : all theisis cls doc pv clean cleanall
 
-SRC = main.tex
+SRC = main.tex $(wildcard chapters/*.tex)
 CLS = ustcthesis.cls ustcthesis.bst \
       ustcthesis-bachelor.def ustcthesis-doctor.def ustcthesis-statement.def
 AUX = *.aux *.bbl *.blg *.fdb_latexmk *.fls *.glo *.gls *.idx *.ilg *.ind \
