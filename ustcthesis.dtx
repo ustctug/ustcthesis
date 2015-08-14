@@ -30,7 +30,27 @@
 \CodelineIndex
 \RecordChanges
 
-\usepackage[UTF8]{ctex}
+\usepackage{hyperref}
+\hypersetup{
+    CJKbookmarks=true,
+    bookmarksnumbered=true,
+    bookmarksopen=true,
+    colorlinks=true,
+    linkcolor=blue,
+    citecolor=blue}
+\usepackage[UTF8, heading, sub3section]{ctex}
+\ctexset{
+  abstractname   = 简介,
+  indexname      = 代码索引,
+  section        = {
+    format = \Large\bfseries\raggedright,
+    name   = {第,节},
+  },
+}
+\usepackage{tabularx}
+\usepackage{booktabs}
+
+
 \begin{document}
     \DocInput{ustcthesis.dtx}
 \end{document}
@@ -63,19 +83,55 @@
 %
 % \DoNotIndex{\newcommand,\newenvironment}
 %
-% \title{\textsf{ustcthesis}使用说明\thanks{This document
-%   corresponds to \textsf{ustcthesis}~\fileversion, dated \filedate.}}
-% \author{Zeping Lee \\ \texttt{zepinglee@gmail.com}}
+% \title{\textsf{ustcthesis}使用说明}
+% \author{seisman\thanks{seisman.info@gmail.com} \and
+%         Zeping Lee\thanks{zepinglee@gmail.com}}
 %
 % \maketitle
 %
 % \section{简介}
 %
-% 中国科学技术大学论文模板(ustcthesis)是按照中国科学技术大学学士、硕 士和博士论文要求
-% 制作的 LATEX 通用论文模板。其前身是中国科学技术大学本科 论文模板(作者 XPS,最后维护
-% ywg)和中国科学技术大学研究生论文模板(作 者 Liuqs,主要维护 Liuqs、Guolicai)。
+% \textsf{ustcthesis}是用来排版中国科学技术大学本科和研究生毕业论文的\LaTeX{}模板，
+% 按照《中国科学技术大学研究生学位论文撰写规范》
+% \footnote{http://gradschool.ustc.edu.cn/ylb/material/xw/wdxz/1.doc}
+% 和《关于本科毕业论文（设计）格式和统一封面的通知》
+% \footnote{http://www.teach.ustc.edu.cn/document/doc-administration/4032.html}
+% 的要求编写。
+%
+% 其前身是中国科学技术大学本科论文模板（作者XPS，最后维护ywg）和中国科学技术大学研究生论文
+% 模板（作者Liuqs，主要维护Liuqs、Guolicai）。
+% 后来两模板进行了整合梳理，由ywg维护。
+% 2015年，seisman和zepinglee基于\textsf{ctex} 2.0重新编写了模板。\pkg{ctex}
 %
 % \section{使用说明}
+%
+% \subsection{文件组成}
+% 本模板的主要文件如表\ref{tab:file}：
+%
+% \begin{table}[htbp]
+% \centering
+% \begin{tabularx}{\linewidth}{llX}
+%   \toprule
+%   类别     & 文件                    & 说明 \\
+%   \midrule
+%   模板文件 & \texttt{ustcthesis.dtx} & 主要目的模板文件，可生成
+%                            \texttt{ustcthesis.cls}和\texttt{ustcthesis.pdf} \\
+%           & \texttt{ustcthesis.bst} & 参考文献列表的格式文件 \\
+%   \midrule
+%   生成文件 & \texttt{ustcthesis.pdf} & （你正在阅读的）模板使用说明 \\
+%           & \texttt{ustcthesis.pdf} & 文档类文件 \\
+%   \midrule
+%   示例文件 & \texttt{main.tex}       & 主文档 \\
+%           & \texttt{chapters/*.tex} & 示例文档的各个章节 \\
+%           & \texttt{figures/}       & 放置图片的目录 \\
+%           & \texttt{bib/tex.bib}    & 参考文献示例数据库 \\
+%   \midrule
+%   其他    & \texttt{Makefile}       & 用于GNU make \\
+%   \bottomrule
+% \end{tabularx}
+% \caption{\textsf{ustcthesis}的文件组成}
+% \label{tab:file}
+% \end{table}
 %
 % \section{排版注意事项}
 % \begin{itemize}
@@ -84,6 +140,7 @@
 %
 % \StopEventually{\PrintIndex}
 %
+% \linespread{1.2}\selectfont
 % \section{代码实现}
 % \subsection{声明选项}
 %    \begin{macrocode}
@@ -248,8 +305,7 @@
     footskip=0.79cm}
 %    \end{macrocode}
 % 再用\textsf{titleps}宏包设置页眉页码，定义了front, main两个页面风格分别用于前言和正文。
-% 注意，《规范》在2.6.2.3节要求“页码位置居于页脚居中”，但是在3.1节又要求“宋体 10.5 磅
-% 页面下脚右端”，自相矛盾。这里遵循双面印刷的行业习惯，将页码置于外侧。
+% |\ifustc@page@pageright|控制是否将页码置于外侧。
 %    \begin{macrocode}
 \RequirePackage{titleps}
 \newpagestyle{front}[\zihao{5}]{
