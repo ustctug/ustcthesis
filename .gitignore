@@ -126,5 +126,8 @@ sympy-plots-for-*.tex/
 *.bak
 *.sav
 
+# hypdoc package
+*.hd
+
 # Mac Os X
 .DS_Store

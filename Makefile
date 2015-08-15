@@ -3,7 +3,7 @@
 SRC = main.tex $(wildcard chapters/*.tex)
 CLS = ustcthesis.cls ustcthesis.bst \
       ustcthesis-bachelor.def ustcthesis-doctor.def ustcthesis-statement.def
-AUX = *.aux *.bbl *.blg *.fdb_latexmk *.fls *.glo *.gls *.idx *.ilg *.ind \
+AUX = *.aux *.bbl *.blg *.fdb_latexmk *.fls *.glo *.gls *.hd *.idx *.ilg *.ind \
       *.lof *.log *.lot *.out *.toc
 PDF = *.pdf
 
@@ -26,7 +26,7 @@ ustcthesis.cls: ustcthesis.ins ustcthesis.dtx
 
 ustcthesis.pdf : ustcthesis.dtx
 	xelatex ustcthesis.dtx
-	makeindex -s gind.ist -o ustcthesis.ind ustcthesis.idx
+	makeindex -s gind.ist ustcthesis.idx
 	makeindex -s gglo.ist -o ustcthesis.gls ustcthesis.glo
 	xelatex ustcthesis.dtx
 	xelatex ustcthesis.dtx

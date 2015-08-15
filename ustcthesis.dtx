@@ -26,22 +26,21 @@
 %
 %<*driver>
 \documentclass[a4paper]{ltxdoc}
+\usepackage{hypdoc}
+\hypersetup{allcolors=blue}
 \EnableCrossrefs
 \CodelineIndex
 \RecordChanges
-
-\usepackage{hyperref}
-\hypersetup{
-    CJKbookmarks=true,
-    bookmarksnumbered=true,
-    bookmarksopen=true,
-    colorlinks=true,
-    linkcolor=blue,
-    citecolor=blue}
+\renewcommand\glossaryname{版本历史}
+\GlossaryPrologue{\section*{\glossaryname}}
+\renewcommand\indexname{代码索引}
+\IndexPrologue{%
+    \section*{\indexname}
+    \textit{意大利体的数字表示描述对应索引项的页码；
+    带下划线的数字表示定义对应索引项的代码行号；
+    罗马字体的数字表示使用对应索引项的代码行号。}}
 \usepackage[UTF8, heading, sub3section]{ctex}
 \ctexset{
-    abstractname = 简介,
-    indexname    = 代码索引,
     section      = {
         format = \Large\bfseries\raggedright,
         name   = {第,节},
@@ -49,7 +48,7 @@
 }
 \usepackage{tabularx}
 \usepackage{booktabs}
-
+% 模仿 l3doc 的定义
 \DeclareRobustCommand\file{\nolinkurl}
 \DeclareRobustCommand\env{\texttt}
 \DeclareRobustCommand\pkg{\textsf}
@@ -57,6 +56,8 @@
 
 \begin{document}
     \DocInput{ustcthesis.dtx}
+    \PrintChanges
+    \PrintIndex
 \end{document}
 %</driver>
 % \fi
@@ -141,9 +142,8 @@
 %     \item 中、西文字符之间要加空格。
 % \end{itemize}
 %
-% \StopEventually{\PrintIndex}
+% \StopEventually{}
 %
-% \linespread{1.2}\selectfont
 % \section{代码实现}
 % \subsection{声明选项}
 %    \begin{macrocode}
@@ -189,8 +189,8 @@
     \PassOptionsToClass{openany}{ctexbook}
 \fi
 %    \end{macrocode}
-% 默认情况下 \pkg{fontspec} 会将 |\mathrm{}| 的字体更改为 Times New Roman，
-% 而 |\mathnormal| 依然为 Computer Modern，比 Times New Roman 要细，
+% 默认情况下 \pkg{fontspec} 会将 \cs{mathrm} 的字体更改为 Times New Roman，
+% 而 \cs{mathnormal} 依然为 Computer Modern，比 Times New Roman 要细，
 % 所以设置 \pkg{fontspec} 不处理数学字体
 %    \begin{macrocode}
 \PassOptionsToPackage{no-math}{fontspec}
@@ -309,7 +309,7 @@
     footskip=0.79cm}
 %    \end{macrocode}
 % 再用 \pkg{titleps} 宏包设置页眉页码，定义了 front, main 两个页面风格分别用于前言和正文。
-% |\ifustc@page@pageright| 控制是否将页码置于外侧。
+% \cs{ifustc@page@pageright} 控制是否将页码置于外侧。
 %    \begin{macrocode}
 \RequirePackage{titleps}
 \newpagestyle{front}[\zihao{5}]{
@@ -329,7 +329,7 @@
     \fi
     \headrule}
 %    \end{macrocode}
-% 重新定义 |\frontmatter|, |\mainmatter|, |\backmatter|，
+% 重新定义 \cs{frontmatter}, \cs{mainmatter}, \cs{backmatter}，
 % 使得在恰当位置应用正确的页面风格。
 %    \begin{macrocode}
 \renewcommand\frontmatter{%
@@ -357,7 +357,7 @@
 %
 % \subsection{扉页}
 % \begin{macro}{\maketitle}
-% 重新定义 |\maketitle|，调用 |\make@cntitle|, |\make@entitle| 分别生成中、英文扉页。
+% 重新定义 \cs{maketitle}，调用 \cs{make@cntitle}, \cs{make@entitle} 分别生成中、英文扉页。
 %    \begin{macrocode}
 \input{ustcthesis-statement.def}
 \renewcommand\maketitle{%
@@ -379,7 +379,7 @@
 %
 % \begin{macro}{\make@cntitle}
 % 扉页为了排版“距离顶边 xx 厘米”，使用了 \env{tabular} 嵌套 \env{parbox}的方法。
-% 如果使用 |\vpace{}| 会产生额外空隙；如果叠 \env{parbox}也不行。
+% 如果使用 \cs{vpace} 会产生额外空隙；如果叠 \env{parbox}也不行。
 % 注意这里没有严格按照《规范》的格式范例的尺寸，其中“学位论文”向上调整了 0.7 cm，
 % 论文标题和作者姓名部分分别在 \env{parbox} 内部进行了垂直居中处理。
 % 另外两个 eps 图片为手工测量所得。
@@ -460,7 +460,7 @@
     {\cleardoublepage}
 %    \end{macrocode}
 % \end{environment}
-% 两个生成关键字的命令，其中 |\phantom{}| 是为了空一行，
+% 两个生成关键字的命令，其中 \cs{phantom{}} 是为了空一行，
 %    \begin{macrocode}
 \newcommand\keywords[1]{\par\phantom{关键词}\par\noindent\hangindent=4\ccwd\relax
     \textbf{关键词：}#1}
@@ -472,7 +472,7 @@
 % \begin{macro}{\tableofcontents}
 % 调用 \pkg{tocbibind} 宏包将目录、参考文献加入目录中。
 % 为了让目录中的“目录”二字中间没有空格，用 \pkg{tocbibind} 的方法重新定义
-% |\tableofcontents|
+% \cs{tableofcontents}
 %    \begin{macrocode}
 \RequirePackage{tocbibind}
 \renewcommand{\tableofcontents}{\tocfile{目录}{toc}}
@@ -515,7 +515,7 @@
 % \subsection{正文}
 % 用 \pkg{ctex} 的接口设置全局的章节标题格式，注意由于 \pkg{ctex} 2.1 以下版本的 bug，
 % chapter 的 nameformat 和 titleformat 的这两行必须置空。
-% 另外摘要、参考文献等章节在底层也是用 |\chapter{}| 实现的
+% 另外摘要、参考文献等章节在底层也是用 \cs{chapter} 实现的
 %    \begin{macrocode}
 \ctexset{
     chapter = {
@@ -573,9 +573,9 @@
     belowskip = 6bp}
 %    \end{macrocode}
 % \begin{macro}{\note}
-% 新定义了 |\note{}| 来生成图标的附注。
-% 如果用 |\caption{}| 生成图标的附注会导致图标的序号有误；
-% 如果用 |\bicaption{}| 会导致表注无法置于表后，而且对齐方式不对。
+% 新定义了 \cs{note} 来生成图标的附注。
+% 如果用 \cs{caption} 生成图标的附注会导致图标的序号有误；
+% 如果用 \cs{bicaption} 会导致表注无法置于表后，而且对齐方式不对。
 %    \begin{macrocode}
 \newcommand\note[1]{%
     \captionsetup{position = bottom}
@@ -584,7 +584,7 @@
 % \end{macro}
 %
 % \subsection{数学公式}
-% \LaTeX{} 在使用 |10pt| 选项时有 |\DeclareMathSizes{\@xpt}{\@xpt}{7}{5}|，
+% \LaTeX{} 在使用 |10pt| 选项时有 \cs{DeclareMathSizes{\@xpt}{\@xpt}{7}{5}}，
 % 这里按照相同的比例设置 10.5 bp。
 %    \begin{macrocode}
 \DeclareMathSizes{10.5bp}{10.5bp}{7.35bp}{5.25bp}
@@ -615,7 +615,7 @@
 \setlength{\bibhang}{1em}
 %    \end{macrocode}
 % \begin{macro}{\bibliography}
-% 由于 |\bibliography{}| 位于正文中，页眉会默认显示“附录 参考文献”，所以修正页面风格：
+% 由于 \cs{bibliography} 位于正文中，页眉会默认显示“附录 参考文献”，所以修正页面风格：
 %    \begin{macrocode}
 \let\ustc@save@bibliography=\bibliography
 \renewcommand\bibliography[1]{%
@@ -632,7 +632,7 @@
 %
 % \subsection{附录}
 % \begin{macro}{\appendix}
-% 由于 |\bibilography{}| 处更改了页面风格，必须将附录的再更改为 |main|。
+% 由于 \cs{bibilography} 处更改了页面风格，必须将附录的再更改为 |main|。
 %    \begin{macrocode}
 \let\ustc@save@appendix=\appendix
 \renewcommand\appendix{%
@@ -652,7 +652,7 @@
 \newenvironment{acknowledgements}{\chapter[致谢]{致\hspace{\ccwd}谢}}{}
 %    \end{macrocode}
 % \end{environment}
-% \begin{environment}{acknowledgements}
+% \begin{environment}{publications}
 % 发表成果环境：
 %    \begin{macrocode}
 \newenvironment{publications}{\chapter{在读期间发表的学术论文与取得的研究成果}}{}
