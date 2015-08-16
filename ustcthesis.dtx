@@ -94,7 +94,7 @@
 %
 % \section{简介}
 %
-% \cls{ustcthesis} 是用来排版中国科学技术大学本科和研究生毕业论文的 \LaTeX{} 模板，
+% \cls{ustcthesis} 是用于排版中国科学技术大学本科和研究生学位论文的 \LaTeX{} 模板，
 % 按照《中国科学技术大学研究生学位论文撰写规范》
 % \footnote{\url{{http://gradschool.ustc.edu.cn/ylb/material/xw/wdxz/1.doc}}}
 % 和《关于本科毕业论文（设计）格式和统一封面的通知》
@@ -113,27 +113,27 @@
 %
 % \begin{table}[htbp]
 % \centering
+% \caption{\cls{ustcthesis} 的文件组成}
+% \label{tab:file}
 % \begin{tabularx}{\linewidth}{llX}
 %     \toprule
 %     类别     & 文件                    & 说明 \\
 %     \midrule
 %     模板文件 & \file{ustcthesis.dtx} & 主要目的模板文件，可生成 \file{ustcthesis%
 %                                       .cls} 和 \file{ustcthesis.pdf} \\
-%             & \file{ustcthesis.bst} & 参考文献列表的格式文件 \\
+%              & \file{ustcthesis.bst} & 参考文献列表的格式文件 \\
 %     \midrule
 %     生成文件 & \file{ustcthesis.pdf} & （你正在阅读的）模板使用说明 \\
-%             & \file{ustcthesis.cls} & 文档类文件 \\
+%              & \file{ustcthesis.cls} & 文档类文件 \\
 %     \midrule
 %     示例文件 & \file{main.tex}       & 主文档 \\
-%             & \file{chapters/*.tex} & 示例文档的各个章节 \\
-%             & \file{figures/}       & 放置图片的目录 \\
-%             & \file{bib/tex.bib}    & 参考文献示例数据库 \\
+%              & \file{chapters/*.tex} & 示例文档的各个章节 \\
+%              & \file{figures/}       & 放置图片的目录 \\
+%              & \file{bib/tex.bib}    & 参考文献示例数据库 \\
 %     \midrule
-%     其他    & \file{Makefile}       & 用于 GNU make \\
+%     其他     & \file{Makefile}       & 用于 GNU make \\
 %     \bottomrule
 % \end{tabularx}
-% \caption{\cls{ustcthesis} 的文件组成}
-% \label{tab:file}
 % \end{table}
 %
 % \section{排版注意事项}
@@ -166,8 +166,8 @@
 \DeclareComplementaryOption{pagecenter}{pageright}
 \DeclareDefaultOption{\PassOptionsToClass{\CurrentOption}{ctexbook}}
 %    \end{macrocode}
-% 先处理 |ustc@opt| 这一 family，然后设置本科和 pdf 的默认分页方式为 |oneside|,
-% pageright
+% 先处理 |ustc@opt| 这一 family，然后设置本科和 |pdf| 的默认分页方式为 |oneside|,
+% |pageright|
 %    \begin{macrocode}
 \ProcessKeyvalOptions{ustc@opt}
 \ifustc@opt@bachelor
@@ -217,7 +217,7 @@
     bookmarksopen=true,
     pdfborder=0 0 0}
 %    \end{macrocode}
-% 如果为 pdf 样式，设置 hyperlink 颜色
+% 如果为 |pdf| 样式，设置 hyperlink 颜色
 %    \begin{macrocode}
 \ifustc@opt@pdf
     \hypersetup{
