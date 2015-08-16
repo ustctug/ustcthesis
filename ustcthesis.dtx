@@ -313,44 +313,33 @@
 %    \begin{macrocode}
 \RequirePackage{titleps}
 \ifustc@opt@bachelor
-    \newpagestyle{front}[\zihao{-5}]{
-        \sethead{}{中国科学技术大学本科毕业论文}{}
-        \ifustc@page@pageright
-            \setfoot[\thepage][][]{}{}{\thepage}
-        \else
-            \setfoot{}{\thepage}{}
-        \fi
-        \headrule
-    }
-    \newpagestyle{main}[\zihao{-5}]{
-        \sethead{}{中国科学技术大学本科毕业论文}{}
-        \ifustc@page@pageright
-            \setfoot[\thepage][][]{}{}{\thepage}
-        \else
-            \setfoot{}{\thepage}{}
-        \fi
-        \headrule
-    }
+    \newcommand\ustc@header@size{\zihao{-5}}
+    \newcommand\ustc@front@header{中国科学技术大学本科毕业论文}
+    \newcommand\ustc@main@header{中国科学技术大学本科毕业论文}
 \else
-    \newpagestyle{front}[\zihao{5}]{
-        \sethead{}{\chaptertitle}{}
-        \ifustc@page@pageright
-            \setfoot[\thepage][][]{}{}{\thepage}
-        \else
-            \setfoot{}{\thepage}{}
-        \fi
-        \headrule
-    }
-    \newpagestyle{main}[\zihao{5}]{
-        \sethead{}{\CTEXthechapter\quad\chaptertitle}{}
-        \ifustc@page@pageright
-            \setfoot[\thepage][][]{}{}{\thepage}
-        \else
-            \setfoot{}{\thepage}{}
-        \fi
-        \headrule
-    }
+    \newcommand\ustc@header@size{\zihao{5}}
+    \newcommand\ustc@front@header{\chaptertitle}
+    \newcommand\ustc@main@header{\CTEXthechapter\quad\chaptertitle}
 \fi
+\newpagestyle{front}[\ustc@header@size]{
+    \sethead{}{\ustc@front@header}{}
+    \ifustc@page@pageright
+        \setfoot[\thepage][][]{}{}{\thepage}
+    \else
+        \setfoot{}{\thepage}{}
+    \fi
+    \headrule
+}
+\newpagestyle{main}[\ustc@header@size]{
+    \sethead{}{\ustc@main@header}{}
+    \ifustc@page@pageright
+        \setfoot[\thepage][][]{}{}{\thepage}
+    \else
+        \setfoot{}{\thepage}{}
+    \fi
+    \headrule
+}
+
 %    \end{macrocode}
 % 重新定义 \cs{frontmatter}, \cs{mainmatter}, \cs{backmatter}，
 % 使得在恰当位置应用正确的页面风格。
@@ -612,22 +601,26 @@
 \DeclareCaptionLabelSeparator{zhspace}{\hspace{\ccwd}}
 \captionsetup{
     format = hang,
-    labelsep = zhspace}
+    labelsep = zhspace,
+}
 \ifustc@opt@bachelor
-    \captionsetup{font = {normalsize}}
+    \captionsetup{font = normalsize}
 \else
     \captionsetup{
-        font = {small}}
-        lebelfont += {sf,bf}
+        font = small,
+        labelfont+={sf,bf},
+    }
 \fi
 \captionsetup[figure]{
     position = bottom,
     aboveskip = 6bp,
-    belowskip = 12bp}
+    belowskip = 12bp,
+}
 \captionsetup[table]{
     position = top,
     aboveskip = 6bp,
-    belowskip = 6bp}
+    belowskip = 6bp,
+}
 %    \end{macrocode}
 % \begin{macro}{\note}
 % 新定义了 \cs{note} 来生成图标的附注。
