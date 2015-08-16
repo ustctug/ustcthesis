@@ -312,22 +312,45 @@
 % \cs{ifustc@page@pageright} 控制是否将页码置于外侧。
 %    \begin{macrocode}
 \RequirePackage{titleps}
-\newpagestyle{front}[\zihao{5}]{
-    \sethead{}{\chaptertitle}{}
-    \ifustc@page@pageright
-        \setfoot[\thepage][][]{}{}{\thepage}
-    \else
-        \setfoot{}{\thepage}{}
-    \fi
-    \headrule}
-\newpagestyle{main}[\zihao{5}]{
-    \sethead{}{\CTEXthechapter\quad\chaptertitle}{}
-    \ifustc@page@pageright
-        \setfoot[\thepage][][]{}{}{\thepage}
-    \else
-        \setfoot{}{\thepage}{}
-    \fi
-    \headrule}
+\ifustc@opt@bachelor
+    \newpagestyle{front}[\zihao{-5}]{
+        \sethead{}{中国科学技术大学本科毕业论文}{}
+        \ifustc@page@pageright
+            \setfoot[\thepage][][]{}{}{\thepage}
+        \else
+            \setfoot{}{\thepage}{}
+        \fi
+        \headrule
+    }
+    \newpagestyle{main}[\zihao{-5}]{
+        \sethead{}{中国科学技术大学本科毕业论文}{}
+        \ifustc@page@pageright
+            \setfoot[\thepage][][]{}{}{\thepage}
+        \else
+            \setfoot{}{\thepage}{}
+        \fi
+        \headrule
+    }
+\else
+    \newpagestyle{front}[\zihao{5}]{
+        \sethead{}{\chaptertitle}{}
+        \ifustc@page@pageright
+            \setfoot[\thepage][][]{}{}{\thepage}
+        \else
+            \setfoot{}{\thepage}{}
+        \fi
+        \headrule
+    }
+    \newpagestyle{main}[\zihao{5}]{
+        \sethead{}{\CTEXthechapter\quad\chaptertitle}{}
+        \ifustc@page@pageright
+            \setfoot[\thepage][][]{}{}{\thepage}
+        \else
+            \setfoot{}{\thepage}{}
+        \fi
+        \headrule
+    }
+\fi
 %    \end{macrocode}
 % 重新定义 \cs{frontmatter}, \cs{mainmatter}, \cs{backmatter}，
 % 使得在恰当位置应用正确的页面风格。
@@ -448,15 +471,24 @@
 % \begin{environment}{cnabstract}
 % 中文摘要环境
 %    \begin{macrocode}
-\newenvironment{cnabstract}{\chapter[摘要]{摘\hspace{\ccwd}要}}{\cleardoublepage}
+\newenvironment{cnabstract}{%
+    \ifustc@opt@bachelor
+        \ctexset{chapter/format += \zihao{-2}}
+    \fi
+    \chapter[摘要]{摘\hspace{\ccwd}要}}
+    {\cleardoublepage}
 %    \end{macrocode}
 % \end{environment}
 % \begin{environment}{enabstract}
 % 英文摘要环境
 %    \begin{macrocode}
 \newenvironment{enabstract}{%
-    \ctexset { chapter/format += \sffamily\bfseries\setfontsize{16bp} }
-    \chapter[Abstract]{ABSTRACT}}
+    \ifustc@opt@bachelor
+        \ctexset{chapter/format += \zihao{-2}}
+        \chapter{Abstract}
+    \else
+        \chapter[Abstract]{ABSTRACT}
+    \fi}
     {\cleardoublepage}
 %    \end{macrocode}
 % \end{environment}
@@ -475,18 +507,30 @@
 % \cs{tableofcontents}
 %    \begin{macrocode}
 \RequirePackage{tocbibind}
-\renewcommand{\tableofcontents}{\tocfile{目录}{toc}}
+\renewcommand{\tableofcontents}{%
+    \ifustc@opt@bachelor
+        \ctexset{chapter/format += \zihao{-2}}
+    \fi
+    \tocfile{目录}{toc}}
 %    \end{macrocode}
 % \end{macro}
 % 下面用 \pkg{titletoc} 宏包设置每级目录的格式
 %    \begin{macrocode}
 \RequirePackage{titletoc}
 \newcommand\ustc@leaders{\titlerule*[0.5pc]{$\cdot$}}
-\titlecontents{chapter}
-    [0bp]
-    {\vspace{6bp}\zihao{4}}
-    {\thecontentslabel\hspace*{0.5em}}
-    {}{\ustc@leaders\contentspage}
+% \ifustc@opt@bachelor
+    % \titlecontents{chapter}
+        % [0bp]
+        % {\vspace{18bp}\zihao{4}}
+        % {\thecontentslabel\hspace*{0.5em}}
+        % {}{\ustc@leaders\contentspage}
+% \else
+    \titlecontents{chapter}
+        [0bp]
+        {\vspace{6bp}\zihao{4}}
+        {\thecontentslabel\hspace*{0.5em}}
+        {}{\ustc@leaders\contentspage}
+% \fi
 \titlecontents{section}
     [\ccwd]
     {\vspace{6bp}\zihao{-4}}
@@ -519,7 +563,7 @@
 %    \begin{macrocode}
 \ctexset{
     chapter = {
-        format += \bfseries\setfontsize{16bp},
+        format += \sffamily\bfseries\setfontsize{16bp},
         nameformat = {},
         titleformat = {},
         number = \arabic{chapter},
@@ -527,21 +571,25 @@
         afterskip = 18bp,
     },
     section = {
-        format += \raggedright\bfseries\setfontsize{14bp},
+        format += \raggedright\sffamily\bfseries\setfontsize{14bp},
         beforeskip = 24bp,
         afterskip = 6bp,
     },
     subsection = {
-        format+= \raggedright\bfseries\setfontsize{13bp},
+        format+= \raggedright\sffamily\bfseries\setfontsize{13bp},
         beforeskip = 12bp,
         afterskip = 6bp,
     },
     subsubsection = {
-        format+= \raggedright\bfseries\setfontsize{12bp},
+        format+= \raggedright\sffamily\bfseries\setfontsize{12bp},
         beforeskip = 12bp,
         afterskip = 6bp,
     }
 }
+\ifustc@opt@bachelor
+    \ctexset{section/format += \centering\zihao{-3}}
+    \ctexset{subsection/format += \zihao{4}}
+\fi
 %    \end{macrocode}
 % 正文章节编号到 3 级 section 标题
 %    \begin{macrocode}
@@ -549,7 +597,11 @@
 %    \end{macrocode}
 % 正文段落文字格式设置
 %    \begin{macrocode}
-\renewcommand\normalsize{\setfontsize{12bp}[20bp]}
+\ifustc@opt@bachelor
+    \renewcommand\normalsize{\setfontsize{12bp}[22bp]}
+\else
+    \renewcommand\normalsize{\setfontsize{12bp}[20bp]}
+\fi
 \setlength{\parskip}{0bp}
 %    \end{macrocode}
 %
@@ -560,9 +612,14 @@
 \DeclareCaptionLabelSeparator{zhspace}{\hspace{\ccwd}}
 \captionsetup{
     format = hang,
-    labelfont = {bf, small},
-    labelsep = zhspace,
-    textfont = small}
+    labelsep = zhspace}
+\ifustc@opt@bachelor
+    \captionsetup{font = {normalsize}}
+\else
+    \captionsetup{
+        font = {small}}
+        lebelfont += {sf,bf}
+\fi
 \captionsetup[figure]{
     position = bottom,
     aboveskip = 6bp,
@@ -649,7 +706,11 @@
 % \begin{environment}{acknowledgements}
 % 定义了一个满足要求的致谢环境：
 %    \begin{macrocode}
-\newenvironment{acknowledgements}{\chapter[致谢]{致\hspace{\ccwd}谢}}{}
+\newenvironment{acknowledgements}{%
+    \ifustc@opt@bachelor
+        \ctexset{chapter/format += \zihao{-2}}
+    \fi
+    \chapter[致谢]{致\hspace{\ccwd}谢}}{}
 %    \end{macrocode}
 % \end{environment}
 % \begin{environment}{publications}
