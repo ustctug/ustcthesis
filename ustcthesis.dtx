@@ -26,36 +26,39 @@
 %
 %<*driver>
 \documentclass[a4paper]{ltxdoc}
+\usepackage{hypdoc}
+\hypersetup{allcolors=blue}
 \EnableCrossrefs
 \CodelineIndex
 \RecordChanges
-
-\usepackage{hyperref}
-\hypersetup{
-    CJKbookmarks=true,
-    bookmarksnumbered=true,
-    bookmarksopen=true,
-    colorlinks=true,
-    linkcolor=blue,
-    citecolor=blue}
+\renewcommand\glossaryname{版本历史}
+\GlossaryPrologue{\section*{\glossaryname}}
+\renewcommand\indexname{代码索引}
+\IndexPrologue{%
+    \section*{\indexname}
+    \textit{意大利体的数字表示描述对应索引项的页码；
+    带下划线的数字表示定义对应索引项的代码行号；
+    罗马字体的数字表示使用对应索引项的代码行号。}}
 \usepackage[UTF8, heading, sub3section]{ctex}
 \ctexset{
-  abstractname   = 简介,
-  indexname      = 代码索引,
-  section        = {
-    format = \Large\bfseries\raggedright,
-    name   = {第,节},
-  },
+    section      = {
+        format = \Large\bfseries\raggedright,
+        name   = {第,节},
+    },
 }
 \usepackage{tabularx}
 \usepackage{booktabs}
-
+% 模仿 l3doc 的定义
+\DeclareRobustCommand\file{\nolinkurl}
+\DeclareRobustCommand\env{\texttt}
+\DeclareRobustCommand\pkg{\textsf}
+\DeclareRobustCommand\cls{\textsf}
 
 \begin{document}
     \DocInput{ustcthesis.dtx}
+    \PrintChanges
+    \PrintIndex
 \end{document}
-\usepackage{metalogo}
-\usepackage{doc}
 %</driver>
 % \fi
 %
@@ -83,7 +86,7 @@
 %
 % \DoNotIndex{\newcommand,\newenvironment}
 %
-% \title{\textsf{ustcthesis}使用说明}
+% \title{\cls{ustcthesis} 使用说明}
 % \author{seisman\thanks{seisman.info@gmail.com} \and
 %         Zeping Lee\thanks{zepinglee@gmail.com}}
 %
@@ -91,56 +94,56 @@
 %
 % \section{简介}
 %
-% \textsf{ustcthesis}是用来排版中国科学技术大学本科和研究生毕业论文的\LaTeX{}模板，
+% \cls{ustcthesis} 是用于排版中国科学技术大学本科和研究生学位论文的 \LaTeX{} 模板，
 % 按照《中国科学技术大学研究生学位论文撰写规范》
-% \footnote{http://gradschool.ustc.edu.cn/ylb/material/xw/wdxz/1.doc}
+% \footnote{\url{{http://gradschool.ustc.edu.cn/ylb/material/xw/wdxz/1.doc}}}
 % 和《关于本科毕业论文（设计）格式和统一封面的通知》
-% \footnote{http://www.teach.ustc.edu.cn/document/doc-administration/4032.html}
+% \footnote{\url{http://www.teach.ustc.edu.cn/document/doc-administration/4032.html}}
 % 的要求编写。
 %
-% 其前身是中国科学技术大学本科论文模板（作者XPS，最后维护ywg）和中国科学技术大学研究生论文
-% 模板（作者Liuqs，主要维护Liuqs、Guolicai）。
-% 后来两模板进行了整合梳理，由ywg维护。
-% 2015年，seisman和zepinglee基于\textsf{ctex} 2.0重新编写了模板。
+% 其前身是中国科学技术大学本科论文模板（作者 XPS，最后维护 ywg）和中国科学技术大学研究生论文
+% 模板（作者 Liuqs，主要维护 Liuqs、Guolicai）。
+% 后来两模板进行了整合梳理，由 ywg 维护。
+% 2015 年，seisman 和 zepinglee 基于 \pkg{ctex} 2.0 重新编写了模板。
 %
 % \section{使用说明}
 %
 % \subsection{文件组成}
-% 本模板的主要文件如表\ref{tab:file}：
+% 本模板的主要文件如表 \ref{tab:file}：
 %
 % \begin{table}[htbp]
 % \centering
-% \begin{tabularx}{\linewidth}{llX}
-%   \toprule
-%   类别     & 文件                    & 说明 \\
-%   \midrule
-%   模板文件 & \texttt{ustcthesis.dtx} & 主要目的模板文件，可生成
-%                            \texttt{ustcthesis.cls}和\texttt{ustcthesis.pdf} \\
-%           & \texttt{ustcthesis.bst} & 参考文献列表的格式文件 \\
-%   \midrule
-%   生成文件 & \texttt{ustcthesis.pdf} & （你正在阅读的）模板使用说明 \\
-%           & \texttt{ustcthesis.pdf} & 文档类文件 \\
-%   \midrule
-%   示例文件 & \texttt{main.tex}       & 主文档 \\
-%           & \texttt{chapters/*.tex} & 示例文档的各个章节 \\
-%           & \texttt{figures/}       & 放置图片的目录 \\
-%           & \texttt{bib/tex.bib}    & 参考文献示例数据库 \\
-%   \midrule
-%   其他    & \texttt{Makefile}       & 用于GNU make \\
-%   \bottomrule
-% \end{tabularx}
-% \caption{\textsf{ustcthesis}的文件组成}
+% \caption{\cls{ustcthesis} 的文件组成}
 % \label{tab:file}
+% \begin{tabularx}{\linewidth}{llX}
+%     \toprule
+%     类别     & 文件                    & 说明 \\
+%     \midrule
+%     模板文件 & \file{ustcthesis.dtx} & 主要目的模板文件，可生成 \file{ustcthesis%
+%                                       .cls} 和 \file{ustcthesis.pdf} \\
+%              & \file{ustcthesis.bst} & 参考文献列表的格式文件 \\
+%     \midrule
+%     生成文件 & \file{ustcthesis.pdf} & （你正在阅读的）模板使用说明 \\
+%              & \file{ustcthesis.cls} & 文档类文件 \\
+%     \midrule
+%     示例文件 & \file{main.tex}       & 主文档 \\
+%              & \file{chapters/*.tex} & 示例文档的各个章节 \\
+%              & \file{figures/}       & 放置图片的目录 \\
+%              & \file{bib/tex.bib}    & 参考文献示例数据库 \\
+%     \midrule
+%     其他     & \file{Makefile}       & 用于 GNU make \\
+%     \bottomrule
+% \end{tabularx}
 % \end{table}
 %
 % \section{排版注意事项}
 % \begin{itemize}
-%   \item 英文逗号、句号、问号和叹号后面要加空格。
+%     \item 英文逗号、句号、问号和叹号后面要加空格。
+%     \item 中、西文字符之间要加空格。
 % \end{itemize}
 %
-% \StopEventually{\PrintIndex}
+% \StopEventually{}
 %
-% \linespread{1.2}\selectfont
 % \section{代码实现}
 % \subsection{声明选项}
 %    \begin{macrocode}
@@ -152,7 +155,7 @@
 \DeclareBoolOption[false]{pdf}
 \DeclareComplementaryOption{print}{pdf}
 %    \end{macrocode}
-% |ustc@page|这一family用来设置分页方式
+% |ustc@page| 这一 family 用来设置分页方式
 %    \begin{macrocode}
 \SetupKeyvalOptions{family=ustc@page, prefix=ustc@page@, setkeys=\kvsetkeys}
 \DeclareBoolOption[false]{oneside}
@@ -163,7 +166,8 @@
 \DeclareComplementaryOption{pagecenter}{pageright}
 \DeclareDefaultOption{\PassOptionsToClass{\CurrentOption}{ctexbook}}
 %    \end{macrocode}
-% 先处理ustc@opt这一family，然后设置本科和pdf的默认分页方式为oneside, pageright
+% 先处理 |ustc@opt| 这一 family，然后设置本科和 |pdf| 的默认分页方式为 |oneside|,
+% |pageright|
 %    \begin{macrocode}
 \ProcessKeyvalOptions{ustc@opt}
 \ifustc@opt@bachelor
@@ -185,19 +189,19 @@
     \PassOptionsToClass{openany}{ctexbook}
 \fi
 %    \end{macrocode}
-% 默认情况下\textsf{fontspec}会将|\mathrm{}|的字体更改为Times New Roman，
-% 而|\mathnormal|依然为Computer Modern，比Times New Roman要细，
-% 所以设置\textsf{fontspec}不处理数学字体
+% 默认情况下 \pkg{fontspec} 会将 \cs{mathrm} 的字体更改为 Times New Roman，
+% 而 \cs{mathnormal} 依然为 Computer Modern，比 Times New Roman 要细，
+% 所以设置 \pkg{fontspec} 不处理数学字体
 %    \begin{macrocode}
 \PassOptionsToPackage{no-math}{fontspec}
 %    \end{macrocode}
-% 载入\textsf{ctexbook}文档类，注意要求为ctex 2.0以及更高的版本。
+% 载入 \cls{ctexbook} 文档类，注意要求 \pkg{ctex} 为 2.0 以及更高的版本。
 %    \begin{macrocode}
 \LoadClass[a4paper, UTF8, zihao=-4]{ctexbook}[2015/06/19]
 %    \end{macrocode}
 %
 % \subsection{设置西文字体}
-% 设置西文字体，中文字体已经由ctex自动设置，
+% 设置西文字体，中文字体已经由 \pkg{ctex} 自动设置，
 %    \begin{macrocode}
 \setmainfont{Times New Roman}
 \setsansfont{Arial}
@@ -213,7 +217,7 @@
     bookmarksopen=true,
     pdfborder=0 0 0}
 %    \end{macrocode}
-% 如果为pdf样式，设置hyperlink颜色
+% 如果为 |pdf| 样式，设置 hyperlink 颜色
 %    \begin{macrocode}
 \ifustc@opt@pdf
     \hypersetup{
@@ -222,7 +226,7 @@
         citecolor=blue}
 \fi
 %    \end{macrocode}
-% 设置pdf的信息
+% 设置 pdf 的信息
 %    \begin{macrocode}
 \AtBeginDocument{
     \hypersetup{
@@ -245,7 +249,7 @@
 %    \end{macrocode}
 % \end{macro}
 % \begin{macro}{\zhspace}
-% 生成整数倍汉字宽度的空格
+% 生成整数倍汉字宽度的空格，默认为 1
 %    \begin{macrocode}
 \newcommand\zhspace[1][1]{\hspace{#1\ccwd}}
 %    \end{macrocode}
@@ -253,8 +257,8 @@
 % \begin{macro}{\ustc@underline}
 % 生成空的下划线
 %    \begin{macrocode}
-\newcommand\ustc@underline[2][6em]{
-    \hskip1pt\underline{\hb@xt@ #1{\hss#2\hss}}\hskip3pt
+\newcommand\ustc@underline[2][6em]{%
+    \hskip1pt\underline{\hb@xt@ #1{\hss#2\hss}}\hskip3pt\relax
 }
 %    \end{macrocode}
 % \end{macro}
@@ -294,7 +298,7 @@
 %    \end{macrocode}
 %
 % \subsection{页面设置}
-% 首先用\textsf{geometry}宏包设置纸张和页面。
+% 首先用 \pkg{geometry} 宏包设置纸张和页面。
 %    \begin{macrocode}
 \RequirePackage{geometry}
 \geometry{
@@ -304,8 +308,8 @@
     headsep=0.74cm, headheight=0cm,
     footskip=0.79cm}
 %    \end{macrocode}
-% 再用\textsf{titleps}宏包设置页眉页码，定义了front, main两个页面风格分别用于前言和正文。
-% |\ifustc@page@pageright|控制是否将页码置于外侧。
+% 再用 \pkg{titleps} 宏包设置页眉页码，定义了 front, main 两个页面风格分别用于前言和正文。
+% \cs{ifustc@page@pageright} 控制是否将页码置于外侧。
 %    \begin{macrocode}
 \RequirePackage{titleps}
 \newpagestyle{front}[\zihao{5}]{
@@ -325,10 +329,10 @@
     \fi
     \headrule}
 %    \end{macrocode}
-% 重新定义|\frontmatter|, |\mainmatter|, |\backmatter|，
+% 重新定义 \cs{frontmatter}, \cs{mainmatter}, \cs{backmatter}，
 % 使得在恰当位置应用正确的页面风格。
 %    \begin{macrocode}
-\renewcommand\frontmatter{
+\renewcommand\frontmatter{%
     \cleardoublepage
     \@mainmatterfalse
     \pagenumbering{Roman}
@@ -353,10 +357,10 @@
 %
 % \subsection{扉页}
 % \begin{macro}{\maketitle}
-% 重新定义|\maketitle|，分别调用|\make@cntitle|, |\make@entitle|生成中、英文扉页。
+% 重新定义 \cs{maketitle}，调用 \cs{make@cntitle}, \cs{make@entitle} 分别生成中、英文扉页。
 %    \begin{macrocode}
 \input{ustcthesis-statement.def}
-\renewcommand\maketitle{
+\renewcommand\maketitle{%
     \newgeometry{
         top=3.8cm, bottom=3.8cm,
         left=3.2cm, right=3.2cm,
@@ -374,12 +378,13 @@
 % \end{macro}
 %
 % \begin{macro}{\make@cntitle}
-% 扉页为了排版``距离顶边xx厘米''，使用了tabular嵌套parbox的方法。
-% 如果使用|\vpace{}|会产生额外空隙；如果叠parbox也不行。
-% 注意这里没有严格按照《规范》的格式范例的尺寸，其中``学位论文''向上调整了0.7cm，
-% 论文标题和作者姓名部分分别在parbox内部进行了垂直居中处理。另外两个eps图片为手工测量所得。
+% 扉页为了排版“距离顶边 xx 厘米”，使用了 \env{tabular} 嵌套 \env{parbox}的方法。
+% 如果使用 \cs{vpace} 会产生额外空隙；如果叠 \env{parbox}也不行。
+% 注意这里没有严格按照《规范》的格式范例的尺寸，其中“学位论文”向上调整了 0.7 cm，
+% 论文标题和作者姓名部分分别在 \env{parbox} 内部进行了垂直居中处理。
+% 另外两个 eps 图片为手工测量所得。
 %    \begin{macrocode}
-\newcommand\make@cntitle{
+\newcommand\make@cntitle{%
     \begin{titlepage}
     \begin{center}
     \renewcommand{\arraystretch}{0}
@@ -410,7 +415,7 @@
 % \begin{macro}{\make@entitle}
 % 由于《规范》对宽度的限制，英文扉页 Supervisor 一栏放不下两个英文名称
 %    \begin{macrocode}
-\newcommand\make@entitle{
+\newcommand\make@entitle{%
     \begin{titlepage}
     \begin{center}
     \renewcommand{\arraystretch}{0}
@@ -449,13 +454,13 @@
 % \begin{environment}{enabstract}
 % 英文摘要环境
 %    \begin{macrocode}
-\newenvironment{enabstract}{
+\newenvironment{enabstract}{%
     \ctexset { chapter/format += \sffamily\bfseries\setfontsize{16bp} }
     \chapter[Abstract]{ABSTRACT}}
     {\cleardoublepage}
 %    \end{macrocode}
 % \end{environment}
-% 两个生成关键字的命令，其中|\phantom{}|是为了空一行，
+% 两个生成关键字的命令，其中 \cs{phantom{}} 是为了空一行，
 %    \begin{macrocode}
 \newcommand\keywords[1]{\par\phantom{关键词}\par\noindent\hangindent=4\ccwd\relax
     \textbf{关键词：}#1}
@@ -465,17 +470,18 @@
 %
 % \subsection{目录}
 % \begin{macro}{\tableofcontents}
-% 调用\textsf{tocbibind}宏包将目录、参考文献加入目录中。
-% 为了让目录中的“目录”二字中间没有空格，用\textsf{tocbibind}的方法重新定义|\tableofcontents|
+% 调用 \pkg{tocbibind} 宏包将目录、参考文献加入目录中。
+% 为了让目录中的“目录”二字中间没有空格，用 \pkg{tocbibind} 的方法重新定义
+% \cs{tableofcontents}
 %    \begin{macrocode}
 \RequirePackage{tocbibind}
 \renewcommand{\tableofcontents}{\tocfile{目录}{toc}}
 %    \end{macrocode}
 % \end{macro}
-% 下面用\textsf{titletoc}宏包设置每级目录的格式
+% 下面用 \pkg{titletoc} 宏包设置每级目录的格式
 %    \begin{macrocode}
 \RequirePackage{titletoc}
-\newcommand\ustc@leaders{\titlerule*[0.5pc]{$\cdot$}} % 指引线
+\newcommand\ustc@leaders{\titlerule*[0.5pc]{$\cdot$}}
 \titlecontents{chapter}
     [0bp]
     {\vspace{6bp}\zihao{4}}
@@ -507,9 +513,9 @@
 %    \end{macrocode}
 %
 % \subsection{正文}
-% 用\textsf{ctex}的接口设置全局的章节标题格式，注意由于\textsf{ctex} 2.1以下版本的bug，
-% chapter的nameformat和titleformat的这两行必须置空。
-% 另外摘要、参考文献等章节也是用|\chapter{}|在底层实现的
+% 用 \pkg{ctex} 的接口设置全局的章节标题格式，注意由于 \pkg{ctex} 2.1 以下版本的 bug，
+% chapter 的 nameformat 和 titleformat 的这两行必须置空。
+% 另外摘要、参考文献等章节在底层也是用 \cs{chapter} 实现的
 %    \begin{macrocode}
 \ctexset{
     chapter = {
@@ -537,19 +543,18 @@
     }
 }
 %    \end{macrocode}
-% 正文章节编号到3级section标题
+% 正文章节编号到 3 级 section 标题
 %    \begin{macrocode}
 \setcounter{secnumdepth}{3}
 %    \end{macrocode}
 % 正文段落文字格式设置
 %    \begin{macrocode}
-\setfontsize{12bp}[20bp]
 \renewcommand\normalsize{\setfontsize{12bp}[20bp]}
 \setlength{\parskip}{0bp}
 %    \end{macrocode}
 %
 % \subsection{图、表}
-% 用\textsf{caption}宏包设置图、表的格式
+% 用 \pkg{caption} 宏包设置图、表的格式
 %    \begin{macrocode}
 \RequirePackage{caption}
 \DeclareCaptionLabelSeparator{zhspace}{\hspace{\ccwd}}
@@ -568,19 +573,19 @@
     belowskip = 6bp}
 %    \end{macrocode}
 % \begin{macro}{\note}
-% 新定义了|\note{}|来生成图标的附注。
-% 如果用|\caption{}|生成图标的附注会导致图标的序号有误；
-% 如果用|\bicaption{}|会导致表注无法置于表后，而且对齐方式不对。
+% 新定义了 \cs{note} 来生成图标的附注。
+% 如果用 \cs{caption} 生成图标的附注会导致图标的序号有误；
+% 如果用 \cs{bicaption} 会导致表注无法置于表后，而且对齐方式不对。
 %    \begin{macrocode}
-\newcommand\note[1]{
+\newcommand\note[1]{%
     \captionsetup{position = bottom}
     \caption*{\hangindent=2\ccwd\relax\textbf{注}：#1}}
 %    \end{macrocode}
 % \end{macro}
 %
 % \subsection{数学公式}
-% \LaTeX{}默认10pt时有|\DeclareMathSizes{\@xpt}{\@xpt}{7}{5}|，
-% 这里按照相同的比例设置 10.5bp。
+% \LaTeX{} 在使用 |10pt| 选项时有 \cs{DeclareMathSizes{\@xpt}{\@xpt}{7}{5}}，
+% 这里按照相同的比例设置 10.5 bp。
 %    \begin{macrocode}
 \DeclareMathSizes{10.5bp}{10.5bp}{7.35bp}{5.25bp}
 %    \end{macrocode}
@@ -589,7 +594,7 @@
 % \begin{environment}{notation}
 % 这里只定义了一个满足要求的环境，具体内容由用户自定义
 %    \begin{macrocode}
-\newenvironment{notation}{
+\newenvironment{notation}{%
     \ctexset{chapter/format += \rmfamily\setfontsize{12bp}}
     \chapter{符号说明}
     \setfontsize{10.5bp}[16bp]
@@ -598,9 +603,9 @@
 % \end{environment}
 %
 % \subsection{参考文献}
-% 目前\BibTeX 使用的.bst格式是南京大学胡海星编写的
-% \footnote{https://github.com/Haixing-Hu/GBT7714-2005-BibTeX-Style}，
-% 不支持author-year式的文献标注和列表，故采用GB/T 7714-2005规定的numeric风格。
+% 目前 \BibTeX{} 使用的 .bst 格式是南京大学胡海星编写的
+% \footnote{\url{https://github.com/Haixing-Hu/GBT7714-2005-BibTeX-Style}}，
+% 不支持 author-year 式的文献标注和列表，故采用《GB/T 7714-2005》规定的 numeric 风格。
 %    \begin{macrocode}
 \usepackage[super,sort&compress]{natbib}
 \setcitestyle{square}
@@ -610,7 +615,7 @@
 \setlength{\bibhang}{1em}
 %    \end{macrocode}
 % \begin{macro}{\bibliography}
-% 由于|\bibliography{}|位于正文中，页眉会默认显示“附录 参考文献”，所以修正页面风格：
+% 由于 \cs{bibliography} 位于正文中，页眉会默认显示“附录 参考文献”，所以修正页面风格：
 %    \begin{macrocode}
 \let\ustc@save@bibliography=\bibliography
 \renewcommand\bibliography[1]{%
@@ -627,7 +632,7 @@
 %
 % \subsection{附录}
 % \begin{macro}{\appendix}
-% 由于|\bibilography{}|处更改了页面风格，必须将附录的再更改为main。
+% 由于 \cs{bibilography} 处更改了页面风格，必须将附录的再更改为 |main|。
 %    \begin{macrocode}
 \let\ustc@save@appendix=\appendix
 \renewcommand\appendix{%
@@ -647,7 +652,7 @@
 \newenvironment{acknowledgements}{\chapter[致谢]{致\hspace{\ccwd}谢}}{}
 %    \end{macrocode}
 % \end{environment}
-% \begin{environment}{acknowledgements}
+% \begin{environment}{publications}
 % 发表成果环境：
 %    \begin{macrocode}
 \newenvironment{publications}{\chapter{在读期间发表的学术论文与取得的研究成果}}{}
@@ -671,7 +676,7 @@
 %
 % \newcommand\entext[1]{\raisebox{-0.75ex}{~#1{}~}}
 %
-% \newcommand\make@spine{
+% \newcommand\make@spine{%
 %     \begin{titlepage}
 %     \begin{center}
 %         书脊(此页仅用于制作书脊,不用单独打印放入论文)\par
