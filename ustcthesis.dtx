@@ -459,31 +459,39 @@
 % 为了让目录中的“目录”二字中间没有空格，重新定义 \cs{tableofcontents}
 %    \begin{macrocode}
 \renewcommand\tableofcontents{\begingroup
-    \ifustc@opt@bachelor
-        \ctexset{chapter/format += \zihao{-2}}
-    \fi
-    \chapter[目录]{\contentsname}
-    \@starttoc{toc}
-    \endgroup}
+    \ifustc@opt@bachelor\ctexset{chapter/format += \zihao{-2}}\fi
+    \chapter[目录]{\contentsname}%
+    \@starttoc{toc}%
+\endgroup}
+\renewcommand\listoffigures{\begingroup
+    \ifustc@opt@bachelor\ctexset{chapter/format += \zihao{-2}}\fi
+    \chapter{\listfigurename}%
+    \@starttoc{lof}%
+\endgroup}
+\renewcommand\listoftables{\begingroup
+    \ifustc@opt@bachelor\ctexset{chapter/format += \zihao{-2}}\fi
+    \chapter{\listtablename}%
+    \@starttoc{lot}%
+\endgroup}
 %    \end{macrocode}
 % \end{macro}
 % 下面用 \pkg{titletoc} 宏包设置每级目录的格式
 %    \begin{macrocode}
 \RequirePackage{titletoc}
 \newcommand\ustc@leaders{\titlerule*[0.5pc]{$\cdot$}}
-% \ifustc@opt@bachelor
-    % \titlecontents{chapter}
-        % [0bp]
-        % {\vspace{18bp}\zihao{4}}
-        % {\thecontentslabel\hspace*{0.5em}}
-        % {}{\ustc@leaders\contentspage}
-% \else
+\ifustc@opt@bachelor
+    \titlecontents{chapter}
+        [0bp]
+        {\vspace{18bp}\zihao{4}}
+        {\thecontentslabel\hspace*{0.5em}}
+        {}{\ustc@leaders\contentspage}
+\else
     \titlecontents{chapter}
         [0bp]
         {\vspace{6bp}\zihao{4}}
         {\thecontentslabel\hspace*{0.5em}}
         {}{\ustc@leaders\contentspage}
-% \fi
+\fi
 \titlecontents{section}
     [\ccwd]
     {\vspace{6bp}\zihao{-4}}
