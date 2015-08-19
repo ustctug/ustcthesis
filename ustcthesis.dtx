@@ -308,7 +308,7 @@
     headsep=0.74cm, headheight=0cm,
     footskip=0.79cm}
 %    \end{macrocode}
-% 再用 \pkg{titleps} 宏包设置页眉页码，定义了 front, main 两个页面风格分别用于前言和正文。
+% 再用 \pkg{titleps} 宏包设置页眉页码，\cs{if@mainmatter} 控制前言或是正文的页眉，
 % \cs{ifustc@page@pageright} 控制是否将页码置于外侧。
 %    \begin{macrocode}
 \RequirePackage[pagestyles]{titlesec}
@@ -330,7 +330,6 @@
     \fi
     \headrule
 }
-\pagestyle{main}
 %    \end{macrocode}
 %
 % \subsection{扉页}
@@ -638,36 +637,34 @@
 % 这里重载了 \pkg{natbib} 的 \env{thebibliography}
 %    \begin{macrocode}
 \renewenvironment{thebibliography}[1]{%
- \if@openright\cleardoublepage\else\clearpage\fi
- \@mainmatterfalse
- \ifustc@opt@bachelor
-     \ctexset{chapter/format += \zihao{-2}}
- \fi
- \chapter{\bibname}
- \parindent\z@
- \bibpreamble
- \bibfont
- \list{\@biblabel{\the\c@NAT@ctr}}{\@bibsetup{#1}\global\c@NAT@ctr\z@}%
- \ifNAT@openbib
-   \renewcommand\newblock{\par}%
- \else
-   \renewcommand\newblock{\hskip .11em \@plus.33em \@minus.07em}%
- \fi
- \sloppy\clubpenalty4000\widowpenalty4000
- \sfcode`\.\@m
- \let\NAT@bibitem@first@sw\@firstoftwo
-    \let\citeN\cite \let\shortcite\cite
-    \let\citeasnoun\cite
+    \if@openright\cleardoublepage\else\clearpage\fi
+    \@mainmatterfalse
+    \ifustc@opt@bachelor\ctexset{chapter/format += \zihao{-2}}\fi
+    \chapter{\bibname}%
+    \parindent\z@
+    \bibpreamble
+    \bibfont
+    \list{\@biblabel{\the\c@NAT@ctr}}{\@bibsetup{#1}\global\c@NAT@ctr\z@}%
+    \ifNAT@openbib
+        \renewcommand\newblock{\par}%
+    \else
+        \renewcommand\newblock{\hskip .11em \@plus.33em \@minus.07em}%
+    \fi
+    \sloppy\clubpenalty4000\widowpenalty4000
+    \sfcode`\.\@m
+    \let\NAT@bibitem@first@sw\@firstoftwo
+        \let\citeN\cite \let\shortcite\cite
+        \let\citeasnoun\cite
 }{%
- \bibitem@fin
- \bibpostamble
- \def\@noitemerr{%
-  \PackageWarning{natbib}{Empty `thebibliography' environment}%
- }%
- \endlist
- \bibcleanup
- \if@openright\cleardoublepage\else\clearpage\fi
- \@mainmattertrue
+    \bibitem@fin
+    \bibpostamble
+    \def\@noitemerr{%
+        \PackageWarning{natbib}{Empty `thebibliography' environment}%
+    }%
+    \endlist
+    \bibcleanup
+    \if@openright\cleardoublepage\else\clearpage\fi
+    \@mainmattertrue
 }%
 %    \end{macrocode}
 % \end{macro}
