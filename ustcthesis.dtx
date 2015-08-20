@@ -177,6 +177,7 @@ LaTeX version 1999/12/01 or later.
 \ProvidesClass{ustcthesis}[2015/06/28 v2.0 Thesis Template for
                            University of Science and Technology of China]
 %    \end{macrocode}
+%
 % \subsection{声明选项}
 %    \begin{macrocode}
 \RequirePackage{kvoptions}
@@ -229,7 +230,19 @@ LaTeX version 1999/12/01 or later.
 %    \end{macrocode}
 % 载入 \cls{ctexbook} 文档类，注意要求 \pkg{ctex} 为 2.0 以及更高的版本。
 %    \begin{macrocode}
-\LoadClass[a4paper, UTF8, zihao=-4]{ctexbook}[2015/06/19]
+\LoadClass[a4paper, UTF8, zihao=-4]{ctexbook}[2015/05/14]
+%    \end{macrocode}
+% 检测 ctexbook 版本，如果版本过低会报错
+%    \begin{macrocode}
+\@ifclasslater{ctexbook}{2015/05/14}{}{%
+    \ClassError{ustcthesis}{%
+        Package ctex version too old!\MessageBreak
+        Please update ctex to the latest version\MessageBreak
+        using your TeX package manager or from CTAN
+    }{%
+        See ustcthesis.pdf for more detailed update guide.
+    }
+}
 %    \end{macrocode}
 %
 % \subsection{设置西文字体}
