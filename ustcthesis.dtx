@@ -12,19 +12,45 @@
 % and version 1.2 or later is part of all distributions of
 % LaTeX version 1999/12/01 or later.
 %
-% \fi
-%
-% \iffalse
+%<*internal>
+\iffalse
+\fi
+\begingroup
+    \def\nameoflatex{LaTeX2e}
+\expandafter\endgroup\ifx\nameoflatex\fmtname\else
+\csname fi\endcsname
+%</internal>
+%<*install>
+\input docstrip.tex
+\preamble
+
+Copyright (C) 2015-\the\year by Zeping Lee <zepinglee@gmail.com>
+
+This file may be distributed and/or modified under the
+conditions of the LaTeX Project Public License, either
+version 1.2 of this license or (at your option) any later
+version. The latest version of this license is in:
+
+    http://www.latex-project.org/lppl.txt
+
+and version 1.2 or later is part of all distributions of
+LaTeX version 1999/12/01 or later.
+
+\endpreamble
+\keepsilent
+\askforoverwritefalse
+\generate{
+    \file{\jobname.cls}{\from{\jobname.dtx}{class}}
+    \file{ustcextra.sty}{\from{\jobname.dtx}{extra}}
+}
+\Msg{* Happy TeXing!}
+\endbatchfile
+%</install>
+%<*internal>
+\fi
+%</internal>
 %<*driver>
-\ProvidesFile{ustcthesis.dtx}
-%</driver>
-%<class>\NeedsTeXFormat{LaTeX2e}[1999/12/01]
-%<class>\ProvidesClass{ustcthesis}
-%<*class>
-    [2015/06/28 v2.0 Thesis Template for University of Science and Technology of China]
-%</class>
-%
-%<*driver>
+\ProvidesFile{ustcthesis.dtx}[2015/08/20]
 \documentclass[a4paper]{ltxdoc}
 \usepackage{hypdoc}
 \hypersetup{allcolors=blue}
@@ -145,6 +171,12 @@
 % \StopEventually{}
 %
 % \section{代码实现}
+%    \begin{macrocode}
+%<*class>
+\NeedsTeXFormat{LaTeX2e}[1999/12/01]
+\ProvidesClass{ustcthesis}[2015/06/28 v2.0 Thesis Template for
+                           University of Science and Technology of China]
+%    \end{macrocode}
 % \subsection{声明选项}
 %    \begin{macrocode}
 \RequirePackage{kvoptions}
@@ -336,7 +368,6 @@
 % \begin{macro}{\maketitle}
 % 重新定义 \cs{maketitle}，调用 \cs{make@cntitle}, \cs{make@entitle} 分别生成中、英文扉页。
 %    \begin{macrocode}
-\input{ustcthesis-statement.def}
 \renewcommand\maketitle{%
     \newgeometry{
         top=3.8cm, bottom=3.8cm,
@@ -420,6 +451,60 @@
     \end{tabular}
     \end{center}
     \end{titlepage}}
+%    \end{macrocode}
+% \end{macro}
+%
+% \subsection{原创性声明}
+% \begin{macro}{\make@statement}
+% 定义原创性声明
+%    \begin{macrocode}
+\newcommand{\ustc@declaretext} {
+本人声明所呈交的学位论文，是本人在导师指导下进行研究工作所取得的成果。
+除已特别加以标注和致谢的地方外，论文中不包含任何他人已经发表或撰写过
+的研究成果。与我一同工作的同志对本研究所做的贡献均已在论文中作了明确的说明。
+}
+\newcommand{\ustc@authorization}{
+作为申请学位的条件之一，学位论文著作权拥有者授权中国科学技术大学拥有
+学位论文的部分使用权，即：学校有权按有关规定向国家有关部门或机构送交
+论文的复印件和电子版，允许论文被查阅和借阅，可以将学位论文编入《中国
+学位论文全文数据库》等有关数据库进行检索，可以采用影印、缩印或扫描等
+复制手段保存、汇编学位论文。本人提交的电子文档的内容和纸质论文的内容
+相一致。
+
+保密的学位论文在解密后也遵守此规定。
+}
+\newcommand\make@statement{
+    \setfontsize{12bp}[20bp]
+    \vspace*{0.5cm}
+    \begin{center}
+    \zihao{3}\textbf{中国科学技术大学学位论文原创性声明}
+    \end{center}
+
+    \par\ustc@declaretext\par
+
+    \vskip 1cm
+    作者签名： \ustc@underline[6em]{} \hspace{5em} 签字日期：\ustc@underline[8em]{}
+    \vskip 3cm
+
+    \begin{center}
+    \zihao{3}\textbf{中国科学技术大学学位论文授权使用声明}
+    \end{center}
+
+    \par\ustc@authorization\par
+    \vskip 0.5cm
+    \raisebox{1.1mm}{\fbox{\rule{0pt}{1.4mm}\rule{1.4mm}{0pt}}}\ 公开
+    \hspace{0.5cm}
+    \raisebox{1.1mm}{\fbox{\rule{0pt}{1.4mm}\rule{1.4mm}{0pt}}}
+    保密（\ustc@underline[2em]{}\hspace{0.1em} 年）
+
+    \vskip 0.5cm
+
+    {\renewcommand{\arraystretch}{2.0}
+    \begin{tabular}{p{6cm}p{6cm}}
+    作者签名：\ustc@underline{} & 导师签名：\ustc@underline{} \\
+    签字日期：\ustc@underline{} & 签字日期：\ustc@underline{} \\
+    \end{tabular}}
+}
 %    \end{macrocode}
 % \end{macro}
 %
@@ -732,9 +817,18 @@
 % }
 %
 % \spinetitle{\entext{USTC}本硕博毕业论文示例文档} % 书脊的英文文字要用 \entext{} 括起来
-
-\endinput
-
+%</class>
+%    \end{macrocode}
+%
+% \subsection{\pkg{ustcextra} 宏集}
+%    \begin{macrocode}
+%<*extra>
+\ProvidesPackage{ustcextra}[2015/08/14 2.0 Extra packages for USTC thesis]
+% 三线表
+\RequirePackage{booktabs}
+% 跨页表格
+\RequirePackage{longtable}
+%</extra>
 %    \end{macrocode}
 %
 % \Finale
