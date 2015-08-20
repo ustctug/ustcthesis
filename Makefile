@@ -2,7 +2,7 @@
 
 MAIN = main
 SRC = $(MAIN).tex $(wildcard chapters/*.tex) $(wildcard bib/*.bib)
-CLS = ustcthesis.cls ustcthesis-statement.def ustcextra.sty
+CLS = ustcthesis.cls ustcextra.sty
 BST = ustcthesis.bst
 AUX = *.aux *.bbl *.blg *.fdb_latexmk *.fls *.glo *.gls *.hd *.idx *.ilg *.ind \
       *.lof *.log *.lot *.out *.toc chapters/*.aux

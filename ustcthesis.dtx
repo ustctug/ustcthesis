@@ -41,7 +41,6 @@ LaTeX version 1999/12/01 or later.
 \askforoverwritefalse
 \generate{
     \file{\jobname.cls}{\from{\jobname.dtx}{class}}
-    \file{\jobname-statement.def}{\from{\jobname.dtx}{def}}
     \file{ustcextra.sty}{\from{\jobname.dtx}{extra}}
 }
 \Msg{* Happy TeXing!}
@@ -369,7 +368,6 @@ LaTeX version 1999/12/01 or later.
 % \begin{macro}{\maketitle}
 % 重新定义 \cs{maketitle}，调用 \cs{make@cntitle}, \cs{make@entitle} 分别生成中、英文扉页。
 %    \begin{macrocode}
-\input{ustcthesis-statement.def}
 \renewcommand\maketitle{%
     \newgeometry{
         top=3.8cm, bottom=3.8cm,
@@ -460,8 +458,6 @@ LaTeX version 1999/12/01 or later.
 % \begin{macro}{\make@statement}
 % 定义原创性声明
 %    \begin{macrocode}
-%</class>
-%<*def>
 \newcommand{\ustc@declaretext} {
 本人声明所呈交的学位论文，是本人在导师指导下进行研究工作所取得的成果。
 除已特别加以标注和致谢的地方外，论文中不包含任何他人已经发表或撰写过
@@ -509,8 +505,6 @@ LaTeX version 1999/12/01 or later.
     签字日期：\ustc@underline{} & 签字日期：\ustc@underline{} \\
     \end{tabular}}
 }
-%</def>
-%<*class>
 %    \end{macrocode}
 % \end{macro}
 %
