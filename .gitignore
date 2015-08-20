@@ -1,3 +1,9 @@
+ustcthesis.cls
+ustcextra.sty
+ustcthesis.pdf
+main.pdf
+*.hd
+
 ## Core latex/pdflatex auxiliary files:
 *.aux
 *.lof
@@ -13,8 +19,7 @@
 # these rules might exclude image files for figures etc.
 # *.ps
 # *.eps
-*.cls
-*.pdf
+# *.pdf
 
 ## Bibliography auxiliary files (bibtex/biblatex/biber):
 *.bbl
@@ -33,6 +38,7 @@
 *.pdfsync
 
 ## Auxiliary and intermediate files from other packages:
+
 
 # algorithms
 *.alg
@@ -94,7 +100,8 @@ acs-*.bib
 # minitoc
 *.maf
 *.mtc
-*.mtc0
+*.mtc[0-9]
+*.mtc[1-9][0-9]
 
 # minted
 _minted*
@@ -102,6 +109,9 @@ _minted*
 
 # morewrites
 *.mw
+
+# mylatexformat
+*.fmt
 
 # nomencl
 *.nlo
@@ -116,6 +126,11 @@ _minted*
 *.sympy
 sympy-plots-for-*.tex/
 
+# TikZ & PGF
+*.dpth
+*.md5
+*.auxlock
+
 # todonotes
 *.tdo
 
@@ -125,9 +140,3 @@ sympy-plots-for-*.tex/
 # WinEdt
 *.bak
 *.sav
-
-# hypdoc package
-*.hd
-
-# Mac Os X
-.DS_Store

@@ -33,7 +33,7 @@ ustcthesis.pdf : ustcthesis.dtx
 	xelatex ustcthesis.dtx
 
 clean :
-	-rm -f $(AUX) $(CLS)
+	-rm -f $(AUX)
 
 cleanall : clean
-	-rm -f $(PDF)
+	-rm -f $(CLS) $(PDF)
