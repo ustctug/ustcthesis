@@ -68,7 +68,7 @@ LaTeX version 1999/12/01 or later.
 \usepackage[UTF8, heading, sub3section]{ctex}
 \ctexset{
     section      = {
-        format = \Large\bfseries\raggedright,
+        format = \Large\sffamily\bfseries\raggedright,
         name   = {第,节},
     },
 }
@@ -324,9 +324,9 @@ LaTeX version 1999/12/01 or later.
 %
 % \subsection{汉化}
 %    \begin{macrocode}
-\ctexset{
-    contentsname = {目\hspace{\ccwd}录},
-}
+\renewcommand\contentsname{目\zhspace 录}
+\renewcommand\listfigurename{插\zhspace 图}
+\renewcommand\listtablename{表\zhspace 格}
 %    \end{macrocode}
 %
 % \subsection{页面设置}
@@ -405,18 +405,18 @@ LaTeX version 1999/12/01 or later.
         \parbox[t][2.7cm][t]{\textwidth}{\centering
             \includegraphics[width=11cm]{figures/ustc_logo_text.eps}} \\
         \parbox[t][3cm][t]{\textwidth}{
-            \centering\bfseries\setfontsize{56bp}
+            \centering\sffamily\setfontsize{56bp}
             \ifustc@opt@doctor 博士学位论文 \fi
             \ifustc@opt@master 硕士学位论文 \fi
             \ifustc@opt@bachelor 学士学位论文 \fi} \\
         \includegraphics[height=4.9cm]{figures/ustc_logo_fig.eps} \\
         \parbox[t][4.7cm][c]{\textwidth}
-            {\centering\bfseries\setfontsize{26bp}\ustc@title} \\
+            {\centering\sffamily\bfseries\setfontsize{26bp}\ustc@title} \\
         \parbox[t][4.2cm][c]{\textwidth}{\setfontsize{16bp}
-            \hspace*{2.8cm}{\bfseries 作者姓名：}\hfill \ustc@author \hfill\mbox{} \\
-            \hspace*{2.8cm}{\bfseries 学科专业：}\hfill \ustc@major \hfill\mbox{} \\
-            \hspace*{2.8cm}{\bfseries 导师姓名：}\hfill \ustc@advisor \hfill\mbox{} \\
-            \hspace*{2.8cm}{\bfseries 完成时间：}\hfill \ustc@submitdate \hfill\mbox{}}
+            \hspace*{2.8cm}{\sffamily 作者姓名：}\hfill \ustc@author \hfill\mbox{} \\
+            \hspace*{2.8cm}{\sffamily 学科专业：}\hfill \ustc@major \hfill\mbox{} \\
+            \hspace*{2.8cm}{\sffamily 导师姓名：}\hfill \ustc@advisor \hfill\mbox{} \\
+            \hspace*{2.8cm}{\sffamily 完成时间：}\hfill \ustc@submitdate \hfill\mbox{}}
     \end{tabular}
     \end{center}
     \end{titlepage}}
@@ -435,14 +435,14 @@ LaTeX version 1999/12/01 or later.
             {\raggedleft\setfontsize{14bp}\ustc@ensecrettext} \\
         \parbox[t][1cm][t]{\textwidth}{\centering\sffamily\setfontsize{20bp}[30bp]
             University of Science and Technology of China} \\
-        \parbox[t][2.2cm][t]{\textwidth}{\centering\bfseries\setfontsize{26bp}[30bp]
+        \parbox[t][2.2cm][t]{\textwidth}{\centering\sffamily\setfontsize{26bp}[30bp]
             \ifustc@opt@doctor A dissertation for doctor's degree \fi
             \ifustc@opt@master A dissertation for master's degree \fi
             \ifustc@opt@bachelor A dissertation for bachelor's degree \fi} \\
         \includegraphics[height=4.9cm]{figures/ustc_logo_fig.eps} \\
         \\[2.9cm]
         \parbox[t][4.7cm][t]{\textwidth}
-            {\centering\bfseries\setfontsize{26bp}[30bp]\ustc@entitle} \\
+            {\centering\sffamily\bfseries\setfontsize{26bp}[30bp]\ustc@entitle} \\
         \parbox[t][4cm][c]{\textwidth}{\setfontsize{16bp}[30bp]
             \hspace*{2.8cm} Author: \hspace{1.6cm}\hfill \ustc@enauthor \hfill\mbox{} \\
             \hspace*{2.8cm} Speciality: \hspace{0.8cm}\hfill \ustc@enmajor \hfill\mbox{} \\
@@ -550,12 +550,12 @@ LaTeX version 1999/12/01 or later.
 \endgroup}
 \renewcommand\listoffigures{\begingroup
     \ifustc@opt@bachelor\ctexset{chapter/format += \zihao{-2}}\fi
-    \chapter{\listfigurename}%
+    \chapter[插图]{\listfigurename}%
     \@starttoc{lof}%
 \endgroup}
 \renewcommand\listoftables{\begingroup
     \ifustc@opt@bachelor\ctexset{chapter/format += \zihao{-2}}\fi
-    \chapter{\listtablename}%
+    \chapter[表格]{\listtablename}%
     \@starttoc{lot}%
 \endgroup}
 %    \end{macrocode}
@@ -610,7 +610,7 @@ LaTeX version 1999/12/01 or later.
 %    \begin{macrocode}
 \ctexset{
     chapter = {
-        format += \sffamily\bfseries\setfontsize{16bp},
+        format = \centering\sffamily\bfseries\setfontsize{16bp},
         nameformat = {},
         titleformat = {},
         number = \arabic{chapter},
@@ -619,17 +619,17 @@ LaTeX version 1999/12/01 or later.
         pagestyle = main,
     },
     section = {
-        format += \raggedright\sffamily\bfseries\setfontsize{14bp},
+        format = \raggedright\sffamily\setfontsize{14bp},
         beforeskip = 24bp,
         afterskip = 6bp,
     },
     subsection = {
-        format+= \raggedright\sffamily\bfseries\setfontsize{13bp},
+        format = \raggedright\sffamily\setfontsize{13bp},
         beforeskip = 12bp,
         afterskip = 6bp,
     },
     subsubsection = {
-        format+= \raggedright\sffamily\bfseries\setfontsize{12bp},
+        format = \raggedright\sffamily\setfontsize{12bp},
         beforeskip = 12bp,
         afterskip = 6bp,
     }
@@ -668,7 +668,7 @@ LaTeX version 1999/12/01 or later.
 \else
     \captionsetup{
         font = small,
-        labelfont+={sf,bf},
+        labelfont+={bf},
     }
 \fi
 \captionsetup[figure]{
