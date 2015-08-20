@@ -308,51 +308,28 @@
     headsep=0.74cm, headheight=0cm,
     footskip=0.79cm}
 %    \end{macrocode}
-% 再用 \pkg{titleps} 宏包设置页眉页码，定义了 front, main 两个页面风格分别用于前言和正文。
+% 再用 \pkg{titleps} 宏包设置页眉页码，\cs{if@mainmatter} 控制前言或是正文的页眉，
 % \cs{ifustc@page@pageright} 控制是否将页码置于外侧。
 %    \begin{macrocode}
-\RequirePackage{titleps}
-\newpagestyle{front}[\zihao{5}]{
-    \sethead{}{\chaptertitle}{}
+\RequirePackage[pagestyles]{titlesec}
+\ifustc@opt@bachelor
+    \newcommand\ustc@header@size{\zihao{-5}}
+    \newcommand\ustc@main@header{中国科学技术大学本科毕业论文}
+\else
+    \newcommand\ustc@header@size{\zihao{5}}
+    \newcommand\ustc@main@header{%
+        \if@mainmatter\CTEXthechapter\quad\fi%
+        \chaptertitle}
+\fi
+\newpagestyle{main}[\ustc@header@size]{
+    \sethead{}{\ustc@main@header}{}
     \ifustc@page@pageright
         \setfoot[\thepage][][]{}{}{\thepage}
     \else
         \setfoot{}{\thepage}{}
     \fi
-    \headrule}
-\newpagestyle{main}[\zihao{5}]{
-    \sethead{}{\CTEXthechapter\quad\chaptertitle}{}
-    \ifustc@page@pageright
-        \setfoot[\thepage][][]{}{}{\thepage}
-    \else
-        \setfoot{}{\thepage}{}
-    \fi
-    \headrule}
-%    \end{macrocode}
-% 重新定义 \cs{frontmatter}, \cs{mainmatter}, \cs{backmatter}，
-% 使得在恰当位置应用正确的页面风格。
-%    \begin{macrocode}
-\renewcommand\frontmatter{%
-    \cleardoublepage
-    \@mainmatterfalse
-    \pagenumbering{Roman}
-    \pagestyle{front}
-    \ctexset{chapter/pagestyle = front}}
-\renewcommand\mainmatter{%
-    \cleardoublepage
-    \@mainmattertrue
-    \pagenumbering{arabic}
-    \pagestyle{main}
-    \ctexset{chapter/pagestyle = main}}
-\renewcommand\backmatter{%
-    \if@openright
-        \cleardoublepage
-    \else
-        \clearpage
-    \fi
-    \@mainmatterfalse
-    \pagestyle{front}
-    \ctexset{chapter/pagestyle = front}}
+    \headrule
+}
 %    \end{macrocode}
 %
 % \subsection{扉页}
@@ -373,7 +350,9 @@
     \restoregeometry
     \ifustc@opt@bachelor\relax\else
         \make@statement \cleardoublepage
-    \fi}
+    \fi
+    \pagestyle{main}%
+}
 %    \end{macrocode}
 % \end{macro}
 %
@@ -448,16 +427,23 @@
 % \begin{environment}{cnabstract}
 % 中文摘要环境
 %    \begin{macrocode}
-\newenvironment{cnabstract}{\chapter[摘要]{摘\hspace{\ccwd}要}}{\cleardoublepage}
+\newenvironment{cnabstract}{%
+    \ifustc@opt@bachelor
+        \ctexset{chapter/format += \zihao{-2}}
+    \fi
+    \chapter[摘要]{摘\zhspace 要}}{}
 %    \end{macrocode}
 % \end{environment}
 % \begin{environment}{enabstract}
 % 英文摘要环境
 %    \begin{macrocode}
 \newenvironment{enabstract}{%
-    \ctexset { chapter/format += \sffamily\bfseries\setfontsize{16bp} }
-    \chapter[Abstract]{ABSTRACT}}
-    {\cleardoublepage}
+    \ifustc@opt@bachelor
+        \ctexset{chapter/format += \zihao{-2}}
+        \chapter{Abstract}
+    \else
+        \chapter[Abstract]{ABSTRACT}
+    \fi}{}
 %    \end{macrocode}
 % \end{environment}
 % 两个生成关键字的命令，其中 \cs{phantom{}} 是为了空一行，
@@ -470,23 +456,42 @@
 %
 % \subsection{目录}
 % \begin{macro}{\tableofcontents}
-% 调用 \pkg{tocbibind} 宏包将目录、参考文献加入目录中。
-% 为了让目录中的“目录”二字中间没有空格，用 \pkg{tocbibind} 的方法重新定义
-% \cs{tableofcontents}
+% 为了让目录中的“目录”二字中间没有空格，重新定义 \cs{tableofcontents}
 %    \begin{macrocode}
-\RequirePackage{tocbibind}
-\renewcommand{\tableofcontents}{\tocfile{目录}{toc}}
+\renewcommand\tableofcontents{\begingroup
+    \ifustc@opt@bachelor\ctexset{chapter/format += \zihao{-2}}\fi
+    \chapter[目录]{\contentsname}%
+    \@starttoc{toc}%
+\endgroup}
+\renewcommand\listoffigures{\begingroup
+    \ifustc@opt@bachelor\ctexset{chapter/format += \zihao{-2}}\fi
+    \chapter{\listfigurename}%
+    \@starttoc{lof}%
+\endgroup}
+\renewcommand\listoftables{\begingroup
+    \ifustc@opt@bachelor\ctexset{chapter/format += \zihao{-2}}\fi
+    \chapter{\listtablename}%
+    \@starttoc{lot}%
+\endgroup}
 %    \end{macrocode}
 % \end{macro}
 % 下面用 \pkg{titletoc} 宏包设置每级目录的格式
 %    \begin{macrocode}
 \RequirePackage{titletoc}
 \newcommand\ustc@leaders{\titlerule*[0.5pc]{$\cdot$}}
-\titlecontents{chapter}
-    [0bp]
-    {\vspace{6bp}\zihao{4}}
-    {\thecontentslabel\hspace*{0.5em}}
-    {}{\ustc@leaders\contentspage}
+\ifustc@opt@bachelor
+    \titlecontents{chapter}
+        [0bp]
+        {\vspace{18bp}\zihao{4}}
+        {\thecontentslabel\hspace*{0.5em}}
+        {}{\ustc@leaders\contentspage}
+\else
+    \titlecontents{chapter}
+        [0bp]
+        {\vspace{6bp}\zihao{4}}
+        {\thecontentslabel\hspace*{0.5em}}
+        {}{\ustc@leaders\contentspage}
+\fi
 \titlecontents{section}
     [\ccwd]
     {\vspace{6bp}\zihao{-4}}
@@ -515,33 +520,40 @@
 % \subsection{正文}
 % 用 \pkg{ctex} 的接口设置全局的章节标题格式，注意由于 \pkg{ctex} 2.1 以下版本的 bug，
 % chapter 的 nameformat 和 titleformat 的这两行必须置空。
-% 另外摘要、参考文献等章节在底层也是用 \cs{chapter} 实现的
+% 另外摘要、参考文献等章节在底层也是用 \cs{chapter} 实现的。
+% 这一部分以后可能用titlesec重新实现
 %    \begin{macrocode}
 \ctexset{
     chapter = {
-        format += \bfseries\setfontsize{16bp},
+        format += \sffamily\bfseries\setfontsize{16bp},
         nameformat = {},
         titleformat = {},
         number = \arabic{chapter},
         beforeskip = 24bp,
         afterskip = 18bp,
+        pagestyle = main,
     },
     section = {
-        format += \raggedright\bfseries\setfontsize{14bp},
+        format += \raggedright\sffamily\bfseries\setfontsize{14bp},
         beforeskip = 24bp,
         afterskip = 6bp,
     },
     subsection = {
-        format+= \raggedright\bfseries\setfontsize{13bp},
+        format+= \raggedright\sffamily\bfseries\setfontsize{13bp},
         beforeskip = 12bp,
         afterskip = 6bp,
     },
     subsubsection = {
-        format+= \raggedright\bfseries\setfontsize{12bp},
+        format+= \raggedright\sffamily\bfseries\setfontsize{12bp},
         beforeskip = 12bp,
         afterskip = 6bp,
     }
 }
+\ifustc@opt@bachelor
+    \ctexset{section/format += \centering\zihao{-3}}
+    \ctexset{subsection/format += \zihao{4}}
+\fi
+% \assignpagestyle{\chapter}{empty}
 %    \end{macrocode}
 % 正文章节编号到 3 级 section 标题
 %    \begin{macrocode}
@@ -549,7 +561,11 @@
 %    \end{macrocode}
 % 正文段落文字格式设置
 %    \begin{macrocode}
-\renewcommand\normalsize{\setfontsize{12bp}[20bp]}
+\ifustc@opt@bachelor
+    \renewcommand\normalsize{\setfontsize{12bp}[22bp]}
+\else
+    \renewcommand\normalsize{\setfontsize{12bp}[20bp]}
+\fi
 \setlength{\parskip}{0bp}
 %    \end{macrocode}
 %
@@ -560,17 +576,26 @@
 \DeclareCaptionLabelSeparator{zhspace}{\hspace{\ccwd}}
 \captionsetup{
     format = hang,
-    labelfont = {bf, small},
     labelsep = zhspace,
-    textfont = small}
+}
+\ifustc@opt@bachelor
+    \captionsetup{font = normalsize}
+\else
+    \captionsetup{
+        font = small,
+        labelfont+={sf,bf},
+    }
+\fi
 \captionsetup[figure]{
     position = bottom,
     aboveskip = 6bp,
-    belowskip = 12bp}
+    belowskip = 12bp,
+}
 \captionsetup[table]{
     position = top,
     aboveskip = 6bp,
-    belowskip = 6bp}
+    belowskip = 6bp,
+}
 %    \end{macrocode}
 % \begin{macro}{\note}
 % 新定义了 \cs{note} 来生成图标的附注。
@@ -615,41 +640,52 @@
 \setlength{\bibhang}{1em}
 %    \end{macrocode}
 % \begin{macro}{\bibliography}
-% 由于 \cs{bibliography} 位于正文中，页眉会默认显示“附录 参考文献”，所以修正页面风格：
+% 由于 \cs{bibliography} 位于正文中，页眉会默认显示“附录 参考文献”，所以修正页面风格；
+% 默认 \env{thebibliography} 是用 \cs{chapter*} 实现的，不能加入目录和 pdf 书签，
+% 这里重载了 \pkg{natbib} 的 \env{thebibliography}
 %    \begin{macrocode}
-\let\ustc@save@bibliography=\bibliography
-\renewcommand\bibliography[1]{%
-    \if@openright
-        \cleardoublepage
+\renewenvironment{thebibliography}[1]{%
+    \if@openright\cleardoublepage\else\clearpage\fi
+    \@mainmatterfalse
+    \ifustc@opt@bachelor\ctexset{chapter/format += \zihao{-2}}\fi
+    \chapter{\bibname}%
+    \parindent\z@
+    \bibpreamble
+    \bibfont
+    \list{\@biblabel{\the\c@NAT@ctr}}{\@bibsetup{#1}\global\c@NAT@ctr\z@}%
+    \ifNAT@openbib
+        \renewcommand\newblock{\par}%
     \else
-        \clearpage
+        \renewcommand\newblock{\hskip .11em \@plus.33em \@minus.07em}%
     \fi
-    \pagestyle{front}
-    \ctexset{chapter/pagestyle = front}
-    \ustc@save@bibliography{#1}}
+    \sloppy\clubpenalty4000\widowpenalty4000
+    \sfcode`\.\@m
+    \let\NAT@bibitem@first@sw\@firstoftwo
+        \let\citeN\cite \let\shortcite\cite
+        \let\citeasnoun\cite
+}{%
+    \bibitem@fin
+    \bibpostamble
+    \def\@noitemerr{%
+        \PackageWarning{natbib}{Empty `thebibliography' environment}%
+    }%
+    \endlist
+    \bibcleanup
+    \if@openright\cleardoublepage\else\clearpage\fi
+    \@mainmattertrue
+}%
 %    \end{macrocode}
 % \end{macro}
 %
 % \subsection{附录}
-% \begin{macro}{\appendix}
-% 由于 \cs{bibilography} 处更改了页面风格，必须将附录的再更改为 |main|。
-%    \begin{macrocode}
-\let\ustc@save@appendix=\appendix
-\renewcommand\appendix{%
-    \if@openright
-        \cleardoublepage
-    \else
-        \clearpage
-    \fi
-    \pagestyle{main}
-    \ctexset{chapter/pagestyle = main}
-    \ustc@save@appendix}
-%    \end{macrocode}
-% \end{macro}
 % \begin{environment}{acknowledgements}
 % 定义了一个满足要求的致谢环境：
 %    \begin{macrocode}
-\newenvironment{acknowledgements}{\chapter[致谢]{致\hspace{\ccwd}谢}}{}
+\newenvironment{acknowledgements}{%
+    \ifustc@opt@bachelor
+        \ctexset{chapter/format += \zihao{-2}}
+    \fi
+    \chapter[致谢]{致\hspace{\ccwd}谢}}{}
 %    \end{macrocode}
 % \end{environment}
 % \begin{environment}{publications}
