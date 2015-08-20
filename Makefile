@@ -1,28 +1,29 @@
 .PHONY : all theisis cls doc pv clean cleanall
 
-SRC = main.tex $(wildcard chapters/*.tex)
-CLS = ustcthesis.cls ustcthesis.bst \
-      ustcthesis-bachelor.def ustcthesis-doctor.def ustcthesis-statement.def
+MAIN = main
+SRC = $(MAIN).tex $(wildcard chapters/*.tex) $(wildcard bib/*.bib)
+CLS = ustcthesis.cls ustcthesis-statement.def ustcextra.sty
+BST = ustcthesis.bst
 AUX = *.aux *.bbl *.blg *.fdb_latexmk *.fls *.glo *.gls *.hd *.idx *.ilg *.ind \
-      *.lof *.log *.lot *.out *.toc
-PDF = *.pdf
+      *.lof *.log *.lot *.out *.toc chapters/*.aux
+PDF = $(MAIN).pdf ustcthesis.pdf
 
 all : thesis doc
 
-thesis : main.pdf
+thesis : $(MAIN).pdf
 
-cls : ustcthesis.cls
+cls : ustcthesis.cls ustcextra.sty
 
 doc: ustcthesis.pdf
 
-pv : $(SRC) $(CLS)
-	latexmk -xelatex -shell-escape -use-make -pv $<
+pv : $(SRC) $(CLS) $(BST)
+	latexmk -xelatex -shell-escape -use-make -pv $(MAIN).tex
 
-main.pdf : $(SRC) $(CLS)
-	latexmk -xelatex -shell-escape -use-make $<
+$(MAIN).pdf : $(SRC) $(CLS) $(BST)
+	latexmk -xelatex -shell-escape -use-make $(MAIN).tex
 
-ustcthesis.cls: ustcthesis.ins ustcthesis.dtx
-	latex ustcthesis.ins
+$(CLS): ustcthesis.dtx
+	xetex ustcthesis.dtx
 
 ustcthesis.pdf : ustcthesis.dtx
 	xelatex ustcthesis.dtx
@@ -32,7 +33,7 @@ ustcthesis.pdf : ustcthesis.dtx
 	xelatex ustcthesis.dtx
 
 clean :
-	-rm -f $(AUX) chapters/*.aux
+	-rm -f $(AUX) $(CLS)
 
 cleanall : clean
-	-rm -f ustcthesis.cls $(PDF)
+	-rm -f $(PDF)
