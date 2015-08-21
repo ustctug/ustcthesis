@@ -57,14 +57,6 @@ LaTeX version 1999/12/01 or later.
 \EnableCrossrefs
 \CodelineIndex
 \RecordChanges
-\renewcommand\glossaryname{版本历史}
-\GlossaryPrologue{\section*{\glossaryname}}
-\renewcommand\indexname{代码索引}
-\IndexPrologue{%
-    \section*{\indexname}
-    \textit{意大利体的数字表示描述对应索引项的页码；
-    带下划线的数字表示定义对应索引项的代码行号；
-    罗马字体的数字表示使用对应索引项的代码行号。}}
 \usepackage[UTF8, heading, sub3section]{ctex}
 \ctexset{
     section      = {
@@ -74,11 +66,29 @@ LaTeX version 1999/12/01 or later.
 }
 \usepackage{tabularx}
 \usepackage{booktabs}
+\usepackage{listings}
+\lstset{%
+    basicstyle=\ttfamily,
+    keywordstyle=\bfseries,
+    backgroundcolor=\color{lightgray},
+    language=bash,
+}
+\usepackage{xcolor}
 % 模仿 l3doc 的定义
 \DeclareRobustCommand\file{\nolinkurl}
 \DeclareRobustCommand\env{\texttt}
 \DeclareRobustCommand\pkg{\textsf}
 \DeclareRobustCommand\cls{\textsf}
+\renewcommand\glossaryname{版本历史}
+\GlossaryPrologue{\section*{\glossaryname}}
+\renewcommand\indexname{代码索引}
+\IndexPrologue{%
+    \section*{\indexname}
+    \textit{意大利体的数字表示描述对应索引项的页码；
+    带下划线的数字表示定义对应索引项的代码行号；
+    罗马字体的数字表示使用对应索引项的代码行号。}}
+\newcommand\TeXLive{\TeX\ Live}
+\setcounter{secnumdepth}{3}
 
 \begin{document}
     \DocInput{ustcthesis.dtx}
@@ -132,7 +142,15 @@ LaTeX version 1999/12/01 or later.
 % 后来两模板进行了整合梳理，由 ywg 维护。
 % 2015 年，seisman 和 zepinglee 基于 \pkg{ctex} 2.0 重新编写了模板。
 %
-% \section{使用说明}
+% \section{构建模板}
+%
+% \subsection{下载}
+%
+% \cls{ustcthesis} 的下载地址：
+% \begin{itemize}
+% \item 主要地址：\url{https://github.com/ustctug/ustcthesis}
+% \item 镜像地址：\url{https://gitlab.lug.ustc.edu.cn/ustctug/ustcthesis}
+% \end{itemize}
 %
 % \subsection{文件组成}
 % 本模板的主要文件如表 \ref{tab:file}：
@@ -145,28 +163,116 @@ LaTeX version 1999/12/01 or later.
 %     \toprule
 %     类别     & 文件                    & 说明 \\
 %     \midrule
-%     模板文件 & \file{ustcthesis.dtx} & 主要目的模板文件，可生成 \file{ustcthesis%
-%                                       .cls} 和 \file{ustcthesis.pdf} \\
+%     模板文件 & \file{ustcthesis.dtx} & 主要的模板文件，可生成 \file{ustcthesis.pdf}%
+%                            、\file{ustcthesis.cls} 和 \file{ustcextra.sty} \\
 %              & \file{ustcthesis.bst} & 参考文献列表的格式文件 \\
+%              & \file{figures/ustc_*.eps} & 校名和校徽图片 \\
 %     \midrule
 %     生成文件 & \file{ustcthesis.pdf} & （你正在阅读的）模板使用说明 \\
 %              & \file{ustcthesis.cls} & 文档类文件 \\
+%              & \file{ustcextra.sty}  & 附加宏包 \\
 %     \midrule
 %     示例文件 & \file{main.tex}       & 主文档 \\
 %              & \file{chapters/*.tex} & 示例文档的各个章节 \\
 %              & \file{figures/}       & 放置图片的目录 \\
 %              & \file{bib/tex.bib}    & 参考文献示例数据库 \\
 %     \midrule
-%     其他     & \file{Makefile}       & 用于 GNU make \\
+%     其他     & \file{README.md}      & 基本说明 \\
+%             & \file{Makefile}       & 用于 GNU make \\
 %     \bottomrule
 % \end{tabularx}
 % \end{table}
+%
+% \subsection{依赖宏包}
+%
+% 构建本模板需要 \pkg{ctex} 2.0 或者更高版本，所以建议使用发行版 \TeXLive{} 2015 或者
+% 更高版本，ustcthesis 直接依赖的其他宏包如下：
+% \pkg{kvoptions}
+% \pkg{hyperref}
+% \pkg{xparse}
+% \pkg{geometry}
+% \pkg{titlesec}
+% \pkg{titletoc}
+% \pkg{caption}
+%
+% 关于更新宏包，参见 \ref{sec:update}。
+%
+% \subsection{构建}
+%
+% \subsubsection{GNU make}
+%
+% 本模板附带了 \file{Makefile}，如果你有 GNU make，编译示例论文 \file{main.pdf}，
+% 可以使用命令
+% \begin{lstlisting}
+make thesis
+\end{lstlisting}
+%
+% 编译示例论文 \file{ustcthesis.pdf}，可以使用命令
+% \begin{lstlisting}
+make doc
+\end{lstlisting}
+
+% 另外还可以用 \lstinline|make clean| 和 \lstinline|make clean| 分别清理辅助文件或彻底清理。
+%
+% \subsubsection{命令行}
+%
+% 直接使用命令行也可以。使用图形界面的用户应参考所用编辑器的说明文档。
+%
+% 编译示例论文 \file{ustcthesis.pdf}，使用命令
+% \begin{lstlisting}
+xelatex ustcthesis.dtx
+makeindex -s gind.ist ustcthesis.idx
+makeindex -s gglo.ist -o ustcthesis.gls ustcthesis.glo
+xelatex ustcthesis.dtx
+xelatex ustcthesis.dtx
+\end{lstlisting}
+%
+% 编译文档类 \file{ustcthesis.cls} 和宏包文件 \file{ustcextra.sty}，使用命令
+% \begin{lstlisting}
+xetex ustcthesis.dtx
+\end{lstlisting}
+%
+% 编译论文 \file{main.pdf} 使用命令
+% \begin{lstlisting}
+latexmk -xelatex main.tex
+\end{lstlisting}
+%
+% \section{使用说明}
+%
+% \subsection{文档类选项}
+%
+% \subsection{扉页命令}
+%
+% \subsection{控制命令}
+%
+% \subsubsection{中文字体}
+%
+% \subsubsection{字号}
+%
+% \DescribeMacro{\setfontsize}
+%
+% \subsubsection{其他}
+%
+% \DescribeMacro{\zhspace}
 %
 % \section{排版注意事项}
 % \begin{itemize}
 %     \item 英文逗号、句号、问号和叹号后面要加空格。
 %     \item 中、西文字符之间要加空格。
 % \end{itemize}
+%
+%
+%
+% \appendix
+%
+% \section{\LaTeX{} 新手指南}
+%
+% \subsection{更新宏包}
+% \label{sec:update}
+%
+% \section{模板维护指南}
+%
+%
 %
 % \StopEventually{}
 %
