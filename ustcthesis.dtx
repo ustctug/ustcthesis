@@ -565,26 +565,28 @@ LaTeX version 1999/12/01 or later.
 \RequirePackage{titletoc}
 \newcommand\ustc@leaders{\titlerule*[0.5pc]{$\cdot$}}
 \ifustc@opt@bachelor
-    \titlecontents{chapter}
-        [0bp]
-        {\vspace{18bp}\zihao{4}}
-        {\thecontentslabel\hspace*{0.5em}}
-        {}{\ustc@leaders\contentspage}
-\else
-    \titlecontents{chapter}
-        [0bp]
-        {\vspace{6bp}\zihao{4}}
-        {\thecontentslabel\hspace*{0.5em}}
-        {}{\ustc@leaders\contentspage}
+    \let\ustc@save@chapter=\chapter
+    \renewcommand\chapter{%
+        \if@mainmatter
+            \addtocontents{toc}{\protect\addvspace{12bp}}%
+        \fi
+    \ustc@save@chapter
+    }%
 \fi
+
+\titlecontents{chapter}
+    [0bp]
+    {\addvspace{6bp}\zihao{4}}
+    {\thecontentslabel\hspace*{0.5em}}
+    {}{\ustc@leaders\contentspage}
 \titlecontents{section}
     [\ccwd]
-    {\vspace{6bp}\zihao{-4}}
+    {\addvspace{6bp}\zihao{-4}}
     {\thecontentslabel\hspace*{0.5em}}
     {}{\ustc@leaders\contentspage}
 \titlecontents{subsection}
     [2\ccwd]
-    {\vspace{6bp}\zihao{5}}
+    {\addvspace{6bp}\zihao{5}}
     {\thecontentslabel\hspace*{0.5em}}
     {}{\ustc@leaders\contentspage}
 %    \end{macrocode}
@@ -732,7 +734,10 @@ LaTeX version 1999/12/01 or later.
 \renewenvironment{thebibliography}[1]{%
     \if@openright\cleardoublepage\else\clearpage\fi
     \@mainmatterfalse
-    \ifustc@opt@bachelor\ctexset{chapter/format += \zihao{-2}}\fi
+    \ifustc@opt@bachelor
+        \ctexset{chapter/format += \zihao{-2}}%
+        \addtocontents{toc}{\protect\addvspace{12bp}}%
+    \fi
     \chapter{\bibname}%
     \parindent\z@
     \bibpreamble
