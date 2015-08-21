@@ -564,16 +564,6 @@ LaTeX version 1999/12/01 or later.
 %    \begin{macrocode}
 \RequirePackage{titletoc}
 \newcommand\ustc@leaders{\titlerule*[0.5pc]{$\cdot$}}
-\ifustc@opt@bachelor
-    \let\ustc@save@chapter=\chapter
-    \renewcommand\chapter{%
-        \if@mainmatter
-            \addtocontents{toc}{\protect\addvspace{12bp}}%
-        \fi
-    \ustc@save@chapter
-    }%
-\fi
-
 \titlecontents{chapter}
     [0bp]
     {\addvspace{6bp}\zihao{4}}
@@ -602,6 +592,31 @@ LaTeX version 1999/12/01 or later.
     {\zihao{-4}}
     {\thecontentslabel\hspace*{0.5em}}
     {}{\ustc@leaders\contentspage}
+%    \end{macrocode}
+% 为了让本科生的目录每章之间多空一行，重新定义 \cs{mainmatter}, \cs{backmatter},
+% \cs{appendix}
+%    \begin{macrocode}
+\ifustc@opt@bachelor
+    \let\ustc@save@chapter=\chapter
+    \let\ustc@save@mainmatter=\mainmatter
+    \let\ustc@save@backmatter=\backmatter
+    \let\ustc@save@appendix=\appendix
+    \renewcommand\mainmatter{%
+        \ustc@save@mainmatter
+        \renewcommand\chapter{%
+            \addtocontents{toc}{\protect\addvspace{12bp}}%
+            \ustc@save@chapter
+        }%
+    }%
+    \renewcommand\backmatter{%
+        \ustc@save@backmatter
+        \renewcommand\chapter{\ustc@save@chapter}%
+    }%
+    \renewcommand\appendix{%
+        \ustc@save@appendix
+        \renewcommand\chapter{\ustc@save@chapter}%
+    }%
+\fi
 %    \end{macrocode}
 %
 % \subsection{正文}
@@ -734,10 +749,7 @@ LaTeX version 1999/12/01 or later.
 \renewenvironment{thebibliography}[1]{%
     \if@openright\cleardoublepage\else\clearpage\fi
     \@mainmatterfalse
-    \ifustc@opt@bachelor
-        \ctexset{chapter/format += \zihao{-2}}%
-        \addtocontents{toc}{\protect\addvspace{12bp}}%
-    \fi
+    \ifustc@opt@bachelor\ctexset{chapter/format += \zihao{-2}}\fi
     \chapter{\bibname}%
     \parindent\z@
     \bibpreamble
