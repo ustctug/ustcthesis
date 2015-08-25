@@ -10,6 +10,8 @@
 
 ustcthesis v2.0 要求使用 TeX Live 2015 发行版，并且尽可能升级到最新；尤其依赖于 ctex 2.0 以及更高版本。
 
+最简单的方法是使用 GNU Make：
+
 生成论文 `main.pdf` 使用命令
 ```
 make thesis
@@ -18,6 +20,8 @@ make thesis
 ```
 make doc
 ```
+
+如果手工编译，请参考 Makefile 内容。
 
 
 
