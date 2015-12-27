@@ -283,14 +283,12 @@ LaTeX version 1999/12/01 or later.
 %
 % \subsection{定义命令}
 % \begin{macro}{\setfontsize}
-% 直接设置字体大小的命令，可选设置行距，默认单倍行距
+% 直接设置字体大小的命令，可选设置行距，默认单倍行距。
+% 注意：该命令的定义中的空格会影响最终效果，因而需要在一行内写完命令，见
+% \href{https://github.com/ustctug/ustcthesis/issues/42}{Issue 42}
 %    \begin{macrocode}
 \RequirePackage{xparse}
-\DeclareDocumentCommand \setfontsize { m o } {
-    \IfValueTF {#2}
-        { \fontsize{#1}{#2} }
-        { \fontsize{#1}{1.2 \dimexpr#1} }
-    \linespread{1}\selectfont\relax}
+\DeclareDocumentCommand\setfontsize{mo}{\IfValueTF{#2}{\fontsize{#1}{#2}}{\fontsize{#1}{1.2\dimexpr#1}}\linespread{1}\selectfont\relax}
 %    \end{macrocode}
 % \end{macro}
 % \begin{macro}{\zhspace}
