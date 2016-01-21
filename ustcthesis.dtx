@@ -179,6 +179,7 @@ LaTeX version 1999/12/01 or later.
 %     \midrule
 %     其他     & \file{README.md}      & 基本说明 \\
 %             & \file{Makefile}       & 用于 GNU make \\
+%             & \file{build.bat}      & Windows 批处理文件 \\
 %     \bottomrule
 % \end{tabularx}
 % \end{table}
@@ -197,37 +198,33 @@ LaTeX version 1999/12/01 or later.
 %
 % 关于更新宏包，参见 \ref{sec:update}。
 %
-% \subsection{构建}
+% \subsection{如何构建}
 %
 % \subsubsection{GNU make}
 %
-% 本模板附带了 \file{Makefile}，如果你有 GNU make，编译示例论文 \file{main.pdf}，
+% 本模板附带了 \file{Makefile}，如果你有 GNU make，编译论文 \file{main.pdf}，
 % 可以使用命令
 % \begin{lstlisting}
 make thesis
 \end{lstlisting}
 %
-% 编译示例论文 \file{ustcthesis.pdf}，可以使用命令
+% 编译说明文档 \file{ustcthesis.pdf}，可以使用命令
 % \begin{lstlisting}
 make doc
 \end{lstlisting}
-
+%
 % 另外还可以用 \lstinline|make clean| 和 \lstinline|make clean| 分别清理辅助文件或彻底清理。
 %
-% \subsubsection{命令行}
+% \subsection{批处理文件（仅限Windows 用户）}
 %
-% 直接使用命令行也可以。使用图形界面的用户应参考所用编辑器的说明文档。
+% 直接双击运行 \file{build.bat}
 %
-% 编译示例论文 \file{ustcthesis.pdf}，使用命令
-% \begin{lstlisting}
-xelatex ustcthesis.dtx
-makeindex -s gind.ist ustcthesis.idx
-makeindex -s gglo.ist -o ustcthesis.gls ustcthesis.glo
-xelatex ustcthesis.dtx
-xelatex ustcthesis.dtx
-\end{lstlisting}
+% \subsubsection{直接编译}
 %
-% 编译文档类 \file{ustcthesis.cls} 和宏包文件 \file{ustcextra.sty}，使用命令
+% 以下使用命令行逐条编译。使用图形界面的用户应参考所用编辑器的说明文档。
+%
+% 编译文档类 \file{ustcthesis.cls} 和宏包文件 \file{ustcextra.sty}（如果文件已经存在
+% 可以略过此步），使用命令
 % \begin{lstlisting}
 xetex ustcthesis.dtx
 \end{lstlisting}
@@ -235,6 +232,15 @@ xetex ustcthesis.dtx
 % 编译论文 \file{main.pdf} 使用命令
 % \begin{lstlisting}
 latexmk -xelatex main.tex
+\end{lstlisting}
+%
+% 编译 \file{ustcthesis.pdf}，使用命令
+% \begin{lstlisting}
+xelatex ustcthesis.dtx
+makeindex -s gind.ist ustcthesis.idx
+makeindex -s gglo.ist -o ustcthesis.gls ustcthesis.glo
+xelatex ustcthesis.dtx
+xelatex ustcthesis.dtx
 \end{lstlisting}
 %
 % \section{使用说明}
