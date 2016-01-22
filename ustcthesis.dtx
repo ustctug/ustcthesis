@@ -395,14 +395,12 @@ xelatex ustcthesis.dtx
 %
 % \subsection{定义命令}
 % \begin{macro}{\setfontsize}
-% 直接设置字体大小的命令，可选设置行距，默认单倍行距
+% 直接设置字体大小的命令，可选设置行距，默认单倍行距。
+% 注意：该命令的定义中的空格会影响最终效果，因而需要在一行内写完命令，见
+% \href{https://github.com/ustctug/ustcthesis/issues/42}{Issue 42}
 %    \begin{macrocode}
 \RequirePackage{xparse}
-\DeclareDocumentCommand \setfontsize { m o } {
-    \IfValueTF {#2}
-        { \fontsize{#1}{#2} }
-        { \fontsize{#1}{1.2 \dimexpr#1} }
-    \linespread{1}\selectfont\relax}
+\DeclareDocumentCommand\setfontsize{mo}{\IfValueTF{#2}{\fontsize{#1}{#2}}{\fontsize{#1}{1.2\dimexpr#1}}\linespread{1}\selectfont\relax}
 %    \end{macrocode}
 % \end{macro}
 % \begin{macro}{\zhspace}
@@ -689,27 +687,19 @@ xelatex ustcthesis.dtx
 %    \begin{macrocode}
 \RequirePackage{titletoc}
 \newcommand\ustc@leaders{\titlerule*[0.5pc]{$\cdot$}}
-\ifustc@opt@bachelor
-    \titlecontents{chapter}
-        [0bp]
-        {\vspace{18bp}\zihao{4}}
-        {\thecontentslabel\hspace*{0.5em}}
-        {}{\ustc@leaders\contentspage}
-\else
-    \titlecontents{chapter}
-        [0bp]
-        {\vspace{6bp}\zihao{4}}
-        {\thecontentslabel\hspace*{0.5em}}
-        {}{\ustc@leaders\contentspage}
-\fi
+\titlecontents{chapter}
+    [0bp]
+    {\addvspace{6bp}\zihao{4}}
+    {\thecontentslabel\hspace*{0.5em}}
+    {}{\ustc@leaders\contentspage}
 \titlecontents{section}
     [\ccwd]
-    {\vspace{6bp}\zihao{-4}}
+    {\addvspace{6bp}\zihao{-4}}
     {\thecontentslabel\hspace*{0.5em}}
     {}{\ustc@leaders\contentspage}
 \titlecontents{subsection}
     [2\ccwd]
-    {\vspace{6bp}\zihao{5}}
+    {\addvspace{6bp}\zihao{5}}
     {\thecontentslabel\hspace*{0.5em}}
     {}{\ustc@leaders\contentspage}
 %    \end{macrocode}
@@ -725,6 +715,31 @@ xelatex ustcthesis.dtx
     {\zihao{-4}}
     {\thecontentslabel\hspace*{0.5em}}
     {}{\ustc@leaders\contentspage}
+%    \end{macrocode}
+% 为了让本科生的目录每章之间多空一行，重新定义 \cs{mainmatter}, \cs{backmatter},
+% \cs{appendix}
+%    \begin{macrocode}
+\ifustc@opt@bachelor
+    \let\ustc@save@chapter=\chapter
+    \let\ustc@save@mainmatter=\mainmatter
+    \let\ustc@save@backmatter=\backmatter
+    \let\ustc@save@appendix=\appendix
+    \renewcommand\mainmatter{%
+        \ustc@save@mainmatter
+        \renewcommand\chapter{%
+            \addtocontents{toc}{\protect\addvspace{12bp}}%
+            \ustc@save@chapter
+        }%
+    }%
+    \renewcommand\backmatter{%
+        \ustc@save@backmatter
+        \renewcommand\chapter{\ustc@save@chapter}%
+    }%
+    \renewcommand\appendix{%
+        \ustc@save@appendix
+        \renewcommand\chapter{\ustc@save@chapter}%
+    }%
+\fi
 %    \end{macrocode}
 %
 % \subsection{正文}

@@ -1,14 +1,25 @@
 # USTC Thesis
 
-这是 ustcthesis v2.0 的开发项目。
+本项目是中国科学技术大学的毕业论文 LaTeX 模板 ustcthesis，当前版本为 v2.0。
 
-原项目 [ywgATustcbbs/ustcthesis](https://github.com/ywgATustcbbs/ustcthesis) 存在一些细节与学校要求不符，并且有一些历史遗留问题，所以进行重写。
+支持排版博士、硕士和学士的学位论文。
+
+原项目 [ywgATustcbbs/ustcthesis](https://github.com/ywgATustcbbs/ustcthesis)
+存在一些细节与学校要求不符，并且有一些历史遗留问题，所以进行重写。
+
+
+
+## 项目地址
+
+主要地址：https://github.com/ustctug/ustcthesis
+
+镜像地址：https://gitlab.lug.ustc.edu.cn/ustctug/ustcthesis
 
 
 
 ## 如何构建
 
-ustcthesis v2.0 要求使用 TeX Live 2015 发行版，并且尽可能升级到最新；尤其依赖于 ctex 2.0 以及更高版本。
+ustcthesis v2.0 依赖于 ctex 2.0，所以应使用 TeX Live 2015 发行版。
 
 最简单的方法是使用 GNU Make：
 
@@ -28,7 +39,7 @@ make doc
 ## 已知问题
 
 - [ ] 单倍行距设置
-- [ ] 本科目录空行过多
+- [x] 本科目录空行过多
 - [ ] 暂不支持英文标题名
 - [ ] 参考文献格式不支持 author-year 式
 - [ ] 本科参考文献格的英文文献名需要斜体
