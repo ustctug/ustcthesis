@@ -8,9 +8,9 @@ AUX = *.aux *.bbl *.blg *.fdb_latexmk *.fls *.glo *.gls *.hd *.idx *.ilg *.ind \
       *.lof *.log *.lot *.out *.toc chapters/*.aux
 PDF = $(MAIN).pdf ustcthesis.pdf
 
-all : thesis doc
-
 thesis : $(MAIN).pdf
+
+all : thesis doc
 
 cls : ustcthesis.cls ustcextra.sty
 

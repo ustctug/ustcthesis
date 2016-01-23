@@ -50,7 +50,15 @@ LaTeX version 1999/12/01 or later.
 \fi
 %</internal>
 %<*driver>
-\ProvidesFile{ustcthesis.dtx}[2015/08/20]
+\ProvidesFile{ustcthesis.dtx}
+%</driver>
+%<class>\NeedsTeXFormat{LaTeX2e}[1999/12/01]
+%<class>\ProvidesClass{ustcthesis}
+%<*class>
+    [2016/01/23 v2.0 USTC thesis template]
+%</class>
+%
+%<*driver>
 \documentclass[a4paper]{ltxdoc}
 \usepackage{hypdoc}
 \hypersetup{allcolors=blue}
@@ -66,13 +74,6 @@ LaTeX version 1999/12/01 or later.
 }
 \usepackage{tabularx}
 \usepackage{booktabs}
-\usepackage{listings}
-\lstset{%
-    basicstyle=\ttfamily,
-    keywordstyle=\bfseries,
-    backgroundcolor=\color{lightgray},
-    language=bash,
-}
 \usepackage{xcolor}
 % 模仿 l3doc 的定义
 \DeclareRobustCommand\file{\nolinkurl}
@@ -82,7 +83,7 @@ LaTeX version 1999/12/01 or later.
 \DeclareRobustCommand\opt{\texttt}
 \renewcommand\glossaryname{版本历史}
 \GlossaryPrologue{\section*{\glossaryname}}
-\renewcommand\indexname{代码索引}
+\renewcommand\indexname{命令索引}
 \IndexPrologue{%
     \section*{\indexname}
     \textit{意大利体的数字表示描述对应索引项的页码；
@@ -124,9 +125,9 @@ LaTeX version 1999/12/01 or later.
 % \DoNotIndex{\newcommand,\newenvironment}
 %
 % \title{\cls{ustcthesis} 使用说明}
-% \author{seisman\thanks{seisman.info@gmail.com} \and
-%         Zeping Lee\thanks{zepinglee@gmail.com}}
-%
+% \author{seisman\thanks{seisman.info AT gmail.com} \and
+%         Zeping Lee\thanks{zepinglee AT gmail.com}}
+% \date{\filedate\qquad\fileversion}
 % \maketitle
 %
 % \section{简介}
@@ -143,15 +144,19 @@ LaTeX version 1999/12/01 or later.
 % 后来两模板进行了整合梳理，由 ywg 维护。
 % 2015 年，seisman 和 zepinglee 基于 \pkg{ctex} 2.0 重新编写了模板。
 %
-% \section{构建模板}
-%
-% \subsection{下载}
-%
 % \cls{ustcthesis} 的下载地址：
 % \begin{itemize}
 % \item 主要地址：\url{https://github.com/ustctug/ustcthesis}
 % \item 镜像地址：\url{https://gitlab.lug.ustc.edu.cn/ustctug/ustcthesis}
 % \end{itemize}
+%
+% 我们假定用户已经能够熟练使用 \LaTeX{}，否则请先阅读附录 \ref{sec:new}；
+% 如果对本模板有问题或者建议，可以在 GitHub 提出，或者发电子邮件给维护者，
+% 注意提问之前需阅读附录 \ref{sec:faq}；
+% 对于想自已修改代码的用户，以及愿意有兴趣参与模板的开发、维护的 \TeX{} 爱好者，
+% 附录 \ref{sec:dev_guide} 和附录 \ref{sec:code} 分别提供了指南和带代码的注释。
+%
+% \section{构建模板}
 %
 % \subsection{文件组成}
 % 本模板的主要文件如表 \ref{tab:file}：
@@ -180,7 +185,7 @@ LaTeX version 1999/12/01 or later.
 %     \midrule
 %     其他     & \file{README.md}      & 基本说明 \\
 %             & \file{Makefile}       & 用于 GNU make \\
-%             & \file{build.bat}      & Windows 批处理文件 \\
+%             & \file{make.bat}       & Windows 批处理文件 \\
 %     \bottomrule
 % \end{tabularx}
 % \end{table}
@@ -207,106 +212,86 @@ LaTeX version 1999/12/01 or later.
 % \item GNU make \\
 % 如果你有 GNU make 工具，这是最简单的方法。
 % 编译论文 \file{main.pdf}：
-% \begin{lstlisting}
-make thesis
-\end{lstlisting}
+% \begin{verbatim}
+% make thesis
+% \end{verbatim}
 %
 % 编译说明文档 \file{ustcthesis.pdf}：
-% \begin{lstlisting}
-make doc
-\end{lstlisting}
+% \begin{verbatim}
+% make doc
+% \end{verbatim}
 %
-% 另外还可以用 \lstinline|make clean| 和 \lstinline|make cleanall| 分别清理辅助文件或彻底清理。
+% 另外还可以用 |make clean| 和 |make cleanall| 分别清理辅助文件或彻底清理。
 %
 % \item 批处理文件（Windows 用户） \\
-% 直接双击运行 \file{build.bat}
+% 直接双击运行 \file{make.bat}
 %
 % \item xelatex \\
 % 使用图形界面的用户应参考所用编辑器的说明文档。
 %
 % 编译文档类 \file{ustcthesis.cls} 和宏包文件 \file{ustcextra.sty}（如果已经存在
 % 可以略过此步）：
-% \begin{lstlisting}
-xetex ustcthesis.dtx
-\end{lstlisting}
+% \begin{verbatim}
+% xetex ustcthesis.dtx
+% \end{verbatim}
 %
 % 编译论文 \file{main.pdf}：
-% \begin{lstlisting}
-latexmk -xelatex main.tex
-\end{lstlisting}
+% \begin{verbatim}
+% latexmk -xelatex main.tex
+% \end{verbatim}
 %
 % 编译说明文档 \file{ustcthesis.pdf}：
-% \begin{lstlisting}
-xelatex ustcthesis.dtx
-makeindex -s gind.ist ustcthesis.idx
-makeindex -s gglo.ist -o ustcthesis.gls ustcthesis.glo
-xelatex ustcthesis.dtx
-xelatex ustcthesis.dtx
-\end{lstlisting}
+% \begin{verbatim}
+% xelatex ustcthesis.dtx
+% makeindex -s gind.ist ustcthesis.idx
+% makeindex -s gglo.ist -o ustcthesis.gls ustcthesis.glo
+% xelatex ustcthesis.dtx
+% xelatex ustcthesis.dtx
+% \end{verbatim}
 % \end{enumerate}
 %
-% \section{使用说明}
 %
-% \subsection{文档类选项}
 %
-% 论文类型是必需选项，有以下几种：
+% \section{文档类选项}
+%
+% 模板提供一个文档类 \cls{ustcthesis} ，应在主文件调用，如：
+% \begin{verbatim}
+% \documentclass[doctor,pdf]{ustcthesis}
+% \end{verbatim}
+%
+% 其中论文类型是必需参数：
 % \begin{center}
 % \begin{tabular}{p{.15\textwidth}p{.7\textwidth}}
-% \toprule
-% \opt{doctor} & 博士论文 \\
-% \opt{master} & 硕士论文 \\
-% \opt{bachelor} & 本科论文 \\
-% \bottomrule
+%     \toprule
+%     \opt{bachelor} & 本科论文 \\
+%     \opt{master} & 硕士论文 \\
+%     \opt{doctor} & 博士论文 \\
+%     \bottomrule
 % \end{tabular}
 % \end{center}
 %
-% 论文形式有：
+% 以下是可选参数，用于设置论文格式：
 % \begin{center}
 % \begin{tabular}{p{.15\textwidth}p{.7\textwidth}}
-% \toprule
-% \opt{print} & 用于打印纸质论文，默认 \\
-% \opt{pdf} & 适于屏幕阅读，会开启 \opt{onside}、\opt{pagecenter} 选项，
-% 并且更改超链接颜色 \\
-% \bottomrule
-% \end{tabular}
-% \end{center}
-%
-% 《规范》关于页码的位置自相矛盾，推荐至于外侧，但是也提供了选项：
-% \begin{center}
-% \begin{tabular}{p{.15\textwidth}p{.7\textwidth}}
-% \toprule
-% \opt{pageouter} & 页码置于外侧，\opt{doctor}、\opt{master} 默认 \\
-% \opt{pagecenter} & 页码居中，\opt{bachelor} 默认 \\
-% \bottomrule
-% \end{tabular}
-% \end{center}
-%
-% 论文格式有：
-% \begin{center}
-% \begin{tabular}{p{.15\textwidth}p{.7\textwidth}}
-% \toprule
-% \opt{twoside} & 双面打印，\opt{doctor}、\opt{master} 默认 \\
-% \opt{onside} & 单面打印，\opt{bachelor} 默认 \\
-% \bottomrule
-% \end{tabular}
-% \end{center}
-%
-% 在 \opt{twoside} 有效时，还有以下选项：
-% \begin{center}
-% \begin{tabular}{p{.15\textwidth}p{.7\textwidth}}
-% \toprule
-% \opt{openright} & 新的一章仅在奇数页（右侧）开始，这时可能会产生空白页以填充左侧，
-% \opt{doctor}、\opt{master} 默认 \\
-% \opt{openany} & 新的一章仅在下一页开始 \\
-% \bottomrule
+%     \toprule
+%     \opt{print} & 用于打印纸质论文，默认 \\
+%     \opt{pdf} & 适于屏幕阅读，会开启 \opt{onside}、\opt{pagecenter} 选项，
+%     并且保留超链接颜色 \\
+%     \midrule
+%     \opt{onside} & 单面打印，\opt{bachelor} 默认 \\
+%     \opt{twoside} & 双面打印，\opt{doctor}、\opt{master} 默认 \\
+%     \midrule
+%     \opt{openany} & 新的一章仅在下一页开始 \\
+%     \opt{openright} & 新的一章仅在奇数页（右侧）开始，这时可能会产生空白页以填充左侧，
+%         仅在双面打印时有效，\opt{doctor}、\opt{master} 默认 \\
+%     \midrule
+%     \opt{pagecenter} & 页码居中，\opt{bachelor} 默认 \\
+%     \opt{pageouter} & 页码置于外侧，\opt{doctor}、\opt{master} 默认 \\
+%     \bottomrule
 % \end{tabular}
 % \end{center}
 %
 %
-%
-% \subsection{扉页命令}
-%
-% \subsection{控制命令}
 %
 % \section{字体设置}
 %
@@ -336,7 +321,7 @@ xelatex ustcthesis.dtx
 %     \documentclass[doctor,fontset=mac]{ustcthesis}
 % \end{verbatim}
 %
-% 还有以下预定义的字库：
+% 还有以下预定义的字库配置：
 % \begin{description}
 %     \item[\opt{adobe}] 使用 Adobe 公司的四款中文字体。
 %     \item[\opt{fandol}] 使用 Fandol 中文字体。
@@ -352,46 +337,88 @@ xelatex ustcthesis.dtx
 %         参见 \pkg{ctex}、\pkg{fontspec} 宏包。
 % \end{description}
 %
+% \subsection{字体命令}
+%
+% \CTeX{} 提供了一些设置中文字体的命令，但是不建议使用，参见附录 \ref{sec:caution}。\\
+% \DescribeMacro{\songti} 宋体 \\
+% \DescribeMacro{\heiti} 黑体 \\
+% \DescribeMacro{\kaiti} 楷体 \\
+% \DescribeMacro{\fangsong} 仿宋
+%
 % \subsection{字号}
 %
-% \DescribeMacro{\setfontsize}
+% \DescribeMacro{\zihao\marg{字号}}
+% 中文字号的设置命令是 \cs{zihao}\marg{字号}，例如 |\zihao{3}|。
+% 可以使用的参数有16 个，小号字体在前面加负号表示，从大到小依次为：
+% \begin{center}
+% \begin{tabular}{cccccccc}
+%     \toprule
+%     初号 & 小初 & 一号 & 小一 & 二号 & 小二 & 三号 & 小三 \\
+%     0 & -0 & 1 & -1 & 2 & -2 & 3 & -3 \\
+%     \midrule
+%     四号 & 小四 & 五号 & 小五 & 六号 & 小六 & 七号 & 八号 \\
+%     4 & -4 & 5 & -5 & 6 & -6 & 7 & 8 \\
+%     \bottomrule
+% \end{tabular}
+% \end{center}
+% \noindent 英文字体大小会始终保持和中文字体一致。
 %
-% \subsubsection{其他}
 %
-% \DescribeMacro{\zhspace}
 %
-% \section{排版注意事项}
-% \begin{itemize}
-%     \item 英文逗号、句号、问号和叹号后面要加空格。
-%     \item 中、西文字符之间要加空格。
-%     \item “|表 \ref{tab:xxx}|” 应插入显式的空格：“|表~\ref{tab:xxx}|”
-% \end{itemize}
+% \section{扉页命令}
+%
+%
+%
+% \section{控制命令}
+%
+%
+%
+% \section{参考文献}
+%
+% 目前参考文献不支持 author-year 格式，只能使用 numeric 风格
 %
 %
 %
 % \appendix
 %
 % \section{\LaTeX{} 新手指南}
+% \label{sec:new}
 %
-% \subsection{更新宏包}
+% \subsection{安装 \LaTeX{}}
+%
+% \subsection{更新}
 % \label{sec:update}
 %
-% \section{模板维护指南}
+% \subsection{\LaTeX{} 排版注意事项}
+% \label{sec:caution}
+% \begin{itemize}
+%     \item 英文逗号、句号、问号和叹号后面要加空格。
+%     \item 中、西文字符之间要加空格。
+%     \item “|表 \ref{tab:xxx}|” 应插入显式的空格：“|表~\ref{tab:xxx}|”。
+%     \item \CTeX{} 虽然提供一些显式地设置中文字体的命令如 \cs{heiti}，但是不建议使用，
+%         因为西文需要必须与之匹配。故推荐使用 \cs{textsf} 或者 \cs{bfseries}。
+% \end{itemize}
+%
+%
+%
+% \section{常见问题 FAQ}
+% \label{sec:faq}
+%
+%
+%
+% \section{模板开发维护指南}
+% \label{sec:dev_guide}
 %
 %
 %
 % \StopEventually{}
 %
 % \section{代码实现}
-%    \begin{macrocode}
-%<*class>
-\NeedsTeXFormat{LaTeX2e}[1999/12/01]
-\ProvidesClass{ustcthesis}[2015/06/28 v2.0 Thesis Template for
-                           University of Science and Technology of China]
-%    \end{macrocode}
+% \label{sec:code}
 %
 % \subsection{声明选项}
 %    \begin{macrocode}
+%<*class>
 \RequirePackage{kvoptions}
 \SetupKeyvalOptions{family=ustc@opt, prefix=ustc@opt@, setkeys=\kvsetkeys}
 \DeclareBoolOption[false]{doctor}
