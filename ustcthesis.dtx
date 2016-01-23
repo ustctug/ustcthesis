@@ -79,7 +79,7 @@ LaTeX version 1999/12/01 or later.
 \DeclareRobustCommand\env{\texttt}
 \DeclareRobustCommand\pkg{\textsf}
 \DeclareRobustCommand\cls{\textsf}
-\DeclareRobustCommand\option{\texttt}
+\DeclareRobustCommand\opt{\texttt}
 \renewcommand\glossaryname{版本历史}
 \GlossaryPrologue{\section*{\glossaryname}}
 \renewcommand\indexname{代码索引}
@@ -253,9 +253,9 @@ xelatex ustcthesis.dtx
 % \begin{center}
 % \begin{tabular}{p{.15\textwidth}p{.7\textwidth}}
 % \toprule
-% \option{doctor} & 博士论文 \\
-% \option{master} & 硕士论文 \\
-% \option{bachelor} & 本科论文 \\
+% \opt{doctor} & 博士论文 \\
+% \opt{master} & 硕士论文 \\
+% \opt{bachelor} & 本科论文 \\
 % \bottomrule
 % \end{tabular}
 % \end{center}
@@ -264,8 +264,8 @@ xelatex ustcthesis.dtx
 % \begin{center}
 % \begin{tabular}{p{.15\textwidth}p{.7\textwidth}}
 % \toprule
-% \option{print} & 用于打印纸质论文，默认 \\
-% \option{pdf} & 适于屏幕阅读，会开启 \option{onside}、\option{pagecenter} 选项，
+% \opt{print} & 用于打印纸质论文，默认 \\
+% \opt{pdf} & 适于屏幕阅读，会开启 \opt{onside}、\opt{pagecenter} 选项，
 % 并且更改超链接颜色 \\
 % \bottomrule
 % \end{tabular}
@@ -275,8 +275,8 @@ xelatex ustcthesis.dtx
 % \begin{center}
 % \begin{tabular}{p{.15\textwidth}p{.7\textwidth}}
 % \toprule
-% \option{pageouter} & 页码置于外侧，\option{doctor}、\option{master} 默认 \\
-% \option{pagecenter} & 页码居中，\option{bachelor} 默认 \\
+% \opt{pageouter} & 页码置于外侧，\opt{doctor}、\opt{master} 默认 \\
+% \opt{pagecenter} & 页码居中，\opt{bachelor} 默认 \\
 % \bottomrule
 % \end{tabular}
 % \end{center}
@@ -285,19 +285,19 @@ xelatex ustcthesis.dtx
 % \begin{center}
 % \begin{tabular}{p{.15\textwidth}p{.7\textwidth}}
 % \toprule
-% \option{twoside} & 双面打印，\option{doctor}、\option{master} 默认 \\
-% \option{onside} & 单面打印，\option{bachelor} 默认 \\
+% \opt{twoside} & 双面打印，\opt{doctor}、\opt{master} 默认 \\
+% \opt{onside} & 单面打印，\opt{bachelor} 默认 \\
 % \bottomrule
 % \end{tabular}
 % \end{center}
 %
-% 在 \option{twoside} 有效时，还有以下选项：
+% 在 \opt{twoside} 有效时，还有以下选项：
 % \begin{center}
 % \begin{tabular}{p{.15\textwidth}p{.7\textwidth}}
 % \toprule
-% \option{openright} & 新的一章仅在奇数页（右侧）开始，这时可能会产生空白页以填充左侧，
-% \option{doctor}、\option{master} 默认 \\
-% \option{openany} & 新的一章仅在下一页开始 \\
+% \opt{openright} & 新的一章仅在奇数页（右侧）开始，这时可能会产生空白页以填充左侧，
+% \opt{doctor}、\opt{master} 默认 \\
+% \opt{openany} & 新的一章仅在下一页开始 \\
 % \bottomrule
 % \end{tabular}
 % \end{center}
@@ -308,9 +308,51 @@ xelatex ustcthesis.dtx
 %
 % \subsection{控制命令}
 %
-% \subsubsection{中文字体}
+% \section{字体设置}
 %
-% \subsubsection{字号}
+% \subsection{中文字库}
+%
+% 默认情况下，本模板可以利用 \pkg{ctex} 宏包的功能自动检测用户的 OS X、Windows 操作系统，
+% 并选择合适的字库。自动配置的情况参见表~\ref{tab:font-select}。
+%
+% \begin{table}[htbp]
+% \caption{字库自动配置策略}
+% \label{tab:font-select}
+% \centering
+% \begin{tabular}{cl}
+%     \toprule
+%     操作系统 & 中文字库 \\
+%     \midrule
+%     OS X & 华文字库 \\
+%     Windows Vista 及以后版本 & 中易字库 + 微软雅黑 \\
+%     Windows XP 及以前版本 & 中易字库 \\
+%     其他 & Fandol 字库 \\
+%     \bottomrule
+% \end{tabular}
+% \end{table}
+%
+% 用户也可以在文档类加入选项 \opt{fontset=\meta{font}} 来显式地指定加载的字库，如：
+% \begin{verbatim}
+%     \documentclass[doctor,fontset=mac]{ustcthesis}
+% \end{verbatim}
+%
+% 还有以下预定义的字库：
+% \begin{description}
+%     \item[\opt{adobe}] 使用 Adobe 公司的四款中文字体。
+%     \item[\opt{fandol}] 使用 Fandol 中文字体。
+%     \item[\opt{founder}] 使用方正公司的中文字体。
+%     \item[\opt{mac}] 使用 Mac OS X 系统下的华文字体。
+%     \item[\opt{ubuntu}] 使用 Ubuntu 系统下的文泉驿和文鼎字体。
+%     \item[\opt{windows}] 使用简体中文 Windows 系统下的中文字体，自动判断 Windows 系
+%         统版本，采用 |windowsnew| 或 |windowsold| 的设置。
+%     \item[\opt{windowsnew}] 使用简体中文 Windows Vista 或之后系统下的中易字体和微软
+%         雅黑字体。
+%     \item[\opt{windowsold}] 使用简体中文 Windows XP 或之前系统下的中易字体。
+%     \item[\opt{none}] 不配置中文字体，需要用户自己配置，
+%         参见 \pkg{ctex}、\pkg{fontspec} 宏包。
+% \end{description}
+%
+% \subsection{字号}
 %
 % \DescribeMacro{\setfontsize}
 %
@@ -322,6 +364,7 @@ xelatex ustcthesis.dtx
 % \begin{itemize}
 %     \item 英文逗号、句号、问号和叹号后面要加空格。
 %     \item 中、西文字符之间要加空格。
+%     \item “|表 \ref{tab:xxx}|” 应插入显式的空格：“|表~\ref{tab:xxx}|”
 % \end{itemize}
 %
 %
