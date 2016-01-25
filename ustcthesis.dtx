@@ -1,6 +1,6 @@
 % \iffalse meta-comment
 %
-% Copyright (C) 2015-2016 by Zeping Lee <zepinglee@gmail.com>
+% Copyright (C) 2015-2016 by Zeping Lee <zepinglee AT gmail.com>
 %
 % This file may be distributed and/or modified under the
 % conditions of the LaTeX Project Public License, either
@@ -24,7 +24,7 @@
 \input docstrip.tex
 \preamble
 
-Copyright (C) 2015-\the\year by Zeping Lee <zepinglee@gmail.com>
+Copyright (C) 2015-\the\year by Zeping Lee <zepinglee AT gmail.com>
 
 This file may be distributed and/or modified under the
 conditions of the LaTeX Project Public License, either
@@ -164,21 +164,18 @@ LaTeX version 1999/12/01 or later.
 % \item 镜像地址：\url{https://gitlab.lug.ustc.edu.cn/ustctug/ustcthesis}
 % \end{itemize}
 %
-% 我们假定用户已经能够熟练使用 \LaTeX{}，否则请先阅读附录 \ref{sec:new}；
-% 如果对本模板有问题或者建议，可以在 GitHub 提出，或者发电子邮件给维护者，
+% 我们假定用户已经能够熟练使用 \LaTeX{}，如果从来没有接触过 \LaTeX{}，
+% 建议阅读附录 \ref{sec:new}；
+% 若对本模板有问题或者建议，可以在 GitHub 提出（推荐），或者发电子邮件给维护者，
 % 注意提问之前需阅读附录 \ref{sec:faq}；
 % 对于想自已修改代码的用户，以及愿意有兴趣参与模板的开发、维护的 \TeX{} 爱好者，
 % 附录 \ref{sec:dev_guide} 和附录 \ref{sec:code} 分别提供了指南和带代码的注释。
 %
-% \section{构建模板}
+% \section{编译}
 %
 % \subsection{文件组成}
-% 本模板的主要文件如表 \ref{tab:file}：
-%
-% \begin{table}[htbp]
-% \centering
-% \caption{\cls{ustcthesis} 的文件组成}
-% \label{tab:file}
+% 本模板的主要文件如下：
+% \begin{center}
 % \begin{tabularx}{\linewidth}{llX}
 %     \toprule
 %     类别     & 文件                    & 说明 \\
@@ -192,7 +189,7 @@ LaTeX version 1999/12/01 or later.
 %              & \file{ustcthesis.cls} & 文档类文件 \\
 %              & \file{ustcextra.sty}  & 附加宏包 \\
 %     \midrule
-%     示例文件 & \file{main.tex}       & 主文档 \\
+%     示例文档 & \file{main.tex}       & 主文档 \\
 %              & \file{chapters/*.tex} & 示例文档的各个章节 \\
 %              & \file{figures/}       & 放置图片的目录 \\
 %              & \file{bib/tex.bib}    & 参考文献示例数据库 \\
@@ -202,24 +199,25 @@ LaTeX version 1999/12/01 or later.
 %             & \file{make.bat}       & Windows 批处理文件 \\
 %     \bottomrule
 % \end{tabularx}
-% \end{table}
+% \end{center}
+%
+% 示例文档包括了常用的 \LaTeX{} 命令，建议新手用户从此入手，用自己的内容进行替换。
 %
 % \subsection{依赖宏包}
 %
-% \cls{ustcthesis} 直接依赖的其他宏包有：
+% \cls{ustcthesis} 直接依赖的宏包有：
+% \pkg{caption},
 % \pkg{ctex},
-% \pkg{kvoptions},
-% \pkg{hyperref},
-% \pkg{xparse},
 % \pkg{geometry},
+% \pkg{hyperref},
+% \pkg{kvoptions},
 % \pkg{titlesec},
 % \pkg{titletoc},
-% \pkg{caption}
+% \pkg{xparse}
 %
-% 注意 \pkg{ctex} 必须为 2.0 以上版本，所以建议使用发行版 \TeXLive{} 2015 以上版本，并且
-% 升级到最新。关于更新宏包，参见 \ref{sec:update}。
+% 注意 \pkg{ctex} 必须为 2.0 以上版本。关于更新宏包，参见 \ref{sec:update}。
 %
-% \subsection{如何构建}
+% \subsection{开始编译}
 %
 % \begin{enumerate}
 %
@@ -266,9 +264,9 @@ LaTeX version 1999/12/01 or later.
 %
 %
 %
-% \section{文档类选项}
+% \section{论文选项}
 %
-% 模板提供一个文档类 \cls{ustcthesis} ，应在主文件调用，如：
+% \cls{ustcthesis} 提供了若干选项，应在论文开始时设置，如：
 % \begin{latex}
 % \documentclass[doctor,pdf]{ustcthesis}
 % \end{latex}
@@ -309,9 +307,11 @@ LaTeX version 1999/12/01 or later.
 %
 % \section{字体设置}
 %
-% \subsection{中文字库}
+% \subsection{中文字体}
+% \cls{ustcthesis} 只以 \pkg{xeCJK} 的方式提供中文支持，不支持 CJK 方式，
+% 所以用户必须使用UTF-8 编码保存源文件，并且用 |xelatex| 命令进行编译。
 %
-% 默认情况下，本模板可以利用 \pkg{ctex} 宏包的功能自动检测用户的 OS X、Windows 操作系统，
+% 默认情况下，本模板可以利用 \pkg{ctex} 宏包的功能自动检测用户的操作系统类型，
 % 并选择合适的字库。自动配置的策略如下：
 % \begin{center}
 % \begin{tabular}{cl}
@@ -326,12 +326,11 @@ LaTeX version 1999/12/01 or later.
 % \end{tabular}
 % \end{center}
 %
-% 用户也可以在文档类加入选项 \opt{fontset=\meta{font}} 来显式地指定加载的字库，如：
+% 用户也可以在调用文档类时加入选项 \opt{fontset=\meta{font}} 来显式地指定加载的字库，如：
 % \begin{latex}
 % \documentclass[doctor,fontset=mac]{ustcthesis}
 % \end{latex}
-%
-% 还有以下预定义的字库配置：
+% \meta{font} 有以下预定义的字库配置：
 % \begin{description}
 %     \item[\opt{adobe}] 使用 Adobe 公司的四款中文字体。
 %     \item[\opt{fandol}] 使用 Fandol 中文字体。
@@ -371,7 +370,7 @@ LaTeX version 1999/12/01 or later.
 %     \bottomrule
 % \end{tabular}
 % \end{center}
-% \noindent 英文字体大小会始终保持和中文字体一致。
+% \noindent 英文字体大小会自动保持和中文字体一致。
 %
 %
 %
@@ -414,6 +413,9 @@ LaTeX version 1999/12/01 or later.
 % \section{常见问题 FAQ}
 % \label{sec:faq}
 %
+% \subsection{为何我打开文件时显示中文为乱码？}
+% 因为你的编辑器不是使用 UTF-8 编码。\cls{ustcthesis} 中文只支持 \pkg{xeCJK} 方式，
+% 必须使用 UTF-8 编码。中文版 Windows 的默认编码是 GB18030。
 %
 %
 % \section{模板开发维护指南}
