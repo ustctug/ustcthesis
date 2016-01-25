@@ -74,7 +74,21 @@ LaTeX version 1999/12/01 or later.
 }
 \usepackage{tabularx}
 \usepackage{booktabs}
-\usepackage{xcolor}
+\usepackage{listings}
+\lstdefinestyle{lstshell}{%
+    basicstyle=\small\ttfamily\color{white},%
+    backgroundcolor=\color{black},%
+    frame=single,%
+    gobble=2,% 重要！否则会生成注释符号"%"
+    language=bash}
+\lstdefinestyle{lstlatex}{%
+    basicstyle=\small\ttfamily,%
+    frame=single,%
+    gobble=2,%
+    language=[LaTeX]TeX}
+\newcommand\shellcmd[1]{\colorbox{black}{\lstset{style=lstshell}\lstinline｜#1｜}}
+\lstnewenvironment{shell}{\lstset{style=lstshell}}{}
+\lstnewenvironment{latex}{\lstset{style=lstlatex}}{}
 % 模仿 l3doc 的定义
 \DeclareRobustCommand\file{\nolinkurl}
 \DeclareRobustCommand\env{\texttt}
@@ -212,16 +226,16 @@ LaTeX version 1999/12/01 or later.
 % \item GNU make \\
 % 如果你有 GNU make 工具，这是最简单的方法。
 % 编译论文 \file{main.pdf}：
-% \begin{verbatim}
+% \begin{shell}
 % make thesis
-% \end{verbatim}
+% \end{shell}
 %
 % 编译说明文档 \file{ustcthesis.pdf}：
-% \begin{verbatim}
+% \begin{shell}
 % make doc
-% \end{verbatim}
+% \end{shell}
 %
-% 另外还可以用 |make clean| 和 |make cleanall| 分别清理辅助文件或彻底清理。
+% 另外还可以用 \shellcmd{make clean} 和 \shellcmd{make cleanall} 分别清理辅助文件或彻底清理。
 %
 % \item 批处理文件（Windows 用户） \\
 % 直接双击运行 \file{make.bat}
@@ -231,23 +245,23 @@ LaTeX version 1999/12/01 or later.
 %
 % 编译文档类 \file{ustcthesis.cls} 和宏包文件 \file{ustcextra.sty}（如果已经存在
 % 可以略过此步）：
-% \begin{verbatim}
+% \begin{shell}
 % xetex ustcthesis.dtx
-% \end{verbatim}
+% \end{shell}
 %
 % 编译论文 \file{main.pdf}：
-% \begin{verbatim}
+% \begin{shell}
 % latexmk -xelatex main.tex
-% \end{verbatim}
+% \end{shell}
 %
 % 编译说明文档 \file{ustcthesis.pdf}：
-% \begin{verbatim}
+% \begin{shell}
 % xelatex ustcthesis.dtx
 % makeindex -s gind.ist ustcthesis.idx
 % makeindex -s gglo.ist -o ustcthesis.gls ustcthesis.glo
 % xelatex ustcthesis.dtx
 % xelatex ustcthesis.dtx
-% \end{verbatim}
+% \end{shell}
 % \end{enumerate}
 %
 %
@@ -255,9 +269,9 @@ LaTeX version 1999/12/01 or later.
 % \section{文档类选项}
 %
 % 模板提供一个文档类 \cls{ustcthesis} ，应在主文件调用，如：
-% \begin{verbatim}
+% \begin{latex}
 % \documentclass[doctor,pdf]{ustcthesis}
-% \end{verbatim}
+% \end{latex}
 %
 % 其中论文类型是必需参数：
 % \begin{center}
@@ -298,12 +312,8 @@ LaTeX version 1999/12/01 or later.
 % \subsection{中文字库}
 %
 % 默认情况下，本模板可以利用 \pkg{ctex} 宏包的功能自动检测用户的 OS X、Windows 操作系统，
-% 并选择合适的字库。自动配置的情况参见表~\ref{tab:font-select}。
-%
-% \begin{table}[htbp]
-% \caption{字库自动配置策略}
-% \label{tab:font-select}
-% \centering
+% 并选择合适的字库。自动配置的策略如下：
+% \begin{center}
 % \begin{tabular}{cl}
 %     \toprule
 %     操作系统 & 中文字库 \\
@@ -314,12 +324,12 @@ LaTeX version 1999/12/01 or later.
 %     其他 & Fandol 字库 \\
 %     \bottomrule
 % \end{tabular}
-% \end{table}
+% \end{center}
 %
 % 用户也可以在文档类加入选项 \opt{fontset=\meta{font}} 来显式地指定加载的字库，如：
-% \begin{verbatim}
-%     \documentclass[doctor,fontset=mac]{ustcthesis}
-% \end{verbatim}
+% \begin{latex}
+% \documentclass[doctor,fontset=mac]{ustcthesis}
+% \end{latex}
 %
 % 还有以下预定义的字库配置：
 % \begin{description}
