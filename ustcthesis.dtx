@@ -144,6 +144,8 @@ LaTeX version 1999/12/01 or later.
 % \date{\filedate\qquad\fileversion}
 % \maketitle
 %
+%
+%
 % \section{简介}
 %
 % \cls{ustcthesis} 是用于排版中国科学技术大学本科和研究生学位论文的 \LaTeX{} 模板，
@@ -171,7 +173,9 @@ LaTeX version 1999/12/01 or later.
 % 对于想自已修改代码的用户，以及愿意有兴趣参与模板的开发、维护的 \TeX{} 爱好者，
 % 附录 \ref{sec:dev_guide} 和附录 \ref{sec:code} 分别提供了指南和带代码的注释。
 %
-% \section{编译}
+%
+%
+% \section{编译方法}
 %
 % \subsection{文件组成}
 % 本模板的主要文件如下：
@@ -201,7 +205,10 @@ LaTeX version 1999/12/01 or later.
 % \end{tabularx}
 % \end{center}
 %
-% 示例文档包括了常用的 \LaTeX{} 命令，建议新手用户从此入手，用自己的内容进行替换。
+% 文件 \file{.cls} 和 \file{.sty} 是由 \file{.dtx} 生成的，
+% 若用户想自行修改模板，应编辑 \file{ustcthesis.dtx}，否则可能会被覆盖。
+%
+% 示例文档包括了常用的 \LaTeX{} 命令，建议新手从此入手，用自己的内容进行替换。
 %
 % \subsection{依赖宏包}
 %
@@ -374,18 +381,104 @@ LaTeX version 1999/12/01 or later.
 %
 %
 %
-% \section{扉页命令}
+% \section{论文内容}
 %
+% 示例文档 \file{main.tex} 的致谢、目录等章节的顺序，是按照研究生论文的格式组织内容的，
+% 与本科生要求的顺序有所不同，用户可能需要手动调整顺序。
 %
+% \subsection{扉页}
+% 封面的内容由印刷厂统一制作，\cls{ustcthesis} 的内容从扉页开始。
+% 扉页由 \cs{maketitle} 命令生成，其中的各项信息使用 \cs{\meta{item}\marg{info}} 的方式填写，
+% 本模板提供以下命令，其中带 |en| 前缀的命令是设置英文扉页的命令：
+% \begin{center}
+% \begin{tabular}{lll}
+%     \toprule
+%     命令 & 命令（英文） & 说明 \\
+%     \midrule
+%     \cs{title} & \cs{entitle} & 论文标题 \\
+%     \cs{author} & \cs{enauthor} & 作者姓名 \\
+%     \cs{major} & \cs{enmajor} & 学科专业 \\
+%     \cs{advisor} & \cs{enadvisor} & 导师姓名 \\
+%     \cs{submitdate} & \cs{ensubmitdate} & 完成时间 \\
+%     \cs{secrettext} & \cs{ensecrettext} & 密级信息（如果不设置则不保密） \\
+%     \cs{depart} & & 系别，可能用于书脊 \\
+%     \bottomrule
+% \end{tabular}
+% \end{center}
 %
-% \section{控制命令}
+% 若论文选项 \opt{print} 有效，“原创性声明” 页则会加在扉页后，若为 \opt{pdf}，则没有声明页。
 %
+% \subsection{摘要等环境}
+% \DescribeEnv{abstract}
+% \DescribeEnv{enabstract}
+% \DescribeEnv{notation}
+% \DescribeEnv{acknowledgements}
+% \DescribeEnv{publications}
+% \cls{ustcthesis} 还提供了以下环境，用于填写相应的信息。
+% \begin{center}
+% \begin{tabular}{ll}
+%     \toprule
+%     环境 & 说明 \\
+%     \midrule
+%     \env{abstract} & 中文摘要 \\
+%     \env{enabstract} & 英文摘要 \\
+%     \env{notation} & 符号 \\
+%     \env{acknowledgements} & 致谢 \\
+%     \env{publications} & 发表成果 \\
+%     \bottomrule
+% \end{tabular}
+% \end{center}
 %
+% \DescribeMacro{\keywords}
+% \DescribeMacro{\enkeywords}
+% 其中，摘要的关键词应使用 \cs{keywords} 和 \cs{enkeywords} 命令，并包含在摘要环境中；
+% 中文摘要的相邻关键词之间应使用 \cs{zhspace} 命令隔开，举个例子：
+% \begin{latex}
+% \begin{abstract}
+% 这里是摘要。
+% \keywords{论文 \zhspace 摘要 \zhspace 关键词}
+% \end{abstract}
+% \end{latex}
 %
-% \section{参考文献}
+% \subsection{目录和图表}
+% \DescribeMacro{\tableofcontents}
+% \DescribeMacro{\tableofcontents*}
+% \DescribeMacro{\listoffigures}
+% \DescribeMacro{\listoffigures*}
+% \DescribeMacro{\listoftables}
+% \DescribeMacro{\listoftables*}
+% 目录、插图和表格的索引命令分别如下，其中带星号的命令表示对应的索引表不会出现在目录中：
+% \begin{center}
+% \begin{tabular}{ll}
+%     \toprule
+%     命令 & 说明 \\
+%     \midrule
+%     \cs{tableofcontents} & 目录 \\
+%     \cs{tableofcontents*} & \\
+%     \midrule
+%     \cs{listoffigures} & 插图索引 \\
+%     \cs{listoffigures*} & \\
+%     \midrule
+%     \cs{listoftables} & 表格索引 \\
+%     \cs{listoftables*} & \\
+%     \bottomrule
+% \end{tabular}
+% \end{center}
 %
+% \LaTeX{} 的图表索引，是通过 \cs{caption} 命令完成的，因此它们必须出现在浮动环境中，
+% 否则不被计数。
+% 如果不想让某个表格或者图片出现在索引里面，那么应使用命令 \cs{caption*}，
+% 这个命令不会给表格编号，也就是出来的只有标题文字而没有“表~xx”，“图~xx”。
+%
+% \DescribeMacro{\note}
+% 本模板还提供了 \cs{note\marg{text}} 命令，用于在图表中添加注释。
+%
+% \subsection{参考文献}
 % 目前参考文献不支持 author-year 格式，只能使用 numeric 风格
 %
+%
+%
+% \section{数学}
 %
 %
 % \appendix
@@ -572,7 +665,6 @@ LaTeX version 1999/12/01 or later.
 \ustc@define@term{major}
 \ustc@define@term{advisor}
 \ustc@define@term{coadvisor}
-\ustc@define@term{studentid}
 \ustc@define@term{submitdate}
 \ustc@define@term{entitle}
 \ustc@define@term{ensecrettext}
@@ -629,6 +721,7 @@ LaTeX version 1999/12/01 or later.
 % \subsection{扉页}
 % \begin{macro}{\maketitle}
 % 重新定义 \cs{maketitle}，调用 \cs{make@cntitle}, \cs{make@entitle} 分别生成中、英文扉页。
+% 若论文选项 \opt{print} 有效，声明页则会加在扉页后，若为 \opt{pdf}，则没有声明页。
 %    \begin{macrocode}
 \renewcommand\maketitle{%
     \newgeometry{
@@ -642,7 +735,9 @@ LaTeX version 1999/12/01 or later.
     \make@entitle \cleardoublepage
     \restoregeometry
     \ifustc@opt@bachelor\relax\else
-        \make@statement \cleardoublepage
+        \ifustc@opt@pdf\relax\else%
+            \make@statement \cleardoublepage
+        \fi
     \fi
     \pagestyle{main}%
 }
@@ -771,10 +866,10 @@ LaTeX version 1999/12/01 or later.
 % \end{macro}
 %
 % \subsection{摘要}
-% \begin{environment}{cnabstract}
+% \begin{environment}{abstract}
 % 中文摘要环境
 %    \begin{macrocode}
-\newenvironment{cnabstract}{%
+\newenvironment{abstract}{%
     \ifustc@opt@bachelor
         \ctexset{chapter/format += \zihao{-2}}
     \fi
