@@ -601,6 +601,7 @@ LaTeX version 1999/12/01 or later.
 %    \begin{macrocode}
 \RequirePackage{hyperref}
 \hypersetup{
+    linktoc=all,
     CJKbookmarks=true,
     bookmarksnumbered=true,
     bookmarksopen=true,
@@ -679,8 +680,9 @@ LaTeX version 1999/12/01 or later.
 % \subsection{汉化}
 %    \begin{macrocode}
 \renewcommand\contentsname{目\zhspace 录}
-\renewcommand\listfigurename{插\zhspace 图}
-\renewcommand\listtablename{表\zhspace 格}
+\renewcommand\listfigurename{图目录}
+\renewcommand\listtablename{表目录}
+\newcommand\ustc@pdf@contentsname{目录}
 %    \end{macrocode}
 %
 % \subsection{页面设置}
@@ -898,23 +900,13 @@ LaTeX version 1999/12/01 or later.
 %
 % \subsection{目录}
 % \begin{macro}{\tableofcontents}
-% 为了让目录中的“目录”二字中间没有空格，重新定义 \cs{tableofcontents}
+% 为了在 PDF 书签中加入目录，重新定义 \cs{tableofcontents}
 %    \begin{macrocode}
-\renewcommand\tableofcontents{\begingroup
-    \ifustc@opt@bachelor\ctexset{chapter/format += \zihao{-2}}\fi
-    \chapter[目录]{\contentsname}%
-    \@starttoc{toc}%
-\endgroup}
-\renewcommand\listoffigures{\begingroup
-    \ifustc@opt@bachelor\ctexset{chapter/format += \zihao{-2}}\fi
-    \chapter[插图]{\listfigurename}%
-    \@starttoc{lof}%
-\endgroup}
-\renewcommand\listoftables{\begingroup
-    \ifustc@opt@bachelor\ctexset{chapter/format += \zihao{-2}}\fi
-    \chapter[表格]{\listtablename}%
-    \@starttoc{lot}%
-\endgroup}
+\let\ustc@save@tableofcontents=\tableofcontents
+\renewcommand\tableofcontents{%
+    \clearpage%
+    \pdfbookmark[0]{\ustc@pdf@contentsname}{ustctoc}
+    \ustc@save@tableofcontents}
 %    \end{macrocode}
 % \end{macro}
 % 下面用 \pkg{titletoc} 宏包设置每级目录的格式
