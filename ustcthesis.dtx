@@ -54,17 +54,18 @@ LaTeX version 1999/12/01 or later.
 %</driver>
 %<class>\NeedsTeXFormat{LaTeX2e}[1999/12/01]
 %<class>\ProvidesClass{ustcthesis}
-%<*class>
-    [2016/01/23 v2.0 USTC thesis template]
-%</class>
+%<extra>\ProvidesPackage{ustcextra}
+%<*class|extra>
+    [2016/02/21 v2.0 USTC thesis template]
+%</class|extra>
 %
 %<*driver>
 \documentclass[a4paper]{ltxdoc}
-\usepackage{hypdoc}
-\hypersetup{allcolors=blue}
 \EnableCrossrefs
 \CodelineIndex
 \RecordChanges
+\usepackage{hypdoc}
+\hypersetup{allcolors=blue}
 \usepackage[UTF8, heading, sub3section]{ctex}
 \ctexset{
     section      = {
@@ -86,9 +87,9 @@ LaTeX version 1999/12/01 or later.
     frame=single,%
     gobble=2,%
     language=[LaTeX]TeX}
-\newcommand\shellcmd[1]{\colorbox{black}{\lstset{style=lstshell}\lstinline｜#1｜}}
 \lstnewenvironment{shell}{\lstset{style=lstshell}}{}
 \lstnewenvironment{latex}{\lstset{style=lstlatex}}{}
+\newcommand\shellcmd[1]{\colorbox{black}{\lstset{style=lstshell}\lstinline｜#1｜}}
 % 模仿 l3doc 的定义
 \DeclareRobustCommand\file{\nolinkurl}
 \DeclareRobustCommand\env{\texttt}
@@ -132,7 +133,7 @@ LaTeX version 1999/12/01 or later.
 %   Grave accent  \`     Left brace    \{     Vertical bar  \|
 %   Right brace   \}     Tilde         \~}
 %
-% \changes{v2.0}{2015/06/26}{Initial Build}
+% \changes{v2.0}{2016/02/21}{Initial release.}
 %
 % \GetFileInfo{ustcthesis.dtx}
 %
@@ -205,10 +206,10 @@ LaTeX version 1999/12/01 or later.
 % \end{tabularx}
 % \end{center}
 %
-% 文件 \file{.cls} 和 \file{.sty} 是由 \file{.dtx} 生成的，
-% 若用户想自行修改模板，应编辑 \file{ustcthesis.dtx}，否则可能会被覆盖。
-%
 % 示例文档包括了常用的 \LaTeX{} 命令，建议新手从此入手，用自己的内容进行替换。
+%
+% 文件 \file{.cls} 和 \file{.sty} 是自动生成的，用户对其进行的修改可能会被覆盖。
+% 若想自行修改模板，应在 \file{main.tex} 的导言区使用 \cs{renewcommand} 来设置。
 %
 % \subsection{依赖宏包}
 %
@@ -441,26 +442,18 @@ LaTeX version 1999/12/01 or later.
 % \end{latex}
 %
 % \subsection{目录和图表}
+% 生成目录、插图和表格的索引命令分别如下：
 % \DescribeMacro{\tableofcontents}
-% \DescribeMacro{\tableofcontents*}
 % \DescribeMacro{\listoffigures}
-% \DescribeMacro{\listoffigures*}
 % \DescribeMacro{\listoftables}
-% \DescribeMacro{\listoftables*}
-% 目录、插图和表格的索引命令分别如下，其中带星号的命令表示对应的索引表不会出现在目录中：
 % \begin{center}
 % \begin{tabular}{ll}
 %     \toprule
 %     命令 & 说明 \\
 %     \midrule
 %     \cs{tableofcontents} & 目录 \\
-%     \cs{tableofcontents*} & \\
-%     \midrule
-%     \cs{listoffigures} & 插图索引 \\
-%     \cs{listoffigures*} & \\
-%     \midrule
-%     \cs{listoftables} & 表格索引 \\
-%     \cs{listoftables*} & \\
+%     \cs{listoffigures} & 图目录 \\
+%     \cs{listoftables} & 表目录 \\
 %     \bottomrule
 % \end{tabular}
 % \end{center}
@@ -481,6 +474,7 @@ LaTeX version 1999/12/01 or later.
 % \section{数学}
 %
 %
+% \clearpage
 % \appendix
 %
 % \section{\LaTeX{} 新手指南}
@@ -1189,7 +1183,6 @@ LaTeX version 1999/12/01 or later.
 % \subsection{\pkg{ustcextra} 宏集}
 %    \begin{macrocode}
 %<*extra>
-\ProvidesPackage{ustcextra}[2015/08/14 2.0 Extra packages for USTC thesis]
 % 三线表
 \RequirePackage{booktabs}
 % 跨页表格
