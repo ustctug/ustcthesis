@@ -1053,11 +1053,66 @@ LaTeX version 1999/12/01 or later.
 %    \end{macrocode}
 % \end{macro}
 %
-% \subsection{数学公式}
+% \subsection{数学}
 % \LaTeX{} 在使用 |10pt| 选项时有 \cs{DeclareMathSizes{\@xpt}{\@xpt}{7}{5}}，
 % 这里按照相同的比例设置 10.5 bp。
 %    \begin{macrocode}
 \DeclareMathSizes{10.5bp}{10.5bp}{7.35bp}{5.25bp}
+%    \end{macrocode}
+%
+% 以下定义数学定理环境，其中 plain 风格的放在最后，使得用户自定义的风格默认为 plain。
+%    \begin{macrocode}
+\RequirePackage{amsmath,amsthm,amssymb}
+
+% \newcommand\ustc@assertionname{Assertion}
+% \newcommand\ustc@axiomname{Axiom}
+% \newcommand\ustc@corollaryname{Corollary}
+% \newcommand\ustc@definitionname{Definition}
+% \newcommand\ustc@examplename{Example}
+% \newcommand\ustc@lemmaname{Lemma}
+% \newcommand\ustc@proofname{Proof}
+% \newcommand\ustc@propositionname{Proposition}
+% \newcommand\ustc@remarkname{Remark}
+% \newcommand\ustc@theoremname{Theorem}
+
+\newcommand\ustc@assertionname{断言}
+\newcommand\ustc@axiomname{公理}
+\newcommand\ustc@corollaryname{推论}
+\newcommand\ustc@definitionname{定义}
+\newcommand\ustc@examplename{例}
+\newcommand\ustc@lemmaname{引理}
+\newcommand\ustc@proofname{证明}
+\newcommand\ustc@propositionname{命题}
+\newcommand\ustc@remarkname{注释}
+\newcommand\ustc@theoremname{定理}
+
+\theoremstyle{definition}
+\newtheorem{definition}             {\ustc@definitionname}  [chapter]
+\newtheorem{example}                {\ustc@examplename}     [chapter]
+
+\theoremstyle{remark}
+\newtheorem*{remark}                {\ustc@remarkname}
+
+\theoremstyle{plain}
+\newtheorem{theorem}                {\ustc@theoremname}     [chapter]
+\newtheorem{assertion}  [theorem]   {\ustc@assertionname}
+\newtheorem{axiom}      [theorem]   {\ustc@axiomname}
+\newtheorem{corollary}  [theorem]   {\ustc@corollaryname}
+\newtheorem{lemma}      [theorem]   {\ustc@lemmaname}
+\newtheorem{proposition}[theorem]   {\ustc@propositionname}
+
+\renewcommand\proofname\ustc@proofname
+% \newenvironment{proof}[1][\proofname]{\par
+%   \pushQED{\qed}%
+%   \normalfont \topsep6\p@\@plus6\p@\relax
+%   \trivlist
+%   \item[\hskip\labelsep
+%         \itshape
+%     #1\@addpunct{.}]\ignorespaces
+% }{%
+%   \popQED\endtrivlist\@endpefalse
+% }
+% \providecommand{\proofname}{Proof}
 %    \end{macrocode}
 %
 % \subsection{符号说明}
