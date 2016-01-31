@@ -1,39 +1,35 @@
-.PHONY : all theisis cls doc pv clean cleanall
+.PHONY : pdf cls doc clean all release cleanall FORCE_MAKE
 
 MAIN = main
-SRC = $(MAIN).tex $(wildcard chapters/*.tex) $(wildcard bib/*.bib)
 CLS = ustcthesis.cls ustcextra.sty
-BST = ustcthesis.bst
-AUX = *.aux *.bbl *.blg *.fdb_latexmk *.fls *.glo *.gls *.hd *.idx *.ilg *.ind \
-      *.lof *.log *.lot *.out *.toc chapters/*.aux
-PDF = $(MAIN).pdf ustcthesis.pdf
+DTX = ustcthesis.dtx
 
-thesis : $(MAIN).pdf
+pdf : $(MAIN).pdf
 
-all : thesis doc
-
-cls : ustcthesis.cls ustcextra.sty
+cls : $(CLS)
 
 doc: ustcthesis.pdf
 
-pv : $(SRC) $(CLS) $(BST)
-	latexmk -xelatex -shell-escape -use-make -pv $(MAIN).tex
+# to delegate all the tasks to latexmk
+%.pdf : %.tex $(CLS) FORCE_MAKE
+	latexmk -xelatex -shell-escape -use-make $<
 
-$(MAIN).pdf : $(SRC) $(CLS) $(BST)
-	latexmk -xelatex -shell-escape -use-make $(MAIN).tex
+$(CLS) : $(DTX)
+	xetex $<
 
-$(CLS): ustcthesis.dtx
-	xetex ustcthesis.dtx
-
-ustcthesis.pdf : ustcthesis.dtx
-	xelatex ustcthesis.dtx
-	makeindex -s gind.ist ustcthesis.idx
-	makeindex -s gglo.ist -o ustcthesis.gls ustcthesis.glo
-	xelatex ustcthesis.dtx
-	xelatex ustcthesis.dtx
+ustcthesis.pdf : $(DTX)
+	latexmk -xelatex $<
 
 clean :
-	-rm -f $(AUX)
+	latexmk -c
+	latexmk -c $(DTX)
 
-cleanall : clean
-	-rm -f $(CLS) $(PDF)
+# for developers only:
+all : pdf doc
+release : cls doc
+	latexmk -C
+	latexmk -c $(DTX)
+cleanall :
+	latexmk -C
+	latexmk -C $(DTX)
+	-rm -f $(CLS)
