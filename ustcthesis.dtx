@@ -214,6 +214,8 @@ LaTeX version 1999/12/01 or later.
 % \subsection{依赖宏包}
 %
 % \cls{ustcthesis} 直接依赖的宏包有：
+% \pkg{amsmath},
+% \pkg{amsmthm},
 % \pkg{caption},
 % \pkg{ctex},
 % \pkg{geometry},
@@ -364,7 +366,7 @@ LaTeX version 1999/12/01 or later.
 %
 % \subsection{字号}
 %
-% \DescribeMacro{\zihao\marg{字号}}
+% \DescribeMacro{\zihao}
 % 中文字号的设置命令是 \cs{zihao}\marg{字号}，例如 |\zihao{3}|。
 % 可以使用的参数有16 个，小号字体在前面加负号表示，从大到小依次为：
 % \begin{center}
@@ -466,13 +468,55 @@ LaTeX version 1999/12/01 or later.
 % \DescribeMacro{\note}
 % 本模板还提供了 \cs{note\marg{text}} 命令，用于在图表中添加注释。
 %
+% \subsection{数学}
+% \cls{ustcthesis} 提供了以下数学环境：
+% \begin{center}
+% \begin{tabular}{l|*{6}{l}}
+%     \toprule
+%     风格 & 数学环境 &  &  &  &  &  \\
+%     \hline
+%     \opt{plain} & theorem & assertion & axiom & corollary & lemma & proposition \\
+%      & 定理 & 断言 & 公理 & 推论 & 引理 & 命题 \\
+%     \hline
+%     \opt{definition} & definition & example &  &  &  &  \\
+%      & 定义 & 例 &  &  &  &  \\
+%     \hline
+%     \opt{remark} & remark &  &  &  &  &  \\
+%      & 注 &  &  &  &  &  \\
+%     \hline
+%     其他 & proof &  &  &  &  &  \\
+%      & 证明 &  &  &  &  &  \\
+%     \bottomrule
+% \end{tabular}
+% \end{center}
+% 注意，\env{proof} 环境应当在其他环境（如 \env{theorem}）外面。
+%
+% 使用方法如下，比如公理环境：
+% \begin{latex}
+% \begin{axiom}[Axiom of choice]
+%     Suppose $E$ is a set and ${E_\alpha}$ is a collection of
+%     non-empty subsets of $E$. Then there is a function $\alpha
+%     \mapsto x_\alpha$ (a ``choice function'') such that
+%     \begin{equation}
+%         x_\alpha \in E_\alpha,\qquad \text{for all }\alpha.
+%     \end{equation}
+% \end{axiom}
+% \end{latex}
+% 会自动按章编号。关于各种环境的风格，参见 \pkg{amsthm} 宏包。
+%
+% \DescribeMacro{\newtheorem}
+% 用户也可以使用 \cs{newtheorem}\marg{name}\oarg{counter}\marg{title}\oarg{chapter}
+% 命令来自定义环境，默认为 \opt{plain} 风格。比如定义并使用“传说”环境：
+% \begin{latex}
+% \newtheorem{legend}{传说}
+% \begin{legend}
+%     龙生龙，凤生凤，华罗庚的弟子会打洞。
+% \end{legend}
+% \end{latex}
+% 详情参见 \pkg{amsthm} 宏包。
+%
 % \subsection{参考文献}
 % 目前参考文献不支持 author-year 格式，只能使用 numeric 风格
-%
-%
-%
-% \section{数学}
-%
 %
 % \clearpage
 % \appendix
@@ -1083,7 +1127,7 @@ LaTeX version 1999/12/01 or later.
 \newcommand\ustc@lemmaname{引理}
 \newcommand\ustc@proofname{证明}
 \newcommand\ustc@propositionname{命题}
-\newcommand\ustc@remarkname{注释}
+\newcommand\ustc@remarkname{注}
 \newcommand\ustc@theoremname{定理}
 
 \theoremstyle{definition}
