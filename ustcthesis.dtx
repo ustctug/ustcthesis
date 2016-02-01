@@ -1164,14 +1164,33 @@ LaTeX version 1999/12/01 or later.
 \newcommand\ustc@remarkname{注}
 \newcommand\ustc@theoremname{定理}
 
-\theoremstyle{definition}
+\newcommand\ustc@theorem@indent{2\ccwd}
+\newcommand\ustc@theorem@skip{\ccwd}
+
+\newtheoremstyle{ustcplain}%
+    {}{}%
+    {}{\ustc@theorem@indent}%
+    {\bfseries}{}%
+    {\ustc@theorem@skip}{}
+\newtheoremstyle{ustcdefinition}%
+    {}{}%
+    {}{\ustc@theorem@indent}%
+    {\bfseries}{}%
+    {\ustc@theorem@skip}{}
+\newtheoremstyle{ustcremark}%
+    {}{}%
+    {}{\ustc@theorem@indent}%
+    {\bfseries}{}%
+    {\ustc@theorem@skip}{}
+
+\theoremstyle{ustcdefinition}
 \newtheorem{definition}             {\ustc@definitionname}  [chapter]
 \newtheorem{example}                {\ustc@examplename}     [chapter]
 
-\theoremstyle{remark}
+\theoremstyle{ustcremark}
 \newtheorem*{remark}                {\ustc@remarkname}
 
-\theoremstyle{plain}
+\theoremstyle{ustcplain}
 \newtheorem{theorem}                {\ustc@theoremname}     [chapter]
 \newtheorem{assertion}  [theorem]   {\ustc@assertionname}
 \newtheorem{axiom}      [theorem]   {\ustc@axiomname}
