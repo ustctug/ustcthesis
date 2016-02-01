@@ -333,7 +333,7 @@ LaTeX version 1999/12/01 or later.
 % 所以用户必须使用UTF-8 编码保存源文件，并且用 |xelatex| 命令进行编译。
 %
 % 默认情况下，本模板可以利用 \pkg{ctex} 宏包的功能自动检测用户的操作系统类型，
-% 并选择合适的字库。自动配置的策略如下：
+% 并选择合适的中文字库。自动配置的策略如下：
 % \begin{center}
 % \begin{tabular}{cl}
 %     \toprule
@@ -366,6 +366,11 @@ LaTeX version 1999/12/01 or later.
 %     \item[\opt{none}] 不配置中文字体，需要用户自己配置，
 %         参见 \pkg{ctex}、\pkg{fontspec} 宏包。
 % \end{description}
+%
+% \subsection{英文字体}
+% 模板中使用了三种英文，包括衬线字体 Times New Roman、无衬线字体 Arial 和等宽字体
+% Courier New 。Windows和Mac下自带这三种英文字体，Linux下则需要从其他地方复制字体到
+% 本机。
 %
 % \subsection{字体命令}
 %
