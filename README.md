@@ -25,14 +25,12 @@ ustcthesis v2.0 依赖于 ctex 2.0，所以应使用 TeX Live 2015 发行版。
 
 生成论文 `main.pdf` 使用命令
 ```
-make thesis
+make
 ```
 生成说明文档 `ustcthesis.pdf` 使用命令
 ```
 make doc
 ```
-
-如果手工编译，请参考 Makefile 内容。
 
 
 

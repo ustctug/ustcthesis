@@ -1,10 +1,10 @@
-.PHONY : pdf cls doc clean all release cleanall FORCE_MAKE
+.PHONY : main cls doc clean all release cleanall FORCE_MAKE
 
 MAIN = main
 CLS = ustcthesis.cls ustcextra.sty
 DTX = ustcthesis.dtx
 
-pdf : $(MAIN).pdf
+main : $(MAIN).pdf
 
 cls : $(CLS)
 

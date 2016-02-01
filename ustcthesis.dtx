@@ -75,21 +75,21 @@ LaTeX version 1999/12/01 or later.
 }
 \usepackage{tabularx}
 \usepackage{booktabs}
+\usepackage{xcolor}
 \usepackage{listings}
-\lstdefinestyle{lstshell}{%
-    basicstyle=\small\ttfamily\color{white},%
-    backgroundcolor=\color{black},%
-    frame=single,%
+\lstdefinestyle{lstshell}{
+    basicstyle=\small\ttfamily,
+    backgroundcolor=\color{lightgray},
     gobble=2,% 重要！否则会生成注释符号"%"
     language=bash}
-\lstdefinestyle{lstlatex}{%
-    basicstyle=\small\ttfamily,%
-    frame=single,%
-    gobble=2,%
+\lstdefinestyle{lstlatex}{
+    basicstyle=\small\ttfamily,
+    frame=single,
+    gobble=2,
     language=[LaTeX]TeX}
 \lstnewenvironment{shell}{\lstset{style=lstshell}}{}
 \lstnewenvironment{latex}{\lstset{style=lstlatex}}{}
-\newcommand\shellcmd[1]{\colorbox{black}{\lstset{style=lstshell}\lstinline｜#1｜}}
+\newcommand\shellcmd[1]{\colorbox{lightgray}{\lstset{style=lstshell}\lstinline｜#1｜}}
 % 模仿 l3doc 的定义
 \DeclareRobustCommand\file{\nolinkurl}
 \DeclareRobustCommand\env{\texttt}
@@ -187,7 +187,7 @@ LaTeX version 1999/12/01 or later.
 %     \midrule
 %     模板文件 & \file{ustcthesis.dtx} & 主要的模板文件，可生成 \file{ustcthesis.pdf}%
 %                            、\file{ustcthesis.cls} 和 \file{ustcextra.sty} \\
-%              & \file{ustcthesis.bst} & 参考文献列表的格式文件 \\
+%              & \file{ustcthesis.bst} & \BibTeX{} 格式文件 \\
 %              & \file{figures/ustc_*.eps} & 校名和校徽图片 \\
 %     \midrule
 %     生成文件 & \file{ustcthesis.pdf} & （你正在阅读的）模板使用说明 \\
@@ -197,10 +197,11 @@ LaTeX version 1999/12/01 or later.
 %     示例文档 & \file{main.tex}       & 主文档 \\
 %              & \file{chapters/*.tex} & 示例文档的各个章节 \\
 %              & \file{figures/}       & 放置图片的目录 \\
-%              & \file{bib/tex.bib}    & 参考文献示例数据库 \\
+%              & \file{bib/tex.bib}    & \BibTeX{} 示例数据库 \\
 %     \midrule
 %     其他     & \file{README.md}      & 基本说明 \\
-%             & \file{Makefile}       & 用于 GNU make \\
+%             & \file{.latexmkrc}     & latexmk 的配置文件 \\
+%             & \file{Makefile}       & GNU make 的配置文件 \\
 %             & \file{make.bat}       & Windows 批处理文件 \\
 %     \bottomrule
 % \end{tabularx}
@@ -230,36 +231,46 @@ LaTeX version 1999/12/01 or later.
 % \begin{enumerate}
 %
 % \item GNU make \\
-% 如果你有 GNU make 工具，这是最简单的方法。
+% 如果有 GNU make 工具，这是最简单的方法。
 % 编译论文 \file{main.pdf}：
 % \begin{shell}
-% make thesis
+% make
 % \end{shell}
-%
 % 编译说明文档 \file{ustcthesis.pdf}：
 % \begin{shell}
 % make doc
 % \end{shell}
+% 另外还可以用 \shellcmd{make clean} 清理辅助文件。
 %
-% 另外还可以用 \shellcmd{make clean} 和 \shellcmd{make cleanall} 分别清理辅助文件或彻底清理。
-%
-% \item 批处理文件（Windows 用户） \\
+% \item 批处理脚本（Windows 用户） \\
 % 直接双击运行 \file{make.bat}
 %
-% \item xelatex \\
-% 使用图形界面的用户应参考所用编辑器的说明文档。
+% \item latexmk \\
+% 即使没有自动化工具，使用 latexmk 也是一个比较简单的方法，配置文件由 \file{.latexmkrc}
+% 给出，其参数设置为 |-xelatex|，用户编译论文只需使用命令：
+% \begin{shell}
+% latexmk main
+% \end{shell}
+% 编译说明文档：
+% \begin{shell}
+% latexmk ustcthesis.dtx
+% \end{shell}
+% 清理辅助文件可以用\shellcmd{latexmk -c}。图形界面用户应参考编辑器的使用说明。
 %
+% \item 手动编译 \\
+% 手动编译是最繁琐方法，用户可能需要运行多遍，以确保论文的交叉引用等信息全部正确。
 % 编译文档类 \file{ustcthesis.cls} 和宏包文件 \file{ustcextra.sty}（如果已经存在
 % 可以略过此步）：
 % \begin{shell}
 % xetex ustcthesis.dtx
 % \end{shell}
-%
 % 编译论文 \file{main.pdf}：
 % \begin{shell}
-% latexmk -xelatex main.tex
+% xelatex main
+% bibtex main # 如果不使用 BibTeX 可以略过此步
+% xelatex main
+% xelatex main
 % \end{shell}
-%
 % 编译说明文档 \file{ustcthesis.pdf}：
 % \begin{shell}
 % xelatex ustcthesis.dtx
