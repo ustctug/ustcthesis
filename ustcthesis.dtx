@@ -247,8 +247,8 @@ LaTeX version 1999/12/01 or later.
 % \item 批处理脚本（Windows 用户） \\
 % 直接双击运行 \file{make.bat}
 %
-% \item latexmk \\
-% 即使没有自动化工具，使用 latexmk 也是一个比较简单的方法，配置文件由 \file{.latexmkrc}
+% \item |latexmk| \\
+% 即使没有自动化工具，使用 |latexmk| 也是一个比较简单的方法，配置文件由 \file{.latexmkrc}
 % 给出，其参数设置为 |-xelatex|，用户编译论文只需使用命令：
 % \begin{shell}
 % latexmk main
@@ -257,11 +257,12 @@ LaTeX version 1999/12/01 or later.
 % \begin{shell}
 % latexmk ustcthesis.dtx
 % \end{shell}
-% 清理辅助文件可以用\shellcmd{latexmk -c}。图形界面用户应参考编辑器的使用说明。
+% 清理辅助文件可以用 \shellcmd{latexmk -c}。图形界面用户应参考编辑器的使用说明。
 %
 % \item 手动编译 \\
-% 手动编译是最繁琐方法，用户可能需要运行多遍，以确保论文的交叉引用等信息全部正确。
-% 编译文档类 \file{ustcthesis.cls} 和宏包文件 \file{ustcextra.sty}（如果已经存在
+% 手动编译是最繁琐的方法，用户可能需要运行多遍，以确保论文的交叉引用等信息全部正确。
+%
+% 生成文档类 \file{ustcthesis.cls} 和宏包文件 \file{ustcextra.sty}（如果已经存在
 % 可以略过此步）：
 % \begin{shell}
 % xetex ustcthesis.dtx
@@ -402,7 +403,24 @@ LaTeX version 1999/12/01 or later.
 %
 % \section{论文内容}
 %
-% 示例文档 \file{main.tex} 的致谢、目录等章节的顺序，是按照研究生论文的格式组织内容的，
+% 本科论文的内容按如下顺序排列：
+% \begin{enumerate}
+% \item 中文扉页、英文扉页
+% \item 致谢、目录、中文摘要、英文摘要
+% \item 正文章节、参考文献
+% \item 附录
+% \end{enumerate}
+%
+% 硕博论文的内容按如下顺序排列：
+% \begin{enumerate}
+% \item 中文扉页、英文扉页、原创性声明及授权使用说明
+% \item 中文摘要、英文摘要、目录、图表及代码目录（可选）、符号说明（可选）
+% \item 正文章节、参考文献
+% \item 附录
+% \item 致谢、已发表论文列表
+% \end{enumerate}
+%
+% 示例文档 \file{main.tex} 中的致谢、目录等章节的顺序，是按照研究生论文的格式组织内容的，
 % 与本科生要求的顺序有所不同，用户可能需要手动调整顺序。
 %
 % \subsection{扉页}
