@@ -1,17 +1,94 @@
 \chapter{数学}
 
-\begin{equation}
-    E=mc^2
-\end{equation}
+\section{定理、引理和证明}
 
-\begin{equation}
-1 + 2 - 3 = 0
-\end{equation}
+\begin{definition}
+    If the integral of function $f$ is measurable and non-negative, we define
+    its (extended) \textbf{Lebesgue integral} by
+    \begin{equation}
+        \int f = \sup_g \int g,
+    \end{equation}
+    where the supremum is taken over all measurable functions $g$ such that
+    $0 \leq g \leq f$, and where $g$ is bounded and supported on a set of
+    finite measure.
+\end{definition}
 
-\begin{equation}
-d\mathrm{d}\log \sin
-\end{equation}
+\begin{example}
+    Simple examples of functions on $\mathbb{R}^d$ that are integrable
+    (or non-integrable) are given by
+    \begin{equation}
+        f_a(x) =
+        \begin{cases}
+            |x|^{-a} & \text{if } |x| \leq 1,\\
+            0 & \text{if } x > 1.
+        \end{cases}
+    \end{equation}
+    \begin{equation}
+        F_a(x) = \frac{1}{1 + |x|^a}, \qquad \text{all } x \in \mathbb{R}^d.
+    \end{equation}
+    Then $f_a$ is integrable exactly when $a < d$, while $F_a$ is integrable
+    exactly when $a > d$.
+\end{example}
 
+\begin{lemma}[Fatou]
+    Suppose $\{f_n\}$ is a sequence of measurable functions with $f_n \geq 0$.
+    If $\lim_{n \to \infty} f_n(x) = f(x)$ for a.e. $x$, then
+    \begin{equation}
+        \int f \leq \liminf_{n \to \infty} \int f_n.
+    \end{equation}
+\end{lemma}
+
+\begin{remark}
+    We do not exclude the cases $\int f = \infty$,
+    or $\liminf_{n \to \infty} f_n = \infty$.
+\end{remark}
+
+\begin{corollary}
+    Suppose $f$ is a non-negative measurable function, and $\{f_n\}$ a sequence
+    of non-negative measurable functions with
+    $f_n(x) \leq f(x)$ and $f_n(x) \to f(x)$ for almost every $x$. Then
+    \begin{equation}
+        \lim_{n \to \infty} \int f_n = \int f.
+    \end{equation}
+\end{corollary}
+
+\begin{proposition}
+    Suppose $f$ is integrable on $\mathbb{R}^d$. Then for every $\epsilon > 0$:
+    \begin{enumerate}
+        \renewcommand{\theenumi}{\roman{enumi}}
+        \item There exists a set of finite measure $B$ (a ball, for example) such that
+        \begin{equation}
+            \int_{B^c} |f| < \epsilon.
+        \end{equation}
+        \item There is a $\delta > 0$ such that
+        \begin{equation}
+            \int_E |f|  < \epsilon \qquad \text{whenever } m(E) < \delta.
+        \end{equation}
+    \end{enumerate}
+\end{proposition}
+
+\begin{theorem}
+    Suppose $\{f_n\}$ is a sequence of measurable functions such that
+    $f_n(x) \to f(x)$ a.e. $x$, as $n$ tends to infinity.
+    If $|f_n(x)| \leq g(x)$, where $g$ is integrable, then
+    \begin{equation}
+        \int |f_n - f| \to 0 \qquad \text{as } n \to \infty,
+    \end{equation}
+    and consequently
+    \begin{equation}
+        \int f_n \to \int f \qquad \text{as } n \to \infty.
+    \end{equation}
+\end{theorem}
+
+\begin{proof}
+    Trivial.
+\end{proof}
+
+\section{自定义}
+\newtheorem{legend}{传说}
+\begin{legend}
+    龙生龙，凤生凤，华罗庚的弟子会打洞。
+\end{legend}
 
 \chapter{Citation}
 
