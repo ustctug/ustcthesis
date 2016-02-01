@@ -25,7 +25,7 @@ clean :
 	latexmk -c $(DTX)
 
 # for developers only:
-all : pdf doc
+all : main doc
 release : cls doc
 	latexmk -C
 	latexmk -c $(DTX)
