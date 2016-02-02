@@ -1183,6 +1183,17 @@ LaTeX version 1999/12/01 or later.
     {\bfseries}{}%
     {\ustc@theorem@skip}{}
 
+\renewenvironment{proof}[1][\proofname]{\par
+    \pushQED{\qed}%
+    \normalfont \topsep6\p@\@plus6\p@\relax
+    \trivlist
+        \item[\hspace{2\ccwd}
+        \bfseries
+        #1]\hspace{\ccwd}\ignorespaces
+    }{%
+    \popQED\endtrivlist\@endpefalse
+}
+
 \theoremstyle{ustcdefinition}
 \newtheorem{definition}             {\ustc@definitionname}  [chapter]
 \newtheorem{example}                {\ustc@examplename}     [chapter]
