@@ -1164,63 +1164,41 @@ LaTeX version 1999/12/01 or later.
 \newcommand\ustc@remarkname{注}
 \newcommand\ustc@theoremname{定理}
 
-\newcommand\ustc@theorem@indent{2\ccwd}
-\newcommand\ustc@theorem@skip{\ccwd}
-
 \newtheoremstyle{ustcplain}%
     {}{}%
-    {}{\ustc@theorem@indent}%
+    {}{2\ccwd}%
     {\bfseries}{}%
-    {\ustc@theorem@skip}{}
-\newtheoremstyle{ustcdefinition}%
-    {}{}%
-    {}{\ustc@theorem@indent}%
-    {\bfseries}{}%
-    {\ustc@theorem@skip}{}
-\newtheoremstyle{ustcremark}%
-    {}{}%
-    {}{\ustc@theorem@indent}%
-    {\bfseries}{}%
-    {\ustc@theorem@skip}{}
-
-\renewenvironment{proof}[1][\proofname]{\par
-    \pushQED{\qed}%
-    \normalfont \topsep6\p@\@plus6\p@\relax
-    \trivlist
-        \item[\hspace{2\ccwd}
-        \bfseries
-        #1]\hspace{\ccwd}\ignorespaces
-    }{%
-    \popQED\endtrivlist\@endpefalse
-}
-
-\theoremstyle{ustcdefinition}
-\newtheorem{definition}             {\ustc@definitionname}  [chapter]
-\newtheorem{example}                {\ustc@examplename}     [chapter]
-
-\theoremstyle{ustcremark}
-\newtheorem*{remark}                {\ustc@remarkname}
-
+    {\ccwd}{}
 \theoremstyle{ustcplain}
+
 \newtheorem{theorem}                {\ustc@theoremname}     [chapter]
 \newtheorem{assertion}  [theorem]   {\ustc@assertionname}
 \newtheorem{axiom}      [theorem]   {\ustc@axiomname}
 \newtheorem{corollary}  [theorem]   {\ustc@corollaryname}
 \newtheorem{lemma}      [theorem]   {\ustc@lemmaname}
 \newtheorem{proposition}[theorem]   {\ustc@propositionname}
-
+\newtheorem{definition}             {\ustc@definitionname}  [chapter]
+\newtheorem{example}                {\ustc@examplename}     [chapter]
+\newtheorem*{remark}                {\ustc@remarkname}
+%    \end{macrocode}
+%
+% \pkg{amsthm} 单独定义了 proof 环境，这里重新定义以满足格式要求。
+%    \begin{macrocode}
+\renewenvironment{proof}[1][\proofname]{\par
+    \pushQED{\qed}%
+    \normalfont \topsep6\p@\@plus6\p@\relax
+    \trivlist
+%    \end{macrocode}
+% 原本模仿 \pkg{amsthm} 写成 |\item[\hskip\labelsep\hskip2\ccwd #1\hskip\ccwd]|，
+% 但是却会多出一些间隙。
+%    \begin{macrocode}
+        \item\relax\hskip2\ccwd
+        \textbf{#1}
+        \hskip\ccwd\ignorespaces
+    }{%
+    \popQED\endtrivlist\@endpefalse
+}
 \renewcommand\proofname\ustc@proofname
-% \newenvironment{proof}[1][\proofname]{\par
-%   \pushQED{\qed}%
-%   \normalfont \topsep6\p@\@plus6\p@\relax
-%   \trivlist
-%   \item[\hskip\labelsep
-%         \itshape
-%     #1\@addpunct{.}]\ignorespaces
-% }{%
-%   \popQED\endtrivlist\@endpefalse
-% }
-% \providecommand{\proofname}{Proof}
 %    \end{macrocode}
 %
 % \subsection{符号说明}
