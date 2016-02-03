@@ -62,7 +62,7 @@
         \end{equation}
         \item There is a $\delta > 0$ such that
         \begin{equation}
-            \int_E |f|  < \epsilon \qquad \text{whenever } m(E) < \delta.
+            \int_E |f| < \epsilon \qquad \text{whenever } m(E) < \delta.
         \end{equation}
     \end{enumerate}
 \end{proposition}
@@ -84,11 +84,29 @@
     Trivial.
 \end{proof}
 
+
+
 \section{自定义}
-\newtheorem{legend}{传说}
-\begin{legend}
-    龙生龙，凤生凤，华罗庚的弟子会打洞。
-\end{legend}
+
+\newtheorem*{axiomofchoice}{Axiom of choice}
+\begin{axiomofchoice}
+    Suppose $E$ is a set and ${E_\alpha}$ is a collection of
+    non-empty subsets of $E$. Then there is a function $\alpha
+    \mapsto x_\alpha$ (a ``choice function'') such that
+    \begin{equation}
+        x_\alpha \in E_\alpha,\qquad \text{for all }\alpha.
+    \end{equation}
+\end{axiomofchoice}
+
+\newtheorem{observation}{Observation}
+\begin{observation}
+    Suppose a partially ordered set $P$ has the property
+    that every chain has an upper bound in $P$. Then the
+    set $P$ contains at least one maximal element.
+\end{observation}
+\begin{proof}[A concise proof]
+    Obvious.
+\end{proof}
 
 \chapter{Citation}
 

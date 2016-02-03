@@ -503,51 +503,44 @@ LaTeX version 1999/12/01 or later.
 % 本模板还提供了 \cs{note\marg{text}} 命令，用于在图表中添加注释。
 %
 % \subsection{数学}
-% \cls{ustcthesis} 提供了以下数学环境：
+% \cls{ustcthesis} 定义了数学定理格式 |ustcplain|（默认使用）以及一些常用的环境：
 % \begin{center}
-% \begin{tabular}{l|*{6}{l}}
+% \begin{tabular}{*{5}{l}}
 %     \toprule
-%     风格 & 数学环境 &  &  &  &  &  \\
-%     \hline
-%     \opt{plain} & theorem & assertion & axiom & corollary & lemma & proposition \\
-%      & 定理 & 断言 & 公理 & 推论 & 引理 & 命题 \\
-%     \hline
-%     \opt{definition} & definition & example &  &  &  &  \\
-%      & 定义 & 例 &  &  &  &  \\
-%     \hline
-%     \opt{remark} & remark &  &  &  &  &  \\
-%      & 注 &  &  &  &  &  \\
-%     \hline
-%     其他 & proof &  &  &  &  &  \\
-%      & 证明 &  &  &  &  &  \\
+%     theorem & assertion & axiom & corollary & lemma \\
+%     定理 & 断言 & 公理 & 推论 & 引理 \\
+%     \midrule
+%     proposition & definition & example & remark & proof \\
+%     命题 & 定义 & 例 & 注 & 证明  \\
 %     \bottomrule
 % \end{tabular}
 % \end{center}
-% 注意，\env{proof} 环境应当在其他环境（如 \env{theorem}）外面。
-%
-% 使用方法如下，比如公理环境：
+% 使用方法如下：
 % \begin{latex}
-% \begin{axiom}[Axiom of choice]
-%     Suppose $E$ is a set and ${E_\alpha}$ is a collection of
-%     non-empty subsets of $E$. Then there is a function $\alpha
-%     \mapsto x_\alpha$ (a ``choice function'') such that
+% \begin{theorem}[Fundamental theorem of calculus]
+%     Let $f$ be a continuous real-valued function defined on
+%     a closee interval $[a, b]$. Let
 %     \begin{equation}
-%         x_\alpha \in E_\alpha,\qquad \text{for all }\alpha.
+%         F(x) = \int_a^x f(t) \, \mathrm{d}t \qquad x \in [a, b].
 %     \end{equation}
-% \end{axiom}
+%     Then $F$ is differentiable on $(a, b)$, and $F'(x) = f(x)$.
+% \end{theorem}
 % \end{latex}
-% 会自动按章编号。关于各种环境的风格，参见 \pkg{amsthm} 宏包。
+%
+% 注意\env{proof} 环境与其它不同的是，其第二个参数会完全取代“证明”标题，
+% 并且会在末尾加一个 \cs{qed}。
 %
 % \DescribeMacro{\newtheorem}
-% 用户也可以使用 \cs{newtheorem}\marg{name}\oarg{counter}\marg{title}\oarg{chapter}
-% 命令来自定义环境，默认为 \opt{plain} 风格。比如定义并使用“传说”环境：
+% 用户可以使用 \cs{newtheorem} 命令来分别定义新的数学环境，比如定义并使用“传说”环境：
 % \begin{latex}
 % \newtheorem{legend}{传说}
 % \begin{legend}
 %     龙生龙，凤生凤，华罗庚的弟子会打洞。
 % \end{legend}
 % \end{latex}
-% 详情参见 \pkg{amsthm} 宏包。
+%
+% \DescribeMacro{\newtheoremstyle}
+% 用户还可以用 \cs{newtheoremstyle} 定义环境的格式，具体参见 \pkg{amsthm} 宏包。
 %
 % \subsection{参考文献}
 % 目前参考文献不支持 author-year 格式，只能使用 numeric 风格
@@ -1138,7 +1131,7 @@ LaTeX version 1999/12/01 or later.
 \DeclareMathSizes{10.5bp}{10.5bp}{7.35bp}{5.25bp}
 %    \end{macrocode}
 %
-% 以下定义数学定理环境，其中 plain 风格的放在最后，使得用户自定义的风格默认为 plain。
+% 以下定义数学定理环境默认风格为 ustcplain。
 %    \begin{macrocode}
 \RequirePackage{amsmath,amsthm,amssymb}
 
