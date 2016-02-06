@@ -706,12 +706,18 @@ FUNCTION {format.translator} {                    % String Emtry::format_transla
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
                                                   %
 FUNCTION {format.title} {                         % String Emtry::format_title(String title) {
+  is.in.chinese not {                             % added by zepinglee
+    add.textit
+  } 'skip$ if$
   "title" format.bibinfo                          %   return format_bibinfo(title, "title");
 }                                                 % }
                                                   %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
                                                   %
 FUNCTION {format.booktitle} {                     % String Emtry::format_booktitle(String booktitle) {
+  is.in.chinese not {                             % added by zepinglee
+    add.textit
+  } 'skip$ if$
   "booktitle" format.bibinfo                      %   return format_bibinfo(booktitle, "booktitle");
 }                                                 % }
                                                   %
