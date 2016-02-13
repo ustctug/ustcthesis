@@ -1,34 +1,23 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-%  符合 GB/T 7714-2005 规范的 BibTeX 样式文件
-%
-%  作者：    胡海星   南京大学计算机科学与技术系
-%  版本：    v2.1.1  2015年6月15日
-%  项目主页: http://haixing-hu.github.io/nju-thesis/
-%
-%  参考资料:
-%  [1] 中国国家标准化管理委员会. GB/T 7714-2005 文后参考文献着录规则[S]. 2005.
-%  [2] PATASHNIK O. BiBTeXing[R/OL]. 1988[2013-08-27].
-%      ftp://tug.ctan.org/pub/tex-archive/biblio/bibtex/contrib/doc/btxdoc.pdf
-%  [3] PATASHNIK O. Designing BibTeX Styles[R/OL]. 1998[2013-08-27].
-%      ftp://tug.ctan.org/pub/tex-archive/biblio/bibtex/contrib/doc/btxhak.pdf
-%
-%    This program is free software; you can redistribute it and/or modify
-%    it under the terms of the GNU General Public License as published by
-%    the Free Software Foundation; either version 2 of the License, or
-%    (at your option) any later version.
-%
-%    This program is distributed in the hope that it will be useful,
-%    but WITHOUT ANY WARRANTY; without even the implied warranty of
-%    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-%    GNU General Public License for more details.
-%
-%    You should have received a copy of the GNU General Public License along
-%    with this program; if not, write to the Free Software Foundation, Inc.,
-%    51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-                                                  %
+%%
+%% This is file `ustcthesis.bst',
+%% A modification of `gbt7714-2005.bst' for use with ustcthesis class.
+%%
+%% The original project is at
+%%
+%% https://github.com/Haixing-Hu/GBT7714-2005-BibTeX-Style
+%%
+%% Copyright (C) 2015-2016 by Zeping Lee <zepinglee AT gmail.com>
+%%
+%% This file may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public License, either
+%% version 1.2 of this license or (at your option) any later
+%% version. The latest version of this license is in:
+%%
+%%     http://www.latex-project.org/lppl.txt
+%%
+%% and version 1.2 or later is part of all distributions of
+%% LaTeX version 1999/12/01 or later.
+%%
 ENTRY                                             % class Entry {
 {                                                 % public:
   author                                          %   String author;
@@ -1960,4 +1949,3 @@ EXECUTE {end.bib}                                 %   end_bib();
                                                   % }
                                                   %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% End of file `GBT7714-2005.bst'
