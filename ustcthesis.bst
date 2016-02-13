@@ -370,12 +370,6 @@ FUNCTION {add.textit} {                           % String Entry::add_textit(Str
                                                   %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
                                                   %
-FUNCTION {add.textsl} {                           % String Entry::add_textsl(String str) {
-  "\textsl{" swap$ * "}" *                        %   return "\textsl{" + str + "}";
-}                                                 % }
-                                                  %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-                                                  %
 FUNCTION {add.textbf} {                           % String Entry::add_textbf(String str) {
   "\textbf{" swap$ * "}" *                        %   return "\textbf{" + str + "}";
 }                                                 % }
@@ -712,18 +706,12 @@ FUNCTION {format.translator} {                    % String Emtry::format_transla
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
                                                   %
 FUNCTION {format.title} {                         % String Emtry::format_title(String title) {
-  is.in.chinese not {                             % added by zepinglee
-    add.textsl
-  } 'skip$ if$
   "title" format.bibinfo                          %   return format_bibinfo(title, "title");
 }                                                 % }
                                                   %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
                                                   %
 FUNCTION {format.booktitle} {                     % String Emtry::format_booktitle(String booktitle) {
-  is.in.chinese not {                             % added by zepinglee
-    add.textsl
-  } 'skip$ if$
   "booktitle" format.bibinfo                      %   return format_bibinfo(booktitle, "booktitle");
 }                                                 % }
                                                   %
@@ -806,6 +794,9 @@ FUNCTION {format.date} {                          % String Emtry::format_date(St
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
                                                   %
 FUNCTION {format.journal} {                       % String Emtry::format_journal(String journal) {
+  is.in.chinese not {
+    "\ustcjournal{" swap$ * "}" *
+  } 'skip$ if$
   "journal" format.bibinfo                        %   return format_bibinfo(journal, "journal");
 }                                                 % }
                                                   %
@@ -1900,6 +1891,10 @@ FUNCTION {write.style.commands} {                 % void write_style_commands() 
   newline$                                        %   writeln();
   cmd.biburl write$                               %   write(cmd_biburl);
   newline$                                        %   writeln();
+  "\makeatletter\ifustc@opt@bachelor" write$ newline$
+  "\newcommand\ustcjournal{\textit}" write$ newline$
+  "\else\newcommand\ustcjournal{}" write$ newline$
+  "\fi\makeatother" write$ newline$
 }                                                 % }
                                                   %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
