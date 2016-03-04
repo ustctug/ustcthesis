@@ -7,4 +7,4 @@ add_cus_dep('glo', 'gls', 0, 'makegls');
 sub makegls {
     system("makeindex -s gglo.ist -o \"$_[0].gls\" \"$_[0].glo\"");
 }
-$clean_ext = 'bbl glo gls hd';
+$clean_ext = 'bbl glo gls hd lol loa';
