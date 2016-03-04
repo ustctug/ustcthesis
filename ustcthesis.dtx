@@ -1325,6 +1325,18 @@ LaTeX version 1999/12/01 or later.
 \RequirePackage[boxed, algochapter, lined, linesnumbered]{algorithm2e}
 \renewcommand{\listalgorithmcfname}{算法索引}
 \renewcommand{\algorithmcfname}{算法}
+% 代码环境
+\usepackage{listings}
+\lstset{
+    basicstyle=\small\ttfamily,
+    xleftmargin=2pc,
+    xrightmargin=2pc,
+    frame=single,
+    columns=flexible,
+    numbers=left,
+}
+\renewcommand{\lstlistlistingname}{代码索引}
+\renewcommand{\lstlistingname}{代码}
 %</extra>
 %    \end{macrocode}
 %
