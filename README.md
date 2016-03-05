@@ -13,33 +13,77 @@
 * 修正了本科生的页码位置
 * 提供了更详细的文档
 
-**使用模板前应阅读说明文档 `ustcthesis.pdf` 的正文部分。**
+使用前请注意：
 
-**本模板基于 TeX Live 2015 及以上版本，不对旧版本向下兼容。**
-旧版 TeX Live / MacTeX / MikTeX 用户应升级到最新；CTeX 发行版（已经 3 年没有更新）用户请移步旧版。
+1. **使用模板前应阅读说明文档 `ustcthesis.pdf` 的正文部分**
+2. **本模板仅适用于 TeX Live 2015、MacTeX-2015 及以上版本，不对旧版本向下兼容**
+3. **旧版 [TeX Live](https://www.tug.org/texlive/) 、 [MacTeX](https://www.tug.org/mactex/) 、 [MikTeX](http://www.miktex.org/) 用户请升级最新版本**
+4. **[CTeX套装](http://www.ctex.org/CTeXDownload) v2.9.2.164 发布于2012年，无法使用此模板，用户请使用旧模板**
+5. **CTeX套装即将发布新版本，待测试**
+
 
 ## 下载地址
 
-发布版包含了 PDF 说明文档：
+目前最新的发布版版本号为v2.0：
 
 * GitHub Release：https://github.com/ustctug/ustcthesis/releases
 * 校内镜像：https://git.ustclug.org/ustctug/ustcthesis/tags
 
+## 使用说明
 
+### 通用使用说明
 
-## 编译论文
+1. 下载模板。有三种方式可以选择：
 
-最简单的方法是使用 `latexmk` 工具（已配置参数 `-xelatex`），如编译论文 `main.pdf` 使用命令：
+   1. 可以直接下载发布版，发布版的特点在于稳定且经过测试，但更新不够及时，已知BUG无法及时修复
+   2. 可以直接点击“Download ZIP”下载最新的开发版，开发版的特点在于更新及时，随时修复已知BUG
+   3. git用户可以直接clone开发版的源码
+
+      ```
+      git clone https://github.com/ustctug/ustcthesis.git
+      ```
+
+2. 由 `ustcthesis.dtx` 文件（含说明文档的LaTeX源文件）编译生成模板文件 `ustcthesis.cls` 和 `ustcextra.sty`
+
+   ```
+   xetex ustcthesis.dtx
+   ```
+   
+3. 编译生成模板的说明文档 `ustcthesis.pdf` ，并仔细阅读正文部分对模板使用的介绍
+ 
+   ```
+   latexmk ustcthesis.dtx       # 编译生成 ustcthesis.pdf
+   latexmk -c ustcthesis.dtx    # 清理编译过程中的临时文件
+   ```
+   
+4. 参考示例文档 `main.tex` 写自己的论文，使用如下命令生成论文 `main.pdf`：
+
+   ```
+   latexmk
+   ```
+   
+   如需清理论文生成过程中的临时文件，可以用命令：
+   
+   ```
+   latexmk -c
+   ```
+   
+   修改论文的过程中，需要经常重复此步骤。
+
+### Linux/Mac用户使用说明
+
+模板为Linux/Mac用户提供了Makefile文件，可以用如下 `make` 命令替换通用使用说明中的一些命令：
+
 ```
-$ latexmk
+make doc        # 编译生成 ustcthesis.pdf
+make            # 编译生成论文 main.pdf
+make clean      # 删除编译过程中生成的临时文件
+make cleanall   # 删除编译过程中生成的临时文件以及生成的PDF
 ```
-编译说明文档 `ustcthesis.pdf` 使用命令：
-```
-$ latexmk ustcthesis.dtx
-```
-更多的方法参见说明文档。
 
+### Windows用户使用说明
 
+Windows用户请参照通用使用说明，暂不提供Windows下的bat脚本。
 
 ## 已知问题
 
