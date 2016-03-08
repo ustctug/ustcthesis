@@ -200,9 +200,8 @@ LaTeX version 1999/12/01 or later.
 %              & \file{bib/tex.bib}    & \BibTeX{} 示例数据库 \\
 %     \midrule
 %     其他     & \file{README.md}      & 基本说明 \\
-%             & \file{.latexmkrc}     & latexmk 的配置文件 \\
-%             & \file{Makefile}       & GNU make 的配置文件 \\
-%             & \file{make.bat}       & Windows 批处理文件 \\
+%              & \file{.latexmkrc}     & latexmk 的配置文件 \\
+%              & \file{Makefile}       & GNU make 的配置文件 \\
 %     \bottomrule
 % \end{tabularx}
 % \end{center}
@@ -233,7 +232,7 @@ LaTeX version 1999/12/01 or later.
 % \begin{enumerate}
 %
 % \item GNU make \\
-% 如果有 GNU make 工具，这是最简单的方法。
+% Linux/Mac用户，可以直接使用 GNU make 工具，这是最简单的方法。
 % 编译论文 \file{main.pdf}：
 % \begin{shell}
 % make
@@ -244,12 +243,10 @@ LaTeX version 1999/12/01 or later.
 % \end{shell}
 % 另外还可以用 \shellcmd{make clean} 清理辅助文件。
 %
-% \item 批处理脚本（Windows 用户） \\
-% 直接双击运行 \file{make.bat}
-%
 % \item |latexmk| \\
-% 即使没有自动化工具，使用 |latexmk| 也是一个比较简单的方法，配置文件由 \file{.latexmkrc}
-% 给出，其参数设置为 |-xelatex|，用户编译论文只需使用命令：
+% Windows 用户可能无法使用GNU make，使用 |latexmk| 也是一个比较简单的方法，
+% 配置文件由 \file{.latexmkrc} 给出，其参数设置为 |-xelatex|，用户编译论文
+% 只需使用命令：
 % \begin{shell}
 % latexmk main
 % \end{shell}
