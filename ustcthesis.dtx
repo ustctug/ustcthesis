@@ -41,7 +41,6 @@ LaTeX version 1999/12/01 or later.
 \askforoverwritefalse
 \generate{
     \file{\jobname.cls}{\from{\jobname.dtx}{class}}
-    \file{ustcextra.sty}{\from{\jobname.dtx}{extra}}
 }
 \Msg{* Happy TeXing!}
 \endbatchfile
@@ -54,10 +53,9 @@ LaTeX version 1999/12/01 or later.
 %</driver>
 %<class>\NeedsTeXFormat{LaTeX2e}[1999/12/01]
 %<class>\ProvidesClass{ustcthesis}
-%<extra>\ProvidesPackage{ustcextra}
-%<*class|extra>
+%<*class>
     [2016/02/21 v2.0 USTC thesis template]
-%</class|extra>
+%</class>
 %
 %<*driver>
 \documentclass[a4paper]{ltxdoc}
@@ -186,16 +184,16 @@ LaTeX version 1999/12/01 or later.
 %     类别     & 文件                    & 说明 \\
 %     \midrule
 %     模板文件 & \file{ustcthesis.dtx} & 主要的模板文件，可生成 \file{ustcthesis.pdf}%
-%                            、\file{ustcthesis.cls} 和 \file{ustcextra.sty} \\
+%                            、\file{ustcthesis.cls} \\
 %              & \file{ustcthesis.bst} & \BibTeX{} 格式文件 \\
 %              & \file{figures/ustc_*.eps} & 校名和校徽图片 \\
 %     \midrule
 %     生成文件 & \file{ustcthesis.pdf} & （你正在阅读的）模板使用说明 \\
 %              & \file{ustcthesis.cls} & 文档类文件 \\
-%              & \file{ustcextra.sty}  & 附加宏包 \\
 %     \midrule
 %     示例文档 & \file{main.tex}       & 主文档 \\
 %              & \file{chapters/*.tex} & 示例文档的各个章节 \\
+%              & \file{ustcextra.sty}  & 附加宏包 \\
 %              & \file{figures/}       & 放置图片的目录 \\
 %              & \file{bib/tex.bib}    & \BibTeX{} 示例数据库 \\
 %     \midrule
@@ -259,8 +257,7 @@ LaTeX version 1999/12/01 or later.
 % \item 手动编译 \\
 % 手动编译是最繁琐的方法，用户可能需要运行多遍，以确保论文的交叉引用等信息全部正确。
 %
-% 生成文档类 \file{ustcthesis.cls} 和宏包文件 \file{ustcextra.sty}（如果已经存在
-% 可以略过此步）：
+% 生成文档类 \file{ustcthesis.cls}（如果已经存在可以略过此步）：
 % \begin{shell}
 % xetex ustcthesis.dtx
 % \end{shell}
@@ -1312,32 +1309,6 @@ LaTeX version 1999/12/01 or later.
 %
 % \spinetitle{\entext{USTC}本硕博毕业论文示例文档} % 书脊的英文文字要用 \entext{} 括起来
 %</class>
-%    \end{macrocode}
-%
-% \subsection{\pkg{ustcextra} 宏集}
-%    \begin{macrocode}
-%<*extra>
-% 三线表
-\RequirePackage{booktabs}
-% 跨页表格
-\RequirePackage{longtable}
-% 算法环境
-\RequirePackage[boxed, algochapter, lined, linesnumbered]{algorithm2e}
-\renewcommand{\listalgorithmcfname}{算法索引}
-\renewcommand{\algorithmcfname}{算法}
-% 代码环境
-\RequirePackage{listings}
-\lstset{
-    basicstyle=\small\ttfamily,
-    xleftmargin=2pc,
-    xrightmargin=2pc,
-    frame=single,
-    columns=flexible,
-    numbers=left,
-}
-\renewcommand{\lstlistlistingname}{代码索引}
-\renewcommand{\lstlistingname}{代码}
-%</extra>
 %    \end{macrocode}
 %
 % \Finale
