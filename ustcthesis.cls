@@ -20,7 +20,7 @@
 %% 
 \NeedsTeXFormat{LaTeX2e}[1999/12/01]
 \ProvidesClass{ustcthesis}
-    [2016/02/21 v2.0 USTC thesis template]
+    [2016/03/10 v2.0.1 USTC thesis template]
 \RequirePackage{kvoptions}
 \SetupKeyvalOptions{family=ustc@opt, prefix=ustc@opt@, setkeys=\kvsetkeys}
 \DeclareBoolOption[false]{doctor}
@@ -116,6 +116,16 @@
 \renewcommand\listfigurename{图目录}
 \renewcommand\listtablename{表目录}
 \newcommand\ustc@pdf@contentsname{目录}
+\newcommand\ustc@assertionname{断言}
+\newcommand\ustc@axiomname{公理}
+\newcommand\ustc@corollaryname{推论}
+\newcommand\ustc@definitionname{定义}
+\newcommand\ustc@examplename{例}
+\newcommand\ustc@lemmaname{引理}
+\newcommand\ustc@proofname{证明}
+\newcommand\ustc@propositionname{命题}
+\newcommand\ustc@remarkname{注}
+\newcommand\ustc@theoremname{定理}
 \RequirePackage{geometry}
 \geometry{
     paper=a4paper,
@@ -393,47 +403,6 @@
     \captionsetup{position = bottom}
     \caption*{\hangindent=2\ccwd\relax\textbf{注}：#1}}
 \DeclareMathSizes{10.5bp}{10.5bp}{7.35bp}{5.25bp}
-\RequirePackage{amsmath,amsthm,amssymb}
-
-
-\newcommand\ustc@assertionname{断言}
-\newcommand\ustc@axiomname{公理}
-\newcommand\ustc@corollaryname{推论}
-\newcommand\ustc@definitionname{定义}
-\newcommand\ustc@examplename{例}
-\newcommand\ustc@lemmaname{引理}
-\newcommand\ustc@proofname{证明}
-\newcommand\ustc@propositionname{命题}
-\newcommand\ustc@remarkname{注}
-\newcommand\ustc@theoremname{定理}
-
-\newtheoremstyle{ustcplain}%
-    {}{}%
-    {}{2\ccwd}%
-    {\bfseries}{}%
-    {\ccwd}{}
-\theoremstyle{ustcplain}
-
-\newtheorem{theorem}                {\ustc@theoremname}     [chapter]
-\newtheorem{assertion}  [theorem]   {\ustc@assertionname}
-\newtheorem{axiom}      [theorem]   {\ustc@axiomname}
-\newtheorem{corollary}  [theorem]   {\ustc@corollaryname}
-\newtheorem{lemma}      [theorem]   {\ustc@lemmaname}
-\newtheorem{proposition}[theorem]   {\ustc@propositionname}
-\newtheorem{definition}             {\ustc@definitionname}  [chapter]
-\newtheorem{example}                {\ustc@examplename}     [chapter]
-\newtheorem*{remark}                {\ustc@remarkname}
-\renewenvironment{proof}[1][\proofname]{\par
-    \pushQED{\qed}%
-    \normalfont \topsep6\p@\@plus6\p@\relax
-    \trivlist
-        \item\relax\hskip2\ccwd
-        \textbf{#1}
-        \hskip\ccwd\ignorespaces
-    }{%
-    \popQED\endtrivlist\@endpefalse
-}
-\renewcommand\proofname\ustc@proofname
 \newenvironment{notation}{%
     \ctexset{chapter/format += \rmfamily\setfontsize{12bp}}
     \chapter{符号说明}

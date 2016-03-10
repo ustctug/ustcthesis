@@ -27,8 +27,8 @@ clean :
 # for developers only:
 release : cls doc
 	mkdir ustcthesis
-	cp -r bib chapters figures .latexmkrc main.tex Makefile README.md \
-	ustcextra.sty ustcthesis.cls ustcthesis.dtx ustcthesis.pdf ustcthesis/
+	cp -r ustcthesis.dtx ustcthesis.cls ustcthesis.bst ustcthesis.pdf figures \
+	main.tex ustcextra.sty chapters bib Makefile .latexmkrc README.md ustcthesis/
 	zip -r ../ustcthesis.zip ustcthesis
 	-rm -rf ustcthesis
 cleanall :

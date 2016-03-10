@@ -3,12 +3,54 @@
 %% extra packages and configuration.
 %%
 \NeedsTeXFormat{LaTeX2e}[1999/12/01]
-\ProvidesPackage{ustcextra}[2016/02/21 v2.0 USTC thesis template]
+\ProvidesPackage{ustcextra}
+
+% 数学定理：
+% 以下定义数学定理环境默认风格为 ustcplain。
+\RequirePackage{amsmath,amsthm,amssymb}
+\newtheoremstyle{ustcplain}%
+    {}{}%
+    {}{2\ccwd}%
+    {\bfseries}{}%
+    {\ccwd}{}
+\theoremstyle{ustcplain}
+% 定义新的定理
+\newtheorem{theorem}                {\ustc@theoremname}     [chapter]
+\newtheorem{assertion}  [theorem]   {\ustc@assertionname}
+\newtheorem{axiom}      [theorem]   {\ustc@axiomname}
+\newtheorem{corollary}  [theorem]   {\ustc@corollaryname}
+\newtheorem{lemma}      [theorem]   {\ustc@lemmaname}
+\newtheorem{proposition}[theorem]   {\ustc@propositionname}
+\newtheorem{definition}             {\ustc@definitionname}  [chapter]
+\newtheorem{example}                {\ustc@examplename}     [chapter]
+\newtheorem*{remark}                {\ustc@remarkname}
+% \pkg{amsthm} 单独定义了 proof 环境，这里重新定义以满足格式要求。
+% 原本模仿 \pkg{amsthm} 写成 |\item[\hskip\labelsep\hskip2\ccwd #1\hskip\ccwd]|，
+% 但是却会多出一些间隙。
+\renewenvironment{proof}[1][\proofname]{\par
+    \pushQED{\qed}%
+    \normalfont \topsep6\p@\@plus6\p@\relax
+    \trivlist
+        \item\relax\hskip2\ccwd
+        \textbf{#1}
+        \hskip\ccwd\ignorespaces
+    }{%
+    \popQED\endtrivlist\@endpefalse
+}
+\renewcommand\proofname\ustc@proofname
+
+% 表格：
+% 三线表
 \RequirePackage{booktabs}
+% 跨页表格
 \RequirePackage{longtable}
+
+% 算法和代码：
+% 算法环境
 \RequirePackage[boxed, algochapter, lined, linesnumbered]{algorithm2e}
 \renewcommand{\listalgorithmcfname}{算法索引}
 \renewcommand{\algorithmcfname}{算法}
+% 代码环境
 \RequirePackage{listings}
 \lstset{
     basicstyle=\small\ttfamily,
