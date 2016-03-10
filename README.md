@@ -24,10 +24,11 @@
 
 ## 下载地址
 
-目前最新的发布版版本号为v2.0：
+目前最新的发布版版本号为v2.0.1：
 
 * GitHub Release：https://github.com/ustctug/ustcthesis/releases
 * 校内镜像：https://git.ustclug.org/ustctug/ustcthesis/tags
+
 
 ## 使用说明
 
@@ -43,31 +44,25 @@
       git clone https://github.com/ustctug/ustcthesis.git
       ```
 
-2. 由 `ustcthesis.dtx` 文件（含说明文档的LaTeX源文件）编译生成模板文件 `ustcthesis.cls` 和 `ustcextra.sty`
+2. 编译生成模板的说明文档 `ustcthesis.pdf` ，并仔细阅读正文部分对模板使用的介绍
 
-   ```
-   xetex ustcthesis.dtx
-   ```
-   
-3. 编译生成模板的说明文档 `ustcthesis.pdf` ，并仔细阅读正文部分对模板使用的介绍
- 
    ```
    latexmk ustcthesis.dtx       # 编译生成 ustcthesis.pdf
    latexmk -c ustcthesis.dtx    # 清理编译过程中的临时文件
    ```
-   
-4. 参考示例文档 `main.tex` 写自己的论文，使用如下命令生成论文 `main.pdf`：
+
+3. 参考示例文档 `main.tex` 写自己的论文，使用如下命令生成论文 `main.pdf`：
 
    ```
    latexmk
    ```
-   
+
    如需清理论文生成过程中的临时文件，可以用命令：
-   
+
    ```
    latexmk -c
    ```
-   
+
    修改论文的过程中，需要经常重复此步骤。
 
 ### Linux/Mac用户使用说明
@@ -84,6 +79,7 @@ make cleanall   # 删除编译过程中生成的临时文件以及生成的PDF
 ### Windows用户使用说明
 
 Windows用户请参照通用使用说明，暂不提供Windows下的bat脚本。
+
 
 ## 已知问题
 

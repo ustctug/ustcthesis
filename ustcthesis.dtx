@@ -181,19 +181,18 @@ LaTeX version 1999/12/01 or later.
 % \begin{center}
 % \begin{tabularx}{\linewidth}{llX}
 %     \toprule
-%     类别     & 文件                    & 说明 \\
+%     类别     & 文件                  & 说明 \\
 %     \midrule
-%     模板文件 & \file{ustcthesis.dtx} & 主要的模板文件，可生成 \file{ustcthesis.pdf}%
-%                            、\file{ustcthesis.cls} \\
+%     模板文件 & \file{ustcthesis.dtx} & 模板原始代码文件，一般用户无需使用 \\
+%              & \file{ustcthesis.cls} & 文档类文件 \\
+%              & \file{ustcextra.sty}  & 模板的附加宏包 \\
 %              & \file{ustcthesis.bst} & \BibTeX{} 格式文件 \\
 %              & \file{figures/ustc_*.eps} & 校名和校徽图片 \\
 %     \midrule
 %     生成文件 & \file{ustcthesis.pdf} & （你正在阅读的）模板使用说明 \\
-%              & \file{ustcthesis.cls} & 文档类文件 \\
 %     \midrule
 %     示例文档 & \file{main.tex}       & 主文档 \\
 %              & \file{chapters/*.tex} & 示例文档的各个章节 \\
-%              & \file{ustcextra.sty}  & 附加宏包 \\
 %              & \file{figures/}       & 放置图片的目录 \\
 %              & \file{bib/tex.bib}    & \BibTeX{} 示例数据库 \\
 %     \midrule
@@ -206,8 +205,9 @@ LaTeX version 1999/12/01 or later.
 %
 % 示例文档包括了常用的 \LaTeX{} 命令，建议新手从此入手，用自己的内容进行替换。
 %
-% 文件 \file{.cls} 和 \file{.sty} 是自动生成的，用户对其进行的修改可能会被覆盖。
-% 若想自行修改模板，应在 \file{main.tex} 的导言区使用 \cs{renewcommand} 来设置。
+% 文件 \file{ustcthesis.dtx} 是模板的原始代码文件，其可以自动生成文档类文件
+% \file{ustcthesis.cls} 和模板使用说明文件 \file{ustcthesis.pdf} 。
+% 原始模板文件仅供模板开发者使用，一般用户无需使用。
 %
 % \subsection{依赖宏包}
 %
@@ -257,10 +257,6 @@ LaTeX version 1999/12/01 or later.
 % \item 手动编译 \\
 % 手动编译是最繁琐的方法，用户可能需要运行多遍，以确保论文的交叉引用等信息全部正确。
 %
-% 生成文档类 \file{ustcthesis.cls}（如果已经存在可以略过此步）：
-% \begin{shell}
-% xetex ustcthesis.dtx
-% \end{shell}
 % 编译论文 \file{main.pdf}：
 % \begin{shell}
 % xelatex main
