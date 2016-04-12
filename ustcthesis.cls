@@ -309,12 +309,12 @@
     {}{\ustc@leaders\contentspage}
 \titlecontents{figure}
     [\ccwd]
-    {\zihao{-4}}
+    {\addvspace{6bp}\zihao{-4}}
     {\thecontentslabel\hspace*{0.5em}}
     {}{\ustc@leaders\contentspage}
 \titlecontents{table}
     [\ccwd]
-    {\zihao{-4}}
+    {\addvspace{6bp}\zihao{-4}}
     {\thecontentslabel\hspace*{0.5em}}
     {}{\ustc@leaders\contentspage}
 \ifustc@opt@bachelor
