@@ -296,17 +296,17 @@
     [0bp]
     {\addvspace{6bp}\zihao{4}}
     {\thecontentslabel\hspace*{0.5em}}
-    {}{\ustc@leaders\contentspage}
+    {}{\ustc@leaders\zihao{-4}\contentspage}
 \titlecontents{section}
     [\ccwd]
     {\addvspace{6bp}\zihao{-4}}
     {\thecontentslabel\hspace*{0.5em}}
-    {}{\ustc@leaders\contentspage}
+    {}{\ustc@leaders\zihao{-4}\contentspage}
 \titlecontents{subsection}
     [2\ccwd]
     {\addvspace{6bp}\zihao{5}}
     {\thecontentslabel\hspace*{0.5em}}
-    {}{\ustc@leaders\contentspage}
+    {}{\ustc@leaders\zihao{-4}\contentspage}
 \titlecontents{figure}
     [\ccwd]
     {\zihao{-4}}
