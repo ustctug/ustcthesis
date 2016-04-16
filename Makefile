@@ -11,7 +11,7 @@ all : main doc
 cls : ustcthesis.cls
 
 # to delegate all the tasks to latexmk
-%.pdf : %.tex ustcthesis.cls ustcthesis.bst FORCE_MAKE
+%.pdf : %.tex ustcthesis.cls *.bst FORCE_MAKE
 	latexmk -xelatex -shell-escape -use-make $<
 
 ustcthesis.pdf : ustcthesis.dtx FORCE_MAKE
@@ -27,7 +27,7 @@ clean :
 # for developers only:
 release : cls doc
 	mkdir ustcthesis
-	cp -r ustcthesis.dtx ustcthesis.cls ustcthesis.bst ustcthesis.pdf figures \
+	cp -r ustcthesis.dtx ustcthesis.cls *.bst ustcthesis.pdf figures \
 	main.tex ustcextra.sty chapters bib Makefile .latexmkrc README.md ustcthesis/
 	zip -r ../ustcthesis.zip ustcthesis
 	-rm -rf ustcthesis

@@ -408,9 +408,9 @@
     \chapter{符号说明}
     \setfontsize{10.5bp}[16bp]
     \setlength{\itemsep}{0bp}}{}
-\usepackage[super, comma, sort&compress]{natbib}
-\setcitestyle{square}
-\bibliographystyle{ustcthesis}
+\usepackage[sort&compress]{natbib}
+\newcommand\bibstyle@ustcauthoryear{\bibpunct{(}{)}{;}{a}{,}{,}}
+\newcommand\bibstyle@ustcnumerical{\bibpunct{[}{]}{,}{s}{,}{,}}
 \renewcommand\bibfont{\setfontsize{10.5bp}[20bp]}
 \setlength{\bibsep}{0bp}
 \setlength{\bibhang}{1em}
