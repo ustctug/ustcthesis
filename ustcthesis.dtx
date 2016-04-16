@@ -54,7 +54,7 @@ LaTeX version 1999/12/01 or later.
 %<class>\NeedsTeXFormat{LaTeX2e}[1999/12/01]
 %<class>\ProvidesClass{ustcthesis}
 %<*class>
-    [2016/03/10 v2.0.1 USTC thesis template]
+    [2016/04/16 v2.1 USTC thesis template]
 %</class>
 %
 %<*driver>
@@ -132,6 +132,8 @@ LaTeX version 1999/12/01 or later.
 %   Right brace   \}     Tilde         \~}
 %
 % \changes{v2.0}{2016/02/21}{Initial release.}
+% \changes{v2.0.1}{2016/03/10}{Add code and algorithm environments.}
+% \changes{v2.1}{2016/04/16}{Support both author-year and numerical bib style.}
 %
 % \GetFileInfo{ustcthesis.dtx}
 %
@@ -1170,6 +1172,11 @@ LaTeX version 1999/12/01 or later.
 \renewcommand\bibfont{\setfontsize{10.5bp}[20bp]}
 \setlength{\bibsep}{0bp}
 \setlength{\bibhang}{1em}
+\ifustc@opt@bachelor
+    \newcommand\ustcjournal{\textit}
+\else
+    \newcommand\ustcjournal{\relax}
+\fi
 %    \end{macrocode}
 % \begin{macro}{\bibliography}
 % 由于 \cs{bibliography} 位于正文中，页眉会默认显示“附录 参考文献”，所以修正页面风格；

@@ -20,7 +20,7 @@
 %% 
 \NeedsTeXFormat{LaTeX2e}[1999/12/01]
 \ProvidesClass{ustcthesis}
-    [2016/03/10 v2.0.1 USTC thesis template]
+    [2016/04/16 v2.1 USTC thesis template]
 \RequirePackage{kvoptions}
 \SetupKeyvalOptions{family=ustc@opt, prefix=ustc@opt@, setkeys=\kvsetkeys}
 \DeclareBoolOption[false]{doctor}
@@ -414,6 +414,11 @@
 \renewcommand\bibfont{\setfontsize{10.5bp}[20bp]}
 \setlength{\bibsep}{0bp}
 \setlength{\bibhang}{1em}
+\ifustc@opt@bachelor
+    \newcommand\ustcjournal{\textit}
+\else
+    \newcommand\ustcjournal{\relax}
+\fi
 \renewenvironment{thebibliography}[1]{%
     \if@openright\cleardoublepage\else\clearpage\fi
     \@mainmatterfalse

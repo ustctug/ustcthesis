@@ -647,6 +647,14 @@ FUNCTION {format.series.volume.title}
   if$
 }
 
+FUNCTION {format.journal}
+{ journal
+  is.in.chinese
+    'skip$
+    { "\ustcjournal{" swap$ * "}" * }
+  if$
+}
+
 FUNCTION {num.to.ordinal}
 { duplicate$ text.length$ 'charptr :=
   duplicate$ charptr #1 substring$ 's :=
@@ -966,7 +974,7 @@ FUNCTION {article}
     }
     { "J" format.mark "" output.after
       new.block
-      journal "journal" output.check
+      format.journal "journal" output.check
       new.block
       format.date "year" output.check
       format.vol.num.pages output
@@ -1819,6 +1827,8 @@ FUNCTION {begin.bib}
   "\bibpunct{(}{)}{;}{a}{,}{,}"
   write$ newline$
   "\begin{thebibliography}{" number.label int.to.str$ * "}" *
+  write$ newline$
+  "\ifx\ustcjournal\undefined\newcommand\ustcjournal{\relax}\fi"
   write$ newline$
   "\providecommand{\natexlab}[1]{#1}"
   write$ newline$
