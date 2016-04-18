@@ -1,36 +1,46 @@
-.PHONY : main cls doc clean all release cleanall FORCE_MAKE
+.PHONY : main cls doc clean all inst install distclean zip FORCE_MAKE
 
-MAIN = main
+NAME = ustcthesis
+UTREE = $(shell kpsewhich --var-value TEXMFHOME)
+LOCAL = $(shell kpsewhich --var-value TEXMFLOCAL)
 
-main : $(MAIN).pdf
-
-doc : ustcthesis.pdf
+main :
+	latexmk -xelatex -shell-escape -use-make
 
 all : main doc
 
-cls : ustcthesis.cls
+cls : $(NAME).cls
 
-# to delegate all the tasks to latexmk
-%.pdf : %.tex ustcthesis.cls *.bst FORCE_MAKE
-	latexmk -xelatex -shell-escape -use-make $<
+doc : $(NAME).pdf
 
-ustcthesis.pdf : ustcthesis.dtx FORCE_MAKE
-	latexmk -xelatex $<
-
-ustcthesis.cls : ustcthesis.dtx
+$(NAME).cls : $(NAME).dtx
 	xetex $<
+
+$(NAME).pdf : $(NAME).dtx FORCE_MAKE
+	latexmk -xelatex $<
 
 clean :
 	latexmk -c
-	latexmk -c ustcthesis.dtx
+	latexmk -c $(NAME).dtx
 
-# for developers only:
-release : cls doc
-	mkdir ustcthesis
-	cp -r ustcthesis.dtx ustcthesis.cls *.bst ustcthesis.pdf figures \
-	main.tex ustcextra.sty chapters bib Makefile .latexmkrc README.md ustcthesis/
-	zip -r ../ustcthesis.zip ustcthesis
-	-rm -rf ustcthesis
-cleanall :
+distclean :
 	latexmk -C
-	latexmk -C ustcthesis.dtx
+	latexmk -C $(NAME).dtx
+
+inst : cls doc
+	mkdir -p $(UTREE)/{tex,source,doc}/latex/$(NAME)
+	cp $(NAME).dtx $(UTREE)/source/latex/$(NAME)
+	cp $(NAME).cls $(UTREE)/tex/latex/$(NAME)
+	cp $(NAME).pdf $(UTREE)/doc/latex/$(NAME)
+
+install : cls doc
+	sudo mkdir -p $(LOCAL)/{tex,source,doc}/latex/$(NAME)
+	sudo cp $(NAME).dtx $(LOCAL)/source/latex/$(NAME)
+	sudo cp $(NAME).cls $(LOCAL)/tex/latex/$(NAME)
+	sudo cp $(NAME).pdf $(LOCAL)/doc/latex/$(NAME)
+
+zip : cls doc
+	ln -sf . $(NAME)
+	zip -rq ../$(NAME).zip $(NAME)/{$(NAME).{dtx,cls,pdf} ustc*.bst README.md \
+	main.tex ustcextra.sty bib chapters figures .latexmkrc Makefile}
+	rm $(NAME)

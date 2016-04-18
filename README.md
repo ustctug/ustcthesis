@@ -70,7 +70,7 @@
 make doc        # 编译生成 ustcthesis.pdf
 make            # 编译生成论文 main.pdf
 make clean      # 删除编译过程中生成的临时文件
-make cleanall   # 删除编译过程中生成的临时文件以及生成的PDF
+make distclean   # 删除编译过程中生成的临时文件以及生成的PDF
 ```
 
 ### Windows用户使用说明
