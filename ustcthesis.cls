@@ -68,16 +68,18 @@
 \setmonofont{Courier New}
 \RequirePackage{hyperref}
 \hypersetup{
-    linktoc=all,
-    CJKbookmarks=true,
-    bookmarksnumbered=true,
     bookmarksopen=true,
-    pdfborder=0 0 0}
+    bookmarksnumbered=true,
+    CJKbookmarks=true,
+    pdfborder=0 0 0,
+    unicode=true,
+    linktoc=all,
+}
 \ifustc@opt@pdf
     \hypersetup{
         colorlinks=true,
-        linkcolor=blue,
-        citecolor=blue}
+        allcolors=blue,
+    }
 \fi
 \AtBeginDocument{
     \hypersetup{
@@ -143,14 +145,45 @@
         \if@mainmatter\CTEXthechapter\quad\fi%
         \chaptertitle}
 \fi
-\newpagestyle{main}[\ustc@header@size]{
+\newpagestyle{front}[\ustc@header@size]{
     \sethead{}{\ustc@main@header}{}
-    \ifustc@page@pageouter
-        \setfoot[\thepage][][]{}{}{\thepage}
-    \else
-        \setfoot{}{\thepage}{}
-    \fi
+    \setfoot{}{\thepage}{}
     \headrule
+}
+\ifustc@page@pageouter
+    \newpagestyle{main}[\ustc@header@size]{
+        \sethead{}{\ustc@main@header}{}
+            \setfoot[\thepage][][]{}{}{\thepage}
+        \headrule
+    }
+\else
+    \newpagestyle{main}[\ustc@header@size]{
+        \sethead{}{\ustc@main@header}{}
+        \setfoot{}{\thepage}{}
+        \headrule
+    }
+\fi
+\renewcommand\frontmatter{%
+    \cleardoublepage
+    \@mainmatterfalse
+    \pagenumbering{Roman}%
+    \pagestyle{front}%
+}%
+\renewcommand\mainmatter{%
+    \cleardoublepage
+    \@mainmattertrue
+    \pagenumbering{arabic}%
+    \pagestyle{main}%
+}%
+\renewcommand\chapter{%
+    \if@openright\cleardoublepage\else\clearpage\fi
+    \global\@topnum\z@
+    \ifodd\CTEX@chapter@afterindent
+        \@afterindenttrue
+    \else
+        \@afterindentfalse
+    \fi
+    \secdef\@chapter\@schapter
 }
 \renewcommand\maketitle{%
     \newgeometry{
@@ -346,7 +379,6 @@
         number = \arabic{chapter},
         beforeskip = 24bp,
         afterskip = 18bp,
-        pagestyle = main,
     },
     section = {
         format = \raggedright\sffamily\setfontsize{14bp},
