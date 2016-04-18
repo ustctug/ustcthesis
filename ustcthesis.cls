@@ -178,11 +178,7 @@
 \renewcommand\chapter{%
     \if@openright\cleardoublepage\else\clearpage\fi
     \global\@topnum\z@
-    \ifodd\CTEX@chapter@afterindent
-        \@afterindenttrue
-    \else
-        \@afterindentfalse
-    \fi
+    \@afterindenttrue
     \secdef\@chapter\@schapter
 }
 \renewcommand\maketitle{%
