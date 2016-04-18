@@ -31,7 +31,7 @@
 \SetupKeyvalOptions{family=ustc@page, prefix=ustc@page@, setkeys=\kvsetkeys}
 \DeclareBoolOption[false]{oneside}
 \DeclareComplementaryOption{twoside}{oneside}
-\DeclareBoolOption[true]{openany}
+\DeclareBoolOption[false]{openany}
 \DeclareComplementaryOption{openright}{openany}
 \DeclareBoolOption[true]{pageouter}
 \DeclareComplementaryOption{pagecenter}{pageouter}
