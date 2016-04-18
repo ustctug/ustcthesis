@@ -188,7 +188,8 @@ LaTeX version 1999/12/01 or later.
 %     模板文件 & \file{ustcthesis.dtx} & 模板原始代码文件，一般用户无需使用 \\
 %              & \file{ustcthesis.cls} & 文档类文件 \\
 %              & \file{ustcextra.sty}  & 模板的附加宏包 \\
-%              & \file{ustcthesis.bst} & \BibTeX{} 格式文件 \\
+%              & \file{ustcauthoryear.bst} & author-year 风格的 \BibTeX{} 格式文件 \\
+%              & \file{ustcnumerical.bst}  & numerical 风格的 \BibTeX{} 格式文件 \\
 %              & \file{figures/ustc_*.eps} & 校名和校徽图片 \\
 %     \midrule
 %     生成文件 & \file{ustcthesis.pdf} & （你正在阅读的）模板使用说明 \\
@@ -538,7 +539,9 @@ LaTeX version 1999/12/01 or later.
 % 用户还可以用 \cs{newtheoremstyle} 定义环境的格式，具体参见 \pkg{amsthm} 宏包。
 %
 % \subsection{参考文献}
-% 目前参考文献不支持 author-year 格式，只能使用 numeric 风格
+% 参考文献支持 author-year 风格和 numerical 风格。在 \file{main.tex} 中指定
+% |\bibliographystyle{ustcauthoryear}| 则使用 author-year 风格，指定
+% |\bibliographystyle{ustcnumerical}| 则使用 numerical 风格。
 %
 % \clearpage
 % \appendix
@@ -784,7 +787,7 @@ LaTeX version 1999/12/01 or later.
     footskip=0.79cm}
 %    \end{macrocode}
 % 再用 \pkg{titleps} 宏包设置页眉页码，\cs{if@mainmatter} 控制前言或是正文的页眉，
-% \cs{ifustc@page@pageouter} 控制是否将页码置于外侧。
+% \cs{ifustc@page@pageouter} 控制是否将正文及附录部分的页码置于外侧。
 %    \begin{macrocode}
 \RequirePackage[pagestyles]{titlesec}
 \ifustc@opt@bachelor
