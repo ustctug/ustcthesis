@@ -58,7 +58,8 @@ LaTeX version 1999/12/01 or later.
 %</class>
 %
 %<*driver>
-\documentclass[a4paper]{ltxdoc}
+\documentclass{ltxdoc}
+\usepackage[paper=a4paper,hmargin={1.5in,1in},vmargin=1.5in]{geometry}
 \usepackage{hypdoc}
 \hypersetup{allcolors=blue}
 \EnableCrossrefs
@@ -183,7 +184,7 @@ LaTeX version 1999/12/01 or later.
 % \cls{ustcthesis} 的下载地址：
 % \begin{itemize}
 % \item 主要地址：\url{https://github.com/ustctug/ustcthesis}
-% \item 镜像地址：\url{https://gitlab.lug.ustc.edu.cn/ustctug/ustcthesis}
+% \item 镜像地址：\url{https://git.ustclug.org/ustctug/ustcthesis}
 % \end{itemize}
 %
 % 我们假定用户已经能够熟练使用 \LaTeX{}，如果从来没有接触过 \LaTeX{}，
@@ -559,8 +560,14 @@ LaTeX version 1999/12/01 or later.
 %
 % \subsection{参考文献}
 % 参考文献支持 author-year 风格和 numerical 风格。在 \file{main.tex} 中指定
-% |\bibliographystyle{ustcauthoryear}| 则使用 author-year 风格，指定
-% |\bibliographystyle{ustcnumerical}| 则使用 numerical 风格。
+% \begin{latex}
+% \bibliographystyle{ustcauthoryear}
+% \end{latex}
+% 则使用 author-year 风格，指定
+% \begin{latex}
+% \bibliographystyle{ustcnumerical}
+% \end{latex}
+% 则使用 numerical 风格。
 %
 % \clearpage
 % \appendix
@@ -568,15 +575,70 @@ LaTeX version 1999/12/01 or later.
 % \section{\LaTeX{} 新手指南}
 % \label{sec:new}
 %
+% 首先要弄清 \textbf{编译器}、\textbf{宏包}、 \textbf{编辑器}、\textbf{发行版}
+% 的概念和区别。编译器是读入源文件，输出 PDF（大部分情况下）的程序，如 tex, latex, xelatex；
+% 宏包的是为了实现拓展能的 \LaTeX 代码，并且已经被良好地封装起来，如 fontspec, geometry；
+% 编辑器是用来编辑 \LaTeX 源文件的工具，理论上用记事本等低级工具也可以，但更常用的有
+% TeXShop, TeXworks 等等；发行版就是一套编译器、编辑器、宏包和其他工具的集合。
+%
+% 国际上主流的发行版及支持的操作系统如下：
+%
+% \begin{tabular}{c|ccc}
+%      & Linux & Mac & Windows \\
+%     \hline
+%     \href{https://www.tug.org/texlive/}{TeX Live} & yes & yes & yes \\
+%     \href{https://tug.org/mactex/}{MacTeX} & & yes & \\
+%     \href{http://miktex.org}{MikTeX} & & & yes \\
+% \end{tabular}
+%
+% TeX Live 虽然是跨平台的，并且支持在线安装功能，但是却没有提供一个图形化的安装界面，
+% 这给很多 Mac 和 Windows 用户造成了不便，所以会有 MacTeX 和 MikTeX。
+%
+% 事实上，MacTeX 其实就是 TeX Live 加上一些 Mac 专有的 GUI 软件，
+% MaC 高级用户可以直接安装 TeX Live 并自行配制工具。
+%
+% 很多中国用户使用的 CTeX 套装（\url{http://www.ctex.org/}）发行版是基于 MikTeX 开发的，
+% 然而 CTeX v2.9.2.164 于 2012 年发布，已经过时，\textbf{不推荐使用}！
+% 新版 CTeX 套装截至2016年4月仍在开发中。
+%
 % \subsection{安装 \LaTeX{}}
+%
+% 如果你选择好了发行版，现在就可以开始安装了。使用校园网时从镜像服务器下载会大大加快速速。
+%
+% \begin{tabular}{r|l}
+%     发行版 & 校内镜像地址 \\
+%     \hline
+%     \href{https://www.tug.org/texlive/}{TeX Live} &
+%         \url{http://mirrors.ustc.edu.cn/CTAN/systems/texlive/} \\
+%     \href{https://tug.org/mactex/}{MacTeX} &
+%         \url{http://mirrors.ustc.edu.cn/CTAN/systems/mac/mactex/} \\
+%     \href{http://miktex.org}{MikTeX} &
+%         \url{http://mirrors.ustc.edu.cn/CTAN/systems/win32/miktex/} \\
+% \end{tabular}
+%
+% 尽管安装包可能有 5GB 之大，但是建议新手用户安装完整版，以避免缺失宏包引起的恐慌。
+%
+% USTCTUG 提供了一个轻量级的安装脚本
+% \href{https://github.com/ustctug/mini-texlive}{mini-texlive}，
+% 以帮助高级用户能快速安装。
 %
 % \subsection{更新宏包}
 % \label{sec:update}
-% 安装完TeXLive 2015后，建议将所有宏包更新至最新版本。
-% Linux下可以使用如下命令更新所有已安装的宏包：
+% 由于本模板只保证对最新版的支持，可能会不兼容旧版本，所以安装完 TeX Live 后，
+% 建议将所有宏包更新至最新版本。
+% Mac 和 Linux 用户下可以使用如下命令更新所有已安装的宏包：
+% \begin{enumerate}
+% \item 先设置 repository 为校园的镜像，这样用校园网时就很快（需要输入密码）
 % \begin{shell}
-% tlmgr update --self --all
+% sudo tlmgr option repository http://mirrors.ustc.edu.cn/CTAN/systems/texlive/tlnet
 % \end{shell}
+% \item 然后更新，
+% \begin{shell}
+% sudo tlmgr update --self --all
+% \end{shell}
+% \end{enumerate}
+%
+% MacTeX 还自带了 TeX Live Ultility.app 图形化界面工具，用来更新宏包。
 %
 % \subsection{\LaTeX{} 排版注意事项}
 % \label{sec:caution}
@@ -595,7 +657,11 @@ LaTeX version 1999/12/01 or later.
 %
 % \subsection{为何我打开文件时显示中文为乱码？}
 % 因为你的编辑器不是使用 UTF-8 编码。\cls{ustcthesis} 中文只支持 \pkg{xeCJK} 方式，
-% 必须使用 UTF-8 编码。中文版 Windows 的默认编码是 GB18030。
+% 必须使用 UTF-8 编码。中文版 Windows 的默认编码是 GBK 。
+%
+% \subsection{MacTeX 2015 生成的 pdf 超链接为什么始终为红色？}
+% 这是 MacTeX 2015 中 hyperref 宏包的一个 bug，升级宏包后可以生成正常颜色，
+% 方法见 \ref{sec:update} 。
 %
 %
 % \section{模板开发维护指南}
