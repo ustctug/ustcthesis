@@ -4,7 +4,7 @@ NAME = ustcthesis
 UTREE = $(shell kpsewhich --var-value TEXMFHOME)
 LOCAL = $(shell kpsewhich --var-value TEXMFLOCAL)
 
-main :
+main : $(NAME).cls
 	latexmk -xelatex -shell-escape -use-make
 
 all : main doc
