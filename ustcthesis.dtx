@@ -576,13 +576,14 @@ LaTeX version 1999/12/01 or later.
 % \label{sec:new}
 %
 % 首先要弄清 \textbf{编译器}、\textbf{宏包}、 \textbf{编辑器}、\textbf{发行版}
-% 的概念和区别。编译器是读入源文件，输出 PDF（大部分情况下）的程序，如 tex, latex, xelatex；
-% 宏包的是为了实现拓展能的 \LaTeX 代码，并且已经被良好地封装起来，如 fontspec, geometry；
+% 的概念和区别。编译器是读入源文件并输出 PDF（大部分情况下）的程序，如 |tex| 、 |latex| 、 |xelatex| ；
+% 宏包是实现拓展功能的 \LaTeX 代码，并且已经被良好地封装起来，如 |fontspec| 和 |geometry| ；
 % 编辑器是用来编辑 \LaTeX 源文件的工具，理论上用记事本等低级工具也可以，但更常用的有
-% TeXShop, TeXworks 等等；发行版就是一套编译器、编辑器、宏包和其他工具的集合。
+% TeXShop、 TeXworks 等等；发行版就是一套编译器、编辑器、宏包和其他工具的集合。
 %
 % 国际上主流的发行版及支持的操作系统如下：
 %
+% \begin{center}
 % \begin{tabular}{c|ccc}
 %      & Linux & Mac & Windows \\
 %     \hline
@@ -590,9 +591,10 @@ LaTeX version 1999/12/01 or later.
 %     \href{https://tug.org/mactex/}{MacTeX} & & yes & \\
 %     \href{http://miktex.org}{MikTeX} & & & yes \\
 % \end{tabular}
+% \end{center}
 %
-% TeX Live 虽然是跨平台的，并且支持在线安装功能，但是却没有提供一个图形化的安装界面，
-% 这给很多 Mac 和 Windows 用户造成了不便，所以会有 MacTeX 和 MikTeX。
+% TeX Live 是跨平台的，且支持在线安装功能，但其图形化安装界面却比较难用，
+% 给很多 Mac 和 Windows 用户造成了不便，所以便有了 MacTeX 和 MikTeX。
 %
 % 事实上，MacTeX 其实就是 TeX Live 加上一些 Mac 专有的 GUI 软件，
 % MaC 高级用户可以直接安装 TeX Live 并自行配制工具。
@@ -603,8 +605,9 @@ LaTeX version 1999/12/01 or later.
 %
 % \subsection{安装 \LaTeX{}}
 %
-% 如果你选择好了发行版，现在就可以开始安装了。使用校园网时从镜像服务器下载会大大加快速速。
+% 如果你选择好了发行版，现在就可以开始安装了。使用校园网时从镜像服务器下载会大大加快速度。
 %
+% \begin{center}
 % \begin{tabular}{r|l}
 %     发行版 & 校内镜像地址 \\
 %     \hline
@@ -615,12 +618,13 @@ LaTeX version 1999/12/01 or later.
 %     \href{http://miktex.org}{MikTeX} &
 %         \url{http://mirrors.ustc.edu.cn/CTAN/systems/win32/miktex/} \\
 % \end{tabular}
+% \end{center}
 %
 % 尽管安装包可能有 5GB 之大，但是建议新手用户安装完整版，以避免缺失宏包引起的恐慌。
 %
 % USTCTUG 提供了一个轻量级的安装脚本
 % \href{https://github.com/ustctug/mini-texlive}{mini-texlive}，
-% 以帮助高级用户能快速安装。
+% 以帮助Linux和Mac用户安装模板所需的最小 \LaTeX。
 %
 % \subsection{更新宏包}
 % \label{sec:update}
