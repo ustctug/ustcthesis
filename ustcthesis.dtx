@@ -54,16 +54,16 @@ LaTeX version 1999/12/01 or later.
 %<class>\NeedsTeXFormat{LaTeX2e}[1999/12/01]
 %<class>\ProvidesClass{ustcthesis}
 %<*class>
-    [2016/04/16 v2.1 USTC thesis template]
+    [2016/04/19 v2.1.1 USTC thesis template]
 %</class>
 %
 %<*driver>
 \documentclass[a4paper]{ltxdoc}
+\usepackage{hypdoc}
+\hypersetup{allcolors=blue}
 \EnableCrossrefs
 \CodelineIndex
 \RecordChanges
-\usepackage{hypdoc}
-\hypersetup{allcolors=blue}
 \usepackage[UTF8, heading, sub3section]{ctex}
 \ctexset{
     section      = {
@@ -133,11 +133,30 @@ LaTeX version 1999/12/01 or later.
 %
 % \changes{v2.0}{2016/02/21}{Initial release.}
 % \changes{v2.0.1}{2016/03/10}{Add code and algorithm environments.}
-% \changes{v2.1}{2016/04/16}{Support both author-year and numerical bib style.}
 %
 % \GetFileInfo{ustcthesis.dtx}
 %
-% \DoNotIndex{\newcommand,\newenvironment}
+% \DoNotIndex{\newenvironment,\@bsphack,\@empty,\@esphack,\sfcode}
+% \DoNotIndex{\addtocounter,\label,\let,\linewidth,\newcounter}
+% \DoNotIndex{\noindent,\normalfont,\par,\parskip,\phantomsection}
+% \DoNotIndex{\providecommand,\ProvidesPackage,\refstepcounter}
+% \DoNotIndex{\RequirePackage,\setcounter,\setlength,\string,\strut}
+% \DoNotIndex{\textbackslash,\texttt,\ttfamily,\usepackage}
+% \DoNotIndex{\begin,\end,\begingroup,\endgroup,\par,\\}
+% \DoNotIndex{\if,\ifx,\ifdim,\ifnum,\ifcase,\else,\or,\fi}
+% \DoNotIndex{\let,\def,\xdef,\edef,\newcommand,\renewcommand}
+% \DoNotIndex{\expandafter,\csname,\endcsname,\relax,\protect}
+% \DoNotIndex{\Huge,\huge,\LARGE,\Large,\large,\normalsize}
+% \DoNotIndex{\small,\footnotesize,\scriptsize,\tiny}
+% \DoNotIndex{\normalfont,\bfseries,\slshape,\sffamily,\interlinepenalty}
+% \DoNotIndex{\textbf,\textit,\textsf,\textsc}
+% \DoNotIndex{\hfil,\par,\hskip,\vskip,\vspace,\quad}
+% \DoNotIndex{\centering,\raggedright,\ref}
+% \DoNotIndex{\c@secnumdepth,\@startsection,\@setfontsize}
+% \DoNotIndex{\ ,\@plus,\@minus,\p@,\z@,\@m,\@M,\@ne,\m@ne}
+% \DoNotIndex{\@@par,\DeclareOperation,\RequirePackage,\LoadClass}
+% \DoNotIndex{\AtBeginDocument,\AtEndDocument}
+% \DoNotIndex{\.,\DeclareCaptionLabelSeparator,\DeclareComplementaryOption}
 %
 % \title{\cls{ustcthesis} 使用说明}
 % \author{Zeping Lee\thanks{zepinglee AT gmail.com} \and
@@ -819,6 +838,7 @@ LaTeX version 1999/12/01 or later.
 \fi
 %    \end{macrocode}
 % 将 frontmatter 的页码改为大写的罗马数字，并调整页面风格。
+% \changes{v2.1.1}{2016/04/19}{调整 frontmatter 的页码位置}
 %    \begin{macrocode}
 \renewcommand\frontmatter{%
     \cleardoublepage
@@ -971,7 +991,7 @@ LaTeX version 1999/12/01 or later.
 
     \par\ustc@authorization\par
     \vskip 0.5cm
-    \raisebox{1.1mm}{\fbox{\rule{0pt}{1.4mm}\rule{1.4mm}{0pt}}}\ 公开
+    \raisebox{1.1mm}{\fbox{\rule{0pt}{1.4mm}\rule{1.4mm}{0pt}}} 公开
     \hspace{0.5cm}
     \raisebox{1.1mm}{\fbox{\rule{0pt}{1.4mm}\rule{1.4mm}{0pt}}}
     保密（\ustc@underline[2em]{}\hspace{0.1em} 年）
@@ -1199,6 +1219,7 @@ LaTeX version 1999/12/01 or later.
 %
 % \subsection{参考文献}
 % 目前 \BibTeX{} 使用的 .bst 格式 位于 \url{https://github.com/ustctug/gbt-7714-2015}
+% \changes{v2.1}{2016/04/16}{Support both author-year and numerical bib style.}
 %    \begin{macrocode}
 \usepackage[sort&compress]{natbib}
 \newcommand\bibstyle@ustcauthoryear{\bibpunct{(}{)}{;}{a}{,}{,}}

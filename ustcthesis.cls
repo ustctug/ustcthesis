@@ -20,7 +20,7 @@
 %% 
 \NeedsTeXFormat{LaTeX2e}[1999/12/01]
 \ProvidesClass{ustcthesis}
-    [2016/04/16 v2.1 USTC thesis template]
+    [2016/04/19 v2.1.1 USTC thesis template]
 \RequirePackage{kvoptions}
 \SetupKeyvalOptions{family=ustc@opt, prefix=ustc@opt@, setkeys=\kvsetkeys}
 \DeclareBoolOption[false]{doctor}
@@ -285,7 +285,7 @@
 
     \par\ustc@authorization\par
     \vskip 0.5cm
-    \raisebox{1.1mm}{\fbox{\rule{0pt}{1.4mm}\rule{1.4mm}{0pt}}}\ 公开
+    \raisebox{1.1mm}{\fbox{\rule{0pt}{1.4mm}\rule{1.4mm}{0pt}}} 公开
     \hspace{0.5cm}
     \raisebox{1.1mm}{\fbox{\rule{0pt}{1.4mm}\rule{1.4mm}{0pt}}}
     保密（\ustc@underline[2em]{}\hspace{0.1em} 年）
