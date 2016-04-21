@@ -644,7 +644,25 @@ LaTeX version 1999/12/01 or later.
 %
 % MacTeX 还自带了 TeX Live Ultility.app 图形化界面工具，用来更新宏包。
 %
-% \subsection{\LaTeX{} 排版注意事项}
+% \subsection{入门资料}
+% \label{sec:newdoc}
+%
+% 对于新手推荐以下资料：
+%
+% \begin{itemize}
+% \item
+%   \href{http://mirrors.ctan.org/info/lshort/english/lshort.pdf}{A (Not
+%   So) Short In­tro­duc­tion to \LaTeX2e}:
+%   经典的入门资料，有\href{http://mirrors.ctan.org/info/lshort/chinese/lshort-zh-cn.pdf}{中文翻译版}。
+% \item
+%   \href{http://dralpha.altervista.org/zh/tech/lnotes2.pdf}{LaTeX Notes}:
+%   一份诙谐幽默的中文入门资料
+% \item
+%   刘海洋《LaTeX 入门》： 较为详细的关于 LaTeX
+%   的中文书籍，其他中文书已经过时。
+% \end{itemize}
+%
+% \subsection{排版注意事项}
 % \label{sec:caution}
 % \begin{itemize}
 %     \item 英文逗号、句号、问号和叹号后面要加空格。
@@ -670,6 +688,78 @@ LaTeX version 1999/12/01 or later.
 %
 % \section{模板开发维护指南}
 % \label{sec:dev_guide}
+%
+% 本节的 pdf 文件均可在完整的发行版中找到，或者使用 texdoc 命令打开。
+%
+% 要参与 \LaTeX{} 的开发，首先要熟悉面向用户的命令和工具，除了 \ref{sec:newdoc}
+% 中的文档，还应熟悉：
+%
+% \begin{itemize}
+% \item
+%   latex2e.pdf: 系统地介绍了 \LaTeX{}
+%   使用的方方面面的文档，有平时很多用不到但是 \LaTeX{} 提供了的命令
+% \item
+%   所用宏包的文档（可能还有源码）：
+% \item
+%   常用的工具 latexmk, texdoc
+% \item
+%   一些调试技巧如 \cs{show} 和 \cs{meaning} 命令
+% \end{itemize}
+%
+% 下面是面向开发的文档：
+%
+% \begin{itemize}
+% \item
+%   clsguide.pdf: \LaTeXe{} 宏包和文档类的命令和编写规范
+% \item
+%   classes.pdf: 这是 \LaTeXe{} 三个标准文档类的实现，用于参考
+% \item
+%   macros2e.pdf: 集中介绍了 \LaTeXe{} 里使用的一些内部宏，用于参考
+% \item
+%   dtxtut.pdf:  \LaTeX{}
+%   的宏包与说明文档的封装方式，即所谓``文学编程''，更详细的有
+%   docstrip.pdf 和 doc.pdf，
+%   \href{http://www.texdev.net/2009/10/06/a-model-dtx-file/}{Joseph
+%   Wright 的文章} 介绍了更好封装的技巧
+% \end{itemize}
+%
+% 关于 BibTeX，应阅读以下文档：
+%
+% \begin{itemize}
+% \item
+%   btxdoc.pdf, btxhak.pdf: BibTeX 的说明文档
+% \item
+%   btxbst.doc: BibTeX 的三个标准 bst 的源文件（带注释）
+% \item
+%   ttb.pdf: 一份详细的介绍
+% \item
+%   natbib.pdf: natbib 宏包的文档
+% \end{itemize}
+%
+% 至此可以解决大部分的问题了，如果想要更深入地研究，有下高级资料：
+%
+% \begin{itemize}
+% \item
+%   TeXbook\footnote{可以在 CTAN 找到源码并自行编译}: Knuth 的 TeX 圣经，了解底层 TeX
+%   的原理必读。还有更简略一点的介绍文档
+%   TeXbyTopic.pdf 和 impatient.pdf。
+% \item
+%   source2e.pdf: 这是 \LaTeXe{} 的实现
+% \end{itemize}
+%
+% \LaTeX3 的开发正在进行中，其底层接口已经相对成熟和稳定。\pkg{xecjk} 和 \pkg{ctex}
+% 均是建立在 \LaTeX3 基础上的。关于 \LaTeX3 的语法的文档有：
+%
+% \begin{itemize}
+% \item
+%   l3styleguide.pdf，这是 \LaTeX3 项目组写给开发者的指南
+% \item
+%   expl3.pdf，这是 \LaTeX3 编程接口宏包的文档
+% \item
+%   interface3.pdf，这是 \LaTeX3 的开发者接口文档
+% \item
+%   source3.pdf，这是 \LaTeX3 的实现
+% \end{itemize}
 %
 %
 %
