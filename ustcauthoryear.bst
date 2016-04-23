@@ -931,6 +931,8 @@ FUNCTION {archive}
   format.authors output
   author format.key output
   new.block
+  format.date "year" output.check
+  new.block
   format.series.volume.title "title" output.check
   "A" format.mark "" output.after
   new.block
@@ -940,8 +942,7 @@ FUNCTION {archive}
   new.sentence
   format.address output
   format.publisher punct.colon output.after
-  format.date "year" output.check
-  format.pages punct.colon output.after
+  format.pages ", " output.after
   format.citedate "" output.after
   format.url output
   format.doi output
@@ -952,6 +953,8 @@ FUNCTION {article}
 { output.bibitem
   format.authors "author" output.check
   author format.key output
+  new.block
+  format.date "year" output.check
   new.block
   format.title "title" output.check
   journal empty$
@@ -969,14 +972,12 @@ FUNCTION {article}
       new.block
       format.address output
       format.publisher punct.colon output.after
-      format.date "year" output.check
-      format.pages punct.colon output.after
+      format.pages ", " output.after
     }
     { "J" format.mark "" output.after
       new.block
       format.journal "journal" output.check
       new.block
-      format.date "year" output.check
       format.vol.num.pages output
     }
   if$
@@ -1000,6 +1001,8 @@ FUNCTION {book}
     }
   if$
   new.block
+  format.date "year" output.check
+  new.block
   format.series.volume.title "title" output.check
   "M" format.mark "" output.after
   new.block
@@ -1009,8 +1012,7 @@ FUNCTION {book}
   new.sentence
   format.address output
   format.publisher punct.colon output.after
-  format.date "year" output.check
-  format.pages punct.colon output.after
+  format.pages ", " output.after
   format.citedate "" output.after
   format.url output
   format.doi output
@@ -1031,6 +1033,8 @@ FUNCTION {collection}
     }
   if$
   new.block
+  format.date "year" output.check
+  new.block
   format.series.volume.title "title" output.check
   "G" format.mark "" output.after
   new.block
@@ -1040,8 +1044,7 @@ FUNCTION {collection}
   new.sentence
   format.address output
   format.publisher punct.colon output.after
-  format.date "year" output.check
-  format.pages punct.colon output.after
+  format.pages ", " output.after
   format.citedate "" output.after
   format.url output
   format.doi output
@@ -1053,10 +1056,11 @@ FUNCTION {database}
   format.authors output
   author format.key output
   new.block
+  format.date "year" output.check
+  new.block
   format.series.volume.title "title" output.check
   "DB" format.mark "" output.after
   new.block
-  format.date "year" output.check
   format.editdate "" output.after
   format.citedate "" output.after
   format.url output
@@ -1069,6 +1073,8 @@ FUNCTION {dataset}
   format.authors output
   author format.key output
   new.block
+  format.date "year" output.check
+  new.block
   format.series.volume.title "title" output.check
   "DS" format.mark "" output.after
   new.block
@@ -1078,8 +1084,7 @@ FUNCTION {dataset}
   new.sentence
   format.address output
   format.publisher punct.colon output.after
-  format.date "year" output.check
-  format.pages punct.colon output.after
+  format.pages ", " output.after
   format.editdate "" output.after
   format.citedate "" output.after
   format.url output
@@ -1095,6 +1100,8 @@ FUNCTION {inproceedings}
 { output.bibitem
   format.authors "author" output.check
   author format.key output
+  new.block
+  format.date "year" output.check
   new.block
   format.title "title" output.check
   "C" format.mark "" output.after
@@ -1117,8 +1124,7 @@ FUNCTION {inproceedings}
     { organization }
     { format.publisher }
   if$ punct.colon output.after
-  format.date "year" output.check
-  format.pages punct.colon output.after
+  format.pages ", " output.after
   format.citedate "" output.after
   format.url output
   format.doi output
@@ -1132,12 +1138,13 @@ FUNCTION {manual}
   format.authors output
   author format.key output
   new.block
+  format.date "year" output.check
+  new.block
   format.series.volume.title "title" output.check
   organization address new.block.checkb
   organization output
   format.address output
   format.edition output
-  format.date output
   format.url output
   new.block
   note output
@@ -1149,6 +1156,8 @@ FUNCTION {map}
   format.authors output
   author format.key output
   new.block
+  format.date "year" output.check
+  new.block
   format.series.volume.title "title" output.check
   "CM" format.mark "" output.after
   new.block
@@ -1158,8 +1167,7 @@ FUNCTION {map}
   new.sentence
   format.address output
   format.publisher punct.colon output.after
-  format.date "year" output.check
-  format.pages punct.colon output.after
+  format.pages ", " output.after
   format.citedate "" output.after
   format.url output
   format.doi output
@@ -1171,17 +1179,21 @@ FUNCTION {mastersthesis}
   format.authors output
   author format.key output
   new.block
+  format.date "year" output.check
+  new.block
   format.series.volume.title "title" output.check
-  "D" format.mark "" output.after
+  "D" format.mark ": [Master]" * "" output.after
   new.block
   format.translators output
   new.block
   format.edition output
   new.sentence
   format.address output
-  format.publisher punct.colon output.after
-  format.date "year" output.check
-  format.pages punct.colon output.after
+  school empty$
+    { format.publisher }
+    { school }
+  if$ punct.colon output.after
+  format.pages ", " output.after
   format.citedate "" output.after
   format.url output
   format.doi output
@@ -1193,6 +1205,8 @@ FUNCTION {misc}
   format.authors output
   author format.key output
   new.block
+  format.date "year" output.check
+  new.block
   format.series.volume.title "title" output.check
   "M" format.mark "" output.after
   new.block
@@ -1202,8 +1216,7 @@ FUNCTION {misc}
   new.sentence
   format.address output
   format.publisher punct.colon output.after
-  format.date "year" output.check
-  format.pages punct.colon output.after
+  format.pages ", " output.after
   format.citedate "" output.after
   format.url output
   format.doi output
@@ -1215,12 +1228,13 @@ FUNCTION {newspaper}
   format.authors "author" output.check
   author format.key output
   new.block
+  format.date "year" output.check
+  new.block
   format.title "title" output.check
   "N" format.mark "" output.after
   new.block
   journal "journal" output.check
   new.block
-  format.date "year" output.check
   format.vol.num.pages output
   format.citedate "" output.after
   format.url output
@@ -1233,22 +1247,49 @@ FUNCTION {patent}
   format.authors output
   author format.key output
   new.block
+  format.date "year" output.check
+  new.block
   format.title "title" output.check
   "P" format.mark "" output.after
   new.block
-  format.date "year" output.check
   format.citedate "" output.after
   format.url output
   format.doi output
   fin.entry
 }
 
-FUNCTION {phdthesis} { mastersthesis }
+FUNCTION {phdthesis}
+{ output.bibitem
+  format.authors output
+  author format.key output
+  new.block
+  format.date "year" output.check
+  new.block
+  format.series.volume.title "title" output.check
+  "D" format.mark ": [PhD]" * "" output.after
+  new.block
+  format.translators output
+  new.block
+  format.edition output
+  new.sentence
+  format.address output
+  school empty$
+    { format.publisher }
+    { school }
+  if$ punct.colon output.after
+  format.pages ", " output.after
+  format.citedate "" output.after
+  format.url output
+  format.doi output
+  fin.entry
+}
 
 FUNCTION {proceedings}
 { output.bibitem
   format.editors output
   editor format.key output
+  new.block
+  format.date "year" output.check
   new.block
   format.series.volume.title "title" output.check
   "C" format.mark "" output.after
@@ -1262,8 +1303,7 @@ FUNCTION {proceedings}
     { organization }
     { format.publisher }
   if$ punct.colon output.after
-  format.date "year" output.check
-  format.pages punct.colon output.after
+  format.pages ", " output.after
   format.citedate "" output.after
   format.url output
   format.doi output
@@ -1275,10 +1315,11 @@ FUNCTION {program}
   format.authors output
   author format.key output
   new.block
+  format.date "year" output.check
+  new.block
   format.series.volume.title "title" output.check
   "CP" format.mark "" output.after
   new.block
-  format.date "year" output.check
   format.editdate "" output.after
   format.citedate "" output.after
   format.url output
@@ -1291,6 +1332,8 @@ FUNCTION {standard}
   format.authors output
   author format.key output
   new.block
+  format.date "year" output.check
+  new.block
   format.series.volume.title "title" output.check
   "S" format.mark "" output.after
   new.block
@@ -1300,8 +1343,7 @@ FUNCTION {standard}
   new.sentence
   format.address output
   format.publisher punct.colon output.after
-  format.date "year" output.check
-  format.pages punct.colon output.after
+  format.pages ", " output.after
   format.citedate "" output.after
   format.url output
   format.doi output
@@ -1319,6 +1361,8 @@ FUNCTION {techreport}
     }
   if$
   new.block
+  format.date "year" output.check
+  new.block
   format.series.volume.title "title" output.check
   "R" format.mark "" output.after
   new.block
@@ -1328,8 +1372,7 @@ FUNCTION {techreport}
   new.sentence
   format.address output
   format.publisher punct.colon output.after
-  format.date "year" output.check
-  format.pages punct.colon output.after
+  format.pages ", " output.after
   format.editdate "" output.after
   format.citedate "" output.after
   format.url output
@@ -1342,10 +1385,10 @@ FUNCTION {unpublished}
   format.authors "author" output.check
   author format.key output
   new.block
+  format.date "year" output.check  new.block
   format.title "title" output.check
   new.block
   note "note" output.check
-  format.date output
   format.url output
   fin.entry
 }
@@ -1836,9 +1879,9 @@ FUNCTION {begin.bib}
   write$ newline$
   "\expandafter\ifx\csname urlstyle\endcsname\relax"
   write$ newline$
-  "  \providecommand{\doi}[1]{doi: #1}\else"
+  "  \providecommand{\doi}[1]{DOI: #1}\else"
   write$ newline$
-  "  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi"
+  "  \providecommand{\doi}{DOI: \begingroup \urlstyle{rm}\Url}\fi"
   write$ newline$
 }
 

@@ -1171,14 +1171,17 @@ FUNCTION {mastersthesis}
   author format.key output
   new.block
   format.series.volume.title "title" output.check
-  "D" format.mark "" output.after
+  "D" format.mark ": [Master]" * "" output.after
   new.block
   format.translators output
   new.block
   format.edition output
   new.sentence
   format.address output
-  format.publisher punct.colon output.after
+  school empty$
+    { format.publisher }
+    { school }
+  if$ punct.colon output.after
   format.date "year" output.check
   format.pages punct.colon output.after
   format.citedate "" output.after
@@ -1242,7 +1245,30 @@ FUNCTION {patent}
   fin.entry
 }
 
-FUNCTION {phdthesis} { mastersthesis }
+FUNCTION {phdthesis}
+{ output.bibitem
+  format.authors output
+  author format.key output
+  new.block
+  format.series.volume.title "title" output.check
+  "D" format.mark ": [PhD]" * "" output.after
+  new.block
+  format.translators output
+  new.block
+  format.edition output
+  new.sentence
+  format.address output
+  school empty$
+    { format.publisher }
+    { school }
+  if$ punct.colon output.after
+  format.date "year" output.check
+  format.pages punct.colon output.after
+  format.citedate "" output.after
+  format.url output
+  format.doi output
+  fin.entry
+}
 
 FUNCTION {proceedings}
 { output.bibitem
@@ -1699,9 +1725,9 @@ FUNCTION {begin.bib}
   write$ newline$
   "\expandafter\ifx\csname urlstyle\endcsname\relax"
   write$ newline$
-  "  \providecommand{\doi}[1]{doi: #1}\else"
+  "  \providecommand{\doi}[1]{DOI: #1}\else"
   write$ newline$
-  "  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi"
+  "  \providecommand{\doi}{DOI: \begingroup \urlstyle{rm}\Url}\fi"
   write$ newline$
 }
 
