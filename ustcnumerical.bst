@@ -1336,11 +1336,11 @@ FUNCTION {standard}
 FUNCTION {techreport}
 { output.bibitem
   author empty$
-    { format.authors output
-      author format.key output
-    }
     { institution output
       institution format.key output
+    }
+    { format.authors output
+      author format.key output
     }
   if$
   new.block
