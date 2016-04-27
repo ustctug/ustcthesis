@@ -199,57 +199,63 @@
     \fi
     \pagestyle{main}%
 }
+\ifustc@opt@doctor
+    \newcommand\ustc@thesisname{博士学位论文}%
+    \newcommand\ustc@enthesisname{A dissertation for doctor's degree}%
+\else
+    \ifustc@opt@master
+        \newcommand\ustc@thesisname{硕士学位论文}
+        \newcommand\ustc@enthesisname{A dissertation for master's degree}
+    \else
+        \newcommand\ustc@thesisname{学士学位论文}
+        \newcommand\ustc@enthesisname{A dissertation for bachelor's degree}
+    \fi
+\fi
+\RequirePackage{tikz}
+\newcommand\vpostext[2]{%
+    \tikz[remember picture,overlay]%
+        \node [yshift=-#1] at (current page.north) [below,align=flush center]%
+            {\parbox{\textwidth}{\centering#2}};}
 \newcommand\make@cntitle{%
-    \begin{titlepage}
-    \begin{center}
-    \renewcommand{\arraystretch}{0}
-    \begin{tabular}{@{}c@{}}
-        \\[0.2cm]
-        \parbox[t][1.2cm][t]{\textwidth}
-            {\raggedleft\fangsong\setfontsize{14bp}\ustc@secrettext} \\
-        \parbox[t][2.7cm][t]{\textwidth}{\centering
-            \includegraphics[width=11cm]{figures/ustc_logo_text}} \\
-        \parbox[t][3cm][t]{\textwidth}{
-            \centering\sffamily\setfontsize{56bp}
-            \ifustc@opt@doctor 博士学位论文 \fi
-            \ifustc@opt@master 硕士学位论文 \fi
-            \ifustc@opt@bachelor 学士学位论文 \fi} \\
-        \includegraphics[height=4.9cm]{figures/ustc_logo_fig} \\
-        \parbox[t][4.7cm][c]{\textwidth}
-            {\centering\sffamily\bfseries\setfontsize{26bp}\ustc@title} \\
-        \parbox[t][4.2cm][c]{\textwidth}{\setfontsize{16bp}
-            \hspace*{2.8cm}{\sffamily 作者姓名：}\hfill \ustc@author \hfill\mbox{} \\
-            \hspace*{2.8cm}{\sffamily 学科专业：}\hfill \ustc@major \hfill\mbox{} \\
-            \hspace*{2.8cm}{\sffamily 导师姓名：}\hfill \ustc@advisor \hfill\mbox{} \\
-            \hspace*{2.8cm}{\sffamily 完成时间：}\hfill \ustc@submitdate \hfill\mbox{}}
-    \end{tabular}
-    \end{center}
+    \begin{titlepage}%
+        \tikz[remember picture,overlay]%
+            \node [yshift=-4cm] at (current page.north) [below,align=flush center]%
+                {\parbox{\textwidth}{\raggedleft\fangsong\setfontsize{14bp}\ustc@secrettext}};%
+        \vpostext{5.2cm}{\includegraphics[width=11cm]{figures/ustc_logo_text}}%
+        \vpostext{8.5cm}{\sffamily\setfontsize{56bp}\ustc@thesisname}%
+        \vpostext{11cm}{\includegraphics[height=4cm]{figures/ustc_logo_fig}}%
+        \vpostext{15.8cm}{\sffamily\bfseries\setfontsize{26bp}\ustc@title}%
+        \tikz[remember picture,overlay]%
+            \node [xshift=6cm,yshift=-20.5cm] at (current page.north west)%
+            [below right,align=left] {%
+                \setfontsize{16bp}%
+                \begin{tabular}{@{}l@{}c@{}}%
+                    \textsf{作者姓名：} & \ustc@author \\%
+                    \textsf{学科专业：} & \ustc@major \\%
+                    \textsf{导师姓名：} & \ustc@advisor \\%
+                    \textsf{完成时间：} & \ustc@submitdate%
+                \end{tabular}};%
     \end{titlepage}}
 \newcommand\make@entitle{%
-    \begin{titlepage}
-    \begin{center}
-    \renewcommand{\arraystretch}{0}
-    \begin{tabular}{@{}c@{}}
-        \\[0.2cm]
-        \parbox[t][1cm][t]{\textwidth}
-            {\raggedleft\setfontsize{14bp}\ustc@ensecrettext} \\
-        \parbox[t][1cm][t]{\textwidth}{\centering\sffamily\setfontsize{20bp}[30bp]
-            University of Science and Technology of China} \\
-        \parbox[t][2.2cm][t]{\textwidth}{\centering\sffamily\setfontsize{26bp}[30bp]
-            \ifustc@opt@doctor A dissertation for doctor's degree \fi
-            \ifustc@opt@master A dissertation for master's degree \fi
-            \ifustc@opt@bachelor A dissertation for bachelor's degree \fi} \\
-        \includegraphics[height=4.9cm]{figures/ustc_logo_fig} \\
-        \\[2.9cm]
-        \parbox[t][4.7cm][t]{\textwidth}
-            {\centering\sffamily\bfseries\setfontsize{26bp}[30bp]\ustc@entitle} \\
-        \parbox[t][4cm][c]{\textwidth}{\setfontsize{16bp}[30bp]
-            \hspace*{2.8cm} Author: \hspace{1.6cm}\hfill \ustc@enauthor \hfill\mbox{} \\
-            \hspace*{2.8cm} Speciality: \hspace{0.8cm}\hfill \ustc@enmajor \hfill\mbox{} \\
-            \hspace*{2.8cm} Supervisor: \hspace{0.8cm}\hfill \ustc@enadvisor \hfill\mbox{} \\
-            \hspace*{2.8cm} Finished Time: \hfill \ustc@ensubmitdate \hfill\mbox{}}
-    \end{tabular}
-    \end{center}
+    \begin{titlepage}%
+        \tikz[remember picture,overlay]%
+            \node [yshift=-4cm] at (current page.north) [below,align=flush center]%
+                {\parbox{\textwidth}{\raggedleft\setfontsize{14bp}\ustc@ensecrettext}};%
+        \vpostext{5cm}{\sffamily\setfontsize{20bp}[30bp]%
+            University of Science and Technology of China}%
+        \vpostext{6cm}{\sffamily\setfontsize{26bp}[30bp]\ustc@enthesisname}%
+        \vpostext{8.2cm}{\includegraphics[height=5cm]{figures/ustc_logo_fig}}%
+        \vpostext{16cm}{\sffamily\bfseries\setfontsize{26bp}[30bp]\ustc@entitle}%
+        \tikz[remember picture,overlay]%
+            \node [xshift=6cm,yshift=5cm] at (current page.south west)%
+            [above right,align=left] {%
+                \setfontsize{16bp}[30bp]%
+                \begin{tabular}{@{}lc@{}}%
+                    Author’s Name: & \ustc@enauthor \\%
+                    Speciality:    & \ustc@enmajor \\%
+                    Supervisor:    & \ustc@enadvisor \\%
+                    Finished Time: & \ustc@ensubmitdate%
+                \end{tabular}};%
     \end{titlepage}}
 \newcommand{\ustc@declaretext} {
 本人声明所呈交的学位论文，是本人在导师指导下进行研究工作所取得的成果。
