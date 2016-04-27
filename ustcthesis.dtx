@@ -882,7 +882,7 @@ LaTeX version 1999/12/01 or later.
 % \href{https://github.com/ustctug/ustcthesis/issues/42}{Issue 42}
 %    \begin{macrocode}
 \RequirePackage{xparse}
-\DeclareDocumentCommand\setfontsize{mo}{\IfValueTF{#2}{\fontsize{#1}{#2}}{\fontsize{#1}{1.2\dimexpr#1}}\linespread{1}\selectfont\relax}
+\DeclareDocumentCommand\setfontsize{mo}{\IfValueTF{#2}{\fontsize{#1}{#2}}{\fontsize{#1}{2\dimexpr#1}}\linespread{1}\selectfont\relax}
 %    \end{macrocode}
 % \end{macro}
 % \begin{macro}{\zhspace}
