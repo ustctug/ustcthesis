@@ -88,7 +88,7 @@
     }
 }
 \RequirePackage{xparse}
-\DeclareDocumentCommand\setfontsize{mo}{\IfValueTF{#2}{\fontsize{#1}{#2}}{\fontsize{#1}{1.2\dimexpr#1}}\linespread{1}\selectfont\relax}
+\DeclareDocumentCommand\setfontsize{mo}{\IfValueTF{#2}{\fontsize{#1}{#2}}{\fontsize{#1}{2\dimexpr#1}}\linespread{1}\selectfont\relax}
 \newcommand\zhspace[1][1]{\hspace{#1\ccwd}}
 \newcommand\ustc@underline[2][6em]{%
     \hskip1pt\underline{\hb@xt@ #1{\hss#2\hss}}\hskip3pt\relax
@@ -251,7 +251,7 @@
             [above right,align=left] {%
                 \setfontsize{16bp}[30bp]%
                 \begin{tabular}{@{}lc@{}}%
-                    Author’s Name: & \ustc@enauthor \\%
+                    Author's Name: & \ustc@enauthor \\%
                     Speciality:    & \ustc@enmajor \\%
                     Supervisor:    & \ustc@enadvisor \\%
                     Finished Time: & \ustc@ensubmitdate%
