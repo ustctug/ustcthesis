@@ -70,6 +70,7 @@
 \hypersetup{
     bookmarksopen=true,
     bookmarksnumbered=true,
+    bookmarksopenlevel=1,
     CJKbookmarks=true,
     pdfborder=0 0 0,
     unicode=true,

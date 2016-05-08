@@ -61,7 +61,14 @@ LaTeX version 1999/12/01 or later.
 \documentclass{ltxdoc}
 \usepackage[paper=a4paper,hmargin={1.5in,1in},vmargin=1.5in]{geometry}
 \usepackage{hypdoc}
-\hypersetup{allcolors=blue}
+\hypersetup{
+    bookmarksopen=true,
+    bookmarksopenlevel=2,
+    bookmarksnumbered=true,
+    CJKbookmarks=true,
+    unicode=true,
+    allcolors=blue,
+}
 \EnableCrossrefs
 \CodelineIndex
 \RecordChanges
@@ -850,6 +857,7 @@ LaTeX version 1999/12/01 or later.
 \hypersetup{
     bookmarksopen=true,
     bookmarksnumbered=true,
+    bookmarksopenlevel=1,
     CJKbookmarks=true,
     pdfborder=0 0 0,
     unicode=true,
