@@ -44,3 +44,8 @@ zip : cls doc
 	zip -rq ../$(NAME).zip $(NAME)/{$(NAME).{dtx,cls,pdf} ustc*.bst README.md \
 	main.tex ustcextra.sty bib chapters figures .latexmkrc Makefile}
 	rm $(NAME)
+
+wordcount:
+	@perl texcount.pl main.tex -inc          | awk '/total/ {getline; print "词数    :",$$4}' 
+	@perl texcount.pl main.tex -inc -char    | awk '/total/ {getline; print "字符数  :",$$4}' 
+	@perl texcount.pl main.tex -inc -ch-only | awk '/total/ {getline; print "中文字数:",$$4}' 
