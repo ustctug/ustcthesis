@@ -447,7 +447,7 @@
     \chapter{符号说明}
     \setfontsize{10.5bp}[16bp]
     \setlength{\itemsep}{0bp}}{}
-\usepackage[sort&compress]{natbib}
+\usepackage[numbers,sort&compress]{natbib}
 \newcommand\bibstyle@ustcauthoryear{\bibpunct{(}{)}{;}{a}{,}{,}}
 \newcommand\bibstyle@ustcnumerical{\bibpunct{[}{]}{,}{s}{,}{,}}
 \renewcommand\bibfont{\songti\zihao{-4}}
