@@ -116,9 +116,9 @@
 \ustc@define@term{encoadvisor}
 \ustc@define@term{ensubmitdate}
 \renewcommand\contentsname{\zihao{-2}目\zhspace 录}
-\renewcommand\listfigurename{图目录}
-\renewcommand\listtablename{表目录}
-\newcommand\ustc@pdf@contentsname{目录}
+\renewcommand\listfigurename{\zihao{-2}图目录}
+\renewcommand\listtablename{\zihao{-2}表目录}
+\newcommand\ustc@pdf@contentsname{\zihao{-2}目录}
 \newcommand\ustc@assertionname{断言}
 \newcommand\ustc@axiomname{公理}
 \newcommand\ustc@corollaryname{推论}
@@ -450,8 +450,8 @@
 \usepackage[sort&compress]{natbib}
 \newcommand\bibstyle@ustcauthoryear{\bibpunct{(}{)}{;}{a}{,}{,}}
 \newcommand\bibstyle@ustcnumerical{\bibpunct{[}{]}{,}{s}{,}{,}}
-\renewcommand\bibfont{\setfontsize{10.5bp}[20bp]}
-\setlength{\bibsep}{0bp}
+\renewcommand\bibfont{\songti\zihao{-4}}
+\setlength{\bibsep}{4bp}
 \setlength{\bibhang}{1em}
 \ifustc@opt@bachelor
     \newcommand\ustcjournal{\textit}
