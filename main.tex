@@ -1,13 +1,14 @@
 %!TEX encoding = UTF-8 Unicode
 %!TEX program = xelatex
 
-\documentclass[doctor]{ustcthesis}
+\documentclass[bachelor]{ustcthesis}
 % bachelor|master|doctor
 \usepackage{ustcextra}
 \graphicspath{{figures/}}
-\bibliographystyle{ustcauthoryear}
-% \bibliographystyle{ustcnumerical}
 
+%\bibliographystyle{ustcauthoryear}
+\bibliographystyle{ustcnumerical}
+%\makeatletter\renewcommand{\@biblabel}[1]{#1.}\makeatother
 \title{中国科学技术大学\\毕业论文模板示例文档}
 \author{赵钱孙}
 \major{XXXX专业}
@@ -41,14 +42,17 @@
 %
 
 \frontmatter
-\input{chapters/abstract}
+\input{chapters/acknowledgements}
+
+%  move main matter here because of indexing.
+\mainmatter
 \tableofcontents
 \listoffigures
 \listoftables
 \listofalgorithms  % 算法索引，如不需要，可直接注释掉本行
+\input{chapters/abstract}
 % \input{chapters/notation}
 
-\mainmatter
 \input{chapters/intro}
 \input{chapters/figure}
 \input{chapters/table}
@@ -56,13 +60,13 @@
 \input{chapters/algorithm}
 \input{chapters/code}
 \input{chapters/citation}
+
 \bibliography{bib/tex}
 
 \appendix
-\chapter{论文规范}
+%\chapter{论文规范}
 
-\backmatter
-\input{chapters/acknowledgements}
-\input{chapters/publications}
+%\backmatter
+%\input{chapters/publications}
 
 \end{document}

@@ -115,10 +115,10 @@
 \ustc@define@term{enadvisor}
 \ustc@define@term{encoadvisor}
 \ustc@define@term{ensubmitdate}
-\renewcommand\contentsname{目\zhspace 录}
-\renewcommand\listfigurename{图目录}
-\renewcommand\listtablename{表目录}
-\newcommand\ustc@pdf@contentsname{目录}
+\renewcommand\contentsname{\zihao{-2}目\zhspace 录}
+\renewcommand\listfigurename{\zihao{-2}图目录}
+\renewcommand\listtablename{\zihao{-2}表目录}
+\newcommand\ustc@pdf@contentsname{\zihao{-2}目录}
 \newcommand\ustc@assertionname{断言}
 \newcommand\ustc@axiomname{公理}
 \newcommand\ustc@corollaryname{推论}
@@ -309,11 +309,15 @@
     \ifustc@opt@bachelor
         \ctexset{chapter/format += \zihao{-2}}
     \fi
-    \chapter[摘要]{摘\zhspace 要}}{}
+    \chapter*{摘\zhspace 要}
+	\phantomsection
+\addcontentsline{toc}{chapter}{摘要\vspace{-12bp}}}{}
 \newenvironment{enabstract}{%
     \ifustc@opt@bachelor
         \ctexset{chapter/format += \zihao{-2}}
-        \chapter{Abstract}
+        \chapter*{Abstract}
+		\phantomsection
+		\addcontentsline{toc}{chapter}{Abstract}
     \else
         \chapter[Abstract]{ABSTRACT}
     \fi}{}
@@ -330,19 +334,19 @@
 \newcommand\ustc@leaders{\titlerule*[0.5pc]{$\cdot$}}
 \titlecontents{chapter}
     [0bp]
-    {\addvspace{6bp}\zihao{4}}
+    {\addvspace{6bp}\zihao{4}\heiti}
     {\thecontentslabel\hspace*{0.5em}}
-    {}{\ustc@leaders\zihao{-4}\contentspage}
+    {}{\ustc@leaders\zihao{3}\heiti\contentspage}
 \titlecontents{section}
     [\ccwd]
-    {\addvspace{6bp}\zihao{-4}}
+    {\addvspace{6bp}\zihao{-3}\songti}
     {\thecontentslabel\hspace*{0.5em}}
-    {}{\ustc@leaders\zihao{-4}\contentspage}
+    {}{\ustc@leaders\zihao{-3}\heiti\contentspage}
 \titlecontents{subsection}
     [2\ccwd]
-    {\addvspace{6bp}\zihao{5}}
+    {\addvspace{6bp}\zihao{4}\songti}
     {\thecontentslabel\hspace*{0.5em}}
-    {}{\ustc@leaders\zihao{-4}\contentspage}
+    {}{\ustc@leaders\zihao{4}\heiti\contentspage}
 \titlecontents{figure}
     [\ccwd]
     {\addvspace{6bp}\zihao{-4}}
@@ -443,11 +447,11 @@
     \chapter{符号说明}
     \setfontsize{10.5bp}[16bp]
     \setlength{\itemsep}{0bp}}{}
-\usepackage[sort&compress]{natbib}
+\usepackage[numbers,sort&compress]{natbib}
 \newcommand\bibstyle@ustcauthoryear{\bibpunct{(}{)}{;}{a}{,}{,}}
 \newcommand\bibstyle@ustcnumerical{\bibpunct{[}{]}{,}{s}{,}{,}}
-\renewcommand\bibfont{\setfontsize{10.5bp}[20bp]}
-\setlength{\bibsep}{0bp}
+\renewcommand\bibfont{\songti\zihao{-4}}
+\setlength{\bibsep}{4bp}
 \setlength{\bibhang}{1em}
 \ifustc@opt@bachelor
     \newcommand\ustcjournal{\textit}
@@ -488,7 +492,7 @@
     \ifustc@opt@bachelor
         \ctexset{chapter/format += \zihao{-2}}
     \fi
-    \chapter[致谢]{致\hspace{\ccwd}谢}}{}
+\chapter*{\zihao{-2}致\hspace{\ccwd}谢}}{}
 \newenvironment{publications}{\chapter{在读期间发表的学术论文与取得的研究成果}}{}
 \endinput
 %%
