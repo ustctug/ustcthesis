@@ -54,7 +54,7 @@ LaTeX version 1999/12/01 or later.
 %<class>\NeedsTeXFormat{LaTeX2e}[1999/12/01]
 %<class>\ProvidesClass{ustcthesis}
 %<*class>
-    [2016/05/02 v2.1.2 USTC thesis template]
+    [2016/05/27 v2.1.3 USTC thesis template]
 %</class>
 %
 %<*driver>
@@ -1007,17 +1007,26 @@ LaTeX version 1999/12/01 or later.
 %    \end{macrocode}
 % 将 frontmatter 的页码改为大写的罗马数字，并调整页面风格。
 % \changes{v2.1.1}{2016/04/19}{调整 frontmatter 的页码位置}
+% \changes{v2.1.3}{2016/05/27}{调整 bachelor 的页码起始和样式}
 %    \begin{macrocode}
 \renewcommand\frontmatter{%
     \cleardoublepage
     \@mainmatterfalse
-    \pagenumbering{Roman}%
+    \ifustc@opt@bachelor
+        \pagenumbering{gobble}%
+    \else
+        \pagenumbering{Roman}%
+    \fi
     \pagestyle{front}%
 }%
 \renewcommand\mainmatter{%
     \cleardoublepage
     \@mainmattertrue
-    \pagenumbering{arabic}%
+    \ifustc@opt@bachelor
+        \relax
+    \else
+        \pagenumbering{arabic}%
+    \fi
     \pagestyle{main}%
 }%
 \renewcommand\chapter{%
@@ -1229,7 +1238,10 @@ LaTeX version 1999/12/01 or later.
 \let\ustc@save@tableofcontents=\tableofcontents
 \renewcommand\tableofcontents{%
     \clearpage%
-    \pdfbookmark[0]{\ustc@pdf@contentsname}{ustctoc}
+    \ifustc@opt@bachelor
+        \pagenumbering{arabic}%
+    \fi
+    \pdfbookmark[0]{\ustc@pdf@contentsname}{ustctoc}%
     \ustc@save@tableofcontents}
 %    \end{macrocode}
 % \end{macro}
@@ -1475,9 +1487,11 @@ LaTeX version 1999/12/01 or later.
 %    \begin{macrocode}
 \newenvironment{acknowledgements}{%
     \ifustc@opt@bachelor
-        \ctexset{chapter/format += \zihao{-2}}
-    \fi
-    \chapter[致谢]{致\hspace{\ccwd}谢}}{}
+        \ctexset{chapter/format += \zihao{-2}}%
+        \chapter*{致\hspace{\ccwd}谢}%
+    \else
+        \chapter[致谢]{致\hspace{\ccwd}谢}%
+    \fi}{}
 %    \end{macrocode}
 % \end{environment}
 % \begin{environment}{publications}

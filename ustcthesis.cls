@@ -20,7 +20,7 @@
 %% 
 \NeedsTeXFormat{LaTeX2e}[1999/12/01]
 \ProvidesClass{ustcthesis}
-    [2016/05/02 v2.1.2 USTC thesis template]
+    [2016/05/27 v2.1.3 USTC thesis template]
 \RequirePackage{kvoptions}
 \SetupKeyvalOptions{family=ustc@opt, prefix=ustc@opt@, setkeys=\kvsetkeys}
 \DeclareBoolOption[false]{doctor}
@@ -167,13 +167,21 @@
 \renewcommand\frontmatter{%
     \cleardoublepage
     \@mainmatterfalse
-    \pagenumbering{Roman}%
+    \ifustc@opt@bachelor
+        \pagenumbering{gobble}%
+    \else
+        \pagenumbering{Roman}%
+    \fi
     \pagestyle{front}%
 }%
 \renewcommand\mainmatter{%
     \cleardoublepage
     \@mainmattertrue
-    \pagenumbering{arabic}%
+    \ifustc@opt@bachelor
+        \relax
+    \else
+        \pagenumbering{arabic}%
+    \fi
     \pagestyle{main}%
 }%
 \renewcommand\chapter{%
@@ -324,7 +332,10 @@
 \let\ustc@save@tableofcontents=\tableofcontents
 \renewcommand\tableofcontents{%
     \clearpage%
-    \pdfbookmark[0]{\ustc@pdf@contentsname}{ustctoc}
+    \ifustc@opt@bachelor
+        \pagenumbering{arabic}%
+    \fi
+    \pdfbookmark[0]{\ustc@pdf@contentsname}{ustctoc}%
     \ustc@save@tableofcontents}
 \RequirePackage{titletoc}
 \newcommand\ustc@leaders{\titlerule*[0.5pc]{$\cdot$}}
@@ -486,9 +497,11 @@
 }%
 \newenvironment{acknowledgements}{%
     \ifustc@opt@bachelor
-        \ctexset{chapter/format += \zihao{-2}}
-    \fi
-    \chapter[致谢]{致\hspace{\ccwd}谢}}{}
+        \ctexset{chapter/format += \zihao{-2}}%
+        \chapter*{致\hspace{\ccwd}谢}%
+    \else
+        \chapter[致谢]{致\hspace{\ccwd}谢}%
+    \fi}{}
 \newenvironment{publications}{\chapter{在读期间发表的学术论文与取得的研究成果}}{}
 \endinput
 %%
