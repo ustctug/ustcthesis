@@ -16,7 +16,7 @@ doc : $(NAME).pdf
 $(NAME).cls : $(NAME).dtx
 	xetex $<
 
-$(NAME).pdf : $(NAME).dtx
+$(NAME).pdf : $(NAME).dtx FORCE_MAKE
 	latexmk -xelatex $<
 
 clean :

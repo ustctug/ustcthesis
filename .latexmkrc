@@ -2,7 +2,6 @@ $pdflatex = "xelatex %O %S";
 $pdf_mode = 1;
 $postscript_mode = 0;
 $dvi_mode = 0;
-$go_mode = 1;
 $makeindex = 'makeindex -s gind.ist %O -o %D %S';
 add_cus_dep('glo', 'gls', 0, 'makegls');
 sub makegls {
