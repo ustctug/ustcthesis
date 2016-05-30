@@ -1,6 +1,6 @@
 # USTC Thesis
 
-本项目是中国科学技术大学的毕业论文 LaTeX 模板 ustcthesis v2.1.2。
+本项目是中国科学技术大学的毕业论文 LaTeX 模板 ustcthesis v2.1.3。
 
 新模板进行了彻底的重写，相对于旧版
 [ywgATustcbbs/ustcthesis](https://github.com/ywgATustcbbs/ustcthesis)
