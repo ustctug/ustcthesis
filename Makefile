@@ -16,7 +16,7 @@ doc : $(NAME).pdf
 $(NAME).cls : $(NAME).dtx
 	xetex $<
 
-$(NAME).pdf : $(NAME).dtx FORCE_MAKE
+$(NAME).pdf : $(NAME).dtx
 	latexmk -xelatex $<
 
 clean :
@@ -40,7 +40,8 @@ install : cls doc
 	sudo cp $(NAME).pdf $(LOCAL)/doc/latex/$(NAME)
 
 zip : cls doc
-	ln -sf . $(NAME)
-	zip -rq ../$(NAME).zip $(NAME)/{$(NAME).{dtx,cls,pdf} ustc*.bst README.md \
-	main.tex ustcextra.sty bib chapters figures .latexmkrc Makefile}
-	rm $(NAME)
+	mkdir $(NAME)
+	cp -r $(NAME).{dtx,cls,pdf} ustc*.bst README.md main.tex ustcextra.sty \
+		bib chapters figures .latexmkrc Makefile $(NAME)
+	zip -r ../$(NAME).zip $(NAME)
+	rm -r $(NAME)
