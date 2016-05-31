@@ -1,5 +1,10 @@
 # USTC Thesis
 
+[![Travis Building](https://travis-ci.org/ustctug/ustcthesis.svg?branch=master)]()
+[![GitHub release](https://img.shields.io/github/release/ustctug/ustcthesis.svg)]()
+[![Github All Releases](https://img.shields.io/github/downloads/ustctug/ustcthesis/total.svg)]()
+[![GitHub commits](https://img.shields.io/github/commits-since/ustctug/ustcthesis/v2.1.3.svg)]()
+
 本项目是中国科学技术大学的毕业论文 LaTeX 模板 ustcthesis v2.1.3。
 
 新模板进行了彻底的重写，相对于旧版
