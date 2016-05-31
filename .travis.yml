@@ -1,0 +1,22 @@
+os:
+  - linux
+  - osx
+
+sudo: required
+
+# install Tex Live 2015 and update to the latest packages
+install:
+  - curl -sSL https://raw.githubusercontent.com/ustctug/mini-texlive/master/install-tl.sh | sed 's!http://mirrors.ustc.edu.cn/CTAN!http://ctan.sharelatex.com/tex-archive!' | sudo bash
+  - source ~/.bash_profile
+  - export TLMGR=`which tlmgr`
+  - sudo $TLMGR update --self --all -repository http://ctan.sharelatex.com/tex-archive/systems/texlive/tlnet/
+
+# English fonts: replace Windows only fonts to TeX default fonts
+before_script:
+  - sed -ie 's!\\setmainfont{.*}!!' ustcthesis.cls
+  - sed -ie 's!\\setsansfont{.*}!!' ustcthesis.cls
+  - sed -ie 's!\\setmonofont{.*}!!' ustcthesis.cls
+
+script:
+  - make doc
+  - make main
