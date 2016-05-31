@@ -1,9 +1,9 @@
 # USTC Thesis
 
-[![Travis Building](https://travis-ci.org/ustctug/ustcthesis.svg?branch=master)]()
-[![GitHub release](https://img.shields.io/github/release/ustctug/ustcthesis.svg)]()
-[![Github All Releases](https://img.shields.io/github/downloads/ustctug/ustcthesis/total.svg)]()
-[![GitHub commits](https://img.shields.io/github/commits-since/ustctug/ustcthesis/v2.1.3.svg)]()
+[![Travis Building](https://travis-ci.org/ustctug/ustcthesis.svg?branch=master)](https://travis-ci.org/ustctug/ustcthesis)
+[![GitHub release](https://img.shields.io/github/release/ustctug/ustcthesis.svg)](https://github.com/ustctug/ustcthesis/releases/latest)
+[![Github All Releases](https://img.shields.io/github/downloads/ustctug/ustcthesis/total.svg)](https://github.com/ustctug/ustcthesis/releases)
+[![GitHub commits](https://img.shields.io/github/commits-since/ustctug/ustcthesis/v2.1.3.svg)](https://github.com/ustctug/ustcthesis/commits/master)
 
 本项目是中国科学技术大学的毕业论文 LaTeX 模板 ustcthesis v2.1.3。
 
