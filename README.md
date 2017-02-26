@@ -5,13 +5,13 @@
 [![Github All Releases](https://img.shields.io/github/downloads/ustctug/ustcthesis/total.svg)](https://github.com/ustctug/ustcthesis/releases)
 [![GitHub commits](https://img.shields.io/github/commits-since/ustctug/ustcthesis/v2.1.3.svg)](https://github.com/ustctug/ustcthesis/commits/master)
 
-本项目是中国科学技术大学的毕业论文 LaTeX 模板 ustcthesis v2.1.3。
+本项目是中国科学技术大学的毕业论文 LaTeX 模板 ustcthesis v2.1.4。
 
 新模板进行了彻底的重写，相对于旧版
 [ywgATustcbbs/ustcthesis](https://github.com/ywgATustcbbs/ustcthesis)
 有以下主要特性：
 
-* 与最新的 TeX Live 2015 和 ctex 2.x 宏包兼容
+* 与最新的 TeX Live 和 ctex 2.x 宏包兼容
 * 根据操作系统自动配置字体（Windows, Mac OS X, Ubuntu）
 * 设置了符合规范的参考文献的格式（支持 author-year 和 numerical 两种格式）
 * 修正了字号的设置错误

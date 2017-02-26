@@ -6,7 +6,7 @@
 %%
 %% ustcthesis.dtx  (with options: `class')
 %% 
-%% Copyright (C) 2015-2016 by Zeping Lee <zepinglee AT gmail.com>
+%% Copyright (C) 2015-2017 by Zeping Lee <zepinglee AT gmail.com>
 %% 
 %% This file may be distributed and/or modified under the
 %% conditions of the LaTeX Project Public License, either
@@ -20,7 +20,7 @@
 %% 
 \NeedsTeXFormat{LaTeX2e}[1999/12/01]
 \ProvidesClass{ustcthesis}
-    [2016/05/30 v2.1.3 USTC thesis template]
+    [2017/02/26 v2.1.4 USTC thesis template]
 \RequirePackage{kvoptions}
 \SetupKeyvalOptions{family=ustc@opt, prefix=ustc@opt@, setkeys=\kvsetkeys}
 \DeclareBoolOption[false]{doctor}
