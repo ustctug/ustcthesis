@@ -765,12 +765,7 @@ FUNCTION {format.vol.num.pages}
 { volume field.or.null
   number empty$
     'skip$
-    { "\penalty0 (" number * ")" * *
-      volume empty$
-        { "there's a number but no volume in " cite$ * warning$ }
-        'skip$
-      if$
-    }
+    { "\penalty0 (" number * ")" * * }
   if$
   pages empty$
     'skip$
@@ -779,6 +774,18 @@ FUNCTION {format.vol.num.pages}
         { ":\penalty0 " * pages n.dashify * }
       if$
     }
+  if$
+}
+
+FUNCTION {format.year.vol.num}
+{ format.date field.or.null
+  volume empty$
+    'skip$
+    { ", " volume * * }
+  if$
+  number empty$
+    'skip$
+    { " (" number * ")" * * }
   if$
 }
 
@@ -975,8 +982,8 @@ FUNCTION {article}
       new.block
       format.journal "journal" output.check
       new.block
-      format.date "year" output.check
-      format.vol.num.pages output
+      format.year.vol.num output
+      format.pages punct.colon output.after
     }
   if$
   format.citedate "" output.after
@@ -1115,7 +1122,8 @@ FUNCTION {inproceedings}
   publisher empty$
     { organization }
     { format.publisher }
-  if$ punct.colon output.after
+  if$
+  punct.colon output.after
   format.date "year" output.check
   format.pages punct.colon output.after
   format.citedate "" output.after
@@ -1222,8 +1230,8 @@ FUNCTION {newspaper}
   new.block
   journal "journal" output.check
   new.block
-  format.date "year" output.check
-  format.vol.num.pages output
+  format.year.vol.num output
+  format.pages punct.colon output.after
   format.citedate "" output.after
   format.url output
   format.doi output
