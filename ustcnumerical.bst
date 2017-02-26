@@ -273,8 +273,8 @@ FUNCTION {is.in.chinese}
 
 FUNCTION {format.et.al}
 { is.in.chinese
-    { "等"}
-    { "et~al." }
+    { "~等"}
+    { " et~al." }
   if$
 }
 
@@ -1556,7 +1556,7 @@ FUNCTION {format.lab.names}
 { 's :=
   s #1 "{vv~}{ll}" format.name$
   s num.names$ #1 >
-    { ", " * format.et.al * }
+    { format.et.al * }
     'skip$
   if$
 }
