@@ -1219,11 +1219,73 @@ FUNCTION {mastersthesis}
 
 FUNCTION {misc}
 { output.bibitem
+  format.authors "author" output.check
+  author format.key output
+  new.block
+  format.title "title" output.check
+  journal empty$
+    { booktitle empty$
+        { url empty$
+            { "M" format.mark "" output.after
+              new.block
+              format.address output
+              format.publisher punct.colon output.after
+              format.date "year" output.check
+              format.pages punct.colon output.after
+            }
+            { "EB" format.mark "" output.after
+              new.block
+              format.translators output
+              new.block
+              format.edition output
+              new.sentence
+              format.address output
+              format.publisher punct.colon output.after
+              format.date "year" output.check
+              format.pages punct.colon output.after
+            }
+          if$
+        }
+        { "M" format.mark "" output.after
+          new.block
+          format.translators output
+          new.slash
+          format.editors output
+          new.block
+          booktitle "booktitle" output.check
+          new.block
+          format.bvolume punct.colon output.after
+          new.block
+          format.edition output
+          new.block
+          format.address output
+          format.publisher punct.colon output.after
+          format.date "year" output.check
+          format.pages punct.colon output.after
+        }
+      if$
+    }
+    { "J" format.mark "" output.after
+      new.block
+      journal "journal" output.check
+      new.block
+      format.year.vol.num output
+      format.pages punct.colon output.after
+    }
+  if$
+  format.citedate "" output.after
+  format.url output
+  format.doi output
+  fin.entry
+}
+
+FUNCTION {online}
+{ output.bibitem
   format.authors output
   author format.key output
   new.block
   format.series.volume.title "title" output.check
-  "M" format.mark "" output.after
+  "EB" format.mark "" output.after
   new.block
   format.translators output
   new.block
