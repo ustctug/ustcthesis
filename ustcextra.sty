@@ -5,9 +5,23 @@
 \NeedsTeXFormat{LaTeX2e}[1999/12/01]
 \ProvidesPackage{ustcextra}
 
+% 表格：
+% 三线表
+\RequirePackage{booktabs}
+% 跨页表格
+\RequirePackage{longtable}
+
+% 数学：
+\RequirePackage{amsmath,amsthm,amssymb}
 % 数学定理：
 % 以下定义数学定理环境默认风格为 ustcplain。
-\RequirePackage{amsmath,amsthm,amssymb}
+\newtheoremstyle{ustcplain}%
+    {}{}%
+    {}{2\ccwd}%
+    {\bfseries}{}%
+    {\ccwd}{}
+\theoremstyle{ustcplain}
+% 定义新的定理
 \ifustc@opt@english
   \newcommand\ustc@assertionname{Assertion}
   \newcommand\ustc@axiomname{Axiom}
@@ -31,13 +45,6 @@
   \newcommand\ustc@remarkname{注}
   \newcommand\ustc@theoremname{定理}
 \fi
-\newtheoremstyle{ustcplain}%
-    {}{}%
-    {}{2\ccwd}%
-    {\bfseries}{}%
-    {\ccwd}{}
-\theoremstyle{ustcplain}
-% 定义新的定理
 \newtheorem{theorem}                {\ustc@theoremname}     [chapter]
 \newtheorem{assertion}  [theorem]   {\ustc@assertionname}
 \newtheorem{axiom}      [theorem]   {\ustc@axiomname}
@@ -61,12 +68,6 @@
     \popQED\endtrivlist\@endpefalse
 }
 \renewcommand\proofname\ustc@proofname
-
-% 表格：
-% 三线表
-\RequirePackage{booktabs}
-% 跨页表格
-\RequirePackage{longtable}
 
 % 算法和代码：
 % 算法环境

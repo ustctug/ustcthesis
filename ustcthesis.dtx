@@ -306,14 +306,15 @@ LaTeX version 1999/12/01 or later.
 %
 %
 %
-% \section{论文选项}
+% \section{论文参数设置}
 %
+% \subsection{文档类参数}
 % \cls{ustcthesis} 提供了若干选项，应在论文开始时设置，如：
 % \begin{latex}
 % \documentclass[doctor,english,pdf]{ustcthesis}
 % \end{latex}
 %
-% 其中论文类型是必需参数：
+% 其中论文类型是\emph{必需参数}：
 % \begin{center}
 % \begin{tabular}{p{.15\textwidth}p{.7\textwidth}}
 %     \toprule
@@ -324,7 +325,7 @@ LaTeX version 1999/12/01 or later.
 % \end{tabular}
 % \end{center}
 %
-% 以下是可选参数，可以选择语言
+% 以下是可选参数，可以选择语言：
 % \begin{center}
 % \begin{tabular}{p{.15\textwidth}p{.7\textwidth}}
 %     \toprule
@@ -355,10 +356,6 @@ LaTeX version 1999/12/01 or later.
 % \end{tabular}
 % \end{center}
 %
-%
-%
-% \section{字体设置}
-%
 % \subsection{中文字体}
 % \cls{ustcthesis} 只以 \pkg{xeCJK} 的方式提供中文支持，不支持 CJK 方式，
 % 所以用户必须使用UTF-8 编码保存源文件，并且用 |xelatex| 命令进行编译。
@@ -370,7 +367,7 @@ LaTeX version 1999/12/01 or later.
 %     \toprule
 %     操作系统 & 中文字库 \\
 %     \midrule
-%     OS X & 华文字库 \\
+%     macOS & 华文字库 \\
 %     Windows Vista 及以后版本 & 中易字库 + 微软雅黑 \\
 %     Windows XP 及以前版本 & 中易字库 \\
 %     其他 & Fandol 字库 \\
@@ -378,59 +375,38 @@ LaTeX version 1999/12/01 or later.
 % \end{tabular}
 % \end{center}
 %
-% 用户也可以在调用文档类时加入选项 \opt{fontset=\meta{font}} 来显式地指定加载的字库，如：
-% \begin{latex}
-% \documentclass[doctor,fontset=mac]{ustcthesis}
-% \end{latex}
-% \meta{font} 有以下预定义的字库配置：
-% \begin{description}
-%     \item[\opt{adobe}] 使用 Adobe 公司的四款中文字体。
-%     \item[\opt{fandol}] 使用 Fandol 中文字体。
-%     \item[\opt{founder}] 使用方正公司的中文字体。
-%     \item[\opt{mac}] 使用 Mac OS X 系统下的华文字体。
-%     \item[\opt{ubuntu}] 使用 Ubuntu 系统下的文泉驿和文鼎字体。
-%     \item[\opt{windows}] 使用简体中文 Windows 系统下的中文字体，自动判断 Windows 系
-%         统版本，采用 |windowsnew| 或 |windowsold| 的设置。
-%     \item[\opt{windowsnew}] 使用简体中文 Windows Vista 或之后系统下的中易字体和微软
-%         雅黑字体。
-%     \item[\opt{windowsold}] 使用简体中文 Windows XP 或之前系统下的中易字体。
-%     \item[\opt{none}] 不配置中文字体，需要用户自己配置，
-%         参见 \pkg{ctex}、\pkg{fontspec} 宏包。
-% \end{description}
+% 用户也可以在调用文档类时加入选项 \opt{fontset=\meta{font}} 来显式地指定加载的字库，参见 \pkg{ctex}、\pkg{fontspec} 宏包。
 %
 % \subsection{英文字体}
 % 模板中使用了三种英文，包括衬线字体 Times New Roman、无衬线字体 Arial 和等宽字体
 % Courier New 。Windows和Mac下自带这三种英文字体，Linux下则需要从其他地方复制字体到
 % 本机。
 %
-% \subsection{字体命令}
 %
-% \CTeX{} 提供了一些设置中文字体的命令，但是不建议使用，参见附录 \ref{sec:caution}。\\
-% \DescribeMacro{\songti} 宋体 \\
-% \DescribeMacro{\heiti} 黑体 \\
-% \DescribeMacro{\fangsong} 仿宋 （ \opt{ubuntu} 字库中未定义）\\
-% \DescribeMacro{\kaishu} 楷书 \\
-% \DescribeMacro{\lishu} 隶书 （仅限于 \opt{windows} 和 \opt{founder} 字库） \\
-% \DescribeMacro{\youyuan} 圆体 （仅限于 \opt{windows} 和 \opt{founder} 字库） \\
-% \DescribeMacro{\yahei} 微软雅黑 （仅限于 \opt{windowsnew} 字库）\\
 %
-% \subsection{字号}
-%
-% \DescribeMacro{\zihao}
-% 中文字号的设置命令是 \cs{zihao}\marg{字号}，例如 |\zihao{3}|。
-% 可以使用的参数有16 个，小号字体在前面加负号表示，从大到小依次为：
+% \section{《规范》中的若干问题}
+% 在模板的开发中，我们发现了《规范》中的一些问题，比如附录中的格式示例与
+% 其正文的要求矛盾，甚至本身的要求也自相矛盾。
+% 在这些情况下，我们尽可能地按照《规范》正文中的要求处理，在特殊情况下按照
+% 排版的惯例执行。
+% 这些矛盾之处罗列如下，以免引起误解。
 % \begin{center}
-% \begin{tabular}{cccccccc}
-%     \toprule
-%     初号 & 小初 & 一号 & 小一 & 二号 & 小二 & 三号 & 小三 \\
-%     0 & -0 & 1 & -1 & 2 & -2 & 3 & -3 \\
-%     \midrule
-%     四号 & 小四 & 五号 & 小五 & 六号 & 小六 & 七号 & 八号 \\
-%     4 & -4 & 5 & -5 & 6 & -6 & 7 & 8 \\
-%     \bottomrule
+% \begin{tabular}{|l|l|l|}
+%   \toprule
+%   章节     & 《规范》正文的描述                  & 《格式示例》 \\
+%   \midrule
+%   2.4     & “目录应包括论文的全部内容，包括中英文摘要和附录等” & 没有摘要 \\
+%   \midrule
+%   2.6.2.1 & “各层次标题一律用 阿拉伯数字连续编号” &  \\
+%   3.6     & 示例：“第一章” & “第 1 章” \\
+%   \midrule
+%   2.6.2.3 & “页码位置居于页脚居中” &  \\
+%   3.1     & “宋体 10.5 磅页面下脚右端” & 居中 \\
+%   \midrule
+%   3.5     & 目录示例：“第 1 章” & “第一章” \\
+%   \bottomrule
 % \end{tabular}
 % \end{center}
-% \noindent 英文字体大小会自动保持和中文字体一致。
 %
 %
 %
@@ -454,7 +430,10 @@ LaTeX version 1999/12/01 or later.
 % \end{enumerate}
 %
 % 示例文档 \file{main.tex} 中的致谢、目录等章节的顺序，是按照研究生论文的格式组织内容的，
-% 与本科生要求的顺序有所不同，用户可能需要手动调整顺序。
+% \emph{本科生需要手动调整顺序}。
+%
+% 如果使用文档累选项 \opt{print} （默认），“原创性声明” 页则会加在扉页后；若为 \opt{pdf}，则没有声明页。
+%
 %
 % \subsection{扉页}
 % 封面的内容由印刷厂统一制作，\cls{ustcthesis} 的内容从扉页开始。
@@ -475,8 +454,6 @@ LaTeX version 1999/12/01 or later.
 %     \bottomrule
 % \end{tabular}
 % \end{center}
-%
-% 若论文选项 \opt{print} 有效，“原创性声明” 页则会加在扉页后，若为 \opt{pdf}，则没有声明页。
 %
 % \subsection{摘要等环境}
 % \DescribeEnv{abstract}
@@ -536,7 +513,7 @@ LaTeX version 1999/12/01 or later.
 % 本模板还提供了 \cs{note\marg{text}} 命令，用于在图表中添加注释。
 %
 % \subsection{数学}
-% \cls{ustcthesis} 定义了数学定理格式 |ustcplain|（默认使用）以及一些常用的环境：
+% \file{ustcextra.sty} 定义了数学定理格式 |ustcplain|（默认使用）以及一些常用的环境：
 % \begin{center}
 % \begin{tabular}{*{5}{l}}
 %     \toprule
@@ -585,6 +562,8 @@ LaTeX version 1999/12/01 or later.
 % \bibliographystyle{ustcnumerical}
 % \end{latex}
 % 则使用 numerical 风格。
+%
+%
 %
 % \clearpage
 % \appendix
@@ -696,7 +675,14 @@ LaTeX version 1999/12/01 or later.
 % 因为你的编辑器不是使用 UTF-8 编码。\cls{ustcthesis} 中文只支持 \pkg{xeCJK} 方式，
 % 必须使用 UTF-8 编码。中文版 Windows 的默认编码是 GBK 。
 %
-% \subsection{MacTeX 2015 生成的 pdf 超链接为什么始终为红色？}
+% \subsection{为何生成的PDF有空白页？}
+% 这是为了双面打印设置的，如果要生成用于电子阅读的 PDF，可以在文档类选项中加入
+% |pdf|，比如 |\documentclass[doctor,pdf]{ustcthesis}|。
+%
+% \subsection{为何没有生成封面和书脊？}
+% 封面和书脊由印刷厂统一制作，本模板的内容从扉页开始。
+%
+% \subsection{MacTeX 2015 生成的 PDF 超链接为什么始终为红色？}
 % 这是 MacTeX 2015 中 hyperref 宏包的一个 bug，升级宏包后可以生成正常颜色，
 % 方法见 \ref{sec:update} 。
 %
