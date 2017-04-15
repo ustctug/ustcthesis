@@ -20,7 +20,7 @@
 %% 
 \NeedsTeXFormat{LaTeX2e}[1999/12/01]
 \ProvidesClass{ustcthesis}
-    [2017/02/26 v2.1.4 USTC thesis template]
+    [2017/04/15 v2.1.5 USTC thesis template]
 \RequirePackage{kvoptions}
 \SetupKeyvalOptions{family=ustc@opt, prefix=ustc@opt@, setkeys=\kvsetkeys}
 \DeclareBoolOption[false]{doctor}
@@ -28,6 +28,8 @@
 \DeclareBoolOption[false]{bachelor}
 \DeclareBoolOption[false]{pdf}
 \DeclareComplementaryOption{print}{pdf}
+\DeclareBoolOption[false]{english}
+\DeclareComplementaryOption{chinese}{english}
 \SetupKeyvalOptions{family=ustc@page, prefix=ustc@page@, setkeys=\kvsetkeys}
 \DeclareBoolOption[false]{oneside}
 \DeclareComplementaryOption{twoside}{oneside}
@@ -44,6 +46,9 @@
 \ifustc@opt@pdf
     \ustc@page@onesidetrue
     \ustc@page@pageouterfalse
+\fi
+\ifustc@opt@english
+  \PassOptionsToClass{scheme=plain}{ctexbook}
 \fi
 \ProcessKeyvalOptions*\relax
 \ifustc@page@oneside
@@ -115,20 +120,26 @@
 \ustc@define@term{enadvisor}
 \ustc@define@term{encoadvisor}
 \ustc@define@term{ensubmitdate}
-\renewcommand\contentsname{目\zhspace 录}
-\renewcommand\listfigurename{图目录}
-\renewcommand\listtablename{表目录}
-\newcommand\ustc@pdf@contentsname{目录}
-\newcommand\ustc@assertionname{断言}
-\newcommand\ustc@axiomname{公理}
-\newcommand\ustc@corollaryname{推论}
-\newcommand\ustc@definitionname{定义}
-\newcommand\ustc@examplename{例}
-\newcommand\ustc@lemmaname{引理}
-\newcommand\ustc@proofname{证明}
-\newcommand\ustc@propositionname{命题}
-\newcommand\ustc@remarkname{注}
-\newcommand\ustc@theoremname{定理}
+\ifustc@opt@english
+  \newcommand\ustc@contentsname{\contentsname}
+  \newcommand\ustc@pdf@contentsname{\contentsname}
+  \renewcommand\figurename{Fig.}
+  \newcommand\ustc@notesname{\textbf{Notes}: }
+  \newcommand\ustc@acknowledgementsname{Acknowledgements}
+  \newcommand\ustc@pdf@acknowledgementsname{Acknowledgements}
+  \newcommand\ustc@publicationsname{Publications}
+  \newcommand\ustc@notationname{Notation}
+\else
+  \renewcommand\contentsname{目\zhspace 录}
+  \newcommand\ustc@pdf@contentsname{目录}
+  \renewcommand\listfigurename{图目录}
+  \renewcommand\listtablename{表目录}
+  \newcommand\ustc@notesname{\textbf{注}：}
+  \newcommand\ustc@acknowledgementsname{致\hspace{\ccwd}谢}
+  \newcommand\ustc@pdf@acknowledgementsname{致\hspace{\ccwd}谢}
+  \newcommand\ustc@publicationsname{在读期间发表的学术论文与取得的研究成果}
+  \newcommand\ustc@notationname{符号说明}
+\fi
 \RequirePackage{geometry}
 \geometry{
     paper=a4paper,
@@ -391,6 +402,7 @@
         nameformat = {},
         titleformat = {},
         number = \arabic{chapter},
+        aftername = \quad,
         beforeskip = 24bp,
         afterskip = 18bp,
     },
@@ -420,6 +432,7 @@
 \else
     \renewcommand\normalsize{\setfontsize{12bp}[20bp]}
 \fi
+\setlength{\parindent}{2\ccwd}
 \setlength{\parskip}{0bp}
 \RequirePackage{caption}
 \DeclareCaptionLabelSeparator{zhspace}{\hspace{\ccwd}}
@@ -447,11 +460,11 @@
 }
 \newcommand\note[1]{%
     \captionsetup{position = bottom}
-    \caption*{\hangindent=2\ccwd\relax\textbf{注}：#1}}
+    \caption*{\hangindent=2\ccwd\relax\ustc@notesname#1}}
 \DeclareMathSizes{10.5bp}{10.5bp}{7.35bp}{5.25bp}
 \newenvironment{notation}{%
     \ctexset{chapter/format += \rmfamily\setfontsize{12bp}}
-    \chapter{符号说明}
+    \chapter{\ustc@notationname}
     \setfontsize{10.5bp}[16bp]
     \setlength{\itemsep}{0bp}}{}
 \usepackage[sort&compress]{natbib}
@@ -498,11 +511,11 @@
 \newenvironment{acknowledgements}{%
     \ifustc@opt@bachelor
         \ctexset{chapter/format += \zihao{-2}}%
-        \chapter*{致\hspace{\ccwd}谢}%
+        \chapter*{\ustc@acknowledgementsname}%
     \else
-        \chapter[致谢]{致\hspace{\ccwd}谢}%
+        \chapter[\ustc@pdf@acknowledgementsname]{\ustc@acknowledgementsname}%
     \fi}{}
-\newenvironment{publications}{\chapter{在读期间发表的学术论文与取得的研究成果}}{}
+\newenvironment{publications}{\chapter{\ustc@publicationsname}}{}
 \endinput
 %%
 %% End of file `ustcthesis.cls'.

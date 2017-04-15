@@ -8,6 +8,29 @@
 % 数学定理：
 % 以下定义数学定理环境默认风格为 ustcplain。
 \RequirePackage{amsmath,amsthm,amssymb}
+\ifustc@opt@english
+  \newcommand\ustc@assertionname{Assertion}
+  \newcommand\ustc@axiomname{Axiom}
+  \newcommand\ustc@corollaryname{Corollary}
+  \newcommand\ustc@definitionname{Definition}
+  \newcommand\ustc@examplename{Example}
+  \newcommand\ustc@lemmaname{Lemma}
+  \newcommand\ustc@proofname{Proof}
+  \newcommand\ustc@propositionname{Proposition}
+  \newcommand\ustc@remarkname{Remark}
+  \newcommand\ustc@theoremname{Theorem}
+\else
+  \newcommand\ustc@assertionname{断言}
+  \newcommand\ustc@axiomname{公理}
+  \newcommand\ustc@corollaryname{推论}
+  \newcommand\ustc@definitionname{定义}
+  \newcommand\ustc@examplename{例}
+  \newcommand\ustc@lemmaname{引理}
+  \newcommand\ustc@proofname{证明}
+  \newcommand\ustc@propositionname{命题}
+  \newcommand\ustc@remarkname{注}
+  \newcommand\ustc@theoremname{定理}
+\fi
 \newtheoremstyle{ustcplain}%
     {}{}%
     {}{2\ccwd}%
@@ -48,8 +71,13 @@
 % 算法和代码：
 % 算法环境
 \RequirePackage[boxed, algochapter, lined, linesnumbered]{algorithm2e}
-\renewcommand{\listalgorithmcfname}{算法索引}
-\renewcommand{\algorithmcfname}{算法}
+\ifustc@opt@english
+  \renewcommand\listalgorithmcfname{List of Algorithms}
+  \renewcommand\algorithmcfname{Algorithm}
+\else
+  \renewcommand{\listalgorithmcfname}{算法索引}
+  \renewcommand{\algorithmcfname}{算法}
+\fi
 % 代码环境
 \RequirePackage{listings}
 \lstset{
@@ -60,8 +88,13 @@
     columns=flexible,
     numbers=left,
 }
-\renewcommand{\lstlistlistingname}{代码索引}
-\renewcommand{\lstlistingname}{代码}
+\ifustc@opt@english
+  \renewcommand\lstlistlistingname{List of Code}
+  \renewcommand\lstlistingname{Code}
+\else
+  \renewcommand{\lstlistlistingname}{代码索引}
+  \renewcommand{\lstlistingname}{代码}
+\fi
 \endinput
 %%
 %% End of file `ustcextra.sty'.
