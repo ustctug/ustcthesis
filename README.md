@@ -3,9 +3,9 @@
 [![Travis Building](https://travis-ci.org/ustctug/ustcthesis.svg?branch=master)](https://travis-ci.org/ustctug/ustcthesis)
 [![GitHub release](https://img.shields.io/github/release/ustctug/ustcthesis.svg)](https://github.com/ustctug/ustcthesis/releases/latest)
 [![Github All Releases](https://img.shields.io/github/downloads/ustctug/ustcthesis/total.svg)](https://github.com/ustctug/ustcthesis/releases)
-[![GitHub commits](https://img.shields.io/github/commits-since/ustctug/ustcthesis/v2.1.4.svg)](https://github.com/ustctug/ustcthesis/commits/master)
+[![GitHub commits](https://img.shields.io/github/commits-since/ustctug/ustcthesis/v2.1.5.svg)](https://github.com/ustctug/ustcthesis/commits/master)
 
-本项目是中国科学技术大学的毕业论文 LaTeX 模板 ustcthesis v2.1.4。
+本项目是中国科学技术大学的毕业论文 LaTeX 模板 ustcthesis v2.1.5。
 
 新模板进行了彻底的重写，相对于旧版
 [ywgATustcbbs/ustcthesis](https://github.com/ywgATustcbbs/ustcthesis)
@@ -20,7 +20,7 @@
 
 使用前请注意：
 
-1. **使用模板前应阅读[说明文档 `ustcthesis.pdf`](https://github.com/ustctug/ustcthesis/releases/download/v2.1.4/ustcthesis.pdf) 的正文部分**
+1. **使用模板前应阅读[说明文档 `ustcthesis.pdf`](https://git.ustclug.org/ustctug/ustcthesis/uploads/576ea4f4f367f0cf72764e5cf24c4424/ustcthesis.pdf) 的正文部分**
 2. **本模板仅适用于最新版 [TeX Live](https://www.tug.org/texlive/) 、 [MacTeX](https://www.tug.org/mactex/) 、 [MikTeX](http://www.miktex.org/)，不对旧版本向下兼容**
 3. 应使用 `tlmgr` 将各个宏包升级到最新
 4. **[CTeX套装](http://www.ctex.org/CTeXDownload) v2.9.2.164 发布于2012年，无法使用此模板，用户请使用旧模板**
