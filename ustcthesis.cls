@@ -352,27 +352,27 @@
 \newcommand\ustc@leaders{\titlerule*[0.5pc]{$\cdot$}}
 \titlecontents{chapter}
     [0bp]
-    {\addvspace{6bp}\zihao{4}}
+    {\addvspace{6bp}\setfontsize{14bp}}
     {\thecontentslabel\hspace*{0.5em}}
-    {}{\ustc@leaders\zihao{-4}\contentspage}
+    {}{\ustc@leaders\setfontsize{12bp}\contentspage}
 \titlecontents{section}
     [\ccwd]
-    {\addvspace{6bp}\zihao{-4}}
+    {\addvspace{6bp}\setfontsize{12bp}}
     {\thecontentslabel\hspace*{0.5em}}
-    {}{\ustc@leaders\zihao{-4}\contentspage}
+    {}{\ustc@leaders\setfontsize{12bp}\contentspage}
 \titlecontents{subsection}
     [2\ccwd]
-    {\addvspace{6bp}\zihao{5}}
+    {\addvspace{6bp}\setfontsize{10.5bp}}
     {\thecontentslabel\hspace*{0.5em}}
-    {}{\ustc@leaders\zihao{-4}\contentspage}
+    {}{\ustc@leaders\setfontsize{12bp}\contentspage}
 \titlecontents{figure}
     [\ccwd]
-    {\addvspace{6bp}\zihao{-4}}
+    {\addvspace{6bp}\setfontsize{12bp}}
     {\thecontentslabel\hspace*{0.5em}}
     {}{\ustc@leaders\contentspage}
 \titlecontents{table}
     [\ccwd]
-    {\addvspace{6bp}\zihao{-4}}
+    {\addvspace{6bp}\setfontsize{12bp}}
     {\thecontentslabel\hspace*{0.5em}}
     {}{\ustc@leaders\contentspage}
 \ifustc@opt@bachelor
