@@ -145,7 +145,7 @@
     paper=a4paper,
     top=2.54cm, bottom=2.54cm,
     left=3.17cm, right=3.17cm,
-    headsep=0.74cm, headheight=0cm,
+    headsep=0.74cm, headheight=0.34cm,
     footskip=0.79cm}
 \RequirePackage[pagestyles]{titlesec}
 \ifustc@opt@bachelor
