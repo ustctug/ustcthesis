@@ -20,7 +20,7 @@
 %% 
 \NeedsTeXFormat{LaTeX2e}[1999/12/01]
 \ProvidesClass{ustcthesis}
-    [2017/04/15 v2.1.5 USTC thesis template]
+    [2017/04/16 v2.1.5 USTC thesis template]
 \RequirePackage{kvoptions}
 \SetupKeyvalOptions{family=ustc@opt, prefix=ustc@opt@, setkeys=\kvsetkeys}
 \DeclareBoolOption[false]{doctor}
@@ -403,8 +403,9 @@
         titleformat = {},
         number = \arabic{chapter},
         aftername = \quad,
-        beforeskip = 24bp,
-        afterskip = 18bp,
+        beforeskip = -7bp, % 24bp - 31bp
+        afterskip = 8bp, % 18bp - 10bp
+        % fixskip = true, % will be used in future version
     },
     section = {
         format = \raggedright\sffamily\setfontsize{14bp},

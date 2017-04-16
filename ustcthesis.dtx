@@ -54,7 +54,7 @@ LaTeX version 1999/12/01 or later.
 %<class>\NeedsTeXFormat{LaTeX2e}[1999/12/01]
 %<class>\ProvidesClass{ustcthesis}
 %<*class>
-    [2017/04/15 v2.1.5 USTC thesis template]
+    [2017/04/16 v2.1.5 USTC thesis template]
 %</class>
 %
 %<*driver>
@@ -1304,8 +1304,15 @@ LaTeX version 1999/12/01 or later.
 % \subsection{正文}
 % 用 \pkg{ctex} 的接口设置全局的章节标题格式，注意由于 \pkg{ctex} 2.1 以下版本的 bug，
 % chapter 的 nameformat 和 titleformat 的这两行必须置空。
+%
+% \changes{v2.1.5}{2017/04/16}{Fix chapter title distance bug.}
+% \pkg{ctex} 2.4.3 以下版本的bug会导致章节标题前后的距离的实际值偏大，
+% 临时的解决方案是手动调整，偏移值为beforeskip=-31bp, afterskip=-10bp。
+% 但是\pkg{ctex} 2.2 前的beforeskip的符号有特殊意义，所以临时解决方案只用于
+% \pkg{ctex} 2.2 以及以上版本。
+%
 % 另外摘要、参考文献等章节在底层也是用 \cs{chapter} 实现的。
-% 这一部分以后可能用titlesec重新实现
+% 这一部分以后可能用\pkg{titlesec}重新实现。
 %    \begin{macrocode}
 \ctexset{
     chapter = {
@@ -1314,8 +1321,9 @@ LaTeX version 1999/12/01 or later.
         titleformat = {},
         number = \arabic{chapter},
         aftername = \quad,
-        beforeskip = 24bp,
-        afterskip = 18bp,
+        beforeskip = -7bp, % 24bp - 31bp
+        afterskip = 8bp, % 18bp - 10bp
+        % fixskip = true, % will be used in future version
     },
     section = {
         format = \raggedright\sffamily\setfontsize{14bp},
