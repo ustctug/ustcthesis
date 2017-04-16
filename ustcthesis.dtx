@@ -1099,7 +1099,7 @@ LaTeX version 1999/12/01 or later.
         \tikz[remember picture,overlay]%
             \node [yshift=-4cm] at (current page.north) [below,align=flush center]%
                 {\parbox{\textwidth}{\raggedleft\fangsong\setfontsize{14bp}\ustc@secrettext}};%
-        \vpostext{5.2cm}{\includegraphics[width=11cm]{figures/ustc_logo_text}}%
+        \vpostext{5.2cm}{\includegraphics[height=37bp]{figures/ustc_logo_text}}%
         \vpostext{8.5cm}{\sffamily\setfontsize{56bp}\ustc@thesisname}%
         \vpostext{11cm}{\includegraphics[height=4cm]{figures/ustc_logo_fig}}%
         \vpostext{15.8cm}{\sffamily\bfseries\setfontsize{26bp}\ustc@title}%
@@ -1164,34 +1164,35 @@ LaTeX version 1999/12/01 or later.
 }
 \newcommand\make@statement{
     \setfontsize{12bp}[20bp]
-    \vspace*{0.5cm}
+    \vspace*{-0.15cm}
     \begin{center}
-    \zihao{3}\textbf{中国科学技术大学学位论文原创性声明}
+      \setfontsize{16bp}\textbf{中国科学技术大学学位论文原创性声明}
     \end{center}
+    \vskip 0.3cm
 
-    \par\ustc@declaretext\par
+    \ustc@declaretext\par
 
-    \vskip 1cm
-    作者签名： \ustc@underline[6em]{} \hspace{5em} 签字日期：\ustc@underline[8em]{}
-    \vskip 3cm
+    \vskip 0.7cm
+    \begin{tabular}{p{7cm}p{7cm}}
+      作者签名：\ustc@underline[7.4em]{} & 签字日期：\ustc@underline[7.4em]{}
+    \end{tabular}
+    \vskip 2.6cm
 
     \begin{center}
-    \zihao{3}\textbf{中国科学技术大学学位论文授权使用声明}
+      \setfontsize{16bp}\textbf{中国科学技术大学学位论文授权使用声明}
     \end{center}
+    \vskip 0.3cm
 
-    \par\ustc@authorization\par
+    \ustc@authorization\par
     \vskip 0.5cm
-    \raisebox{1.1mm}{\fbox{\rule{0pt}{1.4mm}\rule{1.4mm}{0pt}}} 公开
-    \hspace{0.5cm}
-    \raisebox{1.1mm}{\fbox{\rule{0pt}{1.4mm}\rule{1.4mm}{0pt}}}
-    保密（\ustc@underline[2em]{}\hspace{0.1em} 年）
+    $\square$公开 \hspace{0.4cm} $\square$保密（\ustc@underline[2em]{}年）
 
     \vskip 0.5cm
 
     {\renewcommand{\arraystretch}{2.0}
-    \begin{tabular}{p{6cm}p{6cm}}
-    作者签名：\ustc@underline{} & 导师签名：\ustc@underline{} \\
-    签字日期：\ustc@underline{} & 签字日期：\ustc@underline{} \\
+    \begin{tabular}{p{7cm}p{7cm}}
+      作者签名：\ustc@underline[7.4em]{} & 导师签名：\ustc@underline[7.4em]{} \\
+      签字日期：\ustc@underline[7.4em]{} & 签字日期：\ustc@underline[7.4em]{} \\
     \end{tabular}}
 }
 %    \end{macrocode}
