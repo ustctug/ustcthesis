@@ -54,7 +54,7 @@ LaTeX version 1999/12/01 or later.
 %<class>\NeedsTeXFormat{LaTeX2e}[1999/12/01]
 %<class>\ProvidesClass{ustcthesis}
 %<*class>
-    [2017/04/16 v2.1.5 USTC thesis template]
+    [2017/04/17 v2.2 USTC thesis template]
 %</class>
 %
 %<*driver>
@@ -961,6 +961,7 @@ LaTeX version 1999/12/01 or later.
 %
 % \subsection{页面设置}
 % 首先用 \pkg{geometry} 宏包设置纸张和页面。
+% \changes{v2.2}{2017/04/17}{Fix page layout bug.}
 %    \begin{macrocode}
 \RequirePackage{geometry}
 \geometry{
@@ -1089,8 +1090,8 @@ LaTeX version 1999/12/01 or later.
 %    \end{macrocode}
 % \end{macro}
 %
-% \begin{macro}{\make@cntitle}
 % \changes{v2.1.2}{2016/04/27}{Use tikz to design title page.}
+% \changes{v2.2}{2017/04/17}{Resize school title.}
 % 现在开始设计封面。如果“学科专业” 一栏放不下，可以将文字装进一个 \cs{parbox}，比如\\
 % |\parbox[t]{5cm}{A VERY LONG TEXT}|
 %    \begin{macrocode}
@@ -1115,7 +1116,6 @@ LaTeX version 1999/12/01 or later.
                 \end{tabular}};%
     \end{titlepage}}
 %    \end{macrocode}
-% \end{macro}
 % \begin{macro}{\make@entitle}
 % 由于《规范》对宽度的限制，可能一行里放不下，需要使用 \cs{parbox}
 %    \begin{macrocode}
@@ -1144,8 +1144,8 @@ LaTeX version 1999/12/01 or later.
 % \end{macro}
 %
 % \subsection{原创性声明}
-% \begin{macro}{\make@statement}
 % 定义原创性声明
+% \changes{v2.2}{2017/04/17}{Adjust statement page layout.}
 %    \begin{macrocode}
 \newcommand{\ustc@declaretext} {
 本人声明所呈交的学位论文，是本人在导师指导下进行研究工作所取得的成果。
@@ -1196,7 +1196,6 @@ LaTeX version 1999/12/01 or later.
     \end{tabular}}
 }
 %    \end{macrocode}
-% \end{macro}
 %
 % \subsection{摘要}
 % \begin{environment}{abstract}
@@ -1244,6 +1243,7 @@ LaTeX version 1999/12/01 or later.
 %    \end{macrocode}
 % \end{macro}
 % 下面用 \pkg{titletoc} 宏包设置每级目录的格式
+% \changes{v2.2}{2017/04/17}{Fix toc spacing bug.}
 %    \begin{macrocode}
 \RequirePackage{titletoc}
 \newcommand\ustc@leaders{\titlerule*[0.5pc]{$\cdot$}}
