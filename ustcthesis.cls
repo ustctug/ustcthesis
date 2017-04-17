@@ -474,6 +474,11 @@
     \captionsetup{position = bottom}
     \caption*{\hangindent=2\ccwd\relax\ustc@notesname#1}}
 \DeclareMathSizes{10.5bp}{10.5bp}{7.35bp}{5.25bp}
+\RequirePackage{amssymb}
+\renewcommand\le{\leqslant}
+\renewcommand\leq{\leqslant}
+\renewcommand\ge{\geqslant}
+\renewcommand\geq{\geqslant}
 \newenvironment{notation}{%
     \ctexset{chapter/format += \rmfamily\setfontsize{12bp}}
     \chapter{\ustc@notationname}
