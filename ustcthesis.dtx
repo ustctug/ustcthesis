@@ -1244,6 +1244,7 @@ LaTeX version 1999/12/01 or later.
 % \end{macro}
 %
 % \subsection{目录}
+%
 % \begin{macro}{\tableofcontents}
 % 为了在 PDF 书签中加入目录，重新定义 \cs{tableofcontents}
 %    \begin{macrocode}
@@ -1257,6 +1258,10 @@ LaTeX version 1999/12/01 or later.
     \ustc@save@tableofcontents}
 %    \end{macrocode}
 % \end{macro}
+%
+% 目录一般由正文第1章（或绪论、引言）开始，列至三级标题（如2.2.2）即可，目录之前
+% 的内容及目录本身不列入目录内。
+% 一级标题顶格书写，二级标题缩进一字，三级标题缩进两字。
 % 下面用 \pkg{titletoc} 宏包设置每级目录的格式
 % \changes{v2.2}{2017/04/17}{Fix toc spacing bug.}
 %    \begin{macrocode}
@@ -1278,6 +1283,7 @@ LaTeX version 1999/12/01 or later.
     {\thecontentslabel\hspace*{0.5em}}
     {}{\ustc@leaders\setfontsize{12bp}\contentspage}
 %    \end{macrocode}
+%
 % 同时设置图、表的目录格式
 %    \begin{macrocode}
 \titlecontents{figure}
@@ -1291,6 +1297,7 @@ LaTeX version 1999/12/01 or later.
     {\thecontentslabel\hspace*{0.5em}}
     {}{\ustc@leaders\contentspage}
 %    \end{macrocode}
+%
 % 为了让本科生的目录每章之间多空一行，重新定义 \cs{mainmatter}, \cs{backmatter},
 % \cs{appendix}
 %    \begin{macrocode}
