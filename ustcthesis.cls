@@ -33,9 +33,7 @@
 \SetupKeyvalOptions{family=ustc@page, prefix=ustc@page@, setkeys=\kvsetkeys}
 \DeclareBoolOption[false]{oneside}
 \DeclareComplementaryOption{twoside}{oneside}
-\DeclareBoolOption[false]{openany}
-\DeclareComplementaryOption{openright}{openany}
-\DeclareBoolOption[true]{pageouter}
+\DeclareBoolOption[false]{pageouter}
 \DeclareComplementaryOption{pagecenter}{pageouter}
 \DeclareDefaultOption{\PassOptionsToClass{\CurrentOption}{ctexbook}}
 \ProcessKeyvalOptions{ustc@opt}
@@ -54,11 +52,8 @@
 \ifustc@page@oneside
     \PassOptionsToClass{oneside}{ctexbook}
 \fi
-\ifustc@page@openany
-    \PassOptionsToClass{openany}{ctexbook}
-\fi
 \PassOptionsToPackage{no-math}{fontspec}
-\LoadClass[a4paper, UTF8, zihao=-4]{ctexbook}[2015/05/14]
+\LoadClass[UTF8, a4paper, openany, zihao=-4]{ctexbook}[2015/05/14]
 \@ifclasslater{ctexbook}{2015/05/14}{}{%
     \ClassError{ustcthesis}{%
         Requiring ctex 2.0 or later version!\MessageBreak
@@ -175,6 +170,8 @@
         \headrule
     }
 \fi
+\renewcommand*{\cleardoublepage}{\clearpage\if@twoside \ifodd\c@page\else
+  \hbox{}\thispagestyle{empty}\newpage\if@twocolumn\hbox{}\newpage\fi\fi\fi}
 \renewcommand\frontmatter{%
     \cleardoublepage
     \@mainmatterfalse
@@ -329,14 +326,14 @@
     \ifustc@opt@bachelor
         \ctexset{chapter/format += \zihao{-2}}
     \fi
-    \chapter[摘要]{摘\zhspace 要}}{}
+    \chapter[摘要]{摘\zhspace 要}}{\cleardoublepage}
 \newenvironment{enabstract}{%
     \ifustc@opt@bachelor
         \ctexset{chapter/format += \zihao{-2}}
         \chapter{Abstract}
     \else
         \chapter[Abstract]{ABSTRACT}
-    \fi}{}
+    \fi}{\cleardoublepage}
 \newcommand\keywords[1]{%
   \par\phantom{empty line}\par\noindent\hangindent=4\ccwd\relax%
   \textbf{关键词}：#1}
@@ -378,6 +375,16 @@
     {\addvspace{6bp}\setfontsize{12bp}}
     {\thecontentslabel\hspace*{0.5em}}
     {}{\ustc@leaders\contentspage}
+    % 为了让图目录另页起，重新定义 \cs{listoffigures}
+\let\ustc@save@listoffigures=\listoffigures
+\renewcommand\listoffigures{%
+    \cleardoublepage%
+    \ustc@save@listoffigures}
+    % 表目录同样
+\let\ustc@save@listoftables=\listoftables
+\renewcommand\listoftables{%
+    \cleardoublepage%
+    \ustc@save@listoftables}
 \ifustc@opt@bachelor
     \let\ustc@save@chapter=\chapter
     \let\ustc@save@mainmatter=\mainmatter
@@ -471,7 +478,7 @@
     \ctexset{chapter/format += \rmfamily\setfontsize{12bp}}
     \chapter{\ustc@notationname}
     \setfontsize{10.5bp}[16bp]
-    \setlength{\itemsep}{0bp}}{}
+    \setlength{\itemsep}{0bp}}{\cleardoublepage}
 \usepackage[sort&compress]{natbib}
 \newcommand\bibstyle@ustcauthoryear{\bibpunct{(}{)}{;}{a}{,}{,}}
 \newcommand\bibstyle@ustcnumerical{\bibpunct{[}{]}{,}{s}{,}{,}}

@@ -79,6 +79,11 @@
   \renewcommand{\listalgorithmcfname}{算法索引}
   \renewcommand{\algorithmcfname}{算法}
 \fi
+% 使算法目录另起一页
+\let\ustc@save@listofalgorithms=\listofalgorithms
+\renewcommand\listofalgorithms{%
+    \cleardoublepage%
+    \ustc@save@listofalgorithms}
 % 代码环境
 \RequirePackage{listings}
 \lstset{
