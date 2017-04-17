@@ -5,25 +5,16 @@
 [![Github All Releases](https://img.shields.io/github/downloads/ustctug/ustcthesis/total.svg)](https://github.com/ustctug/ustcthesis/releases)
 [![GitHub commits](https://img.shields.io/github/commits-since/ustctug/ustcthesis/v2.2.svg)](https://github.com/ustctug/ustcthesis/commits/master)
 
-本项目是中国科学技术大学的毕业论文 LaTeX 模板 ustcthesis v2.2。
+本项目是中国科学技术大学的毕业论文 LaTeX 模板 ustcthesis v3.0。
 
-新模板进行了彻底的重写，相对于旧版
-[ywgATustcbbs/ustcthesis](https://github.com/ywgATustcbbs/ustcthesis)
-有以下主要特性：
-
-* 与最新的 TeX Live 和 ctex 2.x 宏包兼容
-* 根据操作系统自动配置字体（Windows, Mac OS X, Ubuntu）
-* 设置了符合规范的参考文献的格式（支持 author-year 和 numerical 两种格式）
-* 修正了字号的设置错误
-* 修正了本科生的页码位置
-* 提供了更详细的文档
+2017年，研究生院发布了新版的[《研究生学位论文撰写手册》](http://gradschool.ustc.edu.cn/ylb/material/xw/wdxz/32.pdf)，本模板根据新版规定编写。
 
 使用前请注意：
 
 1. **使用模板前应阅读[说明文档 `ustcthesis.pdf`](https://git.ustclug.org/ustctug/ustcthesis/uploads/ddfd447fc6b125bd628051916e209a33/ustcthesis.pdf) 的正文部分**
 2. **本模板仅适用于最新版 [TeX Live](https://www.tug.org/texlive/) 、 [MacTeX](https://www.tug.org/mactex/) 、 [MikTeX](http://www.miktex.org/)，不对旧版本向下兼容**
 3. 应使用 `tlmgr` 将各个宏包升级到最新
-4. **[CTeX套装](http://www.ctex.org/CTeXDownload) v2.9.2.164 发布于2012年，无法使用此模板，用户请使用旧模板**
+4. **[CTeX套装](http://www.ctex.org/CTeXDownload) v2.9.2.164 发布于2012年，无法使用此模板。**
 
 
 ## 下载地址
@@ -84,5 +75,5 @@ Windows用户请参照通用使用说明，暂不提供Windows下的bat脚本。
 
 
 ## 参考规范：
-* [《中国科学技术大学研究生学位论文撰写规范》](http://gradschool.ustc.edu.cn/ylb/material/xw/wdxz/1.doc)
+* [《中国科学技术大学研究生学位论文撰写手册》](http://gradschool.ustc.edu.cn/ylb/material/xw/wdxz/32.pdf)
 * [《关于本科毕业论文（设计）格式和统一封面的通知》](http://www.teach.ustc.edu.cn/document/doc-administration/4032.html)
