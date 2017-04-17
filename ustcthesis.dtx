@@ -1200,6 +1200,7 @@ LaTeX version 1999/12/01 or later.
 %    \end{macrocode}
 %
 % \subsection{摘要}
+%
 % \begin{environment}{abstract}
 % 中文摘要环境
 %    \begin{macrocode}
@@ -1210,6 +1211,7 @@ LaTeX version 1999/12/01 or later.
     \chapter[摘要]{摘\zhspace 要}}{}
 %    \end{macrocode}
 % \end{environment}
+%
 % \begin{environment}{enabstract}
 % 英文摘要环境
 %    \begin{macrocode}
@@ -1222,13 +1224,24 @@ LaTeX version 1999/12/01 or later.
     \fi}{}
 %    \end{macrocode}
 % \end{environment}
-% 两个生成关键字的命令，其中 \cs{phantom{}} 是为了空一行，
+%
+% \begin{macro}{keywords}
+% 中文关键词
 %    \begin{macrocode}
-\newcommand\keywords[1]{\par\phantom{关键词}\par\noindent\hangindent=4\ccwd\relax
-    \textbf{关键词：}#1}
-\newcommand\enkeywords[1]{\par\phantom{keywords}\par\noindent\hangindent=5.3em\relax
-    \textbf{Key Words:} #1}
+\newcommand\keywords[1]{%
+  \par\phantom{empty line}\par\noindent\hangindent=4\ccwd\relax%
+  \textbf{关键词}：#1}
 %    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{enkeywords}
+% 英文关键词
+%    \begin{macrocode}
+\newcommand\enkeywords[1]{%
+  \par\phantom{empty}\par\noindent\hangindent=5.3em\relax%
+  \textbf{Key Words}: #1}
+%    \end{macrocode}
+% \end{macro}
 %
 % \subsection{目录}
 % \begin{macro}{\tableofcontents}

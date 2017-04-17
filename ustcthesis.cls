@@ -337,10 +337,12 @@
     \else
         \chapter[Abstract]{ABSTRACT}
     \fi}{}
-\newcommand\keywords[1]{\par\phantom{关键词}\par\noindent\hangindent=4\ccwd\relax
-    \textbf{关键词：}#1}
-\newcommand\enkeywords[1]{\par\phantom{keywords}\par\noindent\hangindent=5.3em\relax
-    \textbf{Key Words:} #1}
+\newcommand\keywords[1]{%
+  \par\phantom{empty line}\par\noindent\hangindent=4\ccwd\relax%
+  \textbf{关键词}：#1}
+\newcommand\enkeywords[1]{%
+  \par\phantom{empty}\par\noindent\hangindent=5.3em\relax%
+  \textbf{Key Words}: #1}
 \let\ustc@save@tableofcontents=\tableofcontents
 \renewcommand\tableofcontents{%
     \clearpage%
