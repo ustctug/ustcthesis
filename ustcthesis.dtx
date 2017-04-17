@@ -1365,6 +1365,7 @@ LaTeX version 1999/12/01 or later.
 %
 % \subsection{图、表}
 % 用 \pkg{caption} 宏包设置图、表的格式
+% \changes{v2.2}{2017/04/17}{Fix distance below figure captions.}
 %    \begin{macrocode}
 \RequirePackage{caption}
 \DeclareCaptionLabelSeparator{zhspace}{\hspace{\ccwd}}
@@ -1380,6 +1381,7 @@ LaTeX version 1999/12/01 or later.
         labelfont+={bf},
     }
 \fi
+\setlength{\intextsep}{0bp}
 \captionsetup[figure]{
     position = bottom,
     aboveskip = 6bp,

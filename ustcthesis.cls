@@ -450,6 +450,7 @@
         labelfont+={bf},
     }
 \fi
+\setlength{\intextsep}{0bp}
 \captionsetup[figure]{
     position = bottom,
     aboveskip = 6bp,
