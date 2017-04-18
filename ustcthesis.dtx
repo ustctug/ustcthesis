@@ -54,7 +54,7 @@ LaTeX version 1999/12/01 or later.
 %<class>\NeedsTeXFormat{LaTeX2e}[1999/12/01]
 %<class>\ProvidesClass{ustcthesis}
 %<*class>
-    [2017/04/17 v2.2 USTC thesis template]
+    [2017/04/19 v2.2.1 USTC thesis template]
 %</class>
 %
 %<*driver>
@@ -1365,9 +1365,12 @@ LaTeX version 1999/12/01 or later.
 %
 % \subsection{图、表}
 % 用 \pkg{caption} 宏包设置图、表的格式
+% 注意计算 belowskip 必须用 \pkg{calc} 宏包修正。
 % \changes{v2.2}{2017/04/17}{Fix distance below figure captions.}
+% \changes{v2.2.1}{2017/04/18}{Fix distance above figures.}
 %    \begin{macrocode}
 \RequirePackage{caption}
+\RequirePackage{calc}
 \DeclareCaptionLabelSeparator{zhspace}{\hspace{\ccwd}}
 \captionsetup{
     format = hang,
@@ -1381,12 +1384,11 @@ LaTeX version 1999/12/01 or later.
         labelfont+={bf},
     }
 \fi
-\setlength{\intextsep}{0bp}
-\captionsetup[figure]{
-    position = bottom,
-    aboveskip = 6bp,
-    belowskip = 12bp,
-}
+% \captionsetup[figure]{
+%     position = bottom,
+%     aboveskip = 6bp,
+%     belowskip = {12bp-\intextsep},
+% }
 \captionsetup[table]{
     position = top,
     aboveskip = 6bp,

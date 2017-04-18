@@ -20,7 +20,7 @@
 %% 
 \NeedsTeXFormat{LaTeX2e}[1999/12/01]
 \ProvidesClass{ustcthesis}
-    [2017/04/16 v2.1.5 USTC thesis template]
+    [2017/04/19 v2.2.1 USTC thesis template]
 \RequirePackage{kvoptions}
 \SetupKeyvalOptions{family=ustc@opt, prefix=ustc@opt@, setkeys=\kvsetkeys}
 \DeclareBoolOption[false]{doctor}
@@ -437,6 +437,7 @@
 \setlength{\parindent}{2\ccwd}
 \setlength{\parskip}{0bp}
 \RequirePackage{caption}
+\RequirePackage{calc}
 \DeclareCaptionLabelSeparator{zhspace}{\hspace{\ccwd}}
 \captionsetup{
     format = hang,
@@ -450,12 +451,6 @@
         labelfont+={bf},
     }
 \fi
-\setlength{\intextsep}{0bp}
-\captionsetup[figure]{
-    position = bottom,
-    aboveskip = 6bp,
-    belowskip = 12bp,
-}
 \captionsetup[table]{
     position = top,
     aboveskip = 6bp,
