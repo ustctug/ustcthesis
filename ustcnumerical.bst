@@ -390,7 +390,7 @@ FUNCTION {format.mark}
     'skip$
     { pop$ mark }
   if$
-  "[" swap$ *
+  "\null[" swap$ *
   media empty$
     { url empty$
         'skip$
