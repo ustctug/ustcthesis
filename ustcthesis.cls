@@ -351,21 +351,39 @@
     \ustc@save@tableofcontents}
 \RequirePackage{titletoc}
 \newcommand\ustc@leaders{\titlerule*[0.5pc]{$\cdot$}}
-\titlecontents{chapter}
-    [0bp]
-    {\addvspace{6bp}\setfontsize{14bp}}
-    {\thecontentslabel\hspace*{0.5em}}
-    {}{\ustc@leaders\setfontsize{12bp}\contentspage}
-\titlecontents{section}
-    [\ccwd]
-    {\addvspace{6bp}\setfontsize{12bp}}
-    {\thecontentslabel\hspace*{0.5em}}
-    {}{\ustc@leaders\setfontsize{12bp}\contentspage}
-\titlecontents{subsection}
-    [2\ccwd]
-    {\addvspace{6bp}\setfontsize{10.5bp}}
-    {\thecontentslabel\hspace*{0.5em}}
-    {}{\ustc@leaders\setfontsize{12bp}\contentspage}
+\ifustc@opt@bachelor
+    \titlecontents{chapter}
+        [0bp]
+        {\addvspace{6bp}\setfontsize{12bp}[14.4bp]}
+        {\thecontentslabel\hspace*{0.5em}}
+        {}{\ustc@leaders\setfontsize{12bp}\contentspage}
+    \titlecontents{section}
+        [\ccwd]
+        {\addvspace{6bp}\setfontsize{12bp}[14.4bp]}
+        {\thecontentslabel\hspace*{0.5em}}
+        {}{\ustc@leaders\setfontsize{12bp}\contentspage}
+    \titlecontents{subsection}
+        [2\ccwd]
+        {\addvspace{6bp}\setfontsize{12bp}[14.4bp]}
+        {\thecontentslabel\hspace*{0.5em}}
+        {}{\ustc@leaders\setfontsize{12bp}\contentspage}
+\else
+    \titlecontents{chapter}
+        [0bp]
+        {\addvspace{6bp}\setfontsize{14bp}}
+        {\thecontentslabel\hspace*{0.5em}}
+        {}{\ustc@leaders\setfontsize{12bp}\contentspage}
+    \titlecontents{section}
+        [\ccwd]
+        {\addvspace{6bp}\setfontsize{12bp}}
+        {\thecontentslabel\hspace*{0.5em}}
+        {}{\ustc@leaders\setfontsize{12bp}\contentspage}
+    \titlecontents{subsection}
+        [2\ccwd]
+        {\addvspace{6bp}\setfontsize{10.5bp}}
+        {\thecontentslabel\hspace*{0.5em}}
+        {}{\ustc@leaders\setfontsize{12bp}\contentspage}
+\fi
 \titlecontents{figure}
     [\ccwd]
     {\addvspace{6bp}\setfontsize{12bp}}
