@@ -81,6 +81,7 @@
     unicode=true,
     linktoc=all,
 }
+\urlstyle{rm}
 \ifustc@opt@pdf
     \hypersetup{
         colorlinks=true,
