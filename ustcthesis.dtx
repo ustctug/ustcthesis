@@ -1206,7 +1206,7 @@ LaTeX version 1999/12/01 or later.
     \ifustc@opt@bachelor
         \ctexset{chapter/format += \zihao{-2}}
     \fi
-    \chapter[摘要]{摘\zhspace 要}}{\cleardoublepage}
+    \chapter[摘要]{摘\zhspace 要}}{}
 %    \end{macrocode}
 % \end{environment}
 %
@@ -1219,7 +1219,7 @@ LaTeX version 1999/12/01 or later.
         \chapter{Abstract}
     \else
         \chapter[Abstract]{ABSTRACT}
-    \fi}{\cleardoublepage}
+    \fi}{}
 %    \end{macrocode}
 % \end{environment}
 %
@@ -1248,7 +1248,7 @@ LaTeX version 1999/12/01 or later.
 %    \begin{macrocode}
 \let\ustc@save@tableofcontents=\tableofcontents
 \renewcommand\tableofcontents{%
-    \clearpage%
+    \cleardoublepage%
     \ifustc@opt@bachelor
         \pagenumbering{arabic}%
     \fi
@@ -1467,9 +1467,10 @@ LaTeX version 1999/12/01 or later.
 %    \begin{macrocode}
 \newenvironment{notation}{%
     \ctexset{chapter/format += \rmfamily\setfontsize{12bp}}
+    \cleardoublepage%
     \chapter{\ustc@notationname}
     \setfontsize{10.5bp}[16bp]
-    \setlength{\itemsep}{0bp}}{\cleardoublepage}
+    \setlength{\itemsep}{0bp}}{}
 %    \end{macrocode}
 % \end{environment}
 %

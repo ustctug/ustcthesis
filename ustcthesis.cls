@@ -326,14 +326,14 @@
     \ifustc@opt@bachelor
         \ctexset{chapter/format += \zihao{-2}}
     \fi
-    \chapter[摘要]{摘\zhspace 要}}{\cleardoublepage}
+    \chapter[摘要]{摘\zhspace 要}}{}
 \newenvironment{enabstract}{%
     \ifustc@opt@bachelor
         \ctexset{chapter/format += \zihao{-2}}
         \chapter{Abstract}
     \else
         \chapter[Abstract]{ABSTRACT}
-    \fi}{\cleardoublepage}
+    \fi}{}
 \newcommand\keywords[1]{%
   \par\phantom{empty line}\par\noindent\hangindent=4\ccwd\relax%
   \textbf{关键词}：#1}
@@ -342,7 +342,7 @@
   \textbf{Key Words}: #1}
 \let\ustc@save@tableofcontents=\tableofcontents
 \renewcommand\tableofcontents{%
-    \clearpage%
+    \cleardoublepage%
     \ifustc@opt@bachelor
         \pagenumbering{arabic}%
     \fi
@@ -481,9 +481,10 @@
 \renewcommand\geq{\geqslant}
 \newenvironment{notation}{%
     \ctexset{chapter/format += \rmfamily\setfontsize{12bp}}
+    \cleardoublepage%
     \chapter{\ustc@notationname}
     \setfontsize{10.5bp}[16bp]
-    \setlength{\itemsep}{0bp}}{\cleardoublepage}
+    \setlength{\itemsep}{0bp}}{}
 \usepackage[sort&compress]{natbib}
 \newcommand\bibstyle@ustcauthoryear{\bibpunct{(}{)}{;}{a}{,}{,}}
 \newcommand\bibstyle@ustcnumerical{\bibpunct{[}{]}{,}{s}{,}{,}}
