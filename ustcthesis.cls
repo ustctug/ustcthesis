@@ -431,6 +431,7 @@
         \renewcommand\chapter{\ustc@save@chapter}%
     }%
 \fi
+\setcounter{secnumdepth}{3}
 \ctexset{
     chapter = {
         format = \centering\sffamily\bfseries\setfontsize{16bp},
@@ -443,26 +444,51 @@
         % fixskip = true, % will be used in future version
     },
     section = {
-        format = \raggedright\sffamily\setfontsize{14bp},
+        format = \sffamily\setfontsize{14bp},
         beforeskip = 24bp,
         afterskip = 6bp,
     },
     subsection = {
-        format = \raggedright\sffamily\setfontsize{13bp},
+        format = \sffamily\setfontsize{13bp},
         beforeskip = 12bp,
         afterskip = 6bp,
     },
     subsubsection = {
-        format = \raggedright\sffamily\setfontsize{12bp},
+        format = \sffamily\setfontsize{12bp},
         beforeskip = 12bp,
         afterskip = 6bp,
     }
 }
 \ifustc@opt@bachelor
-    \ctexset{section/format += \centering\zihao{-3}}
-    \ctexset{subsection/format += \zihao{4}}
+    \setcounter{secnumdepth}{4}
+    \ctexset{
+        chapter={
+            number = \chinese{chapter},
+        },
+        section = {
+            format = \centering\sffamily\bfseries\setfontsize{15bp},
+            name = {第,节},
+            number = \chinese{section},
+        },
+        subsection = {
+            format = \sffamily\setfontsize{14bp},
+            number = \chinese{subsection},
+            aftername = {、},
+        },
+        subsubsection = {
+            format = {},
+            number = \arabic{subsubsection},
+            aftername = {.\ },
+            indent = \ccwd,
+        },
+        paragraph = {
+            format = {},
+            number = (\arabic{paragraph}),
+            aftername = {\ },
+            indent = 2\ccwd,
+        },
+    }
 \fi
-\setcounter{secnumdepth}{3}
 \ifustc@opt@bachelor
     \renewcommand\normalsize{\setfontsize{12bp}[22bp]}
 \else
