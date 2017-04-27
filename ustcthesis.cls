@@ -440,33 +440,49 @@
         \renewcommand\chapter{\ustc@save@chapter}%
     }%
 \fi
-\setcounter{secnumdepth}{3}
+\setcounter{secnumdepth}{5}
 \ctexset{
     chapter = {
         format = \centering\sffamily\bfseries\setfontsize{16bp},
         nameformat = {},
         titleformat = {},
-        number = \arabic{chapter},
-        aftername = \quad,
+        number = \thechapter,
+        aftername = \hspace{\ccwd},
         beforeskip = -7bp, % 24bp - 31bp
         afterskip = 8bp, % 18bp - 10bp
         % fixskip = true, % will be used in future version
     },
     section = {
         format = \sffamily\setfontsize{14bp},
+        aftername = \hspace{\ccwd},
         beforeskip = 24bp,
         afterskip = 6bp,
     },
     subsection = {
         format = \sffamily\setfontsize{13bp},
+        aftername = .\hspace{\ccwd},
+        indent = 2\ccwd,
         beforeskip = 12bp,
         afterskip = 6bp,
     },
     subsubsection = {
         format = \sffamily\setfontsize{12bp},
-        beforeskip = 12bp,
-        afterskip = 6bp,
-    }
+        number = \arabic{subsubsection},
+        aftername = .\hspace{\ccwd},
+        indent = 3\ccwd,
+    },
+    paragraph = {
+        format = \sffamily\setfontsize{12bp},
+        number = (\arabic{paragraph}),
+        aftername = \hspace{\ccwd},
+        indent = 3\ccwd,
+    },
+    subparagraph = {
+        format = \sffamily\setfontsize{12bp},
+        number = \arabic{paragraph},
+        aftername = \hspace{\ccwd},
+        indent = 3\ccwd,
+    },
 }
 \ifustc@opt@bachelor
     \setcounter{secnumdepth}{4}
