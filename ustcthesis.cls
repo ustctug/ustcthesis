@@ -76,6 +76,7 @@
     unicode=true,
     linktoc=all,
 }
+\urlstyle{rm}
 \ifustc@opt@pdf
     \hypersetup{
         colorlinks=true,
@@ -134,6 +135,21 @@
   \newcommand\ustc@pdf@acknowledgementsname{致\hspace{\ccwd}谢}
   \newcommand\ustc@publicationsname{在读期间发表的学术论文与取得的研究成果}
   \newcommand\ustc@notationname{符号说明}
+  \def\equationautorefname~#1\null{公式~(#1)\null}%
+  \def\footnoteautorefname{脚注}%
+  \def\itemautorefname~#1\null{第~#1~项\null}%
+  \def\figureautorefname{图}%
+  \def\tableautorefname{表}%
+  \def\partautorefname~#1\null{第~#1~部分\null}%
+  \def\appendixautorefname{附录}%
+  \def\chapterautorefname~#1\null{第~#1~章\null}%
+  \def\sectionautorefname~#1\null{第~#1~节\null}%
+  \def\subsectionautorefname~#1\null{第~#1~小节\null}%
+  \def\subsubsectionautorefname~#1\null{第~#1~小小节\null}%
+  \def\paragraphautorefname~#1\null{第~#1~段\null}%
+  \def\subparagraphautorefname~#1\null{第~#1~小段\null}%
+  \def\theoremautorefname{定理}%
+  \def\pageautorefname~#1\null{第~#1~页\null}%
 \fi
 \RequirePackage{geometry}
 \geometry{
@@ -350,21 +366,39 @@
     \ustc@save@tableofcontents}
 \RequirePackage{titletoc}
 \newcommand\ustc@leaders{\titlerule*[0.5pc]{$\cdot$}}
-\titlecontents{chapter}
-    [0bp]
-    {\addvspace{6bp}\setfontsize{14bp}}
-    {\thecontentslabel\hspace*{0.5em}}
-    {}{\ustc@leaders\setfontsize{12bp}\contentspage}
-\titlecontents{section}
-    [\ccwd]
-    {\addvspace{6bp}\setfontsize{12bp}}
-    {\thecontentslabel\hspace*{0.5em}}
-    {}{\ustc@leaders\setfontsize{12bp}\contentspage}
-\titlecontents{subsection}
-    [2\ccwd]
-    {\addvspace{6bp}\setfontsize{10.5bp}}
-    {\thecontentslabel\hspace*{0.5em}}
-    {}{\ustc@leaders\setfontsize{12bp}\contentspage}
+\ifustc@opt@bachelor
+    \titlecontents{chapter}
+        [0bp]
+        {\addvspace{6bp}\setfontsize{12bp}[14.4bp]}
+        {\thecontentslabel\hspace*{0.5em}}
+        {}{\ustc@leaders\setfontsize{12bp}\contentspage}
+    \titlecontents{section}
+        [\ccwd]
+        {\addvspace{6bp}\setfontsize{12bp}[14.4bp]}
+        {\thecontentslabel\hspace*{0.5em}}
+        {}{\ustc@leaders\setfontsize{12bp}\contentspage}
+    \titlecontents{subsection}
+        [2\ccwd]
+        {\addvspace{6bp}\setfontsize{12bp}[14.4bp]}
+        {\thecontentslabel\hspace*{0.5em}}
+        {}{\ustc@leaders\setfontsize{12bp}\contentspage}
+\else
+    \titlecontents{chapter}
+        [0bp]
+        {\addvspace{6bp}\setfontsize{14bp}}
+        {\thecontentslabel\hspace*{0.5em}}
+        {}{\ustc@leaders\setfontsize{12bp}\contentspage}
+    \titlecontents{section}
+        [\ccwd]
+        {\addvspace{6bp}\setfontsize{12bp}}
+        {\thecontentslabel\hspace*{0.5em}}
+        {}{\ustc@leaders\setfontsize{12bp}\contentspage}
+    \titlecontents{subsection}
+        [2\ccwd]
+        {\addvspace{6bp}\setfontsize{10.5bp}}
+        {\thecontentslabel\hspace*{0.5em}}
+        {}{\ustc@leaders\setfontsize{12bp}\contentspage}
+\fi
 \titlecontents{figure}
     [\ccwd]
     {\addvspace{6bp}\setfontsize{12bp}}
@@ -406,6 +440,7 @@
         \renewcommand\chapter{\ustc@save@chapter}%
     }%
 \fi
+\setcounter{secnumdepth}{3}
 \ctexset{
     chapter = {
         format = \centering\sffamily\bfseries\setfontsize{16bp},
@@ -418,26 +453,51 @@
         % fixskip = true, % will be used in future version
     },
     section = {
-        format = \raggedright\sffamily\setfontsize{14bp},
+        format = \sffamily\setfontsize{14bp},
         beforeskip = 24bp,
         afterskip = 6bp,
     },
     subsection = {
-        format = \raggedright\sffamily\setfontsize{13bp},
+        format = \sffamily\setfontsize{13bp},
         beforeskip = 12bp,
         afterskip = 6bp,
     },
     subsubsection = {
-        format = \raggedright\sffamily\setfontsize{12bp},
+        format = \sffamily\setfontsize{12bp},
         beforeskip = 12bp,
         afterskip = 6bp,
     }
 }
 \ifustc@opt@bachelor
-    \ctexset{section/format += \centering\zihao{-3}}
-    \ctexset{subsection/format += \zihao{4}}
+    \setcounter{secnumdepth}{4}
+    \ctexset{
+        chapter={
+            number = \chinese{chapter},
+        },
+        section = {
+            format = \centering\sffamily\bfseries\setfontsize{15bp},
+            name = {第,节},
+            number = \chinese{section},
+        },
+        subsection = {
+            format = \sffamily\setfontsize{14bp},
+            number = \chinese{subsection},
+            aftername = {、},
+        },
+        subsubsection = {
+            format = {},
+            number = \arabic{subsubsection},
+            aftername = {.\ },
+            indent = \ccwd,
+        },
+        paragraph = {
+            format = {},
+            number = (\arabic{paragraph}),
+            aftername = {\ },
+            indent = 2\ccwd,
+        },
+    }
 \fi
-\setcounter{secnumdepth}{3}
 \ifustc@opt@bachelor
     \renewcommand\normalsize{\setfontsize{12bp}[22bp]}
 \else
@@ -446,6 +506,7 @@
 \setlength{\parindent}{2\ccwd}
 \setlength{\parskip}{0bp}
 \RequirePackage{caption}
+\RequirePackage{calc}
 \DeclareCaptionLabelSeparator{zhspace}{\hspace{\ccwd}}
 \captionsetup{
     format = hang,
@@ -459,11 +520,10 @@
         labelfont+={bf},
     }
 \fi
-\setlength{\intextsep}{0bp}
 \captionsetup[figure]{
     position = bottom,
     aboveskip = 6bp,
-    belowskip = 12bp,
+    belowskip = {12bp-\intextsep},
 }
 \captionsetup[table]{
     position = top,

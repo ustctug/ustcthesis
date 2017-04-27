@@ -855,6 +855,7 @@ LaTeX version 1999/12/01 or later.
     unicode=true,
     linktoc=all,
 }
+\urlstyle{rm}
 %    \end{macrocode}
 % 如果为 |pdf| 样式，设置 hyperlink 颜色
 %    \begin{macrocode}
@@ -949,6 +950,21 @@ LaTeX version 1999/12/01 or later.
   \newcommand\ustc@pdf@acknowledgementsname{致\hspace{\ccwd}谢}
   \newcommand\ustc@publicationsname{在读期间发表的学术论文与取得的研究成果}
   \newcommand\ustc@notationname{符号说明}
+  \def\equationautorefname~#1\null{公式~(#1)\null}%
+  \def\footnoteautorefname{脚注}%
+  \def\itemautorefname~#1\null{第~#1~项\null}%
+  \def\figureautorefname{图}%
+  \def\tableautorefname{表}%
+  \def\partautorefname~#1\null{第~#1~部分\null}%
+  \def\appendixautorefname{附录}%
+  \def\chapterautorefname~#1\null{第~#1~章\null}%
+  \def\sectionautorefname~#1\null{第~#1~节\null}%
+  \def\subsectionautorefname~#1\null{第~#1~小节\null}%
+  \def\subsubsectionautorefname~#1\null{第~#1~小小节\null}%
+  \def\paragraphautorefname~#1\null{第~#1~段\null}%
+  \def\subparagraphautorefname~#1\null{第~#1~小段\null}%
+  \def\theoremautorefname{定理}%
+  \def\pageautorefname~#1\null{第~#1~页\null}%
 \fi
 %    \end{macrocode}
 %
@@ -1265,21 +1281,39 @@ LaTeX version 1999/12/01 or later.
 %    \begin{macrocode}
 \RequirePackage{titletoc}
 \newcommand\ustc@leaders{\titlerule*[0.5pc]{$\cdot$}}
-\titlecontents{chapter}
-    [0bp]
-    {\addvspace{6bp}\setfontsize{14bp}}
-    {\thecontentslabel\hspace*{0.5em}}
-    {}{\ustc@leaders\setfontsize{12bp}\contentspage}
-\titlecontents{section}
-    [\ccwd]
-    {\addvspace{6bp}\setfontsize{12bp}}
-    {\thecontentslabel\hspace*{0.5em}}
-    {}{\ustc@leaders\setfontsize{12bp}\contentspage}
-\titlecontents{subsection}
-    [2\ccwd]
-    {\addvspace{6bp}\setfontsize{10.5bp}}
-    {\thecontentslabel\hspace*{0.5em}}
-    {}{\ustc@leaders\setfontsize{12bp}\contentspage}
+\ifustc@opt@bachelor
+    \titlecontents{chapter}
+        [0bp]
+        {\addvspace{6bp}\setfontsize{12bp}[14.4bp]}
+        {\thecontentslabel\hspace*{0.5em}}
+        {}{\ustc@leaders\setfontsize{12bp}\contentspage}
+    \titlecontents{section}
+        [\ccwd]
+        {\addvspace{6bp}\setfontsize{12bp}[14.4bp]}
+        {\thecontentslabel\hspace*{0.5em}}
+        {}{\ustc@leaders\setfontsize{12bp}\contentspage}
+    \titlecontents{subsection}
+        [2\ccwd]
+        {\addvspace{6bp}\setfontsize{12bp}[14.4bp]}
+        {\thecontentslabel\hspace*{0.5em}}
+        {}{\ustc@leaders\setfontsize{12bp}\contentspage}
+\else
+    \titlecontents{chapter}
+        [0bp]
+        {\addvspace{6bp}\setfontsize{14bp}}
+        {\thecontentslabel\hspace*{0.5em}}
+        {}{\ustc@leaders\setfontsize{12bp}\contentspage}
+    \titlecontents{section}
+        [\ccwd]
+        {\addvspace{6bp}\setfontsize{12bp}}
+        {\thecontentslabel\hspace*{0.5em}}
+        {}{\ustc@leaders\setfontsize{12bp}\contentspage}
+    \titlecontents{subsection}
+        [2\ccwd]
+        {\addvspace{6bp}\setfontsize{10.5bp}}
+        {\thecontentslabel\hspace*{0.5em}}
+        {}{\ustc@leaders\setfontsize{12bp}\contentspage}
+\fi
 %    \end{macrocode}
 %
 % 同时设置图、表的目录格式
@@ -1353,8 +1387,9 @@ LaTeX version 1999/12/01 or later.
 % \pkg{ctex} 2.2 以及以上版本。
 %
 % 另外摘要、参考文献等章节在底层也是用 \cs{chapter} 实现的。
-% 这一部分以后可能用\pkg{titlesec}重新实现。
+% 这一部分以后可能重新实现 \cs{chapter}。
 %    \begin{macrocode}
+\setcounter{secnumdepth}{3}
 \ctexset{
     chapter = {
         format = \centering\sffamily\bfseries\setfontsize{16bp},
@@ -1367,30 +1402,56 @@ LaTeX version 1999/12/01 or later.
         % fixskip = true, % will be used in future version
     },
     section = {
-        format = \raggedright\sffamily\setfontsize{14bp},
+        format = \sffamily\setfontsize{14bp},
         beforeskip = 24bp,
         afterskip = 6bp,
     },
     subsection = {
-        format = \raggedright\sffamily\setfontsize{13bp},
+        format = \sffamily\setfontsize{13bp},
         beforeskip = 12bp,
         afterskip = 6bp,
     },
     subsubsection = {
-        format = \raggedright\sffamily\setfontsize{12bp},
+        format = \sffamily\setfontsize{12bp},
         beforeskip = 12bp,
         afterskip = 6bp,
     }
 }
+%    \end{macrocode}
+%
+% 设置本科生的章节标题。
+%    \begin{macrocode}
 \ifustc@opt@bachelor
-    \ctexset{section/format += \centering\zihao{-3}}
-    \ctexset{subsection/format += \zihao{4}}
+    \setcounter{secnumdepth}{4}
+    \ctexset{
+        chapter={
+            number = \chinese{chapter},
+        },
+        section = {
+            format = \centering\sffamily\bfseries\setfontsize{15bp},
+            name = {第,节},
+            number = \chinese{section},
+        },
+        subsection = {
+            format = \sffamily\setfontsize{14bp},
+            number = \chinese{subsection},
+            aftername = {、},
+        },
+        subsubsection = {
+            format = {},
+            number = \arabic{subsubsection},
+            aftername = {.\ },
+            indent = \ccwd,
+        },
+        paragraph = {
+            format = {},
+            number = (\arabic{paragraph}),
+            aftername = {\ },
+            indent = 2\ccwd,
+        },
+    }
 \fi
 % \assignpagestyle{\chapter}{empty}
-%    \end{macrocode}
-% 正文章节编号到 3 级 section 标题
-%    \begin{macrocode}
-\setcounter{secnumdepth}{3}
 %    \end{macrocode}
 % 正文段落文字格式设置
 %    \begin{macrocode}
@@ -1405,9 +1466,12 @@ LaTeX version 1999/12/01 or later.
 %
 % \subsection{图、表}
 % 用 \pkg{caption} 宏包设置图、表的格式
+% 注意计算 belowskip 必须用 \pkg{calc} 宏包修正。
 % \changes{v2.2}{2017/04/17}{Fix distance below figure captions.}
+% \changes{v2.2.1}{2017/04/18}{Fix distance above figures.}
 %    \begin{macrocode}
 \RequirePackage{caption}
+\RequirePackage{calc}
 \DeclareCaptionLabelSeparator{zhspace}{\hspace{\ccwd}}
 \captionsetup{
     format = hang,
@@ -1421,11 +1485,10 @@ LaTeX version 1999/12/01 or later.
         labelfont+={bf},
     }
 \fi
-\setlength{\intextsep}{0bp}
 \captionsetup[figure]{
     position = bottom,
     aboveskip = 6bp,
-    belowskip = 12bp,
+    belowskip = {12bp-\intextsep},
 }
 \captionsetup[table]{
     position = top,
