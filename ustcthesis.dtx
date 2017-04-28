@@ -821,6 +821,7 @@ LaTeX version 1999/12/01 or later.
 % 载入 \cls{ctexbook} 文档类，注意要求 \pkg{ctex} 为 2.0 以及更高的版本。
 %    \begin{macrocode}
 \LoadClass[UTF8, a4paper, openany, zihao=-4]{ctexbook}[2015/05/14]
+\RequirePackage{etoolbox}
 %    \end{macrocode}
 % 检测 ctexbook 版本，如果版本过低会报错
 %    \begin{macrocode}
@@ -1491,15 +1492,11 @@ LaTeX version 1999/12/01 or later.
 \DeclareCaptionLabelSeparator{zhspace}{\hspace{\ccwd}}
 \captionsetup{
     format = hang,
+    font = small,
     labelsep = zhspace,
 }
-\ifustc@opt@bachelor
-    \captionsetup{font = normalsize}
-\else
-    \captionsetup{
-        font = small,
-        labelfont+={bf},
-    }
+\ifustc@opt@bachelor\else
+    \captionsetup{font+=bf}
 \fi
 \captionsetup[figure]{
     position = bottom,
@@ -1512,14 +1509,20 @@ LaTeX version 1999/12/01 or later.
     belowskip = 6bp,
 }
 %    \end{macrocode}
+%
+% 使表的字号略小。
+%    \begin{macrocode}
+% \BeforeBeginEnvironment{tabular}{\small}
+% \AtBeginEnvironment{longtable}{\small}
+%    \end{macrocode}
 % \begin{macro}{\note}
 % 新定义了 \cs{note} 来生成图标的附注。
 % 如果用 \cs{caption} 生成图标的附注会导致图标的序号有误；
 % 如果用 \cs{bicaption} 会导致表注无法置于表后，而且对齐方式不对。
 %    \begin{macrocode}
 \newcommand\note[1]{%
-    \captionsetup{position = bottom}
-    \caption*{\hangindent=2\ccwd\relax\ustc@notesname#1}}
+    \captionsetup{position = bottom, font = small}
+    \caption*{\hangindent=2\ccwd\relax\ustc@notesname\rmfamily#1}}
 %    \end{macrocode}
 % \end{macro}
 %

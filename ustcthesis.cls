@@ -54,6 +54,7 @@
 \fi
 \PassOptionsToPackage{no-math}{fontspec}
 \LoadClass[UTF8, a4paper, openany, zihao=-4]{ctexbook}[2015/05/14]
+\RequirePackage{etoolbox}
 \@ifclasslater{ctexbook}{2015/05/14}{}{%
     \ClassError{ustcthesis}{%
         Requiring ctex 2.0 or later version!\MessageBreak
@@ -526,15 +527,11 @@
 \DeclareCaptionLabelSeparator{zhspace}{\hspace{\ccwd}}
 \captionsetup{
     format = hang,
+    font = small,
     labelsep = zhspace,
 }
-\ifustc@opt@bachelor
-    \captionsetup{font = normalsize}
-\else
-    \captionsetup{
-        font = small,
-        labelfont+={bf},
-    }
+\ifustc@opt@bachelor\else
+    \captionsetup{font+=bf}
 \fi
 \captionsetup[figure]{
     position = bottom,
@@ -547,8 +544,8 @@
     belowskip = 6bp,
 }
 \newcommand\note[1]{%
-    \captionsetup{position = bottom}
-    \caption*{\hangindent=2\ccwd\relax\ustc@notesname#1}}
+    \captionsetup{position = bottom, font = small}
+    \caption*{\hangindent=2\ccwd\relax\ustc@notesname\rmfamily#1}}
 \DeclareMathSizes{10.5bp}{10.5bp}{7.35bp}{5.25bp}
 \RequirePackage{amssymb}
 \renewcommand\le{\leqslant}
