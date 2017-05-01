@@ -1,38 +1,9 @@
 \chapter{引用文献标注}
 
-\section{著者-出版年制标注法}
-
-\noindent
-\verb|\citestyle{ustcauthoryear}|
-\citestyle{ustcauthoryear}
-
-\noindent
-\begin{tabular}{l@{\quad$\Rightarrow$\quad}l}
-  \verb|\cite{knuth86a}| & \cite{knuth86a}\\
-  \verb|\citet{knuth86a}| & \citet{knuth86a}\\
-  \verb|\citet[chap.~2]{knuth86a}| & \citet[chap.~2]{knuth86a}\\[0.5ex]
-  \verb|\citep{knuth86a}| & \citep{knuth86a}\\
-  \verb|\citep[chap.~2]{knuth86a}| & \citep[chap.~2]{knuth86a}\\
-  \verb|\citep[see][]{knuth86a}| & \citep[see][]{knuth86a}\\
-  \verb|\citep[see][chap.~2]{knuth86a}| & \citep[see][chap.~2]{knuth86a}\\[0.5ex]
-  \verb|\citet*{knuth86a}| & \citet*{knuth86a}\\
-  \verb|\citep*{knuth86a}| & \citep*{knuth86a}\\
-\end{tabular}
-
-\noindent
-\begin{tabular}{l@{\quad$\Rightarrow$\quad}l}
-  \verb|\citet{knuth86a,tlc2}| & \citet{knuth86a,tlc2}\\
-  \verb|\citep{knuth86a,tlc2}| & \citep{knuth86a,tlc2}\\
-  \verb|\cite{knuth86a,knuth84}| & \cite{knuth86a,knuth84}\\
-  \verb|\citet{knuth86a,knuth84}| & \citet{knuth86a,knuth84}\\
-  \verb|\citep{knuth86a,knuth84}| & \citep{knuth86a,knuth84}\\
-\end{tabular}
-
 \section{顺序编码制标注法}
 
-\noindent
-\verb|\citestyle{ustcnumerical}|
-\citestyle{ustcnumerical}
+设置命令：\verb|\citestyle{ustcsuper}|
+\citestyle{ustcsuper}
 
 \noindent
 \begin{tabular}{l@{\quad$\Rightarrow$\quad}l}
@@ -55,6 +26,33 @@
   \verb|\citet{knuth86a,knuth84}| & \citet{knuth86a,knuth84}\\
   \verb|\citep{knuth86a,knuth84}| & \citep{knuth86a,knuth84}\\
   \verb|\cite{knuth86a,knuth84,tlc2}| & \cite{knuth86a,knuth84,tlc2}\\
+\end{tabular}
+
+\section{著者-出版年制标注法}
+
+设置命令：\verb|\citestyle{ustcauthoryear}|
+\citestyle{ustcauthoryear}
+
+\noindent
+\begin{tabular}{l@{\quad$\Rightarrow$\quad}l}
+  \verb|\cite{knuth86a}| & \cite{knuth86a}\\
+  \verb|\citet{knuth86a}| & \citet{knuth86a}\\
+  \verb|\citet[chap.~2]{knuth86a}| & \citet[chap.~2]{knuth86a}\\[0.5ex]
+  \verb|\citep{knuth86a}| & \citep{knuth86a}\\
+  \verb|\citep[chap.~2]{knuth86a}| & \citep[chap.~2]{knuth86a}\\
+  \verb|\citep[see][]{knuth86a}| & \citep[see][]{knuth86a}\\
+  \verb|\citep[see][chap.~2]{knuth86a}| & \citep[see][chap.~2]{knuth86a}\\[0.5ex]
+  \verb|\citet*{knuth86a}| & \citet*{knuth86a}\\
+  \verb|\citep*{knuth86a}| & \citep*{knuth86a}\\
+\end{tabular}
+
+\noindent
+\begin{tabular}{l@{\quad$\Rightarrow$\quad}l}
+  \verb|\citet{knuth86a,tlc2}| & \citet{knuth86a,tlc2}\\
+  \verb|\citep{knuth86a,tlc2}| & \citep{knuth86a,tlc2}\\
+  \verb|\cite{knuth86a,knuth84}| & \cite{knuth86a,knuth84}\\
+  \verb|\citet{knuth86a,knuth84}| & \citet{knuth86a,knuth84}\\
+  \verb|\citep{knuth86a,knuth84}| & \citep{knuth86a,knuth84}\\
 \end{tabular}
 
 \section{其他形式的标注}

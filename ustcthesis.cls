@@ -30,6 +30,8 @@
 \DeclareComplementaryOption{print}{pdf}
 \DeclareBoolOption[false]{english}
 \DeclareComplementaryOption{chinese}{english}
+\DeclareBoolOption[true]{numerical}
+\DeclareComplementaryOption{authoryear}{numerical}
 \SetupKeyvalOptions{family=ustc@page, prefix=ustc@page@, setkeys=\kvsetkeys}
 \DeclareBoolOption[false]{oneside}
 \DeclareComplementaryOption{twoside}{oneside}
@@ -77,7 +79,6 @@
     unicode=true,
     linktoc=all,
 }
-\urlstyle{rm}
 \ifustc@opt@pdf
     \hypersetup{
         colorlinks=true,
@@ -560,7 +561,8 @@
     \setlength{\itemsep}{0bp}}{}
 \usepackage[sort&compress]{natbib}
 \newcommand\bibstyle@ustcauthoryear{\bibpunct{(}{)}{;}{a}{,}{,}}
-\newcommand\bibstyle@ustcnumerical{\bibpunct{[}{]}{,}{s}{,}{,}}
+\newcommand\bibstyle@ustcnumerical{\bibpunct{[}{]}{,}{n}{,}{,}}
+\newcommand\bibstyle@ustcsuper{\bibpunct{[}{]}{,}{s}{,}{,}}
 \renewcommand\bibfont{\setfontsize{10.5bp}[20bp]}
 \setlength{\bibsep}{0bp}
 \setlength{\bibhang}{1em}
@@ -569,6 +571,216 @@
 \else
     \newcommand\ustcjournal{\relax}
 \fi
+\urlstyle{rm}
+\g@addto@macro\UrlBreaks{%
+  \do\a\do\b\do\c\do\d\do\e\do\f\do\g\do\h\do\i\do\j%
+  \do\k\do\l\do\m\do\n\do\o\do\p\do\q\do\r\do\s\do\t%
+  \do\u\do\v\do\w\do\x\do\y\do\z%
+  \do\A\do\B\do\C\do\D\do\E\do\F\do\G\do\H\do\I\do\J%
+  \do\K\do\L\do\M\do\N\do\O\do\P\do\Q\do\R\do\S\do\T%
+  \do\U\do\V\do\W\do\X\do\Y\do\Z%
+  \do\1\do\2\do\3\do\4\do\5\do\6\do\7\do\8\do\9\do\0%
+}
+\def\tmp@numerical{numerical}
+\def\tmp@authoryear{authoryear}
+\newcommand\ustcbibstyle[1]{%
+  \def\tmp@gbt{#1}%
+  \ifx\tmp@gbt\tmp@numerical%
+    \citestyle{super}
+    \bibliographystyle{ustcnumerical}%
+  \else%
+    \ifx\tmp@gbt\tmp@authoryear%
+      \citestyle{authoryear}
+      \bibliographystyle{ustcauthoryear}%
+    \else%
+      \PackageError{ustcthesis}{Unknown argument #1.}
+      {It should be `numerical' or `authoryear'.}
+    \fi%
+  \fi%
+}
+\ifustc@opt@numerical
+  \ustcbibstyle{numerical}
+\else
+  \ustcbibstyle{authoryear}
+\fi
+\def\NAT@citexnum[#1][#2]#3{%
+  \NAT@reset@parser
+  \NAT@sort@cites{#3}%
+  \NAT@reset@citea
+  \@cite{\def\NAT@num{-1}\let\NAT@last@yr\relax\let\NAT@nm\@empty
+    \@for\@citeb:=\NAT@cite@list\do
+    {\@safe@activestrue
+     \edef\@citeb{\expandafter\@firstofone\@citeb\@empty}%
+     \@safe@activesfalse
+     \@ifundefined{b@\@citeb\@extra@b@citeb}{%
+       {\reset@font\bfseries?}
+        \NAT@citeundefined\PackageWarning{natbib}%
+       {Citation `\@citeb' on page \thepage \space undefined}}%
+     {\let\NAT@last@num\NAT@num\let\NAT@last@nm\NAT@nm
+      \NAT@parse{\@citeb}%
+      \ifNAT@longnames\@ifundefined{bv@\@citeb\@extra@b@citeb}{%
+        \let\NAT@name=\NAT@all@names
+        \global\@namedef{bv@\@citeb\@extra@b@citeb}{}}{}%
+      \fi
+      \ifNAT@full\let\NAT@nm\NAT@all@names\else
+        \let\NAT@nm\NAT@name\fi
+      \ifNAT@swa
+       \@ifnum{\NAT@ctype>\@ne}{%
+        \@citea
+        \NAT@hyper@{\@ifnum{\NAT@ctype=\tw@}{\NAT@test{\NAT@ctype}}{\NAT@alias}}%
+       }{%
+        \@ifnum{\NAT@cmprs>\z@}{%
+         \NAT@ifcat@num\NAT@num
+          {\let\NAT@nm=\NAT@num}%
+          {\def\NAT@nm{-2}}%
+         \NAT@ifcat@num\NAT@last@num
+          {\@tempcnta=\NAT@last@num\relax}%
+          {\@tempcnta\m@ne}%
+         \@ifnum{\NAT@nm=\@tempcnta}{%
+          \@ifnum{\NAT@merge>\@ne}{}{\NAT@last@yr@mbox}%
+         }{%
+           \advance\@tempcnta by\@ne
+           \@ifnum{\NAT@nm=\@tempcnta}{%
+             \ifx\NAT@last@yr\relax
+               \def@NAT@last@yr{\@citea}%
+             \else
+               \def@NAT@last@yr{--\NAT@penalty}%
+             \fi
+           }{%
+             \NAT@last@yr@mbox
+           }%
+         }%
+        }{%
+         \@tempswatrue
+         \@ifnum{\NAT@merge>\@ne}{\@ifnum{\NAT@last@num=\NAT@num\relax}{\@tempswafalse}{}}{}%
+         \if@tempswa\NAT@citea@mbox\fi
+        }%
+       }%
+       \NAT@def@citea
+      \else
+        \ifcase\NAT@ctype
+          \ifx\NAT@last@nm\NAT@nm \NAT@yrsep\NAT@penalty\NAT@space\else
+            \@citea \NAT@test{\@ne}\NAT@spacechar\NAT@mbox{\NAT@super@kern\NAT@@open}%
+          \fi
+          \if*#1*\else#1\NAT@spacechar\fi
+          \NAT@mbox{\NAT@hyper@{{\citenumfont{\NAT@num}}}}%
+          \NAT@def@citea@box
+        \or
+          \NAT@hyper@citea@space{\NAT@test{\NAT@ctype}}%
+        \or
+          \NAT@hyper@citea@space{\NAT@test{\NAT@ctype}}%
+        \or
+          \NAT@hyper@citea@space\NAT@alias
+        \fi
+      \fi
+     }%
+    }%
+      \@ifnum{\NAT@cmprs>\z@}{\NAT@last@yr}{}%
+      \ifNAT@swa\else
+        \NAT@mbox{\NAT@@close}%
+        \@ifnum{\NAT@ctype=\z@}{%
+          \if*#2*\else\textsuperscript{#2}\fi
+        }{}%
+      \fi
+  }{#1}{#2}%
+}%
+\renewcommand\NAT@citesuper[3]{\ifNAT@swa
+  \if*#2*\else#2\NAT@spacechar\fi
+\unskip\kern\p@\textsuperscript{\NAT@@open#1\NAT@@close\if*#3*\else#3\fi}%
+   \else #1\fi\endgroup}
+\def\NAT@citex%
+  [#1][#2]#3{%
+  \NAT@reset@parser
+  \NAT@sort@cites{#3}%
+  \NAT@reset@citea
+  \@cite{\let\NAT@nm\@empty\let\NAT@year\@empty
+    \@for\@citeb:=\NAT@cite@list\do
+    {\@safe@activestrue
+     \edef\@citeb{\expandafter\@firstofone\@citeb\@empty}%
+     \@safe@activesfalse
+     \@ifundefined{b@\@citeb\@extra@b@citeb}{\@citea%
+       {\reset@font\bfseries ?}\NAT@citeundefined
+                 \PackageWarning{natbib}%
+       {Citation `\@citeb' on page \thepage \space undefined}\def\NAT@date{}}%
+     {\let\NAT@last@nm=\NAT@nm\let\NAT@last@yr=\NAT@year
+      \NAT@parse{\@citeb}%
+      \ifNAT@longnames\@ifundefined{bv@\@citeb\@extra@b@citeb}{%
+        \let\NAT@name=\NAT@all@names
+        \global\@namedef{bv@\@citeb\@extra@b@citeb}{}}{}%
+      \fi
+     \ifNAT@full\let\NAT@nm\NAT@all@names\else
+       \let\NAT@nm\NAT@name\fi
+     \ifNAT@swa\ifcase\NAT@ctype
+       \if\relax\NAT@date\relax
+         \@citea\NAT@hyper@{\NAT@nmfmt{\NAT@nm}\NAT@date}%
+       \else
+         \ifx\NAT@last@nm\NAT@nm\NAT@yrsep
+            \ifx\NAT@last@yr\NAT@year
+              \def\NAT@temp{{?}}%
+              \ifx\NAT@temp\NAT@exlab\PackageWarningNoLine{natbib}%
+               {Multiple citation on page \thepage: same authors and
+               year\MessageBreak without distinguishing extra
+               letter,\MessageBreak appears as question mark}\fi
+              \NAT@hyper@{\NAT@exlab}%
+            \else\unskip\NAT@spacechar
+              \NAT@hyper@{\NAT@date}%
+            \fi
+         \else
+           \@citea\NAT@hyper@{%
+             \NAT@nmfmt{\NAT@nm}%
+             \hyper@natlinkbreak{%
+               \NAT@aysep\NAT@spacechar}{\@citeb\@extra@b@citeb
+             }%
+             \NAT@date
+           }%
+         \fi
+       \fi
+     \or\@citea\NAT@hyper@{\NAT@nmfmt{\NAT@nm}}%
+     \or\@citea\NAT@hyper@{\NAT@date}%
+     \or\@citea\NAT@hyper@{\NAT@alias}%
+     \fi \NAT@def@citea
+     \else
+       \ifcase\NAT@ctype
+        \if\relax\NAT@date\relax
+          \@citea\NAT@hyper@{\NAT@nmfmt{\NAT@nm}}%
+        \else
+         \ifx\NAT@last@nm\NAT@nm\NAT@yrsep
+            \ifx\NAT@last@yr\NAT@year
+              \def\NAT@temp{{?}}%
+              \ifx\NAT@temp\NAT@exlab\PackageWarningNoLine{natbib}%
+               {Multiple citation on page \thepage: same authors and
+               year\MessageBreak without distinguishing extra
+               letter,\MessageBreak appears as question mark}\fi
+              \NAT@hyper@{\NAT@exlab}%
+            \else
+              \unskip\NAT@spacechar
+              \NAT@hyper@{\NAT@date}%
+            \fi
+         \else
+           \@citea\NAT@hyper@{%
+             \NAT@nmfmt{\NAT@nm}%
+             \hyper@natlinkbreak{\NAT@spacechar\NAT@@open\if*#1*\else#1\NAT@spacechar\fi}%
+               {\@citeb\@extra@b@citeb}%
+             \NAT@date
+           }%
+         \fi
+        \fi
+       \or\@citea\NAT@hyper@{\NAT@nmfmt{\NAT@nm}}%
+       \or\@citea\NAT@hyper@{\NAT@date}%
+       \or\@citea\NAT@hyper@{\NAT@alias}%
+       \fi
+       \if\relax\NAT@date\relax
+         \NAT@def@citea
+       \else
+         \NAT@def@citea@close
+       \fi
+     \fi
+     }}\ifNAT@swa\else
+     \if\relax\NAT@date\relax\else\NAT@@close\fi
+     \if*#2*\else\textsuperscript{#2}\fi\fi}{#1}{#2}}
+\renewcommand\NAT@cite%
+    [3]{\ifNAT@swa\NAT@@open\if*#2*\else#2\NAT@spacechar\fi
+        #1\NAT@@close\if*#3*\else\textsuperscript{#3}\fi\else#1\fi\endgroup}
 \renewenvironment{thebibliography}[1]{%
     \if@openright\cleardoublepage\else\clearpage\fi
     \@mainmatterfalse
