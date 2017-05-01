@@ -548,6 +548,7 @@
     \captionsetup{position = bottom, font = small}
     \caption*{\hangindent=2\ccwd\relax\ustc@notesname\rmfamily#1}}
 \DeclareMathSizes{10.5bp}{10.5bp}{7.35bp}{5.25bp}
+\newcommand*{\diff}{\mathop{}\!\mathrm{d}}
 \RequirePackage{amssymb}
 \renewcommand\le{\leqslant}
 \renewcommand\leq{\leqslant}
