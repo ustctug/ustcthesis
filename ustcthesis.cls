@@ -607,6 +607,3 @@
         \chapter[\ustc@pdf@acknowledgementsname]{\ustc@acknowledgementsname}%
     \fi}{}
 \newenvironment{publications}{\chapter{\ustc@publicationsname}}{}
-\endinput
-%%
-%% End of file `ustcthesis.cls'.
