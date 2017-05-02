@@ -564,6 +564,8 @@ LaTeX version 1999/12/01 or later.
 % \end{latex}
 % 则使用 numerical 风格。
 %
+% 有一小撮同学坚持使用在文中的 numerical 风格，如“见文献[2]”，
+% 模板还提供了 ustcinline 风格。
 %
 %
 % \clearpage
@@ -952,7 +954,7 @@ LaTeX version 1999/12/01 or later.
   \renewcommand\listtablename{表目录}
   \newcommand\ustc@notesname{\textbf{注}：}
   \newcommand\ustc@acknowledgementsname{致\hspace{\ccwd}谢}
-  \newcommand\ustc@pdf@acknowledgementsname{致\hspace{\ccwd}谢}
+  \newcommand\ustc@pdf@acknowledgementsname{致谢}
   \newcommand\ustc@publicationsname{在读期间发表的学术论文与取得的研究成果}
   \newcommand\ustc@notationname{符号说明}
   \def\equationautorefname~#1\null{公式~(#1)\null}%
@@ -1289,35 +1291,35 @@ LaTeX version 1999/12/01 or later.
 \ifustc@opt@bachelor
     \titlecontents{chapter}
         [0bp]
-        {\addvspace{6bp}\setfontsize{12bp}[14.4bp]}
+        {\addvspace{6bp}\setfontsize{12bp}[20bp]}
         {\thecontentslabel\hspace*{0.5em}}
-        {}{\ustc@leaders\setfontsize{12bp}\contentspage}
+        {}{\ustc@leaders\contentspage}
     \titlecontents{section}
         [\ccwd]
-        {\addvspace{6bp}\setfontsize{12bp}[14.4bp]}
+        {\addvspace{6bp}\setfontsize{12bp}[20bp]}
         {\thecontentslabel\hspace*{0.5em}}
-        {}{\ustc@leaders\setfontsize{12bp}\contentspage}
+        {}{\ustc@leaders\contentspage}
     \titlecontents{subsection}
         [2\ccwd]
-        {\addvspace{6bp}\setfontsize{12bp}[14.4bp]}
+        {\addvspace{6bp}\setfontsize{12bp}[20bp]}
         {\thecontentslabel\hspace*{0.5em}}
-        {}{\ustc@leaders\setfontsize{12bp}\contentspage}
+        {}{\ustc@leaders\contentspage}
 \else
     \titlecontents{chapter}
         [0bp]
-        {\addvspace{6bp}\setfontsize{14bp}}
+        {\addvspace{6bp}\setfontsize{14bp}[20bp]}
         {\thecontentslabel\hspace*{0.5em}}
-        {}{\ustc@leaders\setfontsize{12bp}\contentspage}
+        {}{\ustc@leaders\setfontsize{12bp}[20bp]\contentspage}
     \titlecontents{section}
         [\ccwd]
-        {\addvspace{6bp}\setfontsize{12bp}}
+        {\addvspace{6bp}\setfontsize{12bp}[20bp]}
         {\thecontentslabel\hspace*{0.5em}}
-        {}{\ustc@leaders\setfontsize{12bp}\contentspage}
+        {}{\ustc@leaders\setfontsize{12bp}[20bp]\contentspage}
     \titlecontents{subsection}
         [2\ccwd]
-        {\addvspace{6bp}\setfontsize{10.5bp}}
+        {\addvspace{6bp}\setfontsize{10.5bp}[20bp]}
         {\thecontentslabel\hspace*{0.5em}}
-        {}{\ustc@leaders\setfontsize{12bp}\contentspage}
+        {}{\ustc@leaders\setfontsize{12bp}[20bp]\contentspage}
 \fi
 %    \end{macrocode}
 %
@@ -1587,8 +1589,6 @@ LaTeX version 1999/12/01 or later.
 \newcommand\bibstyle@numerical{\bibpunct{[}{]}{,}{s}{,}{\textsuperscript{,}}}
 \newcommand\bibstyle@inline{\bibpunct{[}{]}{,}{n}{,}{,}}
 \newcommand\bibstyle@authoryear{\bibpunct{(}{)}{;}{a}{,}{,}}
-\def\@inlinecite#1{\begingroup\let\@cite\NAT@citenum\citep{#1}\endgroup}
-\DeclareRobustCommand\inlinecite{\@inlinecite}
 \renewcommand\bibfont{\setfontsize{10.5bp}[20bp]}
 \setlength{\bibsep}{0bp}
 \setlength{\bibhang}{1em}

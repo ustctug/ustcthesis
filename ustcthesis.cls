@@ -134,7 +134,7 @@
   \renewcommand\listtablename{表目录}
   \newcommand\ustc@notesname{\textbf{注}：}
   \newcommand\ustc@acknowledgementsname{致\hspace{\ccwd}谢}
-  \newcommand\ustc@pdf@acknowledgementsname{致\hspace{\ccwd}谢}
+  \newcommand\ustc@pdf@acknowledgementsname{致谢}
   \newcommand\ustc@publicationsname{在读期间发表的学术论文与取得的研究成果}
   \newcommand\ustc@notationname{符号说明}
   \def\equationautorefname~#1\null{公式~(#1)\null}%
@@ -371,35 +371,35 @@
 \ifustc@opt@bachelor
     \titlecontents{chapter}
         [0bp]
-        {\addvspace{6bp}\setfontsize{12bp}[14.4bp]}
+        {\addvspace{6bp}\setfontsize{12bp}[20bp]}
         {\thecontentslabel\hspace*{0.5em}}
-        {}{\ustc@leaders\setfontsize{12bp}\contentspage}
+        {}{\ustc@leaders\contentspage}
     \titlecontents{section}
         [\ccwd]
-        {\addvspace{6bp}\setfontsize{12bp}[14.4bp]}
+        {\addvspace{6bp}\setfontsize{12bp}[20bp]}
         {\thecontentslabel\hspace*{0.5em}}
-        {}{\ustc@leaders\setfontsize{12bp}\contentspage}
+        {}{\ustc@leaders\contentspage}
     \titlecontents{subsection}
         [2\ccwd]
-        {\addvspace{6bp}\setfontsize{12bp}[14.4bp]}
+        {\addvspace{6bp}\setfontsize{12bp}[20bp]}
         {\thecontentslabel\hspace*{0.5em}}
-        {}{\ustc@leaders\setfontsize{12bp}\contentspage}
+        {}{\ustc@leaders\contentspage}
 \else
     \titlecontents{chapter}
         [0bp]
-        {\addvspace{6bp}\setfontsize{14bp}}
+        {\addvspace{6bp}\setfontsize{14bp}[20bp]}
         {\thecontentslabel\hspace*{0.5em}}
-        {}{\ustc@leaders\setfontsize{12bp}\contentspage}
+        {}{\ustc@leaders\setfontsize{12bp}[20bp]\contentspage}
     \titlecontents{section}
         [\ccwd]
-        {\addvspace{6bp}\setfontsize{12bp}}
+        {\addvspace{6bp}\setfontsize{12bp}[20bp]}
         {\thecontentslabel\hspace*{0.5em}}
-        {}{\ustc@leaders\setfontsize{12bp}\contentspage}
+        {}{\ustc@leaders\setfontsize{12bp}[20bp]\contentspage}
     \titlecontents{subsection}
         [2\ccwd]
-        {\addvspace{6bp}\setfontsize{10.5bp}}
+        {\addvspace{6bp}\setfontsize{10.5bp}[20bp]}
         {\thecontentslabel\hspace*{0.5em}}
-        {}{\ustc@leaders\setfontsize{12bp}\contentspage}
+        {}{\ustc@leaders\setfontsize{12bp}[20bp]\contentspage}
 \fi
 \titlecontents{figure}
     [\ccwd]
@@ -571,8 +571,6 @@
 \newcommand\bibstyle@numerical{\bibpunct{[}{]}{,}{s}{,}{\textsuperscript{,}}}
 \newcommand\bibstyle@inline{\bibpunct{[}{]}{,}{n}{,}{,}}
 \newcommand\bibstyle@authoryear{\bibpunct{(}{)}{;}{a}{,}{,}}
-\def\@inlinecite#1{\begingroup\let\@cite\NAT@citenum\citep{#1}\endgroup}
-\DeclareRobustCommand\inlinecite{\@inlinecite}
 \renewcommand\bibfont{\setfontsize{10.5bp}[20bp]}
 \setlength{\bibsep}{0bp}
 \setlength{\bibhang}{1em}
