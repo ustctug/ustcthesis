@@ -442,6 +442,13 @@
         \renewcommand\chapter{\ustc@save@chapter}%
     }%
 \fi
+\RequirePackage{pifont}
+\def\ustc@textcircled#1{%
+  \ifnum\value{#1} >9
+    \ClassError{ustcthesis}%
+      {Too many footnotes in this page.}{Keep footnote less than 10.}
+  \fi
+  \ding{\the\numexpr\value{#1}+191\relax}}
 \setcounter{secnumdepth}{5}
 \ctexset{
     chapter = {
@@ -481,7 +488,7 @@
     },
     subparagraph = {
         format = \sffamily\setfontsize{12bp},
-        number = \arabic{paragraph},
+        number = \ustc@textcircled{subparagraph},
         aftername = \hspace{\ccwd},
         indent = 3\ccwd,
     },

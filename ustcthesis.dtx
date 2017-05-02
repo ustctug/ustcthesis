@@ -1391,6 +1391,17 @@ LaTeX version 1999/12/01 or later.
 % 但是\pkg{ctex} 2.2 前的beforeskip的符号有特殊意义，所以临时解决方案只用于
 % \pkg{ctex} 2.2 以及以上版本。
 %
+% 首先设置带圈的数字：
+%    \begin{macrocode}
+\RequirePackage{pifont}
+\def\ustc@textcircled#1{%
+  \ifnum\value{#1} >9
+    \ClassError{ustcthesis}%
+      {Too many footnotes in this page.}{Keep footnote less than 10.}
+  \fi
+  \ding{\the\numexpr\value{#1}+191\relax}}
+%    \end{macrocode}
+%
 % 另外摘要、参考文献等章节在底层也是用 \cs{chapter} 实现的。
 % 这一部分以后可能重新实现 \cs{chapter}。
 %    \begin{macrocode}
@@ -1433,7 +1444,7 @@ LaTeX version 1999/12/01 or later.
     },
     subparagraph = {
         format = \sffamily\setfontsize{12bp},
-        number = \arabic{paragraph},
+        number = \ustc@textcircled{subparagraph},
         aftername = \hspace{\ccwd},
         indent = 3\ccwd,
     },
