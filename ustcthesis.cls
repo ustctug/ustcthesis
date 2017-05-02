@@ -108,16 +108,16 @@
 \ustc@define@term{author}
 \ustc@define@term{depart}
 \ustc@define@term{major}
-\ustc@define@term{advisor}
-\ustc@define@term{coadvisor}
-\ustc@define@term{submitdate}
+\ustc@define@term{supervisors}
+\ustc@define@term{date}
 \ustc@define@term{entitle}
 \ustc@define@term{ensecrettext}
 \ustc@define@term{enauthor}
 \ustc@define@term{enmajor}
-\ustc@define@term{enadvisor}
-\ustc@define@term{encoadvisor}
-\ustc@define@term{ensubmitdate}
+\ustc@define@term{ensupervisors}
+\ustc@define@term{endate}
+\date{\zhnumsetup{time=Chinese}\zhtoday}
+\endate{\CTEX@todayold}
 \ifustc@opt@english
   \newcommand\ustc@contentsname{\contentsname}
   \newcommand\ustc@pdf@contentsname{\contentsname}
@@ -264,11 +264,11 @@
             \node [xshift=6cm,yshift=-20.5cm] at (current page.north west)%
             [below right,align=left] {%
                 \setfontsize{16bp}%
-                \begin{tabular}{@{}l@{}c@{}}%
+                \begin{tabular}{@{}l@{\hspace{\ccwd}}l@{}}%
                     \textsf{作者姓名：} & \ustc@author \\%
                     \textsf{学科专业：} & \ustc@major \\%
-                    \textsf{导师姓名：} & \ustc@advisor \\%
-                    \textsf{完成时间：} & \ustc@submitdate%
+                    \textsf{导师姓名：} & \ustc@supervisors \\%
+                    \textsf{完成时间：} & \ustc@date%
                 \end{tabular}};%
     \end{titlepage}}
 \newcommand\make@entitle{%
@@ -285,11 +285,11 @@
             \node [xshift=6cm,yshift=5cm] at (current page.south west)%
             [above right,align=left] {%
                 \setfontsize{16bp}[30bp]%
-                \begin{tabular}{@{}lc@{}}%
-                    Author's Name: & \ustc@enauthor \\%
-                    Speciality:    & \ustc@enmajor \\%
-                    Supervisor:    & \ustc@enadvisor \\%
-                    Finished Time: & \ustc@ensubmitdate%
+                \begin{tabular}{@{}l@{}}%
+                    Author:        \ustc@enauthor \\%
+                    Speciality:    \ustc@enmajor \\%
+                    Supervisors:   \ustc@ensupervisors \\%
+                    Finished time: \ustc@endate%
                 \end{tabular}};%
     \end{titlepage}}
 \newcommand{\ustc@declaretext} {
