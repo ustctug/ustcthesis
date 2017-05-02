@@ -563,6 +563,8 @@ LaTeX version 1999/12/01 or later.
 % \end{latex}
 % 则使用 numerical 风格。
 %
+% 有一小撮同学坚持使用在文中的 numerical 风格，如“见文献[2]”，
+% 模板还提供了 ustcinline 风格。
 %
 %
 % \clearpage
@@ -1492,9 +1494,9 @@ LaTeX version 1999/12/01 or later.
 % \changes{v2.1.4}{2017/02/26}{Adopt bibliography style updates and fix a few bugs.}
 %    \begin{macrocode}
 \usepackage[sort&compress]{natbib}
+\newcommand\bibstyle@ustcnumerical{\bibpunct{[}{]}{,}{s}{,}{\textsuperscript{,}}}
+\newcommand\bibstyle@ustcinline{\bibpunct{[}{]}{,}{n}{,}{,}}
 \newcommand\bibstyle@ustcauthoryear{\bibpunct{(}{)}{;}{a}{,}{,}}
-\newcommand\bibstyle@ustcnumerical{\bibpunct{[}{]}{,}{s}{,}{,}}
-\renewcommand\bibfont{\setfontsize{10.5bp}[20bp]}
 \setlength{\bibsep}{0bp}
 \setlength{\bibhang}{1em}
 \ifustc@opt@bachelor

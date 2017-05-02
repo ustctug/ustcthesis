@@ -531,9 +531,9 @@
     \setfontsize{10.5bp}[16bp]
     \setlength{\itemsep}{0bp}}{}
 \usepackage[sort&compress]{natbib}
+\newcommand\bibstyle@ustcnumerical{\bibpunct{[}{]}{,}{s}{,}{\textsuperscript{,}}}
+\newcommand\bibstyle@ustcinline{\bibpunct{[}{]}{,}{n}{,}{,}}
 \newcommand\bibstyle@ustcauthoryear{\bibpunct{(}{)}{;}{a}{,}{,}}
-\newcommand\bibstyle@ustcnumerical{\bibpunct{[}{]}{,}{s}{,}{,}}
-\renewcommand\bibfont{\setfontsize{10.5bp}[20bp]}
 \setlength{\bibsep}{0bp}
 \setlength{\bibhang}{1em}
 \ifustc@opt@bachelor
