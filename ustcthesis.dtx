@@ -1573,9 +1573,11 @@ LaTeX version 1999/12/01 or later.
 % \changes{v2.1.4}{2017/02/26}{Adopt bibliography style updates and fix a few bugs.}
 %    \begin{macrocode}
 \usepackage[sort&compress]{natbib}
-\newcommand\bibstyle@ustcauthoryear{\bibpunct{(}{)}{;}{a}{,}{,}}
-\newcommand\bibstyle@ustcnumerical{\bibpunct{[}{]}{,}{n}{,}{,}}
-\newcommand\bibstyle@ustcsuper{\bibpunct{[}{]}{,}{s}{,}{,}}
+\newcommand\bibstyle@numerical{\bibpunct{[}{]}{,}{s}{,}{\textsuperscript{,}}}
+\newcommand\bibstyle@inline{\bibpunct{[}{]}{,}{n}{,}{,}}
+\newcommand\bibstyle@authoryear{\bibpunct{(}{)}{;}{a}{,}{,}}
+\def\@inlinecite#1{\begingroup\let\@cite\NAT@citenum\citep{#1}\endgroup}
+\DeclareRobustCommand\inlinecite{\@inlinecite}
 \renewcommand\bibfont{\setfontsize{10.5bp}[20bp]}
 \setlength{\bibsep}{0bp}
 \setlength{\bibhang}{1em}
@@ -1605,7 +1607,7 @@ LaTeX version 1999/12/01 or later.
 \newcommand\ustcbibstyle[1]{%
   \def\tmp@gbt{#1}%
   \ifx\tmp@gbt\tmp@numerical%
-    \citestyle{super}
+    \citestyle{numerical}
     \bibliographystyle{ustcnumerical}%
   \else%
     \ifx\tmp@gbt\tmp@authoryear%

@@ -561,9 +561,11 @@
     \setfontsize{10.5bp}[16bp]
     \setlength{\itemsep}{0bp}}{}
 \usepackage[sort&compress]{natbib}
-\newcommand\bibstyle@ustcauthoryear{\bibpunct{(}{)}{;}{a}{,}{,}}
-\newcommand\bibstyle@ustcnumerical{\bibpunct{[}{]}{,}{n}{,}{,}}
-\newcommand\bibstyle@ustcsuper{\bibpunct{[}{]}{,}{s}{,}{,}}
+\newcommand\bibstyle@numerical{\bibpunct{[}{]}{,}{s}{,}{\textsuperscript{,}}}
+\newcommand\bibstyle@inline{\bibpunct{[}{]}{,}{n}{,}{,}}
+\newcommand\bibstyle@authoryear{\bibpunct{(}{)}{;}{a}{,}{,}}
+\def\@inlinecite#1{\begingroup\let\@cite\NAT@citenum\citep{#1}\endgroup}
+\DeclareRobustCommand\inlinecite{\@inlinecite}
 \renewcommand\bibfont{\setfontsize{10.5bp}[20bp]}
 \setlength{\bibsep}{0bp}
 \setlength{\bibhang}{1em}
@@ -587,7 +589,7 @@
 \newcommand\ustcbibstyle[1]{%
   \def\tmp@gbt{#1}%
   \ifx\tmp@gbt\tmp@numerical%
-    \citestyle{super}
+    \citestyle{numerical}
     \bibliographystyle{ustcnumerical}%
   \else%
     \ifx\tmp@gbt\tmp@authoryear%
