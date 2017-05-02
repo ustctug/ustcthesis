@@ -137,7 +137,7 @@
   \renewcommand\listtablename{表目录}
   \newcommand\ustc@notesname{\textbf{注}：}
   \newcommand\ustc@acknowledgementsname{致\hspace{\ccwd}谢}
-  \newcommand\ustc@pdf@acknowledgementsname{致\hspace{\ccwd}谢}
+  \newcommand\ustc@pdf@acknowledgementsname{致谢}
   \newcommand\ustc@publicationsname{在读期间发表的学术论文与取得的研究成果}
   \newcommand\ustc@notationname{符号说明}
   \def\equationautorefname~#1\null{公式~(#1)\null}%
