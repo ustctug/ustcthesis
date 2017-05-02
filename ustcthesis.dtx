@@ -1578,6 +1578,28 @@ LaTeX version 1999/12/01 or later.
 %    \end{macrocode}
 % \end{environment}
 %
+% \subsection{脚注}
+% 脚注用带圈的数字：
+%    \begin{macrocode}
+\renewcommand{\thefootnote}{\ustc@textcircled{footnote}}
+%    \end{macrocode}
+%
+% 脚注线长为版心宽度的四分之一：
+%    \begin{macrocode}
+\renewcommand\footnoterule{%
+  \kern-3\p@
+  \hrule\@width.25\textwidth
+  \kern2.6\p@}
+%    \end{macrocode}
+%
+% 注文缩进两字：
+%    \begin{macrocode}
+\renewcommand\@makefntext[1]{%
+  \parindent 2\ccwd%
+  \noindent
+  \hb@xt@2\ccwd{\hss\@makefnmark}#1}
+%    \end{macrocode}
+%
 % \subsection{参考文献}
 % 需要 \pkg{natbib} 的 \opt{sort\&compress}。
 % 定义接口切换引用文献的标注法，可用 \cs{citestyle} 调用 \opt{numerical}

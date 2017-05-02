@@ -567,6 +567,15 @@
     \chapter{\ustc@notationname}
     \setfontsize{10.5bp}[16bp]
     \setlength{\itemsep}{0bp}}{}
+\renewcommand{\thefootnote}{\ustc@textcircled{footnote}}
+\renewcommand\footnoterule{%
+  \kern-3\p@
+  \hrule\@width.25\textwidth
+  \kern2.6\p@}
+\renewcommand\@makefntext[1]{%
+  \parindent 2\ccwd%
+  \noindent
+  \hb@xt@2\ccwd{\hss\@makefnmark}#1}
 \usepackage[sort&compress]{natbib}
 \newcommand\bibstyle@numerical{\bibpunct{[}{]}{,}{s}{,}{\textsuperscript{,}}}
 \newcommand\bibstyle@inline{\bibpunct{[}{]}{,}{n}{,}{,}}
