@@ -54,7 +54,7 @@ LaTeX version 1999/12/01 or later.
 %<class>\NeedsTeXFormat{LaTeX2e}[1999/12/01]
 %<class>\ProvidesClass{ustcthesis}
 %<*class>
-    [2017/04/19 v2.2.1 USTC thesis template]
+    [2017/05/03 v2.2.2 USTC thesis template]
 %</class>
 %
 %<*driver>
@@ -939,6 +939,7 @@ LaTeX version 1999/12/01 or later.
 % \subsection{设置语言}
 % 这里设置了中英文的各种名字。
 % \changes{v2.1.5}{2017/04/15}{Add English version.}
+% \changes{v2.2.2}{2017/04/26}{Enhance autoref names.}
 %    \begin{macrocode}
 \ifustc@opt@english
   \newcommand\ustc@contentsname{\contentsname}
@@ -1262,6 +1263,8 @@ LaTeX version 1999/12/01 or later.
 % \end{macro}
 % 下面用 \pkg{titletoc} 宏包设置每级目录的格式
 % \changes{v2.2}{2017/04/17}{Fix toc spacing bug.}
+% \changes{v2.2.2}{2017/04/25}{Fix toc font size.}
+% \changes{v2.2.2}{2017/05/02}{Fix toc spacing.}
 %    \begin{macrocode}
 \RequirePackage{titletoc}
 \newcommand\ustc@leaders{\titlerule*[0.5pc]{$\cdot$}}
@@ -1431,6 +1434,7 @@ LaTeX version 1999/12/01 or later.
 % 注意计算 belowskip 必须用 \pkg{calc} 宏包修正。
 % \changes{v2.2}{2017/04/17}{Fix distance below figure captions.}
 % \changes{v2.2.1}{2017/04/18}{Fix distance above figures.}
+% \changes{v2.2.2}{2017/04/25}{Fix caption spacing.}
 %    \begin{macrocode}
 \RequirePackage{caption}
 \RequirePackage{calc}
@@ -1492,6 +1496,8 @@ LaTeX version 1999/12/01 or later.
 % 目前 \BibTeX{} 使用的 .bst 格式 位于 \url{https://github.com/zepinglee/gbt-7714-2015}
 % \changes{v2.1}{2016/04/16}{Support both author-year and numerical bib style.}
 % \changes{v2.1.4}{2017/02/26}{Adopt bibliography style updates and fix a few bugs.}
+% \changes{v2.2.2}{2017/04/26}{Fix url font.}
+% \changes{v2.2.2}{2017/05/02}{Add inline citatinon style.}
 %    \begin{macrocode}
 \usepackage[sort&compress]{natbib}
 \newcommand\bibstyle@ustcnumerical{\bibpunct{[}{]}{,}{s}{,}{\textsuperscript{,}}}
