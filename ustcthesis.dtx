@@ -1261,28 +1261,30 @@ LaTeX version 1999/12/01 or later.
     \ustc@save@tableofcontents}
 %    \end{macrocode}
 % \end{macro}
-% 下面用 \pkg{titletoc} 宏包设置每级目录的格式
-% \changes{v2.2}{2017/04/17}{Fix toc spacing bug.}
-% \changes{v2.2.2}{2017/04/25}{Fix toc font size.}
+% 下面用 \pkg{titletoc} 宏包设置每级目录的格式。
+% 由于 \pkg{ctex} 新引入了 \opt{tocline}，导致chatper 的前标题空白多了0.3em。
+% \changes{v2.2}{2017/04/16}{Fix toc font size using \cmd{setfontsize}.}
+% \changes{v2.2.2}{2017/04/25}{Fix bachelor toc font size.}
 % \changes{v2.2.2}{2017/05/02}{Fix toc spacing.}
+% \changes{v2.2.3}{2017/05/04}{Fix bachelor toc punct and spacing.}
 %    \begin{macrocode}
 \RequirePackage{titletoc}
 \newcommand\ustc@leaders{\titlerule*[0.5pc]{$\cdot$}}
 \ifustc@opt@bachelor
     \titlecontents{chapter}
         [0bp]
-        {\addvspace{6bp}\setfontsize{12bp}[20bp]}
-        {\thecontentslabel\hspace*{0.5em}}
+        {\setfontsize{12bp}[20bp]}
+        {\thecontentslabel\hskip\ccwd}
         {}{\ustc@leaders\contentspage}
     \titlecontents{section}
         [\ccwd]
-        {\addvspace{6bp}\setfontsize{12bp}[20bp]}
-        {\thecontentslabel\hspace*{0.5em}}
+        {\setfontsize{12bp}[20bp]}
+        {\thecontentslabel\hskip\ccwd}
         {}{\ustc@leaders\contentspage}
     \titlecontents{subsection}
         [2\ccwd]
-        {\addvspace{6bp}\setfontsize{12bp}[20bp]}
-        {\thecontentslabel\hspace*{0.5em}}
+        {\setfontsize{12bp}[20bp]}
+        {\thecontentslabel、}
         {}{\ustc@leaders\contentspage}
 \else
     \titlecontents{chapter}
@@ -1292,12 +1294,12 @@ LaTeX version 1999/12/01 or later.
         {}{\ustc@leaders\setfontsize{12bp}[20bp]\contentspage}
     \titlecontents{section}
         [\ccwd]
-        {\addvspace{6bp}\setfontsize{12bp}[20bp]}
+        {\setfontsize{12bp}[20bp]}
         {\thecontentslabel\hspace*{0.5em}}
         {}{\ustc@leaders\setfontsize{12bp}[20bp]\contentspage}
     \titlecontents{subsection}
         [2\ccwd]
-        {\addvspace{6bp}\setfontsize{10.5bp}[20bp]}
+        {\setfontsize{10.5bp}[20bp]}
         {\thecontentslabel\hspace*{0.5em}}
         {}{\ustc@leaders\setfontsize{12bp}[20bp]\contentspage}
 \fi
@@ -1409,8 +1411,9 @@ LaTeX version 1999/12/01 or later.
             indent = \ccwd,
         },
         paragraph = {
+            name = {(,)},
             format = {},
-            number = (\arabic{paragraph}),
+            number = \arabic{paragraph},
             aftername = {\ },
             indent = 2\ccwd,
         },
