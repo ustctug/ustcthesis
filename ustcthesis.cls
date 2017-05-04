@@ -359,7 +359,7 @@
     \textbf{Key Words:} #1}
 \let\ustc@save@tableofcontents=\tableofcontents
 \renewcommand\tableofcontents{%
-    \clearpage%
+    \cleardoublepage%
     \ifustc@opt@bachelor
         \pagenumbering{arabic}%
     \fi
