@@ -371,18 +371,18 @@
 \ifustc@opt@bachelor
     \titlecontents{chapter}
         [0bp]
-        {\addvspace{6bp}\setfontsize{12bp}[20bp]}
-        {\thecontentslabel\hspace*{0.5em}}
+        {\setfontsize{12bp}[20bp]}
+        {\thecontentslabel\hskip\ccwd}
         {}{\ustc@leaders\contentspage}
     \titlecontents{section}
         [\ccwd]
-        {\addvspace{6bp}\setfontsize{12bp}[20bp]}
-        {\thecontentslabel\hspace*{0.5em}}
+        {\setfontsize{12bp}[20bp]}
+        {\thecontentslabel\hskip\ccwd}
         {}{\ustc@leaders\contentspage}
     \titlecontents{subsection}
         [2\ccwd]
-        {\addvspace{6bp}\setfontsize{12bp}[20bp]}
-        {\thecontentslabel\hspace*{0.5em}}
+        {\setfontsize{12bp}[20bp]}
+        {\thecontentslabel、}
         {}{\ustc@leaders\contentspage}
 \else
     \titlecontents{chapter}
@@ -392,12 +392,12 @@
         {}{\ustc@leaders\setfontsize{12bp}[20bp]\contentspage}
     \titlecontents{section}
         [\ccwd]
-        {\addvspace{6bp}\setfontsize{12bp}[20bp]}
+        {\setfontsize{12bp}[20bp]}
         {\thecontentslabel\hspace*{0.5em}}
         {}{\ustc@leaders\setfontsize{12bp}[20bp]\contentspage}
     \titlecontents{subsection}
         [2\ccwd]
-        {\addvspace{6bp}\setfontsize{10.5bp}[20bp]}
+        {\setfontsize{10.5bp}[20bp]}
         {\thecontentslabel\hspace*{0.5em}}
         {}{\ustc@leaders\setfontsize{12bp}[20bp]\contentspage}
 \fi
@@ -516,8 +516,9 @@
             indent = \ccwd,
         },
         paragraph = {
+            name = {(,)},
             format = {},
-            number = (\arabic{paragraph}),
+            number = \arabic{paragraph},
             aftername = {\ },
             indent = 2\ccwd,
         },

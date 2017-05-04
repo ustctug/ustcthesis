@@ -1,6 +1,7 @@
 .PHONY : main cls doc clean all inst install distclean zip FORCE_MAKE
 
 NAME = ustcthesis
+VERSION=$(shell cat ustcthesis.dtx | egrep -o "\[\d\d\d\d/\d\d\/\d\d v.+\]" | egrep -o "v\S+")
 UTREE = $(shell kpsewhich --var-value TEXMFHOME)
 LOCAL = $(shell kpsewhich --var-value TEXMFLOCAL)
 
@@ -43,5 +44,5 @@ zip : cls doc
 	mkdir $(NAME)
 	cp -r $(NAME).{dtx,cls,pdf} ustc*.bst README.md main.tex ustcextra.sty \
 		bib chapters figures .latexmkrc Makefile $(NAME)
-	zip -r ../$(NAME).zip $(NAME)
+	zip -r ../$(NAME)-$(VERSION).zip $(NAME)
 	rm -r $(NAME)

@@ -937,6 +937,7 @@ LaTeX version 1999/12/01 or later.
 % \subsection{设置语言}
 % 这里设置了中英文的各种名字。
 % \changes{v2.1.5}{2017/04/15}{Add English version.}
+% \changes{v2.2.2}{2017/04/26}{Enhance autoref names.}
 %    \begin{macrocode}
 \ifustc@opt@english
   \newcommand\ustc@contentsname{\contentsname}
@@ -1268,6 +1269,7 @@ LaTeX version 1999/12/01 or later.
 %
 % \begin{macro}{\tableofcontents}
 % 为了在 PDF 书签中加入目录，重新定义 \cs{tableofcontents}
+% \changes{v2.2.3}{2017/05/04}{Fix toc pdf mark.}
 %    \begin{macrocode}
 \let\ustc@save@tableofcontents=\tableofcontents
 \renewcommand\tableofcontents{%
@@ -1283,26 +1285,30 @@ LaTeX version 1999/12/01 or later.
 % 目录一般由正文第1章（或绪论、引言）开始，列至三级标题（如2.2.2）即可，目录之前
 % 的内容及目录本身不列入目录内。
 % 一级标题顶格书写，二级标题缩进一字，三级标题缩进两字。
+% 由于 \pkg{ctex} 新引入了 \opt{tocline}，导致chatper 的前标题空白多了0.3em。
 % 下面用 \pkg{titletoc} 宏包设置每级目录的格式
-% \changes{v2.2}{2017/04/17}{Fix toc spacing bug.}
+% \changes{v2.2}{2017/04/16}{Fix toc font size using \cmd{setfontsize}.}
+% \changes{v2.2.2}{2017/04/25}{Fix bachelor toc font size.}
+% \changes{v2.2.2}{2017/05/02}{Fix toc spacing.}
+% \changes{v2.2.3}{2017/05/04}{Fix bachelor toc punct and spacing.}
 %    \begin{macrocode}
 \RequirePackage{titletoc}
 \newcommand\ustc@leaders{\titlerule*[0.5pc]{$\cdot$}}
 \ifustc@opt@bachelor
     \titlecontents{chapter}
         [0bp]
-        {\addvspace{6bp}\setfontsize{12bp}[20bp]}
-        {\thecontentslabel\hspace*{0.5em}}
+        {\setfontsize{12bp}[20bp]}
+        {\thecontentslabel\hskip\ccwd}
         {}{\ustc@leaders\contentspage}
     \titlecontents{section}
         [\ccwd]
-        {\addvspace{6bp}\setfontsize{12bp}[20bp]}
-        {\thecontentslabel\hspace*{0.5em}}
+        {\setfontsize{12bp}[20bp]}
+        {\thecontentslabel\hskip\ccwd}
         {}{\ustc@leaders\contentspage}
     \titlecontents{subsection}
         [2\ccwd]
-        {\addvspace{6bp}\setfontsize{12bp}[20bp]}
-        {\thecontentslabel\hspace*{0.5em}}
+        {\setfontsize{12bp}[20bp]}
+        {\thecontentslabel、}
         {}{\ustc@leaders\contentspage}
 \else
     \titlecontents{chapter}
@@ -1312,12 +1318,12 @@ LaTeX version 1999/12/01 or later.
         {}{\ustc@leaders\setfontsize{12bp}[20bp]\contentspage}
     \titlecontents{section}
         [\ccwd]
-        {\addvspace{6bp}\setfontsize{12bp}[20bp]}
+        {\setfontsize{12bp}[20bp]}
         {\thecontentslabel\hspace*{0.5em}}
         {}{\ustc@leaders\setfontsize{12bp}[20bp]\contentspage}
     \titlecontents{subsection}
         [2\ccwd]
-        {\addvspace{6bp}\setfontsize{10.5bp}[20bp]}
+        {\setfontsize{10.5bp}[20bp]}
         {\thecontentslabel\hspace*{0.5em}}
         {}{\ustc@leaders\setfontsize{12bp}[20bp]\contentspage}
 \fi
@@ -1478,8 +1484,9 @@ LaTeX version 1999/12/01 or later.
             indent = \ccwd,
         },
         paragraph = {
+            name = {(,)},
             format = {},
-            number = (\arabic{paragraph}),
+            number = \arabic{paragraph},
             aftername = {\ },
             indent = 2\ccwd,
         },
@@ -1503,6 +1510,7 @@ LaTeX version 1999/12/01 or later.
 % 注意计算 belowskip 必须用 \pkg{calc} 宏包修正。
 % \changes{v2.2}{2017/04/17}{Fix distance below figure captions.}
 % \changes{v2.2.1}{2017/04/18}{Fix distance above figures.}
+% \changes{v2.2.2}{2017/04/25}{Fix caption spacing.}
 %    \begin{macrocode}
 \RequirePackage{caption}
 \RequirePackage{calc}
@@ -1606,6 +1614,8 @@ LaTeX version 1999/12/01 or later.
 % 或 \opt{authoryear}，参见 \pkg{natbib}。
 % \changes{v2.1}{2016/04/16}{Support both author-year and numerical bib style.}
 % \changes{v2.1.4}{2017/02/26}{Adopt bibliography style updates and fix a few bugs.}
+% \changes{v2.2.2}{2017/04/26}{Fix url font.}
+% \changes{v2.2.2}{2017/05/02}{Add inline citatinon style.}
 %    \begin{macrocode}
 \usepackage[sort&compress]{natbib}
 \newcommand\bibstyle@numerical{\bibpunct{[}{]}{,}{s}{,}{\textsuperscript{,}}}
