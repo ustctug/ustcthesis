@@ -54,7 +54,7 @@ LaTeX version 1999/12/01 or later.
 %<class>\NeedsTeXFormat{LaTeX2e}[1999/12/01]
 %<class>\ProvidesClass{ustcthesis}
 %<*class>
-    [2017/05/03 v2.2.2 USTC thesis template]
+    [2017/05/04 v2.2.3 USTC thesis template]
 %</class>
 %
 %<*driver>
@@ -1250,6 +1250,7 @@ LaTeX version 1999/12/01 or later.
 % \subsection{目录}
 % \begin{macro}{\tableofcontents}
 % 为了在 PDF 书签中加入目录，重新定义 \cs{tableofcontents}
+% \changes{v2.2.3}{2017/05/04}{Fix toc pdf mark.}
 %    \begin{macrocode}
 \let\ustc@save@tableofcontents=\tableofcontents
 \renewcommand\tableofcontents{%
