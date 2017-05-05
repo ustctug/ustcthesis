@@ -26,6 +26,7 @@
 \DeclareBoolOption[false]{doctor}
 \DeclareBoolOption[false]{master}
 \DeclareBoolOption[false]{bachelor}
+\DeclareBoolOption[false]{professional}
 \DeclareBoolOption[false]{pdf}
 \DeclareComplementaryOption{print}{pdf}
 \DeclareBoolOption[false]{english}
@@ -103,13 +104,14 @@
     }
     \csname #1\endcsname{}
 }
+\ustc@define@term{professionaltype}
 \ustc@define@term{title}
 \ustc@define@term{secrettext}
 \ustc@define@term{author}
-\ustc@define@term{depart}
 \ustc@define@term{major}
 \ustc@define@term{supervisors}
 \ustc@define@term{date}
+\ustc@define@term{enprofessionaltype}
 \ustc@define@term{entitle}
 \ustc@define@term{ensecrettext}
 \ustc@define@term{enauthor}
@@ -235,16 +237,24 @@
     \pagestyle{main}%
 }
 \ifustc@opt@doctor
+  \ifustc@opt@professional
+    \newcommand\ustc@thesisname{专业博士学位论文}%
+  \else
     \newcommand\ustc@thesisname{博士学位论文}%
-    \newcommand\ustc@enthesisname{A dissertation for doctor's degree}%
+  \fi
+  \newcommand\ustc@enthesisname{A dissertation for doctor's degree}%
 \else
-    \ifustc@opt@master
-        \newcommand\ustc@thesisname{硕士学位论文}
-        \newcommand\ustc@enthesisname{A dissertation for master's degree}
+  \ifustc@opt@master
+    \ifustc@opt@professional
+      \newcommand\ustc@thesisname{专业硕士学位论文}
     \else
-        \newcommand\ustc@thesisname{学士学位论文}
-        \newcommand\ustc@enthesisname{A dissertation for bachelor's degree}
+      \newcommand\ustc@thesisname{硕士学位论文}
     \fi
+    \newcommand\ustc@enthesisname{A dissertation for master's degree}
+  \else
+    \newcommand\ustc@thesisname{学士学位论文}
+    \newcommand\ustc@enthesisname{A dissertation for bachelor's degree}
+  \fi
 \fi
 \RequirePackage{tikz}
 \newcommand\vpostext[2]{%
@@ -257,9 +267,16 @@
             \node [yshift=-4cm] at (current page.north) [below,align=flush center]%
                 {\parbox{\textwidth}{\raggedleft\fangsong\setfontsize{14bp}\ustc@secrettext}};%
         \vpostext{4cm}{\includegraphics[height=37bp]{figures/ustc_logo_text}}%
-        \vpostext{6.3cm}{\sffamily\setfontsize{56bp}\ustc@thesisname}%
-        \vpostext{9.8cm}{\includegraphics[height=4.7cm]{figures/ustc_logo_fig}}%
-        \vpostext{16.3cm}{\sffamily\bfseries\setfontsize{26bp}\ustc@title}%
+        \ifustc@opt@professional
+          \vpostext{6.3cm}{\sffamily\setfontsize{56bp}\ziju{-0.09}\ustc@thesisname}%
+          \vpostext{9cm}{\setfontsize{26bp}\ustc@professionaltype}%
+          \vpostext{10.3cm}{\includegraphics[height=4.7cm]{figures/ustc_logo_fig}}%
+          \vpostext{16.3cm}{\sffamily\bfseries\setfontsize{26bp}\ustc@title}%
+        \else
+          \vpostext{6.3cm}{\sffamily\setfontsize{56bp}\ustc@thesisname}%
+          \vpostext{9.8cm}{\includegraphics[height=4.7cm]{figures/ustc_logo_fig}}%
+          \vpostext{16.3cm}{\sffamily\bfseries\setfontsize{26bp}\ustc@title}%
+        \fi
         \tikz[remember picture,overlay]%
             \node [xshift=4.6cm,yshift=-20.3cm] at (current page.north west)%
             [below right,align=left] {%
@@ -279,8 +296,14 @@
         \vpostext{3.9cm}{\sffamily\setfontsize{20bp}[30bp]%
             University of Science and Technology of China}%
         \vpostext{4.9cm}{\sffamily\setfontsize{26bp}[30bp]\ustc@enthesisname}%
-        \vpostext{7.9cm}{\includegraphics[height=5.1cm]{figures/ustc_logo_fig}}%
-        \vpostext{14.2cm}{\sffamily\bfseries\setfontsize{26bp}[30bp]\ustc@entitle}%
+        \ifustc@opt@professional
+          \vpostext{6.2cm}{\setfontsize{16bp}\ustc@enprofessionaltype}%
+          \vpostext{8.9cm}{\includegraphics[height=5.1cm]{figures/ustc_logo_fig}}%
+          \vpostext{15cm}{\sffamily\bfseries\setfontsize{26bp}[30bp]\ustc@entitle}%
+        \else
+          \vpostext{7.9cm}{\includegraphics[height=5.1cm]{figures/ustc_logo_fig}}%
+          \vpostext{14.2cm}{\sffamily\bfseries\setfontsize{26bp}[30bp]\ustc@entitle}%
+        \fi
         \tikz[remember picture,overlay]%
             \node [xshift=4.4cm,yshift=-20.2cm] at (current page.north west)%
             [below right,align=left] {%
