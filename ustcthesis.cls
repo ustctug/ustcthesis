@@ -39,10 +39,13 @@
 \DeclareBoolOption[false]{pageouter}
 \DeclareComplementaryOption{pagecenter}{pageouter}
 \DeclareDefaultOption{\PassOptionsToClass{\CurrentOption}{ctexbook}}
+\newif\ifustc@addtocspace
+\ustc@addtocspacefalse
 \ProcessKeyvalOptions{ustc@opt}
 \ifustc@opt@bachelor
     \ustc@page@onesidetrue
     \ustc@page@pageouterfalse
+    \ustc@addtocspacetrue
 \fi
 \ifustc@opt@pdf
     \ustc@page@onesidetrue
@@ -161,13 +164,13 @@
 \ifustc@opt@bachelor
   \fancypagestyle{ustc@headings}{%
     \fancyhf{}%
-    \fancyhead[C]{\zihao{-5}中国科学技术大学本科毕业论文}%
-    \fancyfoot[C]{\zihao{-5}\thepage}}%
+    \fancyhead[C]{\setfontsize{9bp}中国科学技术大学本科毕业论文}%
+    \fancyfoot[C]{\setfontsize{9bp}\thepage}}%
 \else
   \fancypagestyle{ustc@headings}{%
     \fancyhf{}%
-    \fancyhead[C]{\zihao{5}\leftmark}%
-    \fancyfoot[LE,RO]{\zihao{5}\thepage}}%
+    \fancyhead[C]{\setfontsize{10.5bp}\leftmark}%
+    \fancyfoot[LE,RO]{\setfontsize{10.5bp}\thepage}}%
 \fi
 \fancypagestyle{ustc@notation}{\fancyfoot{}}
 \pagestyle{ustc@headings}
@@ -199,6 +202,16 @@
     \if@openright\cleardoublepage\else\clearpage\fi
     \global\@topnum\z@
     \@afterindenttrue
+    \ifustc@opt@bachelor
+      \if@mainmatter
+        \ctexset{chapter/format = \centering\sffamily\setfontsize{16bp}}
+      \else
+        \ctexset{chapter/format = \centering\sffamily\setfontsize{18bp}}
+      \fi
+      \ifustc@addtocspace
+        \addtocontents{toc}{\protect\addvspace{12bp}}%
+      \fi
+    \fi
     \secdef\@chapter\@schapter
 }
 \RequirePackage{pifont}
@@ -214,7 +227,7 @@
   \@getstringlength{#1}{titlelength}%
   \ifustc@opt@bachelor
     \if@mainmatter#1\else
-      \ifnum\thetitlelength=2{\ziju{2}#1}\else%
+      \ifnum\thetitlelength=2{\ziju{1}#1}\else%
         \ifnum\thetitlelength=4{\ziju{0.5}#1}\else#1%
         \fi
       \fi
@@ -275,10 +288,11 @@
     \setcounter{secnumdepth}{4}
     \ctexset{
         chapter={
+            format = \centering\sffamily\setfontsize{16bp},
             number = \chinese{chapter},
         },
         section = {
-            format = \centering\sffamily\bfseries\setfontsize{15bp},
+            format = \centering\sffamily\setfontsize{15bp},
             name   = {第,节},
             number = \chinese{section},
         },
@@ -288,16 +302,21 @@
             aftername = {、},
         },
         subsubsection = {
-            format    = {},
+            format    = {\rmfamily\setfontsize{12bp}},
             number    = \arabic{subsubsection},
             aftername = {.\ },
             indent    = \ccwd,
         },
         paragraph = {
+            format    = {\rmfamily\setfontsize{12bp}},
             name      = {(,)},
-            format    = {},
             number    = \arabic{paragraph},
             aftername = {\ },
+            indent    = 2\ccwd,
+        },
+        subparagraph = {
+            format    = {},
+            name      = {},
             indent    = 2\ccwd,
         },
     }
@@ -305,8 +324,6 @@
 \newcounter{ustc@pdfbookmark}
 \NewDocumentCommand\ustc@chapter{o m}{%
   \if@openright\cleardoublepage\else\clearpage\fi%
-  \global\@topnum\z@%
-  \@afterindenttrue%
   \addtocounter{ustc@pdfbookmark}\@ne
   \IfValueTF{#1}{%
     \pdfbookmark[0]{#1}{ustcchapter.\theustc@pdfbookmark}%
@@ -315,7 +332,7 @@
     \pdfbookmark[0]{#2}{ustcchapter.\theustc@pdfbookmark}%
     \chaptermark{#2}%
   }%
-  \@schapter{#2}}
+  \chapter*{#2}}
 \renewcommand\maketitle{%
     \newgeometry{
         top=3.8cm, bottom=3.8cm,
@@ -462,7 +479,6 @@
 }
 \newenvironment{abstract}{%
     \ifustc@opt@bachelor
-        \ctexset{chapter/format += \zihao{-2}}%
         \chapter{中文内容摘要}%
     \else
         \ustc@chapter{摘要}%
@@ -470,7 +486,6 @@
   }{}
 \newenvironment{enabstract}{%
     \ifustc@opt@bachelor
-        \ctexset{chapter/format += \zihao{-2}}
         \chapter[英文内容摘要]{Abstract}
     \else
         \ustc@chapter[Abstract]{ABSTRACT}
@@ -482,14 +497,11 @@
   \par\phantom{empty}\par\noindent\hangindent=5.3em\relax%
   \textbf{Key Words}: #1}
 \renewcommand\tableofcontents{%
-  \begingroup
     \cleardoublepage%
     \ifustc@opt@bachelor
-        \ctexset{chapter/format += \zihao{-2}}%
         \pagenumbering{arabic}%
     \fi
     \ustc@chapter{\contentsname}%
-  \endgroup
     \@starttoc{toc}}
 \RequirePackage{titletoc}
 \newcommand\ustc@leaders{\titlerule*[0.5pc]{$\cdot$}}
@@ -537,40 +549,25 @@
     {\thecontentslabel\hspace*{0.5em}}
     {}{\ustc@leaders\contentspage}
     % 为了让图目录另页起，重新定义 \cs{listoffigures}
-\let\ustc@save@listoffigures=\listoffigures
 \renewcommand\listoffigures{%
-    \cleardoublepage%
-    \ustc@save@listoffigures}
+    \cleardoublepage
+    \ustc@chapter{\listfigurename}%
+    \@starttoc{lof}}
     % 表目录同样
-\let\ustc@save@listoftables=\listoftables
 \renewcommand\listoftables{%
-    \cleardoublepage%
-    \ustc@save@listoftables}
+    \cleardoublepage
+    \ustc@chapter{\listoftablename}%
+    \@starttoc{lot}}
 \ifustc@opt@bachelor
-    \let\ustc@save@chapter=\chapter
-    \let\ustc@save@mainmatter=\mainmatter
-    \let\ustc@save@backmatter=\backmatter
-    \let\ustc@save@appendix=\appendix
-    \renewcommand\mainmatter{%
-        \ustc@save@mainmatter
-        \renewcommand\chapter{%
-            \addtocontents{toc}{\protect\addvspace{12bp}}%
-            \ustc@save@chapter
-        }%
-    }%
-    \renewcommand\backmatter{%
-        \ustc@save@backmatter
-        \renewcommand\chapter{\ustc@save@chapter}%
-    }%
-    \renewcommand\appendix{%
-        \ustc@save@appendix
-        \renewcommand\chapter{\ustc@save@chapter}%
-    }%
+    \g@addto@macro\frontmatter{\ustc@addtocspacefalse}%
+    \g@addto@macro\mainmatter{\ustc@addtocspacetrue}%
+    \g@addto@macro\backmatter{\ustc@addtocspacefalse}%
+    \g@addto@macro\appendix{\ustc@addtocspacefalse}%
 \fi
 \newenvironment{notation}{%
     \cleardoublepage%
     \thispagestyle{ustc@notation}
-    \ctexset{chapter/format += \rmfamily\setfontsize{12bp}}
+    \ctexset{chapter/format = \centering\rmfamily\setfontsize{12bp}}
     \ustc@chapter{\ustc@notationname}
     \setfontsize{10.5bp}[16bp]
     \setlength{\itemsep}{0bp}}{}
@@ -846,7 +843,6 @@
 \renewenvironment{thebibliography}[1]{%
     \if@openright\cleardoublepage\else\clearpage\fi
     \@mainmatterfalse
-    \ifustc@opt@bachelor\ctexset{chapter/format += \zihao{-2}}\fi
     \chapter{\bibname}%
     \parindent\z@
     \bibpreamble
@@ -874,9 +870,6 @@
     \@mainmattertrue
 }%
 \newenvironment{acknowledgements}{%
-    \ifustc@opt@bachelor
-        \ctexset{chapter/format += \zihao{-2}}%
-    \fi
     \chapter{\ustc@acknowledgementsname}%
 }{}
 \newenvironment{publications}{\chapter{\ustc@publicationsname}}{}
