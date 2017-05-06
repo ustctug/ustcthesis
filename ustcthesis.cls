@@ -162,34 +162,21 @@
     left=3.17cm, right=3.17cm,
     headsep=0.74cm, headheight=0.34cm,
     footskip=0.79cm}
-\RequirePackage[pagestyles]{titlesec}
+\RequirePackage{fancyhdr}
+\renewcommand{\headrulewidth}{0.4pt}
 \ifustc@opt@bachelor
-    \newcommand\ustc@header@size{\zihao{-5}}
-    \newcommand\ustc@main@header{中国科学技术大学本科毕业论文}
+  \fancypagestyle{ustc@headings}{%
+    \fancyhf{}%
+    \fancyhead[C]{\zihao{-5}中国科学技术大学本科毕业论文}%
+    \fancyfoot[C]{\zihao{-5}\thepage}}%
 \else
-    \newcommand\ustc@header@size{\zihao{5}}
-    \newcommand\ustc@main@header{%
-        \if@mainmatter\CTEXthechapter\quad\fi%
-        \chaptertitle}
+  \fancypagestyle{ustc@headings}{%
+    \fancyhf{}%
+    \fancyhead[C]{\zihao{5}\leftmark}%
+    \fancyfoot[LE,RO]{\zihao{5}\thepage}}%
 \fi
-\newpagestyle{front}[\ustc@header@size]{
-    \sethead{}{\ustc@main@header}{}
-    \setfoot{}{\thepage}{}
-    \headrule
-}
-\ifustc@page@pageouter
-    \newpagestyle{main}[\ustc@header@size]{
-        \sethead{}{\ustc@main@header}{}
-            \setfoot[\thepage][][]{}{}{\thepage}
-        \headrule
-    }
-\else
-    \newpagestyle{main}[\ustc@header@size]{
-        \sethead{}{\ustc@main@header}{}
-        \setfoot{}{\thepage}{}
-        \headrule
-    }
-\fi
+\fancypagestyle{ustc@notation}{\fancyfoot{}}
+\pagestyle{ustc@headings}
 \renewcommand*{\cleardoublepage}{\clearpage\if@twoside \ifodd\c@page\else
   \hbox{}\thispagestyle{empty}\newpage\if@twocolumn\hbox{}\newpage\fi\fi\fi}
 \renewcommand\frontmatter{%
@@ -200,7 +187,6 @@
     \else
         \pagenumbering{Roman}%
     \fi
-    \pagestyle{front}%
 }%
 \renewcommand\mainmatter{%
     \cleardoublepage
@@ -210,7 +196,6 @@
     \else
         \pagenumbering{arabic}%
     \fi
-    \pagestyle{main}%
 }%
 \renewcommand\chapter{%
     \if@openright\cleardoublepage\else\clearpage\fi
@@ -224,7 +209,6 @@
         left=3.2cm, right=3.2cm,
         headheight=0cm, headsep=0.8cm,
         footskip=0.8cm}
-    \pagestyle{empty}
     \pdfbookmark[-1]{\ustc@title}{title}
     \make@cntitle \cleardoublepage
     \make@entitle \cleardoublepage
@@ -234,7 +218,6 @@
             \make@statement \cleardoublepage
         \fi
     \fi
-    \pagestyle{main}%
 }
 \ifustc@opt@doctor
   \ifustc@opt@professional
@@ -331,6 +314,7 @@
 保密的学位论文在解密后也遵守此规定。
 }
 \newcommand\make@statement{
+    \thispagestyle{empty}
     \setfontsize{12bp}[20bp]
     \vspace*{-0.15cm}
     \begin{center}
@@ -586,8 +570,9 @@
 \renewcommand\ge{\geqslant}
 \renewcommand\geq{\geqslant}
 \newenvironment{notation}{%
-    \ctexset{chapter/format += \rmfamily\setfontsize{12bp}}
     \cleardoublepage%
+    \thispagestyle{ustc@notation}
+    \ctexset{chapter/format += \rmfamily\setfontsize{12bp}}
     \chapter{\ustc@notationname}
     \setfontsize{10.5bp}[16bp]
     \setlength{\itemsep}{0bp}}{}
