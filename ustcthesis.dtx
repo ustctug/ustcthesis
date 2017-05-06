@@ -942,22 +942,16 @@ LaTeX version 1999/12/01 or later.
 % \changes{v2.2.2}{2017/04/26}{Enhance autoref names.}
 %    \begin{macrocode}
 \ifustc@opt@english
-  \newcommand\ustc@contentsname{\contentsname}
-  \newcommand\ustc@pdf@contentsname{\contentsname}
   \renewcommand\figurename{Fig.}
   \newcommand\ustc@notesname{\textbf{Notes}: }
   \newcommand\ustc@acknowledgementsname{Acknowledgements}
-  \newcommand\ustc@pdf@acknowledgementsname{Acknowledgements}
   \newcommand\ustc@publicationsname{Publications}
   \newcommand\ustc@notationname{Notation}
 \else
-  \renewcommand\contentsname{目录}
-  \newcommand\ustc@pdf@contentsname{目录}
   \renewcommand\listfigurename{图目录}
   \renewcommand\listtablename{表目录}
   \newcommand\ustc@notesname{\textbf{注}：}
   \newcommand\ustc@acknowledgementsname{致谢}
-  \newcommand\ustc@pdf@acknowledgementsname{致谢}
   \newcommand\ustc@publicationsname{在读期间发表的学术论文与取得的研究成果}
   \newcommand\ustc@notationname{符号说明}
   \def\equationautorefname~#1\null{公式~(#1)\null}%
@@ -1009,6 +1003,10 @@ LaTeX version 1999/12/01 or later.
 \fi
 \fancypagestyle{ustc@notation}{\fancyfoot{}}
 \pagestyle{ustc@headings}
+\renewcommand\chaptermark[1]{%
+      \markboth {\MakeUppercase{%
+        \CTEXifname{\CTEXthechapter\quad}{}
+      \protect\spacetitle{#1}}}{}}%
 %    \end{macrocode}
 %
 % 另起一页的空白页不加页眉。
@@ -1070,6 +1068,30 @@ LaTeX version 1999/12/01 or later.
   \ding{\the\numexpr\value{#1}+191\relax}}
 %    \end{macrocode}
 %
+% 研究生规定章题为两字时中间空两字，三字时空一字，四字时空半字，四字以上不空：
+%
+%    \begin{macrocode}
+\usepackage{stringstrings}
+\newcounter{titlelength}
+\newcommand\spacetitle[1]{%
+  \@getstringlength{#1}{titlelength}%
+  \ifustc@opt@bachelor
+    \if@mainmatter#1\else
+      \ifnum\thetitlelength=2{\ziju{2}#1}\else%
+        \ifnum\thetitlelength=4{\ziju{0.5}#1}\else#1%
+        \fi
+      \fi
+    \fi
+  \else
+    \ifnum\thetitlelength=2{\ziju{2}#1}\else%
+      \ifnum\thetitlelength=3{\ziju{1}#1}\else%
+        \ifnum\thetitlelength=4{\ziju{0.5}#1}\else#1%
+        \fi
+      \fi
+    \fi
+  \fi}
+%    \end{macrocode}
+%
 % 另外摘要、参考文献等章节在底层也是用 \cs{chapter} 实现的。
 % 这一部分以后可能重新实现 \cs{chapter}。
 %
@@ -1079,7 +1101,7 @@ LaTeX version 1999/12/01 or later.
     chapter = {
         format      = \centering\sffamily\bfseries\setfontsize{16bp},
         nameformat  = {},
-        titleformat = {},
+        titleformat = \spacetitle,
         number      = \thechapter,
         aftername   = \hspace{\ccwd},
         beforeskip  = -7bp, % 24bp - 31bp
@@ -1165,10 +1187,10 @@ LaTeX version 1999/12/01 or later.
   \addtocounter{ustc@pdfbookmark}\@ne
   \IfValueTF{#1}{%
     \pdfbookmark[0]{#1}{ustcchapter.\theustc@pdfbookmark}%
-    \@mkboth{#1}{#1}%
+    \chaptermark{#1}%
   }{%
     \pdfbookmark[0]{#2}{ustcchapter.\theustc@pdfbookmark}%
-    \@mkboth{#2}{#2}%
+    \chaptermark{#2}%
   }%
   \@schapter{#2}}
 %    \end{macrocode}
@@ -1363,7 +1385,7 @@ LaTeX version 1999/12/01 or later.
 \newenvironment{abstract}{%
     \ifustc@opt@bachelor
         \ctexset{chapter/format += \zihao{-2}}%
-        \chapter{摘要}%
+        \chapter{中文内容摘要}%
     \else
         \ustc@chapter{摘要}%
     \fi
@@ -1377,7 +1399,7 @@ LaTeX version 1999/12/01 or later.
 \newenvironment{enabstract}{%
     \ifustc@opt@bachelor
         \ctexset{chapter/format += \zihao{-2}}
-        \chapter{Abstract}
+        \chapter[英文内容摘要]{Abstract}
     \else
         \ustc@chapter[Abstract]{ABSTRACT}
     \fi}{}
@@ -1408,14 +1430,14 @@ LaTeX version 1999/12/01 or later.
 % 为了在 PDF 书签中加入目录，重新定义 \cs{tableofcontents}
 % \changes{v2.2.3}{2017/05/04}{Fix toc pdf mark.}
 %    \begin{macrocode}
-\let\ustc@save@tableofcontents=\tableofcontents
 \renewcommand\tableofcontents{%
     \cleardoublepage%
     \ifustc@opt@bachelor
+        \ctexset{chapter/format += \zihao{-2}}%
         \pagenumbering{arabic}%
     \fi
-    \pdfbookmark[0]{\ustc@pdf@contentsname}{ustctoc}%
-    \ustc@save@tableofcontents}
+    \ustc@chapter{\contentsname}%
+    \@starttoc{toc}}
 %    \end{macrocode}
 % \end{macro}
 %
@@ -1940,10 +1962,9 @@ LaTeX version 1999/12/01 or later.
 \newenvironment{acknowledgements}{%
     \ifustc@opt@bachelor
         \ctexset{chapter/format += \zihao{-2}}%
-        \ustc@chapter{\ustc@acknowledgementsname}%
-    \else
-        \chapter{\ustc@acknowledgementsname}%
-    \fi}{}
+    \fi
+    \chapter{\ustc@acknowledgementsname}%
+}{}
 %    \end{macrocode}
 % \end{environment}
 % \begin{environment}{publications}

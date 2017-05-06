@@ -121,22 +121,16 @@
 \date{\zhnumsetup{time=Chinese}\zhtoday}
 \endate{\CTEX@todayold}
 \ifustc@opt@english
-  \newcommand\ustc@contentsname{\contentsname}
-  \newcommand\ustc@pdf@contentsname{\contentsname}
   \renewcommand\figurename{Fig.}
   \newcommand\ustc@notesname{\textbf{Notes}: }
   \newcommand\ustc@acknowledgementsname{Acknowledgements}
-  \newcommand\ustc@pdf@acknowledgementsname{Acknowledgements}
   \newcommand\ustc@publicationsname{Publications}
   \newcommand\ustc@notationname{Notation}
 \else
-  \renewcommand\contentsname{目录}
-  \newcommand\ustc@pdf@contentsname{目录}
   \renewcommand\listfigurename{图目录}
   \renewcommand\listtablename{表目录}
   \newcommand\ustc@notesname{\textbf{注}：}
   \newcommand\ustc@acknowledgementsname{致谢}
-  \newcommand\ustc@pdf@acknowledgementsname{致谢}
   \newcommand\ustc@publicationsname{在读期间发表的学术论文与取得的研究成果}
   \newcommand\ustc@notationname{符号说明}
   \def\equationautorefname~#1\null{公式~(#1)\null}%
@@ -177,6 +171,10 @@
 \fi
 \fancypagestyle{ustc@notation}{\fancyfoot{}}
 \pagestyle{ustc@headings}
+\renewcommand\chaptermark[1]{%
+      \markboth {\MakeUppercase{%
+        \CTEXifname{\CTEXthechapter\quad}{}
+      \protect\spacetitle{#1}}}{}}%
 \renewcommand*{\cleardoublepage}{\clearpage\if@twoside \ifodd\c@page\else
   \hbox{}\thispagestyle{empty}\newpage\if@twocolumn\hbox{}\newpage\fi\fi\fi}
 \renewcommand\frontmatter{%
@@ -210,12 +208,31 @@
       {Too many footnotes in this page.}{Keep footnote less than 10.}
   \fi
   \ding{\the\numexpr\value{#1}+191\relax}}
+\usepackage{stringstrings}
+\newcounter{titlelength}
+\newcommand\spacetitle[1]{%
+  \@getstringlength{#1}{titlelength}%
+  \ifustc@opt@bachelor
+    \if@mainmatter#1\else
+      \ifnum\thetitlelength=2{\ziju{2}#1}\else%
+        \ifnum\thetitlelength=4{\ziju{0.5}#1}\else#1%
+        \fi
+      \fi
+    \fi
+  \else
+    \ifnum\thetitlelength=2{\ziju{2}#1}\else%
+      \ifnum\thetitlelength=3{\ziju{1}#1}\else%
+        \ifnum\thetitlelength=4{\ziju{0.5}#1}\else#1%
+        \fi
+      \fi
+    \fi
+  \fi}
 \setcounter{secnumdepth}{5}
 \ctexset{
     chapter = {
         format      = \centering\sffamily\bfseries\setfontsize{16bp},
         nameformat  = {},
-        titleformat = {},
+        titleformat = \spacetitle,
         number      = \thechapter,
         aftername   = \hspace{\ccwd},
         beforeskip  = -7bp, % 24bp - 31bp
@@ -293,10 +310,10 @@
   \addtocounter{ustc@pdfbookmark}\@ne
   \IfValueTF{#1}{%
     \pdfbookmark[0]{#1}{ustcchapter.\theustc@pdfbookmark}%
-    \@mkboth{#1}{#1}%
+    \chaptermark{#1}%
   }{%
     \pdfbookmark[0]{#2}{ustcchapter.\theustc@pdfbookmark}%
-    \@mkboth{#2}{#2}%
+    \chaptermark{#2}%
   }%
   \@schapter{#2}}
 \renewcommand\maketitle{%
@@ -446,7 +463,7 @@
 \newenvironment{abstract}{%
     \ifustc@opt@bachelor
         \ctexset{chapter/format += \zihao{-2}}%
-        \chapter{摘要}%
+        \chapter{中文内容摘要}%
     \else
         \ustc@chapter{摘要}%
     \fi
@@ -454,7 +471,7 @@
 \newenvironment{enabstract}{%
     \ifustc@opt@bachelor
         \ctexset{chapter/format += \zihao{-2}}
-        \chapter{Abstract}
+        \chapter[英文内容摘要]{Abstract}
     \else
         \ustc@chapter[Abstract]{ABSTRACT}
     \fi}{}
@@ -464,14 +481,16 @@
 \newcommand\enkeywords[1]{%
   \par\phantom{empty}\par\noindent\hangindent=5.3em\relax%
   \textbf{Key Words}: #1}
-\let\ustc@save@tableofcontents=\tableofcontents
 \renewcommand\tableofcontents{%
+  \begingroup
     \cleardoublepage%
     \ifustc@opt@bachelor
+        \ctexset{chapter/format += \zihao{-2}}%
         \pagenumbering{arabic}%
     \fi
-    \pdfbookmark[0]{\ustc@pdf@contentsname}{ustctoc}%
-    \ustc@save@tableofcontents}
+    \ustc@chapter{\contentsname}%
+  \endgroup
+    \@starttoc{toc}}
 \RequirePackage{titletoc}
 \newcommand\ustc@leaders{\titlerule*[0.5pc]{$\cdot$}}
 \ifustc@opt@bachelor
@@ -857,8 +876,7 @@
 \newenvironment{acknowledgements}{%
     \ifustc@opt@bachelor
         \ctexset{chapter/format += \zihao{-2}}%
-        \ustc@chapter{\ustc@acknowledgementsname}%
-    \else
-        \chapter{\ustc@acknowledgementsname}%
-    \fi}{}
+    \fi
+    \chapter{\ustc@acknowledgementsname}%
+}{}
 \newenvironment{publications}{\chapter{\ustc@publicationsname}}{}
