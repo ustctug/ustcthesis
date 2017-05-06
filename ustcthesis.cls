@@ -93,7 +93,7 @@
     }
 }
 \RequirePackage{xparse}
-\DeclareDocumentCommand\setfontsize{mo}{\IfValueTF{#2}{\fontsize{#1}{#2}}{\fontsize{#1}{2\dimexpr#1}}\linespread{1}\selectfont\relax}
+\NewDocumentCommand\setfontsize{mo}{\IfValueTF{#2}{\fontsize{#1}{#2}}{\fontsize{#1}{2\dimexpr#1}}\linespread{1}\selectfont\relax}
 \newcommand\zhspace[1][1]{\hspace{#1\ccwd}}
 \newcommand\ustc@underline[2][6em]{%
     \hskip1pt\underline{\hb@xt@ #1{\hss#2\hss}}\hskip3pt\relax
@@ -130,12 +130,12 @@
   \newcommand\ustc@publicationsname{Publications}
   \newcommand\ustc@notationname{Notation}
 \else
-  \renewcommand\contentsname{目\zhspace 录}
+  \renewcommand\contentsname{目录}
   \newcommand\ustc@pdf@contentsname{目录}
   \renewcommand\listfigurename{图目录}
   \renewcommand\listtablename{表目录}
   \newcommand\ustc@notesname{\textbf{注}：}
-  \newcommand\ustc@acknowledgementsname{致\hspace{\ccwd}谢}
+  \newcommand\ustc@acknowledgementsname{致谢}
   \newcommand\ustc@pdf@acknowledgementsname{致谢}
   \newcommand\ustc@publicationsname{在读期间发表的学术论文与取得的研究成果}
   \newcommand\ustc@notationname{符号说明}
@@ -203,6 +203,102 @@
     \@afterindenttrue
     \secdef\@chapter\@schapter
 }
+\RequirePackage{pifont}
+\def\ustc@textcircled#1{%
+  \ifnum\value{#1} >9
+    \ClassError{ustcthesis}%
+      {Too many footnotes in this page.}{Keep footnote less than 10.}
+  \fi
+  \ding{\the\numexpr\value{#1}+191\relax}}
+\setcounter{secnumdepth}{5}
+\ctexset{
+    chapter = {
+        format      = \centering\sffamily\bfseries\setfontsize{16bp},
+        nameformat  = {},
+        titleformat = {},
+        number      = \thechapter,
+        aftername   = \hspace{\ccwd},
+        beforeskip  = -7bp, % 24bp - 31bp
+        afterskip   = 8bp, % 18bp - 10bp
+        % fixskip   = true, % will be used in future version
+    },
+    section = {
+        format     = \sffamily\setfontsize{14bp},
+        aftername  = \hspace{\ccwd},
+        beforeskip = 24bp,
+        afterskip  = 6bp,
+    },
+    subsection = {
+        format     = \sffamily\setfontsize{13bp},
+        aftername  = .\hspace{\ccwd},
+        indent     = 2\ccwd,
+        beforeskip = 12bp,
+        afterskip  = 6bp,
+    },
+    subsubsection = {
+        format    = \sffamily\setfontsize{12bp},
+        number    = \arabic{subsubsection},
+        aftername = .\hspace{\ccwd},
+        indent    = 3\ccwd,
+    },
+    paragraph = {
+        format    = \sffamily\setfontsize{12bp},
+        number    = (\arabic{paragraph}),
+        aftername = \hspace{\ccwd},
+        indent    = 3\ccwd,
+    },
+    subparagraph = {
+        format    = \sffamily\setfontsize{12bp},
+        number    = \ustc@textcircled{subparagraph},
+        aftername = \hspace{\ccwd},
+        indent    = 3\ccwd,
+    },
+}
+\ifustc@opt@bachelor
+    \setcounter{secnumdepth}{4}
+    \ctexset{
+        chapter={
+            number = \chinese{chapter},
+        },
+        section = {
+            format = \centering\sffamily\bfseries\setfontsize{15bp},
+            name   = {第,节},
+            number = \chinese{section},
+        },
+        subsection = {
+            format    = \sffamily\setfontsize{14bp},
+            number    = \chinese{subsection},
+            aftername = {、},
+        },
+        subsubsection = {
+            format    = {},
+            number    = \arabic{subsubsection},
+            aftername = {.\ },
+            indent    = \ccwd,
+        },
+        paragraph = {
+            name      = {(,)},
+            format    = {},
+            number    = \arabic{paragraph},
+            aftername = {\ },
+            indent    = 2\ccwd,
+        },
+    }
+\fi
+\newcounter{ustc@pdfbookmark}
+\NewDocumentCommand\ustc@chapter{o m}{%
+  \if@openright\cleardoublepage\else\clearpage\fi%
+  \global\@topnum\z@%
+  \@afterindenttrue%
+  \addtocounter{ustc@pdfbookmark}\@ne
+  \IfValueTF{#1}{%
+    \pdfbookmark[0]{#1}{ustcchapter.\theustc@pdfbookmark}%
+    \@mkboth{#1}{#1}%
+  }{%
+    \pdfbookmark[0]{#2}{ustcchapter.\theustc@pdfbookmark}%
+    \@mkboth{#2}{#2}%
+  }%
+  \@schapter{#2}}
 \renewcommand\maketitle{%
     \newgeometry{
         top=3.8cm, bottom=3.8cm,
@@ -349,15 +445,18 @@
 }
 \newenvironment{abstract}{%
     \ifustc@opt@bachelor
-        \ctexset{chapter/format += \zihao{-2}}
+        \ctexset{chapter/format += \zihao{-2}}%
+        \chapter{摘要}%
+    \else
+        \ustc@chapter{摘要}%
     \fi
-    \chapter[摘要]{摘\zhspace 要}}{}
+  }{}
 \newenvironment{enabstract}{%
     \ifustc@opt@bachelor
         \ctexset{chapter/format += \zihao{-2}}
         \chapter{Abstract}
     \else
-        \chapter[Abstract]{ABSTRACT}
+        \ustc@chapter[Abstract]{ABSTRACT}
     \fi}{}
 \newcommand\keywords[1]{%
   \par\phantom{empty line}\par\noindent\hangindent=4\ccwd\relax%
@@ -449,88 +548,13 @@
         \renewcommand\chapter{\ustc@save@chapter}%
     }%
 \fi
-\RequirePackage{pifont}
-\def\ustc@textcircled#1{%
-  \ifnum\value{#1} >9
-    \ClassError{ustcthesis}%
-      {Too many footnotes in this page.}{Keep footnote less than 10.}
-  \fi
-  \ding{\the\numexpr\value{#1}+191\relax}}
-\setcounter{secnumdepth}{5}
-\ctexset{
-    chapter = {
-        format = \centering\sffamily\bfseries\setfontsize{16bp},
-        nameformat = {},
-        titleformat = {},
-        number = \thechapter,
-        aftername = \hspace{\ccwd},
-        beforeskip = -7bp, % 24bp - 31bp
-        afterskip = 8bp, % 18bp - 10bp
-        % fixskip = true, % will be used in future version
-    },
-    section = {
-        format = \sffamily\setfontsize{14bp},
-        aftername = \hspace{\ccwd},
-        beforeskip = 24bp,
-        afterskip = 6bp,
-    },
-    subsection = {
-        format = \sffamily\setfontsize{13bp},
-        aftername = .\hspace{\ccwd},
-        indent = 2\ccwd,
-        beforeskip = 12bp,
-        afterskip = 6bp,
-    },
-    subsubsection = {
-        format = \sffamily\setfontsize{12bp},
-        number = \arabic{subsubsection},
-        aftername = .\hspace{\ccwd},
-        indent = 3\ccwd,
-    },
-    paragraph = {
-        format = \sffamily\setfontsize{12bp},
-        number = (\arabic{paragraph}),
-        aftername = \hspace{\ccwd},
-        indent = 3\ccwd,
-    },
-    subparagraph = {
-        format = \sffamily\setfontsize{12bp},
-        number = \ustc@textcircled{subparagraph},
-        aftername = \hspace{\ccwd},
-        indent = 3\ccwd,
-    },
-}
-\ifustc@opt@bachelor
-    \setcounter{secnumdepth}{4}
-    \ctexset{
-        chapter={
-            number = \chinese{chapter},
-        },
-        section = {
-            format = \centering\sffamily\bfseries\setfontsize{15bp},
-            name = {第,节},
-            number = \chinese{section},
-        },
-        subsection = {
-            format = \sffamily\setfontsize{14bp},
-            number = \chinese{subsection},
-            aftername = {、},
-        },
-        subsubsection = {
-            format = {},
-            number = \arabic{subsubsection},
-            aftername = {.\ },
-            indent = \ccwd,
-        },
-        paragraph = {
-            name = {(,)},
-            format = {},
-            number = \arabic{paragraph},
-            aftername = {\ },
-            indent = 2\ccwd,
-        },
-    }
-\fi
+\newenvironment{notation}{%
+    \cleardoublepage%
+    \thispagestyle{ustc@notation}
+    \ctexset{chapter/format += \rmfamily\setfontsize{12bp}}
+    \ustc@chapter{\ustc@notationname}
+    \setfontsize{10.5bp}[16bp]
+    \setlength{\itemsep}{0bp}}{}
 \ifustc@opt@bachelor
     \renewcommand\normalsize{\setfontsize{12bp}[22bp]}
 \else
@@ -569,13 +593,6 @@
 \renewcommand\leq{\leqslant}
 \renewcommand\ge{\geqslant}
 \renewcommand\geq{\geqslant}
-\newenvironment{notation}{%
-    \cleardoublepage%
-    \thispagestyle{ustc@notation}
-    \ctexset{chapter/format += \rmfamily\setfontsize{12bp}}
-    \chapter{\ustc@notationname}
-    \setfontsize{10.5bp}[16bp]
-    \setlength{\itemsep}{0bp}}{}
 \renewcommand{\thefootnote}{\ustc@textcircled{footnote}}
 \renewcommand\footnoterule{%
   \kern-3\p@
@@ -840,8 +857,8 @@
 \newenvironment{acknowledgements}{%
     \ifustc@opt@bachelor
         \ctexset{chapter/format += \zihao{-2}}%
-        \chapter*{\ustc@acknowledgementsname}%
+        \ustc@chapter{\ustc@acknowledgementsname}%
     \else
-        \chapter[\ustc@pdf@acknowledgementsname]{\ustc@acknowledgementsname}%
+        \chapter{\ustc@acknowledgementsname}%
     \fi}{}
 \newenvironment{publications}{\chapter{\ustc@publicationsname}}{}
