@@ -57,7 +57,7 @@ LaTeX version 1999/12/01 or later.
 %<class>\NeedsTeXFormat{LaTeX2e}[1999/12/01]
 %<class>\ProvidesClass{ustcthesis}
 %<*class>
-    [2017/04/17 v3.0 USTC thesis template]
+    [2017/07/01 v3.0 USTC thesis template]
 %</class>
 %
 %<*driver>
@@ -179,12 +179,11 @@ LaTeX version 1999/12/01 or later.
 %
 % \section{简介}
 %
-% \cls{ustcthesis} 是用于排版中国科学技术大学本科和研究生学位论文的 \LaTeX{} 模板，
-% 按照《中国科学技术大学研究生学位论文撰写手册》
-% \footnote{\url{http://gradschool.ustc.edu.cn/ylb/material/xw/wdxz/32.pdf}}
-% 和《关于本科毕业论文（设计）格式和统一封面的通知》
-% \footnote{\url{http://www.teach.ustc.edu.cn/document/doc-administration/4032.html}}
-% 的要求编写。
+% \cls{ustcthesis}是用于排版中国科学技术大学本科和研究生学位论文的\LaTeX{}模板，
+% 按照《\href{http://gradschool.ustc.edu.cn/ylb/material/xw/wdxz/32.pdf}
+% {中国科学技术大学研究生学位论文撰写手册}》
+% 和《\href{http://www.teach.ustc.edu.cn/document/doc-administration/4032.html}
+% {关于本科毕业论文（设计）格式和统一封面的通知》} 的要求编写。
 %
 % 其前身是中国科学技术大学本科论文模板（作者 XPS，最后维护 ywg）和中国科学技术大学研究生论文
 % 模板（作者 Liuqs，主要维护 Liuqs、Guolicai）。
@@ -195,7 +194,7 @@ LaTeX version 1999/12/01 or later.
 % \cls{ustcthesis} 的下载地址：
 % \begin{itemize}
 % \item 主要地址：\url{https://github.com/ustctug/ustcthesis}
-% \item 镜像地址：\url{https://git.ustclug.org/ustctug/ustcthesis}
+% \item 学校镜像：\url{https://git.ustclug.org/ustctug/ustcthesis}
 % \item 研究生院网站：\url{http://gradschool.ustc.edu.cn/ylb/xw.html}
 % \end{itemize}
 %
@@ -214,27 +213,27 @@ LaTeX version 1999/12/01 or later.
 % 本模板的主要文件如下：
 % \begin{center}
 % \begin{tabularx}{\linewidth}{llX}
-%     \toprule
-%     类别     & 文件                  & 说明 \\
-%     \midrule
-%     模板文件 & \file{ustcthesis.dtx} & 模板原始代码文件，一般用户无需使用 \\
-%              & \file{ustcthesis.cls} & 文档类文件 \\
-%              & \file{ustcextra.sty}  & 模板的附加宏包 \\
-%              & \file{ustcauthoryear.bst} & author-year 风格的 \BibTeX{} 格式文件 \\
-%              & \file{ustcnumerical.bst}  & numerical 风格的 \BibTeX{} 格式文件 \\
-%              & \file{figures/ustc_*.eps} & 校名和校徽图片 \\
-%     \midrule
-%     生成文件 & \file{ustcthesis.pdf} & （你正在阅读的）模板使用说明 \\
-%     \midrule
-%     示例文档 & \file{main.tex}       & 主文档 \\
-%              & \file{chapters/*.tex} & 示例文档的各个章节 \\
-%              & \file{figures/}       & 放置图片的目录 \\
-%              & \file{bib/tex.bib}    & \BibTeX{} 示例数据库 \\
-%     \midrule
-%     其他     & \file{README.md}      & 基本说明 \\
-%              & \file{.latexmkrc}     & latexmk 的配置文件 \\
-%              & \file{Makefile}       & GNU make 的配置文件 \\
-%     \bottomrule
+%   \toprule
+%     类别     & 文件                      & 说明 \\
+%   \midrule
+%     模板文件 & \file{ustcthesis.dtx}     & 模板原始代码文件，一般用户无需使用 \\
+%              & \file{ustcthesis.cls}     & 文档类文件 \\
+%              & \file{ustcextra.sty}      & 模板的附加宏包 \\
+%              & \file{ustcauthoryear.bst} & author-year风格的\BibTeX{}格式文件 \\
+%              & \file{ustcnumerical.bst}  & numerical风格的\BibTeX{}格式文件 \\
+%              & \file{figures/ustc_*.pdf} & 校名和校徽图片 \\
+%   \midrule
+%     生成文件 & \file{ustcthesis.pdf}     & （你正在阅读的）模板使用说明 \\
+%   \midrule
+%     示例文档 & \file{main.tex}           & 主文档 \\
+%              & \file{chapters/*.tex}     & 示例文档的各个章节 \\
+%              & \file{figures/}           & 放置图片的目录 \\
+%              & \file{bib/tex.bib}        & \BibTeX{} 示例数据库 \\
+%   \midrule
+%     其他     & \file{README.md}          & 基本说明 \\
+%              & \file{.latexmkrc}         & latexmk 的配置文件 \\
+%              & \file{Makefile}           & GNU make 的配置文件 \\
+%   \bottomrule
 % \end{tabularx}
 % \end{center}
 %
@@ -322,38 +321,29 @@ LaTeX version 1999/12/01 or later.
 % 其中论文类型是\emph{必需参数}：
 % \begin{center}
 % \begin{tabular}{p{.15\textwidth}p{.7\textwidth}}
-%     \toprule
+%   \toprule
 %     \opt{bachelor} & 本科论文 \\
 %     \opt{master} & 硕士论文 \\
 %     \opt{doctor} & 博士论文 \\
-%     \bottomrule
+%   \bottomrule
 % \end{tabular}
 % \end{center}
 %
-% 以下是可选参数，可以选择语言：
+% 以下是可选参数：
 % \begin{center}
 % \begin{tabular}{p{.15\textwidth}p{.7\textwidth}}
-%     \toprule
-%     \opt{chinese} & 中文，默认 \\
-%     \opt{english} & English \\
-%     \bottomrule
-% \end{tabular}
-% \end{center}
-%
-% 还可以设置论文的页面格式：
-% \begin{center}
-% \begin{tabular}{p{.15\textwidth}p{.7\textwidth}}
-%     \toprule
-%     \opt{print} & 用于打印纸质论文，默认 \\
-%     \opt{pdf} & 适于屏幕阅读，会开启 \opt{onside}、\opt{pagecenter} 选项，
-%     并且保留超链接颜色 \\
+%   \toprule
+%     \opt{chinese}      & 中文，默认 \\
+%     \opt{english}      & English \\
+%   \midrule
+%     \opt{professional} & 专业学位 \\
 %     \midrule
-%     \opt{onside} & 单面打印，\opt{bachelor} 默认 \\
-%     \opt{twoside} & 双面打印，\opt{doctor}、\opt{master} 默认 \\
+%     \opt{print}        & 用于双面打印纸质论文，默认 \\
+%     \opt{pdf}          & 适于屏幕阅读，单面打印，并保留超链接颜色 \\
 %     \midrule
-%     \opt{pagecenter} & 页码居中，\opt{bachelor} 默认 \\
-%     \opt{pageouter} & 页码置于外侧，\opt{doctor}、\opt{master} 默认 \\
-%     \bottomrule
+%     \opt{numerical}    & 参考文献使用顺序编码制，默认 \\
+%     \opt{authoryear}   & 参考文献使用著者-出版年制 \\
+%   \bottomrule
 % \end{tabular}
 % \end{center}
 %
@@ -365,14 +355,14 @@ LaTeX version 1999/12/01 or later.
 % 并选择合适的中文字库。自动配置的策略如下：
 % \begin{center}
 % \begin{tabular}{cl}
-%     \toprule
+%   \toprule
 %     操作系统 & 中文字库 \\
-%     \midrule
+%   \midrule
 %     macOS & 华文字库 \\
 %     Windows Vista 及以后版本 & 中易字库 + 微软雅黑 \\
 %     Windows XP 及以前版本 & 中易字库 \\
 %     其他 & Fandol 字库 \\
-%     \bottomrule
+%   \bottomrule
 % \end{tabular}
 % \end{center}
 %
@@ -385,37 +375,11 @@ LaTeX version 1999/12/01 or later.
 %
 %
 %
-% \section{《规范》中的若干问题}
-% 在模板的开发中，我们发现了《规范》中的一些问题，比如附录中的格式示例与
-% 其正文的要求矛盾，甚至本身的要求也自相矛盾。
-% 在这些情况下，我们尽可能地按照《规范》正文中的要求处理，在特殊情况下按照
-% 排版的惯例执行。
-% 这些矛盾之处罗列如下，以免引起误解。
-% \begin{center}
-% \begin{tabular}{|l|l|l|}
-%   \toprule
-%   章节     & 《规范》正文的描述                  & 《格式示例》 \\
-%   \midrule
-%   2.4     & “目录应包括论文的全部内容，包括中英文摘要和附录等” & 没有摘要 \\
-%   \midrule
-%   2.6.2.1 & “各层次标题一律用 阿拉伯数字连续编号” &  \\
-%   3.6     & 示例：“第一章” & “第 1 章” \\
-%   \midrule
-%   2.6.2.3 & “页码位置居于页脚居中” &  \\
-%   3.1     & “宋体 10.5 磅页面下脚右端” & 居中 \\
-%   \midrule
-%   3.5     & 目录示例：“第 1 章” & “第一章” \\
-%   \bottomrule
-% \end{tabular}
-% \end{center}
-%
-%
-%
 % \section{论文内容}
 %
 % 本科论文的内容按如下顺序排列：
 % \begin{enumerate}
-% \item 中文扉页、英文扉页
+% \item 中文封面、英文封面
 % \item 致谢、目录、中文摘要、英文摘要
 % \item 正文章节、参考文献
 % \item 附录
@@ -423,36 +387,41 @@ LaTeX version 1999/12/01 or later.
 %
 % 硕博论文的内容按如下顺序排列：
 % \begin{enumerate}
-% \item 中文扉页、英文扉页、原创性声明及授权使用说明
+% \item 中文封面、英文封面、原创性声明及授权使用说明
 % \item 中文摘要、英文摘要、目录、图表及代码目录（可选）、符号说明（可选）
 % \item 正文章节、参考文献
 % \item 附录
 % \item 致谢、已发表论文列表
 % \end{enumerate}
 %
-% 示例文档 \file{main.tex} 中的致谢、目录等章节的顺序，是按照研究生论文的格式组织内容的，
-% \emph{本科生需要手动调整顺序}。
+% 示例文档 \file{main.tex} 中的致谢、目录等章节的顺序，是按照研究生论文的格式组
+% 织内容的，\emph{本科生需要手动调整顺序}。
 %
-% 如果使用文档累选项 \opt{print} （默认），“原创性声明” 页则会加在扉页后；若为 \opt{pdf}，则没有声明页。
+% 如果使用文档类选项 \opt{print} （默认），“原创性声明” 页则会加在封面后；
+% 若为 \opt{pdf}，则没有声明页。
 %
 %
-% \subsection{扉页}
-% 封面的内容由印刷厂统一制作，\cls{ustcthesis} 的内容从扉页开始。
-% 扉页由 \cs{maketitle} 命令生成，其中的各项信息使用 \cs{\meta{item}\marg{info}} 的方式填写，
-% 本模板提供以下命令，其中带 |en| 前缀的命令是设置英文扉页的命令：
+% \subsection{封面}
+%
+% “封面”的名字让人有些混淆，它既可以指由印刷厂统一制作的硬皮封面（cover），也可
+% 以指书打开后的第一页（title page）。在这里指的是后者，所以本模板从 title page
+% 开始。
+%
+% 封面由 \cs{maketitle} 命令生成，其中的各项信息使用 \cs{\meta{item}\marg{info}}
+% 的方式填写，本模板提供以下命令，其中带 |en| 前缀的命令是设置英文封面的命令：
 % \begin{center}
 % \begin{tabular}{lll}
-%     \toprule
-%     命令 & 命令（英文） & 说明 \\
-%     \midrule
-%     \cs{title} & \cs{entitle} & 论文标题 \\
-%     \cs{author} & \cs{enauthor} & 作者姓名 \\
-%     \cs{major} & \cs{enmajor} & 学科专业 \\
-%     \cs{supervisors} & \cs{ensupervisors} & 导师姓名 \\
-%     \cs{date} & \cs{endate} & 完成时间 \\
-%     \cs{secrettext} & \cs{ensecrettext} & 密级信息（如果不设置则不保密） \\
-%     \cs{depart} & & 系别，可能用于书脊 \\
-%     \bottomrule
+%   \toprule
+%     命令              & 命令（英文）        & 说明 \\
+%   \midrule
+%     \cs{title}        & \cs{entitle}        & 论文标题 \\
+%     \cs{author}       & \cs{enauthor}       & 作者姓名 \\
+%     \cs{major}        & \cs{enmajor}        & 学科专业 \\
+%     \cs{supervisor}   & \cs{ensupervisor}   & 导师姓名 \\
+%     \cs{cosupervisor} & \cs{encosupervisor} & 副导师姓名 \\
+%     \cs{date}         & \cs{endate}         & 完成时间（默认为今天） \\
+%     \cs{secrettext}   & \cs{ensecrettext}   & 密级信息（默认不保密） \\
+%   \bottomrule
 % \end{tabular}
 % \end{center}
 %
@@ -465,26 +434,26 @@ LaTeX version 1999/12/01 or later.
 % \cls{ustcthesis} 还提供了以下环境，用于填写相应的信息。
 % \begin{center}
 % \begin{tabular}{ll}
-%     \toprule
-%     环境 & 说明 \\
-%     \midrule
-%     \env{abstract} & 中文摘要 \\
-%     \env{enabstract} & 英文摘要 \\
-%     \env{notation} & 符号 \\
+%   \toprule
+%     环境                   & 说明 \\
+%   \midrule
+%     \env{abstract}         & 中文摘要 \\
+%     \env{enabstract}       & 英文摘要 \\
+%     \env{notation}         & 符号 \\
 %     \env{acknowledgements} & 致谢 \\
-%     \env{publications} & 发表成果 \\
-%     \bottomrule
+%     \env{publications}     & 发表成果 \\
+%   \bottomrule
 % \end{tabular}
 % \end{center}
 %
 % \DescribeMacro{\keywords}
 % \DescribeMacro{\enkeywords}
-% 其中，摘要的关键词应使用 \cs{keywords} 和 \cs{enkeywords} 命令，并包含在摘要环境中；
-% 中文摘要的相邻关键词之间应使用 \cs{zhspace} 命令隔开，举个例子：
+% 其中，摘要的关键词应使用 \cs{keywords} 和 \cs{enkeywords} 命令，并包含在摘要环
+% 境中；
 % \begin{latex}
 % \begin{abstract}
 % 这里是摘要。
-% \keywords{论文 \zhspace 摘要 \zhspace 关键词}
+% \keywords{论文；摘要；关键词}
 % \end{abstract}
 % \end{latex}
 %
@@ -495,13 +464,14 @@ LaTeX version 1999/12/01 or later.
 % \DescribeMacro{\listoftables}
 % \begin{center}
 % \begin{tabular}{ll}
-%     \toprule
-%     命令 & 说明 \\
-%     \midrule
-%     \cs{tableofcontents} & 目录 \\
-%     \cs{listoffigures} & 图目录 \\
-%     \cs{listoftables} & 表目录 \\
-%     \bottomrule
+%   \toprule
+%     命令                  & 说明 \\
+%   \midrule
+%     \cs{tableofcontents}  & 目录 \\
+%     \cs{listoffigures}    & 图目录 \\
+%     \cs{listoftables}     & 表目录 \\
+%     \cs{listofalgorithms} & 算法目录 \\
+%   \bottomrule
 % \end{tabular}
 % \end{center}
 %
@@ -514,16 +484,32 @@ LaTeX version 1999/12/01 or later.
 % 本模板还提供了 \cs{note\marg{text}} 命令，用于在图表中添加注释。
 %
 % \subsection{数学}
+%
+% 模板中定义了一些使用正体的数学符号：
+% \begin{center}
+% \begin{tabular}{*{5}{l}}
+%   \toprule
+%     符号                 & 命令 \\
+%   \midrule
+%     常数$\mathrm{e}$     & \cs{eu} \\
+%     复数单位$\mathrm{i}$ & \cs{iu} \\
+%     微分符号$\mathrm{d}$ & \cs{diff} \\
+%     $\arg\,\max$         & \cs{argmax} \\
+%     $\arg\,\min$         & \cs{argmin} \\
+%   \bottomrule
+% \end{tabular}
+% \end{center}
+%
 % \file{ustcextra.sty} 定义了数学定理格式 |ustcplain|（默认使用）以及一些常用的环境：
 % \begin{center}
 % \begin{tabular}{*{5}{l}}
-%     \toprule
+%   \toprule
 %     theorem & assertion & axiom & corollary & lemma \\
 %     定理 & 断言 & 公理 & 推论 & 引理 \\
-%     \midrule
+%   \midrule
 %     proposition & definition & example & remark & proof \\
 %     命题 & 定义 & 例 & 注 & 证明  \\
-%     \bottomrule
+%   \bottomrule
 % \end{tabular}
 % \end{center}
 % 使用方法如下：
@@ -554,18 +540,19 @@ LaTeX version 1999/12/01 or later.
 % 用户还可以用 \cs{newtheoremstyle} 定义环境的格式，具体参见 \pkg{amsthm} 宏包。
 %
 % \subsection{参考文献}
-% 参考文献支持 author-year 风格和 numerical 风格。在 \file{main.tex} 中指定
-% \begin{latex}
-% \bibliographystyle{ustcauthoryear}
-% \end{latex}
-% 则使用 author-year 风格，指定
-% \begin{latex}
-% \bibliographystyle{ustcnumerical}
-% \end{latex}
-% 则使用 numerical 风格。
 %
-% 有一小撮同学坚持使用在文中的 numerical 风格，如“见文献[2]”，
-% 模板还提供了 ustcinline 风格。
+% 参考文献支持顺序编码制（numerical）和著者-出版年制（authoryear），默认为前者，
+% 只需要在载入文档类时加入相应的参数：
+% \begin{latex}
+% \documentclass[doctor,authoryear]{ustcthesis}
+% \end{latex}
+%
+% 当采用顺序编码制时，默认在正文的引用标注为角标样式。如果要采用文内标注，
+% 需要用 \cs{citestyle} 命令调用 |inline| 样式：
+% \begin{latex}
+% \citestyle{inline}
+% \end{latex}
+%
 %
 %
 % \clearpage
@@ -584,11 +571,11 @@ LaTeX version 1999/12/01 or later.
 %
 % \begin{center}
 % \begin{tabular}{c|ccc}
-%      & Linux & Mac & Windows \\
-%     \hline
-%     \href{https://www.tug.org/texlive/}{TeX Live} & yes & yes & yes \\
-%     \href{https://tug.org/mactex/}{MacTeX} & & yes & \\
-%     \href{http://miktex.org}{MikTeX} & & & yes \\
+%                                                 & Linux & Mac & Windows \\
+%   \hline
+%   \href{https://www.tug.org/texlive/}{TeX Live} & yes   & yes & yes \\
+%   \href{https://tug.org/mactex/}{MacTeX}        &       & yes & \\
+%   \href{http://miktex.org}{MikTeX}              &       &     & yes \\
 % \end{tabular}
 % \end{center}
 %
@@ -608,14 +595,14 @@ LaTeX version 1999/12/01 or later.
 %
 % \begin{center}
 % \begin{tabular}{r|l}
-%     发行版 & 校内镜像地址 \\
-%     \hline
-%     \href{https://www.tug.org/texlive/}{TeX Live} &
-%         \url{http://mirrors.ustc.edu.cn/CTAN/systems/texlive/} \\
-%     \href{https://tug.org/mactex/}{MacTeX} &
-%         \url{http://mirrors.ustc.edu.cn/CTAN/systems/mac/mactex/} \\
-%     \href{http://miktex.org}{MikTeX} &
-%         \url{http://mirrors.ustc.edu.cn/CTAN/systems/win32/miktex/} \\
+%   发行版 & 校内镜像地址 \\
+%   \hline
+%   \href{https://www.tug.org/texlive/}{TeX Live} &
+%     \url{http://mirrors.ustc.edu.cn/CTAN/systems/texlive/} \\
+%   \href{https://tug.org/mactex/}{MacTeX} &
+%     \url{http://mirrors.ustc.edu.cn/CTAN/systems/mac/mactex/} \\
+%   \href{http://miktex.org}{MikTeX} &
+%     \url{http://mirrors.ustc.edu.cn/CTAN/systems/win32/miktex/} \\
 % \end{tabular}
 % \end{center}
 %
@@ -683,7 +670,7 @@ LaTeX version 1999/12/01 or later.
 % |pdf|，比如 |\documentclass[doctor,pdf]{ustcthesis}|。
 %
 % \subsection{为何没有生成封面和书脊？}
-% 封面和书脊由印刷厂统一制作，本模板的内容从扉页开始。
+% 封面和书脊由印刷厂统一制作，本模板的内容从 title page 开始。
 %
 % \subsection{MacTeX 2015 生成的 PDF 超链接为什么始终为红色？}
 % 这是 MacTeX 2015 中 hyperref 宏包的一个 bug，升级宏包后可以生成正常颜色，
@@ -1212,10 +1199,10 @@ LaTeX version 1999/12/01 or later.
   \chapter*{#2}}
 %    \end{macrocode}
 %
-% \subsection{扉页}
+% \subsection{封面}
 % \begin{macro}{\maketitle}
-% 重新定义 \cs{maketitle}，调用 \cs{make@cntitle}, \cs{make@entitle} 分别生成中、英文扉页。
-% 若论文选项 \opt{print} 有效，声明页则会加在扉页后，若为 \opt{pdf}，则没有声明页。
+% 重新定义 \cs{maketitle}，调用 \cs{make@cntitle}, \cs{make@entitle} 分别生成中、英文封面。
+% 若论文选项 \opt{print} 有效，声明页则会加在封面后，若为 \opt{pdf}，则没有声明页。
 %    \begin{macrocode}
 \renewcommand\maketitle{%
     \newgeometry{

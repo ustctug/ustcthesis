@@ -42,7 +42,7 @@ install : cls doc
 
 zip : cls doc
 	mkdir $(NAME)
-	cp -r $(NAME).{dtx,cls,pdf} ustc*.bst README.md main.tex ustcextra.sty \
+	cp -r $(NAME).{dtx,cls,pdf} ustc*.bst README.md main.tex main.pdf ustcextra.sty \
 		bib chapters figures .latexmkrc Makefile $(NAME)
 	zip -r ../$(NAME)-$(VERSION).zip $(NAME)
 	rm -r $(NAME)

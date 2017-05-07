@@ -20,7 +20,7 @@
 %% 
 \NeedsTeXFormat{LaTeX2e}[1999/12/01]
 \ProvidesClass{ustcthesis}
-    [2017/04/17 v3.0 USTC thesis template]
+    [2017/07/01 v3.0 USTC thesis template]
 \RequirePackage{kvoptions}
 \SetupKeyvalOptions{family=ustc@opt, prefix=ustc@opt@, setkeys=\kvsetkeys}
 \DeclareBoolOption[false]{doctor}
