@@ -221,7 +221,7 @@
       {Too many footnotes in this page.}{Keep footnote less than 10.}
   \fi
   \ding{\the\numexpr\value{#1}+191\relax}}
-\usepackage{stringstrings}
+\RequirePackage{stringstrings}
 \newcounter{titlelength}
 \newcommand\spacetitle[1]{%
   \@getstringlength{#1}{titlelength}%
@@ -602,13 +602,20 @@
 \newcommand\note[1]{%
     \captionsetup{position = bottom, font = small}
     \caption*{\hangindent=2\ccwd\relax\ustc@notesname\rmfamily#1}}
-\DeclareMathSizes{10.5bp}{10.5bp}{7.35bp}{5.25bp}
+\RequirePackage{amsmath}
+\RequirePackage{upgreek}
+\newcommand\eu{\mathrm{e}}
+\newcommand\iu{\mathrm{i}}
+\renewcommand\pi{\uppi}
 \newcommand*{\diff}{\mathop{}\!\mathrm{d}}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
 \RequirePackage{amssymb}
 \renewcommand\le{\leqslant}
 \renewcommand\leq{\leqslant}
 \renewcommand\ge{\geqslant}
 \renewcommand\geq{\geqslant}
+\DeclareMathSizes{10.5bp}{10.5bp}{7.35bp}{5.25bp}
 \renewcommand{\thefootnote}{\ustc@textcircled{footnote}}
 \renewcommand\footnoterule{%
   \kern-3\p@
@@ -618,7 +625,7 @@
   \parindent 2\ccwd%
   \noindent
   \hb@xt@2\ccwd{\hss\@makefnmark}#1}
-\usepackage[sort&compress]{natbib}
+\RequirePackage[sort&compress]{natbib}
 \newcommand\bibstyle@numerical{\bibpunct{[}{]}{,}{s}{,}{\textsuperscript{,}}}
 \newcommand\bibstyle@inline{\bibpunct{[}{]}{,}{n}{,}{,}}
 \newcommand\bibstyle@authoryear{\bibpunct{(}{)}{;}{a}{,}{,}}

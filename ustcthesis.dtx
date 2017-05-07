@@ -487,7 +487,7 @@ LaTeX version 1999/12/01 or later.
 %
 % 模板中定义了一些使用正体的数学符号：
 % \begin{center}
-% \begin{tabular}{*{5}{l}}
+% \begin{tabular}{rl}
 %   \toprule
 %     符号                 & 命令 \\
 %   \midrule
@@ -1071,7 +1071,7 @@ LaTeX version 1999/12/01 or later.
 % 研究生规定章题为两字时中间空两字，三字时空一字，四字时空半字，四字以上不空：
 %
 %    \begin{macrocode}
-\usepackage{stringstrings}
+\RequirePackage{stringstrings}
 \newcounter{titlelength}
 \newcommand\spacetitle[1]{%
   \@getstringlength{#1}{titlelength}%
@@ -1612,15 +1612,16 @@ LaTeX version 1999/12/01 or later.
 %
 % \subsection{数学}
 %
-% \LaTeX{} 在使用 |10pt| 选项时有 |DeclareMathSizes}{\@xpt}{\@xpt}{7}{5}}|，
-% 这里按照相同的比例设置 10.5 bp。
+% 定义新的数学符号：
 %    \begin{macrocode}
-\DeclareMathSizes{10.5bp}{10.5bp}{7.35bp}{5.25bp}
-%    \end{macrocode}
-%
-% 定义微分符号 \cs{diff} ：
-%    \begin{macrocode}
+\RequirePackage{amsmath}
+\RequirePackage{upgreek}
+\newcommand\eu{\mathrm{e}}
+\newcommand\iu{\mathrm{i}}
+\renewcommand\pi{\uppi}
 \newcommand*{\diff}{\mathop{}\!\mathrm{d}}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
 %    \end{macrocode}
 %
 % 小于等于号要使用倾斜的形式。
@@ -1630,6 +1631,12 @@ LaTeX version 1999/12/01 or later.
 \renewcommand\leq{\leqslant}
 \renewcommand\ge{\geqslant}
 \renewcommand\geq{\geqslant}
+%    \end{macrocode}
+%
+% \LaTeX{} 在使用 |10pt| 选项时有 |DeclareMathSizes}{\@xpt}{\@xpt}{7}{5}}|，
+% 这里按照相同的比例设置 10.5 bp。
+%    \begin{macrocode}
+\DeclareMathSizes{10.5bp}{10.5bp}{7.35bp}{5.25bp}
 %    \end{macrocode}
 %
 % \subsection{脚注}
@@ -1663,7 +1670,7 @@ LaTeX version 1999/12/01 or later.
 % \changes{v2.2.2}{2017/04/26}{Fix url font.}
 % \changes{v2.2.2}{2017/05/02}{Add inline citatinon style.}
 %    \begin{macrocode}
-\usepackage[sort&compress]{natbib}
+\RequirePackage[sort&compress]{natbib}
 \newcommand\bibstyle@numerical{\bibpunct{[}{]}{,}{s}{,}{\textsuperscript{,}}}
 \newcommand\bibstyle@inline{\bibpunct{[}{]}{,}{n}{,}{,}}
 \newcommand\bibstyle@authoryear{\bibpunct{(}{)}{;}{a}{,}{,}}

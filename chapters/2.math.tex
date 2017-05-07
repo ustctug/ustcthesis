@@ -1,5 +1,33 @@
 \chapter{数学}
 
+\section{数学符号}
+
+模板定义了一些正体（upright）的数学符号：
+\begin{center}
+\begin{tabular}{rl}
+  \toprule
+    符号                 & 命令 \\
+  \midrule
+    常数$\eu$     & \verb|\eu| \\
+    复数单位$\iu$ & \verb|\iu| \\
+    微分符号$\diff$ & \verb|\diff| \\
+    $\argmax$         & \verb|\argmax| \\
+    $\argmin$         & \verb|\argmin| \\
+  \bottomrule
+\end{tabular}
+\end{center}
+
+更多的例子：
+\begin{equation}
+  \eu^{\iu\pi} + 1 = 0
+\end{equation}
+\begin{equation}
+  \frac{\diff^2u}{\diff t^2} = \int f(x) \diff x
+\end{equation}
+\begin{equation}
+  \argmin_x f(x)
+\end{equation}
+
 \section{定理、引理和证明}
 
 \begin{definition}
