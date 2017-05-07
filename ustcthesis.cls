@@ -112,14 +112,16 @@
 \ustc@define@term{secrettext}
 \ustc@define@term{author}
 \ustc@define@term{major}
-\ustc@define@term{supervisors}
+\ustc@define@term{supervisor}
+\ustc@define@term{cosupervisor}
 \ustc@define@term{date}
 \ustc@define@term{enprofessionaltype}
 \ustc@define@term{entitle}
 \ustc@define@term{ensecrettext}
 \ustc@define@term{enauthor}
 \ustc@define@term{enmajor}
-\ustc@define@term{ensupervisors}
+\ustc@define@term{ensupervisor}
+\ustc@define@term{encosupervisor}
 \ustc@define@term{endate}
 \date{\zhnumsetup{time=Chinese}\zhtoday}
 \endate{\CTEX@todayold}
@@ -369,6 +371,12 @@
     \newcommand\ustc@enthesisname{A dissertation for bachelor's degree}
   \fi
 \fi
+\newcommand\ustc@supervisorline{%
+  \ifx\ustc@encosupervisor\@empty%
+    Supervisor: \ustc@ensupervisor%
+  \else%
+    Supervisors: \ustc@ensupervisor, \ustc@encosupervisor%
+  \fi}
 \RequirePackage{tikz}
 \newcommand\vpostext[2]{%
     \tikz[remember picture,overlay]%
@@ -397,7 +405,7 @@
                 \begin{tabular}{@{}l@{\hspace{\ccwd}}l@{}}%
                     \textsf{作者姓名：} & \ustc@author \\%
                     \textsf{学科专业：} & \ustc@major \\%
-                    \textsf{导师姓名：} & \ustc@supervisors \\%
+                    \textsf{导师姓名：} & \ustc@supervisor\quad\ustc@cosupervisor \\%
                     \textsf{完成时间：} & \ustc@date%
                 \end{tabular}};%
     \end{titlepage}}
@@ -424,7 +432,7 @@
                 \begin{tabular}{@{}l@{}}%
                     Author:        \ustc@enauthor \\%
                     Speciality:    \ustc@enmajor \\%
-                    Supervisors:   \ustc@ensupervisors \\%
+                    \ustc@supervisorline \\%
                     Finished time: \ustc@endate%
                 \end{tabular}};%
     \end{titlepage}}
@@ -602,14 +610,8 @@
 \newcommand\note[1]{%
     \captionsetup{position = bottom, font = small}
     \caption*{\hangindent=2\ccwd\relax\ustc@notesname\rmfamily#1}}
-\RequirePackage{amsmath}
 \RequirePackage{upgreek}
-\newcommand\eu{\mathrm{e}}
-\newcommand\iu{\mathrm{i}}
 \renewcommand\pi{\uppi}
-\newcommand*{\diff}{\mathop{}\!\mathrm{d}}
-\DeclareMathOperator*{\argmax}{arg\,max}
-\DeclareMathOperator*{\argmin}{arg\,min}
 \RequirePackage{amssymb}
 \renewcommand\le{\leqslant}
 \renewcommand\leq{\leqslant}

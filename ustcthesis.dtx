@@ -912,14 +912,16 @@ LaTeX version 1999/12/01 or later.
 \ustc@define@term{secrettext}
 \ustc@define@term{author}
 \ustc@define@term{major}
-\ustc@define@term{supervisors}
+\ustc@define@term{supervisor}
+\ustc@define@term{cosupervisor}
 \ustc@define@term{date}
 \ustc@define@term{enprofessionaltype}
 \ustc@define@term{entitle}
 \ustc@define@term{ensecrettext}
 \ustc@define@term{enauthor}
 \ustc@define@term{enmajor}
-\ustc@define@term{ensupervisors}
+\ustc@define@term{ensupervisor}
+\ustc@define@term{encosupervisor}
 \ustc@define@term{endate}
 \date{\zhnumsetup{time=Chinese}\zhtoday}
 \endate{\CTEX@todayold}
@@ -1245,6 +1247,12 @@ LaTeX version 1999/12/01 or later.
     \newcommand\ustc@enthesisname{A dissertation for bachelor's degree}
   \fi
 \fi
+\newcommand\ustc@supervisorline{%
+  \ifx\ustc@encosupervisor\@empty%
+    Supervisor: \ustc@ensupervisor%
+  \else%
+    Supervisors: \ustc@ensupervisor, \ustc@encosupervisor%
+  \fi}
 %    \end{macrocode}
 %
 % \begin{macro}{\vpostext}
@@ -1288,7 +1296,7 @@ LaTeX version 1999/12/01 or later.
                 \begin{tabular}{@{}l@{\hspace{\ccwd}}l@{}}%
                     \textsf{作者姓名：} & \ustc@author \\%
                     \textsf{学科专业：} & \ustc@major \\%
-                    \textsf{导师姓名：} & \ustc@supervisors \\%
+                    \textsf{导师姓名：} & \ustc@supervisor\quad\ustc@cosupervisor \\%
                     \textsf{完成时间：} & \ustc@date%
                 \end{tabular}};%
     \end{titlepage}}
@@ -1319,7 +1327,7 @@ LaTeX version 1999/12/01 or later.
                 \begin{tabular}{@{}l@{}}%
                     Author:        \ustc@enauthor \\%
                     Speciality:    \ustc@enmajor \\%
-                    Supervisors:   \ustc@ensupervisors \\%
+                    \ustc@supervisorline \\%
                     Finished time: \ustc@endate%
                 \end{tabular}};%
     \end{titlepage}}
@@ -1614,14 +1622,8 @@ LaTeX version 1999/12/01 or later.
 %
 % 定义新的数学符号：
 %    \begin{macrocode}
-\RequirePackage{amsmath}
 \RequirePackage{upgreek}
-\newcommand\eu{\mathrm{e}}
-\newcommand\iu{\mathrm{i}}
 \renewcommand\pi{\uppi}
-\newcommand*{\diff}{\mathop{}\!\mathrm{d}}
-\DeclareMathOperator*{\argmax}{arg\,max}
-\DeclareMathOperator*{\argmin}{arg\,min}
 %    \end{macrocode}
 %
 % 小于等于号要使用倾斜的形式。

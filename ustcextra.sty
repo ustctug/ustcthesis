@@ -5,14 +5,13 @@
 \NeedsTeXFormat{LaTeX2e}[1999/12/01]
 \ProvidesPackage{ustcextra}
 
-% 表格：
-% 三线表
-\RequirePackage{booktabs}
-% 跨页表格
-\RequirePackage{longtable}
-
-% 数学：
-\RequirePackage{amsmath,amsthm,amssymb}
+% 数学符号：
+\RequirePackage{amsmath,amsthm}
+\newcommand\eu{\mathrm{e}}
+\newcommand\iu{\mathrm{i}}
+\newcommand*{\diff}{\mathop{}\!\mathrm{d}}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
 % 数学定理：
 % 以下定义数学定理环境默认风格为 ustcplain。
 \newtheoremstyle{ustcplain}%
@@ -68,6 +67,12 @@
     \popQED\endtrivlist\@endpefalse
 }
 \renewcommand\proofname\ustc@proofname
+
+% 表格：
+% 三线表
+\RequirePackage{booktabs}
+% 跨页表格
+\RequirePackage{longtable}
 
 % 算法和代码：
 % 算法环境
