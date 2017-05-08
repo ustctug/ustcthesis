@@ -1466,33 +1466,33 @@ LaTeX version 1999/12/01 or later.
     \titlecontents{chapter}
         [0bp]
         {\setfontsize{12bp}[20bp]}
-        {\thecontentslabel\hskip\ccwd}
+        {\contentspush{\thecontentslabel\hskip\ccwd\relax}}
         {}{\ustc@leaders\contentspage}
     \titlecontents{section}
         [\ccwd]
         {\setfontsize{12bp}[20bp]}
-        {\thecontentslabel\hskip\ccwd}
+        {\contentspush{\thecontentslabel\hskip\ccwd\relax}}
         {}{\ustc@leaders\contentspage}
     \titlecontents{subsection}
         [2\ccwd]
         {\setfontsize{12bp}[20bp]}
-        {\thecontentslabel、}
+        {\contentspush{\thecontentslabel、}}
         {}{\ustc@leaders\contentspage}
 \else
     \titlecontents{chapter}
         [0bp]
         {\addvspace{6bp}\setfontsize{14bp}[20bp]}
-        {\thecontentslabel\hspace*{0.5em}}
+        {\contentspush{\thecontentslabel\unskip\hskip\ccwd\relax}}
         {}{\ustc@leaders\setfontsize{12bp}[20bp]\contentspage}
     \titlecontents{section}
         [\ccwd]
         {\setfontsize{12bp}[20bp]}
-        {\thecontentslabel\hspace*{0.5em}}
+        {\contentspush{\thecontentslabel\hskip\ccwd\relax}}
         {}{\ustc@leaders\setfontsize{12bp}[20bp]\contentspage}
     \titlecontents{subsection}
         [2\ccwd]
         {\setfontsize{10.5bp}[20bp]}
-        {\thecontentslabel\hspace*{0.5em}}
+        {\contentspush{\thecontentslabel\hskip\ccwd\relax}}
         {}{\ustc@leaders\setfontsize{12bp}[20bp]\contentspage}
 \fi
 %    \end{macrocode}
