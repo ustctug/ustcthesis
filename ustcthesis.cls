@@ -341,12 +341,15 @@
         left=3.2cm, right=3.2cm,
         headheight=0cm, headsep=0.8cm,
         footskip=0.8cm}
-    \pdfbookmark[-1]{\ustc@title}{title}
+    \pagenumbering{gobble}
+    \pdfbookmark[0]{封面}{titlepage}
     \make@cntitle \cleardoublepage
+    \pdfbookmark[0]{titlepage}{entitlepage}
     \make@entitle \cleardoublepage
     \restoregeometry
     \ifustc@opt@bachelor\relax\else
         \ifustc@opt@pdf\relax\else%
+            \pdfbookmark[0]{原创性声明}{statement}
             \make@statement \cleardoublepage
         \fi
     \fi
@@ -564,7 +567,7 @@
     % 表目录同样
 \renewcommand\listoftables{%
     \cleardoublepage
-    \ustc@chapter{\listoftablename}%
+    \ustc@chapter{\listtablename}%
     \@starttoc{lot}}
 \ifustc@opt@bachelor
     \g@addto@macro\frontmatter{\ustc@addtocspacefalse}%
