@@ -1215,7 +1215,7 @@ LaTeX version 1999/12/01 or later.
     \pagenumbering{gobble}
     \pdfbookmark[0]{封面}{titlepage}
     \make@cntitle \cleardoublepage
-    \pdfbookmark[0]{titlepage}{entitlepage}
+    \pdfbookmark[0]{Title page}{entitlepage}
     \make@entitle \cleardoublepage
     \restoregeometry
     \ifustc@opt@bachelor\relax\else
@@ -1576,6 +1576,35 @@ LaTeX version 1999/12/01 or later.
 %    \end{macrocode}
 %
 % \subsection{图、表}
+%
+% 下面这组命令使浮动对象的缺省值稍微宽松一点，从而防止幅度对象占据过多的文本
+% 页面， 也可以防止在很大空白的浮动页上放置很小的图形。
+%
+% This macro holds the maximum proportion (as a decimal number) of a text page
+% or column that can be occupied by floats at the top. (Original: .7)
+%    \begin{macrocode}
+\renewcommand{\topfraction}{.85}
+%    \end{macrocode}
+%
+% This macro holds the maximum proportion (as a decimal number) of a text page
+% or column that can be occupied by floats at the bottom. (Original: .3)
+%    \begin{macrocode}
+\renewcommand{\bottomfraction}{.65}
+%    \end{macrocode}
+%
+% This macro holds the minimum proportion (as a decimal number) of a text page
+% or column that must be occupied by text. (Original: .2)
+%    \begin{macrocode}
+\renewcommand\textfraction{.15}
+%    \end{macrocode}
+%
+% This macro holds the minimum proportion (as a decimal number) of a page or
+% column that must be occupied by floating objects before a ‘float page’ is
+% produced. (Original: .5)
+%    \begin{macrocode}
+\renewcommand{\floatpagefraction}{.6}
+%    \end{macrocode}
+%
 % 用 \pkg{caption} 宏包设置图、表的格式
 % 注意计算 belowskip 必须用 \pkg{calc} 宏包修正。
 % \changes{v2.2}{2017/04/17}{Fix distance below figure captions.}

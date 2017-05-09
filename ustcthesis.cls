@@ -344,7 +344,7 @@
     \pagenumbering{gobble}
     \pdfbookmark[0]{封面}{titlepage}
     \make@cntitle \cleardoublepage
-    \pdfbookmark[0]{titlepage}{entitlepage}
+    \pdfbookmark[0]{Title page}{entitlepage}
     \make@entitle \cleardoublepage
     \restoregeometry
     \ifustc@opt@bachelor\relax\else
@@ -589,6 +589,10 @@
 \fi
 \setlength{\parindent}{2\ccwd}
 \setlength{\parskip}{0bp}
+\renewcommand{\topfraction}{.85}
+\renewcommand{\bottomfraction}{.65}
+\renewcommand\textfraction{.15}
+\renewcommand{\floatpagefraction}{.6}
 \RequirePackage{caption}
 \RequirePackage{calc}
 \DeclareCaptionLabelSeparator{zhspace}{\hspace{\ccwd}}
