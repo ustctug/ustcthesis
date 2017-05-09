@@ -124,6 +124,8 @@ LaTeX version 1999/12/01 or later.
 %</driver>
 % \fi
 %
+% \OnlyDescription
+%
 % \CheckSum{0}
 %
 % \CharacterTable
@@ -378,20 +380,20 @@ LaTeX version 1999/12/01 or later.
 % \section{论文内容}
 %
 % 本科论文的内容按如下顺序排列：
-% \begin{enumerate}
-% \item 中文封面、英文封面
-% \item 致谢、目录、中文摘要、英文摘要
-% \item 正文章节、参考文献
-% \item 附录
-% \end{enumerate}
+% \begin{description}
+%   \item[封面] 中文封面、英文封面、原创性声明及授权使用说明
+%   \item[front matter] 致谢、目录、中文摘要、英文摘要
+%   \item[main matter] 正文章节、参考文献
+%   \item[appendix] 附录
+% \end{description}
 %
 % 硕博论文的内容按如下顺序排列：
 % \begin{enumerate}
-% \item 中文封面、英文封面、原创性声明及授权使用说明
-% \item 中文摘要、英文摘要、目录、图表及代码目录（可选）、符号说明（可选）
-% \item 正文章节、参考文献
-% \item 附录
-% \item 致谢、已发表论文列表
+%   \item[封面] 中文封面、英文封面、原创性声明及授权使用说明
+%   \item[front matter] 中文摘要、英文摘要、目录、图表及代码目录、符号说明
+%   \item[main matter] 正文章节、参考文献
+%   \item[appendix] 附录
+%   \item[back matter] 致谢、已发表论文列表
 % \end{enumerate}
 %
 % 示例文档 \file{main.tex} 中的致谢、目录等章节的顺序，是按照研究生论文的格式组
@@ -754,8 +756,6 @@ LaTeX version 1999/12/01 or later.
 %
 %
 %
-% \StopEventually{}
-%
 % \section{代码实现}
 % \label{sec:code}
 %
@@ -997,7 +997,21 @@ LaTeX version 1999/12/01 or later.
 % \changes{v2.1.1}{2016/04/19}{调整 frontmatter 的页码位置}
 % \changes{v2.1.3}{2016/05/27}{调整 bachelor 的页码起始和样式}
 %    \begin{macrocode}
-\g@addto@macro\frontmatter{\if@ustc@bachelor\pagenumbering{gobble}\fi}
+\g@addto@macro\frontmatter{%
+  \if@ustc@bachelor
+    \pagenumbering{gobble}%
+  \else
+    \pagenumbering{Roman}%
+  \fi}
+\renewcommand\mainmatter{%
+  \if@ustc@bachelor
+    \clearpage
+  \else
+    \cleardoublepage
+    \pagenumbering{arabic}%
+  \fi
+  \@mainmattertrue
+}
 \renewcommand\chapter{%
     \if@openright\cleardoublepage\else\clearpage\fi
     \global\@topnum\z@
@@ -1414,6 +1428,7 @@ LaTeX version 1999/12/01 or later.
 %    \begin{macrocode}
 \renewcommand\tableofcontents{%
     \cleardoublepage%
+    \if@ustc@bachelor\pagenumbering{arabic}\fi
     \ustc@chapter{\contentsname}%
     \@starttoc{toc}}
 %    \end{macrocode}
@@ -2006,6 +2021,8 @@ LaTeX version 1999/12/01 or later.
 % \spinetitle{\entext{USTC}本硕博毕业论文示例文档} % 书脊的英文文字要用 \entext{} 括起来
 %</class>
 %    \end{macrocode}
+%
+% \StopEventually{}
 %
 % \subsection{\BibTeX{} style implementation}
 % \subsubsection{Fields and entry strings}

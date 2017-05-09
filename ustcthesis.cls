@@ -175,15 +175,21 @@
       \protect\spacetitle{#1}}}{}}%
 \renewcommand*{\cleardoublepage}{\clearpage\if@twoside \ifodd\c@page\else
   \hbox{}\thispagestyle{empty}\newpage\if@twocolumn\hbox{}\newpage\fi\fi\fi}
-\g@addto@macro\frontmatter{\if@ustc@bachelor\pagenumbering{gobble}\fi}
+\g@addto@macro\frontmatter{%
+  \if@ustc@bachelor
+    \pagenumbering{gobble}%
+  \else
+    \pagenumbering{Roman}%
+  \fi}
 \renewcommand\mainmatter{%
-  \@mainmattertrue
   \if@ustc@bachelor
     \clearpage
   \else
-    \cleardoublepage\pagenumbering{arabic}%
+    \cleardoublepage
+    \pagenumbering{arabic}%
   \fi
-}%
+  \@mainmattertrue
+}
 \renewcommand\chapter{%
     \if@openright\cleardoublepage\else\clearpage\fi
     \global\@topnum\z@
@@ -493,9 +499,7 @@
   \textbf{Key Words}: #1}
 \renewcommand\tableofcontents{%
     \cleardoublepage%
-    \if@ustc@bachelor
-        \pagenumbering{arabic}%
-    \fi
+    \if@ustc@bachelor\pagenumbering{arabic}\fi
     \ustc@chapter{\contentsname}%
     \@starttoc{toc}}
 \RequirePackage{titletoc}

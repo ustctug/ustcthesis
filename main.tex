@@ -29,10 +29,9 @@
 
 \maketitle
 
-%
 % 本科论文:
-%   frontmatter: 致谢
-%   mainmatter: 目录、中文摘要、英文摘要、正文章节、参考文献
+%   frontmatter: 致谢、目录、中文摘要、英文摘要
+%   mainmatter: 正文章节、参考文献
 %   appendix: 附录
 %
 % 硕博论文:
@@ -40,10 +39,9 @@
 %   mainmatter: 正文、参考文献
 %   appendix: 附录
 %   backmatter: 致谢、发表论文
-%
 
 \frontmatter
-\input{chapters/0.abstract}
+\input{chapters/abstract}
 \tableofcontents
 % \listoffigures
 % \listoftables
@@ -51,10 +49,10 @@
 % \input{chapters/0.notation}
 
 \mainmatter
-\input{chapters/1.intro}
-\input{chapters/2.math}
-\input{chapters/3.floats}
-\input{chapters/4.citation}
+\input{chapters/intro}
+\input{chapters/math}
+\input{chapters/floats}
+\input{chapters/citations}
 \bibliography{bib/tex}
 
 \appendix
