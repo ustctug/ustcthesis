@@ -783,12 +783,16 @@ FUNCTION {format.edition}
             { edition num.to.ordinal " ed." * }
           if$
         }
-        { edition "t" change.case$ 's :=
-          s "Revised" = s "Revised edition" = or
-            { "Rev. ed." }
-            { s }
+        { lang lang.en =
+            { edition "t" change.case$ 's :=
+              s "Revised" = s "Revised edition" = or
+                { "Rev. ed." }
+                { s " ed." *}
+              if$
+            }
+            { edition }
           if$
-         }
+        }
       if$
     }
   if$
