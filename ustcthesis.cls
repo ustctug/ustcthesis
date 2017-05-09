@@ -21,42 +21,35 @@
 \NeedsTeXFormat{LaTeX2e}[1999/12/01]
 \ProvidesClass{ustcthesis}
     [2017/07/01 v3.0 USTC thesis template]
-\RequirePackage{kvoptions}
-\SetupKeyvalOptions{family=ustc@opt, prefix=ustc@opt@, setkeys=\kvsetkeys}
-\DeclareBoolOption[false]{doctor}
-\DeclareBoolOption[false]{master}
-\DeclareBoolOption[false]{bachelor}
-\DeclareBoolOption[false]{professional}
-\DeclareBoolOption[false]{pdf}
-\DeclareComplementaryOption{print}{pdf}
-\DeclareBoolOption[false]{english}
-\DeclareComplementaryOption{chinese}{english}
-\DeclareBoolOption[true]{numerical}
-\DeclareComplementaryOption{authoryear}{numerical}
-\SetupKeyvalOptions{family=ustc@page, prefix=ustc@page@, setkeys=\kvsetkeys}
-\DeclareBoolOption[false]{oneside}
-\DeclareComplementaryOption{twoside}{oneside}
-\DeclareBoolOption[false]{pageouter}
-\DeclareComplementaryOption{pagecenter}{pageouter}
-\DeclareDefaultOption{\PassOptionsToClass{\CurrentOption}{ctexbook}}
-\newif\ifustc@addtocspace
-\ustc@addtocspacefalse
-\ProcessKeyvalOptions{ustc@opt}
-\ifustc@opt@bachelor
-    \ustc@page@onesidetrue
-    \ustc@page@pageouterfalse
-    \ustc@addtocspacetrue
+\newif\if@ustc@doctor
+\newif\if@ustc@master
+\newif\if@ustc@bachelor
+\newif\if@ustc@professional
+\newif\if@ustc@english
+\newif\if@ustc@numerical
+\newif\if@ustc@pdf
+\DeclareOption{doctor}{\@ustc@doctortrue}
+\DeclareOption{master}{\@ustc@mastertrue}
+\DeclareOption{bachelor}{\@ustc@bachelortrue}
+\DeclareOption{professional}{\@ustc@professionaltrue}
+\DeclareOption{chinese}{\@ustc@englishfalse}
+\DeclareOption{english}{\@ustc@englishtrue}
+\DeclareOption{print}{\@ustc@pdffalse}
+\DeclareOption{pdf}{\@ustc@pdftrue}
+\DeclareOption{numerical}{\@ustc@numericaltrue}
+\DeclareOption{authoryear}{\@ustc@numericalfalse}
+\DeclareOption*{\PassOptionsToClass{\CurrentOption}{ctexbook}}
+\ExecuteOptions{doctor,chinese,print,numerical}
+\ProcessOptions\relax
+\newif\if@ustc@addtocspace
+\if@ustc@bachelor
+    \@ustc@addtocspacetrue
 \fi
-\ifustc@opt@pdf
-    \ustc@page@onesidetrue
-    \ustc@page@pageouterfalse
-\fi
-\ifustc@opt@english
+\if@ustc@english
   \PassOptionsToClass{scheme=plain}{ctexbook}
 \fi
-\ProcessKeyvalOptions*\relax
-\ifustc@page@oneside
-    \PassOptionsToClass{oneside}{ctexbook}
+\if@ustc@pdf
+  \PassOptionsToClass{oneside}{book}
 \fi
 \PassOptionsToPackage{no-math}{fontspec}
 \LoadClass[UTF8, a4paper, openany, zihao=-4]{ctexbook}[2015/05/14]
@@ -83,7 +76,7 @@
     unicode=true,
     linktoc=all,
 }
-\ifustc@opt@pdf
+\if@ustc@pdf
     \hypersetup{
         colorlinks=true,
         allcolors=blue,
@@ -125,7 +118,7 @@
 \ustc@define@term{endate}
 \date{\zhnumsetup{time=Chinese}\zhtoday}
 \endate{\CTEX@todayold}
-\ifustc@opt@english
+\if@ustc@english
   \renewcommand\figurename{Fig.}
   \newcommand\ustc@notesname{\textbf{Notes}: }
   \newcommand\ustc@acknowledgementsname{Acknowledgements}
@@ -159,11 +152,11 @@
     paper=a4paper,
     top=2.54cm, bottom=2.54cm,
     left=3.17cm, right=3.17cm,
-    headsep=0.74cm, headheight=0.34cm,
+    headheight=0.75cm, headsep=0.29cm,
     footskip=0.79cm}
 \RequirePackage{fancyhdr}
 \renewcommand{\headrulewidth}{0.4pt}
-\ifustc@opt@bachelor
+\if@ustc@bachelor
   \fancypagestyle{ustc@headings}{%
     \fancyhf{}%
     \fancyhead[C]{\setfontsize{9bp}中国科学技术大学本科毕业论文}%
@@ -182,35 +175,26 @@
       \protect\spacetitle{#1}}}{}}%
 \renewcommand*{\cleardoublepage}{\clearpage\if@twoside \ifodd\c@page\else
   \hbox{}\thispagestyle{empty}\newpage\if@twocolumn\hbox{}\newpage\fi\fi\fi}
-\renewcommand\frontmatter{%
-    \cleardoublepage
-    \@mainmatterfalse
-    \ifustc@opt@bachelor
-        \pagenumbering{gobble}%
-    \else
-        \pagenumbering{Roman}%
-    \fi
-}%
+\g@addto@macro\frontmatter{\if@ustc@bachelor\pagenumbering{gobble}\fi}
 \renewcommand\mainmatter{%
-    \cleardoublepage
-    \@mainmattertrue
-    \ifustc@opt@bachelor
-        \relax
-    \else
-        \pagenumbering{arabic}%
-    \fi
+  \@mainmattertrue
+  \if@ustc@bachelor
+    \clearpage
+  \else
+    \cleardoublepage\pagenumbering{arabic}%
+  \fi
 }%
 \renewcommand\chapter{%
     \if@openright\cleardoublepage\else\clearpage\fi
     \global\@topnum\z@
     \@afterindenttrue
-    \ifustc@opt@bachelor
+    \if@ustc@bachelor
       \if@mainmatter
         \ctexset{chapter/format = \centering\sffamily\setfontsize{16bp}}
       \else
         \ctexset{chapter/format = \centering\sffamily\setfontsize{18bp}}
       \fi
-      \ifustc@addtocspace
+      \if@ustc@addtocspace
         \addtocontents{toc}{\protect\addvspace{12bp}}%
       \fi
     \fi
@@ -227,7 +211,7 @@
 \newcounter{titlelength}
 \newcommand\spacetitle[1]{%
   \@getstringlength{#1}{titlelength}%
-  \ifustc@opt@bachelor
+  \if@ustc@bachelor
     \if@mainmatter#1\else
       \ifnum\thetitlelength=2{\ziju{1}#1}\else%
         \ifnum\thetitlelength=4{\ziju{0.5}#1}\else#1%
@@ -286,7 +270,7 @@
         indent    = 3\ccwd,
     },
 }
-\ifustc@opt@bachelor
+\if@ustc@bachelor
     \setcounter{secnumdepth}{4}
     \ctexset{
         chapter={
@@ -347,23 +331,23 @@
     \pdfbookmark[0]{Title page}{entitlepage}
     \make@entitle \cleardoublepage
     \restoregeometry
-    \ifustc@opt@bachelor\relax\else
-        \ifustc@opt@pdf\relax\else%
+    \if@ustc@bachelor\relax\else
+        \if@ustc@pdf\relax\else%
             \pdfbookmark[0]{原创性声明}{statement}
             \make@statement \cleardoublepage
         \fi
     \fi
 }
-\ifustc@opt@doctor
-  \ifustc@opt@professional
+\if@ustc@doctor
+  \if@ustc@professional
     \newcommand\ustc@thesisname{专业博士学位论文}%
   \else
     \newcommand\ustc@thesisname{博士学位论文}%
   \fi
   \newcommand\ustc@enthesisname{A dissertation for doctor's degree}%
 \else
-  \ifustc@opt@master
-    \ifustc@opt@professional
+  \if@ustc@master
+    \if@ustc@professional
       \newcommand\ustc@thesisname{专业硕士学位论文}
     \else
       \newcommand\ustc@thesisname{硕士学位论文}
@@ -391,7 +375,7 @@
             \node [yshift=-4cm] at (current page.north) [below,align=flush center]%
                 {\parbox{\textwidth}{\raggedleft\fangsong\setfontsize{14bp}\ustc@secrettext}};%
         \vpostext{4cm}{\includegraphics[height=37bp]{figures/ustc_logo_text}}%
-        \ifustc@opt@professional
+        \if@ustc@professional
           \vpostext{6.3cm}{\sffamily\setfontsize{56bp}\ziju{-0.09}\ustc@thesisname}%
           \vpostext{9cm}{\setfontsize{26bp}\ustc@professionaltype}%
           \vpostext{10.3cm}{\includegraphics[height=4.7cm]{figures/ustc_logo_fig}}%
@@ -420,7 +404,7 @@
         \vpostext{3.9cm}{\sffamily\setfontsize{20bp}[30bp]%
             University of Science and Technology of China}%
         \vpostext{4.9cm}{\sffamily\setfontsize{26bp}[30bp]\ustc@enthesisname}%
-        \ifustc@opt@professional
+        \if@ustc@professional
           \vpostext{6.2cm}{\setfontsize{16bp}\ustc@enprofessionaltype}%
           \vpostext{8.9cm}{\includegraphics[height=5.1cm]{figures/ustc_logo_fig}}%
           \vpostext{15cm}{\sffamily\bfseries\setfontsize{26bp}[30bp]\ustc@entitle}%
@@ -489,14 +473,14 @@
     \end{tabular}}
 }
 \newenvironment{abstract}{%
-    \ifustc@opt@bachelor
+    \if@ustc@bachelor
         \chapter{中文内容摘要}%
     \else
         \ustc@chapter{摘要}%
     \fi
   }{}
 \newenvironment{enabstract}{%
-    \ifustc@opt@bachelor
+    \if@ustc@bachelor
         \chapter[英文内容摘要]{Abstract}
     \else
         \ustc@chapter[Abstract]{ABSTRACT}
@@ -509,14 +493,14 @@
   \textbf{Key Words}: #1}
 \renewcommand\tableofcontents{%
     \cleardoublepage%
-    \ifustc@opt@bachelor
+    \if@ustc@bachelor
         \pagenumbering{arabic}%
     \fi
     \ustc@chapter{\contentsname}%
     \@starttoc{toc}}
 \RequirePackage{titletoc}
 \newcommand\ustc@leaders{\titlerule*[0.5pc]{$\cdot$}}
-\ifustc@opt@bachelor
+\if@ustc@bachelor
     \titlecontents{chapter}
         [0bp]
         {\setfontsize{12bp}[20bp]}
@@ -561,28 +545,28 @@
     {}{\ustc@leaders\contentspage}
     % 为了让图目录另页起，重新定义 \cs{listoffigures}
 \renewcommand\listoffigures{%
-    \cleardoublepage
+    \if@ustc@bachelor\clearpage\else\cleardoublepage\fi
     \ustc@chapter{\listfigurename}%
     \@starttoc{lof}}
     % 表目录同样
 \renewcommand\listoftables{%
-    \cleardoublepage
+    \if@ustc@bachelor\clearpage\else\cleardoublepage\fi
     \ustc@chapter{\listtablename}%
     \@starttoc{lot}}
-\ifustc@opt@bachelor
-    \g@addto@macro\frontmatter{\ustc@addtocspacefalse}%
-    \g@addto@macro\mainmatter{\ustc@addtocspacetrue}%
-    \g@addto@macro\backmatter{\ustc@addtocspacefalse}%
-    \g@addto@macro\appendix{\ustc@addtocspacefalse}%
+\if@ustc@bachelor
+    \g@addto@macro\frontmatter{\@ustc@addtocspacefalse}%
+    \g@addto@macro\mainmatter{\@ustc@addtocspacetrue}%
+    \g@addto@macro\backmatter{\@ustc@addtocspacefalse}%
+    \g@addto@macro\appendix{\@ustc@addtocspacefalse}%
 \fi
 \newenvironment{notation}{%
-    \cleardoublepage%
+    \if@ustc@bachelor\clearpage\else\cleardoublepage\fi
     \thispagestyle{ustc@notation}
     \ctexset{chapter/format = \centering\rmfamily\setfontsize{12bp}}
     \ustc@chapter{\ustc@notationname}
     \setfontsize{10.5bp}[16bp]
     \setlength{\itemsep}{0bp}}{}
-\ifustc@opt@bachelor
+\if@ustc@bachelor
     \renewcommand\normalsize{\setfontsize{12bp}[22bp]}
 \else
     \renewcommand\normalsize{\setfontsize{12bp}[20bp]}
@@ -601,7 +585,7 @@
     font = small,
     labelsep = zhspace,
 }
-\ifustc@opt@bachelor\else
+\if@ustc@bachelor\else
     \captionsetup{font+=bf}
 \fi
 \captionsetup[figure]{
@@ -641,7 +625,7 @@
 \renewcommand\bibfont{\setfontsize{10.5bp}[20bp]}
 \setlength{\bibsep}{0bp}
 \setlength{\bibhang}{1em}
-\ifustc@opt@bachelor
+\if@ustc@bachelor
     \newcommand\ustcjournal{\textit}
 \else
     \newcommand\ustcjournal{\relax}
@@ -673,7 +657,7 @@
     \fi%
   \fi%
 }
-\ifustc@opt@numerical
+\if@ustc@numerical
   \ustcbibstyle{numerical}
 \else
   \ustcbibstyle{authoryear}
@@ -886,6 +870,10 @@
     \@mainmattertrue
 }%
 \newenvironment{acknowledgements}{%
+  \if@ustc@bachelor
+    \ustc@chapter{\ustc@acknowledgementsname}%
+  \else
     \chapter{\ustc@acknowledgementsname}%
+  \fi
 }{}
 \newenvironment{publications}{\chapter{\ustc@publicationsname}}{}

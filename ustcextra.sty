@@ -21,7 +21,7 @@
     {\ccwd}{}
 \theoremstyle{ustcplain}
 % 定义新的定理
-\ifustc@opt@english
+\if@ustc@english
   \newcommand\ustc@assertionname{Assertion}
   \newcommand\ustc@axiomname{Axiom}
   \newcommand\ustc@corollaryname{Corollary}
@@ -77,7 +77,7 @@
 % 算法和代码：
 % 算法环境
 \RequirePackage[boxed, algochapter, lined, linesnumbered]{algorithm2e}
-\ifustc@opt@english
+\if@ustc@english
   \renewcommand\listalgorithmcfname{List of Algorithms}
   \renewcommand\algorithmcfname{Algorithm}
 \else
@@ -99,7 +99,7 @@
     columns=flexible,
     numbers=left,
 }
-\ifustc@opt@english
+\if@ustc@english
   \renewcommand\lstlistlistingname{List of Code}
   \renewcommand\lstlistingname{Code}
 \else

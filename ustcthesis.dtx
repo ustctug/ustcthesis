@@ -762,60 +762,46 @@ LaTeX version 1999/12/01 or later.
 % \subsection{声明选项}
 %    \begin{macrocode}
 %<*class>
-\RequirePackage{kvoptions}
-\SetupKeyvalOptions{family=ustc@opt, prefix=ustc@opt@, setkeys=\kvsetkeys}
-\DeclareBoolOption[false]{doctor}
-\DeclareBoolOption[false]{master}
-\DeclareBoolOption[false]{bachelor}
-\DeclareBoolOption[false]{professional}
-\DeclareBoolOption[false]{pdf}
-\DeclareComplementaryOption{print}{pdf}
-\DeclareBoolOption[false]{english}
-\DeclareComplementaryOption{chinese}{english}
-\DeclareBoolOption[true]{numerical}
-\DeclareComplementaryOption{authoryear}{numerical}
-%    \end{macrocode}
-% |ustc@page| 这一 family 用来设置分页方式
+\newif\if@ustc@doctor
+\newif\if@ustc@master
+\newif\if@ustc@bachelor
+\newif\if@ustc@professional
+\newif\if@ustc@english
+\newif\if@ustc@numerical
+\newif\if@ustc@pdf
+\DeclareOption{doctor}{\@ustc@doctortrue}
+\DeclareOption{master}{\@ustc@mastertrue}
+\DeclareOption{bachelor}{\@ustc@bachelortrue}
+\DeclareOption{professional}{\@ustc@professionaltrue}
+\DeclareOption{chinese}{\@ustc@englishfalse}
+\DeclareOption{english}{\@ustc@englishtrue}
+\DeclareOption{print}{\@ustc@pdffalse}
+\DeclareOption{pdf}{\@ustc@pdftrue}
+\DeclareOption{numerical}{\@ustc@numericaltrue}
+\DeclareOption{authoryear}{\@ustc@numericalfalse}
+\DeclareOption*{\PassOptionsToClass{\CurrentOption}{ctexbook}}
 %    \begin{macrocode}
-\SetupKeyvalOptions{family=ustc@page, prefix=ustc@page@, setkeys=\kvsetkeys}
-\DeclareBoolOption[false]{oneside}
-\DeclareComplementaryOption{twoside}{oneside}
-\DeclareBoolOption[false]{pageouter}
-\DeclareComplementaryOption{pagecenter}{pageouter}
-\DeclareDefaultOption{\PassOptionsToClass{\CurrentOption}{ctexbook}}
-%    \end{macrocode}
-% 先处理 |ustc@opt| 这一 family，然后设置本科和 |pdf| 的默认分页方式为 |oneside|,
-% |pagecenter|
-%    \begin{macrocode}
-\newif\ifustc@addtocspace
-\ustc@addtocspacefalse
-\ProcessKeyvalOptions{ustc@opt}
-\ifustc@opt@bachelor
-    \ustc@page@onesidetrue
-    \ustc@page@pageouterfalse
-    \ustc@addtocspacetrue
+\ExecuteOptions{doctor,chinese,print,numerical}
+\ProcessOptions\relax
+\newif\if@ustc@addtocspace
+\if@ustc@bachelor
+    \@ustc@addtocspacetrue
 \fi
-\ifustc@opt@pdf
-    \ustc@page@onesidetrue
-    \ustc@page@pageouterfalse
-\fi
-\ifustc@opt@english
+\if@ustc@english
   \PassOptionsToClass{scheme=plain}{ctexbook}
 \fi
-%    \end{macrocode}
-% 处理其他的选项
-%    \begin{macrocode}
-\ProcessKeyvalOptions*\relax
-\ifustc@page@oneside
-    \PassOptionsToClass{oneside}{ctexbook}
+\if@ustc@pdf
+  \PassOptionsToClass{oneside}{book}
 \fi
 %    \end{macrocode}
+%
 % 默认情况下 \pkg{fontspec} 会将 \cs{mathrm} 的字体更改为 Times New Roman，
 % 而 \cs{mathnormal} 依然为 Computer Modern，比 Times New Roman 要细，
 % 所以设置 \pkg{fontspec} 不处理数学字体
 %    \begin{macrocode}
 \PassOptionsToPackage{no-math}{fontspec}
 %    \end{macrocode}
+%
 % 载入 \cls{ctexbook} 文档类，注意要求 \pkg{ctex} 为 2.0 以及更高的版本。
 %    \begin{macrocode}
 \LoadClass[UTF8, a4paper, openany, zihao=-4]{ctexbook}[2015/05/14]
@@ -857,7 +843,7 @@ LaTeX version 1999/12/01 or later.
 %    \end{macrocode}
 % 如果为 |pdf| 样式，设置 hyperlink 颜色
 %    \begin{macrocode}
-\ifustc@opt@pdf
+\if@ustc@pdf
     \hypersetup{
         colorlinks=true,
         allcolors=blue,
@@ -933,7 +919,7 @@ LaTeX version 1999/12/01 or later.
 % \changes{v2.1.5}{2017/04/15}{Add English version.}
 % \changes{v2.2.2}{2017/04/26}{Enhance autoref names.}
 %    \begin{macrocode}
-\ifustc@opt@english
+\if@ustc@english
   \renewcommand\figurename{Fig.}
   \newcommand\ustc@notesname{\textbf{Notes}: }
   \newcommand\ustc@acknowledgementsname{Acknowledgements}
@@ -973,7 +959,7 @@ LaTeX version 1999/12/01 or later.
     paper=a4paper,
     top=2.54cm, bottom=2.54cm,
     left=3.17cm, right=3.17cm,
-    headsep=0.74cm, headheight=0.34cm,
+    headheight=0.75cm, headsep=0.29cm,
     footskip=0.79cm}
 %    \end{macrocode}
 %
@@ -982,7 +968,7 @@ LaTeX version 1999/12/01 or later.
 %    \begin{macrocode}
 \RequirePackage{fancyhdr}
 \renewcommand{\headrulewidth}{0.4pt}
-\ifustc@opt@bachelor
+\if@ustc@bachelor
   \fancypagestyle{ustc@headings}{%
     \fancyhf{}%
     \fancyhead[C]{\setfontsize{9bp}中国科学技术大学本科毕业论文}%
@@ -1011,35 +997,18 @@ LaTeX version 1999/12/01 or later.
 % \changes{v2.1.1}{2016/04/19}{调整 frontmatter 的页码位置}
 % \changes{v2.1.3}{2016/05/27}{调整 bachelor 的页码起始和样式}
 %    \begin{macrocode}
-\renewcommand\frontmatter{%
-    \cleardoublepage
-    \@mainmatterfalse
-    \ifustc@opt@bachelor
-        \pagenumbering{gobble}%
-    \else
-        \pagenumbering{Roman}%
-    \fi
-}%
-\renewcommand\mainmatter{%
-    \cleardoublepage
-    \@mainmattertrue
-    \ifustc@opt@bachelor
-        \relax
-    \else
-        \pagenumbering{arabic}%
-    \fi
-}%
+\g@addto@macro\frontmatter{\if@ustc@bachelor\pagenumbering{gobble}\fi}
 \renewcommand\chapter{%
     \if@openright\cleardoublepage\else\clearpage\fi
     \global\@topnum\z@
     \@afterindenttrue
-    \ifustc@opt@bachelor
+    \if@ustc@bachelor
       \if@mainmatter
         \ctexset{chapter/format = \centering\sffamily\setfontsize{16bp}}
       \else
         \ctexset{chapter/format = \centering\sffamily\setfontsize{18bp}}
       \fi
-      \ifustc@addtocspace
+      \if@ustc@addtocspace
         \addtocontents{toc}{\protect\addvspace{12bp}}%
       \fi
     \fi
@@ -1077,7 +1046,7 @@ LaTeX version 1999/12/01 or later.
 \newcounter{titlelength}
 \newcommand\spacetitle[1]{%
   \@getstringlength{#1}{titlelength}%
-  \ifustc@opt@bachelor
+  \if@ustc@bachelor
     \if@mainmatter#1\else
       \ifnum\thetitlelength=2{\ziju{1}#1}\else%
         \ifnum\thetitlelength=4{\ziju{0.5}#1}\else#1%
@@ -1146,7 +1115,7 @@ LaTeX version 1999/12/01 or later.
 %
 % 设置本科生的章节标题。
 %    \begin{macrocode}
-\ifustc@opt@bachelor
+\if@ustc@bachelor
     \setcounter{secnumdepth}{4}
     \ctexset{
         chapter={
@@ -1218,8 +1187,8 @@ LaTeX version 1999/12/01 or later.
     \pdfbookmark[0]{Title page}{entitlepage}
     \make@entitle \cleardoublepage
     \restoregeometry
-    \ifustc@opt@bachelor\relax\else
-        \ifustc@opt@pdf\relax\else%
+    \if@ustc@bachelor\relax\else
+        \if@ustc@pdf\relax\else%
             \pdfbookmark[0]{原创性声明}{statement}
             \make@statement \cleardoublepage
         \fi
@@ -1230,16 +1199,16 @@ LaTeX version 1999/12/01 or later.
 %
 % 定义一些常量。
 %    \begin{macrocode}
-\ifustc@opt@doctor
-  \ifustc@opt@professional
+\if@ustc@doctor
+  \if@ustc@professional
     \newcommand\ustc@thesisname{专业博士学位论文}%
   \else
     \newcommand\ustc@thesisname{博士学位论文}%
   \fi
   \newcommand\ustc@enthesisname{A dissertation for doctor's degree}%
 \else
-  \ifustc@opt@master
-    \ifustc@opt@professional
+  \if@ustc@master
+    \if@ustc@professional
       \newcommand\ustc@thesisname{专业硕士学位论文}
     \else
       \newcommand\ustc@thesisname{硕士学位论文}
@@ -1282,7 +1251,7 @@ LaTeX version 1999/12/01 or later.
             \node [yshift=-4cm] at (current page.north) [below,align=flush center]%
                 {\parbox{\textwidth}{\raggedleft\fangsong\setfontsize{14bp}\ustc@secrettext}};%
         \vpostext{4cm}{\includegraphics[height=37bp]{figures/ustc_logo_text}}%
-        \ifustc@opt@professional
+        \if@ustc@professional
           \vpostext{6.3cm}{\sffamily\setfontsize{56bp}\ziju{-0.09}\ustc@thesisname}%
           \vpostext{9cm}{\setfontsize{26bp}\ustc@professionaltype}%
           \vpostext{10.3cm}{\includegraphics[height=4.7cm]{figures/ustc_logo_fig}}%
@@ -1315,7 +1284,7 @@ LaTeX version 1999/12/01 or later.
         \vpostext{3.9cm}{\sffamily\setfontsize{20bp}[30bp]%
             University of Science and Technology of China}%
         \vpostext{4.9cm}{\sffamily\setfontsize{26bp}[30bp]\ustc@enthesisname}%
-        \ifustc@opt@professional
+        \if@ustc@professional
           \vpostext{6.2cm}{\setfontsize{16bp}\ustc@enprofessionaltype}%
           \vpostext{8.9cm}{\includegraphics[height=5.1cm]{figures/ustc_logo_fig}}%
           \vpostext{15cm}{\sffamily\bfseries\setfontsize{26bp}[30bp]\ustc@entitle}%
@@ -1398,7 +1367,7 @@ LaTeX version 1999/12/01 or later.
 % 中文摘要环境
 %    \begin{macrocode}
 \newenvironment{abstract}{%
-    \ifustc@opt@bachelor
+    \if@ustc@bachelor
         \chapter{中文内容摘要}%
     \else
         \ustc@chapter{摘要}%
@@ -1411,7 +1380,7 @@ LaTeX version 1999/12/01 or later.
 % 英文摘要环境
 %    \begin{macrocode}
 \newenvironment{enabstract}{%
-    \ifustc@opt@bachelor
+    \if@ustc@bachelor
         \chapter[英文内容摘要]{Abstract}
     \else
         \ustc@chapter[Abstract]{ABSTRACT}
@@ -1445,9 +1414,6 @@ LaTeX version 1999/12/01 or later.
 %    \begin{macrocode}
 \renewcommand\tableofcontents{%
     \cleardoublepage%
-    \ifustc@opt@bachelor
-        \pagenumbering{arabic}%
-    \fi
     \ustc@chapter{\contentsname}%
     \@starttoc{toc}}
 %    \end{macrocode}
@@ -1465,7 +1431,7 @@ LaTeX version 1999/12/01 or later.
 %    \begin{macrocode}
 \RequirePackage{titletoc}
 \newcommand\ustc@leaders{\titlerule*[0.5pc]{$\cdot$}}
-\ifustc@opt@bachelor
+\if@ustc@bachelor
     \titlecontents{chapter}
         [0bp]
         {\setfontsize{12bp}[20bp]}
@@ -1518,7 +1484,7 @@ LaTeX version 1999/12/01 or later.
     % 为了让图目录另页起，重新定义 \cs{listoffigures}
 %    \begin{macrocode}
 \renewcommand\listoffigures{%
-    \cleardoublepage
+    \if@ustc@bachelor\clearpage\else\cleardoublepage\fi
     \ustc@chapter{\listfigurename}%
     \@starttoc{lof}}
 %    \end{macrocode}
@@ -1528,7 +1494,7 @@ LaTeX version 1999/12/01 or later.
     % 表目录同样
 %    \begin{macrocode}
 \renewcommand\listoftables{%
-    \cleardoublepage
+    \if@ustc@bachelor\clearpage\else\cleardoublepage\fi
     \ustc@chapter{\listtablename}%
     \@starttoc{lot}}
 %    \end{macrocode}
@@ -1537,11 +1503,11 @@ LaTeX version 1999/12/01 or later.
 % 为了让本科生的目录每章之间多空一行，重新定义 \cs{mainmatter}, \cs{backmatter},
 % \cs{appendix}
 %    \begin{macrocode}
-\ifustc@opt@bachelor
-    \g@addto@macro\frontmatter{\ustc@addtocspacefalse}%
-    \g@addto@macro\mainmatter{\ustc@addtocspacetrue}%
-    \g@addto@macro\backmatter{\ustc@addtocspacefalse}%
-    \g@addto@macro\appendix{\ustc@addtocspacefalse}%
+\if@ustc@bachelor
+    \g@addto@macro\frontmatter{\@ustc@addtocspacefalse}%
+    \g@addto@macro\mainmatter{\@ustc@addtocspacetrue}%
+    \g@addto@macro\backmatter{\@ustc@addtocspacefalse}%
+    \g@addto@macro\appendix{\@ustc@addtocspacefalse}%
 \fi
 %    \end{macrocode}
 %
@@ -1552,7 +1518,7 @@ LaTeX version 1999/12/01 or later.
 %
 %    \begin{macrocode}
 \newenvironment{notation}{%
-    \cleardoublepage%
+    \if@ustc@bachelor\clearpage\else\cleardoublepage\fi
     \thispagestyle{ustc@notation}
     \ctexset{chapter/format = \centering\rmfamily\setfontsize{12bp}}
     \ustc@chapter{\ustc@notationname}
@@ -1566,7 +1532,7 @@ LaTeX version 1999/12/01 or later.
 % 正文段落文字格式设置
 %
 %    \begin{macrocode}
-\ifustc@opt@bachelor
+\if@ustc@bachelor
     \renewcommand\normalsize{\setfontsize{12bp}[22bp]}
 \else
     \renewcommand\normalsize{\setfontsize{12bp}[20bp]}
@@ -1619,7 +1585,7 @@ LaTeX version 1999/12/01 or later.
     font = small,
     labelsep = zhspace,
 }
-\ifustc@opt@bachelor\else
+\if@ustc@bachelor\else
     \captionsetup{font+=bf}
 \fi
 \captionsetup[figure]{
@@ -1711,7 +1677,7 @@ LaTeX version 1999/12/01 or later.
 \renewcommand\bibfont{\setfontsize{10.5bp}[20bp]}
 \setlength{\bibsep}{0bp}
 \setlength{\bibhang}{1em}
-\ifustc@opt@bachelor
+\if@ustc@bachelor
     \newcommand\ustcjournal{\textit}
 \else
     \newcommand\ustcjournal{\relax}
@@ -1754,7 +1720,7 @@ LaTeX version 1999/12/01 or later.
 %
 % 处理宏包选项。
 %    \begin{macrocode}
-\ifustc@opt@numerical
+\if@ustc@numerical
   \ustcbibstyle{numerical}
 \else
   \ustcbibstyle{authoryear}
@@ -1986,7 +1952,11 @@ LaTeX version 1999/12/01 or later.
 % 定义了一个满足要求的致谢环境：
 %    \begin{macrocode}
 \newenvironment{acknowledgements}{%
+  \if@ustc@bachelor
+    \ustc@chapter{\ustc@acknowledgementsname}%
+  \else
     \chapter{\ustc@acknowledgementsname}%
+  \fi
 }{}
 %    \end{macrocode}
 % \end{environment}
