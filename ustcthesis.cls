@@ -463,30 +463,36 @@
     \setcounter{secnumdepth}{4}
     \ctexset{
         chapter={
+            format = \centering\sffamily\setfontsize{16bp},
             number = \chinese{chapter},
         },
         section = {
-            format = \centering\sffamily\bfseries\setfontsize{15bp},
-            name = {第,节},
+            format = \centering\sffamily\setfontsize{15bp},
+            name   = {第,节},
             number = \chinese{section},
         },
         subsection = {
-            format = \sffamily\setfontsize{14bp},
-            number = \chinese{subsection},
+            format    = \sffamily\setfontsize{14bp},
+            number    = \chinese{subsection},
             aftername = {、},
         },
         subsubsection = {
-            format = {},
-            number = \arabic{subsubsection},
+            format    = {\rmfamily\setfontsize{12bp}},
+            number    = \arabic{subsubsection},
             aftername = {.\ },
-            indent = \ccwd,
+            indent    = \ccwd,
         },
         paragraph = {
-            name = {(,)},
-            format = {},
-            number = \arabic{paragraph},
+            format    = {\rmfamily\setfontsize{12bp}},
+            name      = {(,)},
+            number    = \arabic{paragraph},
             aftername = {\ },
-            indent = 2\ccwd,
+            indent    = 2\ccwd,
+        },
+        subparagraph = {
+            format    = {},
+            name      = {},
+            indent    = 2\ccwd,
         },
     }
 \fi
