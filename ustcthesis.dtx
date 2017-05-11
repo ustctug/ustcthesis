@@ -66,7 +66,6 @@ LaTeX version 1999/12/01 or later.
 \usepackage{hypdoc}
 \hypersetup{
     bookmarksopen=true,
-    bookmarksopenlevel=2,
     bookmarksnumbered=true,
     CJKbookmarks=true,
     unicode=true,
@@ -75,6 +74,7 @@ LaTeX version 1999/12/01 or later.
 \EnableCrossrefs
 \CodelineIndex
 \RecordChanges
+\OnlyDescription
 \usepackage[UTF8, heading, sub3section]{ctex}
 \ctexset{
     section      = {
@@ -107,6 +107,23 @@ LaTeX version 1999/12/01 or later.
 \DeclareRobustCommand\opt{\texttt}
 \renewcommand\glossaryname{版本历史}
 \GlossaryPrologue{\section*{\glossaryname}}
+\makeatletter
+\renewcommand*{\changes@}[3]{%
+ \protected@edef\@tempa{%
+  \noexpand\glossary{#1 (#2)\levelchar
+   \ifx\saved@macroname\@empty
+    \space\actualchar\generalname
+   \else
+    \expandafter\@gobble\saved@macroname
+    \actualchar
+    \string\verb\quotechar*\verbatimchar\saved@macroname\verbatimchar
+   \fi
+   :\levelchar #3}}%
+ \@tempa
+ \endgroup
+ \@esphack
+}
+\makeatother
 \renewcommand\indexname{命令索引}
 \IndexPrologue{%
     \section*{\indexname}
@@ -117,14 +134,11 @@ LaTeX version 1999/12/01 or later.
 \setcounter{secnumdepth}{3}
 
 \begin{document}
-    \DocInput{ustcthesis.dtx}
-    \PrintChanges
-    \PrintIndex
+  \DocInput{ustcthesis.dtx}
+  \PrintIndex
 \end{document}
 %</driver>
 % \fi
-%
-% \OnlyDescription
 %
 % \CheckSum{0}
 %
@@ -179,6 +193,8 @@ LaTeX version 1999/12/01 or later.
 %
 %
 %
+% \PrintChanges
+%
 % \section{简介}
 %
 % \cls{ustcthesis}是用于排版中国科学技术大学本科和研究生学位论文的\LaTeX{}模板，
@@ -201,43 +217,54 @@ LaTeX version 1999/12/01 or later.
 % \end{itemize}
 %
 % 我们假定用户已经能够熟练使用 \LaTeX{}，如果从来没有接触过 \LaTeX{}，
-% 建议阅读附录 \ref{sec:new}；
-% 若对本模板有问题或者建议，可以在 GitHub 提出（推荐），或者发电子邮件给维护者，
-% 注意提问之前需阅读附录 \ref{sec:faq}；
-% 对于想自已修改代码的用户，以及愿意有兴趣参与模板的开发、维护的 \TeX{} 爱好者，
-% 附录 \ref{sec:dev_guide} 和附录 \ref{sec:code} 分别提供了指南和带代码的注释。
+% 建议阅读附录~\ref{sec:new}。
+%
+% 如果发现模板有 bug，请按照以下步骤操作：
+% \begin{enumerate}
+%   \item 将 \TeX{} 发行版、宏包升级到最新，将模板升级到 Github 上最新版本，
+%     查看 bug 是否已经修复；
+%   \item 阅读附录~\ref{sec:faq}，确认这个不是常见问题；
+%   \item 阅读《撰写手册》确认这是一个bug；
+%   \item 在 Github 上提出 issue，或者发邮件给模板作者；
+% \end{enumerate}
+%
+% 有兴趣参与模板的开发维护的 \TeX{} 高级用户，可以阅读附录的模板开发维护指南和带
+% 代码的注释。
 %
 %
 %
 % \section{编译方法}
 %
 % \subsection{文件组成}
-% 本模板的主要文件如下：
-% \begin{center}
-% \begin{tabularx}{\linewidth}{llX}
-%   \toprule
-%     类别     & 文件                      & 说明 \\
-%   \midrule
-%     模板文件 & \file{ustcthesis.dtx}     & 模板原始代码文件，一般用户无需使用 \\
-%              & \file{ustcthesis.cls}     & 文档类文件 \\
-%              & \file{ustcextra.sty}      & 模板的附加宏包 \\
-%              & \file{ustcauthoryear.bst} & author-year风格的\BibTeX{}格式文件 \\
-%              & \file{ustcnumerical.bst}  & numerical风格的\BibTeX{}格式文件 \\
-%              & \file{figures/ustc_*.pdf} & 校名和校徽图片 \\
-%   \midrule
-%     生成文件 & \file{ustcthesis.pdf}     & （你正在阅读的）模板使用说明 \\
-%   \midrule
-%     示例文档 & \file{main.tex}           & 主文档 \\
-%              & \file{chapters/*.tex}     & 示例文档的各个章节 \\
-%              & \file{figures/}           & 放置图片的目录 \\
-%              & \file{bib/tex.bib}        & \BibTeX{} 示例数据库 \\
-%   \midrule
-%     其他     & \file{README.md}          & 基本说明 \\
-%              & \file{.latexmkrc}         & latexmk 的配置文件 \\
-%              & \file{Makefile}           & GNU make 的配置文件 \\
-%   \bottomrule
-% \end{tabularx}
-% \end{center}
+% 本模板的主要文件如表~\ref{tab:files}：
+% \begin{table}[htbp]
+%   \centering
+%   \begin{tabular}{lll}
+%     \toprule
+%       类别     & 文件                      & 说明 \\
+%     \midrule
+%       模板文件 & \file{ustcthesis.dtx}     & 模板原始代码文件，用户无需使用 \\
+%                & \file{ustcthesis.cls}     & 文档类文件 \\
+%                & \file{ustcextra.sty}      & 模板的附加宏包 \\
+%                & \file{ustcauthoryear.bst} & author-year 风格的参考文献格式 \\
+%                & \file{ustcnumerical.bst}  & numerical 风格的参考文献格式 \\
+%                & \file{figures/ustc_*.pdf} & 校名和校徽图片 \\
+%     \midrule
+%       生成文件 & \file{ustcthesis.pdf}     & （你正在阅读的）模板使用说明 \\
+%     \midrule
+%       示例文档 & \file{main.tex}           & 主文档 \\
+%                & \file{chapters/*.tex}     & 示例文档的各个章节 \\
+%                & \file{figures/}           & 放置图片的目录 \\
+%                & \file{bib/tex.bib}        & \BibTeX{} 示例数据库 \\
+%     \midrule
+%       其他     & \file{README.md}          & 基本说明 \\
+%                & \file{.latexmkrc}         & latexmk 的配置文件 \\
+%                & \file{Makefile}           & GNU make 的配置文件 \\
+%     \bottomrule
+%   \end{tabular}
+%   \caption{模板的文件组成}
+%   \label{tab:files}
+% \end{table}
 %
 % 示例文档包括了常用的 \LaTeX{} 命令，建议新手从此入手，用自己的内容进行替换。
 %
@@ -320,53 +347,52 @@ LaTeX version 1999/12/01 or later.
 % \documentclass[doctor,english,pdf]{ustcthesis}
 % \end{latex}
 %
-% 其中论文类型是\emph{必需参数}：
-% \begin{center}
-% \begin{tabular}{p{.15\textwidth}p{.7\textwidth}}
-%   \toprule
-%     \opt{bachelor} & 本科论文 \\
-%     \opt{master} & 硕士论文 \\
-%     \opt{doctor} & 博士论文 \\
-%   \bottomrule
-% \end{tabular}
-% \end{center}
+% 全部的选项见表~\ref{tab:options}
+% \begin{table}[htbp]
+%   \centering
+%   \begin{tabular}{lll}
+%     \toprule
+%       必需参数 & \opt{bachelor}     & 本科论文 \\
+%                & \opt{master}       & 硕士论文 \\
+%                & \opt{doctor}       & 博士论文 \\
+%     \midrule
+%       可选参数 & \opt{professional} & 专业学位 \\
+%                & \opt{chinese}      & 中文，默认 \\
+%                & \opt{english}      & English \\
+%                & \opt{print}        & 用于双面打印纸质论文，默认 \\
+%                & \opt{pdf}          & 适于屏幕阅读，单面打印，并保留超链接颜色 \\
+%                & \opt{numerical}    & 参考文献使用顺序编码制，默认 \\
+%                & \opt{authoryear}   & 参考文献使用著者-出版年制 \\
+%     \bottomrule
+%   \end{tabular}
+%   \caption{文档类参数}
+%   \label{tab:options}
+% \end{table}
 %
-% 以下是可选参数：
-% \begin{center}
-% \begin{tabular}{p{.15\textwidth}p{.7\textwidth}}
-%   \toprule
-%     \opt{chinese}      & 中文，默认 \\
-%     \opt{english}      & English \\
-%   \midrule
-%     \opt{professional} & 专业学位 \\
-%     \midrule
-%     \opt{print}        & 用于双面打印纸质论文，默认 \\
-%     \opt{pdf}          & 适于屏幕阅读，单面打印，并保留超链接颜色 \\
-%     \midrule
-%     \opt{numerical}    & 参考文献使用顺序编码制，默认 \\
-%     \opt{authoryear}   & 参考文献使用著者-出版年制 \\
-%   \bottomrule
-% \end{tabular}
-% \end{center}
+% 除了本模板的定义的选项，用户还可以使用其他参数，比如 \opt{fontset=fandol}，
+% 这些参数都将传给\cls{ctexbook}。
 %
 % \subsection{中文字体}
 % \cls{ustcthesis} 只以 \pkg{xeCJK} 的方式提供中文支持，不支持 CJK 方式，
 % 所以用户必须使用UTF-8 编码保存源文件，并且用 |xelatex| 命令进行编译。
 %
 % 默认情况下，本模板可以利用 \pkg{ctex} 宏包的功能自动检测用户的操作系统类型，
-% 并选择合适的中文字库。自动配置的策略如下：
-% \begin{center}
-% \begin{tabular}{cl}
-%   \toprule
-%     操作系统 & 中文字库 \\
-%   \midrule
-%     macOS & 华文字库 \\
-%     Windows Vista 及以后版本 & 中易字库 + 微软雅黑 \\
-%     Windows XP 及以前版本 & 中易字库 \\
-%     其他 & Fandol 字库 \\
-%   \bottomrule
-% \end{tabular}
-% \end{center}
+% 并选择合适的中文字库。默认配置的策略如表~\ref{tab:fonts}：
+% \begin{table}[htbp]
+%   \centering
+%   \begin{tabular}{cl}
+%     \toprule
+%       操作系统                 & 中文字库 \\
+%     \midrule
+%       macOS                    & 华文字库 \\
+%       Windows Vista 及以后版本 & 中易字库 + 微软雅黑 \\
+%       Windows XP 及以前版本    & 中易字库 \\
+%       其他                     & Fandol 字库 \\
+%     \bottomrule
+%   \end{tabular}
+%   \caption{默认字体配置}
+%   \label{tab:fonts}
+% \end{table}
 %
 % 用户也可以在调用文档类时加入选项 \opt{fontset=\meta{font}} 来显式地指定加载的字库，参见 \pkg{ctex}、\pkg{fontspec} 宏包。
 %
@@ -388,13 +414,13 @@ LaTeX version 1999/12/01 or later.
 % \end{description}
 %
 % 硕博论文的内容按如下顺序排列：
-% \begin{enumerate}
+% \begin{description}
 %   \item[封面] 中文封面、英文封面、原创性声明及授权使用说明
 %   \item[front matter] 中文摘要、英文摘要、目录、图表及代码目录、符号说明
 %   \item[main matter] 正文章节、参考文献
 %   \item[appendix] 附录
 %   \item[back matter] 致谢、已发表论文列表
-% \end{enumerate}
+% \end{description}
 %
 % 示例文档 \file{main.tex} 中的致谢、目录等章节的顺序，是按照研究生论文的格式组
 % 织内容的，\emph{本科生需要手动调整顺序}。
@@ -410,22 +436,26 @@ LaTeX version 1999/12/01 or later.
 % 开始。
 %
 % 封面由 \cs{maketitle} 命令生成，其中的各项信息使用 \cs{\meta{item}\marg{info}}
-% 的方式填写，本模板提供以下命令，其中带 |en| 前缀的命令是设置英文封面的命令：
-% \begin{center}
-% \begin{tabular}{lll}
-%   \toprule
-%     命令              & 命令（英文）        & 说明 \\
-%   \midrule
-%     \cs{title}        & \cs{entitle}        & 论文标题 \\
-%     \cs{author}       & \cs{enauthor}       & 作者姓名 \\
-%     \cs{major}        & \cs{enmajor}        & 学科专业 \\
-%     \cs{supervisor}   & \cs{ensupervisor}   & 导师姓名 \\
-%     \cs{cosupervisor} & \cs{encosupervisor} & 副导师姓名 \\
-%     \cs{date}         & \cs{endate}         & 完成时间（默认为今天） \\
-%     \cs{secrettext}   & \cs{ensecrettext}   & 密级信息（默认不保密） \\
-%   \bottomrule
-% \end{tabular}
-% \end{center}
+% 的方式填写，本模板提供的命令如表~\ref{tab:covercmds}，其中带 |en| 前缀的命令是
+% 设置英文封面的命令：
+% \begin{table}[htbp]
+%   \centering
+%   \begin{tabular}{lll}
+%     \toprule
+%       命令              & 命令（英文）        & 说明 \\
+%     \midrule
+%       \cs{title}        & \cs{entitle}        & 论文标题 \\
+%       \cs{author}       & \cs{enauthor}       & 作者姓名 \\
+%       \cs{major}        & \cs{enmajor}        & 学科专业 \\
+%       \cs{supervisor}   & \cs{ensupervisor}   & 导师姓名 \\
+%       \cs{cosupervisor} & \cs{encosupervisor} & 副导师姓名 \\
+%       \cs{date}         & \cs{endate}         & 完成时间（默认为今天） \\
+%       \cs{secrettext}   & \cs{ensecrettext}   & 密级信息（默认不保密） \\
+%     \bottomrule
+%   \end{tabular}
+%   \caption{用来定义封面项目}
+%   \label{tab:covercmds}
+% \end{table}
 %
 % \subsection{摘要等环境}
 % \DescribeEnv{abstract}
@@ -433,20 +463,23 @@ LaTeX version 1999/12/01 or later.
 % \DescribeEnv{notation}
 % \DescribeEnv{acknowledgements}
 % \DescribeEnv{publications}
-% \cls{ustcthesis} 还提供了以下环境，用于填写相应的信息。
-% \begin{center}
-% \begin{tabular}{ll}
-%   \toprule
-%     环境                   & 说明 \\
-%   \midrule
-%     \env{abstract}         & 中文摘要 \\
-%     \env{enabstract}       & 英文摘要 \\
-%     \env{notation}         & 符号 \\
-%     \env{acknowledgements} & 致谢 \\
-%     \env{publications}     & 发表成果 \\
-%   \bottomrule
-% \end{tabular}
-% \end{center}
+% 对于特殊的章节，\cls{ustcthesis} 还提供了相应的环境，如表~\ref{tab:environments}。
+% \begin{table}[htbp]
+%   \centering
+%   \begin{tabular}{ll}
+%     \toprule
+%       环境                   & 说明 \\
+%     \midrule
+%       \env{abstract}         & 中文摘要 \\
+%       \env{enabstract}       & 英文摘要 \\
+%       \env{notation}         & 符号 \\
+%       \env{acknowledgements} & 致谢 \\
+%       \env{publications}     & 发表成果 \\
+%     \bottomrule
+%   \end{tabular}
+%   \caption{特殊章节的环境}
+%   \label{tab:environments}
+% \end{table}
 %
 % \DescribeMacro{\keywords}
 % \DescribeMacro{\enkeywords}
@@ -460,25 +493,28 @@ LaTeX version 1999/12/01 or later.
 % \end{latex}
 %
 % \subsection{目录和图表}
-% 生成目录、插图和表格的索引命令分别如下：
+% 生成目录、插图和表格的索引命令分别如表~\ref{tab:tocs}：
 % \DescribeMacro{\tableofcontents}
 % \DescribeMacro{\listoffigures}
 % \DescribeMacro{\listoftables}
-% \begin{center}
-% \begin{tabular}{ll}
-%   \toprule
-%     命令                  & 说明 \\
-%   \midrule
-%     \cs{tableofcontents}  & 目录 \\
-%     \cs{listoffigures}    & 图目录 \\
-%     \cs{listoftables}     & 表目录 \\
-%     \cs{listofalgorithms} & 算法目录 \\
-%   \bottomrule
-% \end{tabular}
-% \end{center}
+% \begin{table}[htbp]
+%   \centering
+%   \begin{tabular}{ll}
+%     \toprule
+%       命令                  & 说明 \\
+%     \midrule
+%       \cs{tableofcontents}  & 目录 \\
+%       \cs{listoffigures}    & 图目录 \\
+%       \cs{listoftables}     & 表目录 \\
+%       \cs{listofalgorithms} & 算法目录 \\
+%     \bottomrule
+%   \end{tabular}
+%   \caption{各种目录的环境}
+%   \label{tab:tocs}
+% \end{table}
 %
-% \LaTeX{} 的图表索引，是通过 \cs{caption} 命令完成的，因此它们必须出现在浮动环境中，
-% 否则不被计数。
+% \LaTeX{} 的图表索引，是通过 \cs{caption} 命令完成的，因此它们必须出现在浮动环
+% 境中，否则不被计数。
 % 如果不想让某个表格或者图片出现在索引里面，那么应使用命令 \cs{caption*}，
 % 这个命令不会给表格编号，也就是出来的只有标题文字而没有“表~xx”，“图~xx”。
 %
@@ -487,44 +523,39 @@ LaTeX version 1999/12/01 or later.
 %
 % \subsection{数学}
 %
-% 模板中定义了一些使用正体的数学符号：
-% \begin{center}
-% \begin{tabular}{rl}
-%   \toprule
-%     符号                 & 命令 \\
-%   \midrule
-%     常数$\mathrm{e}$     & \cs{eu} \\
-%     复数单位$\mathrm{i}$ & \cs{iu} \\
-%     微分符号$\mathrm{d}$ & \cs{diff} \\
-%     $\arg\,\max$         & \cs{argmax} \\
-%     $\arg\,\min$         & \cs{argmin} \\
-%   \bottomrule
-% \end{tabular}
-% \end{center}
+% 模板中定义了一些使用正体的数学符号（表~\ref{tab:symbols}）。
+% \begin{table}
+%   \centering
+%   \begin{tabular}{rl}
+%     \toprule
+%       符号                 & 命令 \\
+%     \midrule
+%       常数$\mathrm{e}$     & \cs{eu} \\
+%       复数单位$\mathrm{i}$ & \cs{iu} \\
+%       微分符号$\mathrm{d}$ & \cs{diff} \\
+%       $\arg\,\max$         & \cs{argmax} \\
+%       $\arg\,\min$         & \cs{argmin} \\
+%     \bottomrule
+%   \end{tabular}
+%   \caption{模板定义的数学符号}
+%   \label{tab:symbols}
+% \end{table}
 %
-% \file{ustcextra.sty} 定义了数学定理格式 |ustcplain|（默认使用）以及一些常用的环境：
-% \begin{center}
-% \begin{tabular}{*{5}{l}}
-%   \toprule
-%     theorem & assertion & axiom & corollary & lemma \\
-%     定理 & 断言 & 公理 & 推论 & 引理 \\
-%   \midrule
-%     proposition & definition & example & remark & proof \\
-%     命题 & 定义 & 例 & 注 & 证明  \\
-%   \bottomrule
-% \end{tabular}
-% \end{center}
-% 使用方法如下：
-% \begin{latex}
-% \begin{theorem}[Fundamental theorem of calculus]
-%     Let $f$ be a continuous real-valued function defined on
-%     a closee interval $[a, b]$. Let
-%     \begin{equation}
-%         F(x) = \int_a^x f(t) \, \mathrm{d}t \qquad x \in [a, b].
-%     \end{equation}
-%     Then $F$ is differentiable on $(a, b)$, and $F'(x) = f(x)$.
-% \end{theorem}
-% \end{latex}
+% \file{ustcextra.sty} 定义了数学定理格式 |ustcplain|（默认使用）以及一些常用的
+% 环境，如表~\ref{tab:theorems}。
+% \begin{table}[htbp]
+%   \begin{tabular}{*{5}{l}}
+%     \toprule
+%       theorem     & assertion  & axiom   & corollary & lemma \\
+%       定理        & 断言       & 公理    & 推论      & 引理  \\
+%     \midrule
+%       proposition & definition & example & remark    & proof \\
+%       命题        & 定义       & 例      & 注        & 证明  \\
+%     \bottomrule
+%   \end{tabular}
+%   \caption{数学定理相关的环境}
+%   \label{tab:theorems}
+% \end{table}
 %
 % 注意\env{proof} 环境与其它不同的是，其第二个参数会完全取代“证明”标题，
 % 并且会在末尾加一个 \cs{qed}。
@@ -679,6 +710,7 @@ LaTeX version 1999/12/01 or later.
 % 方法见 \ref{sec:update} 。
 %
 %
+%
 % \section{模板开发维护指南}
 % \label{sec:dev_guide}
 %
@@ -688,61 +720,43 @@ LaTeX version 1999/12/01 or later.
 % 中的文档，还应熟悉：
 %
 % \begin{itemize}
-% \item
-%   latex2e.pdf: 系统地介绍了 \LaTeX{}
+% \item latex2e.pdf: 系统地介绍了 \LaTeX{}
 %   使用的方方面面的文档，有平时很多用不到但是 \LaTeX{} 提供了的命令
-% \item
-%   所用宏包的文档（可能还有源码）：
-% \item
-%   常用的工具 latexmk, texdoc
-% \item
-%   一些调试技巧如 \cs{show} 和 \cs{meaning} 命令
+% \item 所用宏包的文档（可能还有源码）：
+% \item 常用的工具 latexmk, texdoc
+% \item 一些调试技巧如 \cs{show} 和 \cs{meaning} 命令
 % \end{itemize}
 %
 % 下面是面向开发的文档：
-%
 % \begin{itemize}
-% \item
-%   clsguide.pdf: \LaTeXe{} 宏包和文档类的命令和编写规范
-% \item
-%   classes.pdf: 这是 \LaTeXe{} 三个标准文档类的实现，用于参考
-% \item
-%   macros2e.pdf: 集中介绍了 \LaTeXe{} 里使用的一些内部宏，用于参考
-% \item
-%   dtxtut.pdf:  \LaTeX{}
-%   的宏包与说明文档的封装方式，即所谓``文学编程''，更详细的有
-%   docstrip.pdf 和 doc.pdf，
-%   \href{http://www.texdev.net/2009/10/06/a-model-dtx-file/}{Joseph
-%   Wright 的文章} 介绍了更好封装的技巧
+% \item clsguide.pdf: \LaTeXe{} 宏包和文档类的命令和编写规范
+% \item classes.pdf: 这是 \LaTeXe{} 三个标准文档类的实现，用于参考
+% \item macros2e.pdf: 集中介绍了 \LaTeXe{} 里使用的一些内部宏，用于参考
+% \item source2e.pdf: 这是 \LaTeXe{} 的实现
+% \item dtxtut.pdf:  \LaTeX{} 的宏包与说明文档的封装方式，即所谓``文学编程''，
+%   更详细的有 docstrip.pdf 和 doc.pdf，
+%   \href{http://www.texdev.net/2009/10/06/a-model-dtx-file/}{Joseph Wright 的文
+%   章} 介绍了更好封装的技巧
 % \end{itemize}
 %
 % 关于 BibTeX，应阅读以下文档：
-%
 % \begin{itemize}
-% \item
-%   btxdoc.pdf, btxhak.pdf: BibTeX 的说明文档
-% \item
-%   btxbst.doc: BibTeX 的三个标准 bst 的源文件（带注释）
-% \item
-%   ttb.pdf: 一份详细的介绍
-% \item
-%   natbib.pdf: natbib 宏包的文档
+% \item btxdoc.pdf, btxhak.pdf: BibTeX 的说明文档
+% \item btxbst.doc: BibTeX 的三个标准 bst 的源文件（带注释）
+% \item ttb.pdf: 一份详细的介绍
+% \item natbib.pdf: natbib 宏包的文档
 % \end{itemize}
 %
 % 至此可以解决大部分的问题了，如果想要更深入地研究，有下高级资料：
-%
 % \begin{itemize}
-% \item
-%   TeXbook\footnote{可以在 CTAN 找到源码并自行编译}: Knuth 的 TeX 圣经，了解底层 TeX
-%   的原理必读。还有更简略一点的介绍文档
-%   TeXbyTopic.pdf 和 impatient.pdf。
-% \item
-%   source2e.pdf: 这是 \LaTeXe{} 的实现
+% \item TeXbook\footnote{可以在 CTAN 找到源码并自行编译}: Knuth 的 TeX 圣经，
+%   了解底层 TeX 的原理必读。还有更简略一点的介绍文档 TeXbyTopic.pdf 和
+%   impatient.pdf。
+% \item The \LaTeX{} Companion: 一本大而全的书。
 % \end{itemize}
 %
 % \LaTeX3 的开发正在进行中，其底层接口已经相对成熟和稳定。\pkg{xecjk} 和 \pkg{ctex}
 % 均是建立在 \LaTeX3 基础上的。关于 \LaTeX3 的语法的文档有：
-%
 % \begin{itemize}
 % \item
 %   l3styleguide.pdf，这是 \LaTeX3 项目组写给开发者的指南
@@ -1840,60 +1854,22 @@ LaTeX version 1999/12/01 or later.
 % 发表成果环境：
 %    \begin{macrocode}
 \newenvironment{publications}{\chapter{\ustc@publicationsname}}{}
-%    \end{macrocode}
-% \end{environment}
-% 书脊部分代码无效
-%    \begin{macrocode}
-% 书脊的论文题目、系别、作者姓名默认为\ustc@title, \ustc@depart, \ustc@author，
-% 竖排的内部实现是，先用 \addCJKfontfeatures{Vertical=RotatedGlyphs} 旋转每个字，
-% 再用 \rotatebox{-90}{} 旋转整个盒子，
-% 由于中文字形的旋转后的深度会变，所以使用 \raisebox 进行调整。
-% 所以留下 \spinetitle 等接口进行设置，如果标题里含有英文，要用\entext{}包括起来
-% \RequirePackage{rotating}
-% \ustc@define@term{spinetitle}
-% \ustc@define@term{spinedepart}
-% \ustc@define@term{spineauthor}
-%
-% \spinetitle{\ustc@title}
-% \spinedepart{\ustc@depart}
-% \spineauthor{\ustc@author}
-%
-% \newcommand\entext[1]{\raisebox{-0.75ex}{~#1{}~}}
-%
-% \newcommand\make@spine{%
-%     \begin{titlepage}
-%     \begin{center}
-%         书脊(此页仅用于制作书脊,不用单独打印放入论文)\par
-%         \renewcommand\\{\relax}
-%         \sffamily\bfseries\setfontsize{12bp}[14bp]\ziju{0.166667}
-%         \addCJKfontfeatures{Vertical=RotatedGlyphs}
-%         \rotatebox{-90}{\fbox{\parbox{20cm}{
-%             \hspace*{3cm plus 1cm minus 2cm}
-%             \raisebox{0.75ex}{\ustc@spinetitle} \hfill\quad\hfill
-%             \raisebox{0.75ex}{\ustc@spinedepart} \hfill\quad\hfill
-%             \raisebox{0.75ex}{\ustc@spineauthor} \hfill\quad\hfill
-%             \raisebox{0.75ex}{中国科学技术大学}
-%             \hspace{3cm plus 1cm minus 2cm}
-%             \vskip 5.8pt\relax}}}
-%     \end{center}
-%     \end{titlepage}
-% }
-%
-% \spinetitle{\entext{USTC}本硕博毕业论文示例文档} % 书脊的英文文字要用 \entext{} 括起来
 %</class>
 %    \end{macrocode}
+% \end{environment}
+%
+%
 %
 % \StopEventually{}
 %
-% \subsection{\BibTeX{} style implementation}
-% \subsubsection{Fields and entry strings}
+% \section{BibTeX style implementation}
+%
 % \lstset{gobble=2,basicstyle=\ttfamily,frame=single,language=bash}
+%
+% \subsection{Fields and entry strings}
 %
 %    \begin{macrocode}
 %<*authoryear|numerical>
-%    \end{macrocode}
-%
-%    \begin{macrocode}
 ENTRY
   { address
     author
@@ -1942,7 +1918,7 @@ ENTRY
 
 %    \end{macrocode}
 %
-% \subsubsection{Entry functions}
+% \subsection{Entry functions}
 % Each entry function starts by calling output.bibitem, to write the
 % |\bibitem| and its arguments to the .BBL file.  Then the various fields
 % are formatted and printed by output or output.check.  Those functions
@@ -2339,7 +2315,7 @@ FUNCTION {new.sentence.checkb}
 
 %    \end{macrocode}
 %
-% \subsubsection{Formatting chunks}
+% \subsection{Formatting chunks}
 % Here are some functions for formatting chunks of an entry.
 % By convention they either produce a string that can be followed by
 % a comma or period (using |add.period$|, so it is OK to end in a period),
@@ -3428,7 +3404,7 @@ FUNCTION {format.incoll.inproc.crossref}
 
 %    \end{macrocode}
 %
-% \subsubsection{Functions for all entry types}
+% \subsection{Functions for all entry types}
 %
 % Now we define the type functions for all entry types that may appear
 % in the .BIB file---e.g., functions like `article' and `book'.  These
@@ -3503,7 +3479,7 @@ FUNCTION {format.incoll.inproc.crossref}
 % The other entry functions are all quite similar, so no "comment version"
 % will be given for them.
 %
-% \subsubsection{专著}
+% \subsection{专著}
 %
 %    \begin{macrocode}
 FUNCTION {monograph}
@@ -3548,7 +3524,7 @@ FUNCTION {monograph}
 
 %    \end{macrocode}
 %
-% \subsubsection{专著中的析出文献}
+% \subsection{专著中的析出文献}
 %
 % An incollection is like inbook, but where there is a separate title
 % for the referenced thing (and perhaps an editor for the whole).
@@ -3591,7 +3567,7 @@ FUNCTION {incollection}
 
 %    \end{macrocode}
 %
-% \subsubsection{连续出版物}
+% \subsection{连续出版物}
 %
 %    \begin{macrocode}
 FUNCTION {periodical}
@@ -3621,7 +3597,7 @@ FUNCTION {periodical}
 
 %    \end{macrocode}
 %
-% \subsubsection{连续出版物中的析出文献}
+% \subsection{连续出版物中的析出文献}
 %
 %    \begin{macrocode}
 FUNCTION {article.in.journal}
@@ -3652,7 +3628,7 @@ FUNCTION {article.in.journal}
 
 %    \end{macrocode}
 %
-% \subsubsection{专利文献}
+% \subsection{专利文献}
 %
 % number 域也可以用来表示专利号。
 %
@@ -3684,7 +3660,7 @@ FUNCTION {patent}
 
 %    \end{macrocode}
 %
-% \subsubsection{电子资源}
+% \subsection{电子资源}
 %
 %    \begin{macrocode}
 FUNCTION {online}
@@ -3877,7 +3853,7 @@ FUNCTION {default.type} { misc }
 
 %    \end{macrocode}
 %
-% \subsubsection{Common macros}
+% \subsection{Common macros}
 %
 % Here are macros for common things that may vary from style to style.
 % Users are encouraged to use these macros.
@@ -3962,7 +3938,7 @@ MACRO {tcs} {"Theoretical Computer Science"}
 
 %    \end{macrocode}
 %
-% \subsubsection{Read bib entries and execute}
+% \subsection{Read bib entries and execute}
 %
 % Now we read in the .BIB entries.
 %
