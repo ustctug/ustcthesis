@@ -57,7 +57,7 @@ LaTeX version 1999/12/01 or later.
 %<class>\NeedsTeXFormat{LaTeX2e}[1999/12/01]
 %<class>\ProvidesClass{ustcthesis}
 %<*class>
-    [2017/07/01 v3.0 USTC thesis template]
+    [2017/07/01 v3.0-beta USTC thesis template]
 %</class>
 %
 %<*driver>
@@ -157,9 +157,6 @@ LaTeX version 1999/12/01 or later.
 %   Right bracket \]     Circumflex    \^     Underscore    \_
 %   Grave accent  \`     Left brace    \{     Vertical bar  \|
 %   Right brace   \}     Tilde         \~}
-%
-% \changes{v2.0}{2016/02/21}{Initial release.}
-% \changes{v2.0.1}{2016/03/10}{Add code and algorithm environments.}
 %
 % \GetFileInfo{ustcthesis.dtx}
 %
@@ -817,6 +814,7 @@ LaTeX version 1999/12/01 or later.
 %    \end{macrocode}
 %
 % 载入 \cls{ctexbook} 文档类，注意要求 \pkg{ctex} 为 2.0 以及更高的版本。
+% \changes{v3.0}{2017/07/01}{正文新的一章另面起}
 %    \begin{macrocode}
 \LoadClass[UTF8, a4paper, openany, zihao=-4]{ctexbook}[2015/05/14]
 \RequirePackage{etoolbox}
@@ -930,8 +928,6 @@ LaTeX version 1999/12/01 or later.
 %
 % \subsection{设置语言}
 % 这里设置了中英文的各种名字。
-% \changes{v2.1.5}{2017/04/15}{Add English version.}
-% \changes{v2.2.2}{2017/04/26}{Enhance autoref names.}
 %    \begin{macrocode}
 \if@ustc@english
   \renewcommand\figurename{Fig.}
@@ -966,7 +962,6 @@ LaTeX version 1999/12/01 or later.
 %
 % \subsection{页面设置}
 % 首先用 \pkg{geometry} 宏包设置纸张和页面。
-% \changes{v2.2}{2017/04/17}{Fix page layout bug.}
 %    \begin{macrocode}
 \RequirePackage{geometry}
 \geometry{
@@ -978,6 +973,7 @@ LaTeX version 1999/12/01 or later.
 %    \end{macrocode}
 %
 % 再用 \pkg{fancyhdr} 宏包设置页眉页码。
+% \changes{v3.0}{2017/07/01}{页码全部居中}
 %
 %    \begin{macrocode}
 \RequirePackage{fancyhdr}
@@ -991,7 +987,7 @@ LaTeX version 1999/12/01 or later.
   \fancypagestyle{ustc@headings}{%
     \fancyhf{}%
     \fancyhead[C]{\setfontsize{10.5bp}\leftmark}%
-    \fancyfoot[LE,RO]{\setfontsize{10.5bp}\thepage}}%
+    \fancyfoot[C]{\setfontsize{10.5bp}\thepage}}%
 \fi
 \fancypagestyle{ustc@notation}{\fancyfoot{}}
 \pagestyle{ustc@headings}
@@ -1001,15 +997,14 @@ LaTeX version 1999/12/01 or later.
       \protect\spacetitle{#1}}}{}}%
 %    \end{macrocode}
 %
-% 另起一页的空白页不加页眉。
+% 空白页不加页眉。
+% \changes{v3.0}{2017/07/01}{空白页不加页眉}
 %    \begin{macrocode}
 \renewcommand*{\cleardoublepage}{\clearpage\if@twoside \ifodd\c@page\else
   \hbox{}\thispagestyle{empty}\newpage\if@twocolumn\hbox{}\newpage\fi\fi\fi}
 %    \end{macrocode}
 %
 % 将 frontmatter 的页码改为大写的罗马数字，并调整页面风格。
-% \changes{v2.1.1}{2016/04/19}{调整 frontmatter 的页码位置}
-% \changes{v2.1.3}{2016/05/27}{调整 bachelor 的页码起始和样式}
 %    \begin{macrocode}
 \g@addto@macro\frontmatter{%
   \if@ustc@bachelor
@@ -1049,7 +1044,6 @@ LaTeX version 1999/12/01 or later.
 % 用 \pkg{ctex} 的接口设置全局的章节标题格式，注意由于 \pkg{ctex} 2.1 以下版本的 bug，
 % chapter 的 nameformat 和 titleformat 的这两行必须置空。
 %
-% \changes{v2.1.5}{2017/04/16}{Fix chapter title distance bug.}
 % \pkg{ctex} 2.4.3 以下版本的bug会导致章节标题前后的距离的实际值偏大，
 % 临时的解决方案是手动调整，偏移值为beforeskip=-31bp, afterskip=-10bp。
 % 但是\pkg{ctex} 2.2 前的beforeskip的符号有特殊意义，所以临时解决方案只用于
@@ -1068,7 +1062,8 @@ LaTeX version 1999/12/01 or later.
 %    \end{macrocode}
 %
 % 研究生规定章题为两字时中间空两字，三字时空一字，四字时空半字，四字以上不空：
-%
+% \changes{v3.0}{2017/07/01}{章题为两字时中间空两字，三字时空一字，
+% 四字时空半字，四字以上不空}
 %    \begin{macrocode}
 \RequirePackage{stringstrings}
 \newcounter{titlelength}
@@ -1093,6 +1088,9 @@ LaTeX version 1999/12/01 or later.
 %
 % 另外摘要、参考文献等章节在底层也是用 \cs{chapter} 实现的。
 % 这一部分以后可能重新实现 \cs{chapter}。
+% \changes{v3.0}{2017/07/01}{新增二级以下节标题的缩进}
+% \changes{v3.0}{2017/07/01}{二级以下节标题编号下采用“1.”、“(1)”、
+%   “\textcircled{\footnotesize{}1}”}
 %
 %    \begin{macrocode}
 \setcounter{secnumdepth}{5}
@@ -1268,8 +1266,6 @@ LaTeX version 1999/12/01 or later.
 %    \end{macrocode}
 % \end{macro}
 %
-% \changes{v2.1.2}{2016/04/27}{Use tikz to design title page.}
-% \changes{v2.2}{2017/04/17}{Resize school title.}
 % 现在开始设计封面。如果“学科专业” 一栏放不下，可以将文字装进一个 \cs{parbox}，比如\\
 % |\parbox[t]{5cm}{A VERY LONG TEXT}|
 %    \begin{macrocode}
@@ -1336,7 +1332,6 @@ LaTeX version 1999/12/01 or later.
 %
 % \subsection{原创性声明}
 % 定义原创性声明
-% \changes{v2.2}{2017/04/17}{Adjust statement page layout.}
 %    \begin{macrocode}
 \newcommand{\ustc@declaretext} {
 本人声明所呈交的学位论文，是本人在导师指导下进行研究工作所取得的成果。
@@ -1393,6 +1388,8 @@ LaTeX version 1999/12/01 or later.
 %
 % \begin{environment}{abstract}
 % 中文摘要环境
+% \changes{v3.0}{2017/07/01}{摘要关键词间隔符号改用顿号}
+% \changes{v3.0}{2017/07/01}{摘要不再加入目录}
 %    \begin{macrocode}
 \newenvironment{abstract}{%
     \if@ustc@bachelor
@@ -1438,7 +1435,6 @@ LaTeX version 1999/12/01 or later.
 %
 % \begin{macro}{\tableofcontents}
 % 为了在 PDF 书签中加入目录，重新定义 \cs{tableofcontents}
-% \changes{v2.2.3}{2017/05/04}{Fix toc pdf mark.}
 %    \begin{macrocode}
 \renewcommand\tableofcontents{%
     \cleardoublepage%
@@ -1453,10 +1449,6 @@ LaTeX version 1999/12/01 or later.
 % 一级标题顶格书写，二级标题缩进一字，三级标题缩进两字。
 % 由于 \pkg{ctex} 新引入了 \opt{tocline}，导致chatper 的前标题空白多了0.3em。
 % 下面用 \pkg{titletoc} 宏包设置每级目录的格式
-% \changes{v2.2}{2017/04/16}{Fix toc font size using \cmd{setfontsize}.}
-% \changes{v2.2.2}{2017/04/25}{Fix bachelor toc font size.}
-% \changes{v2.2.2}{2017/05/02}{Fix toc spacing.}
-% \changes{v2.2.3}{2017/05/04}{Fix bachelor toc punct and spacing.}
 %    \begin{macrocode}
 \RequirePackage{titletoc}
 \newcommand\ustc@leaders{\titlerule*[0.5pc]{$\cdot$}}
@@ -1544,7 +1536,7 @@ LaTeX version 1999/12/01 or later.
 %
 % \begin{environment}{notation}
 % 标题字体字号等同论文正文，说明部分:宋体 10.5 磅，行距 16 磅，段前段后 0 磅。
-%
+% \changes{v3.0}{2017/07/01}{符号说明不加页码}
 %    \begin{macrocode}
 \newenvironment{notation}{%
     \if@ustc@bachelor\clearpage\else\cleardoublepage\fi
@@ -1559,7 +1551,6 @@ LaTeX version 1999/12/01 or later.
 % \subsection{正文}
 %
 % 正文段落文字格式设置
-%
 %    \begin{macrocode}
 \if@ustc@bachelor
     \renewcommand\normalsize{\setfontsize{12bp}[22bp]}
@@ -1568,6 +1559,31 @@ LaTeX version 1999/12/01 or later.
 \fi
 \setlength{\parindent}{2\ccwd}
 \setlength{\parskip}{0bp}
+%    \end{macrocode}
+%
+% \subsection{数学}
+%
+% 定义新的数学符号：
+% \changes{v3.0}{2017/07/01}{规定了 $\pi$ 等数学符号使用正体}
+%    \begin{macrocode}
+\RequirePackage{upgreek}
+\renewcommand\pi{\uppi}
+%    \end{macrocode}
+%
+% 小于等于号要使用倾斜的形式。
+% \changes{v3.0}{2017/07/01}{修正了 LaTeX 的小于等于号}
+%    \begin{macrocode}
+\RequirePackage{amssymb}
+\renewcommand\le{\leqslant}
+\renewcommand\leq{\leqslant}
+\renewcommand\ge{\geqslant}
+\renewcommand\geq{\geqslant}
+%    \end{macrocode}
+%
+% \LaTeX{} 在使用 |10pt| 选项时有 |DeclareMathSizes}{\@xpt}{\@xpt}{7}{5}}|，
+% 这里按照相同的比例设置 10.5 bp。
+%    \begin{macrocode}
+\DeclareMathSizes{10.5bp}{10.5bp}{7.35bp}{5.25bp}
 %    \end{macrocode}
 %
 % \subsection{图、表}
@@ -1602,9 +1618,7 @@ LaTeX version 1999/12/01 or later.
 %
 % 用 \pkg{caption} 宏包设置图、表的格式
 % 注意计算 belowskip 必须用 \pkg{calc} 宏包修正。
-% \changes{v2.2}{2017/04/17}{Fix distance below figure captions.}
-% \changes{v2.2.1}{2017/04/18}{Fix distance above figures.}
-% \changes{v2.2.2}{2017/04/25}{Fix caption spacing.}
+% \changes{v3.0}{2017/07/01}{图表的编号号、标题加粗}
 %    \begin{macrocode}
 \RequirePackage{caption}
 \RequirePackage{calc}
@@ -1630,6 +1644,7 @@ LaTeX version 1999/12/01 or later.
 %    \end{macrocode}
 %
 % 使表的字号略小。
+% \changes{v3.0}{2017/07/01}{表格的字号略小}
 %    \begin{macrocode}
 % \BeforeBeginEnvironment{tabular}{\small}
 % \AtBeginEnvironment{longtable}{\small}
@@ -1645,36 +1660,16 @@ LaTeX version 1999/12/01 or later.
 %    \end{macrocode}
 % \end{macro}
 %
-% \subsection{数学}
-%
-% 定义新的数学符号：
-%    \begin{macrocode}
-\RequirePackage{upgreek}
-\renewcommand\pi{\uppi}
-%    \end{macrocode}
-%
-% 小于等于号要使用倾斜的形式。
-%    \begin{macrocode}
-\RequirePackage{amssymb}
-\renewcommand\le{\leqslant}
-\renewcommand\leq{\leqslant}
-\renewcommand\ge{\geqslant}
-\renewcommand\geq{\geqslant}
-%    \end{macrocode}
-%
-% \LaTeX{} 在使用 |10pt| 选项时有 |DeclareMathSizes}{\@xpt}{\@xpt}{7}{5}}|，
-% 这里按照相同的比例设置 10.5 bp。
-%    \begin{macrocode}
-\DeclareMathSizes{10.5bp}{10.5bp}{7.35bp}{5.25bp}
-%    \end{macrocode}
-%
 % \subsection{脚注}
+%
+% \changes{v3.0}{2017/07/01}{脚注用带圈序号，缩进两字}
 % 脚注用带圈的数字：
 %    \begin{macrocode}
 \renewcommand{\thefootnote}{\ustc@textcircled{footnote}}
 %    \end{macrocode}
 %
 % 脚注线长为版心宽度的四分之一：
+% \changes{v3.0}{2017/07/01}{脚注线长度为版心宽度四分之一}
 %    \begin{macrocode}
 \renewcommand\footnoterule{%
   \kern-3\p@
@@ -1691,13 +1686,11 @@ LaTeX version 1999/12/01 or later.
 %    \end{macrocode}
 %
 % \subsection{参考文献}
-% 需要 \pkg{natbib} 的 \opt{sort\&compress}。
+% \changes{v3.0}{2017/07/01}{参考文献列表不出现“[S.l.]: [s.n.]”}
+%
 % 定义接口切换引用文献的标注法，可用 \cs{citestyle} 调用 \opt{numerical}
-% 或 \opt{authoryear}，参见 \pkg{natbib}。
-% \changes{v2.1}{2016/04/16}{Support both author-year and numerical bib style.}
-% \changes{v2.1.4}{2017/02/26}{Adopt bibliography style updates and fix a few bugs.}
-% \changes{v2.2.2}{2017/04/26}{Fix url font.}
-% \changes{v2.2.2}{2017/05/02}{Add inline citatinon style.}
+% 或 \opt{authoryear}。
+% \changes{v3.0}{2017/07/01}{允许文献序号作为叙述文字的一部分}
 %    \begin{macrocode}
 \RequirePackage[sort&compress]{natbib}
 \newcommand\bibstyle@numerical{\bibpunct{[}{]}{,}{s}{,}{\textsuperscript{,}}}
@@ -1835,7 +1828,6 @@ LaTeX version 1999/12/01 or later.
 %    \end{macrocode}
 % \end{macro}
 %
-% \changes{v2.1.2}{2016/04/23}{Fix bib style.}
 %
 % \subsection{附录}
 % \begin{environment}{acknowledgements}

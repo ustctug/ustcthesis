@@ -20,7 +20,7 @@
 %% 
 \NeedsTeXFormat{LaTeX2e}[1999/12/01]
 \ProvidesClass{ustcthesis}
-    [2017/07/01 v3.0 USTC thesis template]
+    [2017/07/01 v3.0-beta USTC thesis template]
 \newif\if@ustc@doctor
 \newif\if@ustc@master
 \newif\if@ustc@bachelor
@@ -165,7 +165,7 @@
   \fancypagestyle{ustc@headings}{%
     \fancyhf{}%
     \fancyhead[C]{\setfontsize{10.5bp}\leftmark}%
-    \fancyfoot[LE,RO]{\setfontsize{10.5bp}\thepage}}%
+    \fancyfoot[C]{\setfontsize{10.5bp}\thepage}}%
 \fi
 \fancypagestyle{ustc@notation}{\fancyfoot{}}
 \pagestyle{ustc@headings}
@@ -577,6 +577,14 @@
 \fi
 \setlength{\parindent}{2\ccwd}
 \setlength{\parskip}{0bp}
+\RequirePackage{upgreek}
+\renewcommand\pi{\uppi}
+\RequirePackage{amssymb}
+\renewcommand\le{\leqslant}
+\renewcommand\leq{\leqslant}
+\renewcommand\ge{\geqslant}
+\renewcommand\geq{\geqslant}
+\DeclareMathSizes{10.5bp}{10.5bp}{7.35bp}{5.25bp}
 \renewcommand{\topfraction}{.85}
 \renewcommand{\bottomfraction}{.65}
 \renewcommand\textfraction{.15}
@@ -605,14 +613,6 @@
 \newcommand\note[1]{%
     \captionsetup{position = bottom, font = small}
     \caption*{\hangindent=2\ccwd\relax\ustc@notesname\rmfamily#1}}
-\RequirePackage{upgreek}
-\renewcommand\pi{\uppi}
-\RequirePackage{amssymb}
-\renewcommand\le{\leqslant}
-\renewcommand\leq{\leqslant}
-\renewcommand\ge{\geqslant}
-\renewcommand\geq{\geqslant}
-\DeclareMathSizes{10.5bp}{10.5bp}{7.35bp}{5.25bp}
 \renewcommand{\thefootnote}{\ustc@textcircled{footnote}}
 \renewcommand\footnoterule{%
   \kern-3\p@
