@@ -1729,8 +1729,6 @@ FUNCTION {begin.bib}
   if$
   "\begin{thebibliography}{" number.label int.to.str$ * "}" *
   write$ newline$
-  "\bibpunct{(}{)}{;}{a}{,}{,}"
-  write$ newline$
   "\ifx\ustcjournal\undefined\newcommand\ustcjournal{\relax}\fi"
   write$ newline$
   "\providecommand{\natexlab}[1]{#1}"

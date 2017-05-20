@@ -1,10 +1,9 @@
 \chapter{引用文献标注方法}
 
-\section{顺序编码制标注法}
+\section{顺序编码制角标数字标注法}
 
-设置命令：\verb|\citestyle{numerical}|
-\citestyle{numerical}
-\par\noindent
+\citestyle{super}
+\noindent
 \begin{tabular}{l@{\quad$\Rightarrow$\quad}l}
   \verb|\cite{knuth86a}| & \cite{knuth86a}\\
   \verb|\citet{knuth86a}| & \citet{knuth86a}\\
@@ -28,11 +27,10 @@
 
 
 
-\section{顺序编码制（文内）标注法}
+\section{顺序编码制数字标注法}
 
-设置命令：\verb|\citestyle{inline}|
-\citestyle{inline}
-\par\noindent
+\citestyle{numbers}
+\noindent
 \begin{tabular}{l@{\quad$\Rightarrow$\quad}l}
   \verb|\cite{knuth86a}| & \cite{knuth86a}\\
   \verb|\citet{knuth86a}| & \citet{knuth86a}\\
@@ -58,9 +56,8 @@
 
 \section{著者-出版年制标注法}
 
-设置命令：\verb|\citestyle{authoryear}|
 \citestyle{authoryear}
-\par\noindent
+\noindent
 \begin{tabular}{l@{\quad$\Rightarrow$\quad}l}
   \verb|\cite{knuth86a}| & \cite{knuth86a}\\
   \verb|\citet{knuth86a}| & \citet{knuth86a}\\
@@ -80,6 +77,8 @@
   \verb|\citet{knuth86a,knuth84}| & \citet{knuth86a,knuth84}\\
   \verb|\citep{knuth86a,knuth84}| & \citep{knuth86a,knuth84}\\
 \end{tabular}
+
+
 
 \section{其他形式的标注}
 
@@ -102,3 +101,8 @@
   \verb|\citeyear{tlc2}| & \citeyear{tlc2}\\
   \verb|\citeyearpar{tlc2}| & \citeyearpar{tlc2}\\
 \end{tabular}
+
+
+
+\citestyle{super}
+\nocite{*}

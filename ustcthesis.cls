@@ -27,6 +27,7 @@
 \newif\if@ustc@professional
 \newif\if@ustc@english
 \newif\if@ustc@numerical
+\newif\if@ustc@super
 \newif\if@ustc@pdf
 \DeclareOption{doctor}{\@ustc@doctortrue}
 \DeclareOption{master}{\@ustc@mastertrue}
@@ -36,10 +37,11 @@
 \DeclareOption{english}{\@ustc@englishtrue}
 \DeclareOption{print}{\@ustc@pdffalse}
 \DeclareOption{pdf}{\@ustc@pdftrue}
-\DeclareOption{numerical}{\@ustc@numericaltrue}
+\DeclareOption{super}{\@ustc@numericaltrue\@ustc@supertrue}
+\DeclareOption{numbers}{\@ustc@numericaltrue\@ustc@superfalse}
 \DeclareOption{authoryear}{\@ustc@numericalfalse}
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{ctexbook}}
-\ExecuteOptions{doctor,chinese,print,numerical}
+\ExecuteOptions{doctor,chinese,print,super}
 \ProcessOptions\relax
 \newif\if@ustc@addtocspace
 \if@ustc@bachelor
@@ -623,12 +625,68 @@
   \noindent
   \hb@xt@2\ccwd{\hss\@makefnmark}#1}
 \RequirePackage[sort&compress]{natbib}
-\newcommand\bibstyle@numerical{\bibpunct{[}{]}{,}{s}{,}{\textsuperscript{,}}}
-\newcommand\bibstyle@inline{\bibpunct{[}{]}{,}{n}{,}{,}}
+\newcommand\bibstyle@super{\bibpunct{[}{]}{,}{s}{,}{\textsuperscript{,}}}
+\newcommand\bibstyle@numbers{\bibpunct{[}{]}{,}{n}{,}{,}}
 \newcommand\bibstyle@authoryear{\bibpunct{(}{)}{;}{a}{,}{,}}
+\def\tmp@numerical{numerical}
+\def\tmp@authoryear{authoryear}
+\newcommand\ustcbibstyle[1]{%
+  \def\tmp@gbt{#1}%
+  \ifx\tmp@gbt\tmp@numerical%
+    \bibliographystyle{ustcnumerical}%
+  \else%
+    \ifx\tmp@gbt\tmp@authoryear%
+      \bibliographystyle{ustcauthoryear}%
+    \else%
+      \PackageError{ustcthesis}{Unknown argument #1.}
+      {It should be `numerical' or `authoryear'.}
+    \fi%
+  \fi%
+}
+\if@ustc@numerical
+  \if@ustc@super
+    \citestyle{super}
+    \bibliographystyle{ustcnumerical}%
+  \else
+    \citestyle{numbers}
+    \bibliographystyle{ustcnumerical}%
+  \fi
+\else
+  \citestyle{authoryear}
+  \bibliographystyle{ustcauthoryear}%
+\fi
+\patchcmd\NAT@citexnum{%
+  \@ifnum{\NAT@ctype=\z@}{%
+    \if*#2*\else\NAT@cmt#2\fi
+  }{}%
+  \NAT@mbox{\NAT@@close}%
+}{%
+  \NAT@mbox{\NAT@@close}%
+  \@ifnum{\NAT@ctype=\z@}{%
+    \if*#2*\else\textsuperscript{#2}\fi
+  }{}%
+}{}{}
+\renewcommand\NAT@citesuper[3]{\ifNAT@swa
+\if*#2*\else#2\NAT@spacechar\fi
+\unskip\kern\p@\textsuperscript{\NAT@@open#1\NAT@@close\if*#3*\else#3\fi}%
+   \else #1\fi\endgroup}
+\renewcommand\NAT@citenum%
+    [3]{\ifNAT@swa\NAT@@open\if*#2*\else#2\NAT@spacechar\fi
+        #1\NAT@@close\if*#3*\else\textsuperscript{#3}\fi\else#1\fi\endgroup}
+\patchcmd{\NAT@citex}{%
+  \if*#2*\else\NAT@cmt#2\fi
+  \if\relax\NAT@date\relax\else\NAT@@close\fi
+}{%
+  \if\relax\NAT@date\relax\else\NAT@@close\fi
+  \if*#2*\else\textsuperscript{#2}\fi
+}{}{}
+\renewcommand\NAT@cite%
+    [3]{\ifNAT@swa\NAT@@open\if*#2*\else#2\NAT@spacechar\fi
+        #1\NAT@@close\if*#3*\else\textsuperscript{#3}\fi\else#1\fi\endgroup}
 \renewcommand\bibfont{\setfontsize{10.5bp}[20bp]}
 \setlength{\bibsep}{0bp}
-\setlength{\bibhang}{1em}
+\setlength{\bibhang}{2\ccwd}
+\renewcommand\@biblabel[1]{[#1]\hfill}
 \if@ustc@bachelor
     \newcommand\ustcjournal{\textit}
 \else
@@ -644,82 +702,12 @@
   \do\U\do\V\do\W\do\X\do\Y\do\Z%
   \do\1\do\2\do\3\do\4\do\5\do\6\do\7\do\8\do\9\do\0%
 }
-\def\tmp@numerical{numerical}
-\def\tmp@authoryear{authoryear}
-\newcommand\ustcbibstyle[1]{%
-  \def\tmp@gbt{#1}%
-  \ifx\tmp@gbt\tmp@numerical%
-    \citestyle{numerical}
-    \bibliographystyle{ustcnumerical}%
-  \else%
-    \ifx\tmp@gbt\tmp@authoryear%
-      \citestyle{authoryear}
-      \bibliographystyle{ustcauthoryear}%
-    \else%
-      \PackageError{ustcthesis}{Unknown argument #1.}
-      {It should be `numerical' or `authoryear'.}
-    \fi%
-  \fi%
-}
-\if@ustc@numerical
-  \ustcbibstyle{numerical}
-\else
-  \ustcbibstyle{authoryear}
-\fi
-\patchcmd\NAT@citexnum{%
-  \@ifnum{\NAT@ctype=\z@}{%
-    \if*#2*\else\NAT@cmt#2\fi
-  }{}%
-  \NAT@mbox{\NAT@@close}%
-}{%
-  \NAT@mbox{\NAT@@close}%
-  \@ifnum{\NAT@ctype=\z@}{%
-    \if*#2*\else\textsuperscript{#2}\fi
-  }{}%
-}{}{}
-\renewcommand\NAT@citesuper[3]{\ifNAT@swa
-  \if*#2*\else#2\NAT@spacechar\fi
-\unskip\kern\p@\textsuperscript{\NAT@@open#1\NAT@@close\if*#3*\else#3\fi}%
-   \else #1\fi\endgroup}
-\patchcmd{\NAT@citex}{%
-  \if*#2*\else\NAT@cmt#2\fi
-  \if\relax\NAT@date\relax\else\NAT@@close\fi
-}{%
-  \if\relax\NAT@date\relax\else\NAT@@close\fi
-  \if*#2*\else\textsuperscript{#2}\fi
-}{}{}
-\renewcommand\NAT@cite%
-    [3]{\ifNAT@swa\NAT@@open\if*#2*\else#2\NAT@spacechar\fi
-        #1\NAT@@close\if*#3*\else\textsuperscript{#3}\fi\else#1\fi\endgroup}
-\renewenvironment{thebibliography}[1]{%
+\renewcommand\bibsection{%
     \if@openright\cleardoublepage\else\clearpage\fi
     \@mainmatterfalse
     \chapter{\bibname}%
-    \parindent\z@
-    \bibpreamble
-    \bibfont
-    \list{\@biblabel{\the\c@NAT@ctr}}{\@bibsetup{#1}\global\c@NAT@ctr\z@}%
-    \ifNAT@openbib
-        \renewcommand\newblock{\par}%
-    \else
-        \renewcommand\newblock{\hskip .11em \@plus.33em \@minus.07em}%
-    \fi
-    \sloppy\clubpenalty4000\widowpenalty4000
-    \sfcode`\.\@m
-    \let\NAT@bibitem@first@sw\@firstoftwo
-        \let\citeN\cite \let\shortcite\cite
-        \let\citeasnoun\cite
-}{%
-    \bibitem@fin
-    \bibpostamble
-    \def\@noitemerr{%
-        \PackageWarning{natbib}{Empty `thebibliography' environment}%
-    }%
-    \endlist
-    \bibcleanup
-    \if@openright\cleardoublepage\else\clearpage\fi
     \@mainmattertrue
-}%
+}
 \newenvironment{acknowledgements}{%
   \if@ustc@bachelor
     \ustc@chapter{\ustc@acknowledgementsname}%
