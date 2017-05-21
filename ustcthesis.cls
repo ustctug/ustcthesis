@@ -29,9 +29,9 @@
 \newif\if@ustc@numerical
 \newif\if@ustc@super
 \newif\if@ustc@pdf
-\DeclareOption{doctor}{\@ustc@doctortrue}
-\DeclareOption{master}{\@ustc@mastertrue}
-\DeclareOption{bachelor}{\@ustc@bachelortrue}
+\DeclareOption{doctor}{\@ustc@doctortrue\@ustc@masterfalse\@ustc@bachelorfalse}
+\DeclareOption{master}{\@ustc@doctorfalse\@ustc@mastertrue\@ustc@bachelorfalse}
+\DeclareOption{bachelor}{\@ustc@doctorfalse\@ustc@masterfalse\@ustc@bachelortrue}
 \DeclareOption{professional}{\@ustc@professionaltrue}
 \DeclareOption{chinese}{\@ustc@englishfalse}
 \DeclareOption{english}{\@ustc@englishtrue}
