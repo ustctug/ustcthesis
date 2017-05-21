@@ -198,7 +198,7 @@ LaTeX version 1999/12/01 or later.
 % 按照《\href{http://gradschool.ustc.edu.cn/ylb/material/xw/wdxz/32.pdf}
 % {中国科学技术大学研究生学位论文撰写手册}》
 % 和《\href{http://www.teach.ustc.edu.cn/document/doc-administration/4032.html}
-% {关于本科毕业论文（设计）格式和统一封面的通知》} 的要求编写。
+% {关于本科毕业论文（设计）格式和统一封面的通知}》 的要求编写。
 %
 % 其前身是中国科学技术大学本科论文模板（作者 XPS，最后维护 ywg）和中国科学技术大学研究生论文
 % 模板（作者 Liuqs，主要维护 Liuqs、Guolicai）。
@@ -208,25 +208,11 @@ LaTeX version 1999/12/01 or later.
 %
 % \cls{ustcthesis} 的下载地址：
 % \begin{itemize}
-% \item 主要地址：\url{https://github.com/ustctug/ustcthesis}
-% \item 学校镜像：\url{https://git.ustclug.org/ustctug/ustcthesis}
+% \item 主要地址：\url{https://github.com/ustctug/ustcthesis/releases}
+% \item 学校镜像：\url{https://git.ustclug.org/ustctug/ustcthesis/tags}
 % \item 研究生院网站：\url{http://gradschool.ustc.edu.cn/ylb/xw.html}
 % \end{itemize}
 %
-% 我们假定用户已经能够熟练使用 \LaTeX{}，如果从来没有接触过 \LaTeX{}，
-% 建议阅读附录~\ref{sec:new}。
-%
-% 如果发现模板有 bug，请按照以下步骤操作：
-% \begin{enumerate}
-%   \item 将 \TeX{} 发行版、宏包升级到最新，将模板升级到 Github 上最新版本，
-%     查看 bug 是否已经修复；
-%   \item 阅读附录~\ref{sec:faq}，确认这个不是常见问题；
-%   \item 阅读《撰写手册》确认这是一个bug；
-%   \item 在 Github 上提出 issue，或者发邮件给模板作者；
-% \end{enumerate}
-%
-% 有兴趣参与模板的开发维护的 \TeX{} 高级用户，可以阅读附录的模板开发维护指南和带
-% 代码的注释。
 %
 %
 %
@@ -287,7 +273,8 @@ LaTeX version 1999/12/01 or later.
 % \pkg{upgreek},
 % \pkg{xparse}
 %
-% 注意 \pkg{ctex} 必须为 2.0 以上版本。关于更新宏包，参见 \ref{sec:update}。
+% 注意 \pkg{ctex} 必须为 2.0 以上版本，所以要求 TeX Live、MacTeX、MikTeX
+% 的版本不低于 2015 年的发行版。
 %
 % \subsection{开始编译}
 %
@@ -602,185 +589,6 @@ LaTeX version 1999/12/01 or later.
 %
 % \clearpage
 % \appendix
-%
-% \section{\LaTeX{} 新手指南}
-% \label{sec:new}
-%
-% 首先要弄清 \textbf{编译器}、\textbf{宏包}、 \textbf{编辑器}、\textbf{发行版}
-% 的概念和区别。编译器是读入源文件并输出 PDF（大部分情况下）的程序，如 |tex| 、 |latex| 、 |xelatex| ；
-% 宏包是实现拓展功能的 \LaTeX 代码，并且已经被良好地封装起来，如 |fontspec| 和 |geometry| ；
-% 编辑器是用来编辑 \LaTeX 源文件的工具，理论上用记事本等低级工具也可以，但更常用的有
-% TeXShop、 TeXworks 等等；发行版就是一套编译器、编辑器、宏包和其他工具的集合。
-%
-% 国际上主流的发行版及支持的操作系统如下：
-%
-% \begin{center}
-% \begin{tabular}{c|ccc}
-%                                                 & Linux & Mac & Windows \\
-%   \hline
-%   \href{https://www.tug.org/texlive/}{TeX Live} & yes   & yes & yes \\
-%   \href{https://tug.org/mactex/}{MacTeX}        &       & yes & \\
-%   \href{http://miktex.org}{MikTeX}              &       &     & yes \\
-% \end{tabular}
-% \end{center}
-%
-% TeX Live 是跨平台的，且支持在线安装功能，但其图形化安装界面却比较难用，
-% 给很多 Mac 和 Windows 用户造成了不便，所以便有了 MacTeX 和 MikTeX。
-%
-% 事实上，MacTeX 其实就是 TeX Live 加上一些 Mac 专有的 GUI 软件，
-% MaC 高级用户可以直接安装 TeX Live 并自行配制工具。
-%
-% 很多中国用户使用的 CTeX 套装（\url{http://www.ctex.org/}）发行版是基于 MikTeX 开发的，
-% 然而 CTeX v2.9.2.164 于 2012 年发布，已经过时，\textbf{不推荐使用}！
-% 新版 CTeX 套装截至2016年4月仍在开发中。
-%
-% \subsection{安装 \LaTeX{}}
-%
-% 如果你选择好了发行版，现在就可以开始安装了。使用校园网时从镜像服务器下载会大大加快速度。
-%
-% \begin{center}
-% \begin{tabular}{r|l}
-%   发行版 & 校内镜像地址 \\
-%   \hline
-%   \href{https://www.tug.org/texlive/}{TeX Live} &
-%     \url{http://mirrors.ustc.edu.cn/CTAN/systems/texlive/} \\
-%   \href{https://tug.org/mactex/}{MacTeX} &
-%     \url{http://mirrors.ustc.edu.cn/CTAN/systems/mac/mactex/} \\
-%   \href{http://miktex.org}{MikTeX} &
-%     \url{http://mirrors.ustc.edu.cn/CTAN/systems/win32/miktex/} \\
-% \end{tabular}
-% \end{center}
-%
-% 尽管安装包可能有 5GB 之大，但是建议新手用户安装完整版，以避免缺失宏包引起的恐慌。
-%
-% USTCTUG 提供了一个轻量级的安装脚本
-% \href{https://github.com/ustctug/mini-texlive}{mini-texlive}，
-% 以帮助Linux和Mac用户安装模板所需的最小 \LaTeX。
-%
-% \subsection{更新宏包}
-% \label{sec:update}
-% 由于本模板只保证对最新版的支持，可能会不兼容旧版本，所以安装完 TeX Live 后，
-% 建议将所有宏包更新至最新版本。
-% Mac 和 Linux 用户下可以使用如下命令更新所有已安装的宏包：
-% \begin{enumerate}
-% \item 先设置 repository 为校园的镜像，这样用校园网时就很快（需要输入密码）
-% \begin{shell}
-% sudo tlmgr option repository http://mirrors.ustc.edu.cn/CTAN/systems/texlive/tlnet
-% \end{shell}
-% \item 然后更新，
-% \begin{shell}
-% sudo tlmgr update --self --all
-% \end{shell}
-% \end{enumerate}
-%
-% MacTeX 还自带了 TeX Live Ultility.app 图形化界面工具，用来更新宏包。
-%
-% \subsection{入门资料}
-% \label{sec:newdoc}
-%
-% 对于新手推荐以下资料：
-%
-% \begin{itemize}
-% \item
-%   \href{http://mirrors.ustc.edu.cn/CTAN/info/lshort/chinese/lshort-zh-cn.pdf}{一份不太简短的 \LaTeXe{} 介绍}：经典的入门资料的新翻译版。
-% \item
-%   \href{http://dralpha.altervista.org/zh/tech/lnotes2.pdf}{\LaTeX{} Notes}:
-%   一份诙谐幽默的中文入门资料
-% \item
-%   刘海洋《\LaTeX{} 入门》： 较为详细的关于 \LaTeX{}
-%   的中文书籍，其他中文书已经过时。
-% \end{itemize}
-%
-% \subsection{排版注意事项}
-% \label{sec:caution}
-% \begin{itemize}
-%     \item 英文逗号、句号、问号和叹号后面要加空格。
-%     \item 中、西文字符之间要加空格。
-%     \item “|表 \ref{tab:xxx}|” 应插入显式的空格：“|表~\ref{tab:xxx}|”。
-%     \item \CTeX{} 虽然提供一些显式地设置中文字体的命令如 \cs{heiti}，但是不建议使用，
-%         因为西文需要必须与之匹配。故推荐使用 \cs{textsf} 或者 \cs{bfseries}。
-% \end{itemize}
-%
-%
-%
-% \section{常见问题 FAQ}
-% \label{sec:faq}
-%
-% \subsection{为何我打开文件时显示中文为乱码？}
-% 因为你的编辑器不是使用 UTF-8 编码。\cls{ustcthesis} 中文只支持 \pkg{xeCJK} 方式，
-% 必须使用 UTF-8 编码。中文版 Windows 的默认编码是 GBK 。
-%
-% \subsection{为何生成的PDF有空白页？}
-% 这是为了双面打印设置的，如果要生成用于电子阅读的 PDF，可以在文档类选项中加入
-% |pdf|，比如 |\documentclass[doctor,pdf]{ustcthesis}|。
-%
-% \subsection{为何没有生成封面和书脊？}
-% 封面和书脊由印刷厂统一制作，本模板的内容从 title page 开始。
-%
-% \subsection{MacTeX 2015 生成的 PDF 超链接为什么始终为红色？}
-% 这是 MacTeX 2015 中 hyperref 宏包的一个 bug，升级宏包后可以生成正常颜色，
-% 方法见 \ref{sec:update} 。
-%
-%
-%
-% \section{模板开发维护指南}
-% \label{sec:dev_guide}
-%
-% 本节的 pdf 文件均可在完整的发行版中找到，或者使用 texdoc 命令打开。
-%
-% 要参与 \LaTeX{} 的开发，首先要熟悉面向用户的命令和工具，除了 \ref{sec:newdoc}
-% 中的文档，还应熟悉：
-%
-% \begin{itemize}
-% \item latex2e.pdf: 系统地介绍了 \LaTeX{}
-%   使用的方方面面的文档，有平时很多用不到但是 \LaTeX{} 提供了的命令
-% \item 所用宏包的文档（可能还有源码）：
-% \item 常用的工具 latexmk, texdoc
-% \item 一些调试技巧如 \cs{show} 和 \cs{meaning} 命令
-% \end{itemize}
-%
-% 下面是面向开发的文档：
-% \begin{itemize}
-% \item clsguide.pdf: \LaTeXe{} 宏包和文档类的命令和编写规范
-% \item classes.pdf: 这是 \LaTeXe{} 三个标准文档类的实现，用于参考
-% \item macros2e.pdf: 集中介绍了 \LaTeXe{} 里使用的一些内部宏，用于参考
-% \item source2e.pdf: 这是 \LaTeXe{} 的实现
-% \item dtxtut.pdf:  \LaTeX{} 的宏包与说明文档的封装方式，即所谓``文学编程''，
-%   更详细的有 docstrip.pdf 和 doc.pdf，
-%   \href{http://www.texdev.net/2009/10/06/a-model-dtx-file/}{Joseph Wright 的文
-%   章} 介绍了更好封装的技巧
-% \end{itemize}
-%
-% 关于 BibTeX，应阅读以下文档：
-% \begin{itemize}
-% \item btxdoc.pdf, btxhak.pdf: BibTeX 的说明文档
-% \item btxbst.doc: BibTeX 的三个标准 bst 的源文件（带注释）
-% \item ttb.pdf: 一份详细的介绍
-% \item natbib.pdf: natbib 宏包的文档
-% \end{itemize}
-%
-% 至此可以解决大部分的问题了，如果想要更深入地研究，有下高级资料：
-% \begin{itemize}
-% \item TeXbook\footnote{可以在 CTAN 找到源码并自行编译}: Knuth 的 TeX 圣经，
-%   了解底层 TeX 的原理必读。还有更简略一点的介绍文档 TeXbyTopic.pdf 和
-%   impatient.pdf。
-% \item The \LaTeX{} Companion: 一本大而全的书。
-% \end{itemize}
-%
-% \LaTeX3 的开发正在进行中，其底层接口已经相对成熟和稳定。\pkg{xecjk} 和 \pkg{ctex}
-% 均是建立在 \LaTeX3 基础上的。关于 \LaTeX3 的语法的文档有：
-% \begin{itemize}
-% \item
-%   l3styleguide.pdf，这是 \LaTeX3 项目组写给开发者的指南
-% \item
-%   expl3.pdf，这是 \LaTeX3 编程接口宏包的文档
-% \item
-%   interface3.pdf，这是 \LaTeX3 的开发者接口文档
-% \item
-%   source3.pdf，这是 \LaTeX3 的实现
-% \end{itemize}
-%
-%
 %
 % \section{代码实现}
 % \label{sec:code}
