@@ -39,8 +39,11 @@ LaTeX version 1999/12/01 or later.
 \endpreamble
 \keepsilent
 \askforoverwritefalse
+\nopostamble
 \generate{
     \file{\jobname.cls}{\from{\jobname.dtx}{class}}
+    \file{ustcnumerical.bst}{\from{\jobname.dtx}{numerical}}
+    \file{ustcauthoryear.bst}{\from{\jobname.dtx}{authoryear}}
 }
 \Msg{* Happy TeXing!}
 \endbatchfile
@@ -54,7 +57,7 @@ LaTeX version 1999/12/01 or later.
 %<class>\NeedsTeXFormat{LaTeX2e}[1999/12/01]
 %<class>\ProvidesClass{ustcthesis}
 %<*class>
-    [2017/05/09 v2.2.4 USTC thesis template]
+    [2017/07/01 v3.0-beta USTC thesis template]
 %</class>
 %
 %<*driver>
@@ -63,7 +66,6 @@ LaTeX version 1999/12/01 or later.
 \usepackage{hypdoc}
 \hypersetup{
     bookmarksopen=true,
-    bookmarksopenlevel=2,
     bookmarksnumbered=true,
     CJKbookmarks=true,
     unicode=true,
@@ -72,6 +74,7 @@ LaTeX version 1999/12/01 or later.
 \EnableCrossrefs
 \CodelineIndex
 \RecordChanges
+\OnlyDescription
 \usepackage[UTF8, heading, sub3section]{ctex}
 \ctexset{
     section      = {
@@ -104,6 +107,23 @@ LaTeX version 1999/12/01 or later.
 \DeclareRobustCommand\opt{\texttt}
 \renewcommand\glossaryname{版本历史}
 \GlossaryPrologue{\section*{\glossaryname}}
+\makeatletter
+\renewcommand*{\changes@}[3]{%
+ \protected@edef\@tempa{%
+  \noexpand\glossary{#1 (#2)\levelchar
+   \ifx\saved@macroname\@empty
+    \space\actualchar\generalname
+   \else
+    \expandafter\@gobble\saved@macroname
+    \actualchar
+    \string\verb\quotechar*\verbatimchar\saved@macroname\verbatimchar
+   \fi
+   :\levelchar #3}}%
+ \@tempa
+ \endgroup
+ \@esphack
+}
+\makeatother
 \renewcommand\indexname{命令索引}
 \IndexPrologue{%
     \section*{\indexname}
@@ -114,9 +134,8 @@ LaTeX version 1999/12/01 or later.
 \setcounter{secnumdepth}{3}
 
 \begin{document}
-    \DocInput{ustcthesis.dtx}
-    \PrintChanges
-    \PrintIndex
+  \DocInput{ustcthesis.dtx}
+  \PrintIndex
 \end{document}
 %</driver>
 % \fi
@@ -138,9 +157,6 @@ LaTeX version 1999/12/01 or later.
 %   Right bracket \]     Circumflex    \^     Underscore    \_
 %   Grave accent  \`     Left brace    \{     Vertical bar  \|
 %   Right brace   \}     Tilde         \~}
-%
-% \changes{v2.0}{2016/02/21}{Initial release.}
-% \changes{v2.0.1}{2016/03/10}{Add code and algorithm environments.}
 %
 % \GetFileInfo{ustcthesis.dtx}
 %
@@ -174,64 +190,78 @@ LaTeX version 1999/12/01 or later.
 %
 %
 %
+% \PrintChanges
+%
 % \section{简介}
 %
-% \cls{ustcthesis} 是用于排版中国科学技术大学本科和研究生学位论文的 \LaTeX{} 模板，
-% 按照《中国科学技术大学研究生学位论文撰写规范》
-% \footnote{\url{{http://gradschool.ustc.edu.cn/ylb/material/xw/wdxz/1.doc}}}
-% 和《关于本科毕业论文（设计）格式和统一封面的通知》
-% \footnote{\url{http://www.teach.ustc.edu.cn/document/doc-administration/4032.html}}
-% 的要求编写。
+% \cls{ustcthesis}是用于排版中国科学技术大学本科和研究生学位论文的\LaTeX{}模板，
+% 按照《\href{http://gradschool.ustc.edu.cn/ylb/material/xw/wdxz/32.pdf}
+% {中国科学技术大学研究生学位论文撰写手册}》
+% 和《\href{http://www.teach.ustc.edu.cn/document/doc-administration/4032.html}
+% {关于本科毕业论文（设计）格式和统一封面的通知》} 的要求编写。
 %
 % 其前身是中国科学技术大学本科论文模板（作者 XPS，最后维护 ywg）和中国科学技术大学研究生论文
 % 模板（作者 Liuqs，主要维护 Liuqs、Guolicai）。
 % 后来两模板进行了整合梳理，由 ywg 维护。
 % 2015 年，seisman 和 zepinglee 基于 \pkg{ctex} 2.0 重新编写了模板。
+% 2017 年，随着学校发布了新版的《撰写手册》，本模板也更新到 v3.0。
 %
 % \cls{ustcthesis} 的下载地址：
 % \begin{itemize}
 % \item 主要地址：\url{https://github.com/ustctug/ustcthesis}
-% \item 镜像地址：\url{https://git.ustclug.org/ustctug/ustcthesis}
+% \item 学校镜像：\url{https://git.ustclug.org/ustctug/ustcthesis}
+% \item 研究生院网站：\url{http://gradschool.ustc.edu.cn/ylb/xw.html}
 % \end{itemize}
 %
 % 我们假定用户已经能够熟练使用 \LaTeX{}，如果从来没有接触过 \LaTeX{}，
-% 建议阅读附录 \ref{sec:new}；
-% 若对本模板有问题或者建议，可以在 GitHub 提出（推荐），或者发电子邮件给维护者，
-% 注意提问之前需阅读附录 \ref{sec:faq}；
-% 对于想自已修改代码的用户，以及愿意有兴趣参与模板的开发、维护的 \TeX{} 爱好者，
-% 附录 \ref{sec:dev_guide} 和附录 \ref{sec:code} 分别提供了指南和带代码的注释。
+% 建议阅读附录~\ref{sec:new}。
+%
+% 如果发现模板有 bug，请按照以下步骤操作：
+% \begin{enumerate}
+%   \item 将 \TeX{} 发行版、宏包升级到最新，将模板升级到 Github 上最新版本，
+%     查看 bug 是否已经修复；
+%   \item 阅读附录~\ref{sec:faq}，确认这个不是常见问题；
+%   \item 阅读《撰写手册》确认这是一个bug；
+%   \item 在 Github 上提出 issue，或者发邮件给模板作者；
+% \end{enumerate}
+%
+% 有兴趣参与模板的开发维护的 \TeX{} 高级用户，可以阅读附录的模板开发维护指南和带
+% 代码的注释。
 %
 %
 %
 % \section{编译方法}
 %
 % \subsection{文件组成}
-% 本模板的主要文件如下：
-% \begin{center}
-% \begin{tabularx}{\linewidth}{llX}
+% 本模板的主要文件如表~\ref{tab:files}：
+% \begin{table}[htbp]
+%   \centering
+%   \begin{tabular}{lll}
 %     \toprule
-%     类别     & 文件                  & 说明 \\
+%       类别     & 文件                      & 说明 \\
 %     \midrule
-%     模板文件 & \file{ustcthesis.dtx} & 模板原始代码文件，一般用户无需使用 \\
-%              & \file{ustcthesis.cls} & 文档类文件 \\
-%              & \file{ustcextra.sty}  & 模板的附加宏包 \\
-%              & \file{ustcauthoryear.bst} & author-year 风格的 \BibTeX{} 格式文件 \\
-%              & \file{ustcnumerical.bst}  & numerical 风格的 \BibTeX{} 格式文件 \\
-%              & \file{figures/ustc_*.eps} & 校名和校徽图片 \\
+%       模板文件 & \file{ustcthesis.dtx}     & 模板原始代码文件，用户无需使用 \\
+%                & \file{ustcthesis.cls}     & 文档类文件 \\
+%                & \file{ustcextra.sty}      & 模板的附加宏包 \\
+%                & \file{ustcauthoryear.bst} & author-year 风格的参考文献格式 \\
+%                & \file{ustcnumerical.bst}  & numerical 风格的参考文献格式 \\
+%                & \file{figures/ustc_*.pdf} & 校名和校徽图片 \\
 %     \midrule
-%     生成文件 & \file{ustcthesis.pdf} & （你正在阅读的）模板使用说明 \\
+%       生成文件 & \file{ustcthesis.pdf}     & （你正在阅读的）模板使用说明 \\
 %     \midrule
-%     示例文档 & \file{main.tex}       & 主文档 \\
-%              & \file{chapters/*.tex} & 示例文档的各个章节 \\
-%              & \file{figures/}       & 放置图片的目录 \\
-%              & \file{bib/tex.bib}    & \BibTeX{} 示例数据库 \\
+%       示例文档 & \file{main.tex}           & 主文档 \\
+%                & \file{chapters/*.tex}     & 示例文档的各个章节 \\
+%                & \file{figures/}           & 放置图片的目录 \\
+%                & \file{bib/tex.bib}        & \BibTeX{} 示例数据库 \\
 %     \midrule
-%     其他     & \file{README.md}      & 基本说明 \\
-%              & \file{.latexmkrc}     & latexmk 的配置文件 \\
-%              & \file{Makefile}       & GNU make 的配置文件 \\
+%       其他     & \file{README.md}          & 基本说明 \\
+%                & \file{.latexmkrc}         & latexmk 的配置文件 \\
+%                & \file{Makefile}           & GNU make 的配置文件 \\
 %     \bottomrule
-% \end{tabularx}
-% \end{center}
+%   \end{tabular}
+%   \caption{模板的文件组成}
+%   \label{tab:files}
+% \end{table}
 %
 % 示例文档包括了常用的 \LaTeX{} 命令，建议新手从此入手，用自己的内容进行替换。
 %
@@ -242,15 +272,19 @@ LaTeX version 1999/12/01 or later.
 % \subsection{依赖宏包}
 %
 % \cls{ustcthesis} 直接依赖的宏包有：
-% \pkg{amsmath},
-% \pkg{amsmthm},
+% \pkg{amssymb},
 % \pkg{caption},
+% \pkg{calc},
 % \pkg{ctex},
+% \pkg{etoolbox},
+% \pkg{fancyhdr},
 % \pkg{geometry},
 % \pkg{hyperref},
-% \pkg{kvoptions},
-% \pkg{titlesec},
+% \pkg{natbib},
+% \pkg{pifont},
 % \pkg{titletoc},
+% \pkg{tikz},
+% \pkg{upgreek},
 % \pkg{xparse}
 %
 % 注意 \pkg{ctex} 必须为 2.0 以上版本。关于更新宏包，参见 \ref{sec:update}。
@@ -314,66 +348,53 @@ LaTeX version 1999/12/01 or later.
 % \documentclass[doctor,english,pdf]{ustcthesis}
 % \end{latex}
 %
-% 其中论文类型是\emph{必需参数}：
-% \begin{center}
-% \begin{tabular}{p{.15\textwidth}p{.7\textwidth}}
+% 全部的选项见表~\ref{tab:options}
+% \begin{table}[htbp]
+%   \centering
+%   \begin{tabular}{lll}
 %     \toprule
-%     \opt{bachelor} & 本科论文 \\
-%     \opt{master} & 硕士论文 \\
-%     \opt{doctor} & 博士论文 \\
+%       必需参数 & \opt{bachelor}     & 本科论文 \\
+%                & \opt{master}       & 硕士论文 \\
+%                & \opt{doctor}       & 博士论文 \\
+%     \midrule
+%       可选参数 & \opt{professional} & 专业学位 \\
+%                & \opt{chinese}      & 中文，默认 \\
+%                & \opt{english}      & English \\
+%                & \opt{print}        & 用于双面打印纸质论文，默认 \\
+%                & \opt{pdf}          & 单面打印，并保留超链接颜色 \\
+%                & \opt{super}        & 角标数字式参考文献引用标注，默认 \\
+%                & \opt{numbers}      & 数字式参考文献引用标注 \\
+%                & \opt{authoryear}   & 著者-出版年制参考文献 \\
 %     \bottomrule
-% \end{tabular}
-% \end{center}
+%   \end{tabular}
+%   \caption{文档类参数}
+%   \label{tab:options}
+% \end{table}
 %
-% 以下是可选参数，可以选择语言：
-% \begin{center}
-% \begin{tabular}{p{.15\textwidth}p{.7\textwidth}}
-%     \toprule
-%     \opt{chinese} & 中文，默认 \\
-%     \opt{english} & English \\
-%     \bottomrule
-% \end{tabular}
-% \end{center}
-%
-% 还可以设置论文的页面格式：
-% \begin{center}
-% \begin{tabular}{p{.15\textwidth}p{.7\textwidth}}
-%     \toprule
-%     \opt{print} & 用于打印纸质论文，默认 \\
-%     \opt{pdf} & 适于屏幕阅读，会开启 \opt{oneside}、\opt{pagecenter} 选项，
-%     并且保留超链接颜色 \\
-%     \midrule
-%     \opt{oneside} & 单面打印，\opt{bachelor} 默认 \\
-%     \opt{twoside} & 双面打印，\opt{doctor}、\opt{master} 默认 \\
-%     \midrule
-%     \opt{openany} & 新的一章仅在下一页开始 \\
-%     \opt{openright} & 新的一章仅在奇数页（右侧）开始，这时可能会产生空白页以填充左侧，
-%         仅在双面打印时有效，\opt{doctor}、\opt{master} 默认 \\
-%     \midrule
-%     \opt{pagecenter} & 页码居中，\opt{bachelor} 默认 \\
-%     \opt{pageouter} & 页码置于外侧，\opt{doctor}、\opt{master} 默认 \\
-%     \bottomrule
-% \end{tabular}
-% \end{center}
+% 除了本模板的定义的选项，用户还可以使用其他参数，比如 \opt{fontset=fandol}，
+% 这些参数都将传给\cls{ctexbook}。
 %
 % \subsection{中文字体}
 % \cls{ustcthesis} 只以 \pkg{xeCJK} 的方式提供中文支持，不支持 CJK 方式，
 % 所以用户必须使用UTF-8 编码保存源文件，并且用 |xelatex| 命令进行编译。
 %
 % 默认情况下，本模板可以利用 \pkg{ctex} 宏包的功能自动检测用户的操作系统类型，
-% 并选择合适的中文字库。自动配置的策略如下：
-% \begin{center}
-% \begin{tabular}{cl}
+% 并选择合适的中文字库。默认配置的策略如表~\ref{tab:fonts}：
+% \begin{table}[htbp]
+%   \centering
+%   \begin{tabular}{cl}
 %     \toprule
-%     操作系统 & 中文字库 \\
+%       操作系统                 & 中文字库 \\
 %     \midrule
-%     macOS & 华文字库 \\
-%     Windows Vista 及以后版本 & 中易字库 + 微软雅黑 \\
-%     Windows XP 及以前版本 & 中易字库 \\
-%     其他 & Fandol 字库 \\
+%       macOS                    & 华文字库 \\
+%       Windows Vista 及以后版本 & 中易字库 + 微软雅黑 \\
+%       Windows XP 及以前版本    & 中易字库 \\
+%       其他                     & Fandol 字库 \\
 %     \bottomrule
-% \end{tabular}
-% \end{center}
+%   \end{tabular}
+%   \caption{默认字体配置}
+%   \label{tab:fonts}
+% \end{table}
 %
 % 用户也可以在调用文档类时加入选项 \opt{fontset=\meta{font}} 来显式地指定加载的字库，参见 \pkg{ctex}、\pkg{fontspec} 宏包。
 %
@@ -384,76 +405,59 @@ LaTeX version 1999/12/01 or later.
 %
 %
 %
-% \section{《规范》中的若干问题}
-% 在模板的开发中，我们发现了《规范》中的一些问题，比如附录中的格式示例与
-% 其正文的要求矛盾，甚至本身的要求也自相矛盾。
-% 在这些情况下，我们尽可能地按照《规范》正文中的要求处理，在特殊情况下按照
-% 排版的惯例执行。
-% 这些矛盾之处罗列如下，以免引起误解。
-% \begin{center}
-% \begin{tabular}{|l|l|l|}
-%   \toprule
-%   章节     & 《规范》正文的描述                  & 《格式示例》 \\
-%   \midrule
-%   2.4     & “目录应包括论文的全部内容，包括中英文摘要和附录等” & 没有摘要 \\
-%   \midrule
-%   2.6.2.1 & “各层次标题一律用 阿拉伯数字连续编号” &  \\
-%   3.6     & 示例：“第一章” & “第 1 章” \\
-%   \midrule
-%   2.6.2.3 & “页码位置居于页脚居中” &  \\
-%   3.1     & “宋体 10.5 磅页面下脚右端” & 居中 \\
-%   \midrule
-%   3.5     & 目录示例：“第 1 章” & “第一章” \\
-%   \bottomrule
-% \end{tabular}
-% \end{center}
-%
-%
-%
 % \section{论文内容}
 %
 % 本科论文的内容按如下顺序排列：
-% \begin{enumerate}
-% \item 中文扉页、英文扉页
-% \item 致谢、目录、中文摘要、英文摘要
-% \item 正文章节、参考文献
-% \item 附录
-% \end{enumerate}
+% \begin{description}
+%   \item[封面] 中文封面、英文封面、原创性声明及授权使用说明
+%   \item[front matter] 致谢、目录、中文摘要、英文摘要
+%   \item[main matter] 正文章节、参考文献
+%   \item[appendix] 附录
+% \end{description}
 %
 % 硕博论文的内容按如下顺序排列：
-% \begin{enumerate}
-% \item 中文扉页、英文扉页、原创性声明及授权使用说明
-% \item 中文摘要、英文摘要、目录、图表及代码目录（可选）、符号说明（可选）
-% \item 正文章节、参考文献
-% \item 附录
-% \item 致谢、已发表论文列表
-% \end{enumerate}
+% \begin{description}
+%   \item[封面] 中文封面、英文封面、原创性声明及授权使用说明
+%   \item[front matter] 中文摘要、英文摘要、目录、图表及代码目录、符号说明
+%   \item[main matter] 正文章节、参考文献
+%   \item[appendix] 附录
+%   \item[back matter] 致谢、已发表论文列表
+% \end{description}
 %
-% 示例文档 \file{main.tex} 中的致谢、目录等章节的顺序，是按照研究生论文的格式组织内容的，
-% \emph{本科生需要手动调整顺序}。
+% 示例文档 \file{main.tex} 中的致谢、目录等章节的顺序，是按照研究生论文的格式组
+% 织内容的，\emph{本科生需要手动调整顺序}。
 %
-% 如果使用文档累选项 \opt{print} （默认），“原创性声明” 页则会加在扉页后；若为 \opt{pdf}，则没有声明页。
+% 如果使用文档类选项 \opt{print} （默认），“原创性声明” 页则会加在封面后；
+% 若为 \opt{pdf}，则没有声明页。
 %
 %
-% \subsection{扉页}
-% 封面的内容由印刷厂统一制作，\cls{ustcthesis} 的内容从扉页开始。
-% 扉页由 \cs{maketitle} 命令生成，其中的各项信息使用 \cs{\meta{item}\marg{info}} 的方式填写，
-% 本模板提供以下命令，其中带 |en| 前缀的命令是设置英文扉页的命令：
-% \begin{center}
-% \begin{tabular}{lll}
+% \subsection{封面}
+%
+% “封面”的名字让人有些混淆，它既可以指由印刷厂统一制作的硬皮封面（cover），也可
+% 以指书打开后的第一页（title page）。在这里指的是后者，所以本模板从 title page
+% 开始。
+%
+% 封面由 \cs{maketitle} 命令生成，其中的各项信息使用 \cs{\meta{item}\marg{info}}
+% 的方式填写，本模板提供的命令如表~\ref{tab:covercmds}，其中带 |en| 前缀的命令是
+% 设置英文封面的命令：
+% \begin{table}[htbp]
+%   \centering
+%   \begin{tabular}{lll}
 %     \toprule
-%     命令 & 命令（英文） & 说明 \\
+%       命令              & 命令（英文）        & 说明 \\
 %     \midrule
-%     \cs{title} & \cs{entitle} & 论文标题 \\
-%     \cs{author} & \cs{enauthor} & 作者姓名 \\
-%     \cs{major} & \cs{enmajor} & 学科专业 \\
-%     \cs{advisor} & \cs{enadvisor} & 导师姓名 \\
-%     \cs{submitdate} & \cs{ensubmitdate} & 完成时间 \\
-%     \cs{secrettext} & \cs{ensecrettext} & 密级信息（如果不设置则不保密） \\
-%     \cs{depart} & & 系别，可能用于书脊 \\
+%       \cs{title}        & \cs{entitle}        & 论文标题 \\
+%       \cs{author}       & \cs{enauthor}       & 作者姓名 \\
+%       \cs{major}        & \cs{enmajor}        & 学科专业 \\
+%       \cs{supervisor}   & \cs{ensupervisor}   & 导师姓名 \\
+%       \cs{cosupervisor} & \cs{encosupervisor} & 副导师姓名 \\
+%       \cs{date}         & \cs{endate}         & 完成时间（默认为今天） \\
+%       \cs{secrettext}   & \cs{ensecrettext}   & 密级信息（默认不保密） \\
 %     \bottomrule
-% \end{tabular}
-% \end{center}
+%   \end{tabular}
+%   \caption{用来定义封面项目}
+%   \label{tab:covercmds}
+% \end{table}
 %
 % \subsection{摘要等环境}
 % \DescribeEnv{abstract}
@@ -461,51 +465,58 @@ LaTeX version 1999/12/01 or later.
 % \DescribeEnv{notation}
 % \DescribeEnv{acknowledgements}
 % \DescribeEnv{publications}
-% \cls{ustcthesis} 还提供了以下环境，用于填写相应的信息。
-% \begin{center}
-% \begin{tabular}{ll}
+% 对于特殊的章节，\cls{ustcthesis} 还提供了相应的环境，如表~\ref{tab:environments}。
+% \begin{table}[htbp]
+%   \centering
+%   \begin{tabular}{ll}
 %     \toprule
-%     环境 & 说明 \\
+%       环境                   & 说明 \\
 %     \midrule
-%     \env{abstract} & 中文摘要 \\
-%     \env{enabstract} & 英文摘要 \\
-%     \env{notation} & 符号 \\
-%     \env{acknowledgements} & 致谢 \\
-%     \env{publications} & 发表成果 \\
+%       \env{abstract}         & 中文摘要 \\
+%       \env{enabstract}       & 英文摘要 \\
+%       \env{notation}         & 符号 \\
+%       \env{acknowledgements} & 致谢 \\
+%       \env{publications}     & 发表成果 \\
 %     \bottomrule
-% \end{tabular}
-% \end{center}
+%   \end{tabular}
+%   \caption{特殊章节的环境}
+%   \label{tab:environments}
+% \end{table}
 %
 % \DescribeMacro{\keywords}
 % \DescribeMacro{\enkeywords}
-% 其中，摘要的关键词应使用 \cs{keywords} 和 \cs{enkeywords} 命令，并包含在摘要环境中；
-% 中文摘要的相邻关键词之间应使用 \cs{zhspace} 命令隔开，举个例子：
+% 其中，摘要的关键词应使用 \cs{keywords} 和 \cs{enkeywords} 命令，并包含在摘要环
+% 境中；
 % \begin{latex}
 % \begin{abstract}
 % 这里是摘要。
-% \keywords{论文 \zhspace 摘要 \zhspace 关键词}
+% \keywords{论文；摘要；关键词}
 % \end{abstract}
 % \end{latex}
 %
 % \subsection{目录和图表}
-% 生成目录、插图和表格的索引命令分别如下：
+% 生成目录、插图和表格的索引命令分别如表~\ref{tab:tocs}：
 % \DescribeMacro{\tableofcontents}
 % \DescribeMacro{\listoffigures}
 % \DescribeMacro{\listoftables}
-% \begin{center}
-% \begin{tabular}{ll}
+% \begin{table}[htbp]
+%   \centering
+%   \begin{tabular}{ll}
 %     \toprule
-%     命令 & 说明 \\
+%       命令                  & 说明 \\
 %     \midrule
-%     \cs{tableofcontents} & 目录 \\
-%     \cs{listoffigures} & 图目录 \\
-%     \cs{listoftables} & 表目录 \\
+%       \cs{tableofcontents}  & 目录 \\
+%       \cs{listoffigures}    & 图目录 \\
+%       \cs{listoftables}     & 表目录 \\
+%       \cs{listofalgorithms} & 算法目录 \\
 %     \bottomrule
-% \end{tabular}
-% \end{center}
+%   \end{tabular}
+%   \caption{各种目录的环境}
+%   \label{tab:tocs}
+% \end{table}
 %
-% \LaTeX{} 的图表索引，是通过 \cs{caption} 命令完成的，因此它们必须出现在浮动环境中，
-% 否则不被计数。
+% \LaTeX{} 的图表索引，是通过 \cs{caption} 命令完成的，因此它们必须出现在浮动环
+% 境中，否则不被计数。
 % 如果不想让某个表格或者图片出现在索引里面，那么应使用命令 \cs{caption*}，
 % 这个命令不会给表格编号，也就是出来的只有标题文字而没有“表~xx”，“图~xx”。
 %
@@ -513,29 +524,41 @@ LaTeX version 1999/12/01 or later.
 % 本模板还提供了 \cs{note\marg{text}} 命令，用于在图表中添加注释。
 %
 % \subsection{数学}
-% \file{ustcextra.sty} 定义了数学定理格式 |ustcplain|（默认使用）以及一些常用的环境：
-% \begin{center}
-% \begin{tabular}{*{5}{l}}
+%
+% 模板中定义了一些使用正体的数学符号（表~\ref{tab:symbols}）。
+% \begin{table}
+%   \centering
+%   \begin{tabular}{rl}
 %     \toprule
-%     theorem & assertion & axiom & corollary & lemma \\
-%     定理 & 断言 & 公理 & 推论 & 引理 \\
+%       符号                 & 命令 \\
 %     \midrule
-%     proposition & definition & example & remark & proof \\
-%     命题 & 定义 & 例 & 注 & 证明  \\
+%       常数$\mathrm{e}$     & \cs{eu} \\
+%       复数单位$\mathrm{i}$ & \cs{iu} \\
+%       微分符号$\mathrm{d}$ & \cs{diff} \\
+%       $\arg\,\max$         & \cs{argmax} \\
+%       $\arg\,\min$         & \cs{argmin} \\
 %     \bottomrule
-% \end{tabular}
-% \end{center}
-% 使用方法如下：
-% \begin{latex}
-% \begin{theorem}[Fundamental theorem of calculus]
-%     Let $f$ be a continuous real-valued function defined on
-%     a closee interval $[a, b]$. Let
-%     \begin{equation}
-%         F(x) = \int_a^x f(t) \, \mathrm{d}t \qquad x \in [a, b].
-%     \end{equation}
-%     Then $F$ is differentiable on $(a, b)$, and $F'(x) = f(x)$.
-% \end{theorem}
-% \end{latex}
+%   \end{tabular}
+%   \caption{模板定义的数学符号}
+%   \label{tab:symbols}
+% \end{table}
+%
+% \file{ustcextra.sty} 定义了数学定理格式 |ustcplain|（默认使用）以及一些常用的
+% 环境，如表~\ref{tab:theorems}。
+% \begin{table}[htbp]
+%   \centering
+%   \begin{tabular}{*{5}{l}}
+%     \toprule
+%       theorem     & assertion  & axiom   & corollary & lemma \\
+%       定理        & 断言       & 公理    & 推论      & 引理  \\
+%     \midrule
+%       proposition & definition & example & remark    & proof \\
+%       命题        & 定义       & 例      & 注        & 证明  \\
+%     \bottomrule
+%   \end{tabular}
+%   \caption{数学定理相关的环境}
+%   \label{tab:theorems}
+% \end{table}
 %
 % 注意\env{proof} 环境与其它不同的是，其第二个参数会完全取代“证明”标题，
 % 并且会在末尾加一个 \cs{qed}。
@@ -553,18 +576,28 @@ LaTeX version 1999/12/01 or later.
 % 用户还可以用 \cs{newtheoremstyle} 定义环境的格式，具体参见 \pkg{amsthm} 宏包。
 %
 % \subsection{参考文献}
-% 参考文献支持 author-year 风格和 numerical 风格。在 \file{main.tex} 中指定
-% \begin{latex}
-% \bibliographystyle{ustcauthoryear}
-% \end{latex}
-% 则使用 author-year 风格，指定
-% \begin{latex}
-% \bibliographystyle{ustcnumerical}
-% \end{latex}
-% 则使用 numerical 风格。
 %
-% 有一小撮同学坚持使用在文中的 numerical 风格，如“见文献[2]”，
-% 模板还提供了 ustcinline 风格。
+% 参考文献和引用标注支持的风格见表~\ref{tab:bib}，默认为角标数字式，
+% \begin{table}[htbp]
+%   \centering
+%   \begin{tabular}{lll}
+%     \toprule
+%       参考文献列表  & 引用标注    & 参数 \\
+%     \midrule
+%       顺序编码制    & 角标数字    & super \\
+%                     & 数字        & numbers \\
+%       著者-出版年制 & 著者-出版年 & authoryear \\
+%     \bottomrule
+%   \end{tabular}
+%   \caption{参考文献列表和引用标注风格}
+%   \label{tab:bib}
+% \end{table}
+%
+% 如果要使用其他风格，可以在载入文档类时加入相应的参数：
+% \begin{latex}
+% \documentclass[doctor,authoryear]{ustcthesis}
+% \end{latex}
+%
 %
 %
 % \clearpage
@@ -583,11 +616,11 @@ LaTeX version 1999/12/01 or later.
 %
 % \begin{center}
 % \begin{tabular}{c|ccc}
-%      & Linux & Mac & Windows \\
-%     \hline
-%     \href{https://www.tug.org/texlive/}{TeX Live} & yes & yes & yes \\
-%     \href{https://tug.org/mactex/}{MacTeX} & & yes & \\
-%     \href{http://miktex.org}{MikTeX} & & & yes \\
+%                                                 & Linux & Mac & Windows \\
+%   \hline
+%   \href{https://www.tug.org/texlive/}{TeX Live} & yes   & yes & yes \\
+%   \href{https://tug.org/mactex/}{MacTeX}        &       & yes & \\
+%   \href{http://miktex.org}{MikTeX}              &       &     & yes \\
 % \end{tabular}
 % \end{center}
 %
@@ -607,14 +640,14 @@ LaTeX version 1999/12/01 or later.
 %
 % \begin{center}
 % \begin{tabular}{r|l}
-%     发行版 & 校内镜像地址 \\
-%     \hline
-%     \href{https://www.tug.org/texlive/}{TeX Live} &
-%         \url{http://mirrors.ustc.edu.cn/CTAN/systems/texlive/} \\
-%     \href{https://tug.org/mactex/}{MacTeX} &
-%         \url{http://mirrors.ustc.edu.cn/CTAN/systems/mac/mactex/} \\
-%     \href{http://miktex.org}{MikTeX} &
-%         \url{http://mirrors.ustc.edu.cn/CTAN/systems/win32/miktex/} \\
+%   发行版 & 校内镜像地址 \\
+%   \hline
+%   \href{https://www.tug.org/texlive/}{TeX Live} &
+%     \url{http://mirrors.ustc.edu.cn/CTAN/systems/texlive/} \\
+%   \href{https://tug.org/mactex/}{MacTeX} &
+%     \url{http://mirrors.ustc.edu.cn/CTAN/systems/mac/mactex/} \\
+%   \href{http://miktex.org}{MikTeX} &
+%     \url{http://mirrors.ustc.edu.cn/CTAN/systems/win32/miktex/} \\
 % \end{tabular}
 % \end{center}
 %
@@ -682,11 +715,12 @@ LaTeX version 1999/12/01 or later.
 % |pdf|，比如 |\documentclass[doctor,pdf]{ustcthesis}|。
 %
 % \subsection{为何没有生成封面和书脊？}
-% 封面和书脊由印刷厂统一制作，本模板的内容从扉页开始。
+% 封面和书脊由印刷厂统一制作，本模板的内容从 title page 开始。
 %
 % \subsection{MacTeX 2015 生成的 PDF 超链接为什么始终为红色？}
 % 这是 MacTeX 2015 中 hyperref 宏包的一个 bug，升级宏包后可以生成正常颜色，
 % 方法见 \ref{sec:update} 。
+%
 %
 %
 % \section{模板开发维护指南}
@@ -698,61 +732,43 @@ LaTeX version 1999/12/01 or later.
 % 中的文档，还应熟悉：
 %
 % \begin{itemize}
-% \item
-%   latex2e.pdf: 系统地介绍了 \LaTeX{}
+% \item latex2e.pdf: 系统地介绍了 \LaTeX{}
 %   使用的方方面面的文档，有平时很多用不到但是 \LaTeX{} 提供了的命令
-% \item
-%   所用宏包的文档（可能还有源码）：
-% \item
-%   常用的工具 latexmk, texdoc
-% \item
-%   一些调试技巧如 \cs{show} 和 \cs{meaning} 命令
+% \item 所用宏包的文档（可能还有源码）：
+% \item 常用的工具 latexmk, texdoc
+% \item 一些调试技巧如 \cs{show} 和 \cs{meaning} 命令
 % \end{itemize}
 %
 % 下面是面向开发的文档：
-%
 % \begin{itemize}
-% \item
-%   clsguide.pdf: \LaTeXe{} 宏包和文档类的命令和编写规范
-% \item
-%   classes.pdf: 这是 \LaTeXe{} 三个标准文档类的实现，用于参考
-% \item
-%   macros2e.pdf: 集中介绍了 \LaTeXe{} 里使用的一些内部宏，用于参考
-% \item
-%   dtxtut.pdf:  \LaTeX{}
-%   的宏包与说明文档的封装方式，即所谓``文学编程''，更详细的有
-%   docstrip.pdf 和 doc.pdf，
-%   \href{http://www.texdev.net/2009/10/06/a-model-dtx-file/}{Joseph
-%   Wright 的文章} 介绍了更好封装的技巧
+% \item clsguide.pdf: \LaTeXe{} 宏包和文档类的命令和编写规范
+% \item classes.pdf: 这是 \LaTeXe{} 三个标准文档类的实现，用于参考
+% \item macros2e.pdf: 集中介绍了 \LaTeXe{} 里使用的一些内部宏，用于参考
+% \item source2e.pdf: 这是 \LaTeXe{} 的实现
+% \item dtxtut.pdf:  \LaTeX{} 的宏包与说明文档的封装方式，即所谓``文学编程''，
+%   更详细的有 docstrip.pdf 和 doc.pdf，
+%   \href{http://www.texdev.net/2009/10/06/a-model-dtx-file/}{Joseph Wright 的文
+%   章} 介绍了更好封装的技巧
 % \end{itemize}
 %
 % 关于 BibTeX，应阅读以下文档：
-%
 % \begin{itemize}
-% \item
-%   btxdoc.pdf, btxhak.pdf: BibTeX 的说明文档
-% \item
-%   btxbst.doc: BibTeX 的三个标准 bst 的源文件（带注释）
-% \item
-%   ttb.pdf: 一份详细的介绍
-% \item
-%   natbib.pdf: natbib 宏包的文档
+% \item btxdoc.pdf, btxhak.pdf: BibTeX 的说明文档
+% \item btxbst.doc: BibTeX 的三个标准 bst 的源文件（带注释）
+% \item ttb.pdf: 一份详细的介绍
+% \item natbib.pdf: natbib 宏包的文档
 % \end{itemize}
 %
 % 至此可以解决大部分的问题了，如果想要更深入地研究，有下高级资料：
-%
 % \begin{itemize}
-% \item
-%   TeXbook\footnote{可以在 CTAN 找到源码并自行编译}: Knuth 的 TeX 圣经，了解底层 TeX
-%   的原理必读。还有更简略一点的介绍文档
-%   TeXbyTopic.pdf 和 impatient.pdf。
-% \item
-%   source2e.pdf: 这是 \LaTeXe{} 的实现
+% \item TeXbook\footnote{可以在 CTAN 找到源码并自行编译}: Knuth 的 TeX 圣经，
+%   了解底层 TeX 的原理必读。还有更简略一点的介绍文档 TeXbyTopic.pdf 和
+%   impatient.pdf。
+% \item The \LaTeX{} Companion: 一本大而全的书。
 % \end{itemize}
 %
 % \LaTeX3 的开发正在进行中，其底层接口已经相对成熟和稳定。\pkg{xecjk} 和 \pkg{ctex}
 % 均是建立在 \LaTeX3 基础上的。关于 \LaTeX3 的语法的文档有：
-%
 % \begin{itemize}
 % \item
 %   l3styleguide.pdf，这是 \LaTeX3 项目组写给开发者的指南
@@ -766,70 +782,58 @@ LaTeX version 1999/12/01 or later.
 %
 %
 %
-% \StopEventually{}
-%
 % \section{代码实现}
 % \label{sec:code}
 %
 % \subsection{声明选项}
 %    \begin{macrocode}
 %<*class>
-\RequirePackage{kvoptions}
-\SetupKeyvalOptions{family=ustc@opt, prefix=ustc@opt@, setkeys=\kvsetkeys}
-\DeclareBoolOption[false]{doctor}
-\DeclareBoolOption[false]{master}
-\DeclareBoolOption[false]{bachelor}
-\DeclareBoolOption[false]{pdf}
-\DeclareComplementaryOption{print}{pdf}
-\DeclareBoolOption[false]{english}
-\DeclareComplementaryOption{chinese}{english}
-%    \end{macrocode}
-% |ustc@page| 这一 family 用来设置分页方式
-%    \begin{macrocode}
-\SetupKeyvalOptions{family=ustc@page, prefix=ustc@page@, setkeys=\kvsetkeys}
-\DeclareBoolOption[false]{oneside}
-\DeclareComplementaryOption{twoside}{oneside}
-\DeclareBoolOption[false]{openany}
-\DeclareComplementaryOption{openright}{openany}
-\DeclareBoolOption[true]{pageouter}
-\DeclareComplementaryOption{pagecenter}{pageouter}
-\DeclareDefaultOption{\PassOptionsToClass{\CurrentOption}{ctexbook}}
-%    \end{macrocode}
-% 先处理 |ustc@opt| 这一 family，然后设置本科和 |pdf| 的默认分页方式为 |oneside|,
-% |pagecenter|
-%    \begin{macrocode}
-\ProcessKeyvalOptions{ustc@opt}
-\ifustc@opt@bachelor
-    \ustc@page@onesidetrue
-    \ustc@page@pageouterfalse
+\newif\if@ustc@doctor
+\newif\if@ustc@master
+\newif\if@ustc@bachelor
+\newif\if@ustc@professional
+\newif\if@ustc@english
+\newif\if@ustc@numerical
+\newif\if@ustc@super
+\newif\if@ustc@pdf
+\DeclareOption{doctor}{\@ustc@doctortrue}
+\DeclareOption{master}{\@ustc@mastertrue}
+\DeclareOption{bachelor}{\@ustc@bachelortrue}
+\DeclareOption{professional}{\@ustc@professionaltrue}
+\DeclareOption{chinese}{\@ustc@englishfalse}
+\DeclareOption{english}{\@ustc@englishtrue}
+\DeclareOption{print}{\@ustc@pdffalse}
+\DeclareOption{pdf}{\@ustc@pdftrue}
+\DeclareOption{super}{\@ustc@numericaltrue\@ustc@supertrue}
+\DeclareOption{numbers}{\@ustc@numericaltrue\@ustc@superfalse}
+\DeclareOption{authoryear}{\@ustc@numericalfalse}
+\DeclareOption*{\PassOptionsToClass{\CurrentOption}{ctexbook}}
+\ExecuteOptions{doctor,chinese,print,super}
+\ProcessOptions\relax
+\newif\if@ustc@addtocspace
+\if@ustc@bachelor
+    \@ustc@addtocspacetrue
 \fi
-\ifustc@opt@pdf
-    \ustc@page@onesidetrue
-    \ustc@page@pageouterfalse
-\fi
-\ifustc@opt@english
+\if@ustc@english
   \PassOptionsToClass{scheme=plain}{ctexbook}
 \fi
-%    \end{macrocode}
-% 处理其他的选项
-%    \begin{macrocode}
-\ProcessKeyvalOptions*\relax
-\ifustc@page@oneside
-    \PassOptionsToClass{oneside}{ctexbook}
-\fi
-\ifustc@page@openany
-    \PassOptionsToClass{openany}{ctexbook}
+\if@ustc@pdf
+  \PassOptionsToClass{oneside}{book}
 \fi
 %    \end{macrocode}
+%
 % 默认情况下 \pkg{fontspec} 会将 \cs{mathrm} 的字体更改为 Times New Roman，
 % 而 \cs{mathnormal} 依然为 Computer Modern，比 Times New Roman 要细，
 % 所以设置 \pkg{fontspec} 不处理数学字体
 %    \begin{macrocode}
 \PassOptionsToPackage{no-math}{fontspec}
 %    \end{macrocode}
+%
 % 载入 \cls{ctexbook} 文档类，注意要求 \pkg{ctex} 为 2.0 以及更高的版本。
+% \changes{v3.0}{2017/07/01}{正文新的一章另面起}
 %    \begin{macrocode}
-\LoadClass[a4paper, UTF8, zihao=-4]{ctexbook}[2015/05/14]
+\LoadClass[UTF8, a4paper, openany, zihao=-4]{ctexbook}[2015/05/14]
+\RequirePackage{etoolbox}
 %    \end{macrocode}
 % 检测 ctexbook 版本，如果版本过低会报错
 %    \begin{macrocode}
@@ -864,11 +868,10 @@ LaTeX version 1999/12/01 or later.
     unicode=true,
     linktoc=all,
 }
-\urlstyle{same}
 %    \end{macrocode}
 % 如果为 |pdf| 样式，设置 hyperlink 颜色
 %    \begin{macrocode}
-\ifustc@opt@pdf
+\if@ustc@pdf
     \hypersetup{
         colorlinks=true,
         allcolors=blue,
@@ -892,7 +895,7 @@ LaTeX version 1999/12/01 or later.
 % \href{https://github.com/ustctug/ustcthesis/issues/42}{Issue 42}
 %    \begin{macrocode}
 \RequirePackage{xparse}
-\DeclareDocumentCommand\setfontsize{mo}{\IfValueTF{#2}{\fontsize{#1}{#2}}{\fontsize{#1}{2\dimexpr#1}}\linespread{1}\selectfont\relax}
+\NewDocumentCommand\setfontsize{mo}{\IfValueTF{#2}{\fontsize{#1}{#2}}{\fontsize{#1}{2\dimexpr#1}}\linespread{1}\selectfont\relax}
 %    \end{macrocode}
 % \end{macro}
 % \begin{macro}{\zhspace}
@@ -918,46 +921,41 @@ LaTeX version 1999/12/01 or later.
     }
     \csname #1\endcsname{}
 }
+\ustc@define@term{professionaltype}
 \ustc@define@term{title}
 \ustc@define@term{secrettext}
 \ustc@define@term{author}
-\ustc@define@term{depart}
 \ustc@define@term{major}
-\ustc@define@term{advisor}
-\ustc@define@term{coadvisor}
-\ustc@define@term{submitdate}
+\ustc@define@term{supervisor}
+\ustc@define@term{cosupervisor}
+\ustc@define@term{date}
+\ustc@define@term{enprofessionaltype}
 \ustc@define@term{entitle}
 \ustc@define@term{ensecrettext}
 \ustc@define@term{enauthor}
 \ustc@define@term{enmajor}
-\ustc@define@term{enadvisor}
-\ustc@define@term{encoadvisor}
-\ustc@define@term{ensubmitdate}
+\ustc@define@term{ensupervisor}
+\ustc@define@term{encosupervisor}
+\ustc@define@term{endate}
+\date{\zhnumsetup{time=Chinese}\zhtoday}
+\endate{\CTEX@todayold}
 %    \end{macrocode}
 % \end{macro}
 %
 % \subsection{设置语言}
 % 这里设置了中英文的各种名字。
-% \changes{v2.1.5}{2017/04/15}{Add English version.}
-% \changes{v2.2.2}{2017/04/26}{Enhance autoref names.}
 %    \begin{macrocode}
-\ifustc@opt@english
-  \newcommand\ustc@contentsname{\contentsname}
-  \newcommand\ustc@pdf@contentsname{\contentsname}
+\if@ustc@english
   \renewcommand\figurename{Fig.}
   \newcommand\ustc@notesname{\textbf{Notes}: }
   \newcommand\ustc@acknowledgementsname{Acknowledgements}
-  \newcommand\ustc@pdf@acknowledgementsname{Acknowledgements}
   \newcommand\ustc@publicationsname{Publications}
   \newcommand\ustc@notationname{Notation}
 \else
-  \renewcommand\contentsname{目\zhspace 录}
-  \newcommand\ustc@pdf@contentsname{目录}
   \renewcommand\listfigurename{图目录}
   \renewcommand\listtablename{表目录}
   \newcommand\ustc@notesname{\textbf{注}：}
-  \newcommand\ustc@acknowledgementsname{致\hspace{\ccwd}谢}
-  \newcommand\ustc@pdf@acknowledgementsname{致谢}
+  \newcommand\ustc@acknowledgementsname{致谢}
   \newcommand\ustc@publicationsname{在读期间发表的学术论文与取得的研究成果}
   \newcommand\ustc@notationname{符号说明}
   \def\equationautorefname~#1\null{公式~(#1)\null}%
@@ -980,416 +978,186 @@ LaTeX version 1999/12/01 or later.
 %
 % \subsection{页面设置}
 % 首先用 \pkg{geometry} 宏包设置纸张和页面。
-% \changes{v2.2}{2017/04/17}{Fix page layout bug.}
 %    \begin{macrocode}
 \RequirePackage{geometry}
 \geometry{
     paper=a4paper,
     top=2.54cm, bottom=2.54cm,
     left=3.17cm, right=3.17cm,
-    headsep=0.74cm, headheight=0.34cm,
+    headheight=0.75cm, headsep=0.29cm,
     footskip=0.79cm}
 %    \end{macrocode}
-% 再用 \pkg{titleps} 宏包设置页眉页码，\cs{if@mainmatter} 控制前言或是正文的页眉，
-% \cs{ifustc@page@pageouter} 控制是否将正文及附录部分的页码置于外侧。
+%
+% 再用 \pkg{fancyhdr} 宏包设置页眉页码。
+% \changes{v3.0}{2017/07/01}{页码全部居中}
+%
 %    \begin{macrocode}
-\RequirePackage[pagestyles]{titlesec}
-\ifustc@opt@bachelor
-    \newcommand\ustc@header@size{\zihao{-5}}
-    \newcommand\ustc@main@header{中国科学技术大学本科毕业论文}
+\RequirePackage{fancyhdr}
+\renewcommand{\headrulewidth}{0.4pt}
+\if@ustc@bachelor
+  \fancypagestyle{ustc@headings}{%
+    \fancyhf{}%
+    \fancyhead[C]{\setfontsize{9bp}中国科学技术大学本科毕业论文}%
+    \fancyfoot[C]{\setfontsize{9bp}\thepage}}%
 \else
-    \newcommand\ustc@header@size{\zihao{5}}
-    \newcommand\ustc@main@header{%
-        \if@mainmatter\CTEXthechapter\quad\fi%
-        \chaptertitle}
+  \fancypagestyle{ustc@headings}{%
+    \fancyhf{}%
+    \fancyhead[C]{\setfontsize{10.5bp}\leftmark}%
+    \fancyfoot[C]{\setfontsize{10.5bp}\thepage}}%
 \fi
-\newpagestyle{front}[\ustc@header@size]{
-    \sethead{}{\ustc@main@header}{}
-    \setfoot{}{\thepage}{}
-    \headrule
-}
-\ifustc@page@pageouter
-    \newpagestyle{main}[\ustc@header@size]{
-        \sethead{}{\ustc@main@header}{}
-            \setfoot[\thepage][][]{}{}{\thepage}
-        \headrule
-    }
-\else
-    \newpagestyle{main}[\ustc@header@size]{
-        \sethead{}{\ustc@main@header}{}
-        \setfoot{}{\thepage}{}
-        \headrule
-    }
-\fi
+\fancypagestyle{ustc@notation}{\fancyfoot{}}
+\pagestyle{ustc@headings}
+\renewcommand\chaptermark[1]{%
+      \markboth {\MakeUppercase{%
+        \CTEXifname{\CTEXthechapter\quad}{}
+      \protect\spacetitle{#1}}}{}}%
 %    \end{macrocode}
-% 将 frontmatter 的页码改为大写的罗马数字，并调整页面风格。
-% \changes{v2.1.1}{2016/04/19}{调整 frontmatter 的页码位置}
-% \changes{v2.1.3}{2016/05/27}{调整 bachelor 的页码起始和样式}
+%
+% 空白页不加页眉。
+% \changes{v3.0}{2017/07/01}{空白页不加页眉}
 %    \begin{macrocode}
-\renewcommand\frontmatter{%
-    \cleardoublepage
-    \@mainmatterfalse
-    \ifustc@opt@bachelor
-        \pagenumbering{gobble}%
-    \else
-        \pagenumbering{Roman}%
-    \fi
-    \pagestyle{front}%
-}%
+\renewcommand*{\cleardoublepage}{\clearpage\if@twoside \ifodd\c@page\else
+  \hbox{}\thispagestyle{empty}\newpage\if@twocolumn\hbox{}\newpage\fi\fi\fi}
+%    \end{macrocode}
+%
+% 将 frontmatter 的页码改为大写的罗马数字，并调整页面风格。
+%    \begin{macrocode}
+\g@addto@macro\frontmatter{%
+  \if@ustc@bachelor
+    \pagenumbering{gobble}%
+  \else
+    \pagenumbering{Roman}%
+  \fi}
 \renewcommand\mainmatter{%
+  \if@ustc@bachelor
+    \clearpage
+  \else
     \cleardoublepage
-    \@mainmattertrue
-    \ifustc@opt@bachelor
-        \relax
-    \else
-        \pagenumbering{arabic}%
-    \fi
-    \pagestyle{main}%
-}%
+    \pagenumbering{arabic}%
+  \fi
+  \@mainmattertrue
+}
 \renewcommand\chapter{%
     \if@openright\cleardoublepage\else\clearpage\fi
     \global\@topnum\z@
     \@afterindenttrue
+    \if@ustc@bachelor
+      \if@mainmatter
+        \ctexset{chapter/format = \centering\sffamily\setfontsize{16bp}}
+      \else
+        \ctexset{chapter/format = \centering\sffamily\setfontsize{18bp}}
+      \fi
+      \if@ustc@addtocspace
+        \addtocontents{toc}{\protect\addvspace{12bp}}%
+      \fi
+    \fi
     \secdef\@chapter\@schapter
 }
 %    \end{macrocode}
 %
-% \subsection{扉页}
-% \begin{macro}{\maketitle}
-% 重新定义 \cs{maketitle}，调用 \cs{make@cntitle}, \cs{make@entitle} 分别生成中、英文扉页。
-% 若论文选项 \opt{print} 有效，声明页则会加在扉页后，若为 \opt{pdf}，则没有声明页。
-%    \begin{macrocode}
-\renewcommand\maketitle{%
-    \newgeometry{
-        top=3.8cm, bottom=3.8cm,
-        left=3.2cm, right=3.2cm,
-        headheight=0cm, headsep=0.8cm,
-        footskip=0.8cm}
-    \pagestyle{empty}
-    \pdfbookmark[-1]{\ustc@title}{title}
-    \make@cntitle \cleardoublepage
-    \make@entitle \cleardoublepage
-    \restoregeometry
-    \ifustc@opt@bachelor\relax\else
-        \ifustc@opt@pdf\relax\else%
-            \make@statement \cleardoublepage
-        \fi
-    \fi
-    \pagestyle{main}%
-}
-%    \end{macrocode}
-% \end{macro}
+% \subsection{章节标题}
 %
-% 定义一些常量。
-%    \begin{macrocode}
-\ifustc@opt@doctor
-    \newcommand\ustc@thesisname{博士学位论文}%
-    \newcommand\ustc@enthesisname{A dissertation for doctor's degree}%
-\else
-    \ifustc@opt@master
-        \newcommand\ustc@thesisname{硕士学位论文}
-        \newcommand\ustc@enthesisname{A dissertation for master's degree}
-    \else
-        \newcommand\ustc@thesisname{学士学位论文}
-        \newcommand\ustc@enthesisname{A dissertation for bachelor's degree}
-    \fi
-\fi
-%    \end{macrocode}
-%
-% \begin{macro}{\vpostext}
-% 这里使用 \pkg{tikz} 工具设计封面。
-% \cs{vpostext}\marg{vpos}\marg{text} 命令用来放置居中的文字，
-% 有两个参数，第一个为距离纸的顶端的距离，第二个为要放置的文字
-%    \begin{macrocode}
-\RequirePackage{tikz}
-\newcommand\vpostext[2]{%
-    \tikz[remember picture,overlay]%
-        \node [yshift=-#1] at (current page.north) [below,align=flush center]%
-            {\parbox{\textwidth}{\centering#2}};}
-%    \end{macrocode}
-% \end{macro}
-%
-% \changes{v2.1.2}{2016/04/27}{Use tikz to design title page.}
-% \changes{v2.2}{2017/04/17}{Resize school title.}
-% 现在开始设计封面。如果“学科专业” 一栏放不下，可以将文字装进一个 \cs{parbox}，比如\\
-% |\parbox[t]{5cm}{A VERY LONG TEXT}|
-%    \begin{macrocode}
-\newcommand\make@cntitle{%
-    \begin{titlepage}%
-        \tikz[remember picture,overlay]%
-            \node [yshift=-4cm] at (current page.north) [below,align=flush center]%
-                {\parbox{\textwidth}{\raggedleft\fangsong\setfontsize{14bp}\ustc@secrettext}};%
-        \vpostext{5.2cm}{\includegraphics[height=37bp]{figures/ustc_logo_text}}%
-        \vpostext{8.5cm}{\sffamily\setfontsize{56bp}\ustc@thesisname}%
-        \vpostext{11cm}{\includegraphics[height=4cm]{figures/ustc_logo_fig}}%
-        \vpostext{15.8cm}{\sffamily\bfseries\setfontsize{26bp}\ustc@title}%
-        \tikz[remember picture,overlay]%
-            \node [xshift=6cm,yshift=-20.5cm] at (current page.north west)%
-            [below right,align=left] {%
-                \setfontsize{16bp}%
-                \begin{tabular}{@{}l@{}c@{}}%
-                    \textsf{作者姓名：} & \ustc@author \\%
-                    \textsf{学科专业：} & \ustc@major \\%
-                    \textsf{导师姓名：} & \ustc@advisor \\%
-                    \textsf{完成时间：} & \ustc@submitdate%
-                \end{tabular}};%
-    \end{titlepage}}
-%    \end{macrocode}
-% \begin{macro}{\make@entitle}
-% 由于《规范》对宽度的限制，可能一行里放不下，需要使用 \cs{parbox}
-%    \begin{macrocode}
-\newcommand\make@entitle{%
-    \begin{titlepage}%
-        \tikz[remember picture,overlay]%
-            \node [yshift=-4cm] at (current page.north) [below,align=flush center]%
-                {\parbox{\textwidth}{\raggedleft\setfontsize{14bp}\ustc@ensecrettext}};%
-        \vpostext{5cm}{\sffamily\setfontsize{20bp}[30bp]%
-            University of Science and Technology of China}%
-        \vpostext{6cm}{\sffamily\setfontsize{26bp}[30bp]\ustc@enthesisname}%
-        \vpostext{8.2cm}{\includegraphics[height=5cm]{figures/ustc_logo_fig}}%
-        \vpostext{16cm}{\sffamily\bfseries\setfontsize{26bp}[30bp]\ustc@entitle}%
-        \tikz[remember picture,overlay]%
-            \node [xshift=6cm,yshift=5cm] at (current page.south west)%
-            [above right,align=left] {%
-                \setfontsize{16bp}[30bp]%
-                \begin{tabular}{@{}lc@{}}%
-                    Author's Name: & \ustc@enauthor \\%
-                    Speciality:    & \ustc@enmajor \\%
-                    Supervisor:    & \ustc@enadvisor \\%
-                    Finished Time: & \ustc@ensubmitdate%
-                \end{tabular}};%
-    \end{titlepage}}
-%    \end{macrocode}
-% \end{macro}
-%
-% \subsection{原创性声明}
-% 定义原创性声明
-% \changes{v2.2}{2017/04/17}{Adjust statement page layout.}
-%    \begin{macrocode}
-\newcommand{\ustc@declaretext} {
-本人声明所呈交的学位论文，是本人在导师指导下进行研究工作所取得的成果。
-除已特别加以标注和致谢的地方外，论文中不包含任何他人已经发表或撰写过
-的研究成果。与我一同工作的同志对本研究所做的贡献均已在论文中作了明确的说明。
-}
-\newcommand{\ustc@authorization}{
-作为申请学位的条件之一，学位论文著作权拥有者授权中国科学技术大学拥有
-学位论文的部分使用权，即：学校有权按有关规定向国家有关部门或机构送交
-论文的复印件和电子版，允许论文被查阅和借阅，可以将学位论文编入《中国
-学位论文全文数据库》等有关数据库进行检索，可以采用影印、缩印或扫描等
-复制手段保存、汇编学位论文。本人提交的电子文档的内容和纸质论文的内容
-相一致。
-
-保密的学位论文在解密后也遵守此规定。
-}
-\newcommand\make@statement{
-    \setfontsize{12bp}[20bp]
-    \vspace*{-0.15cm}
-    \begin{center}
-      \setfontsize{16bp}\textbf{中国科学技术大学学位论文原创性声明}
-    \end{center}
-    \vskip 0.3cm
-
-    \ustc@declaretext\par
-
-    \vskip 0.7cm
-    \begin{tabular}{p{7cm}p{7cm}}
-      作者签名：\ustc@underline[7.4em]{} & 签字日期：\ustc@underline[7.4em]{}
-    \end{tabular}
-    \vskip 2.6cm
-
-    \begin{center}
-      \setfontsize{16bp}\textbf{中国科学技术大学学位论文授权使用声明}
-    \end{center}
-    \vskip 0.3cm
-
-    \ustc@authorization\par
-    \vskip 0.5cm
-    $\square$公开 \hspace{0.4cm} $\square$保密（\ustc@underline[2em]{}年）
-
-    \vskip 0.5cm
-
-    {\renewcommand{\arraystretch}{2.0}
-    \begin{tabular}{p{7cm}p{7cm}}
-      作者签名：\ustc@underline[7.4em]{} & 导师签名：\ustc@underline[7.4em]{} \\
-      签字日期：\ustc@underline[7.4em]{} & 签字日期：\ustc@underline[7.4em]{} \\
-    \end{tabular}}
-}
-%    \end{macrocode}
-%
-% \subsection{摘要}
-% \begin{environment}{abstract}
-% 中文摘要环境
-%    \begin{macrocode}
-\newenvironment{abstract}{%
-    \ifustc@opt@bachelor
-        \ctexset{chapter/format += \zihao{-2}}
-    \fi
-    \chapter[摘要]{摘\zhspace 要}}{}
-%    \end{macrocode}
-% \end{environment}
-% \begin{environment}{enabstract}
-% 英文摘要环境
-%    \begin{macrocode}
-\newenvironment{enabstract}{%
-    \ifustc@opt@bachelor
-        \ctexset{chapter/format += \zihao{-2}}
-        \chapter{Abstract}
-    \else
-        \chapter[Abstract]{ABSTRACT}
-    \fi}{}
-%    \end{macrocode}
-% \end{environment}
-% 两个生成关键字的命令，其中 \cs{phantom{}} 是为了空一行，
-%    \begin{macrocode}
-\newcommand\keywords[1]{\par\phantom{关键词}\par\noindent\hangindent=4\ccwd\relax
-    \textbf{关键词：}#1}
-\newcommand\enkeywords[1]{\par\phantom{keywords}\par\noindent\hangindent=5.3em\relax
-    \textbf{Key Words:} #1}
-%    \end{macrocode}
-%
-% \subsection{目录}
-% \begin{macro}{\tableofcontents}
-% 为了在 PDF 书签中加入目录，重新定义 \cs{tableofcontents}
-% \changes{v2.2.3}{2017/05/04}{Fix toc pdf mark.}
-%    \begin{macrocode}
-\let\ustc@save@tableofcontents=\tableofcontents
-\renewcommand\tableofcontents{%
-    \cleardoublepage%
-    \ifustc@opt@bachelor
-        \pagenumbering{arabic}%
-    \fi
-    \pdfbookmark[0]{\ustc@pdf@contentsname}{ustctoc}%
-    \ustc@save@tableofcontents}
-%    \end{macrocode}
-% \end{macro}
-% 下面用 \pkg{titletoc} 宏包设置每级目录的格式。
-% 由于 \pkg{ctex} 新引入了 \opt{tocline}，导致chatper 的前标题空白多了0.3em。
-% \changes{v2.2}{2017/04/16}{Fix toc font size using \cmd{setfontsize}.}
-% \changes{v2.2.2}{2017/04/25}{Fix bachelor toc font size.}
-% \changes{v2.2.2}{2017/05/02}{Fix toc spacing.}
-% \changes{v2.2.3}{2017/05/04}{Fix bachelor toc punct and spacing.}
-%    \begin{macrocode}
-\RequirePackage{titletoc}
-\newcommand\ustc@leaders{\titlerule*[0.5pc]{$\cdot$}}
-\ifustc@opt@bachelor
-    \titlecontents{chapter}
-        [0bp]
-        {\setfontsize{12bp}[20bp]}
-        {\thecontentslabel\hskip\ccwd}
-        {}{\ustc@leaders\contentspage}
-    \titlecontents{section}
-        [\ccwd]
-        {\setfontsize{12bp}[20bp]}
-        {\thecontentslabel\hskip\ccwd}
-        {}{\ustc@leaders\contentspage}
-    \titlecontents{subsection}
-        [2\ccwd]
-        {\setfontsize{12bp}[20bp]}
-        {\thecontentslabel、}
-        {}{\ustc@leaders\contentspage}
-\else
-    \titlecontents{chapter}
-        [0bp]
-        {\addvspace{6bp}\setfontsize{14bp}[20bp]}
-        {\thecontentslabel\hspace*{0.5em}}
-        {}{\ustc@leaders\setfontsize{12bp}[20bp]\contentspage}
-    \titlecontents{section}
-        [\ccwd]
-        {\setfontsize{12bp}[20bp]}
-        {\thecontentslabel\hspace*{0.5em}}
-        {}{\ustc@leaders\setfontsize{12bp}[20bp]\contentspage}
-    \titlecontents{subsection}
-        [2\ccwd]
-        {\setfontsize{10.5bp}[20bp]}
-        {\thecontentslabel\hspace*{0.5em}}
-        {}{\ustc@leaders\setfontsize{12bp}[20bp]\contentspage}
-\fi
-%    \end{macrocode}
-% 同时设置图、表的目录格式
-%    \begin{macrocode}
-\titlecontents{figure}
-    [\ccwd]
-    {\addvspace{6bp}\setfontsize{12bp}}
-    {\thecontentslabel\hspace*{0.5em}}
-    {}{\ustc@leaders\contentspage}
-\titlecontents{table}
-    [\ccwd]
-    {\addvspace{6bp}\setfontsize{12bp}}
-    {\thecontentslabel\hspace*{0.5em}}
-    {}{\ustc@leaders\contentspage}
-%    \end{macrocode}
-% 为了让本科生的目录每章之间多空一行，重新定义 \cs{mainmatter}, \cs{backmatter},
-% \cs{appendix}
-%    \begin{macrocode}
-\ifustc@opt@bachelor
-    \let\ustc@save@chapter=\chapter
-    \let\ustc@save@mainmatter=\mainmatter
-    \let\ustc@save@backmatter=\backmatter
-    \let\ustc@save@appendix=\appendix
-    \renewcommand\mainmatter{%
-        \ustc@save@mainmatter
-        \renewcommand\chapter{%
-            \addtocontents{toc}{\protect\addvspace{12bp}}%
-            \ustc@save@chapter
-        }%
-    }%
-    \renewcommand\backmatter{%
-        \ustc@save@backmatter
-        \renewcommand\chapter{\ustc@save@chapter}%
-    }%
-    \renewcommand\appendix{%
-        \ustc@save@appendix
-        \renewcommand\chapter{\ustc@save@chapter}%
-    }%
-\fi
-%    \end{macrocode}
-%
-% \subsection{正文}
 % 用 \pkg{ctex} 的接口设置全局的章节标题格式，注意由于 \pkg{ctex} 2.1 以下版本的 bug，
 % chapter 的 nameformat 和 titleformat 的这两行必须置空。
 %
-% \changes{v2.1.5}{2017/04/16}{Fix chapter title distance bug.}
 % \pkg{ctex} 2.4.3 以下版本的bug会导致章节标题前后的距离的实际值偏大，
 % 临时的解决方案是手动调整，偏移值为beforeskip=-31bp, afterskip=-10bp。
 % 但是\pkg{ctex} 2.2 前的beforeskip的符号有特殊意义，所以临时解决方案只用于
 % \pkg{ctex} 2.2 以及以上版本。
 %
+% 首先设置带圈的数字：
+%
+%    \begin{macrocode}
+\RequirePackage{pifont}
+\def\ustc@textcircled#1{%
+  \ifnum\value{#1} >9
+    \ClassError{ustcthesis}%
+      {Too many footnotes in this page.}{Keep footnote less than 10.}
+  \fi
+  \ding{\the\numexpr\value{#1}+191\relax}}
+%    \end{macrocode}
+%
+% 研究生规定章题为两字时中间空两字，三字时空一字，四字时空半字，四字以上不空：
+% \changes{v3.0}{2017/07/01}{章题为两字时中间空两字，三字时空一字，
+% 四字时空半字，四字以上不空}
+%    \begin{macrocode}
+\RequirePackage{stringstrings}
+\newcounter{titlelength}
+\newcommand\spacetitle[1]{%
+  \@getstringlength{#1}{titlelength}%
+  \if@ustc@bachelor
+    \if@mainmatter#1\else
+      \ifnum\thetitlelength=2{\ziju{1}#1}\else%
+        \ifnum\thetitlelength=4{\ziju{0.5}#1}\else#1%
+        \fi
+      \fi
+    \fi
+  \else
+    \ifnum\thetitlelength=2{\ziju{2}#1}\else%
+      \ifnum\thetitlelength=3{\ziju{1}#1}\else%
+        \ifnum\thetitlelength=4{\ziju{0.5}#1}\else#1%
+        \fi
+      \fi
+    \fi
+  \fi}
+%    \end{macrocode}
+%
 % 另外摘要、参考文献等章节在底层也是用 \cs{chapter} 实现的。
 % 这一部分以后可能重新实现 \cs{chapter}。
+% \changes{v3.0}{2017/07/01}{新增二级以下节标题的缩进}
+% \changes{v3.0}{2017/07/01}{二级以下节标题编号下采用“1.”、“(1)”、
+%   “\textcircled{\footnotesize{}1}”}
+%
 %    \begin{macrocode}
-\setcounter{secnumdepth}{3}
+\setcounter{secnumdepth}{5}
 \ctexset{
     chapter = {
-        format = \centering\sffamily\bfseries\setfontsize{16bp},
-        nameformat = {},
-        titleformat = {},
-        number = \arabic{chapter},
-        aftername = \quad,
-        beforeskip = -7bp, % 24bp - 31bp
-        afterskip = 8bp, % 18bp - 10bp
-        % fixskip = true, % will be used in future version
+        format      = \centering\sffamily\bfseries\setfontsize{16bp},
+        nameformat  = {},
+        titleformat = \spacetitle,
+        number      = \thechapter,
+        aftername   = \hspace{\ccwd},
+        beforeskip  = -7bp, % 24bp - 31bp
+        afterskip   = 8bp, % 18bp - 10bp
+        % fixskip   = true, % will be used in future version
     },
     section = {
-        format = \sffamily\setfontsize{14bp},
+        format     = \sffamily\setfontsize{14bp},
+        aftername  = \hspace{\ccwd},
         beforeskip = 24bp,
-        afterskip = 6bp,
+        afterskip  = 6bp,
     },
     subsection = {
-        format = \sffamily\setfontsize{13bp},
+        format     = \sffamily\setfontsize{13bp},
+        aftername  = .\hspace{\ccwd},
+        indent     = 2\ccwd,
         beforeskip = 12bp,
-        afterskip = 6bp,
+        afterskip  = 6bp,
     },
     subsubsection = {
-        format = \sffamily\setfontsize{12bp},
-        beforeskip = 12bp,
-        afterskip = 6bp,
-    }
+        format    = \sffamily\setfontsize{12bp},
+        number    = \arabic{subsubsection},
+        aftername = .\hspace{\ccwd},
+        indent    = 3\ccwd,
+    },
+    paragraph = {
+        format    = \sffamily\setfontsize{12bp},
+        number    = (\arabic{paragraph}),
+        aftername = \hspace{\ccwd},
+        indent    = 3\ccwd,
+    },
+    subparagraph = {
+        format    = \sffamily\setfontsize{12bp},
+        number    = \ustc@textcircled{subparagraph},
+        aftername = \hspace{\ccwd},
+        indent    = 3\ccwd,
+    },
 }
 %    \end{macrocode}
 %
 % 设置本科生的章节标题。
 %    \begin{macrocode}
-\ifustc@opt@bachelor
+\if@ustc@bachelor
     \setcounter{secnumdepth}{4}
     \ctexset{
         chapter={
@@ -1426,11 +1194,381 @@ LaTeX version 1999/12/01 or later.
         },
     }
 \fi
-% \assignpagestyle{\chapter}{empty}
 %    \end{macrocode}
+%
+%
+%    \begin{macrocode}
+\newcounter{ustc@pdfbookmark}
+\NewDocumentCommand\ustc@chapter{o m}{%
+  \if@openright\cleardoublepage\else\clearpage\fi%
+  \addtocounter{ustc@pdfbookmark}\@ne
+  \IfValueTF{#1}{%
+    \pdfbookmark[0]{#1}{ustcchapter.\theustc@pdfbookmark}%
+    \chaptermark{#1}%
+  }{%
+    \pdfbookmark[0]{#2}{ustcchapter.\theustc@pdfbookmark}%
+    \chaptermark{#2}%
+  }%
+  \chapter*{#2}}
+%    \end{macrocode}
+%
+% \subsection{封面}
+% \begin{macro}{\maketitle}
+% 重新定义 \cs{maketitle}，调用 \cs{make@cntitle}, \cs{make@entitle} 分别生成中、英文封面。
+% 若论文选项 \opt{print} 有效，声明页则会加在封面后，若为 \opt{pdf}，则没有声明页。
+%    \begin{macrocode}
+\renewcommand\maketitle{%
+    \newgeometry{
+        top=3.8cm, bottom=3.8cm,
+        left=3.2cm, right=3.2cm,
+        headheight=0cm, headsep=0.8cm,
+        footskip=0.8cm}
+    \pagenumbering{gobble}
+    \pdfbookmark[0]{封面}{titlepage}
+    \make@cntitle \cleardoublepage
+    \pdfbookmark[0]{Title page}{entitlepage}
+    \make@entitle \cleardoublepage
+    \restoregeometry
+    \if@ustc@bachelor\relax\else
+        \if@ustc@pdf\relax\else%
+            \pdfbookmark[0]{原创性声明}{statement}
+            \make@statement \cleardoublepage
+        \fi
+    \fi
+}
+%    \end{macrocode}
+% \end{macro}
+%
+% 定义一些常量。
+%    \begin{macrocode}
+\if@ustc@doctor
+  \if@ustc@professional
+    \newcommand\ustc@thesisname{专业博士学位论文}%
+  \else
+    \newcommand\ustc@thesisname{博士学位论文}%
+  \fi
+  \newcommand\ustc@enthesisname{A dissertation for doctor's degree}%
+\else
+  \if@ustc@master
+    \if@ustc@professional
+      \newcommand\ustc@thesisname{专业硕士学位论文}
+    \else
+      \newcommand\ustc@thesisname{硕士学位论文}
+    \fi
+    \newcommand\ustc@enthesisname{A dissertation for master's degree}
+  \else
+    \newcommand\ustc@thesisname{学士学位论文}
+    \newcommand\ustc@enthesisname{A dissertation for bachelor's degree}
+  \fi
+\fi
+\newcommand\ustc@supervisorline{%
+  \ifx\ustc@encosupervisor\@empty%
+    Supervisor: \ustc@ensupervisor%
+  \else%
+    Supervisors: \ustc@ensupervisor, \ustc@encosupervisor%
+  \fi}
+%    \end{macrocode}
+%
+% \begin{macro}{\vpostext}
+% 这里使用 \pkg{tikz} 工具设计封面。
+% \cs{vpostext}\marg{vpos}\marg{text} 命令用来放置居中的文字，
+% 有两个参数，第一个为距离纸的顶端的距离，第二个为要放置的文字
+%    \begin{macrocode}
+\RequirePackage{tikz}
+\newcommand\vpostext[2]{%
+    \tikz[remember picture,overlay]%
+        \node [yshift=-#1] at (current page.north) [below,align=flush center]%
+            {\parbox{\textwidth}{\centering#2}};}
+%    \end{macrocode}
+% \end{macro}
+%
+% 现在开始设计封面。如果“学科专业” 一栏放不下，可以将文字装进一个 \cs{parbox}，比如\\
+% |\parbox[t]{5cm}{A VERY LONG TEXT}|
+%    \begin{macrocode}
+\newcommand\make@cntitle{%
+    \begin{titlepage}%
+        \tikz[remember picture,overlay]%
+            \node [yshift=-4cm] at (current page.north) [below,align=flush center]%
+                {\parbox{\textwidth}{\raggedleft\fangsong\setfontsize{14bp}\ustc@secrettext}};%
+        \vpostext{4cm}{\includegraphics[height=37bp]{figures/ustc_logo_text}}%
+        \if@ustc@professional
+          \vpostext{6.3cm}{\sffamily\setfontsize{56bp}\ziju{-0.09}\ustc@thesisname}%
+          \vpostext{9cm}{\setfontsize{26bp}\ustc@professionaltype}%
+          \vpostext{10.3cm}{\includegraphics[height=4.7cm]{figures/ustc_logo_fig}}%
+          \vpostext{16.3cm}{\sffamily\bfseries\setfontsize{26bp}\ustc@title}%
+        \else
+          \vpostext{6.3cm}{\sffamily\setfontsize{56bp}\ustc@thesisname}%
+          \vpostext{9.8cm}{\includegraphics[height=4.7cm]{figures/ustc_logo_fig}}%
+          \vpostext{16.3cm}{\sffamily\bfseries\setfontsize{26bp}\ustc@title}%
+        \fi
+        \tikz[remember picture,overlay]%
+            \node [xshift=4.6cm,yshift=-20.3cm] at (current page.north west)%
+            [below right,align=left] {%
+                \setfontsize{16bp}%
+                \begin{tabular}{@{}l@{\hspace{\ccwd}}l@{}}%
+                    \textsf{作者姓名：} & \ustc@author \\%
+                    \textsf{学科专业：} & \ustc@major \\%
+                    \textsf{导师姓名：} & \ustc@supervisor\quad\ustc@cosupervisor \\%
+                    \textsf{完成时间：} & \ustc@date%
+                \end{tabular}};%
+    \end{titlepage}}
+%    \end{macrocode}
+% \begin{macro}{\make@entitle}
+% 由于《规范》对宽度的限制，可能一行里放不下，需要使用 \cs{parbox}
+%    \begin{macrocode}
+\newcommand\make@entitle{%
+    \begin{titlepage}%
+        \tikz[remember picture,overlay]%
+            \node [yshift=-4cm] at (current page.north) [below,align=flush center]%
+                {\parbox{\textwidth}{\raggedleft\setfontsize{14bp}\ustc@ensecrettext}};%
+        \vpostext{3.9cm}{\sffamily\setfontsize{20bp}[30bp]%
+            University of Science and Technology of China}%
+        \vpostext{4.9cm}{\sffamily\setfontsize{26bp}[30bp]\ustc@enthesisname}%
+        \if@ustc@professional
+          \vpostext{6.2cm}{\setfontsize{16bp}\ustc@enprofessionaltype}%
+          \vpostext{8.9cm}{\includegraphics[height=5.1cm]{figures/ustc_logo_fig}}%
+          \vpostext{15cm}{\sffamily\bfseries\setfontsize{26bp}[30bp]\ustc@entitle}%
+        \else
+          \vpostext{7.9cm}{\includegraphics[height=5.1cm]{figures/ustc_logo_fig}}%
+          \vpostext{14.2cm}{\sffamily\bfseries\setfontsize{26bp}[30bp]\ustc@entitle}%
+        \fi
+        \tikz[remember picture,overlay]%
+            \node [xshift=4.4cm,yshift=-20.2cm] at (current page.north west)%
+            [below right,align=left] {%
+                \setfontsize{16bp}[30bp]%
+                \begin{tabular}{@{}l@{}}%
+                    Author:        \ustc@enauthor \\%
+                    Speciality:    \ustc@enmajor \\%
+                    \ustc@supervisorline \\%
+                    Finished time: \ustc@endate%
+                \end{tabular}};%
+    \end{titlepage}}
+%    \end{macrocode}
+% \end{macro}
+%
+% \subsection{原创性声明}
+% 定义原创性声明
+%    \begin{macrocode}
+\newcommand{\ustc@declaretext} {
+本人声明所呈交的学位论文，是本人在导师指导下进行研究工作所取得的成果。
+除已特别加以标注和致谢的地方外，论文中不包含任何他人已经发表或撰写过
+的研究成果。与我一同工作的同志对本研究所做的贡献均已在论文中作了明确的说明。
+}
+\newcommand{\ustc@authorization}{
+作为申请学位的条件之一，学位论文著作权拥有者授权中国科学技术大学拥有
+学位论文的部分使用权，即：学校有权按有关规定向国家有关部门或机构送交
+论文的复印件和电子版，允许论文被查阅和借阅，可以将学位论文编入《中国
+学位论文全文数据库》等有关数据库进行检索，可以采用影印、缩印或扫描等
+复制手段保存、汇编学位论文。本人提交的电子文档的内容和纸质论文的内容
+相一致。
+
+保密的学位论文在解密后也遵守此规定。
+}
+\newcommand\make@statement{
+    \thispagestyle{empty}
+    \setfontsize{12bp}[20bp]
+    \vspace*{-0.15cm}
+    \begin{center}
+      \setfontsize{16bp}\textbf{中国科学技术大学学位论文原创性声明}
+    \end{center}
+    \vskip 0.3cm
+
+    \ustc@declaretext\par
+
+    \vskip 0.7cm
+    \begin{tabular}{p{7cm}p{7cm}}
+      作者签名：\ustc@underline[7.4em]{} & 签字日期：\ustc@underline[7.4em]{}
+    \end{tabular}
+    \vskip 2.6cm
+
+    \begin{center}
+      \setfontsize{16bp}\textbf{中国科学技术大学学位论文授权使用声明}
+    \end{center}
+    \vskip 0.3cm
+
+    \ustc@authorization\par
+    \vskip 0.5cm
+    $\square$公开 \hspace{0.4cm} $\square$保密（\ustc@underline[2em]{}年）
+
+    \vskip 0.5cm
+
+    {\renewcommand{\arraystretch}{2.0}
+    \begin{tabular}{p{7cm}p{7cm}}
+      作者签名：\ustc@underline[7.4em]{} & 导师签名：\ustc@underline[7.4em]{} \\
+      签字日期：\ustc@underline[7.4em]{} & 签字日期：\ustc@underline[7.4em]{} \\
+    \end{tabular}}
+}
+%    \end{macrocode}
+%
+% \subsection{摘要}
+%
+% \begin{environment}{abstract}
+% 中文摘要环境
+% \changes{v3.0}{2017/07/01}{摘要关键词间隔符号改用顿号}
+% \changes{v3.0}{2017/07/01}{摘要不再加入目录}
+%    \begin{macrocode}
+\newenvironment{abstract}{%
+    \if@ustc@bachelor
+        \chapter{中文内容摘要}%
+    \else
+        \ustc@chapter{摘要}%
+    \fi
+  }{}
+%    \end{macrocode}
+% \end{environment}
+%
+% \begin{environment}{enabstract}
+% 英文摘要环境
+%    \begin{macrocode}
+\newenvironment{enabstract}{%
+    \if@ustc@bachelor
+        \chapter[英文内容摘要]{Abstract}
+    \else
+        \ustc@chapter[Abstract]{ABSTRACT}
+    \fi}{}
+%    \end{macrocode}
+% \end{environment}
+%
+% \begin{macro}{keywords}
+% 中文关键词
+%    \begin{macrocode}
+\newcommand\keywords[1]{%
+  \par\phantom{empty line}\par\noindent\hangindent=4\ccwd\relax%
+  \textbf{关键词}：#1}
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{enkeywords}
+% 英文关键词
+%    \begin{macrocode}
+\newcommand\enkeywords[1]{%
+  \par\phantom{empty}\par\noindent\hangindent=5.3em\relax%
+  \textbf{Key Words}: #1}
+%    \end{macrocode}
+% \end{macro}
+%
+% \subsection{目录}
+%
+% \begin{macro}{\tableofcontents}
+% 为了在 PDF 书签中加入目录，重新定义 \cs{tableofcontents}
+%    \begin{macrocode}
+\renewcommand\tableofcontents{%
+    \cleardoublepage%
+    \if@ustc@bachelor\pagenumbering{arabic}\fi
+    \ustc@chapter{\contentsname}%
+    \@starttoc{toc}}
+%    \end{macrocode}
+% \end{macro}
+%
+% 目录一般由正文第1章（或绪论、引言）开始，列至三级标题（如2.2.2）即可，目录之前
+% 的内容及目录本身不列入目录内。
+% 一级标题顶格书写，二级标题缩进一字，三级标题缩进两字。
+% 由于 \pkg{ctex} 新引入了 \opt{tocline}，导致chatper 的前标题空白多了0.3em。
+% 下面用 \pkg{titletoc} 宏包设置每级目录的格式
+%    \begin{macrocode}
+\RequirePackage{titletoc}
+\newcommand\ustc@leaders{\titlerule*[0.5pc]{$\cdot$}}
+\if@ustc@bachelor
+    \titlecontents{chapter}
+        [0bp]
+        {\setfontsize{12bp}[20bp]}
+        {\contentspush{\thecontentslabel\hskip\ccwd\relax}}
+        {}{\ustc@leaders\contentspage}
+    \titlecontents{section}
+        [\ccwd]
+        {\setfontsize{12bp}[20bp]}
+        {\contentspush{\thecontentslabel\hskip\ccwd\relax}}
+        {}{\ustc@leaders\contentspage}
+    \titlecontents{subsection}
+        [2\ccwd]
+        {\setfontsize{12bp}[20bp]}
+        {\contentspush{\thecontentslabel、}}
+        {}{\ustc@leaders\contentspage}
+\else
+    \titlecontents{chapter}
+        [0bp]
+        {\addvspace{6bp}\setfontsize{14bp}[20bp]}
+        {\contentspush{\thecontentslabel\unskip\hskip\ccwd\relax}}
+        {}{\ustc@leaders\setfontsize{12bp}[20bp]\contentspage}
+    \titlecontents{section}
+        [\ccwd]
+        {\setfontsize{12bp}[20bp]}
+        {\contentspush{\thecontentslabel\hskip\ccwd\relax}}
+        {}{\ustc@leaders\setfontsize{12bp}[20bp]\contentspage}
+    \titlecontents{subsection}
+        [2\ccwd]
+        {\setfontsize{10.5bp}[20bp]}
+        {\contentspush{\thecontentslabel\hskip\ccwd\relax}}
+        {}{\ustc@leaders\setfontsize{12bp}[20bp]\contentspage}
+\fi
+%    \end{macrocode}
+%
+% 同时设置图、表的目录格式
+%    \begin{macrocode}
+\titlecontents{figure}
+    [\ccwd]
+    {\addvspace{6bp}\setfontsize{12bp}}
+    {\thecontentslabel\hspace*{0.5em}}
+    {}{\ustc@leaders\contentspage}
+\titlecontents{table}
+    [\ccwd]
+    {\addvspace{6bp}\setfontsize{12bp}}
+    {\thecontentslabel\hspace*{0.5em}}
+    {}{\ustc@leaders\contentspage}
+%    \end{macrocode}
+%
+% \begin{macro}{\listoffigures}
+    % 为了让图目录另页起，重新定义 \cs{listoffigures}
+%    \begin{macrocode}
+\renewcommand\listoffigures{%
+    \if@ustc@bachelor\clearpage\else\cleardoublepage\fi
+    \ustc@chapter{\listfigurename}%
+    \@starttoc{lof}}
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\listoftables}
+    % 表目录同样
+%    \begin{macrocode}
+\renewcommand\listoftables{%
+    \if@ustc@bachelor\clearpage\else\cleardoublepage\fi
+    \ustc@chapter{\listtablename}%
+    \@starttoc{lot}}
+%    \end{macrocode}
+% \end{macro}
+%
+% 为了让本科生的目录每章之间多空一行，重新定义 \cs{mainmatter}, \cs{backmatter},
+% \cs{appendix}
+%    \begin{macrocode}
+\if@ustc@bachelor
+    \g@addto@macro\frontmatter{\@ustc@addtocspacefalse}%
+    \g@addto@macro\mainmatter{\@ustc@addtocspacetrue}%
+    \g@addto@macro\backmatter{\@ustc@addtocspacefalse}%
+    \g@addto@macro\appendix{\@ustc@addtocspacefalse}%
+\fi
+%    \end{macrocode}
+%
+% \subsection{符号说明}
+%
+% \begin{environment}{notation}
+% 标题字体字号等同论文正文，说明部分:宋体 10.5 磅，行距 16 磅，段前段后 0 磅。
+% \changes{v3.0}{2017/07/01}{符号说明不加页码}
+%    \begin{macrocode}
+\newenvironment{notation}{%
+    \if@ustc@bachelor\clearpage\else\cleardoublepage\fi
+    \thispagestyle{ustc@notation}
+    \ctexset{chapter/format = \centering\rmfamily\setfontsize{12bp}}
+    \ustc@chapter{\ustc@notationname}
+    \setfontsize{10.5bp}[16bp]
+    \setlength{\itemsep}{0bp}}{}
+%    \end{macrocode}
+% \end{environment}
+%
+% \subsection{正文}
+%
 % 正文段落文字格式设置
 %    \begin{macrocode}
-\ifustc@opt@bachelor
+\if@ustc@bachelor
     \renewcommand\normalsize{\setfontsize{12bp}[22bp]}
 \else
     \renewcommand\normalsize{\setfontsize{12bp}[20bp]}
@@ -1439,27 +1577,75 @@ LaTeX version 1999/12/01 or later.
 \setlength{\parskip}{0bp}
 %    \end{macrocode}
 %
+% \subsection{数学}
+%
+% 定义新的数学符号：
+% \changes{v3.0}{2017/07/01}{规定了 $\pi$ 等数学符号使用正体}
+%    \begin{macrocode}
+\RequirePackage{upgreek}
+\renewcommand\pi{\uppi}
+%    \end{macrocode}
+%
+% 小于等于号要使用倾斜的形式。
+% \changes{v3.0}{2017/07/01}{修正了 LaTeX 的小于等于号}
+%    \begin{macrocode}
+\RequirePackage{amssymb}
+\renewcommand\le{\leqslant}
+\renewcommand\leq{\leqslant}
+\renewcommand\ge{\geqslant}
+\renewcommand\geq{\geqslant}
+%    \end{macrocode}
+%
+% \LaTeX{} 在使用 |10pt| 选项时有 |DeclareMathSizes}{\@xpt}{\@xpt}{7}{5}}|，
+% 这里按照相同的比例设置 10.5 bp。
+%    \begin{macrocode}
+\DeclareMathSizes{10.5bp}{10.5bp}{7.35bp}{5.25bp}
+%    \end{macrocode}
+%
 % \subsection{图、表}
+%
+% 下面这组命令使浮动对象的缺省值稍微宽松一点，从而防止幅度对象占据过多的文本
+% 页面， 也可以防止在很大空白的浮动页上放置很小的图形。
+%
+% This macro holds the maximum proportion (as a decimal number) of a text page
+% or column that can be occupied by floats at the top. (Original: .7)
+%    \begin{macrocode}
+\renewcommand{\topfraction}{.85}
+%    \end{macrocode}
+%
+% This macro holds the maximum proportion (as a decimal number) of a text page
+% or column that can be occupied by floats at the bottom. (Original: .3)
+%    \begin{macrocode}
+\renewcommand{\bottomfraction}{.65}
+%    \end{macrocode}
+%
+% This macro holds the minimum proportion (as a decimal number) of a text page
+% or column that must be occupied by text. (Original: .2)
+%    \begin{macrocode}
+\renewcommand\textfraction{.15}
+%    \end{macrocode}
+%
+% This macro holds the minimum proportion (as a decimal number) of a page or
+% column that must be occupied by floating objects before a ‘float page’ is
+% produced. (Original: .5)
+%    \begin{macrocode}
+\renewcommand{\floatpagefraction}{.6}
+%    \end{macrocode}
+%
 % 用 \pkg{caption} 宏包设置图、表的格式
 % 注意计算 belowskip 必须用 \pkg{calc} 宏包修正。
-% \changes{v2.2}{2017/04/17}{Fix distance below figure captions.}
-% \changes{v2.2.1}{2017/04/18}{Fix distance above figures.}
-% \changes{v2.2.2}{2017/04/25}{Fix caption spacing.}
+% \changes{v3.0}{2017/07/01}{图表的编号号、标题加粗}
 %    \begin{macrocode}
 \RequirePackage{caption}
 \RequirePackage{calc}
 \DeclareCaptionLabelSeparator{zhspace}{\hspace{\ccwd}}
 \captionsetup{
     format = hang,
+    font = small,
     labelsep = zhspace,
 }
-\ifustc@opt@bachelor
-    \captionsetup{font = normalsize}
-\else
-    \captionsetup{
-        font = small,
-        labelfont+={bf},
-    }
+\if@ustc@bachelor\else
+    \captionsetup{font+=bf}
 \fi
 \captionsetup[figure]{
     position = bottom,
@@ -1472,54 +1658,160 @@ LaTeX version 1999/12/01 or later.
     belowskip = 6bp,
 }
 %    \end{macrocode}
+%
+% 使表的字号略小。
+% \changes{v3.0}{2017/07/01}{表格的字号略小}
+%    \begin{macrocode}
+% \BeforeBeginEnvironment{tabular}{\small}
+% \AtBeginEnvironment{longtable}{\small}
+%    \end{macrocode}
 % \begin{macro}{\note}
 % 新定义了 \cs{note} 来生成图标的附注。
 % 如果用 \cs{caption} 生成图标的附注会导致图标的序号有误；
 % 如果用 \cs{bicaption} 会导致表注无法置于表后，而且对齐方式不对。
 %    \begin{macrocode}
 \newcommand\note[1]{%
-    \captionsetup{position = bottom}
-    \caption*{\hangindent=2\ccwd\relax\ustc@notesname#1}}
+    \captionsetup{position = bottom, font = small}
+    \caption*{\hangindent=2\ccwd\relax\ustc@notesname\rmfamily#1}}
 %    \end{macrocode}
 % \end{macro}
 %
-% \subsection{数学}
-% \LaTeX{} 在使用 |10pt| 选项时有 |DeclareMathSizes}{\@xpt}{\@xpt}{7}{5}}|，
-% 这里按照相同的比例设置 10.5 bp。
+% \subsection{脚注}
+%
+% \changes{v3.0}{2017/07/01}{脚注用带圈序号，缩进两字}
+% 脚注用带圈的数字：
 %    \begin{macrocode}
-\DeclareMathSizes{10.5bp}{10.5bp}{7.35bp}{5.25bp}
+\renewcommand{\thefootnote}{\ustc@textcircled{footnote}}
 %    \end{macrocode}
 %
-% \subsection{符号说明}
-% \begin{environment}{notation}
-% 这里只定义了一个满足要求的环境，具体内容由用户自定义
+% 脚注线长为版心宽度的四分之一：
+% \changes{v3.0}{2017/07/01}{脚注线长度为版心宽度四分之一}
 %    \begin{macrocode}
-\newenvironment{notation}{%
-    \ctexset{chapter/format += \rmfamily\setfontsize{12bp}}
-    \chapter{\ustc@notationname}
-    \setfontsize{10.5bp}[16bp]
-    \setlength{\itemsep}{0bp}}{}
+\renewcommand\footnoterule{%
+  \kern-3\p@
+  \hrule\@width.25\textwidth
+  \kern2.6\p@}
 %    \end{macrocode}
-% \end{environment}
+%
+% 注文缩进两字：
+%    \begin{macrocode}
+\renewcommand\@makefntext[1]{%
+  \parindent 2\ccwd%
+  \noindent
+  \hb@xt@2\ccwd{\hss\@makefnmark}#1}
+%    \end{macrocode}
 %
 % \subsection{参考文献}
-% 目前 \BibTeX{} 使用的 .bst 格式 位于 \url{https://github.com/zepinglee/gbt-7714-2015}
-% \changes{v2.1}{2016/04/16}{Support both author-year and numerical bib style.}
-% \changes{v2.1.4}{2017/02/26}{Adopt bibliography style updates and fix a few bugs.}
-% \changes{v2.2.2}{2017/04/26}{Fix url font.}
-% \changes{v2.2.2}{2017/05/02}{Add inline citatinon style.}
+% \changes{v3.0}{2017/07/01}{参考文献列表不出现“[S.l.]: [s.n.]”}
+%
+% 定义接口切换引用文献的标注法，可用 \cs{citestyle} 调用 \opt{super} 、
+% \opt{authoryear} 或 \opt{numbers}。
+% \changes{v3.0}{2017/07/01}{允许文献序号作为叙述文字的一部分}
 %    \begin{macrocode}
-\usepackage[sort&compress]{natbib}
-\newcommand\bibstyle@ustcnumerical{\bibpunct{[}{]}{,}{s}{,}{\textsuperscript{,}}}
-\newcommand\bibstyle@ustcinline{\bibpunct{[}{]}{,}{n}{,}{,}}
-\newcommand\bibstyle@ustcauthoryear{\bibpunct{(}{)}{;}{a}{,}{,}}
+\RequirePackage[sort&compress]{natbib}
+\newcommand\bibstyle@super{\bibpunct{[}{]}{,}{s}{,}{\textsuperscript{,}}}
+\newcommand\bibstyle@numbers{\bibpunct{[}{]}{,}{n}{,}{,}}
+\newcommand\bibstyle@authoryear{\bibpunct{(}{)}{;}{a}{,}{,}}
+%    \end{macrocode}
+% \begin{macro}{\ustcbibstyle}
+% 定义接口切换参考文献表的风格，可选 \opt{authoryear} 和 \opt{numerical}，
+% 这个仅用于\pkg{chapterbib}。
+%    \begin{macrocode}
+\def\tmp@numerical{numerical}
+\def\tmp@authoryear{authoryear}
+\newcommand\ustcbibstyle[1]{%
+  \def\tmp@gbt{#1}%
+  \ifx\tmp@gbt\tmp@numerical%
+    \bibliographystyle{ustcnumerical}%
+  \else%
+    \ifx\tmp@gbt\tmp@authoryear%
+      \bibliographystyle{ustcauthoryear}%
+    \else%
+      \PackageError{ustcthesis}{Unknown argument #1.}
+      {It should be `numerical' or `authoryear'.}
+    \fi%
+  \fi%
+}
+%    \end{macrocode}
+% \end{macro}
+%
+% 处理宏包选项。
+%    \begin{macrocode}
+\if@ustc@numerical
+  \if@ustc@super
+    \citestyle{super}
+    \bibliographystyle{ustcnumerical}%
+  \else
+    \citestyle{numbers}
+    \bibliographystyle{ustcnumerical}%
+  \fi
+\else
+  \citestyle{authoryear}
+  \bibliographystyle{ustcauthoryear}%
+\fi
+%    \end{macrocode}
+%
+% 下面修改 \pkg{natbib} 的引用格式，主要是将页码写在上标位置。
+% Numerical 模式的 \cs{citet} 的页码：
+%    \begin{macrocode}
+\patchcmd\NAT@citexnum{%
+  \@ifnum{\NAT@ctype=\z@}{%
+    \if*#2*\else\NAT@cmt#2\fi
+  }{}%
+  \NAT@mbox{\NAT@@close}%
+}{%
+  \NAT@mbox{\NAT@@close}%
+  \@ifnum{\NAT@ctype=\z@}{%
+    \if*#2*\else\textsuperscript{#2}\fi
+  }{}%
+}{}{}
+%    \end{macrocode}
+%
+% Numerical 模式的 \cs{citep} 的页码：
+%    \begin{macrocode}
+\renewcommand\NAT@citesuper[3]{\ifNAT@swa
+\if*#2*\else#2\NAT@spacechar\fi
+\unskip\kern\p@\textsuperscript{\NAT@@open#1\NAT@@close\if*#3*\else#3\fi}%
+   \else #1\fi\endgroup}
+\renewcommand\NAT@citenum%
+    [3]{\ifNAT@swa\NAT@@open\if*#2*\else#2\NAT@spacechar\fi
+        #1\NAT@@close\if*#3*\else\textsuperscript{#3}\fi\else#1\fi\endgroup}
+%    \end{macrocode}
+%
+% Author-year 模式的 \cs{citet} 的页码：
+%    \begin{macrocode}
+\patchcmd{\NAT@citex}{%
+  \if*#2*\else\NAT@cmt#2\fi
+  \if\relax\NAT@date\relax\else\NAT@@close\fi
+}{%
+  \if\relax\NAT@date\relax\else\NAT@@close\fi
+  \if*#2*\else\textsuperscript{#2}\fi
+}{}{}
+%    \end{macrocode}
+%
+% Author-year 模式的 \cs{citep} 的页码：
+%    \begin{macrocode}
+\renewcommand\NAT@cite%
+    [3]{\ifNAT@swa\NAT@@open\if*#2*\else#2\NAT@spacechar\fi
+        #1\NAT@@close\if*#3*\else\textsuperscript{#3}\fi\else#1\fi\endgroup}
+%    \end{macrocode}
+%
+% 参考文献列表宋体10.5磅，行距20磅，续行缩进两字
+%    \begin{macrocode}
+\renewcommand\bibfont{\setfontsize{10.5bp}[20bp]}
 \setlength{\bibsep}{0bp}
-\setlength{\bibhang}{1em}
-\ifustc@opt@bachelor
+\setlength{\bibhang}{2\ccwd}
+\renewcommand\@biblabel[1]{[#1]\hfill}
+\if@ustc@bachelor
     \newcommand\ustcjournal{\textit}
 \else
     \newcommand\ustcjournal{\relax}
 \fi
+%    \end{macrocode}
+%
+% 将 URL 设置为保持原样，并增加可断行的位置。
+%    \begin{macrocode}
+\urlstyle{same}
 \g@addto@macro\UrlBreaks{%
   \do\a\do\b\do\c\do\d\do\e\do\f\do\g\do\h\do\i\do\j%
   \do\k\do\l\do\m\do\n\do\o\do\p\do\q\do\r\do\s\do\t%
@@ -1530,116 +1822,2673 @@ LaTeX version 1999/12/01 or later.
   \do\1\do\2\do\3\do\4\do\5\do\6\do\7\do\8\do\9\do\0%
 }
 %    \end{macrocode}
-% \begin{macro}{\bibliography}
-% 由于 \cs{bibliography} 位于正文中，页眉会默认显示“附录 参考文献”，所以修正页面风格；
-% 默认 \env{thebibliography} 是用 \cs{chapter*} 实现的，不能加入目录和 pdf 书签，
-% 这里重载了 \pkg{natbib} 的 \env{thebibliography}
+%
+% \begin{macro}{\bibsection}
+% 为了将参考文献加入目录和 pdf 书签，重新定义了 \pkg{natbib} 的 \env{bibsection}
 %    \begin{macrocode}
-\renewenvironment{thebibliography}[1]{%
-    \if@openright\cleardoublepage\else\clearpage\fi
+\renewcommand\bibsection{%
     \@mainmatterfalse
-    \ifustc@opt@bachelor\ctexset{chapter/format += \zihao{-2}}\fi
     \chapter{\bibname}%
-    \parindent\z@
-    \bibpreamble
-    \bibfont
-    \list{\@biblabel{\the\c@NAT@ctr}}{\@bibsetup{#1}\global\c@NAT@ctr\z@}%
-    \ifNAT@openbib
-        \renewcommand\newblock{\par}%
-    \else
-        \renewcommand\newblock{\hskip .11em \@plus.33em \@minus.07em}%
-    \fi
-    \sloppy\clubpenalty4000\widowpenalty4000
-    \sfcode`\.\@m
-    \let\NAT@bibitem@first@sw\@firstoftwo
-        \let\citeN\cite \let\shortcite\cite
-        \let\citeasnoun\cite
-}{%
-    \bibitem@fin
-    \bibpostamble
-    \def\@noitemerr{%
-        \PackageWarning{natbib}{Empty `thebibliography' environment}%
-    }%
-    \endlist
-    \bibcleanup
-    \if@openright\cleardoublepage\else\clearpage\fi
     \@mainmattertrue
-}%
+}
 %    \end{macrocode}
 % \end{macro}
 %
-% \changes{v2.1.2}{2016/04/23}{Fix bib style.}
-% 与 GB/T 7714-2005 相比，中国科大的要求的参考文献格式的区别主要有：
-%
-% \begin{itemize}
-% \item
-%   Author-year 式参考文献表的 year 排于 author 之后
-% \item
-%   Author-year 式参考文献表的 publisher 与 pages 之间应使用逗号
-% \item
-%   学位论文的文献类型标志后面要加[博士/硕士].
-% \item
-%   本科的 journal 名要用斜体
-% \end{itemize}
 %
 % \subsection{附录}
 % \begin{environment}{acknowledgements}
 % 定义了一个满足要求的致谢环境：
 %    \begin{macrocode}
 \newenvironment{acknowledgements}{%
-    \ifustc@opt@bachelor
-        \ctexset{chapter/format += \zihao{-2}}%
-        \chapter*{\ustc@acknowledgementsname}%
-    \else
-        \chapter[\ustc@pdf@acknowledgementsname]{\ustc@acknowledgementsname}%
-    \fi}{}
+  \if@ustc@bachelor
+    \ustc@chapter{\ustc@acknowledgementsname}%
+  \else
+    \chapter{\ustc@acknowledgementsname}%
+  \fi
+}{}
 %    \end{macrocode}
 % \end{environment}
 % \begin{environment}{publications}
 % 发表成果环境：
 %    \begin{macrocode}
 \newenvironment{publications}{\chapter{\ustc@publicationsname}}{}
+%</class>
 %    \end{macrocode}
 % \end{environment}
-% 书脊部分代码无效
+%
+%
+%
+% \StopEventually{}
+%
+% \section{BibTeX style implementation}
+%
+% \lstset{gobble=2,basicstyle=\ttfamily,frame=single,language=bash}
+%
+% \subsection{Fields and entry strings}
+%
 %    \begin{macrocode}
-% 书脊的论文题目、系别、作者姓名默认为\ustc@title, \ustc@depart, \ustc@author，
-% 竖排的内部实现是，先用 \addCJKfontfeatures{Vertical=RotatedGlyphs} 旋转每个字，
-% 再用 \rotatebox{-90}{} 旋转整个盒子，
-% 由于中文字形的旋转后的深度会变，所以使用 \raisebox 进行调整。
-% 所以留下 \spinetitle 等接口进行设置，如果标题里含有英文，要用\entext{}包括起来
-% \RequirePackage{rotating}
-% \ustc@define@term{spinetitle}
-% \ustc@define@term{spinedepart}
-% \ustc@define@term{spineauthor}
+%<*authoryear|numerical>
+ENTRY
+  { address
+    author
+    booktitle
+    chapter
+    doi
+    eid
+    edition
+    editor
+    howpublished
+    institution
+    isbn
+    issn
+    journal
+    key
+    language
+    mark
+    media
+    month
+    note
+    number
+    organization
+    pages
+%<*authoryear>
+    pinyin
+%</authoryear>
+    publisher
+    school
+    series
+    title
+    translator
+    type
+    url
+    urldate
+    volume
+    year
+  }
+  { lang }
+%    \end{macrocode}
 %
-% \spinetitle{\ustc@title}
-% \spinedepart{\ustc@depart}
-% \spineauthor{\ustc@author}
+% These string entry variables are used to form the citation label.
+% In a storage pinch, sort.label can be easily computed on the fly.
 %
-% \newcommand\entext[1]{\raisebox{-0.75ex}{~#1{}~}}
+%    \begin{macrocode}
+  { mark_ label extra.label sort.label short.list }
+
+%    \end{macrocode}
 %
-% \newcommand\make@spine{%
-%     \begin{titlepage}
-%     \begin{center}
-%         书脊(此页仅用于制作书脊,不用单独打印放入论文)\par
-%         \renewcommand\\{\relax}
-%         \sffamily\bfseries\setfontsize{12bp}[14bp]\ziju{0.166667}
-%         \addCJKfontfeatures{Vertical=RotatedGlyphs}
-%         \rotatebox{-90}{\fbox{\parbox{20cm}{
-%             \hspace*{3cm plus 1cm minus 2cm}
-%             \raisebox{0.75ex}{\ustc@spinetitle} \hfill\quad\hfill
-%             \raisebox{0.75ex}{\ustc@spinedepart} \hfill\quad\hfill
-%             \raisebox{0.75ex}{\ustc@spineauthor} \hfill\quad\hfill
-%             \raisebox{0.75ex}{中国科学技术大学}
-%             \hspace{3cm plus 1cm minus 2cm}
-%             \vskip 5.8pt\relax}}}
-%     \end{center}
-%     \end{titlepage}
-% }
+% \subsection{Entry functions}
+% Each entry function starts by calling output.bibitem, to write the
+% |\bibitem| and its arguments to the .BBL file.  Then the various fields
+% are formatted and printed by output or output.check.  Those functions
+% handle the writing of separators (commas, periods, |\newblock|'s),
+% taking care not to do so when they are passed a null string.
+% Finally, fin.entry is called to add the final period and finish the
+% entry.
 %
-% \spinetitle{\entext{USTC}本硕博毕业论文示例文档} % 书脊的英文文字要用 \entext{} 括起来
-%</class>
+% A bibliographic reference is formatted into a number of `blocks':
+% in the open format, a block begins on a new line and subsequent
+% lines of the block are indented.  A block may contain more than
+% one sentence (well, not a grammatical sentence, but something to
+% be ended with a sentence ending period).  The entry functions should
+% call new.block whenever a block other than the first is about to be
+% started.  They should call new.sentence whenever a new sentence is
+% to be started.  The output functions will ensure that if two
+% new.sentence's occur without any non-null string being output between
+% them then there won't be two periods output.  Similarly for two
+% successive new.block's.
+%
+% The output routines don't write their argument immediately.
+% Instead, by convention, that argument is saved on the stack to be
+% output next time (when we'll know what separator needs to come
+% after it).  Meanwhile, the output routine has to pop the pending
+% output off the stack, append any needed separator, and write it.
+%
+% To tell which separator is needed, we maintain an output.state.
+% It will be one of these values:
+%       before.all              just after the |\bibitem|
+%       mid.sentence            in the middle of a sentence: comma needed
+%                                       if more sentence is output
+%       after.sentence          just after a sentence: period needed
+%       after.block             just after a block (and sentence):
+%                                       period and |\newblock| needed.
+% Note: These styles don't use after.sentence
+%
+% VAR: output.state : INTEGER           -- state variable for output
+%
+% The output.nonnull function saves its argument (assumed to be nonnull)
+% on the stack, and writes the old saved value followed by any needed
+% separator.  The ordering of the tests is decreasing frequency of
+% occurrence.
+%
+% 由于专著中的析出文献需要用到很特殊的“//”，所以我又加了一个 after.slash。
+% 其他需要在特定符号后面输出，所以写了一个 output.after。
+%
+% \begin{lstlisting}
+% output.nonnull(s) ==
+%  BEGIN
+%       s := argument on stack
+%       if output.state = mid.sentence then
+%           write$(pop() * ", ")
+%                 -- "pop" isn't a function: just use stack top
+%       else
+%           if output.state = after.block then
+%               write$(add.period$(pop()))
+%               newline$
+%               write$("\newblock ")
+%           else
+%               if output.state = before.all then
+%                   write$(pop())
+%               else        -- output.state should be after.sentence
+%                   write$(add.period$(pop()) * " ")
+%               fi
+%           fi
+%           output.state := mid.sentence
+%       fi
+%       push s on stack
+%  END
+% \end{lstlisting}
+%
+% The output function calls output.nonnull if its argument is non-empty;
+% its argument may be a missing field (thus, not necessarily a string)
+%
+% \begin{lstlisting}
+% output(s) ==
+%  BEGIN
+%       if not empty$(s) then output.nonnull(s)
+%       fi
+%  END
+% \end{lstlisting}
+%
+% The output.check function is the same as the output function except that, if
+% necessary, output.check warns the user that the t field shouldn't be empty
+% (this is because it probably won't be a good reference without the field;
+% the entry functions try to make the formatting look reasonable even when
+% such fields are empty).
+%
+% \begin{lstlisting}
+% output.check(s,t) ==
+%  BEGIN
+%       if empty$(s) then
+%           warning$("empty " * t * " in " * cite$)
+%       else output.nonnull(s)
+%       fi
+%  END
+% \end{lstlisting}
+%
+% The output.bibitem function writes the |\bibitem| for the current entry
+% (the label should already have been set up), and sets up the separator
+% state for the output functions.  And, it leaves a string on the stack
+% as per the output convention.
+%
+% \begin{lstlisting}
+% output.bibitem ==
+%  BEGIN
+%       newline$
+%       write$("\bibitem[")     % for alphabetic labels,
+%       write$(label)           % these three lines
+%       write$("]{")            % are used
+%       write$("\bibitem{")             % this line for numeric labels
+%       write$(cite$)
+%       write$("}")
+%       push "" on stack
+%       output.state := before.all
+%  END
+% \end{lstlisting}
+%
+% The fin.entry function finishes off an entry by adding a period to the
+% string remaining on the stack.  If the state is still before.all
+% then nothing was produced for this entry, so the result will look bad,
+% but the user deserves it. (We don't omit the whole entry because the
+% entry was cited, and a bibitem is needed to define the citation label.)
+%
+% \begin{lstlisting}
+% fin.entry ==
+%  BEGIN
+%       write$(add.period$(pop()))
+%       newline$
+%  END
+% \end{lstlisting}
+%
+% The new.block function prepares for a new block to be output, and
+% new.sentence prepares for a new sentence.
+%
+% \begin{lstlisting}
+% new.block ==
+%  BEGIN
+%       if output.state <> before.all then
+%           output.state := after.block
+%       fi
+%  END
+% \end{lstlisting}
+%
+% \begin{lstlisting}
+% new.sentence ==
+%  BEGIN
+%       if output.state <> after.block then
+%           if output.state <> before.all then
+%               output.state :=  after.sentence
+%           fi
+%       fi
+%  END
+% \end{lstlisting}
+%
+%    \begin{macrocode}
+INTEGERS { output.state before.all mid.sentence after.sentence after.block after.slash }
+
+INTEGERS { lang.zh lang.ja lang.en lang.ru lang.default }
+
+INTEGERS { charptr stringlength }
+
+FUNCTION {init.state.consts}
+{ #0 'before.all :=
+  #1 'mid.sentence :=
+  #2 'after.sentence :=
+  #3 'after.block :=
+  #4 'after.slash :=
+  #4 'lang.zh :=
+  #5 'lang.ja :=
+  #1 'lang.en :=
+  #3 'lang.ru :=
+  #0 'lang.default :=
+}
+
+%    \end{macrocode}
+%
+% the variables s and t are temporary string holders
+%
+%    \begin{macrocode}
+STRINGS { s t }
+
+FUNCTION {debug}
+{ 's :=
+  duplicate$
+  "DEBUG: " s * " -> `" *
+  swap$ * "'" *
+  top$
+}
+
+FUNCTION {debug.int}
+{ 's :=
+  duplicate$ int.to.str$
+  "DEBUG: " s * " == " *
+  swap$ *
+  top$
+}
+
+FUNCTION {punct.colon}
+{ ": "
+}
+
+FUNCTION {punct.slash}
+{ "//\allowbreak{}"
+}
+
+FUNCTION {punct.space}
+{ " "
+}
+
+FUNCTION {output.nonnull}
+{ 's :=
+  output.state mid.sentence =
+    { ", " * write$ }
+    { output.state after.block =
+        { add.period$ write$
+          newline$
+          "\newblock " write$
+        }
+        { output.state before.all =
+            'write$
+            { output.state after.slash =
+                { punct.slash * write$ }
+                { add.period$ " " * write$ }
+              if$
+            }
+          if$
+        }
+      if$
+      mid.sentence 'output.state :=
+    }
+  if$
+  s
+}
+
+FUNCTION {output}
+{ duplicate$ empty$
+    'pop$
+    'output.nonnull
+  if$
+}
+
+FUNCTION {output.after}
+{ 't :=
+  duplicate$ empty$
+    'pop$
+    { 's :=
+      output.state mid.sentence =
+        { t * write$ }
+        { output.state after.block =
+            { add.period$ write$
+              newline$
+              "\newblock " write$
+            }
+            { output.state before.all =
+                'write$
+                { output.state after.slash =
+                    { punct.slash * write$ }
+                    { add.period$ " " * write$ }
+                  if$
+                }
+              if$
+            }
+          if$
+          mid.sentence 'output.state :=
+        }
+      if$
+      s
+    }
+  if$
+}
+
+FUNCTION {output.check}
+{ 't :=
+  duplicate$ empty$
+    { pop$ "empty " t * " in " * cite$ * warning$ }
+    'output.nonnull
+  if$
+}
+
+%    \end{macrocode}
+%
+% This function finishes all entries.
+%
+%    \begin{macrocode}
+FUNCTION {fin.entry}
+{ add.period$
+  write$
+  newline$
+}
+
+FUNCTION {new.block}
+{ output.state before.all =
+    'skip$
+    { output.state after.slash =
+        'skip$
+        { after.block 'output.state := }
+      if$
+    }
+  if$
+}
+
+FUNCTION {new.sentence}
+{ output.state after.block =
+    'skip$
+    { output.state before.all =
+        'skip$
+        { output.state after.slash =
+            'skip$
+            { after.sentence 'output.state := }
+          if$
+        }
+      if$
+    }
+  if$
+}
+
+FUNCTION {new.slash}
+{ output.state before.all =
+    'skip$
+    { after.slash 'output.state := }
+  if$
+}
+
+%    \end{macrocode}
+%
+% These three functions pop one or two (integer) arguments from the stack
+% and push a single one, either 0 or 1.
+% The |'skip$| in the `and' and `or' functions are used because
+% the corresponding |if$| would be idempotent
+%
+%    \begin{macrocode}
+FUNCTION {not}
+{   { #0 }
+    { #1 }
+  if$
+}
+
+FUNCTION {and}
+{   'skip$
+    { pop$ #0 }
+  if$
+}
+
+FUNCTION {or}
+{   { pop$ #1 }
+    'skip$
+  if$
+}
+
+%    \end{macrocode}
+%
+% Sometimes we begin a new block only if the block will be big enough.  The
+% new.block.checka function issues a new.block if its argument is nonempty;
+% new.block.checkb does the same if either of its TWO arguments is nonempty.
+%
+%    \begin{macrocode}
+FUNCTION {new.block.checka}
+{ empty$
+    'skip$
+    'new.block
+  if$
+}
+
+FUNCTION {new.block.checkb}
+{ empty$
+  swap$ empty$
+  and
+    'skip$
+    'new.block
+  if$
+}
+
+%    \end{macrocode}
+%
+% The new.sentence.check functions are analogous.
+%
+%    \begin{macrocode}
+FUNCTION {new.sentence.checka}
+{ empty$
+    'skip$
+    'new.sentence
+  if$
+}
+
+FUNCTION {new.sentence.checkb}
+{ empty$
+  swap$ empty$
+  and
+    'skip$
+    'new.sentence
+  if$
+}
+
+%    \end{macrocode}
+%
+% \subsection{Formatting chunks}
+% Here are some functions for formatting chunks of an entry.
+% By convention they either produce a string that can be followed by
+% a comma or period (using |add.period$|, so it is OK to end in a period),
+% or they produce the null string.
+%
+% A useful utility is the field.or.null function, which checks if the
+% argument is the result of pushing a `missing' field (one for which no
+% assignment was made when the current entry was read in from the database)
+% or the result of pushing a string having no non-white-space characters.
+% It returns the null string if so, otherwise it returns the field string.
+% Its main (but not only) purpose is to guarantee that what's left on the
+% stack is a string rather than a missing field.
+%
+% \begin{lstlisting}
+% field.or.null(s) ==
+%  BEGIN
+%       if empty$(s) then return ""
+%       else return s
+%  END
+% \end{lstlisting}
+%
+% Another helper function is emphasize, which returns the argument emphazised,
+% if that is non-empty, otherwise it returns the null string.  Italic
+% corrections aren't used, so this function should be used when punctation
+% will follow the result.
+%
+% \begin{lstlisting}
+% emphasize(s) ==
+%  BEGIN
+%       if empty$(s) then return ""
+%       else return "{\em " * s * "}"
+% \begin{lstlisting}
+%
+% The format.names function formats the argument (which should be in
+% BibTeX name format) into "First Von Last, Junior", separated by commas
+% and with an "and" before the last (but ending with "et~al." if the last
+% of multiple authors is "others").  This function's argument should always
+% contain at least one name.
+%
+% VAR: nameptr, namesleft, numnames: INTEGER
+% pseudoVAR: nameresult: STRING         (it's what's accumulated on the stack)
+%
+% \begin{lstlisting}
+% format.names(s) ==
+%  BEGIN
+%       nameptr := 1
+%       numnames := num.names$(s)
+%       namesleft := numnames
+%       while namesleft > 0
+%         do
+%                               % for full names:
+%           t := format.name$(s, nameptr, "{ff~}{vv~}{ll}{, jj}")
+%                               % for abbreviated first names:
+%           t := format.name$(s, nameptr, "{f.~}{vv~}{ll}{, jj}")
+%           if nameptr > 1 then
+%               if namesleft > 1 then nameresult := nameresult * ", " * t
+%               else if numnames > 2
+%                      then nameresult := nameresult * ","
+%                    fi
+%                    if t = "others"
+%                      then nameresult := nameresult * " et~al."
+%                      else nameresult := nameresult * " and " * t
+%                    fi
+%               fi
+%           else nameresult := t
+%           fi
+%           nameptr := nameptr + 1
+%           namesleft := namesleft - 1
+%         od
+%       return nameresult
+%  END
+% \end{lstlisting}
+%
+% The format.authors function returns the result of format.names(author)
+% if the author is present, or else it returns the null string
+%
+% \begin{lstlisting}
+% format.authors ==
+%  BEGIN
+%       if empty$(author) then return ""
+%       else return format.names(author)
+%       fi
+%  END
+% \end{lstlisting}
+%
+% Format.editors is like format.authors, but it uses the editor field,
+% and appends ", editor" or ", editors"
+%
+% \begin{lstlisting}
+% format.editors ==
+%  BEGIN
+%       if empty$(editor) then return ""
+%       else
+%           if num.names$(editor) > 1 then
+%               return format.names(editor) * ", editors"
+%           else
+%               return format.names(editor) * ", editor"
+%           fi
+%       fi
+%  END
+% \end{lstlisting}
+%
+% Other formatting functions are similar, so no "comment version" will be
+% given for them.
+%
+% The `pop\$' in this function gets rid of the duplicate `empty' value and
+% the `skip\$' returns the duplicate field value
+%
+%    \begin{macrocode}
+FUNCTION {field.or.null}
+{ duplicate$ empty$
+    { pop$ "" }
+    'skip$
+  if$
+}
+
+FUNCTION {emphasize}
+{ duplicate$ empty$
+    { pop$ "" }
+    { "\emph{" swap$ * "}" * }
+  if$
+}
+
+FUNCTION {is.in.chinese}
+{ lang lang.zh =
+}
+
+FUNCTION {format.et.al}
+{ is.in.chinese
+    { "等"}
+    { lang.ja lang =
+        { "他"}
+        { lang.ru lang =
+            { "идр" }
+            { "et~al." }
+          if$
+        }
+      if$
+    }
+  if$
+}
+
+FUNCTION {format.anonymous}
+{ is.in.chinese
+    { "佚名" }
+    { "Anon" }
+  if$
+}
+
+INTEGERS { nameptr namesleft numnames }
+
+FUNCTION {format.names}
+{ 's :=
+  #1 'nameptr :=
+  s num.names$ 'numnames :=
+  numnames 'namesleft :=
+    { namesleft #0 > nameptr #4 < and }
+    { s nameptr "{vv~}{ll}{ f{ }}" format.name$ "u" change.case$
+      s nameptr "{, jj}" format.name$ *
+      't :=
+      nameptr #1 >
+        { namesleft #1 >
+            { ", " * t * }
+            { t "others" =
+                { ", " * format.et.al * }
+                { ", " * t * }
+              if$
+            }
+          if$
+          nameptr #3 = namesleft #1 > and
+            { ", " * format.et.al * }
+            'skip$
+          if$
+        }
+        't
+      if$
+      nameptr #1 + 'nameptr :=
+      namesleft #1 - 'namesleft :=
+    }
+  while$
+}
+
+FUNCTION {format.key}
+{ empty$
+    { key field.or.null }
+    { "" }
+  if$
+}
+
+FUNCTION {format.authors}
+{ author empty$
+%<*authoryear>
+    { format.anonymous }
+%</authoryear>
+%<*numerical>
+    { "" }
+%</numerical>
+    { author format.names }
+  if$
+}
+
+FUNCTION {format.editors}
+{ editor empty$
+    { "" }
+    { editor format.names }
+  if$
+}
+
+FUNCTION {format.translators}
+{ translator empty$
+    { "" }
+    { translator format.names
+      is.in.chinese
+        { translator num.names$ #3 >
+            { "译" * }
+            { ", 译" * }
+          if$
+        }
+        'skip$
+      if$
+    }
+  if$
+}
+
+FUNCTION {format.url}
+{ url empty$
+    { "" }
+    { new.block "\url{" url * "}" * }
+  if$
+}
+
+FUNCTION {format.doi}
+{ doi empty$
+    { "" }
+    { new.block "\doi{" doi * "}" * }
+  if$
+}
+
+%    \end{macrocode}
+%
+% The format.title function is used for non-book-like titles.
+% For most styles we convert to lowercase (except for the very first letter,
+% and except for the first one after a colon (followed by whitespace)),
+% and hope the user has brace-surrounded words that need to stay capitilized;
+% for some styles, however, we leave it as it is in the database.
+%
+%    \begin{macrocode}
+FUNCTION {format.title}
+{ title empty$
+    { "" }
+    { title "t" change.case$ }
+  if$
+}
+
+FUNCTION {set.mark}
+{ mark_ empty$ not
+    'pop$
+    { mark empty$ not
+        { pop$ mark 'mark_ := }
+        { 'mark_ := }
+      if$
+      media empty$ not
+        { mark_ "/" * media * 'mark_ := }
+        { url empty$ not
+            { mark_ "/OL" * 'mark_ := }
+            'skip$
+          if$
+        }
+      if$
+    }
+  if$
+}
+
+FUNCTION {format.mark}
+{ "\allowbreak[" mark_ * "]" * }
+
+FUNCTION {format.full.names}
+{'s :=
+  #1 'nameptr :=
+  s num.names$ 'numnames :=
+  numnames 'namesleft :=
+    { namesleft #0 > }
+    { s nameptr
+      "{vv~}{ll}" format.name$ 't :=
+      nameptr #1 >
+        {
+          namesleft #1 >
+            { ", " * t * }
+            {
+              numnames #2 >
+                { "," * }
+                'skip$
+              if$
+              t "others" =
+                { " et~al." * }
+                { " and " * t * }
+              if$
+            }
+          if$
+        }
+        't
+      if$
+      nameptr #1 + 'nameptr :=
+      namesleft #1 - 'namesleft :=
+    }
+  while$
+}
+
+FUNCTION {author.editor.full}
+{ author empty$
+    { editor empty$
+        { "" }
+        { editor format.full.names }
+      if$
+    }
+    { author format.full.names }
+  if$
+}
+
+FUNCTION {author.full}
+{ author empty$
+    { "" }
+    { author format.full.names }
+  if$
+}
+
+FUNCTION {editor.full}
+{ editor empty$
+    { "" }
+    { editor format.full.names }
+  if$
+}
+
+FUNCTION {make.full.names}
+{ type$ "book" =
+  type$ "inbook" =
+  or
+    'author.editor.full
+    { type$ "proceedings" =
+        'editor.full
+        'author.full
+      if$
+    }
+  if$
+}
+
+FUNCTION {output.bibitem}
+{ newline$
+  "\bibitem[" write$
+  label write$
+  ")" make.full.names duplicate$ short.list =
+     { pop$ }
+     { * }
+   if$
+  "]{" * write$
+  cite$ write$
+  "}" write$
+  newline$
+  ""
+  before.all 'output.state :=
+}
+
+%    \end{macrocode}
+%
+% By default, BibTeX sets the global integer variable |global.max$| to the BibTeX
+% constant |glob_str_size|, the maximum length of a global string variable.
+% Analogously, BibTeX sets the global integer variable |entry.max$| to
+% |ent_str_size|, the maximum length of an entry string variable.
+% The style designer may change these if necessary (but this is unlikely)
+
+% The n.dashify function makes each single |`-'| in a string a double |`--'|
+% if it's not already
+%
+% \begin{lstlisting}
+% pseudoVAR: pageresult: STRING         (it's what's accumulated on the stack)
+%
+% n.dashify(s) ==
+%  BEGIN
+%       t := s
+%       pageresult := ""
+%       while (not empty$(t))
+%         do
+%           if (first character of t = "-")
+%             then
+%               if (next character isn't)
+%                 then
+%                   pageresult := pageresult * "--"
+%                   t := t with the "-" removed
+%                 else
+%                   while (first character of t = "-")
+%                     do
+%                       pageresult := pageresult * "-"
+%                       t := t with the "-" removed
+%                     od
+%               fi
+%             else
+%               pageresult := pageresult * the first character
+%               t := t with the first character removed
+%           fi
+%         od
+%       return pageresult
+%  END
+% \end{lstlisting}
+%
+%    \begin{macrocode}
+FUNCTION {n.dashify}
+{ 't :=
+  ""
+    { t empty$ not }
+    { t #1 #1 substring$ "-" =
+        { t #1 #2 substring$ "--" = not
+            { "--" *
+              t #2 global.max$ substring$ 't :=
+            }
+            {   { t #1 #1 substring$ "-" = }
+                { "-" *
+                  t #2 global.max$ substring$ 't :=
+                }
+              while$
+            }
+          if$
+        }
+        { t #1 #1 substring$ *
+          t #2 global.max$ substring$ 't :=
+        }
+      if$
+    }
+  while$
+}
+
+%    \end{macrocode}
+%
+% The format.date function is for the month and year, but we give a warning if
+% there's an empty year but the month is there, and we return the empty string
+% if they're both empty.
+%
+%    \begin{macrocode}
+FUNCTION {format.date}
+{ year duplicate$ empty$
+    { "empty year in " cite$ * warning$
+       pop$ "" }
+    'skip$
+  if$
+  extra.label *
+}
+
+FUNCTION {extract.before.dash}
+{ duplicate$ empty$
+    { pop$ "" }
+    { 's :=
+      #1 'charptr :=
+      s text.length$ #1 + 'stringlength :=
+        { charptr stringlength <
+          s charptr #1 substring$ "-" = not
+          and
+        }
+        { charptr #1 + 'charptr := }
+      while$
+      s #1 charptr #1 - substring$
+    }
+  if$
+}
+
+FUNCTION {extract.after.dash}
+{ duplicate$ empty$
+    { pop$ "" }
+    { 's :=
+      #1 'charptr :=
+      s text.length$ #1 + 'stringlength :=
+        { charptr stringlength <
+          s charptr #1 substring$ "-" = not
+          and
+        }
+        { charptr #1 + 'charptr := }
+      while$
+        { charptr stringlength <
+          s charptr #1 substring$ "-" =
+          and
+        }
+        { charptr #1 + 'charptr := }
+      while$
+      s charptr global.max$ substring$
+    }
+  if$
+}
+
+FUNCTION {contains.dash}
+{ duplicate$ empty$
+    { pop$ #0 }
+    { 's :=
+        { s empty$ not
+          s #1 #1 substring$ "-" = not
+          and
+        }
+        { s #2 global.max$ substring$ 's := }
+      while$
+      s empty$ not
+    }
+  if$
+}
+
+FUNCTION {format.year}
+{ year empty$ not
+    { year }
+    { "empty year in " cite$ * warning$
+      ""
+    }
+  if$
+  extract.before.dash
+  extra.label *
+}
+
+FUNCTION {format.editdate}
+{ year contains.dash
+    { "\allowbreak(" year * ")" * }
+    { "" }
+  if$
+}
+
+%    \end{macrocode}
+%
+% 《著录规则》中的“引用日期”都是与 URL 同时出现的，所以其实为 urldate，这个虽然
+% 不是 \BibTeX{} 标准的域，但是实际中很常见。
+%
+%    \begin{macrocode}
+FUNCTION {format.urldate}
+{ urldate empty$
+    { "" }
+    { "\allowbreak[" urldate * "]" * }
+  if$
+}
+
+%    \end{macrocode}
+%
+% The format.btitle is for formatting the title field when it is a book-like
+% entry---the style used here keeps it in uppers-and-lowers and emphasizes it.
+%
+%    \begin{macrocode}
+FUNCTION {format.btitle}
+{ title emphasize
+}
+
+%    \end{macrocode}
+%
+% For several functions we'll need to connect two strings with a
+% tie (~) if the second one isn't very long (fewer than 3 characters).
+% The tie.or.space.connect function does that.  It concatenates the two
+% strings on top of the stack, along with either a tie or space between
+% them, and puts this concatenation back onto the stack:
+%
+% \begin{lstlisting}
+% tie.or.space.connect(str1,str2) ==
+%    BEGIN
+%       if text.length$(str2) < 3
+%         then return the concatenation of str1, "~", and str2
+%         else return the concatenation of str1, " ", and str2
+%    END
+% \end{lstlisting}
+%
+%    \begin{macrocode}
+FUNCTION {tie.or.space.connect}
+{ duplicate$ text.length$ #3 <
+    { "~" }
+    { " " }
+  if$
+  swap$ * *
+}
+
+%    \end{macrocode}
+%
+% The either.or.check function complains if both fields or an either-or pair
+% are nonempty.
+%
+% \begin{lstlisting}
+% either.or.check(t,s) ==
+%  BEGIN
+%       if empty$(s) then
+%           warning$(can't use both " * t * " fields in " * cite$)
+%       fi
+%  END
+% \end{lstlisting}
+%
+%    \begin{macrocode}
+FUNCTION {either.or.check}
+{ empty$
+    'pop$
+    { "can't use both " swap$ * " fields in " * cite$ * warning$ }
+  if$
+}
+
+%    \end{macrocode}
+%
+% The format.bvolume function is for formatting the volume and perhaps
+% series name of a multivolume work.  If both a volume and a series field
+% are there, we assume the series field is the title of the whole multivolume
+% work (the title field should be the title of the thing being referred to),
+% and we add an "of <series>".  This function is called in mid-sentence.
+%
+%    \begin{macrocode}
+FUNCTION {is.digit}
+{ duplicate$ empty$
+    { pop$ #0 }
+    { chr.to.int$
+      duplicate$ "0" chr.to.int$ <
+      { pop$ #0 }
+      { "9" chr.to.int$ >
+          { #0 }
+          { #1 }
+        if$
+      }
+    if$
+    }
+  if$
+}
+
+FUNCTION {is.number}
+{ 's :=
+  s empty$
+    { #0 }
+    { s text.length$ 'charptr :=
+        { charptr #0 >
+          s charptr #1 substring$ is.digit
+          and
+        }
+        { charptr #1 - 'charptr := }
+      while$
+      charptr not
+    }
+  if$
+}
+
+FUNCTION {format.volume}
+{ volume empty$
+    { "" }
+    { volume is.number
+        { is.in.chinese
+            { "第" volume * "卷" * }
+            { "volume" volume tie.or.space.connect }
+          if$
+        }
+        { volume }
+      if$
+    }
+  if$
+}
+
+FUNCTION {format.number}
+{ number empty$
+    { "" }
+    { number is.number
+        { is.in.chinese
+            { "第" volume * "册" * }
+            { "number" number tie.or.space.connect }
+          if$
+        }
+        { number }
+      if$
+    }
+  if$
+}
+
+FUNCTION {format.volume.number}
+{ volume empty$ not
+    { format.volume }
+    { format.number }
+  if$
+}
+
+%    \end{macrocode}
+%
+% The format.number.series function is for formatting the series name
+% and perhaps number of a work in a series.  This function is similar to
+% format.bvolume, although for this one the series must exist (and the
+% volume must not exist).  If the number field is empty we output either
+% the series field unchanged if it exists or else the null string.
+% If both the number and series fields are there we assume the series field
+% gives the name of the whole series (the title field should be the title
+% of the work being one referred to), and we add an "in <series>".
+% We capitilize Number when this function is used at the beginning of a block.
+%
+%    \begin{macrocode}
+FUNCTION {format.series.vol.num.title}
+{ type$ "report" = type$ "standard" = or
+    { format.title
+      number empty$ not
+        { ": " * number }
+        'skip$
+      if$
+    }
+    { format.volume.number 's :=
+      series empty$ not
+        { series ": " *
+          s empty$ not
+            { s * "\quad " * }
+            'skip$
+          if$
+          title field.or.null *
+        }
+        { title field.or.null
+          s empty$ not
+            { ": " * s * }
+            'skip$
+          if$
+        }
+      if$
+      "t" change.case$
+    }
+  if$
+}
+
+FUNCTION {format.series.vol.num.booktitle}
+{ type$ "report" = type$ "standard" = or
+    { format.volume.number }
+    { format.volume }
+  if$
+  's :=
+  series empty$ not
+    { series ": " *
+      s empty$ not
+        { s * "\quad " * }
+        'skip$
+      if$
+      booktitle field.or.null *
+    }
+    { booktitle field.or.null
+      s empty$ not
+        { ": " * s * }
+        'skip$
+      if$
+    }
+  if$
+}
+
+%    \end{macrocode}
+%
+% The format.edition function appends " edition" to the edition, if present.
+% We lowercase the edition (it should be something like "Third"), because
+% this doesn't start a sentence.
+%
+%    \begin{macrocode}
+FUNCTION {num.to.ordinal}
+{ duplicate$ text.length$ 'charptr :=
+  duplicate$ charptr #1 substring$ 's :=
+  s "1" =
+    { "st" * }
+    { s "2" =
+        { "nd" * }
+        { s "3" =
+            { "rd" * }
+            { "th" * }
+          if$
+        }
+      if$
+    }
+  if$
+}
+
+FUNCTION {format.edition}
+{ edition empty$
+    { "" }
+    { edition is.number
+        { is.in.chinese
+            { edition "版" * }
+            { edition num.to.ordinal " ed." * }
+          if$
+        }
+        { lang lang.en =
+            { edition "t" change.case$ 's :=
+              s "Revised" = s "Revised edition" = or
+                { "Rev. ed." }
+                { s " ed." *}
+              if$
+            }
+            { edition }
+          if$
+        }
+      if$
+    }
+  if$
+}
+
+%    \end{macrocode}
+%
+% 出版地址和出版社会有 “[S.l.: s.n.]” 的情况，所以必须一起处理。
+%
+%    \begin{macrocode}
+FUNCTION {format.sine.loco}
+{ is.in.chinese
+    { "[出版地不详]" }
+    { "[S.l.]" }
+  if$
+}
+
+FUNCTION {format.address}
+{ address }
+
+FUNCTION {format.sine.nomine}
+{ is.in.chinese
+    { "[出版地不详]" }
+    { "[s.n.]" }
+  if$
+}
+
+FUNCTION {format.publisher}
+{ publisher empty$ not
+    { publisher }
+    { school empty$ not
+        { school }
+        { organization empty$ not
+            { organization }
+            { institution empty$ not
+                { institution }
+                { "" }
+              if$
+            }
+          if$
+        }
+      if$
+    }
+  if$
+}
+
+FUNCTION {format.sine.loco.sine.nomine}
+{ is.in.chinese
+    { "[出版地不详: 出版者不详]" }
+    { "[S.l.: s.n.]" }
+  if$
+}
+
+FUNCTION {format.address.publisher}
+{ address empty$ not
+    { address
+      format.publisher empty$ not
+        { ": " * format.publisher * }
+        { url empty$ doi empty$ and
+            { ": " * format.sine.nomine * }
+            'skip$
+          if$
+        }
+      if$
+    }
+    { url empty$ doi empty$ and
+        { format.publisher empty$ not
+            { format.sine.loco ": " * format.publisher * }
+            { "" }
+          if$
+        }
+        { format.publisher empty$ not
+            { format.publisher }
+            { "" }
+          if$
+        }
+      if$
+    }
+  if$
+}
+
+%    \end{macrocode}
+%
+% This function doesn't begin a sentence so "pages" isn't capitalized.
+% Other functions that use this should keep that in mind.
+%
+%    \begin{macrocode}
+FUNCTION {format.pages}
+{ pages empty$
+    { "" }
+    { pages n.dashify }
+  if$
+}
+
+FUNCTION {format.journal.volume}
+{ volume }
+
+FUNCTION {format.journal.number}
+{ number empty$ not
+    { "\penalty0 (" number * ")" * }
+    { "" }
+  if$
+}
+
+%    \end{macrocode}
+%
+% 连续出版物的年卷期有起止范围，需要特殊处理
+%    \begin{macrocode}
+FUNCTION {format.journal}
+{ journal
+  is.in.chinese
+    'skip$
+    { "\ustcjournal{" swap$ * "}" * }
+  if$
+}
+
+FUNCTION {format.periodical.year.volume.number}
+{ year empty$ not
+    { year extract.before.dash }
+    { "No year in periodical " cite$ * warning$ }
+  if$
+  volume empty$ not
+    { ", " * volume extract.before.dash * }
+    'skip$
+  if$
+  number empty$ not
+    { "\penalty0 (" * number extract.before.dash * ")" * }
+    'skip$
+  if$
+  year contains.dash
+    { "--" *
+      year extract.after.dash empty$
+      volume extract.after.dash empty$ and
+      number extract.after.dash empty$ and not
+        { year extract.after.dash empty$ not
+            { year extract.after.dash * }
+            { year extract.before.dash * }
+          if$
+          volume empty$ not
+            { ", " * volume extract.after.dash * }
+            'skip$
+          if$
+          number empty$ not
+            { "\penalty0 (" * number extract.after.dash * ")" * }
+            'skip$
+          if$
+        }
+        'skip$
+      if$
+    }
+    'skip$
+  if$
+}
+
+%    \end{macrocode}
+%
+% The format.in.ed.booktitle function is used for starting out a sentence
+% that begins "In <booktitle>", putting an editor before the title if one
+% exists.
+%
+%    \begin{macrocode}
+FUNCTION {format.in.ed.booktitle}
+{ booktitle empty$
+    { "" }
+    { editor empty$
+        { "In " booktitle emphasize * }
+        { "In " format.editors * ", " * booktitle emphasize * }
+      if$
+    }
+  if$
+}
+
+%    \end{macrocode}
+%
+% The function empty.misc.check complains if all six fields are empty, and
+% if there's been no sorting or alphabetic-label complaint.
+%
+%    \begin{macrocode}
+FUNCTION {empty.misc.check}
+{ author empty$ title empty$ howpublished empty$
+  month empty$ year empty$ note empty$
+  and and and and and
+  key empty$ not and
+    { "all relevant fields are empty in " cite$ * warning$ }
+    'skip$
+  if$
+}
+
+%    \end{macrocode}
+%
+% Now come the cross-referencing functions (these are invoked because
+% one entry in the database file(s) cross-references another, by giving
+% the other entry's database key in a `crossref' field).  This feature
+% allows one or more titled things that are part of a larger titled
+% thing to cross-reference the larger thing.  These styles allow for
+% five posibilities: (1) an ARTICLE may cross-reference an ARTICLE;
+% (2) a BOOK, (3) INBOOK, or (4) INCOLLECTION may cross-reference a BOOK;
+% or (5) an INPROCEEDINGS may cross-reference a PROCEEDINGS.
+% Each of these is explained in more detail later.
+%
+% An ARTICLE entry type may cross reference another ARTICLE (this is
+% intended for when an entire journal is devoted to a single topic---
+% but since there is no JOURNAL entry type, the journal, too, should be
+% classified as an ARTICLE but without the author and title fields).
+% This will result in two warning messages for the journal's entry
+% if it's included in the reference list, but such is life.
+%
+% format.article.crossref ==
+%  BEGIN
+%       if empty$(key) then
+%           if empty$(journal) then
+%               warning$("need key or journal for " * cite$ *
+%                                               " to crossref " * crossref)
+%               return(" \cite{" * crossref * "}")
+%           else
+%               return("In " * emphazise.correct (journal) *
+%                                               " \cite{" * crossref * "}")
+%               fi
+%       else
+%           return("In " * key * " \cite{" * crossref * "}")
+%       fi
+%  END
+%
+% The other cross-referencing functions are similar, so no "comment version"
+% will be given for them.
+%
+%    \begin{macrocode}
+FUNCTION {format.article.crossref}
+{ key empty$
+    { journal empty$
+        { "need key or journal for " cite$ * " to crossref " * crossref *
+          warning$
+          ""
+        }
+        { "In \emph{" journal * "}" * }
+      if$
+    }
+    { "In " }
+  if$
+  " \citet{" * crossref * "}" *
+}
+
+%    \end{macrocode}
+%
+% A BOOK (or INBOOK) entry type (assumed to be for a single volume in a
+% multivolume work) may cross reference another BOOK (the entire multivolume).
+% Usually there will be an editor, in which case we use that to construct the
+% cross reference; otherwise we use a nonempty key field or else the series
+% field (since the series gives the title of the multivolume work).
+%
+%    \begin{macrocode}
+FUNCTION {format.book.crossref}
+{ volume empty$
+    { "empty volume in " cite$ * "'s crossref of " * crossref * warning$
+      "In "
+    }
+    { "Volume" volume tie.or.space.connect
+      " of " *
+    }
+  if$
+  editor empty$
+  editor field.or.null author field.or.null =
+  or
+    { key empty$
+        { series empty$
+            { "need editor, key, or series for " cite$ * " to crossref " *
+              crossref * warning$
+              "" *
+            }
+            { "\emph{" * series * "}" * }
+          if$
+        }
+        'skip$
+      if$
+    }
+    'skip$
+  if$
+  " \citet{" * crossref * "}" *
+}
+
+%    \end{macrocode}
+%
+% An INCOLLECTION entry type may cross reference a BOOK (assumed to be the
+% collection), or an INPROCEEDINGS may cross reference a PROCEEDINGS.
+% Often there will be an editor, in which case we use that to construct
+% the cross reference; otherwise we use a nonempty key field or else
+% the booktitle field (which gives the cross-referenced work's title).
+%
+%    \begin{macrocode}
+FUNCTION {format.incoll.inproc.crossref}
+{ editor empty$
+  editor field.or.null author field.or.null =
+  or
+    { key empty$
+        { booktitle empty$
+            { "need editor, key, or booktitle for " cite$ * " to crossref " *
+              crossref * warning$
+              ""
+            }
+            { "In \emph{" booktitle * "}" * }
+          if$
+        }
+        { "In " }
+      if$
+    }
+    { "In " }
+  if$
+  " \citet{" * crossref * "}" *
+}
+
+%    \end{macrocode}
+%
+% \subsection{Functions for all entry types}
+%
+% Now we define the type functions for all entry types that may appear
+% in the .BIB file---e.g., functions like `article' and `book'.  These
+% are the routines that actually generate the .BBL-file output for
+% the entry.  These must all precede the READ command.  In addition, the
+% style designer should have a function `default.type' for unknown types.
+% Note: The fields (within each list) are listed in order of appearance,
+% except as described for an `inbook' or a `proceedings'.
+%
+% The article function is for an article in a journal.  An article may
+% CROSSREF another article.
+%       Required fields: author, title, journal, year
+%       Optional fields: volume, number, pages, month, note
+%
+% \begin{lstlisting}
+% article ==
+%  BEGIN
+%       output.bibitem
+%       output.check(format.authors,"author")
+%       new.block
+%       output.check(format.title,"title")
+%       new.block
+%       if missing$(crossref) then
+%           output.check(emphasize(journal),"journal")
+%           output(format.vol.num.pages)
+%           output.check(format.date,"year")
+%       else
+%           output.nonnull(format.article.crossref)
+%           output(format.pages)
+%       fi
+%       new.block
+%       output(note)
+%       fin.entry
+%  END
+% \end{lstlisting}
+%
+% The book function is for a whole book.  A book may CROSSREF another book.
+%       Required fields: author or editor, title, publisher, year
+%       Optional fields: volume or number, series, address, edition, month,
+%                       note
+%
+% \begin{lstlisting}
+% book ==
+%  BEGIN
+%       if empty$(author) then output.check(format.editors,"author and editor")
+%       else    output.check(format.authors,"author")
+%               if missing$(crossref) then
+%                   either.or.check("author and editor",editor)
+%               fi
+%       fi
+%       new.block
+%       output.check(format.btitle,"title")
+%       if missing$(crossref) then
+%           output(format.bvolume)
+%           new.block
+%           output(format.number.series)
+%           new.sentence
+%           output.check(publisher,"publisher")
+%           output(address)
+%       else
+%           new.block
+%           output.nonnull(format.book.crossref)
+%       fi
+%       output(format.edition)
+%       output.check(format.date,"year")
+%       new.block
+%       output(note)
+%       fin.entry
+%  END
+% \end{lstlisting}
+%
+% The other entry functions are all quite similar, so no "comment version"
+% will be given for them.
+%
+% \subsection{专著}
+%
+%    \begin{macrocode}
+FUNCTION {monograph}
+{ output.bibitem
+  author empty$ not
+    { format.authors }
+    { editor empty$ not
+        { format.editors }
+%<*authoryear>
+        { format.anonymous }
+%</authoryear>
+%<*numerical>
+        { "" }
+%</numerical>
+      if$
+    }
+  if$
+  output
+%<*authoryear>
+  new.block
+  format.year "year" output.check
+%</authoryear>
+  new.block
+  format.series.vol.num.title "title" output.check
+  "M" set.mark
+  format.mark "" output.after
+  new.block
+  format.translators output
+  new.sentence
+  format.edition output
+  new.block
+  format.address.publisher output
+%<*numerical>
+  format.year "year" output.check
+%</numerical>
+  format.pages punct.colon output.after
+  format.urldate "" output.after
+  format.url output
+  format.doi output
+  fin.entry
+}
+
+%    \end{macrocode}
+%
+% \subsection{专著中的析出文献}
+%
+% An incollection is like inbook, but where there is a separate title
+% for the referenced thing (and perhaps an editor for the whole).
+% An incollection may CROSSREF a book.
+%       Required: author, title, booktitle, publisher, year
+%       Optional: editor, volume or number, series, type, chapter, pages,
+%                       address, edition, month, note
+%
+%    \begin{macrocode}
+FUNCTION {incollection}
+{ output.bibitem
+  format.authors "author" output.check
+  author format.key output
+%<*authoryear>
+  format.year "year" output.check
+%</authoryear>
+  new.block
+  format.title "title" output.check
+  "M" set.mark
+  format.mark "" output.after
+  new.block
+  format.translators output
+  new.slash
+  format.editors output
+  new.block
+  format.series.vol.num.booktitle "booktitle" output.check
+  new.block
+  format.edition output
+  new.block
+  format.address.publisher output
+%<*numerical>
+  format.year "year" output.check
+%</numerical>
+  format.pages punct.colon output.after
+  format.urldate "" output.after
+  format.url output
+  format.doi output
+  fin.entry
+}
+
+%    \end{macrocode}
+%
+% \subsection{连续出版物}
+%
+%    \begin{macrocode}
+FUNCTION {periodical}
+{ output.bibitem
+  format.authors "author" output.check
+  author format.key output
+%<*authoryear>
+  new.block
+  format.year "year" output.check
+%</authoryear>
+  new.block
+  format.title "title" output.check
+  "J" set.mark
+  format.mark "" output.after
+  new.block
+  format.periodical.year.volume.number output
+  new.block
+  format.address.publisher output
+%<*numerical>
+  format.date "year" output.check
+%</numerical>
+  format.urldate "" output.after
+  format.url output
+  format.doi output
+  fin.entry
+}
+
+%    \end{macrocode}
+%
+% \subsection{连续出版物中的析出文献}
+%
+%    \begin{macrocode}
+FUNCTION {article.in.journal}
+{ output.bibitem
+  format.authors "author" output.check
+  author format.key output
+%<*authoryear>
+  new.block
+  format.year "year" output.check
+%</authoryear>
+  new.block
+  format.title "title" output.check
+  "J" set.mark
+  format.mark "" output.after
+  new.block
+  format.journal "journal" output.check
+%<*numerical>
+  format.year "year" output.check
+%</numerical>
+  volume output
+  format.journal.number "" output.after
+  format.pages punct.colon output.after
+  format.urldate "" output.after
+  format.url output
+  format.doi output
+  fin.entry
+}
+
+%    \end{macrocode}
+%
+% \subsection{专利文献}
+%
+% number 域也可以用来表示专利号。
+%
+%    \begin{macrocode}
+FUNCTION {patent}
+{ output.bibitem
+  format.authors output
+  author format.key output
+%<*authoryear>
+  new.block
+  format.year "year" output.check
+%</authoryear>
+  new.block
+  format.title
+  number empty$ not
+    { punct.colon * number * }
+    'skip$
+  if$
+  "title" output.check
+  "P" set.mark
+  format.mark "" output.after
+  new.block
+  format.date "year" output.check
+  format.urldate "" output.after
+  format.url output
+  format.doi output
+  fin.entry
+}
+
+%    \end{macrocode}
+%
+% \subsection{电子资源}
+%
+%    \begin{macrocode}
+FUNCTION {online}
+{ output.bibitem
+  format.authors output
+  author format.key output
+%<*authoryear>
+  new.block
+  format.year "year" output.check
+%</authoryear>
+  new.block
+  format.series.vol.num.title "title" output.check
+  "EB" set.mark
+  format.mark "" output.after
+  new.block
+  format.address.publisher output
+%<*numerical>
+  year contains.dash
+    'skip$
+    { format.year output }
+  if$
+%</numerical>
+  format.pages punct.colon output.after
+  format.editdate "" output.after
+  format.urldate "" output.after
+  format.url output
+  format.doi output
+  fin.entry
+}
+
+%    \end{macrocode}
+%
+% A misc is something that doesn't fit elsewhere.
+%       Required: at least one of the `optional' fields
+%       Optional: author, title, howpublished, month, year, note
+%
+% Misc 用来自动判断类型。
+%    \begin{macrocode}
+FUNCTION {misc}
+{ journal empty$ not
+    { article.in.journal }
+    { booktitle empty$ not
+        { incollection }
+        { url empty$ not
+            { online }
+            { monograph }
+          if$
+        }
+      if$
+    }
+  if$
+}
+
+FUNCTION {archive}
+{ "A" set.mark
+  misc
+}
+
+FUNCTION {article} { misc }
+
+FUNCTION {book} { monograph }
+
+FUNCTION {collection}
+{ "G" set.mark
+  monograph }
+
+FUNCTION {database}
+{ "DB" set.mark
+  misc
+}
+
+FUNCTION {dataset}
+{ "DS" set.mark
+  misc
+}
+
+%    \end{macrocode}
+%
+% An inbook is a piece of a book: either a chapter and/or a page range.
+% It may CROSSREF a book.  If there's no volume field, the type field
+% will come before number and series.
+%
+%       Required: author or editor, title, chapter and/or pages, publisher,year
+%
+%       Optional: volume or number, series, type, address, edition, month, note
+%
+% inbook 类是不含 booktitle 域的，所以不应该适用于“专著中的析出文献”，而应该是专
+% 著，即 book 类。
+%
+%    \begin{macrocode}
+FUNCTION {inbook} { book }
+
+%    \end{macrocode}
+%
+% An inproceedings is an article in a conference proceedings, and it may
+% CROSSREF a proceedings.  If there's no address field, the month (\& year)
+% will appear just before note.
+%       Required: author, title, booktitle, year
+%       Optional: editor, volume or number, series, pages, address, month,
+%                       organization, publisher, note
+%
+%    \begin{macrocode}
+FUNCTION {inproceedings}
+{ "C" set.mark
+  incollection
+}
+
+%    \end{macrocode}
+%
+% The conference function is included for Scribe compatibility.
+%
+%    \begin{macrocode}
+FUNCTION {conference} { inproceedings }
+
+FUNCTION {map}
+{ "CM" set.mark
+  misc
+}
+
+%    \end{macrocode}
+%
+% A mastersthesis is a Master's thesis.
+%       Required: author, title, school, year
+%       Optional: type, address, month, note
+%
+%    \begin{macrocode}
+FUNCTION {mastersthesis}
+{ "D" set.mark
+  monograph
+}
+
+FUNCTION {newspaper}
+{ "N" set.mark
+  article.in.journal
+}
+
+%    \end{macrocode}
+%
+% A phdthesis is like a mastersthesis.
+%       Required: author, title, school, year
+%       Optional: type, address, month, note
+%
+%    \begin{macrocode}
+FUNCTION {phdthesis} { mastersthesis }
+
+%    \end{macrocode}
+%
+% A proceedings is a conference proceedings.
+% If there is an organization but no editor field, the organization will
+% appear as the first optional field (we try to make the first block nonempty);
+% if there's no address field, the month (\& year) will appear just before note.
+%       Required: title, year
+%       Optional: editor, volume or number, series, address, month,
+%                       organization, publisher, note
+%
+%    \begin{macrocode}
+FUNCTION {proceedings}
+{ "C" set.mark
+  monograph
+}
+
+FUNCTION {program}
+{ "CP" set.mark
+  misc
+}
+
+FUNCTION {standard}
+{ "S" set.mark
+  misc
+}
+
+%    \end{macrocode}
+%
+% A techreport is a technical report.
+%       Required: author, title, institution, year
+%       Optional: type, number, address, month, note
+%
+%    \begin{macrocode}
+FUNCTION {techreport}
+{ "R" set.mark
+  misc
+}
+
+%    \end{macrocode}
+%
+% We use entry type `misc' for an unknown type; BibTeX gives a warning.
+%
+%    \begin{macrocode}
+FUNCTION {default.type} { misc }
+
+%    \end{macrocode}
+%
+% \subsection{Common macros}
+%
+% Here are macros for common things that may vary from style to style.
+% Users are encouraged to use these macros.
+%
+% Months are either written out in full or abbreviated
+%
+%    \begin{macrocode}
+MACRO {jan} {"January"}
+
+MACRO {feb} {"February"}
+
+MACRO {mar} {"March"}
+
+MACRO {apr} {"April"}
+
+MACRO {may} {"May"}
+
+MACRO {jun} {"June"}
+
+MACRO {jul} {"July"}
+
+MACRO {aug} {"August"}
+
+MACRO {sep} {"September"}
+
+MACRO {oct} {"October"}
+
+MACRO {nov} {"November"}
+
+MACRO {dec} {"December"}
+
+%    \end{macrocode}
+%
+% Journals are either written out in full or abbreviated;
+% the abbreviations are like those found in ACM publications.
+%
+% To get a completely different set of abbreviations, it may be best to make
+% a separate .bib file with nothing but those abbreviations; users could then
+% include that file name as the first argument to the \bibliography command
+%
+%    \begin{macrocode}
+MACRO {acmcs} {"ACM Computing Surveys"}
+
+MACRO {acta} {"Acta Informatica"}
+
+MACRO {cacm} {"Communications of the ACM"}
+
+MACRO {ibmjrd} {"IBM Journal of Research and Development"}
+
+MACRO {ibmsj} {"IBM Systems Journal"}
+
+MACRO {ieeese} {"IEEE Transactions on Software Engineering"}
+
+MACRO {ieeetc} {"IEEE Transactions on Computers"}
+
+MACRO {ieeetcad}
+ {"IEEE Transactions on Computer-Aided Design of Integrated Circuits"}
+
+MACRO {ipl} {"Information Processing Letters"}
+
+MACRO {jacm} {"Journal of the ACM"}
+
+MACRO {jcss} {"Journal of Computer and System Sciences"}
+
+MACRO {scp} {"Science of Computer Programming"}
+
+MACRO {sicomp} {"SIAM Journal on Computing"}
+
+MACRO {tocs} {"ACM Transactions on Computer Systems"}
+
+MACRO {tods} {"ACM Transactions on Database Systems"}
+
+MACRO {tog} {"ACM Transactions on Graphics"}
+
+MACRO {toms} {"ACM Transactions on Mathematical Software"}
+
+MACRO {toois} {"ACM Transactions on Office Information Systems"}
+
+MACRO {toplas} {"ACM Transactions on Programming Languages and Systems"}
+
+MACRO {tcs} {"Theoretical Computer Science"}
+
+%    \end{macrocode}
+%
+% \subsection{Read bib entries and execute}
+%
+% Now we read in the .BIB entries.
+%
+%    \begin{macrocode}
+READ
+
+EXECUTE {init.state.consts}
+
+INTEGERS { ascii }
+
+FUNCTION {char.lang}
+{ chr.to.int$ 'ascii :=
+  ascii #31 > ascii #128 < and
+    { lang.en }
+    { ascii #227 > ascii #234 < and
+        { lang.zh }
+        { ascii #227 =
+            { lang.ja }
+            { ascii #207 > ascii #212 < and
+                { lang.ru }
+                { lang.default }
+              if$
+            }
+          if$
+        }
+      if$
+    }
+  if$
+}
+
+FUNCTION {set.language}
+{ language empty$
+    { lang.default 'lang :=
+      author field.or.null title field.or.null * 's :=
+      s empty$
+        'skip$
+        { #1 'charptr :=
+          s text.length$ #1 + 'stringlength :=
+            { charptr stringlength < }
+            { s charptr #1 substring$ char.lang
+              duplicate$ #3 >
+                { charptr #2 + 'charptr := }
+                'skip$
+              if$
+              duplicate$ lang >
+                { 'lang := }
+                'pop$
+              if$
+              charptr #1 + 'charptr :=
+            }
+          while$
+        }
+      if$
+    }
+    { language "en" =
+        { lang.en }
+        { language "zh" =
+            { lang.zh }
+            { language "ja" =
+                { lang.ja }
+                { language "ru" =
+                    { lang.ru }
+                    { lang.default }
+                  if$
+                }
+              if$
+            }
+          if$
+        }
+      if$
+      'lang :=
+    }
+  if$
+}
+
+%    \end{macrocode}
+%
+% The sortify function converts to lower case after |purify$|ing; it's
+% used in sorting and in computing alphabetic labels after sorting
+%
+% The chop.word(w,len,s) function returns either s or, if the first len
+% letters of s equals w (this comparison is done in the third line of the
+% function's definition), it returns that part of s after w.
+%
+%    \begin{macrocode}
+FUNCTION {sortify}
+{ purify$
+  "l" change.case$
+}
+
+%    \end{macrocode}
+%
+% We need the chop.word stuff for the dubious unsorted-list-with-labels case.
+%
+%    \begin{macrocode}
+INTEGERS { len }
+
+FUNCTION {chop.word}
+{ 's :=
+  'len :=
+  s #1 len substring$ =
+    { s len #1 + global.max$ substring$ }
+    's
+  if$
+}
+
+FUNCTION {format.lab.names}
+{ 's :=
+  s #1 "{vv~}{ll}" format.name$
+  s num.names$ #1 >
+    { "\ " * format.et.al * }
+    'skip$
+  if$
+}
+
+FUNCTION {author.key.label}
+{ author empty$
+    { key empty$
+        { cite$ #1 #3 substring$ }
+        'key
+      if$
+    }
+    { author format.lab.names }
+  if$
+}
+
+FUNCTION {author.editor.key.label}
+{ author empty$
+    { editor empty$
+        { key empty$
+            { cite$ #1 #3 substring$ }
+            'key
+          if$
+        }
+        { editor format.lab.names }
+      if$
+    }
+    { author format.lab.names }
+  if$
+}
+
+FUNCTION {author.key.organization.label}
+{ author empty$
+    { key empty$
+        { organization empty$
+            { cite$ #1 #3 substring$ }
+            { "The " #4 organization chop.word #3 text.prefix$ }
+          if$
+        }
+        'key
+      if$
+    }
+    { author format.lab.names }
+  if$
+}
+
+FUNCTION {editor.key.organization.label}
+{ editor empty$
+    { key empty$
+        { organization empty$
+            { cite$ #1 #3 substring$ }
+            { "The " #4 organization chop.word #3 text.prefix$ }
+          if$
+        }
+        'key
+      if$
+    }
+    { editor format.lab.names }
+  if$
+}
+
+FUNCTION {calc.short.authors}
+{ type$ "book" =
+  type$ "inbook" =
+  or
+  type$ "collection" =
+  or
+    'author.editor.key.label
+    { type$ "proceedings" =
+        { editor empty$ not
+            'editor.key.organization.label
+            'author.key.organization.label
+          if$
+        }
+        'author.key.label
+      if$
+    }
+  if$
+  'short.list :=
+}
+
+FUNCTION {calc.label}
+{ calc.short.authors
+  short.list
+  "("
+  *
+  year duplicate$ empty$
+  short.list key field.or.null = or
+     { pop$
+       urldate empty$ not
+         { urldate extract.before.dash }
+         { "" }
+       if$
+     }
+     'extract.before.dash
+  if$
+  *
+  'label :=
+}
+
+%<*authoryear>
+FUNCTION {sort.language.label}
+{ lang lang.zh =
+    { "a   "
+      pinyin empty$
+        'skip$
+        { pinyin * "   " * }
+      if$
+    }
+    { lang lang.ja =
+        { "b   " }
+        { lang lang.en =
+            { "c   " }
+            { lang lang.ru =
+                { "d   " }
+                { "e   " }
+              if$
+            }
+          if$
+        }
+      if$
+    }
+  if$
+}
+
+%    \end{macrocode}
+%
+% When sorting, we compute the sortkey by executing "presort" on each entry.
+% The presort key contains a number of "sortify"ed strings, concatenated
+% with multiple blanks between them.  This makes things like "brinch  per"
+% come before "brinch hansen  per".
+%
+% The fields used here are: the sort.label for alphabetic labels (as set by
+% calc.label), followed by the author names (or editor names or organization
+% (with a leading "The " removed) or key field, depending on entry type and on
+% what's empty), followed by year, followed by the first bit of the title
+% (chopping off a leading "The ", "A ", or "An ").
+% Names are formatted: Von Last First Junior.
+% The names within a part will be separated by a single blank
+% (such as "brinch hansen"), two will separate the name parts themselves
+% (except the von and last), three will separate the names,
+% four will separate the names from year (and from label, if alphabetic),
+% and four will separate year from title.
+%
+% The sort.format.names function takes an argument that should be in
+% BibTeX name format, and returns a string containing "   "-separated
+% names in the format described above.  The function is almost the same
+% as format.names.
+%
+%    \begin{macrocode}
+FUNCTION {sort.format.names}
+{ 's :=
+  #1 'nameptr :=
+  sort.language.label
+  s num.names$ 'numnames :=
+  numnames 'namesleft :=
+    { namesleft #0 > }
+    {
+      s nameptr "{vv{ } }{ll{ }}{  ff{ }}{  jj{ }}" format.name$ 't :=
+      nameptr #1 >
+        {
+          "   "  *
+          namesleft #1 = t "others" = and
+            { "zzzzz" * }
+            { numnames #2 > nameptr #2 = and
+                { "zz" * year field.or.null * "   " * }
+                'skip$
+              if$
+              t sortify *
+            }
+          if$
+        }
+        { t sortify * }
+      if$
+      nameptr #1 + 'nameptr :=
+      namesleft #1 - 'namesleft :=
+    }
+  while$
+}
+
+%    \end{macrocode}
+%
+% The sort.format.title function returns the argument,
+% but first any leading "A "'s, "An "'s, or "The "'s are removed.
+% The chop.word function uses s, so we need another string variable, t
+%
+%    \begin{macrocode}
+FUNCTION {sort.format.title}
+{ 't :=
+  "A " #2
+    "An " #3
+      "The " #4 t chop.word
+    chop.word
+  chop.word
+  sortify
+  #1 global.max$ substring$
+}
+
+%    \end{macrocode}
+%
+% The auxiliary functions here, for the presort function, are analogous to
+% the ones for calc.label; the same comments apply, except that the
+% organization field takes precedence here over the key field.  For sorting
+% purposes, we still remove a leading "The " from the organization field.
+%
+%    \begin{macrocode}
+FUNCTION {author.sort}
+{ author empty$
+    { key empty$
+        { format.anonymous }
+        { key sortify }
+      if$
+    }
+    { author sort.format.names }
+  if$
+}
+
+FUNCTION {author.editor.sort}
+{ author empty$
+    { editor empty$
+        { key empty$
+            { "to sort, need author, editor, or key in " cite$ * warning$
+              ""
+            }
+            { key sortify }
+          if$
+        }
+        { editor sort.format.names }
+      if$
+    }
+    { author sort.format.names }
+  if$
+}
+
+FUNCTION {author.organization.sort}
+{ author empty$
+    { organization empty$
+        { key empty$
+            { "to sort, need author, organization, or key in " cite$ * warning$
+              ""
+            }
+            { key sortify }
+          if$
+        }
+        { "The " #4 organization chop.word sortify }
+      if$
+    }
+    { author sort.format.names }
+  if$
+}
+
+FUNCTION {editor.organization.sort}
+{ editor empty$
+    { organization empty$
+        { key empty$
+            { "to sort, need editor, organization, or key in " cite$ * warning$
+              ""
+            }
+            { key sortify }
+          if$
+        }
+        { "The " #4 organization chop.word sortify }
+      if$
+    }
+    { editor sort.format.names }
+  if$
+}
+
+%</authoryear>
+%<*numerical>
+INTEGERS { seq.num }
+
+FUNCTION {init.seq}
+{ #0 'seq.num :=}
+
+EXECUTE {init.seq}
+
+FUNCTION {int.to.fix}{ "000000000" swap$ int.to.str$ *
+  #-1 #10 substring$}
+
+%</numerical>
+%    \end{macrocode}
+%
+% There is a limit, entry.max$, on the length of an entry string variable
+% (which is what its sort.key$ is), so we take at most that many characters
+% of the constructed key, and hope there aren't many references that match
+% to that many characters!
+%
+%    \begin{macrocode}
+FUNCTION {presort}
+{ set.language
+  calc.label
+  label sortify
+  "    "
+  *
+%<*authoryear>
+  type$ "book" =
+  type$ "inbook" =
+  or
+    'author.editor.sort
+    { type$ "proceedings" =
+        'editor.organization.sort
+        { type$ "manual" =
+            'author.organization.sort
+            'author.sort
+          if$
+        }
+      if$
+    }
+  if$
+  "    "
+  *
+  year field.or.null sortify
+  *
+  "    "
+  *
+  cite$
+  *
+  #1 entry.max$ substring$
+%</authoryear>
+%<*numerical>
+  seq.num #1 + 'seq.num :=  seq.num  int.to.fix
+%</numerical>
+  'sort.label :=
+  sort.label *
+  #1 entry.max$ substring$
+  'sort.key$ :=
+}
+
+ITERATE {presort}
+
+SORT
+
+STRINGS { longest.label last.label next.extra }
+
+INTEGERS { longest.label.width last.extra.num number.label }
+
+FUNCTION {initialize.longest.label}
+{ "" 'longest.label :=
+  #0 int.to.chr$ 'last.label :=
+  "" 'next.extra :=
+  #0 'longest.label.width :=
+  #0 'last.extra.num :=
+  #0 'number.label :=
+}
+
+FUNCTION {forward.pass}
+{ last.label label =
+    { last.extra.num #1 + 'last.extra.num :=
+      last.extra.num int.to.chr$ 'extra.label :=
+    }
+    { "a" chr.to.int$ 'last.extra.num :=
+      "" 'extra.label :=
+      label 'last.label :=
+    }
+  if$
+  number.label #1 + 'number.label :=
+}
+
+FUNCTION {reverse.pass}
+{ next.extra "b" =
+    { "a" 'extra.label := }
+    'skip$
+  if$
+  extra.label 'next.extra :=
+  extra.label
+  duplicate$ empty$
+    'skip$
+    { "{\natexlab{" swap$ * "}}" * }
+  if$
+  'extra.label :=
+  label extra.label * 'label :=
+}
+
+EXECUTE {initialize.longest.label}
+
+ITERATE {forward.pass}
+
+REVERSE {reverse.pass}
+
+FUNCTION {bib.sort.order}
+{ sort.label  'sort.key$ :=
+}
+
+ITERATE {bib.sort.order}
+
+SORT
+
+%    \end{macrocode}
+%
+% Now we're ready to start writing the .BBL file.
+% We begin, if necessary, with a LaTeX macro for unnamed names in an alphabetic
+% label; next comes stuff from the `preamble' command in the database files.
+% Then we give an incantation containing the command
+%     |\begin{thebibliography}{...}|
+% where the `...' is the longest label.
+%
+% We also call init.state.consts, for use by the output routines.
+%
+%    \begin{macrocode}
+FUNCTION {begin.bib}
+{   preamble$ empty$
+    'skip$
+    { preamble$ write$ newline$ }
+  if$
+  "\begin{thebibliography}{" number.label int.to.str$ * "}" *
+  write$ newline$
+  "\ifx\ustcjournal\undefined\newcommand\ustcjournal{\relax}\fi"
+  write$ newline$
+  "\providecommand{\natexlab}[1]{#1}"
+  write$ newline$
+  "\providecommand{\url}[1]{\texttt{#1}}"
+  write$ newline$
+  "\expandafter\ifx\csname urlstyle\endcsname\relax"
+  write$ newline$
+  "  \providecommand{\doi}[1]{DOI: #1}\else"
+  write$ newline$
+  "  \providecommand{\doi}{DOI: \begingroup \urlstyle{rm}\Url}\fi"
+  write$ newline$
+}
+
+EXECUTE {begin.bib}
+
+%    \end{macrocode}
+%
+% Now we produce the output for all the entries
+%
+%    \begin{macrocode}
+ITERATE {call.type$}
+
+%    \end{macrocode}
+%
+% Finally, we finish up by writing the `|\end{thebibliography}|' command.
+%
+%    \begin{macrocode}
+FUNCTION {end.bib}
+{ newline$
+  "\end{thebibliography}" write$ newline$
+}
+
+EXECUTE {end.bib}
+%</authoryear|numerical>
 %    \end{macrocode}
 %
 % \clearpage

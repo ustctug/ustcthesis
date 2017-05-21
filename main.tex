@@ -2,32 +2,33 @@
 %!TEX program = xelatex
 
 \documentclass[doctor]{ustcthesis}
-% bachelor|master|doctor
+% bachelor|master|doctor [professional]
 \usepackage{ustcextra}
 \graphicspath{{figures/}}
-\bibliographystyle{ustcauthoryear}
-% \bibliographystyle{ustcnumerical}
 
 \title{中国科学技术大学\\毕业论文模板示例文档}
-\author{赵钱孙}
-\major{XXXX专业}
-\advisor{钱学森\ 教授}
-\submitdate{二〇九九年十三月}
-%\secrettext{机密\quad 小于等于20年}   % 内部|秘密|机密，注释本行则不保密
-\depart{一二三系}
+\author{李泽平}
+\major{数学与应用数学}
+\supervisor{华罗庚\ 教授}
+\cosupervisor{钱学森\ 教授}
+% \date{二〇一七年五月一日}    % 注释掉则为今日
+% \professionaltype{专业学位类型}
+% \secrettext{机密\quad 小于等于20年}    % 内部|秘密|机密，注释本行则不保密
 
 \entitle{An Example of USTC Thesis Template for Bachelor, Master and Doctor}
-\enauthor{Qiansun Zhao}
-\enmajor{Whatever}
-\enadvisor{Prof. Xueshen Qian}
-\ensubmitdate{June, 2099}
-%\ensecrettext{Confidential\quad Less than or equal to 20 years}  % Internal|Secret|Confidential
+\enauthor{Zeping Li}
+\enmajor{Mathematics and Applied Mathematics}
+\ensupervisor{Prof. Luogeng Hua}
+\encosupervisor{Prof. Xueshen Qian}
+% \endate{May 1, 2017}    % today if commented
+% \ensecrettext{Confidential\quad Less than or equal to 20 years}
+% Internal|Secret|Confidential
+% \enprofessionaltype{Professional degree type}
 
 \begin{document}
 
 \maketitle
 
-%
 % 本科论文:
 %   frontmatter: 致谢、目录、中文摘要、英文摘要
 %   mainmatter: 正文章节、参考文献
@@ -38,26 +39,21 @@
 %   mainmatter: 正文、参考文献
 %   appendix: 附录
 %   backmatter: 致谢、发表论文
-%
 
 \frontmatter
 \input{chapters/abstract}
 \tableofcontents
-\listoffigures
-\listoftables
-\listofalgorithms  % 算法索引，如不需要，可直接注释掉本行
-% \input{chapters/notation}
+% \listoffigures
+% \listoftables
+% \listofalgorithms
+% \input{chapters/0.notation}
 
 \mainmatter
 \input{chapters/intro}
-\input{chapters/figure}
-\input{chapters/table}
 \input{chapters/math}
-\input{chapters/algorithm}
-\input{chapters/code}
-\input{chapters/crossref}
-\input{chapters/citation}
-\bibliography{bib/tex}
+\input{chapters/floats}
+\input{chapters/citations}
+\bibliography{bib/ustc}
 
 \appendix
 \chapter{论文规范}

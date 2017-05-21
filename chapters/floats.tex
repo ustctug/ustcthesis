@@ -1,0 +1,118 @@
+\chapter{浮动体}
+
+\section{三线表}
+
+三线表是《撰写手册》推荐使用的方式，如表~\ref{tab:exampletable}。
+\begin{table}[htbp]
+  \centering
+  \caption{这里是表的标题}
+  \label{tab:exampletable}
+  \begin{tabular}{cl}
+    \toprule
+      操作系统 & TeX 发行版 \\
+    \midrule
+      所有 & TeX Live \\
+      macOS & MacTeX \\
+      Windows & MikTeX \\
+    \bottomrule
+  \end{tabular}
+  \note{一个很长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长
+  长长长长长长长长长长长的表注。}
+\end{table}
+
+
+
+\section{长表格}
+
+超过一页的表格要使用专门的 \texttt{longtable} 环境（表~\ref{tab:longtable}）。
+\begin{longtable}{ccc}
+  % 首页表头
+  \caption[长表格演示]{长表格演示}
+  \label{tab:longtable}\\
+  \toprule[1.5pt]
+    名称  & 说明 & 备注\\
+  \midrule[1pt]
+  \endfirsthead
+  % 续页表头
+  \caption[]{长表格演示（续）} \\
+  \toprule[1.5pt]
+  名称  & 说明 & 备注 \\
+  \midrule[1pt]
+  \endhead
+  % 首页表尾
+  \hline
+  \multicolumn{3}{r}{\small 续下页}
+  \endfoot
+  % 续页表尾
+  \bottomrule[1.5pt]
+  \endlastfoot
+
+  AAAAAAAAAAAA   &   BBBBBBBBBBB   &   CCCCCCCCCCCCCC   \\
+  AAAAAAAAAAAA   &   BBBBBBBBBBB   &   CCCCCCCCCCCCCC   \\
+  AAAAAAAAAAAA   &   BBBBBBBBBBB   &   CCCCCCCCCCCCCC   \\
+  AAAAAAAAAAAA   &   BBBBBBBBBBB   &   CCCCCCCCCCCCCC   \\
+  AAAAAAAAAAAA   &   BBBBBBBBBBB   &   CCCCCCCCCCCCCC   \\
+  AAAAAAAAAAAA   &   BBBBBBBBBBB   &   CCCCCCCCCCCCCC   \\
+  AAAAAAAAAAAA   &   BBBBBBBBBBB   &   CCCCCCCCCCCCCC   \\
+  AAAAAAAAAAAA   &   BBBBBBBBBBB   &   CCCCCCCCCCCCCC   \\
+  AAAAAAAAAAAA   &   BBBBBBBBBBB   &   CCCCCCCCCCCCCC   \\
+  AAAAAAAAAAAA   &   BBBBBBBBBBB   &   CCCCCCCCCCCCCC   \\
+  AAAAAAAAAAAA   &   BBBBBBBBBBB   &   CCCCCCCCCCCCCC   \\
+  AAAAAAAAAAAA   &   BBBBBBBBBBB   &   CCCCCCCCCCCCCC   \\
+  AAAAAAAAAAAA   &   BBBBBBBBBBB   &   CCCCCCCCCCCCCC   \\
+  AAAAAAAAAAAA   &   BBBBBBBBBBB   &   CCCCCCCCCCCCCC   \\
+  AAAAAAAAAAAA   &   BBBBBBBBBBB   &   CCCCCCCCCCCCCC   \\
+  AAAAAAAAAAAA   &   BBBBBBBBBBB   &   CCCCCCCCCCCCCC   \\
+  AAAAAAAAAAAA   &   BBBBBBBBBBB   &   CCCCCCCCCCCCCC   \\
+  AAAAAAAAAAAA   &   BBBBBBBBBBB   &   CCCCCCCCCCCCCC   \\
+  AAAAAAAAAAAA   &   BBBBBBBBBBB   &   CCCCCCCCCCCCCC   \\
+  AAAAAAAAAAAA   &   BBBBBBBBBBB   &   CCCCCCCCCCCCCC   \\
+\end{longtable}
+
+
+
+\section{插图}
+
+有的同学可能习惯了“下图”、“上表”这样的相对位置引述方式，希望浮动体放在固定位置。
+事实上，这是不合理的，因为这很容易导致大片的空白。
+在科技论文中，标准的方式是“图\ref{fig:logo}”、“表~\ref{tab:exampletable}”这样的
+因数方式。
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=.3\textwidth]{ustc_logo_fig}
+\caption{测试图片}
+\label{fig:logo}
+\end{figure}
+
+关于更多的插图方式，\href{https://arxiv.org}{arXiv} 上的大部分文献会提供 \TeX{}
+源码，大家可以参考学习。
+
+
+
+\section{算法环境}
+
+模板中使用 \texttt{algorithm2e} 宏包实现算法环境。关于该宏包的具体用法，
+请阅读宏包的官方文档。
+
+\begin{algorithm}[htbp]
+\small
+\SetAlgoLined
+\KwData{this text}
+\KwResult{how to write algorithm with \LaTeX2e }
+
+initialization\;
+\While{not at end of this document}{
+    read current\;
+    \eIf{understand}{
+        go to next section\;
+        current section becomes this one\;
+    }{
+        go back to the beginning of current section\;
+    }
+}
+\caption{算法示例1}
+\label{algo:algorithm1}
+\end{algorithm}
+
+注意，我们可以在论文中插入算法，但是插入大段的代码是愚蠢的。
+然而这并不妨碍有的同学选择这么做，对于这些同学，建议用 \textsf{listings} 宏包。
