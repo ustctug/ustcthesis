@@ -171,10 +171,7 @@
 \fi
 \fancypagestyle{ustc@notation}{\fancyfoot{}}
 \pagestyle{ustc@headings}
-\renewcommand\chaptermark[1]{%
-      \markboth {\MakeUppercase{%
-        \CTEXifname{\CTEXthechapter\quad}{}
-      \protect\spacetitle{#1}}}{}}%
+\patchcmd\chaptermark{#1}{\protect\spacetitle{#1}}{}{}
 \renewcommand*{\cleardoublepage}{\clearpage\if@twoside \ifodd\c@page\else
   \hbox{}\thispagestyle{empty}\newpage\if@twocolumn\hbox{}\newpage\fi\fi\fi}
 \g@addto@macro\frontmatter{%
