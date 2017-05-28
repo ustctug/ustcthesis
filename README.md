@@ -18,9 +18,11 @@
 在发布版中附带，用户也可自行编译，但是**使用模板前应仔细阅读**。
 
 2. 本模板要求 TeX Live、MacTeX、MikTeX 不低于 2015 年的发行版，
-并且尽可能升级到最新。
+并且尽可能升级到最新。安装和升级方法见
+[新手指南](https://github.com/ustctug/ustcthesis/wiki/新手指南)。
 
 3. **不支持** [CTeX 套装](http://www.ctex.org/CTeXDownload)。
+（[为什么？](https://github.com/ustctug/ustcthesis/wiki/常见问题#3-模板支持用-ctex-套装编译吗)）
 
 
 ## 下载地址
@@ -58,14 +60,18 @@
 
 如果发现模板有问题，请按照以下步骤操作：
 
-1. 将 TeX 发行版和宏包升级到最新，并且将模板升级到 Github 上最新版本，
-查看 bug 是否已经修复；
+1. 阅读学校的标准，判断是否符合学校的要求；
 2. 阅读 [常见问题 FAQ](https://github.com/ustctug/ustcthesis/wiki/常见问题)；
-3. 在 [GitHub Issues](https://github.com/ustctug/ustcthesis/issues)
-中搜索类似问题；
+3. 将 TeX 发行版和宏包升级到最新，并且将模板升级到 Github 上最新版本，
+查看问题是否已经修复；
 4. 在 [GitHub Issues](https://github.com/ustctug/ustcthesis/issues)
-中提出新 issue；
-5. 描述具体的问题，并尽可能附上截图和相关源码。
+中搜索该问题的关键词；
+5. 在 [GitHub Issues](https://github.com/ustctug/ustcthesis/issues)
+中提出新 issue，并回答以下问题：
+    - 使用了什么版本的 TeX Live / MacTeX / MikTeX ？
+    - 具体的问题是什么？
+    - 正确的结果应该是什么样的？
+    - 是否应该附上相关源码或者截图？
 
 
 ## 更多资料
