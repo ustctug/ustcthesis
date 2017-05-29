@@ -44,6 +44,7 @@ LaTeX version 1999/12/01 or later.
     \file{\jobname.cls}{\from{\jobname.dtx}{class}}
     \file{ustcnumerical.bst}{\from{\jobname.dtx}{numerical}}
     \file{ustcauthoryear.bst}{\from{\jobname.dtx}{authoryear}}
+    \file{ustcbachelor.bst}{\from{\jobname.dtx}{bachelor,numerical}}
 }
 \Msg{* Happy TeXing!}
 \endbatchfile
@@ -1542,17 +1543,25 @@ LaTeX version 1999/12/01 or later.
 %
 % 处理宏包选项。
 %    \begin{macrocode}
-\if@ustc@numerical
+\if@ustc@bachelor
   \if@ustc@super
     \citestyle{super}
-    \bibliographystyle{ustcnumerical}%
   \else
     \citestyle{numbers}
-    \bibliographystyle{ustcnumerical}%
   \fi
+  \bibliographystyle{ustcbachelor}%
 \else
-  \citestyle{authoryear}
-  \bibliographystyle{ustcauthoryear}%
+  \if@ustc@numerical
+    \if@ustc@super
+      \citestyle{super}
+    \else
+      \citestyle{numbers}
+    \fi
+    \bibliographystyle{ustcnumerical}%
+  \else
+    \citestyle{authoryear}
+    \bibliographystyle{ustcauthoryear}%
+  \fi
 \fi
 %    \end{macrocode}
 %
@@ -1607,11 +1616,6 @@ LaTeX version 1999/12/01 or later.
 \setlength{\bibsep}{0bp}
 \setlength{\bibhang}{2\ccwd}
 \renewcommand\@biblabel[1]{[#1]\hfill}
-\if@ustc@bachelor
-    \newcommand\ustcjournal{\textit}
-\else
-    \newcommand\ustcjournal{\relax}
-\fi
 %    \end{macrocode}
 %
 % 将 URL 设置为保持原样，并增加可断行的位置。
@@ -1672,7 +1676,7 @@ LaTeX version 1999/12/01 or later.
 % \subsection{Fields and entry strings}
 %
 %    \begin{macrocode}
-%<*authoryear|numerical>
+%<*authoryear|numerical|bachelor>
 ENTRY
   { address
     author
@@ -2276,7 +2280,10 @@ FUNCTION {format.names}
   s num.names$ 'numnames :=
   numnames 'namesleft :=
     { namesleft #0 > nameptr #4 < and }
-    { s nameptr "{vv~}{ll}{ f{ }}" format.name$ "u" change.case$
+    { s nameptr "{vv~}{ll}{ f{ }}" format.name$
+%<*!bachelor>
+      "u" change.case$
+%</!bachelor>
       s nameptr "{, jj}" format.name$ *
       't :=
       nameptr #1 >
@@ -2393,7 +2400,12 @@ FUNCTION {set.mark}
 }
 
 FUNCTION {format.mark}
+%<*bachelor>
+{ "" }
+%</bachelor>
+%<*!bachelor>
 { "\allowbreak[" mark_ * "]" * }
+%</!bachelor>
 
 FUNCTION {format.full.names}
 {'s :=
@@ -2949,6 +2961,23 @@ FUNCTION {format.sine.loco.sine.nomine}
 }
 
 FUNCTION {format.address.publisher}
+%<*bachelor>
+{ address empty$ not
+    { address
+      format.publisher empty$ not
+        { ": " * format.publisher * }
+        'skip$
+      if$
+    }
+    { format.publisher empty$ not
+        { format.publisher }
+        { "" }
+      if$
+    }
+  if$
+}
+%</bachelor>
+%<*!bachelor>
 { address empty$ not
     { address
       format.publisher empty$ not
@@ -2975,6 +3004,7 @@ FUNCTION {format.address.publisher}
     }
   if$
 }
+%</!bachelor>
 
 %    \end{macrocode}
 %
@@ -3005,10 +3035,12 @@ FUNCTION {format.journal.number}
 %    \begin{macrocode}
 FUNCTION {format.journal}
 { journal
+%<*bachelor>
   is.in.chinese
     'skip$
-    { "\ustcjournal{" swap$ * "}" * }
+    { "\textit{" swap$ * "}" * }
   if$
+%</bachelor>
 }
 
 FUNCTION {format.periodical.year.volume.number}
@@ -4259,8 +4291,6 @@ FUNCTION {begin.bib}
   if$
   "\begin{thebibliography}{" number.label int.to.str$ * "}" *
   write$ newline$
-  "\ifx\ustcjournal\undefined\newcommand\ustcjournal{\relax}\fi"
-  write$ newline$
   "\providecommand{\natexlab}[1]{#1}"
   write$ newline$
   "\providecommand{\url}[1]{\texttt{#1}}"
@@ -4293,7 +4323,7 @@ FUNCTION {end.bib}
 }
 
 EXECUTE {end.bib}
-%</authoryear|numerical>
+%</authoryear|numerical|bachelor>
 %    \end{macrocode}
 %
 % \clearpage

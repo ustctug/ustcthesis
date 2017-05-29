@@ -640,17 +640,25 @@
     \fi%
   \fi%
 }
-\if@ustc@numerical
+\if@ustc@bachelor
   \if@ustc@super
     \citestyle{super}
-    \bibliographystyle{ustcnumerical}%
   \else
     \citestyle{numbers}
-    \bibliographystyle{ustcnumerical}%
   \fi
+  \bibliographystyle{ustcbachelor}%
 \else
-  \citestyle{authoryear}
-  \bibliographystyle{ustcauthoryear}%
+  \if@ustc@numerical
+    \if@ustc@super
+      \citestyle{super}
+    \else
+      \citestyle{numbers}
+    \fi
+    \bibliographystyle{ustcnumerical}%
+  \else
+    \citestyle{authoryear}
+    \bibliographystyle{ustcauthoryear}%
+  \fi
 \fi
 \patchcmd\NAT@citexnum{%
   \@ifnum{\NAT@ctype=\z@}{%
@@ -684,11 +692,6 @@
 \setlength{\bibsep}{0bp}
 \setlength{\bibhang}{2\ccwd}
 \renewcommand\@biblabel[1]{[#1]\hfill}
-\if@ustc@bachelor
-    \newcommand\ustcjournal{\textit}
-\else
-    \newcommand\ustcjournal{\relax}
-\fi
 \urlstyle{same}
 \g@addto@macro\UrlBreaks{%
   \do\a\do\b\do\c\do\d\do\e\do\f\do\g\do\h\do\i\do\j%

@@ -311,7 +311,8 @@ FUNCTION {format.names}
   s num.names$ 'numnames :=
   numnames 'namesleft :=
     { namesleft #0 > nameptr #4 < and }
-    { s nameptr "{vv~}{ll}{ f{ }}" format.name$ "u" change.case$
+    { s nameptr "{vv~}{ll}{ f{ }}" format.name$
+      "u" change.case$
       s nameptr "{, jj}" format.name$ *
       't :=
       nameptr #1 >
@@ -888,10 +889,6 @@ FUNCTION {format.journal.number}
 
 FUNCTION {format.journal}
 { journal
-  is.in.chinese
-    'skip$
-    { "\ustcjournal{" swap$ * "}" * }
-  if$
 }
 
 FUNCTION {format.periodical.year.volume.number}
@@ -1588,8 +1585,6 @@ FUNCTION {begin.bib}
     { preamble$ write$ newline$ }
   if$
   "\begin{thebibliography}{" number.label int.to.str$ * "}" *
-  write$ newline$
-  "\ifx\ustcjournal\undefined\newcommand\ustcjournal{\relax}\fi"
   write$ newline$
   "\providecommand{\natexlab}[1]{#1}"
   write$ newline$
