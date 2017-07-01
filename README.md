@@ -3,7 +3,7 @@
 [![Travis build](https://travis-ci.org/ustctug/ustcthesis.svg?branch=master)](https://travis-ci.org/ustctug/ustcthesis)
 [![GitHub release](https://img.shields.io/github/release/ustctug/ustcthesis/all.svg)](https://github.com/ustctug/ustcthesis/releases/latest)
 [![Github downloads](https://img.shields.io/github/downloads/ustctug/ustcthesis/total.svg)](https://github.com/ustctug/ustcthesis/releases)
-[![GitHub commits](https://img.shields.io/github/commits-since/ustctug/ustcthesis/v3.0-beta.svg)](https://github.com/ustctug/ustcthesis/commits/master)
+[![GitHub commits](https://img.shields.io/github/commits-since/ustctug/ustcthesis/v3.0.svg)](https://github.com/ustctug/ustcthesis/commits/master)
 
 本项目是中国科学技术大学的学位论文 LaTeX 模板 ustcthesis，按照最新版的
 《[研究生学位论文撰写手册](http://gradschool.ustc.edu.cn/ylb/material/xw/wdxz/32.pdf)》
@@ -14,7 +14,7 @@
 注意：
 
 1. 使用说明文档
-[ustcthesis.pdf](https://github.com/ustctug/ustcthesis/releases/download/v3.0-beta/ustcthesis.pdf)
+[ustcthesis.pdf](https://github.com/ustctug/ustcthesis/releases/download/v3.0/ustcthesis.pdf)
 在发布版中附带，用户也可自行编译，但是**使用模板前应仔细阅读**。
 
 2. 本模板要求 TeX Live、MacTeX、MikTeX 不低于 2015 年的发行版，
