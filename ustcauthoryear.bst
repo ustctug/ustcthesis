@@ -319,7 +319,7 @@ FUNCTION {format.names}
       nameptr #1 >
         { namesleft #1 >
             { ", " * t * }
-            { t "others" =
+            { s nameptr "{ff~}{vv~}{ll}{, jj}" format.name$ "others" =
                 { ", " * format.et.al * }
                 { ", " * t * }
               if$
