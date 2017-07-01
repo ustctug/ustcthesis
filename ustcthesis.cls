@@ -569,10 +569,83 @@
     \ustc@chapter{\ustc@notationname}
     \setfontsize{10.5bp}[16bp]
     \setlength{\itemsep}{0bp}}{}
+\newdimen\bp@ \bp@=1bp
 \if@ustc@bachelor
-    \renewcommand\normalsize{\setfontsize{12bp}[22bp]}
+  \renewcommand\normalsize{%
+     \@setfontsize\normalsize{12bp}{22bp}%
+     \abovedisplayskip 12\bp@ \@plus3\bp@ \@minus7\bp@
+     \abovedisplayshortskip \z@ \@plus3\bp@
+     \belowdisplayshortskip 6.5\bp@ \@plus3.5\bp@ \@minus3\bp@
+     \belowdisplayskip \abovedisplayskip
+     \let\@listi\@listI}
+  \normalsize
+  \renewcommand\small{%
+     \@setfontsize\small{11bp}{20.17bp}%
+     \abovedisplayskip 11\bp@ \@plus3\bp@ \@minus6\bp@
+     \abovedisplayshortskip \z@ \@plus3\bp@
+     \belowdisplayshortskip 6.5\bp@ \@plus3.5\bp@ \@minus3\bp@
+     \def\@listi{\leftmargin\leftmargini
+                 \topsep 9\bp@ \@plus3\bp@ \@minus5\bp@
+                 \parsep 4.5\bp@ \@plus2\bp@ \@minus\bp@
+                 \itemsep \parsep}%
+     \belowdisplayskip \abovedisplayskip
+  }
+  \renewcommand\footnotesize{%
+     \@setfontsize\footnotesize{10bp}{18.33bp}
+     \abovedisplayskip 10\bp@ \@plus2\bp@ \@minus5\bp@
+     \abovedisplayshortskip \z@ \@plus3\bp@
+     \belowdisplayshortskip 6\bp@ \@plus3\bp@ \@minus3\bp@
+     \def\@listi{\leftmargin\leftmargini
+                 \topsep 6\bp@ \@plus2\bp@ \@minus2\bp@
+                 \parsep 3\bp@ \@plus2\bp@ \@minus\bp@
+                 \itemsep \parsep}%
+     \belowdisplayskip \abovedisplayskip
+  }
+  \renewcommand\scriptsize{\@setfontsize\scriptsize{8bp}{14.67bp}}
+  \renewcommand\tiny{\@setfontsize\tiny{6bp}{11bp}}
+  \renewcommand\large{\@setfontsize\large{14.4bp}{26.4bp}}
+  \renewcommand\Large{\@setfontsize\Large{17.28bp}{31.68bp}}
+  \renewcommand\LARGE{\@setfontsize\LARGE{20.74bp}{38.02bp}}
+  \renewcommand\huge{\@setfontsize\huge{24.88bp}{45.61bp}}
+  \let\Huge=\huge
 \else
-    \renewcommand\normalsize{\setfontsize{12bp}[20bp]}
+  \renewcommand\normalsize{%
+     \@setfontsize\normalsize{12bp}{20bp}%
+     \abovedisplayskip 12\bp@ \@plus3\bp@ \@minus7\bp@
+     \abovedisplayshortskip \z@ \@plus3\bp@
+     \belowdisplayshortskip 6.5\bp@ \@plus3.5\bp@ \@minus3\bp@
+     \belowdisplayskip \abovedisplayskip
+     \let\@listi\@listI}
+  \normalsize
+  \renewcommand\small{%
+     \@setfontsize\small{11bp}{18.33bp}%
+     \abovedisplayskip 11\bp@ \@plus3\bp@ \@minus6\bp@
+     \abovedisplayshortskip \z@ \@plus3\bp@
+     \belowdisplayshortskip 6.5\bp@ \@plus3.5\bp@ \@minus3\bp@
+     \def\@listi{\leftmargin\leftmargini
+                 \topsep 9\bp@ \@plus3\bp@ \@minus5\bp@
+                 \parsep 4.5\bp@ \@plus2\bp@ \@minus\bp@
+                 \itemsep \parsep}%
+     \belowdisplayskip \abovedisplayskip
+  }
+  \renewcommand\footnotesize{%
+     \@setfontsize\footnotesize{10bp}{16.67bp}
+     \abovedisplayskip 10\bp@ \@plus2\bp@ \@minus5\bp@
+     \abovedisplayshortskip \z@ \@plus3\bp@
+     \belowdisplayshortskip 6\bp@ \@plus3\bp@ \@minus3\bp@
+     \def\@listi{\leftmargin\leftmargini
+                 \topsep 6\bp@ \@plus2\bp@ \@minus2\bp@
+                 \parsep 3\bp@ \@plus2\bp@ \@minus\bp@
+                 \itemsep \parsep}%
+     \belowdisplayskip \abovedisplayskip
+  }
+  \renewcommand\scriptsize{\@setfontsize\scriptsize{8bp}{13.33bp}}
+  \renewcommand\tiny{\@setfontsize\tiny{6bp}{10bp}}
+  \renewcommand\large{\@setfontsize\large{14.4bp}{24bp}}
+  \renewcommand\Large{\@setfontsize\Large{17.28bp}{28.8bp}}
+  \renewcommand\LARGE{\@setfontsize\LARGE{20.74bp}{34.57bp}}
+  \renewcommand\huge{\@setfontsize\huge{24.88bp}{42.47bp}}
+  \let\Huge=\huge
 \fi
 \setlength{\parindent}{2\ccwd}
 \setlength{\parskip}{0bp}
