@@ -572,7 +572,7 @@
 \newdimen\bp@ \bp@=1bp
 \if@ustc@bachelor
   \renewcommand\normalsize{%
-     \@setfontsize\normalsize{12bp}{22bp}%
+     \@setfontsize\normalsize{12\bp@}{22\bp@}%
      \abovedisplayskip 12\bp@ \@plus3\bp@ \@minus7\bp@
      \abovedisplayshortskip \z@ \@plus3\bp@
      \belowdisplayshortskip 6.5\bp@ \@plus3.5\bp@ \@minus3\bp@
@@ -580,8 +580,8 @@
      \let\@listi\@listI}
   \normalsize
   \renewcommand\small{%
-     \@setfontsize\small{11bp}{20.17bp}%
-     \abovedisplayskip 11\bp@ \@plus3\bp@ \@minus6\bp@
+     \@setfontsize\small{10.5\bp@}{19.25\bp@}%
+     \abovedisplayskip 10.5\bp@ \@plus3\bp@ \@minus6\bp@
      \abovedisplayshortskip \z@ \@plus3\bp@
      \belowdisplayshortskip 6.5\bp@ \@plus3.5\bp@ \@minus3\bp@
      \def\@listi{\leftmargin\leftmargini
@@ -591,8 +591,8 @@
      \belowdisplayskip \abovedisplayskip
   }
   \renewcommand\footnotesize{%
-     \@setfontsize\footnotesize{10bp}{18.33bp}
-     \abovedisplayskip 10\bp@ \@plus2\bp@ \@minus5\bp@
+     \@setfontsize\footnotesize{9\bp@}{16.5\bp@}
+     \abovedisplayskip 9\bp@ \@plus2\bp@ \@minus5\bp@
      \abovedisplayshortskip \z@ \@plus3\bp@
      \belowdisplayshortskip 6\bp@ \@plus3\bp@ \@minus3\bp@
      \def\@listi{\leftmargin\leftmargini
@@ -601,16 +601,16 @@
                  \itemsep \parsep}%
      \belowdisplayskip \abovedisplayskip
   }
-  \renewcommand\scriptsize{\@setfontsize\scriptsize{8bp}{14.67bp}}
-  \renewcommand\tiny{\@setfontsize\tiny{6bp}{11bp}}
-  \renewcommand\large{\@setfontsize\large{14.4bp}{26.4bp}}
-  \renewcommand\Large{\@setfontsize\Large{17.28bp}{31.68bp}}
-  \renewcommand\LARGE{\@setfontsize\LARGE{20.74bp}{38.02bp}}
-  \renewcommand\huge{\@setfontsize\huge{24.88bp}{45.61bp}}
-  \let\Huge=\huge
+  \renewcommand\scriptsize{\@setfontsize\scriptsize{7.5\bp@}{13.75\bp@}}
+  \renewcommand\tiny{\@setfontsize\tiny{6.5\bp@}{11.92\bp@}}
+  \renewcommand\large{\@setfontsize\large{15\bp@}{27.5\bp@}}
+  \renewcommand\Large{\@setfontsize\Large{18\bp@}{33\bp@}}
+  \renewcommand\LARGE{\@setfontsize\LARGE{22\bp@}{40.33\bp@}}
+  \renewcommand\huge{\@setfontsize\huge{24\bp@}{44\bp@}}
+  \renewcommand\Huge{\@setfontsize\Huge{26\bp@}{47.67\bp@}}
 \else
   \renewcommand\normalsize{%
-     \@setfontsize\normalsize{12bp}{20bp}%
+     \@setfontsize\normalsize{12\bp@}{20\bp@}%
      \abovedisplayskip 12\bp@ \@plus3\bp@ \@minus7\bp@
      \abovedisplayshortskip \z@ \@plus3\bp@
      \belowdisplayshortskip 6.5\bp@ \@plus3.5\bp@ \@minus3\bp@
@@ -618,8 +618,8 @@
      \let\@listi\@listI}
   \normalsize
   \renewcommand\small{%
-     \@setfontsize\small{11bp}{18.33bp}%
-     \abovedisplayskip 11\bp@ \@plus3\bp@ \@minus6\bp@
+     \@setfontsize\small{10.5\bp@}{17.5\bp@}%
+     \abovedisplayskip 10.5\bp@ \@plus3\bp@ \@minus6\bp@
      \abovedisplayshortskip \z@ \@plus3\bp@
      \belowdisplayshortskip 6.5\bp@ \@plus3.5\bp@ \@minus3\bp@
      \def\@listi{\leftmargin\leftmargini
@@ -629,8 +629,8 @@
      \belowdisplayskip \abovedisplayskip
   }
   \renewcommand\footnotesize{%
-     \@setfontsize\footnotesize{10bp}{16.67bp}
-     \abovedisplayskip 10\bp@ \@plus2\bp@ \@minus5\bp@
+     \@setfontsize\footnotesize{9\bp@}{15\bp@}
+     \abovedisplayskip 9\bp@ \@plus2\bp@ \@minus5\bp@
      \abovedisplayshortskip \z@ \@plus3\bp@
      \belowdisplayshortskip 6\bp@ \@plus3\bp@ \@minus3\bp@
      \def\@listi{\leftmargin\leftmargini
@@ -639,16 +639,16 @@
                  \itemsep \parsep}%
      \belowdisplayskip \abovedisplayskip
   }
-  \renewcommand\scriptsize{\@setfontsize\scriptsize{8bp}{13.33bp}}
-  \renewcommand\tiny{\@setfontsize\tiny{6bp}{10bp}}
-  \renewcommand\large{\@setfontsize\large{14.4bp}{24bp}}
-  \renewcommand\Large{\@setfontsize\Large{17.28bp}{28.8bp}}
-  \renewcommand\LARGE{\@setfontsize\LARGE{20.74bp}{34.57bp}}
-  \renewcommand\huge{\@setfontsize\huge{24.88bp}{42.47bp}}
-  \let\Huge=\huge
+  \renewcommand\scriptsize{\@setfontsize\scriptsize{7.5\bp@}{12.5\bp@}}
+  \renewcommand\tiny{\@setfontsize\tiny{6.5\bp@}{10.83\bp@}}
+  \renewcommand\large{\@setfontsize\large{15\bp@}{25\bp@}}
+  \renewcommand\Large{\@setfontsize\Large{18\bp@}{30\bp@}}
+  \renewcommand\LARGE{\@setfontsize\LARGE{22\bp@}{36.67\bp@}}
+  \renewcommand\huge{\@setfontsize\huge{24\bp@}{40\bp@}}
+  \renewcommand\Huge{\@setfontsize\Huge{26\bp@}{43.33\bp@}}
 \fi
 \setlength{\parindent}{2\ccwd}
-\setlength{\parskip}{0bp}
+\setlength{\parskip}{\z@}
 \RequirePackage{upgreek}
 \renewcommand\pi{\uppi}
 \RequirePackage{amssymb}

@@ -15,7 +15,7 @@
 
 1. 使用说明文档
 [ustcthesis.pdf](https://github.com/ustctug/ustcthesis/releases/download/v3.0/ustcthesis.pdf)
-在发布版中附带，用户也可自行编译，但是**使用模板前应仔细阅读**。
+在发布版中附带，用户也可自行编译；**使用模板前应仔细阅读**。
 
 2. 本模板要求 TeX Live、MacTeX、MikTeX 不低于 2015 年的发行版，
 并且尽可能升级到最新。安装和升级方法见
