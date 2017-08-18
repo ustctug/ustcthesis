@@ -1,7 +1,7 @@
-$pdflatex = "xelatex -synctex=1 %O %S";
+$pdflatex = "xelatex -halt-on-error -interaction=nonstopmode -synctex=1 %O %S";
 $pdf_mode = 1;
-$postscript_mode = 0;
 $dvi_mode = 0;
+$postscript_mode = 0;
 $makeindex = 'makeindex -s gind.ist %O -o %D %S';
 add_cus_dep('glo', 'gls', 0, 'makegls');
 sub makegls {
