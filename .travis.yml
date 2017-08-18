@@ -10,9 +10,9 @@ install:
 
 # English fonts: replace Windows only fonts to TeX default fonts
 before_script:
-  - sed -ie 's!\\setmainfont{.*}!!' ustcthesis.cls
-  - sed -ie 's!\\setsansfont{.*}!!' ustcthesis.cls
-  - sed -ie 's!\\setmonofont{.*}!!' ustcthesis.cls
+  - sed -i '/setmainfont/d' ustcthesis.cls
+  - sed -i '/setsansfont/d' ustcthesis.cls
+  - sed -i '/setmonofont/d' ustcthesis.cls
 
 script:
   - make doc
