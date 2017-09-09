@@ -689,7 +689,7 @@ FUNCTION {format.number}
     { "" }
     { number is.number
         { is.in.chinese
-            { "第" volume * "册" * }
+            { "第" number * "册" * }
             { "number" number tie.or.space.connect }
           if$
         }
