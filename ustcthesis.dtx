@@ -586,6 +586,17 @@ LaTeX version 1999/12/01 or later.
 % \documentclass[doctor,authoryear]{ustcthesis}
 % \end{latex}
 %
+% 在使用 \BibTeX{} 时，默认会将标题域的第一个字母大写，其余小写。
+% 对于一些需要强制大写的专有名词（如人名“Riemann”），可以在 bib 数据库中将其用
+% 大括号括起来，比如：
+% \begin{latex}
+% @book{forster,
+%   ...
+%   title = {Lectures on {Riemann} surfaces},
+%   ...
+% }
+% \end{latex}
+%
 %
 %
 % \clearpage
