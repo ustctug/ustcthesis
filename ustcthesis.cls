@@ -212,25 +212,24 @@
       {Too many footnotes in this page.}{Keep footnote less than 10.}
   \fi
   \ding{\the\numexpr\value{#1}+191\relax}}
-\RequirePackage{stringstrings}
-\newcounter{titlelength}
+\RequirePackage{xstring}
 \newcommand\spacetitle[1]{%
-  \@getstringlength{#1}{titlelength}%
+  \StrLen{#1}[\titlelength]%
   \if@ustc@bachelor
-    \if@mainmatter#1\else
-      \ifnum\thetitlelength=2{\ziju{1}#1}\else%
-        \ifnum\thetitlelength=4{\ziju{0.5}#1}\else#1%
+    \if@mainmatter\relax\else
+      \ifnum\titlelength=2\ziju{1}\else
+        \ifnum\titlelength=4\ziju{0.5}%
         \fi
       \fi
     \fi
   \else
-    \ifnum\thetitlelength=2{\ziju{2}#1}\else%
-      \ifnum\thetitlelength=3{\ziju{1}#1}\else%
-        \ifnum\thetitlelength=4{\ziju{0.5}#1}\else#1%
+    \ifnum\titlelength=2\ziju{2}\else
+      \ifnum\titlelength=3\ziju{1}\else
+        \ifnum\titlelength=4\ziju{0.5}%
         \fi
       \fi
     \fi
-  \fi}
+  \fi#1}
 \setcounter{secnumdepth}{5}
 \ctexset{
     chapter = {

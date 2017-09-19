@@ -894,29 +894,32 @@ LaTeX version 1999/12/01 or later.
   \ding{\the\numexpr\value{#1}+191\relax}}
 %    \end{macrocode}
 %
-% 研究生规定章题为两字时中间空两字，三字时空一字，四字时空半字，四字以上不空：
+% 研究生规定章题为两字时中间空两字，三字时空一字，四字时空半字，四字以上不空。
+% 另外，\pkg{stringstrings} 宏包会导致范数命令 \verb+\|+ 被修改，所以用
+% \pkg{xstring}。
 % \changes{v3.0}{2017/07/01}{章题为两字时中间空两字，三字时空一字，
 % 四字时空半字，四字以上不空}
+% \changes{v3.0.1}{2017/09/18}{改用 \pkg{xstring} 读取标题字数}
+%
 %    \begin{macrocode}
-\RequirePackage{stringstrings}
-\newcounter{titlelength}
+\RequirePackage{xstring}
 \newcommand\spacetitle[1]{%
-  \@getstringlength{#1}{titlelength}%
+  \StrLen{#1}[\titlelength]%
   \if@ustc@bachelor
-    \if@mainmatter#1\else
-      \ifnum\thetitlelength=2{\ziju{1}#1}\else%
-        \ifnum\thetitlelength=4{\ziju{0.5}#1}\else#1%
+    \if@mainmatter\relax\else
+      \ifnum\titlelength=2\ziju{1}\else
+        \ifnum\titlelength=4\ziju{0.5}%
         \fi
       \fi
     \fi
   \else
-    \ifnum\thetitlelength=2{\ziju{2}#1}\else%
-      \ifnum\thetitlelength=3{\ziju{1}#1}\else%
-        \ifnum\thetitlelength=4{\ziju{0.5}#1}\else#1%
+    \ifnum\titlelength=2\ziju{2}\else
+      \ifnum\titlelength=3\ziju{1}\else
+        \ifnum\titlelength=4\ziju{0.5}%
         \fi
       \fi
     \fi
-  \fi}
+  \fi#1}
 %    \end{macrocode}
 %
 % 另外摘要、参考文献等章节在底层也是用 \cs{chapter} 实现的。
