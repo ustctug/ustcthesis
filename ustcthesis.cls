@@ -6,7 +6,7 @@
 %%
 %% ustcthesis.dtx  (with options: `class')
 %% 
-%% Copyright (C) 2015-2017 by Zeping Lee <zepinglee AT gmail.com>
+%% Copyright (C) 2015-2018 by Zeping Lee <zepinglee AT gmail.com>
 %% 
 %% This file may be distributed and/or modified under the
 %% conditions of the LaTeX Project Public License, either

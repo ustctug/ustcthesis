@@ -6,7 +6,7 @@
 %%
 %% ustcthesis.dtx  (with options: `bachelor,numerical')
 %% 
-%% Copyright (C) 2015-2017 by Zeping Lee <zepinglee AT gmail.com>
+%% Copyright (C) 2015-2018 by Zeping Lee <zepinglee AT gmail.com>
 %% 
 %% This file may be distributed and/or modified under the
 %% conditions of the LaTeX Project Public License, either
@@ -22,23 +22,16 @@ ENTRY
   { address
     author
     booktitle
-    chapter
     date
     doi
-    eid
     edition
     editor
-    howpublished
     institution
-    isbn
-    issn
     journal
     key
     language
     mark
-    media
-    month
-    note
+    medium
     number
     organization
     pages
@@ -47,7 +40,6 @@ ENTRY
     series
     title
     translator
-    type
     url
     urldate
     volume
@@ -58,7 +50,7 @@ ENTRY
 
 INTEGERS { output.state before.all mid.sentence after.sentence after.block after.slash }
 
-INTEGERS { lang.zh lang.ja lang.en lang.ru }
+INTEGERS { lang.zh lang.ja lang.en lang.ru lang.other }
 
 INTEGERS { charptr stringlength }
 
@@ -68,10 +60,11 @@ FUNCTION {init.state.consts}
   #2 'after.sentence :=
   #3 'after.block :=
   #4 'after.slash :=
-  #2 'lang.zh :=
-  #3 'lang.ja :=
-  #0 'lang.en :=
-  #1 'lang.ru :=
+  #3 'lang.zh :=
+  #4 'lang.ja :=
+  #1 'lang.en :=
+  #2 'lang.ru :=
+  #0 'lang.other :=
 }
 
 STRINGS { s t }
@@ -281,13 +274,17 @@ INTEGERS { ascii }
 
 FUNCTION {get.char.lang}
 { chr.to.int$ 'ascii :=
-  ascii #227 > ascii #234 < and
-    { lang.zh }
-    { ascii #227 =
-        { lang.ja }
-        { ascii #207 > ascii #212 < and
-            { lang.ru }
-            { lang.en }
+  ascii #64 > ascii #91 < and ascii #96 > ascii #123 < and or
+    { lang.en }
+    { ascii #227 > ascii #234 < and
+        { lang.zh }
+        { ascii #227 =
+            { lang.ja }
+            { ascii #207 > ascii #212 < and
+                { lang.ru }
+                { lang.en }
+              if$
+            }
           if$
         }
       if$
@@ -295,21 +292,21 @@ FUNCTION {get.char.lang}
   if$
 }
 
-INTEGERS { char.lang lang }
+INTEGERS { char.lang tmp.lang }
 
 STRINGS { tmp.str }
 
 FUNCTION {get.str.lang}
 { 'tmp.str :=
-  lang.en 'lang :=
+  lang.other 'tmp.lang :=
   tmp.str empty$
     { "Empty string!" warning$ }
     { #1 'charptr :=
       tmp.str text.length$ #1 + 'stringlength :=
         { charptr stringlength < }
         { tmp.str charptr #1 substring$ get.char.lang 'char.lang :=
-          char.lang lang >
-            { char.lang 'lang := }
+          char.lang tmp.lang >
+            { char.lang 'tmp.lang := }
             'skip$
           if$
 
@@ -325,7 +322,7 @@ FUNCTION {get.str.lang}
       while$
     }
   if$
-  lang
+  tmp.lang
 }
 
 FUNCTION {is.in.chinese}
@@ -335,9 +332,9 @@ FUNCTION {is.in.chinese}
 FUNCTION {format.et.al}
 { is.in.chinese
     { "等"}
-    { lang.ja lang =
+    { lang.ja entry.lang =
         { "他"}
-        { lang.ru lang =
+        { lang.ru entry.lang =
             { "идр" }
             { "et~al." }
           if$
@@ -478,8 +475,8 @@ FUNCTION {set.mark}
         { pop$ mark 'entry.mark := }
         { 'entry.mark := }
       if$
-      media empty$ not
-        { entry.mark "/" * media * 'entry.mark := }
+      medium empty$ not
+        { entry.mark "/" * medium * 'entry.mark := }
         { url empty$ not
             { entry.mark "/OL" * 'entry.mark := }
             'skip$
@@ -559,7 +556,9 @@ FUNCTION {make.full.names}
   type$ "inbook" =
   or
     'author.editor.full
-    { type$ "proceedings" =
+    { type$ "collection" =
+      type$ "proceedings" =
+      or
         'editor.full
         'author.full
       if$
@@ -582,7 +581,6 @@ FUNCTION {output.bibitem}
   ""
   before.all 'output.state :=
 }
-
 
 FUNCTION {n.dashify}
 { 't :=
@@ -666,11 +664,12 @@ FUNCTION {contains.dash}
 
 FUNCTION {format.year}
 { year empty$ not
-    { year }
+    { year extract.before.dash }
     { date empty$ not
         { date extract.before.dash }
         { "empty year in " cite$ * warning$
-          "" }
+          ""
+        }
       if$
     }
   if$
@@ -681,8 +680,7 @@ FUNCTION {format.date}
 { type$ "patent" = type$ "newspaper" = or
   date empty$ not and
     { date }
-    { format.year
-    }
+    { year }
   if$
 }
 
@@ -1005,9 +1003,9 @@ FUNCTION {format.in.ed.booktitle}
 }
 
 FUNCTION {empty.misc.check}
-{ author empty$ title empty$ howpublished empty$
-  month empty$ year empty$ note empty$
-  and and and and and
+{ author empty$ title empty$
+  year empty$
+  and and
   key empty$ not and
     { "all relevant fields are empty in " cite$ * warning$ }
     'skip$
@@ -1100,7 +1098,7 @@ FUNCTION {monograph}
   format.edition output
   new.block
   format.address.publisher output
-  format.date "year" output.check
+  format.year "year" output.check
   format.pages punct.colon output.after
   format.urldate "" output.after
   format.url output
@@ -1126,7 +1124,7 @@ FUNCTION {incollection}
   format.edition output
   new.block
   format.address.publisher output
-  format.date "year" output.check
+  format.year "year" output.check
   format.pages punct.colon output.after
   format.urldate "" output.after
   format.url output
@@ -1219,17 +1217,20 @@ FUNCTION {online}
 
 FUNCTION {misc}
 { journal empty$ not
-    { article.in.journal }
+    'article.in.journal
     { booktitle empty$ not
-        { incollection }
+        'incollection
         { url empty$ not
-            { online }
-            { monograph }
+            'online
+            { "Z" set.mark
+              monograph
+            }
           if$
         }
       if$
     }
   if$
+  empty.misc.check
 }
 
 FUNCTION {archive}
@@ -1243,7 +1244,8 @@ FUNCTION {book} { monograph }
 
 FUNCTION {collection}
 { "G" set.mark
-  monograph }
+  monograph
+}
 
 FUNCTION {database}
 { "DB" set.mark
@@ -1286,7 +1288,7 @@ FUNCTION {proceedings}
   monograph
 }
 
-FUNCTION {program}
+FUNCTION {software}
 { "CP" set.mark
   misc
 }
@@ -1375,7 +1377,7 @@ EXECUTE {init.state.consts}
 FUNCTION {set.entry.lang}
 { language empty$
     { author field.or.null title field.or.null * get.str.lang }
-    { language "english" =
+    { language "english" = language "american" = or language "british" = or
         { lang.en }
         { language "chinese" =
             { lang.zh }
@@ -1383,7 +1385,7 @@ FUNCTION {set.entry.lang}
                 { lang.ja }
                 { language "russian" =
                     { lang.ru }
-                    { lang.en }
+                    { lang.other }
                   if$
                 }
               if$
@@ -1486,10 +1488,10 @@ FUNCTION {calc.short.authors}
 { type$ "book" =
   type$ "inbook" =
   or
-  type$ "collection" =
-  or
     'author.editor.key.label
-    { type$ "proceedings" =
+    { type$ "collection" =
+      type$ "proceedings" =
+      or
         { editor empty$ not
             'editor.key.organization.label
             'author.key.organization.label
@@ -1509,13 +1511,8 @@ FUNCTION {calc.label}
   *
   format.year duplicate$ empty$
   short.list key field.or.null = or
-     { pop$
-       urldate empty$ not
-         { urldate extract.before.dash }
-         { "" }
-       if$
-     }
-     'extract.before.dash
+     { pop$ "" }
+     'skip$
   if$
   *
   'label :=
