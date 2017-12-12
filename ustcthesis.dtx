@@ -817,13 +817,13 @@ LaTeX version 1999/12/01 or later.
 \if@ustc@bachelor
   \fancypagestyle{ustc@headings}{%
     \fancyhf{}%
-    \fancyhead[C]{\setfontsize{9bp}中国科学技术大学本科毕业论文}%
-    \fancyfoot[C]{\setfontsize{9bp}\thepage}}%
+    \fancyhead[C]{\setfontsize{9\bp@}中国科学技术大学本科毕业论文}%
+    \fancyfoot[C]{\setfontsize{9\bp@}thepage}}%
 \else
   \fancypagestyle{ustc@headings}{%
     \fancyhf{}%
-    \fancyhead[C]{\setfontsize{10.5bp}\leftmark}%
-    \fancyfoot[C]{\setfontsize{10.5bp}\thepage}}%
+    \fancyhead[C]{\setfontsize{10.5\bp@}\leftmark}%
+    \fancyfoot[C]{\setfontsize{10.5\bp@}\thepage}}%
 \fi
 \fancypagestyle{ustc@notation}{\fancyfoot{}}
 \pagestyle{ustc@headings}
@@ -860,12 +860,12 @@ LaTeX version 1999/12/01 or later.
     \@afterindenttrue
     \if@ustc@bachelor
       \if@mainmatter
-        \ctexset{chapter/format = \centering\sffamily\setfontsize{16bp}}
+        \ctexset{chapter/format = \centering\sffamily\setfontsize{16\bp@}}
       \else
-        \ctexset{chapter/format = \centering\sffamily\setfontsize{18bp}}
+        \ctexset{chapter/format = \centering\sffamily\setfontsize{18\bp@}}
       \fi
       \if@ustc@addtocspace
-        \addtocontents{toc}{\protect\addvspace{12bp}}%
+        \addtocontents{toc}{\protect\addvspace{12\bp@}}%
       \fi
     \fi
     \secdef\@chapter\@schapter
@@ -932,45 +932,47 @@ LaTeX version 1999/12/01 or later.
 \setcounter{secnumdepth}{5}
 \ctexset{
     chapter = {
-        format      = \centering\sffamily\bfseries\setfontsize{16bp},
+        format      = \centering\sffamily\bfseries\setfontsize{16\bp@},
         nameformat  = {},
         titleformat = \spacetitle,
         number      = \thechapter,
         aftername   = \hspace{\ccwd},
-        beforeskip  = -7bp, % 24bp - 31bp
-        afterskip   = 8bp, % 18bp - 10bp
+        beforeskip  = -7\bp@, % 24bp - 31bp
+        afterskip   = 8\bp@, % 18bp - 10bp
         % fixskip   = true, % will be used in future version
     },
     section = {
-        format     = \sffamily\setfontsize{14bp},
+        format     = \sffamily\setfontsize{14\bp@},
         aftername  = \hspace{\ccwd},
-        beforeskip = 24bp,
-        afterskip  = 6bp,
+        beforeskip = 24\bp@,
+        afterskip  = 6\bp@,
     },
     subsection = {
-        format     = \sffamily\setfontsize{13bp},
+        format     = \sffamily\setfontsize{13\bp@},
         aftername  = .\hspace{\ccwd},
         indent     = 2\ccwd,
-        beforeskip = 12bp,
-        afterskip  = 6bp,
+        beforeskip = 12\bp@,
+        afterskip  = 6\bp@,
     },
     subsubsection = {
-        format    = \sffamily\setfontsize{12bp},
-        number    = \arabic{subsubsection},
-        aftername = .\hspace{\ccwd},
-        indent    = 3\ccwd,
+        format     = \sffamily\setfontsize{12\bp@},
+        number     = \arabic{subsubsection},
+        aftername  = .\hspace{\ccwd},
+        indent     = 3\ccwd,
+        beforeskip = 12\bp@,
+        afterskip  = 6\bp@,
     },
     paragraph = {
-        format    = \sffamily\setfontsize{12bp},
-        number    = (\arabic{paragraph}),
-        aftername = \hspace{\ccwd},
-        indent    = 3\ccwd,
+        format     = \sffamily\setfontsize{12\bp@},
+        number     = (\arabic{paragraph}),
+        aftername  = \hspace{\ccwd},
+        indent     = 3\ccwd,
     },
     subparagraph = {
-        format    = \sffamily\setfontsize{12bp},
-        number    = \ustc@textcircled{subparagraph},
-        aftername = \hspace{\ccwd},
-        indent    = 3\ccwd,
+        format     = \sffamily\setfontsize{12\bp@},
+        number     = \ustc@textcircled{subparagraph},
+        aftername  = \hspace{\ccwd},
+        indent     = 3\ccwd,
     },
 }
 %    \end{macrocode}
@@ -981,27 +983,27 @@ LaTeX version 1999/12/01 or later.
     \setcounter{secnumdepth}{4}
     \ctexset{
         chapter={
-            format = \centering\sffamily\setfontsize{16bp},
+            format = \centering\sffamily\setfontsize{16\bp@},
             number = \chinese{chapter},
         },
         section = {
-            format = \centering\sffamily\setfontsize{15bp},
+            format = \centering\sffamily\setfontsize{15\bp@},
             name   = {第,节},
             number = \chinese{section},
         },
         subsection = {
-            format    = \sffamily\setfontsize{14bp},
+            format    = \sffamily\setfontsize{14\bp@},
             number    = \chinese{subsection},
             aftername = {、},
         },
         subsubsection = {
-            format    = {\rmfamily\setfontsize{12bp}},
+            format    = {\rmfamily\setfontsize{12\bp@}},
             number    = \arabic{subsubsection},
             aftername = {.\ },
             indent    = \ccwd,
         },
         paragraph = {
-            format    = {\rmfamily\setfontsize{12bp}},
+            format    = {\rmfamily\setfontsize{12\bp@}},
             name      = {(,)},
             number    = \arabic{paragraph},
             aftername = {\ },
@@ -1109,22 +1111,22 @@ LaTeX version 1999/12/01 or later.
     \begin{titlepage}%
         \tikz[remember picture,overlay]%
             \node [yshift=-4cm] at (current page.north) [below,align=flush center]%
-                {\parbox{\textwidth}{\raggedleft\fangsong\setfontsize{14bp}\ustc@secrettext}};%
-        \vpostext{4cm}{\includegraphics[height=37bp]{figures/ustc_logo_text}}%
+                {\parbox{\textwidth}{\raggedleft\fangsong\setfontsize{14\bp@}\ustc@secrettext}};%
+        \vpostext{4cm}{\includegraphics[height=37\bp@]{figures/ustc_logo_text}}%
         \if@ustc@professional
-          \vpostext{6.3cm}{\sffamily\setfontsize{56bp}\ziju{-0.09}\ustc@thesisname}%
-          \vpostext{9cm}{\setfontsize{26bp}\ustc@professionaltype}%
+          \vpostext{6.3cm}{\sffamily\setfontsize{56\bp@}\ziju{-0.09}\ustc@thesisname}%
+          \vpostext{9cm}{\setfontsize{26\bp@}\ustc@professionaltype}%
           \vpostext{10.3cm}{\includegraphics[height=4.7cm]{figures/ustc_logo_fig}}%
-          \vpostext{16.3cm}{\sffamily\bfseries\setfontsize{26bp}\ustc@title}%
+          \vpostext{16.3cm}{\sffamily\bfseries\setfontsize{26\bp@}\ustc@title}%
         \else
-          \vpostext{6.3cm}{\sffamily\setfontsize{56bp}\ustc@thesisname}%
+          \vpostext{6.3cm}{\sffamily\setfontsize{56\bp@}\ustc@thesisname}%
           \vpostext{9.8cm}{\includegraphics[height=4.7cm]{figures/ustc_logo_fig}}%
-          \vpostext{16.3cm}{\sffamily\bfseries\setfontsize{26bp}\ustc@title}%
+          \vpostext{16.3cm}{\sffamily\bfseries\setfontsize{26\bp@}\ustc@title}%
         \fi
         \tikz[remember picture,overlay]%
             \node [xshift=4.6cm,yshift=-20.3cm] at (current page.north west)%
             [below right,align=left] {%
-                \setfontsize{16bp}%
+                \setfontsize{16\bp@}%
                 \begin{tabular}{@{}l@{\hspace{\ccwd}}l@{}}%
                     \textsf{作者姓名：} & \ustc@author \\%
                     \textsf{学科专业：} & \ustc@major \\%
@@ -1140,22 +1142,22 @@ LaTeX version 1999/12/01 or later.
     \begin{titlepage}%
         \tikz[remember picture,overlay]%
             \node [yshift=-4cm] at (current page.north) [below,align=flush center]%
-                {\parbox{\textwidth}{\raggedleft\setfontsize{14bp}\ustc@ensecrettext}};%
-        \vpostext{3.9cm}{\sffamily\setfontsize{20bp}[30bp]%
+                {\parbox{\textwidth}{\raggedleft\setfontsize{14\bp@}\ustc@ensecrettext}};%
+        \vpostext{3.9cm}{\sffamily\setfontsize{20\bp@}[30\bp@]%
             University of Science and Technology of China}%
-        \vpostext{4.9cm}{\sffamily\setfontsize{26bp}[30bp]\ustc@enthesisname}%
+        \vpostext{4.9cm}{\sffamily\setfontsize{26\bp@}[30\bp@]\ustc@enthesisname}%
         \if@ustc@professional
-          \vpostext{6.2cm}{\setfontsize{16bp}\ustc@enprofessionaltype}%
+          \vpostext{6.2cm}{\setfontsize{16\bp@}\ustc@enprofessionaltype}%
           \vpostext{8.9cm}{\includegraphics[height=5.1cm]{figures/ustc_logo_fig}}%
-          \vpostext{15cm}{\sffamily\bfseries\setfontsize{26bp}[30bp]\ustc@entitle}%
+          \vpostext{15cm}{\sffamily\bfseries\setfontsize{26\bp@}[30\bp@]\ustc@entitle}%
         \else
           \vpostext{7.9cm}{\includegraphics[height=5.1cm]{figures/ustc_logo_fig}}%
-          \vpostext{14.2cm}{\sffamily\bfseries\setfontsize{26bp}[30bp]\ustc@entitle}%
+          \vpostext{14.2cm}{\sffamily\bfseries\setfontsize{26\bp@}[30\bp@]\ustc@entitle}%
         \fi
         \tikz[remember picture,overlay]%
             \node [xshift=4.4cm,yshift=-20.2cm] at (current page.north west)%
             [below right,align=left] {%
-                \setfontsize{16bp}[30bp]%
+                \setfontsize{16\bp@}[30\bp@]%
                 \begin{tabular}{@{}l@{}}%
                     Author:        \ustc@enauthor \\%
                     Speciality:    \ustc@enmajor \\%
@@ -1186,10 +1188,10 @@ LaTeX version 1999/12/01 or later.
 }
 \newcommand\make@statement{
     \thispagestyle{empty}
-    \setfontsize{12bp}[20bp]
+    \setfontsize{12\bp@}[20\bp@]
     \vspace*{-0.15cm}
     \begin{center}
-      \setfontsize{16bp}\textbf{中国科学技术大学学位论文原创性声明}
+      \setfontsize{16\bp@}\textbf{中国科学技术大学学位论文原创性声明}
     \end{center}
     \vskip 0.3cm
 
@@ -1202,7 +1204,7 @@ LaTeX version 1999/12/01 or later.
     \vskip 2.6cm
 
     \begin{center}
-      \setfontsize{16bp}\textbf{中国科学技术大学学位论文授权使用声明}
+      \setfontsize{16\bp@}\textbf{中国科学技术大学学位论文授权使用声明}
     \end{center}
     \vskip 0.3cm
 
@@ -1290,36 +1292,36 @@ LaTeX version 1999/12/01 or later.
 \newcommand\ustc@leaders{\titlerule*[0.5pc]{$\cdot$}}
 \if@ustc@bachelor
     \titlecontents{chapter}
-        [0bp]
-        {\setfontsize{12bp}[20bp]}
+        [\z@]
+        {\setfontsize{12\bp@}[20\bp@]}
         {\contentspush{\thecontentslabel\hskip\ccwd\relax}}
         {}{\ustc@leaders\contentspage}
     \titlecontents{section}
         [\ccwd]
-        {\setfontsize{12bp}[20bp]}
+        {\setfontsize{12\bp@}[20\bp@]}
         {\contentspush{\thecontentslabel\hskip\ccwd\relax}}
         {}{\ustc@leaders\contentspage}
     \titlecontents{subsection}
         [2\ccwd]
-        {\setfontsize{12bp}[20bp]}
+        {\setfontsize{12\bp@}[20\bp@]}
         {\contentspush{\thecontentslabel、}}
         {}{\ustc@leaders\contentspage}
 \else
     \titlecontents{chapter}
-        [0bp]
-        {\addvspace{6bp}\setfontsize{14bp}[20bp]}
+        [\z@]
+        {\addvspace{6\bp@}\setfontsize{14\bp@}[20\bp@]}
         {\contentspush{\thecontentslabel\unskip\hskip\ccwd\relax}}
-        {}{\ustc@leaders\setfontsize{12bp}[20bp]\contentspage}
+        {}{\ustc@leaders\setfontsize{12\bp@}[20\bp@]\contentspage}
     \titlecontents{section}
         [\ccwd]
-        {\setfontsize{12bp}[20bp]}
+        {\setfontsize{12\bp@}[20\bp@]}
         {\contentspush{\thecontentslabel\hskip\ccwd\relax}}
-        {}{\ustc@leaders\setfontsize{12bp}[20bp]\contentspage}
+        {}{\ustc@leaders\setfontsize{12\bp@}[20\bp@]\contentspage}
     \titlecontents{subsection}
         [2\ccwd]
-        {\setfontsize{10.5bp}[20bp]}
+        {\setfontsize{10.5\bp@}[20\bp@]}
         {\contentspush{\thecontentslabel\hskip\ccwd\relax}}
-        {}{\ustc@leaders\setfontsize{12bp}[20bp]\contentspage}
+        {}{\ustc@leaders\setfontsize{12\bp@}[20\bp@]\contentspage}
 \fi
 %    \end{macrocode}
 %
@@ -1327,12 +1329,12 @@ LaTeX version 1999/12/01 or later.
 %    \begin{macrocode}
 \titlecontents{figure}
     [\ccwd]
-    {\addvspace{6bp}\setfontsize{12bp}}
+    {\addvspace{6\bp@}\setfontsize{12\bp@}}
     {\thecontentslabel\hspace*{0.5em}}
     {}{\ustc@leaders\contentspage}
 \titlecontents{table}
     [\ccwd]
-    {\addvspace{6bp}\setfontsize{12bp}}
+    {\addvspace{6\bp@}\setfontsize{12\bp@}}
     {\thecontentslabel\hspace*{0.5em}}
     {}{\ustc@leaders\contentspage}
 %    \end{macrocode}
@@ -1377,10 +1379,10 @@ LaTeX version 1999/12/01 or later.
 \newenvironment{notation}{%
     \if@ustc@bachelor\clearpage\else\cleardoublepage\fi
     \thispagestyle{ustc@notation}
-    \ctexset{chapter/format = \centering\rmfamily\setfontsize{12bp}}
+    \ctexset{chapter/format = \centering\rmfamily\setfontsize{12\bp@}}
     \ustc@chapter{\ustc@notationname}
-    \setfontsize{10.5bp}[16bp]
-    \setlength{\itemsep}{0bp}}{}
+    \setfontsize{10.5\bp@}[16\bp@]
+    \setlength{\itemsep}{\z@}}{}
 %    \end{macrocode}
 % \end{environment}
 %
@@ -1701,7 +1703,7 @@ LaTeX version 1999/12/01 or later.
 % 参考文献列表宋体10.5磅，行距20磅，续行缩进两字
 %    \begin{macrocode}
 \renewcommand\bibfont{\setfontsize{10.5bp}[20bp]}
-\setlength{\bibsep}{0bp}
+\setlength{\bibsep}{\z@}
 \setlength{\bibhang}{2\ccwd}
 \renewcommand\@biblabel[1]{[#1]\hfill}
 %    \end{macrocode}
