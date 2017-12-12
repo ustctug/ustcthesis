@@ -268,12 +268,18 @@
         number     = (\arabic{paragraph}),
         aftername  = \hspace{\ccwd},
         indent     = 3\ccwd,
+        beforeskip = \z@,
+        afterskip  = \z@,
+        runin      = false,
     },
     subparagraph = {
         format     = \sffamily\setfontsize{12\bp@},
         number     = \ustc@textcircled{subparagraph},
         aftername  = \hspace{\ccwd},
         indent     = 3\ccwd,
+        beforeskip = \z@,
+        afterskip  = \z@,
+        runin      = false,
     },
 }
 \if@ustc@bachelor
