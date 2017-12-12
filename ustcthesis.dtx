@@ -1778,6 +1778,7 @@ ENTRY
     author
     booktitle
     chapter
+    date
     doi
     eid
     edition
@@ -1810,14 +1811,14 @@ ENTRY
     volume
     year
   }
-  { lang }
+  { entry.lang }
 %    \end{macrocode}
 %
 % These string entry variables are used to form the citation label.
 % In a storage pinch, sort.label can be easily computed on the fly.
 %
 %    \begin{macrocode}
-  { mark_ label extra.label sort.label short.list }
+  { label extra.label sort.label short.list entry.mark }
 
 %    \end{macrocode}
 %
@@ -1980,7 +1981,7 @@ ENTRY
 %    \begin{macrocode}
 INTEGERS { output.state before.all mid.sentence after.sentence after.block after.slash }
 
-INTEGERS { lang.zh lang.ja lang.en lang.ru lang.default }
+INTEGERS { lang.zh lang.ja lang.en lang.ru }
 
 INTEGERS { charptr stringlength }
 
@@ -1990,11 +1991,10 @@ FUNCTION {init.state.consts}
   #2 'after.sentence :=
   #3 'after.block :=
   #4 'after.slash :=
-  #4 'lang.zh :=
-  #5 'lang.ja :=
-  #1 'lang.en :=
-  #3 'lang.ru :=
-  #0 'lang.default :=
+  #2 'lang.zh :=
+  #3 'lang.ja :=
+  #0 'lang.en :=
+  #1 'lang.ru :=
 }
 
 %    \end{macrocode}
@@ -2342,10 +2342,66 @@ FUNCTION {emphasize}
   if$
 }
 
-FUNCTION {is.in.chinese}
-{ lang lang.zh =
+INTEGERS { ascii }
+
+FUNCTION {get.char.lang}
+{ chr.to.int$ 'ascii :=
+  ascii #227 > ascii #234 < and
+    { lang.zh }
+    { ascii #227 =
+        { lang.ja }
+        { ascii #207 > ascii #212 < and
+            { lang.ru }
+            { lang.en }
+          if$
+        }
+      if$
+    }
+  if$
 }
 
+INTEGERS { char.lang lang }
+
+STRINGS { tmp.str }
+
+FUNCTION {get.str.lang}
+{ 'tmp.str :=
+  lang.en 'lang :=
+  tmp.str empty$
+    { "Empty string!" warning$ }
+    { #1 'charptr :=
+      tmp.str text.length$ #1 + 'stringlength :=
+        { charptr stringlength < }
+        { tmp.str charptr #1 substring$ get.char.lang 'char.lang :=
+          char.lang lang >
+            { char.lang 'lang := }
+            'skip$
+          if$
+
+          char.lang lang.zh = char.lang lang.ja = or
+            { charptr #3 + 'charptr := }
+            { char.lang lang.ru =
+                { charptr #2 + 'charptr := }
+                { charptr #1 + 'charptr := }
+              if$
+            }
+          if$
+        }
+      while$
+    }
+  if$
+  lang
+}
+
+FUNCTION {is.in.chinese}
+{ entry.lang lang.zh =
+}
+
+%    \end{macrocode}
+%
+% USTC requires multiple language support of "et al".
+%
+%    \begin{macrocode}
 FUNCTION {format.et.al}
 { is.in.chinese
     { "等"}
@@ -2368,24 +2424,35 @@ FUNCTION {format.anonymous}
   if$
 }
 
-INTEGERS { nameptr namesleft numnames }
+INTEGERS { nameptr namesleft numnames name.lang}
 
+%    \end{macrocode}
+%
+% USTC requires no upper case of author names for undergraduates.
+%
+%    \begin{macrocode}
 FUNCTION {format.names}
 { 's :=
   #1 'nameptr :=
   s num.names$ 'numnames :=
   numnames 'namesleft :=
     { namesleft #0 > nameptr #4 < and }
-    { s nameptr "{vv~}{ll}{ f{ }}" format.name$
+    { s nameptr "{vv~}{ll}{, jj}{, ff}" format.name$ 't :=
+      t get.str.lang 'name.lang :=
+      name.lang lang.en =
+        { t #1 "{vv~}{ll}{ f{~}}" format.name$
 %<*!bachelor>
       "u" change.case$
 %</!bachelor>
-      s nameptr "{, jj}" format.name$ *
-      't :=
+          t #1 "{, jj}" format.name$ *
+          't :=
+        }
+        { t #1 "{ll}{ff}" format.name$ 't := }
+      if$
       nameptr #1 >
         { namesleft #1 >
             { ", " * t * }
-            { s nameptr "{ff~}{vv~}{ll}{, jj}" format.name$ "others" =
+            { t "others" =
                 { ", " * format.et.al * }
                 { ", " * t * }
               if$
@@ -2453,10 +2520,35 @@ FUNCTION {format.url}
   if$
 }
 
+%    \end{macrocode}
+%
+% 需要检测 DOI 是否已经包含在 URL 中。
+%
+%    \begin{macrocode}
+FUNCTION {is.doi.in.url}
+{ url empty$
+    { #0 }
+    { doi text.length$ 'stringlength :=
+      url text.length$ 'charptr :=
+        { url charptr stringlength substring$ doi = not
+          charptr #0 >
+          and
+        }
+        { charptr #1 - 'charptr := }
+      while$
+      charptr
+    }
+  if$
+}
+
 FUNCTION {format.doi}
 { doi empty$
     { "" }
-    { new.block "\doi{" doi * "}" * }
+    { is.doi.in.url
+        { "" }
+        { new.block "\doi{" doi * "}" * }
+      if$
+    }
   if$
 }
 
@@ -2477,16 +2569,16 @@ FUNCTION {format.title}
 }
 
 FUNCTION {set.mark}
-{ mark_ empty$ not
+{ entry.mark empty$ not
     'pop$
     { mark empty$ not
-        { pop$ mark 'mark_ := }
-        { 'mark_ := }
+        { pop$ mark 'entry.mark := }
+        { 'entry.mark := }
       if$
       media empty$ not
-        { mark_ "/" * media * 'mark_ := }
+        { entry.mark "/" * media * 'entry.mark := }
         { url empty$ not
-            { mark_ "/OL" * 'mark_ := }
+            { entry.mark "/OL" * 'entry.mark := }
             'skip$
           if$
         }
@@ -2495,12 +2587,17 @@ FUNCTION {set.mark}
   if$
 }
 
+%    \end{macrocode}
+%
+% USTC requires no mark for undergraduates.
+%
+%    \begin{macrocode}
 FUNCTION {format.mark}
 %<*bachelor>
 { "" }
 %</bachelor>
 %<*!bachelor>
-{ "\allowbreak[" mark_ * "]" * }
+{ "\allowbreak[" entry.mark * "]" * }
 %</!bachelor>
 
 FUNCTION {format.full.names}
@@ -2509,8 +2606,12 @@ FUNCTION {format.full.names}
   s num.names$ 'numnames :=
   numnames 'namesleft :=
     { namesleft #0 > }
-    { s nameptr
-      "{vv~}{ll}" format.name$ 't :=
+    { s nameptr "{vv~}{ll}{, jj}{, ff}" format.name$ 't :=
+      t get.str.lang 'name.lang :=
+      name.lang lang.en =
+        { t #1 "{vv~}{ll}" format.name$ 't := }
+        { t #1 "{ll}{ff}" format.name$ 't := }
+      if$
       nameptr #1 >
         {
           namesleft #1 >
@@ -2663,16 +2764,10 @@ FUNCTION {n.dashify}
 % there's an empty year but the month is there, and we return the empty string
 % if they're both empty.
 %
+% Newspaer 和 paptent 要显示完整的日期，同时不再显示修改日期。
+% 但是在 author-year 模式下，需要单独设置 format.year。
+%
 %    \begin{macrocode}
-FUNCTION {format.date}
-{ year duplicate$ empty$
-    { "empty year in " cite$ * warning$
-       pop$ "" }
-    'skip$
-  if$
-  extra.label *
-}
-
 FUNCTION {extract.before.dash}
 { duplicate$ empty$
     { pop$ "" }
@@ -2731,17 +2826,31 @@ FUNCTION {contains.dash}
 FUNCTION {format.year}
 { year empty$ not
     { year }
-    { "empty year in " cite$ * warning$
-      ""
+    { date empty$ not
+        { date extract.before.dash }
+        { "empty year in " cite$ * warning$
+          "" }
+      if$
     }
   if$
-  extract.before.dash
   extra.label *
 }
 
+FUNCTION {format.date}
+{ type$ "patent" = type$ "newspaper" = or
+  date empty$ not and
+    { date }
+    { format.year
+    }
+  if$
+}
+
 FUNCTION {format.editdate}
-{ year contains.dash
-    { "\allowbreak(" year * ")" * }
+{ date empty$ not
+  type$ "newspaper" = not and
+  url empty$ not doi empty$ not or
+  and
+    { "\allowbreak(" date * ")" * }
     { "" }
   if$
 }
@@ -2753,9 +2862,9 @@ FUNCTION {format.editdate}
 %
 %    \begin{macrocode}
 FUNCTION {format.urldate}
-{ urldate empty$
-    { "" }
+{ urldate empty$ not
     { "\allowbreak[" urldate * "]" * }
+    { "" }
   if$
 }
 
@@ -2824,6 +2933,16 @@ FUNCTION {either.or.check}
 % are there, we assume the series field is the title of the whole multivolume
 % work (the title field should be the title of the thing being referred to),
 % and we add an "of <series>".  This function is called in mid-sentence.
+%
+% The format.number.series function is for formatting the series name
+% and perhaps number of a work in a series.  This function is similar to
+% format.bvolume, although for this one the series must exist (and the
+% volume must not exist).  If the number field is empty we output either
+% the series field unchanged if it exists or else the null string.
+% If both the number and series fields are there we assume the series field
+% gives the name of the whole series (the title field should be the title
+% of the work being one referred to), and we add an "in <series>".
+% We capitilize Number when this function is used at the beginning of a block.
 %
 %    \begin{macrocode}
 FUNCTION {is.digit}
@@ -2895,63 +3014,37 @@ FUNCTION {format.volume.number}
   if$
 }
 
-%    \end{macrocode}
-%
-% The format.number.series function is for formatting the series name
-% and perhaps number of a work in a series.  This function is similar to
-% format.bvolume, although for this one the series must exist (and the
-% volume must not exist).  If the number field is empty we output either
-% the series field unchanged if it exists or else the null string.
-% If both the number and series fields are there we assume the series field
-% gives the name of the whole series (the title field should be the title
-% of the work being one referred to), and we add an "in <series>".
-% We capitilize Number when this function is used at the beginning of a block.
-%
-%    \begin{macrocode}
 FUNCTION {format.series.vol.num.title}
-{ type$ "report" = type$ "standard" = or
-    { format.title
-      number empty$ not
-        { ": " * number }
-        'skip$
-      if$
-    }
-    { format.volume.number 's :=
-      series empty$ not
-        { series ": " *
-          s empty$ not
-            { s * "\quad " * }
-            'skip$
-          if$
-          title field.or.null *
-        }
-        { title field.or.null
-          s empty$ not
-            { ": " * s * }
-            'skip$
-          if$
-        }
-      if$
-      "t" change.case$
-    }
-  if$
-}
-
-FUNCTION {format.series.vol.num.booktitle}
-{ type$ "report" = type$ "standard" = or
-    { format.volume.number }
-    { format.volume }
-  if$
-  's :=
+{ format.volume.number 's :=
   series empty$ not
     { series ": " *
       s empty$ not
         { s * "\quad " * }
         'skip$
       if$
-      booktitle field.or.null *
+      title *
     }
-    { booktitle field.or.null
+    { title
+      s empty$ not
+        { ": " * s * }
+        'skip$
+      if$
+    }
+  if$
+  "t" change.case$
+}
+
+FUNCTION {format.series.vol.num.booktitle}
+{ format.volume.number 's :=
+  series empty$ not
+    { series ": " *
+      s empty$ not
+        { s * "\quad " * }
+        'skip$
+      if$
+      booktitle *
+    }
+    { booktitle
       s empty$ not
         { ": " * s * }
         'skip$
@@ -2993,7 +3086,7 @@ FUNCTION {format.edition}
             { edition num.to.ordinal " ed." * }
           if$
         }
-        { lang lang.en =
+        { entry.lang lang.en =
             { edition "t" change.case$ 's :=
               s "Revised" = s "Revised edition" = or
                 { "Rev. ed." }
@@ -3056,6 +3149,12 @@ FUNCTION {format.sine.loco.sine.nomine}
   if$
 }
 
+%    \end{macrocode}
+%
+% USTC requires no S.l. or s.n. for undergraduates and no S.l.:s.n. for
+% graduates.
+%
+%    \begin{macrocode}
 FUNCTION {format.address.publisher}
 %<*bachelor>
 { address empty$ not
@@ -3127,18 +3226,23 @@ FUNCTION {format.journal.number}
 
 %    \end{macrocode}
 %
-% 连续出版物的年卷期有起止范围，需要特殊处理
+% USTC requires italic titles for journals in foriegn languages.
+%
 %    \begin{macrocode}
 FUNCTION {format.journal}
 { journal
 %<*bachelor>
-  is.in.chinese
-    'skip$
+  is.in.chinese not
     { "\textit{" swap$ * "}" * }
+    'skip$
   if$
 %</bachelor>
 }
 
+%    \end{macrocode}
+%
+% 连续出版物的年卷期有起止范围，需要特殊处理
+%    \begin{macrocode}
 FUNCTION {format.periodical.year.volume.number}
 { year empty$ not
     { year extract.before.dash }
@@ -3410,6 +3514,8 @@ FUNCTION {format.incoll.inproc.crossref}
 % The other entry functions are all quite similar, so no "comment version"
 % will be given for them.
 %
+% USTC requires period instead of a comma between author and year.
+%
 % \subsection{专著}
 %
 %    \begin{macrocode}
@@ -3444,7 +3550,7 @@ FUNCTION {monograph}
   new.block
   format.address.publisher output
 %<*numerical>
-  format.year "year" output.check
+  format.date "year" output.check
 %</numerical>
   format.pages punct.colon output.after
   format.urldate "" output.after
@@ -3487,7 +3593,7 @@ FUNCTION {incollection}
   new.block
   format.address.publisher output
 %<*numerical>
-  format.year "year" output.check
+  format.date "year" output.check
 %</numerical>
   format.pages punct.colon output.after
   format.urldate "" output.after
@@ -3546,11 +3652,12 @@ FUNCTION {article.in.journal}
   new.block
   format.journal "journal" output.check
 %<*numerical>
-  format.year "year" output.check
+  format.date "year" output.check
 %</numerical>
   volume output
   format.journal.number "" output.after
   format.pages punct.colon output.after
+  format.editdate "" output.after
   format.urldate "" output.after
   format.url output
   format.doi output
@@ -3609,9 +3716,9 @@ FUNCTION {online}
   new.block
   format.address.publisher output
 %<*numerical>
-  year contains.dash
+  date empty$
+    { format.date output }
     'skip$
-    { format.year output }
   if$
 %</numerical>
   format.pages punct.colon output.after
@@ -3878,61 +3985,18 @@ READ
 
 EXECUTE {init.state.consts}
 
-INTEGERS { ascii }
-
-FUNCTION {char.lang}
-{ chr.to.int$ 'ascii :=
-  ascii #31 > ascii #128 < and
-    { lang.en }
-    { ascii #227 > ascii #234 < and
-        { lang.zh }
-        { ascii #227 =
-            { lang.ja }
-            { ascii #207 > ascii #212 < and
-                { lang.ru }
-                { lang.default }
-              if$
-            }
-          if$
-        }
-      if$
-    }
-  if$
-}
-
-FUNCTION {set.language}
+FUNCTION {set.entry.lang}
 { language empty$
-    { lang.default 'lang :=
-      author field.or.null title field.or.null * 's :=
-      s empty$
-        'skip$
-        { #1 'charptr :=
-          s text.length$ #1 + 'stringlength :=
-            { charptr stringlength < }
-            { s charptr #1 substring$ char.lang
-              duplicate$ #3 >
-                { charptr #2 + 'charptr := }
-                'skip$
-              if$
-              duplicate$ lang >
-                { 'lang := }
-                'pop$
-              if$
-              charptr #1 + 'charptr :=
-            }
-          while$
-        }
-      if$
-    }
-    { language "en" =
+    { author field.or.null title field.or.null * get.str.lang }
+    { language "english" =
         { lang.en }
-        { language "zh" =
+        { language "chinese" =
             { lang.zh }
-            { language "ja" =
+            { language "japanese" =
                 { lang.ja }
-                { language "ru" =
+                { language "russian" =
                     { lang.ru }
-                    { lang.default }
+                    { lang.en }
                   if$
                 }
               if$
@@ -3940,9 +4004,9 @@ FUNCTION {set.language}
           if$
         }
       if$
-      'lang :=
     }
   if$
+  'entry.lang :=
 }
 
 %    \end{macrocode}
@@ -3978,7 +4042,12 @@ FUNCTION {chop.word}
 
 FUNCTION {format.lab.names}
 { 's :=
-  s #1 "{vv~}{ll}" format.name$
+  s #1 "{vv~}{ll}{, jj}{, ff}" format.name$ 't :=
+  t get.str.lang 'name.lang :=
+  name.lang lang.en =
+    { t #1 "{vv~}{ll}" format.name$}
+    { t #1 "{ll}{ff}" format.name$}
+  if$
   s num.names$ #1 >
     { "\ " * format.et.al * }
     'skip$
@@ -4066,7 +4135,7 @@ FUNCTION {calc.label}
   short.list
   "("
   *
-  year duplicate$ empty$
+  format.year duplicate$ empty$
   short.list key field.or.null = or
      { pop$
        urldate empty$ not
@@ -4270,7 +4339,7 @@ FUNCTION {int.to.fix}{ "000000000" swap$ int.to.str$ *
 %
 %    \begin{macrocode}
 FUNCTION {presort}
-{ set.language
+{ set.entry.lang
   calc.label
   label sortify
   "    "
@@ -4389,13 +4458,15 @@ FUNCTION {begin.bib}
   write$ newline$
   "\providecommand{\natexlab}[1]{#1}"
   write$ newline$
-  "\providecommand{\url}[1]{\texttt{#1}}"
+  "\providecommand{\url}[1]{#1}"
   write$ newline$
-  "\expandafter\ifx\csname urlstyle\endcsname\relax"
+  "\providecommand{\href}[2]{\url{#2}}"
   write$ newline$
-  "  \providecommand{\doi}[1]{DOI: #1}\else"
+  "\providecommand{\doi}[1]{DOI: \href{http://dx.doi.org/#1}{#1}}"
   write$ newline$
-  "  \providecommand{\doi}{DOI: \begingroup \urlstyle{rm}\Url}\fi"
+  "\expandafter\ifx\csname urlstyle\endcsname\relax\relax\else"
+  write$ newline$
+  "  \urlstyle{same}\fi"
   write$ newline$
 }
 

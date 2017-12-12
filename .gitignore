@@ -1,7 +1,6 @@
 ustcthesis.pdf
 main.pdf
 *.hd
-*.xdv
 
 ## Core latex/pdflatex auxiliary files:
 *.aux
@@ -18,6 +17,7 @@ main.pdf
 
 ## Intermediate documents:
 *.dvi
+*.xdv
 *-converted-to.*
 # these rules might exclude image files for figures etc.
 # *.ps
@@ -33,7 +33,6 @@ main.pdf
 *.blg
 *-blx.aux
 *-blx.bib
-*.brf
 *.run.xml
 
 ## Build tool auxiliary files:
@@ -82,8 +81,6 @@ acs-*.bib
 *.t[1-9]
 *.t[1-9][0-9]
 *.tfm
-*.[1-9]
-*.[1-9][0-9]
 
 #(r)(e)ledmac/(r)(e)ledpar
 *.end
@@ -150,14 +147,14 @@ _minted*
 # morewrites
 *.mw
 
-# mylatexformat
-*.fmt
-
 # nomencl
 *.nlo
 
 # pax
 *.pax
+
+# pdfpcnotes
+*.pdfpc
 
 # sagetex
 *.sagetex.sage
@@ -222,7 +219,12 @@ TSWLatexianTemp*
 *~[0-9]*
 
 # auto folder when using emacs and auctex
-/auto/*
+./auto/*
+*.el
 
 # expex forward references with \gathertags
 *-tags.tex
+
+# standalone packages
+*.sta
+
