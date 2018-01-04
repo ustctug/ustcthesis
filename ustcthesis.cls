@@ -162,7 +162,7 @@
   \fancypagestyle{ustc@headings}{%
     \fancyhf{}%
     \fancyhead[C]{\setfontsize{9\bp@}中国科学技术大学本科毕业论文}%
-    \fancyfoot[C]{\setfontsize{9\bp@}thepage}}%
+    \fancyfoot[C]{\setfontsize{9\bp@}\thepage}}%
 \else
   \fancypagestyle{ustc@headings}{%
     \fancyhf{}%
