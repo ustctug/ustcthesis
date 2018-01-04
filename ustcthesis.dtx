@@ -818,7 +818,7 @@ LaTeX version 1999/12/01 or later.
   \fancypagestyle{ustc@headings}{%
     \fancyhf{}%
     \fancyhead[C]{\setfontsize{9\bp@}中国科学技术大学本科毕业论文}%
-    \fancyfoot[C]{\setfontsize{9\bp@}thepage}}%
+    \fancyfoot[C]{\setfontsize{9\bp@}\thepage}}%
 \else
   \fancypagestyle{ustc@headings}{%
     \fancyhf{}%
@@ -4327,8 +4327,10 @@ FUNCTION {init.seq}
 
 EXECUTE {init.seq}
 
-FUNCTION {int.to.fix}{ "000000000" swap$ int.to.str$ *
-  #-1 #10 substring$}
+FUNCTION {int.to.fix}
+{ "000000000" swap$ int.to.str$ *
+  #-1 #10 substring$
+}
 
 %</numerical>
 %    \end{macrocode}
@@ -4371,7 +4373,8 @@ FUNCTION {presort}
   #1 entry.max$ substring$
 %</authoryear>
 %<*numerical>
-  seq.num #1 + 'seq.num :=  seq.num  int.to.fix
+  seq.num #1 + 'seq.num :=
+  seq.num  int.to.fix
 %</numerical>
   'sort.label :=
   sort.label *
