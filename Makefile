@@ -7,10 +7,9 @@ SHELL = bash
 LATEXMK = latexmk -xelatex -halt-on-error -interaction=nonstopmode -synctex=1
 VERSION = $(shell cat $(NAME).dtx | egrep -o "\[\d\d\d\d/\d\d\/\d\d v.+\]" \
 	  | egrep -o "v\S+")
-LOCAL = $(shell kpsewhich --var-value TEXMFLOCAL)
-UTREE = $(shell kpsewhich --var-value TEXMFHOME)
+TEXMF = $(shell kpsewhich --var-value TEXMFHOME)
 
-.PHONY : main cls doc clean all inst install distclean zip FORCE_MAKE
+.PHONY : main cls doc clean all install distclean zip FORCE_MAKE
 
 main : $(MAIN).pdf
 
@@ -37,21 +36,13 @@ distclean :
 	latexmk -C $(MAIN).tex
 	latexmk -C $(NAME).dtx
 
-inst : cls doc
-	mkdir -p $(UTREE)/{doc,source,tex}/latex/$(NAME)
-	mkdir -p $(UTREE)/bibtex/bst/$(NAME)
-	cp $(BSTFILES) $(UTREE)/bibtex/bst/$(NAME)
-	cp $(NAME).pdf $(UTREE)/doc/latex/$(NAME)
-	cp $(NAME).dtx $(UTREE)/source/latex/$(NAME)
-	cp $(CLSFILES) $(UTREE)/tex/latex/$(NAME)
-
 install : cls doc
-	mkdir -p $(LOCAL)/{doc,source,tex}/latex/$(NAME)
-	mkdir -p $(LOCAL)/bibtex/bst/$(NAME)
-	cp $(BSTFILES) $(LOCAL)/bibtex/bst/$(NAME)
-	cp $(NAME).pdf $(LOCAL)/doc/latex/$(NAME)
-	cp $(NAME).dtx $(LOCAL)/source/latex/$(NAME)
-	cp $(CLSFILES) $(LOCAL)/tex/latex/$(NAME)
+	mkdir -p $(TEXMF)/{doc,source,tex}/latex/$(NAME)
+	mkdir -p $(TEXMF)/bibtex/bst/$(NAME)
+	cp $(BSTFILES) $(TEXMF)/bibtex/bst/$(NAME)
+	cp $(NAME).pdf $(TEXMF)/doc/latex/$(NAME)
+	cp $(NAME).dtx $(TEXMF)/source/latex/$(NAME)
+	cp $(CLSFILES) $(TEXMF)/tex/latex/$(NAME)
 
 zip : main doc
 	ln -sf . $(NAME)
