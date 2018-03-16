@@ -58,7 +58,7 @@ LaTeX version 1999/12/01 or later.
 %<class>\NeedsTeXFormat{LaTeX2e}[1999/12/01]
 %<class>\ProvidesClass{ustcthesis}
 %<*class>
-    [2017/12/13 v3.0.1 USTC thesis template]
+    [2018/03/16 v3.0.2 USTC thesis template]
 %</class>
 %
 %<*driver>
@@ -839,6 +839,7 @@ LaTeX version 1999/12/01 or later.
 %
 % 再用 \pkg{fancyhdr} 宏包设置页眉页码。
 % \changes{v3.0}{2017/07/01}{页码全部居中}
+% \changes{v3.0.2}{2017/03/16}{修正本科生的页码}
 %
 %    \begin{macrocode}
 \RequirePackage{fancyhdr}
@@ -1639,8 +1640,12 @@ LaTeX version 1999/12/01 or later.
 % 定义接口切换引用文献的标注法，可用 \cs{citestyle} 调用 \opt{super} 、
 % \opt{authoryear} 或 \opt{numbers}。
 % \changes{v3.0}{2017/07/01}{允许文献序号作为叙述文字的一部分}
+% \changes{v3.0.2}{2017/03/16}{修正著者-出版年式参考文献引用的顺序}
 %    \begin{macrocode}
-\RequirePackage[sort&compress]{natbib}
+\if@ustc@numerical
+  \PassOptionsToPackage{sort&compress}{natbib}
+\fi
+\RequirePackage{natbib}
 \newcommand\bibstyle@super{\bibpunct{[}{]}{,}{s}{,}{\textsuperscript{,}}}
 \newcommand\bibstyle@numbers{\bibpunct{[}{]}{,}{n}{,}{,}}
 \newcommand\bibstyle@authoryear{\bibpunct{(}{)}{;}{a}{,}{,}}
@@ -1796,8 +1801,6 @@ LaTeX version 1999/12/01 or later.
 % \StopEventually{}
 %
 % \section{BibTeX style implementation}
-%
-% \lstset{gobble=2,basicstyle=\ttfamily,frame=single,language=bash}
 %
 % \subsection{Fields and entry strings}
 %
@@ -2448,11 +2451,13 @@ FUNCTION {format.anonymous}
   if$
 }
 
-INTEGERS { nameptr namesleft numnames name.lang}
+INTEGERS { nameptr namesleft numnames name.lang }
 
 %    \end{macrocode}
 %
 % USTC requires no upper case of author names for undergraduates.
+%
+% \changes{v3.0.2}{2017/03/16}{修正参考文献姓名的“others”}
 %
 %    \begin{macrocode}
 FUNCTION {format.names}
@@ -2460,34 +2465,31 @@ FUNCTION {format.names}
   #1 'nameptr :=
   s num.names$ 'numnames :=
   numnames 'namesleft :=
-    { namesleft #0 > nameptr #4 < and }
+    { namesleft #0 > }
     { s nameptr "{vv~}{ll}{, jj}{, ff}" format.name$ 't :=
-      t get.str.lang 'name.lang :=
-      name.lang lang.en =
-        { t #1 "{vv~}{ll}{ f{~}}" format.name$
-%<*!bachelor>
-          "u" change.case$
-%</!bachelor>
-          t #1 "{, jj}" format.name$ *
-          't :=
+      nameptr #4 =
+        { format.et.al
+          #1 'namesleft :=
         }
-        { t #1 "{ll}{ff}" format.name$ 't := }
-      if$
-      nameptr #1 >
-        { namesleft #1 >
-            { ", " * t * }
-            { t "others" =
-                { ", " * format.et.al * }
-                { ", " * t * }
+        { t "others" =
+            { format.et.al }
+            { t get.str.lang 'name.lang :=
+              name.lang lang.en =
+                { t #1 "{vv~}{ll}{ f{~}}" format.name$
+%<*!bachelor>
+                "u" change.case$
+%</!bachelor>
+                  t #1 "{, jj}" format.name$ *
+                }
+                { t #1 "{ll}{ff}" format.name$ }
               if$
             }
           if$
-          nameptr #3 = namesleft #1 > and
-            { ", " * format.et.al * }
-            'skip$
-          if$
         }
-        't
+      if$
+      nameptr #1 >
+        { ", " swap$ * * }
+        'skip$
       if$
       nameptr #1 + 'nameptr :=
       namesleft #1 - 'namesleft :=
@@ -4420,7 +4422,7 @@ SORT
 % pass to put in the 'b's, 'c's and so on, and a backwards pass
 % to put in the 'a's (we don't want to put in 'a's unless we know there
 % are 'b's).
-% We have to keep track of the longest (in width$ terms) label, for use
+% We have to keep track of the longest (in |width$| terms) label, for use
 % by the "thebibliography" environment.
 %
 % \begin{pseudocode}
