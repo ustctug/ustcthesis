@@ -58,7 +58,7 @@ LaTeX version 1999/12/01 or later.
 %<class>\NeedsTeXFormat{LaTeX2e}[1999/12/01]
 %<class>\ProvidesClass{ustcthesis}
 %<*class>
-    [2018/03/16 v3.0.2 USTC thesis template]
+    [2018/03/16 v3.0.3 USTC thesis template]
 %</class>
 %
 %<*driver>
@@ -1640,7 +1640,7 @@ LaTeX version 1999/12/01 or later.
 % 定义接口切换引用文献的标注法，可用 \cs{citestyle} 调用 \opt{super} 、
 % \opt{authoryear} 或 \opt{numbers}。
 % \changes{v3.0}{2017/07/01}{允许文献序号作为叙述文字的一部分}
-% \changes{v3.0.2}{2017/03/16}{修正著者-出版年式参考文献引用的顺序}
+% \changes{v3.0.2}{2017/03/16}{著者-出版年式文献引用不再排序}
 %    \begin{macrocode}
 \if@ustc@numerical
   \PassOptionsToPackage{sort&compress}{natbib}
@@ -1699,7 +1699,7 @@ LaTeX version 1999/12/01 or later.
 % 下面修改 \pkg{natbib} 的引用格式，主要是将页码写在上标位置。
 % Numerical 模式的 \cs{citet} 的页码：
 %    \begin{macrocode}
-\patchcmd\NAT@citexnum{%
+\patchcmd{\NAT@citexnum}{%
   \@ifnum{\NAT@ctype=\z@}{%
     \if*#2*\else\NAT@cmt#2\fi
   }{}%
@@ -1739,6 +1739,19 @@ LaTeX version 1999/12/01 or later.
 \renewcommand\NAT@cite%
     [3]{\ifNAT@swa\NAT@@open\if*#2*\else#2\NAT@spacechar\fi
         #1\NAT@@close\if*#3*\else\textsuperscript{#3}\fi\else#1\fi\endgroup}
+%    \end{macrocode}
+%
+% \changes{v3.0.3}{2018/03/29}{顺序编码制连续两个文献引用之间使用连接号}
+%    \begin{macrocode}
+\patchcmd{\NAT@citexnum}{%
+  \ifx\NAT@last@yr\relax
+    \def@NAT@last@yr{\@citea}%
+  \else
+    \def@NAT@last@yr{--\NAT@penalty}%
+  \fi
+}{%
+  \def@NAT@last@yr{--\NAT@penalty}%
+}{}{}
 %    \end{macrocode}
 %
 % 参考文献列表宋体10.5磅，行距20磅，续行缩进两字

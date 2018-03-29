@@ -3,7 +3,7 @@
 [![Travis build](https://travis-ci.org/ustctug/ustcthesis.svg?branch=master)](https://travis-ci.org/ustctug/ustcthesis)
 [![GitHub release](https://img.shields.io/github/release/ustctug/ustcthesis/all.svg)](https://github.com/ustctug/ustcthesis/releases/latest)
 [![Github downloads](https://img.shields.io/github/downloads/ustctug/ustcthesis/total.svg)](https://github.com/ustctug/ustcthesis/releases)
-[![GitHub commits](https://img.shields.io/github/commits-since/ustctug/ustcthesis/v3.0.2.svg)](https://github.com/ustctug/ustcthesis/commits/master)
+[![GitHub commits](https://img.shields.io/github/commits-since/ustctug/ustcthesis/v3.0.3.svg)](https://github.com/ustctug/ustcthesis/commits/master)
 
 本项目是中国科学技术大学的学位论文 LaTeX 模板 ustcthesis，按照最新版的
 《[研究生学位论文撰写手册](http://gradschool.ustc.edu.cn/ylb/material/xw/wdxz/32.pdf)》

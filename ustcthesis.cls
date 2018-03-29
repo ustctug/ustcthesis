@@ -20,7 +20,7 @@
 %% 
 \NeedsTeXFormat{LaTeX2e}[1999/12/01]
 \ProvidesClass{ustcthesis}
-    [2018/03/16 v3.0.2 USTC thesis template]
+    [2018/03/16 v3.0.3 USTC thesis template]
 \newif\if@ustc@doctor
 \newif\if@ustc@master
 \newif\if@ustc@bachelor
@@ -743,7 +743,7 @@
     \bibliographystyle{ustcauthoryear}%
   \fi
 \fi
-\patchcmd\NAT@citexnum{%
+\patchcmd{\NAT@citexnum}{%
   \@ifnum{\NAT@ctype=\z@}{%
     \if*#2*\else\NAT@cmt#2\fi
   }{}%
@@ -771,6 +771,15 @@
 \renewcommand\NAT@cite%
     [3]{\ifNAT@swa\NAT@@open\if*#2*\else#2\NAT@spacechar\fi
         #1\NAT@@close\if*#3*\else\textsuperscript{#3}\fi\else#1\fi\endgroup}
+\patchcmd{\NAT@citexnum}{%
+  \ifx\NAT@last@yr\relax
+    \def@NAT@last@yr{\@citea}%
+  \else
+    \def@NAT@last@yr{--\NAT@penalty}%
+  \fi
+}{%
+  \def@NAT@last@yr{--\NAT@penalty}%
+}{}{}
 \renewcommand\bibfont{\setfontsize{10.5bp}[20bp]}
 \setlength{\bibsep}{\z@}
 \setlength{\bibhang}{2\ccwd}
