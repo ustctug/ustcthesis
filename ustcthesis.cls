@@ -20,7 +20,7 @@
 %% 
 \NeedsTeXFormat{LaTeX2e}[1999/12/01]
 \ProvidesClass{ustcthesis}
-    [2018/03/16 v3.0.3 USTC thesis template]
+    [2018/03/16 v3.0.4 USTC thesis template]
 \newif\if@ustc@doctor
 \newif\if@ustc@master
 \newif\if@ustc@bachelor
@@ -209,7 +209,7 @@
 \def\ustc@textcircled#1{%
   \ifnum\value{#1} >9
     \ClassError{ustcthesis}%
-      {Too many footnotes in this page.}{Keep footnote less than 10.}
+      {Too many circled numbers. Make number of footnotes less than 10.}{}
   \fi
   \ding{\the\numexpr\value{#1}+191\relax}}
 \RequirePackage{xstring}
@@ -693,6 +693,7 @@
     \captionsetup{position = bottom, font = small}
     \caption*{\hangindent=2\ccwd\relax\ustc@notesname\rmfamily#1}}
 \renewcommand{\thefootnote}{\ustc@textcircled{footnote}}
+\RequirePackage[perpage]{footmisc}
 \renewcommand\footnoterule{%
   \kern-3\p@
   \hrule\@width.25\textwidth

@@ -58,7 +58,7 @@ LaTeX version 1999/12/01 or later.
 %<class>\NeedsTeXFormat{LaTeX2e}[1999/12/01]
 %<class>\ProvidesClass{ustcthesis}
 %<*class>
-    [2018/03/16 v3.0.3 USTC thesis template]
+    [2018/03/16 v3.0.4 USTC thesis template]
 %</class>
 %
 %<*driver>
@@ -919,7 +919,7 @@ LaTeX version 1999/12/01 or later.
 \def\ustc@textcircled#1{%
   \ifnum\value{#1} >9
     \ClassError{ustcthesis}%
-      {Too many footnotes in this page.}{Keep footnote less than 10.}
+      {Too many circled numbers. Make number of footnotes less than 10.}{}
   \fi
   \ding{\the\numexpr\value{#1}+191\relax}}
 %    \end{macrocode}
@@ -1615,6 +1615,17 @@ LaTeX version 1999/12/01 or later.
 % 脚注用带圈的数字：
 %    \begin{macrocode}
 \renewcommand{\thefootnote}{\ustc@textcircled{footnote}}
+%    \end{macrocode}
+%
+% \changes{v3.0.4}{2013/03/30}{脚注按页计数}
+% LaTeX 默认脚注按章计数，即每章的开始才重置脚注计数器；我们修改为按页计数。
+% 简单的|\@addtoreset{footnote}{page}|并不可靠，
+% \footnote{\url{http://www.tex.ac.uk/FAQ-footnpp.html}}
+% 所以必须使用额外的宏包。
+% 其中 zref-perpage 包含在 collection-latex 中，最为推荐，
+% 然而在此处直接似乎不能生效。
+%    \begin{macrocode}
+\RequirePackage[perpage]{footmisc}
 %    \end{macrocode}
 %
 % 脚注线长为版心宽度的四分之一：
