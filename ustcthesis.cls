@@ -84,6 +84,9 @@
         allcolors=blue,
     }
 \fi
+\pdfstringdefDisableCommands{
+  \let\\\empty%
+}
 \AtBeginDocument{
     \hypersetup{
         pdftitle={\ustc@title},

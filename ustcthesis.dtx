@@ -729,6 +729,9 @@ LaTeX version 1999/12/01 or later.
 %    \end{macrocode}
 % 设置 pdf 的信息
 %    \begin{macrocode}
+\pdfstringdefDisableCommands{
+  \let\\\empty%
+}
 \AtBeginDocument{
     \hypersetup{
         pdftitle={\ustc@title},
