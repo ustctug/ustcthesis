@@ -4,7 +4,7 @@ CLSFILES = $(NAME).cls ustcextra.sty
 BSTFILES = ustcnumerical.bst ustcauthoryear.bst ustcbachelor.bst
 
 SHELL = bash
-LATEXMK = latexmk -xelatex -halt-on-error -interaction=nonstopmode -synctex=1
+LATEXMK = latexmk -xelatex -file-line-error -halt-on-error -interaction=nonstopmode -synctex=1
 VERSION = $(shell cat $(NAME).dtx | egrep -o "\[\d\d\d\d/\d\d\/\d\d v.+\]" \
 	  | egrep -o "v\S+")
 TEXMF = $(shell kpsewhich --var-value TEXMFHOME)

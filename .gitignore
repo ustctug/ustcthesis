@@ -14,6 +14,7 @@ main.pdf
 *.fot
 *.cb
 *.cb2
+.*.lb
 
 ## Intermediate documents:
 *.dvi
@@ -112,6 +113,14 @@ acs-*.bib
 # gregoriotex
 *.gaux
 *.gtex
+
+# htlatex
+*.4ct
+*.4tc
+*.idv
+*.lg
+*.trc
+*.xref
 
 # hyperref
 *.brf
@@ -227,4 +236,3 @@ TSWLatexianTemp*
 
 # standalone packages
 *.sta
-
