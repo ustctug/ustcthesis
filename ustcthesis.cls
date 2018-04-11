@@ -20,7 +20,7 @@
 %% 
 \NeedsTeXFormat{LaTeX2e}[1999/12/01]
 \ProvidesClass{ustcthesis}
-    [2018/03/16 v3.0.4 USTC thesis template]
+    [2018/03/16 v3.0.5 USTC thesis template]
 \newif\if@ustc@doctor
 \newif\if@ustc@master
 \newif\if@ustc@bachelor
@@ -40,6 +40,7 @@
 \DeclareOption{super}{\@ustc@numericaltrue\@ustc@supertrue}
 \DeclareOption{numbers}{\@ustc@numericaltrue\@ustc@superfalse}
 \DeclareOption{authoryear}{\@ustc@numericalfalse}
+\IfFileExists{/dev/null}{}{\PassOptionsToClass{fontset=windowsold}{ctexbook}}
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{ctexbook}}
 \ExecuteOptions{doctor,chinese,print,super}
 \ProcessOptions\relax
@@ -354,24 +355,30 @@
     \fi
 }
 \if@ustc@doctor
-  \if@ustc@professional
-    \newcommand\ustc@thesisname{专业博士学位论文}%
-  \else
-    \newcommand\ustc@thesisname{博士学位论文}%
-  \fi
+  \newcommand\ustc@thesisname{博士学位论文}%
   \newcommand\ustc@enthesisname{A dissertation for doctor's degree}%
 \else
   \if@ustc@master
-    \if@ustc@professional
-      \newcommand\ustc@thesisname{专业硕士学位论文}
-    \else
-      \newcommand\ustc@thesisname{硕士学位论文}
-    \fi
-    \newcommand\ustc@enthesisname{A dissertation for master's degree}
+    \newcommand\ustc@thesisname{硕士学位论文}%
+    \newcommand\ustc@enthesisname{A dissertation for master's degree}%
   \else
-    \newcommand\ustc@thesisname{学士学位论文}
-    \newcommand\ustc@enthesisname{A dissertation for bachelor's degree}
+    \newcommand\ustc@thesisname{学士学位论文}%
+    \newcommand\ustc@enthesisname{A dissertation for bachelor's degree}%
   \fi
+\fi
+\if@ustc@professional
+  \if@ustc@doctor
+    \renewcommand\ustc@thesisname{专业博士学位论文}%
+  \else
+    \renewcommand\ustc@thesisname{专业硕士学位论文}%
+  \fi
+  \IfFileExists{/System/Library/Fonts/Times.ttc}{%
+    \setCJKfamilyfont{zhli}{Baoli SC}%
+    \newcommand\lishu{\CJKfamily{zhli}}%
+  }{}
+  \newcommand\ustc@specialityname{专业领域}
+\else
+  \newcommand\ustc@specialityname{学科专业}
 \fi
 \newcommand\ustc@supervisorline{%
   \ifx\ustc@encosupervisor\@empty%
@@ -392,7 +399,7 @@
         \vpostext{4cm}{\includegraphics[height=37\bp@]{figures/ustc_logo_text}}%
         \if@ustc@professional
           \vpostext{6.3cm}{\sffamily\setfontsize{56\bp@}\ziju{-0.09}\ustc@thesisname}%
-          \vpostext{9cm}{\setfontsize{26\bp@}\ustc@professionaltype}%
+          \vpostext{9cm}{\sffamily\lishu\setfontsize{26\bp@}\ustc@professionaltype}%
           \vpostext{10.3cm}{\includegraphics[height=4.7cm]{figures/ustc_logo_fig}}%
           \vpostext{16.3cm}{\sffamily\bfseries\setfontsize{26\bp@}\ustc@title}%
         \else
@@ -406,7 +413,7 @@
                 \setfontsize{16\bp@}%
                 \begin{tabular}{@{}l@{\hspace{\ccwd}}l@{}}%
                     \textsf{作者姓名：} & \ustc@author \\%
-                    \textsf{学科专业：} & \ustc@major \\%
+                    \textsf{\ustc@specialityname：} & \ustc@major \\%
                     \textsf{导师姓名：} & \ustc@supervisor\quad\ustc@cosupervisor \\%
                     \textsf{完成时间：} & \ustc@date%
                 \end{tabular}};%
