@@ -20,7 +20,7 @@
 %% 
 \NeedsTeXFormat{LaTeX2e}[1999/12/01]
 \ProvidesClass{ustcthesis}
-    [2018/03/16 v3.0.5 USTC thesis template]
+    [2018/04/12 v3.0.6 USTC thesis template]
 \newif\if@ustc@doctor
 \newif\if@ustc@master
 \newif\if@ustc@bachelor
@@ -40,7 +40,6 @@
 \DeclareOption{super}{\@ustc@numericaltrue\@ustc@supertrue}
 \DeclareOption{numbers}{\@ustc@numericaltrue\@ustc@superfalse}
 \DeclareOption{authoryear}{\@ustc@numericalfalse}
-\IfFileExists{/dev/null}{}{\PassOptionsToClass{fontset=windowsold}{ctexbook}}
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{ctexbook}}
 \ExecuteOptions{doctor,chinese,print,super}
 \ProcessOptions\relax
@@ -69,6 +68,9 @@
 \setmainfont{Times New Roman}
 \setsansfont{Arial}
 \setmonofont{Courier New}
+\ifx\yahei\undefined\else
+  \setCJKsansfont{SimHei}%
+\fi
 \RequirePackage{hyperref}
 \hypersetup{
     bookmarksopen=true,

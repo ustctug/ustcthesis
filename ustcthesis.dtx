@@ -58,7 +58,7 @@ LaTeX version 1999/12/01 or later.
 %<class>\NeedsTeXFormat{LaTeX2e}[1999/12/01]
 %<class>\ProvidesClass{ustcthesis}
 %<*class>
-    [2018/03/16 v3.0.5 USTC thesis template]
+    [2018/04/12 v3.0.6 USTC thesis template]
 %</class>
 %
 %<*driver>
@@ -656,7 +656,6 @@ LaTeX version 1999/12/01 or later.
 \DeclareOption{super}{\@ustc@numericaltrue\@ustc@supertrue}
 \DeclareOption{numbers}{\@ustc@numericaltrue\@ustc@superfalse}
 \DeclareOption{authoryear}{\@ustc@numericalfalse}
-\IfFileExists{/dev/null}{}{\PassOptionsToClass{fontset=windowsold}{ctexbook}}
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{ctexbook}}
 \ExecuteOptions{doctor,chinese,print,super}
 \ProcessOptions\relax
@@ -698,12 +697,20 @@ LaTeX version 1999/12/01 or later.
 }
 %    \end{macrocode}
 %
-% \subsection{设置西文字体}
-% 设置西文字体，中文字体已经由 \pkg{ctex} 自动设置。
+% \subsection{设置字体}
+% 设置西文字体
 %    \begin{macrocode}
 \setmainfont{Times New Roman}
 \setsansfont{Arial}
 \setmonofont{Courier New}
+%    \end{macrocode}
+%
+% 中文字体由 \pkg{ctex} 自动设置，但是在 windowsnew 情况下需要取消使用微软雅黑
+% \changes{v3.0.6}{2018/04/12}{取消使用微软雅黑}
+%    \begin{macrocode}
+\ifx\yahei\undefined\else
+  \setCJKsansfont{SimHei}%
+\fi
 %    \end{macrocode}
 %
 % \subsection{超链接与书签}
