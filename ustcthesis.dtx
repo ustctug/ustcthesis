@@ -1665,7 +1665,10 @@ LaTeX version 1999/12/01 or later.
 %    \end{macrocode}
 %
 % \subsection{参考文献}
+%
 % \changes{v3.0}{2017/07/01}{参考文献列表不出现“[S.l.]: [s.n.]”}
+% \changes{v3.0.2}{2017/03/16}{修正参考文献姓名的“others”}
+% \changes{v3.0.6}{2018/04/12}{参考文献页码的连接号改为 hyphen}
 %
 % 定义接口切换引用文献的标注法，可用 \cs{citestyle} 调用 \opt{super} 、
 % \opt{authoryear} 或 \opt{numbers}。
@@ -1771,7 +1774,10 @@ LaTeX version 1999/12/01 or later.
         #1\NAT@@close\if*#3*\else\textsuperscript{#3}\fi\else#1\fi\endgroup}
 %    \end{macrocode}
 %
+% 在顺序编码制下，\pkg{natbib} 只有在三个以上连续文献引用才会使用连接号，
+% 这里修改为允许两个引用使用连接号。
 % \changes{v3.0.3}{2018/03/29}{顺序编码制连续两个文献引用之间使用连接号}
+% \changes{v3.0.6}{2018/04/12}{文献引用之间的连接号改为 hyphen}
 %    \begin{macrocode}
 \patchcmd{\NAT@citexnum}{%
   \ifx\NAT@last@yr\relax
@@ -1780,7 +1786,7 @@ LaTeX version 1999/12/01 or later.
     \def@NAT@last@yr{--\NAT@penalty}%
   \fi
 }{%
-  \def@NAT@last@yr{--\NAT@penalty}%
+  \def@NAT@last@yr{-\NAT@penalty}%
 }{}{}
 %    \end{macrocode}
 %
@@ -2500,8 +2506,6 @@ INTEGERS { nameptr namesleft numnames name.lang }
 %
 % USTC requires no upper case of author names for undergraduates.
 %
-% \changes{v3.0.2}{2017/03/16}{修正参考文献姓名的“others”}
-%
 %    \begin{macrocode}
 FUNCTION {format.names}
 { 's :=
@@ -2520,7 +2524,7 @@ FUNCTION {format.names}
               name.lang lang.en =
                 { t #1 "{vv~}{ll}{ f{~}}" format.name$
 %<*!bachelor>
-                "u" change.case$
+                  "u" change.case$
 %</!bachelor>
                   t #1 "{, jj}" format.name$ *
                 }
@@ -2803,23 +2807,18 @@ FUNCTION {output.bibitem}
 %  END
 % \end{pseudocode}
 %
+% 《规则》里页码范围的连接号使用 hyphen，需要将 dash 转为 hyphen。
+%
 %    \begin{macrocode}
-FUNCTION {n.dashify}
+FUNCTION {hyphenate}
 { 't :=
   ""
     { t empty$ not }
     { t #1 #1 substring$ "-" =
-        { t #1 #2 substring$ "--" = not
-            { "--" *
-              t #2 global.max$ substring$ 't :=
-            }
-            {   { t #1 #1 substring$ "-" = }
-                { "-" *
-                  t #2 global.max$ substring$ 't :=
-                }
-              while$
-            }
-          if$
+        { "-" *
+            { t #1 #1 substring$ "-" = }
+            { t #2 global.max$ substring$ 't := }
+          while$
         }
         { t #1 #1 substring$ *
           t #2 global.max$ substring$ 't :=
@@ -3189,7 +3188,7 @@ FUNCTION {format.address}
 
 FUNCTION {format.sine.nomine}
 { is.in.chinese
-    { "[出版地不详]" }
+    { "[出版者不详]" }
     { "[s.n.]" }
   if$
 }
@@ -3283,7 +3282,7 @@ FUNCTION {format.address.publisher}
 FUNCTION {format.pages}
 { pages empty$
     { "" }
-    { pages n.dashify }
+    { pages hyphenate }
   if$
 }
 

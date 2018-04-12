@@ -579,22 +579,15 @@ FUNCTION {output.bibitem}
   before.all 'output.state :=
 }
 
-FUNCTION {n.dashify}
+FUNCTION {hyphenate}
 { 't :=
   ""
     { t empty$ not }
     { t #1 #1 substring$ "-" =
-        { t #1 #2 substring$ "--" = not
-            { "--" *
-              t #2 global.max$ substring$ 't :=
-            }
-            {   { t #1 #1 substring$ "-" = }
-                { "-" *
-                  t #2 global.max$ substring$ 't :=
-                }
-              while$
-            }
-          if$
+        { "-" *
+            { t #1 #1 substring$ "-" = }
+            { t #2 global.max$ substring$ 't := }
+          while$
         }
         { t #1 #1 substring$ *
           t #2 global.max$ substring$ 't :=
@@ -878,7 +871,7 @@ FUNCTION {format.address}
 
 FUNCTION {format.sine.nomine}
 { is.in.chinese
-    { "[出版地不详]" }
+    { "[出版者不详]" }
     { "[s.n.]" }
   if$
 }
@@ -928,7 +921,7 @@ FUNCTION {format.address.publisher}
 FUNCTION {format.pages}
 { pages empty$
     { "" }
-    { pages n.dashify }
+    { pages hyphenate }
   if$
 }
 

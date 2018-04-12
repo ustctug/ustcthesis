@@ -791,7 +791,7 @@
     \def@NAT@last@yr{--\NAT@penalty}%
   \fi
 }{%
-  \def@NAT@last@yr{--\NAT@penalty}%
+  \def@NAT@last@yr{-\NAT@penalty}%
 }{}{}
 \renewcommand\bibfont{\setfontsize{10.5bp}[20bp]}
 \setlength{\bibsep}{\z@}

@@ -49,5 +49,5 @@ zip : main doc
 	zip -r ../$(NAME)-$(VERSION).zip $(NAME)/{README.md,$(NAME).dtx,\
 	$(NAME).cls,$(NAME).pdf,figures,ustcnumerical.bst,ustcauthoryear.bst,\
 	ustcbachelor.bst,ustcextra.sty,$(MAIN).tex,$(MAIN).pdf,chapters,bib,\
-	.latexmkrc,Makefile}
+	latexmkrc,Makefile}
 	rm $(NAME)
