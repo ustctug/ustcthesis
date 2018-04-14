@@ -20,7 +20,7 @@
 %% 
 \NeedsTeXFormat{LaTeX2e}[1999/12/01]
 \ProvidesClass{ustcthesis}
-    [2018/04/12 v3.0.6 USTC thesis template]
+    [2018/04/14 v3.0.7 USTC thesis template]
 \newif\if@ustc@doctor
 \newif\if@ustc@master
 \newif\if@ustc@bachelor
@@ -29,6 +29,7 @@
 \newif\if@ustc@numerical
 \newif\if@ustc@super
 \newif\if@ustc@pdf
+\newif\if@ustc@arabic
 \DeclareOption{doctor}{\@ustc@doctortrue\@ustc@masterfalse\@ustc@bachelorfalse}
 \DeclareOption{master}{\@ustc@doctorfalse\@ustc@mastertrue\@ustc@bachelorfalse}
 \DeclareOption{bachelor}{\@ustc@doctorfalse\@ustc@masterfalse\@ustc@bachelortrue}
@@ -40,6 +41,7 @@
 \DeclareOption{super}{\@ustc@numericaltrue\@ustc@supertrue}
 \DeclareOption{numbers}{\@ustc@numericaltrue\@ustc@superfalse}
 \DeclareOption{authoryear}{\@ustc@numericalfalse}
+\DeclareOption{arabic}{\@ustc@arabictrue}
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{ctexbook}}
 \ExecuteOptions{doctor,chinese,print,super}
 \ProcessOptions\relax
@@ -291,30 +293,23 @@
 \if@ustc@bachelor
     \setcounter{secnumdepth}{4}
     \ctexset{
-        chapter={
+        chapter = {
             format = \centering\sffamily\setfontsize{16\bp@},
-            number = \chinese{chapter},
         },
         section = {
             format = \centering\sffamily\setfontsize{15\bp@},
-            name   = {第,节},
-            number = \chinese{section},
         },
         subsection = {
             format    = \sffamily\setfontsize{14\bp@},
-            number    = \chinese{subsection},
-            aftername = {、},
+            indent    = \z@,
         },
         subsubsection = {
             format    = {\rmfamily\setfontsize{12\bp@}},
-            number    = \arabic{subsubsection},
             aftername = {.\ },
             indent    = \ccwd,
         },
         paragraph = {
             format    = {\rmfamily\setfontsize{12\bp@}},
-            name      = {(,)},
-            number    = \arabic{paragraph},
             aftername = {\ },
             indent    = 2\ccwd,
         },
@@ -324,6 +319,21 @@
             indent    = 2\ccwd,
         },
     }
+    \if@ustc@arabic\else
+        \ctexset{
+            chapter = {
+                number = \chinese{chapter},
+            },
+            section = {
+                name   = {第,节},
+                number = \chinese{section},
+            },
+            subsection = {
+                number    = \chinese{subsection},
+                aftername = {、},
+            },
+        }
+    \fi
 \fi
 \newcounter{ustc@pdfbookmark}
 \NewDocumentCommand\ustc@chapter{o m}{%
