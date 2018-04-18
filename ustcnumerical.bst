@@ -463,7 +463,8 @@ FUNCTION {format.doi}
         { t empty$ not}
         { t #1 #1 substring$ 'tmp.str :=
           tmp.str "," = tmp.str " " = or
-            { s is.doi.in.url not
+            { s empty$ s is.doi.in.url or
+                'skip$
                 { numnames #1 + 'numnames :=
                   numnames #1 >
                     { ", " * }
@@ -471,7 +472,6 @@ FUNCTION {format.doi}
                   if$
                   "\doi{" s * "}" * *
                 }
-                'skip$
               if$
               "" 's :=
             }
