@@ -52,7 +52,7 @@ INTEGERS { output.state before.all mid.sentence after.sentence after.block after
 
 INTEGERS { lang.zh lang.ja lang.en lang.ru lang.other }
 
-INTEGERS { charptr stringlength }
+INTEGERS { charptr len }
 
 FUNCTION {init.state.consts}
 { #0 'before.all :=
@@ -302,8 +302,8 @@ FUNCTION {get.str.lang}
   tmp.str empty$
     { "Empty string!" warning$ }
     { #1 'charptr :=
-      tmp.str text.length$ #1 + 'stringlength :=
-        { charptr stringlength < }
+      tmp.str text.length$ #1 + 'len :=
+        { charptr len < }
         { tmp.str charptr #1 substring$ get.char.lang 'char.lang :=
           char.lang tmp.lang >
             { char.lang 'tmp.lang := }
@@ -432,11 +432,12 @@ FUNCTION {format.url}
 }
 
 FUNCTION {is.doi.in.url}
-{ url empty$
+{ 's :=
+  url empty$
     { #0 }
-    { doi text.length$ 'stringlength :=
+    { s text.length$ 'len :=
       url text.length$ 'charptr :=
-        { url charptr stringlength substring$ doi = not
+        { url charptr len substring$ s = not
           charptr #0 >
           and
         }
@@ -448,11 +449,46 @@ FUNCTION {is.doi.in.url}
 }
 
 FUNCTION {format.doi}
-{ doi empty$
-    { "" }
-    { is.doi.in.url
+{ ""
+  doi empty$
+    'skip$
+    { "" 's :=
+      doi 't :=
+      #0 'numnames :=
+        { t empty$ not}
+        { t #1 #1 substring$ 'tmp.str :=
+          tmp.str "," = tmp.str " " = or
+            { s is.doi.in.url not
+                { numnames #1 + 'numnames :=
+                  numnames #1 >
+                    { ", " * }
+                    { "DOI: " * }
+                  if$
+                  "\doi{" s * "}" * *
+                }
+                'skip$
+              if$
+              "" 's :=
+            }
+            { s tmp.str * 's := }
+          if$
+          t #2 global.max$ substring$ 't :=
+        }
+      while$
+      s is.doi.in.url not
+        { numnames #1 + 'numnames :=
+          numnames #1 >
+            { ", " * }
+            'skip$
+          if$
+          "\doi{" s * "}" * *
+        }
+        'skip$
+      if$
+      's :=
+      s empty$ not
+        { new.block s }
         { "" }
-        { new.block "\doi{" doi * "}" * }
       if$
     }
   if$
@@ -602,8 +638,8 @@ FUNCTION {extract.before.dash}
     { pop$ "" }
     { 's :=
       #1 'charptr :=
-      s text.length$ #1 + 'stringlength :=
-        { charptr stringlength <
+      s text.length$ #1 + 'len :=
+        { charptr len <
           s charptr #1 substring$ "-" = not
           and
         }
@@ -619,14 +655,14 @@ FUNCTION {extract.after.dash}
     { pop$ "" }
     { 's :=
       #1 'charptr :=
-      s text.length$ #1 + 'stringlength :=
-        { charptr stringlength <
+      s text.length$ #1 + 'len :=
+        { charptr len <
           s charptr #1 substring$ "-" = not
           and
         }
         { charptr #1 + 'charptr := }
       while$
-        { charptr stringlength <
+        { charptr len <
           s charptr #1 substring$ "-" =
           and
         }
@@ -1393,8 +1429,6 @@ FUNCTION {sortify}
   "l" change.case$
 }
 
-INTEGERS { len }
-
 FUNCTION {chop.word}
 { 's :=
   'len :=
@@ -1606,7 +1640,7 @@ FUNCTION {begin.bib}
   write$ newline$
   "\providecommand{\href}[2]{\url{#2}}"
   write$ newline$
-  "\providecommand{\doi}[1]{DOI: \href{https://doi.org/#1}{#1}}"
+  "\providecommand{\doi}[1]{\href{https://doi.org/#1}{#1}}"
   write$ newline$
   "\expandafter\ifx\csname urlstyle\endcsname\relax\relax\else"
   write$ newline$
