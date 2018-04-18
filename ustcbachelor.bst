@@ -433,17 +433,21 @@ FUNCTION {format.url}
 
 FUNCTION {is.doi.in.url}
 { 's :=
-  url empty$
-    { #0 }
-    { s text.length$ 'len :=
-      url text.length$ 'charptr :=
-        { url charptr len substring$ s = not
-          charptr #0 >
-          and
+  s empty$
+    { #1 }
+    { url empty$
+        { #0 }
+        { s text.length$ 'len :=
+          url text.length$ 'charptr :=
+            { url charptr len substring$ s = not
+              charptr #0 >
+              and
+            }
+            { charptr #1 - 'charptr := }
+          while$
+          charptr
         }
-        { charptr #1 - 'charptr := }
-      while$
-      charptr
+      if$
     }
   if$
 }
