@@ -853,6 +853,7 @@ LaTeX version 1999/12/01 or later.
 % 再用 \pkg{fancyhdr} 宏包设置页眉页码。
 % \changes{v3.0}{2017/07/01}{页码全部居中}
 % \changes{v3.0.2}{2017/03/16}{修正本科生的页码}
+% \changes{v3.0.7}{2018/04/18}{修正页眉英文大写的错误}
 %
 %    \begin{macrocode}
 \RequirePackage{fancyhdr}
@@ -870,7 +871,8 @@ LaTeX version 1999/12/01 or later.
 \fi
 \fancypagestyle{ustc@notation}{\fancyfoot{}}
 \pagestyle{ustc@headings}
-\patchcmd\chaptermark{#1}{\protect\spacetitle{#1}}{}{}
+\patchcmd\chaptermark{\MakeUppercase}{}{}{}
+\patchcmd\chaptermark{#1}{\protect\ustc@spacetitle{#1}}{}{}
 %    \end{macrocode}
 %
 % 空白页不加页眉。
@@ -946,7 +948,7 @@ LaTeX version 1999/12/01 or later.
 %
 %    \begin{macrocode}
 \RequirePackage{xstring}
-\newcommand\spacetitle[1]{%
+\newcommand\ustc@spacetitle[1]{%
   \StrLen{#1}[\titlelength]%
   \if@ustc@bachelor
     \if@mainmatter\relax\else
@@ -978,7 +980,7 @@ LaTeX version 1999/12/01 or later.
     chapter = {
         format      = \centering\sffamily\bfseries\setfontsize{16\bp@},
         nameformat  = {},
-        titleformat = \spacetitle,
+        titleformat = \ustc@spacetitle,
         number      = \thechapter,
         aftername   = \hspace{\ccwd},
         beforeskip  = -7\bp@, % 24bp - 31bp

@@ -179,7 +179,8 @@
 \fi
 \fancypagestyle{ustc@notation}{\fancyfoot{}}
 \pagestyle{ustc@headings}
-\patchcmd\chaptermark{#1}{\protect\spacetitle{#1}}{}{}
+\patchcmd\chaptermark{\MakeUppercase}{}{}{}
+\patchcmd\chaptermark{#1}{\protect\ustc@spacetitle{#1}}{}{}
 \renewcommand*{\cleardoublepage}{\clearpage\if@twoside \ifodd\c@page\else
   \hbox{}\thispagestyle{empty}\newpage\if@twocolumn\hbox{}\newpage\fi\fi\fi}
 \g@addto@macro\frontmatter{%
@@ -221,7 +222,7 @@
   \fi
   \ding{\the\numexpr\value{#1}+191\relax}}
 \RequirePackage{xstring}
-\newcommand\spacetitle[1]{%
+\newcommand\ustc@spacetitle[1]{%
   \StrLen{#1}[\titlelength]%
   \if@ustc@bachelor
     \if@mainmatter\relax\else
@@ -243,7 +244,7 @@
     chapter = {
         format      = \centering\sffamily\bfseries\setfontsize{16\bp@},
         nameformat  = {},
-        titleformat = \spacetitle,
+        titleformat = \ustc@spacetitle,
         number      = \thechapter,
         aftername   = \hspace{\ccwd},
         beforeskip  = -7\bp@, % 24bp - 31bp
