@@ -18,7 +18,7 @@
 %% 
 \NeedsTeXFormat{LaTeX2e}[1999/12/01]
 \ProvidesClass{ustcthesis}
-    [2018/04/18 v3.0.7 USTC thesis template]
+  [2018/04/21 v3.0.8 USTC thesis template]
 \newif\if@ustc@doctor
 \newif\if@ustc@master
 \newif\if@ustc@bachelor
@@ -45,7 +45,7 @@
 \ProcessOptions\relax
 \newif\if@ustc@addtocspace
 \if@ustc@bachelor
-    \@ustc@addtocspacetrue
+  \@ustc@addtocspacetrue
 \fi
 \if@ustc@english
   \PassOptionsToClass{scheme=plain}{ctexbook}
@@ -57,13 +57,13 @@
 \LoadClass[UTF8, a4paper, openany, zihao=-4]{ctexbook}[2015/05/14]
 \RequirePackage{etoolbox}
 \@ifclasslater{ctexbook}{2015/05/14}{}{%
-    \ClassError{ustcthesis}{%
-        Requiring ctex 2.0 or later version!\MessageBreak
-        Please update the package using your\MessageBreak
-        TeX package manager or from CTAN
-    }{%
-        See ustcthesis.pdf for more detailed update guide.
-    }
+  \ClassError{ustcthesis}{%
+    Requiring ctex 2.0 or later version!\MessageBreak
+    Please update the package using your\MessageBreak
+    TeX package manager or from CTAN.
+  }{%
+    See ustcthesis.pdf for more detailed update guide.
+  }
 }
 \setmainfont{Times New Roman}
 \setsansfont{Arial}
@@ -73,40 +73,40 @@
 \fi
 \RequirePackage{hyperref}
 \hypersetup{
-    bookmarksopen=true,
-    bookmarksnumbered=true,
-    bookmarksopenlevel=1,
-    CJKbookmarks=true,
-    pdfborder=0 0 0,
-    unicode=true,
-    linktoc=all,
+  bookmarksopen=true,
+  bookmarksnumbered=true,
+  bookmarksopenlevel=1,
+  CJKbookmarks=true,
+  pdfborder=0 0 0,
+  unicode=true,
+  linktoc=all,
 }
 \if@ustc@pdf
-    \hypersetup{
-        colorlinks=true,
-        allcolors=blue,
-    }
+  \hypersetup{
+    colorlinks=true,
+    allcolors=blue,
+  }
 \fi
 \pdfstringdefDisableCommands{
   \let\\\empty%
 }
 \AtBeginDocument{
-    \hypersetup{
-        pdftitle={\ustc@title},
-        pdfauthor={\ustc@author}
-    }
+  \hypersetup{
+    pdftitle={\ustc@title},
+    pdfauthor={\ustc@author}
+  }
 }
 \RequirePackage{xparse}
 \NewDocumentCommand\setfontsize{mo}{\IfValueTF{#2}{\fontsize{#1}{#2}}{\fontsize{#1}{2\dimexpr#1}}\linespread{1}\selectfont\relax}
 \newcommand\zhspace[1][1]{\hspace{#1\ccwd}}
 \newcommand\ustc@underline[2][6em]{%
-    \hskip1pt\underline{\hb@xt@ #1{\hss#2\hss}}\hskip3pt\relax
+  \hskip1pt\underline{\hb@xt@ #1{\hss#2\hss}}\hskip3pt\relax
 }
-\def\ustc@define@term#1{
-    \expandafter\gdef\csname #1\endcsname##1{
-        \expandafter\gdef\csname ustc@#1\endcsname{##1}
-    }
-    \csname #1\endcsname{}
+\def\ustc@define@term#1{%
+  \expandafter\gdef\csname #1\endcsname##1{%
+    \expandafter\gdef\csname ustc@#1\endcsname{##1}%
+  }%
+  \csname #1\endcsname{}%
 }
 \ustc@define@term{professionaltype}
 \ustc@define@term{title}
@@ -157,11 +157,11 @@
 \fi
 \RequirePackage{geometry}
 \geometry{
-    paper=a4paper,
-    top=2.54cm, bottom=2.54cm,
-    left=3.17cm, right=3.17cm,
-    headheight=0.75cm, headsep=0.29cm,
-    footskip=0.79cm}
+  paper=a4paper,
+  top=2.54cm, bottom=2.54cm,
+  left=3.17cm, right=3.17cm,
+  headheight=0.75cm, headsep=0.29cm,
+  footskip=0.79cm}
 \RequirePackage{fancyhdr}
 \renewcommand{\headrulewidth}{0.4pt}
 \if@ustc@bachelor
@@ -197,26 +197,25 @@
   \@mainmattertrue
 }
 \renewcommand\chapter{%
-    \if@openright\cleardoublepage\else\clearpage\fi
-    \global\@topnum\z@
-    \@afterindenttrue
-    \if@ustc@bachelor
-      \if@mainmatter
-        \ctexset{chapter/format = \centering\sffamily\setfontsize{16\bp@}}
-      \else
-        \ctexset{chapter/format = \centering\sffamily\setfontsize{18\bp@}}
-      \fi
-      \if@ustc@addtocspace
-        \addtocontents{toc}{\protect\addvspace{12\bp@}}%
-      \fi
+  \if@openright\cleardoublepage\else\clearpage\fi
+  \global\@topnum\z@
+  \@afterindenttrue
+  \if@ustc@bachelor
+    \if@mainmatter
+      \ctexset{chapter/format = \centering\sffamily\setfontsize{16\bp@}}%
+    \else
+      \ctexset{chapter/format = \centering\sffamily\setfontsize{18\bp@}}%
     \fi
-    \secdef\@chapter\@schapter
+    \if@ustc@addtocspace
+      \addtocontents{toc}{\protect\addvspace{12\bp@}}%
+    \fi
+  \fi
+  \secdef\@chapter\@schapter
 }
 \RequirePackage{pifont}
 \def\ustc@textcircled#1{%
-  \ifnum\value{#1} >9
-    \ClassError{ustcthesis}%
-      {Too many circled numbers. Make number of footnotes less than 10.}{}
+  \ifnum\value{#1}>9\relax%
+    \ClassError{ustcthesis}{Cannot display more than 10 footnotes.}{}%
   \fi
   \ding{\the\numexpr\value{#1}+191\relax}}
 \RequirePackage{xstring}
@@ -239,105 +238,105 @@
   \fi#1}
 \setcounter{secnumdepth}{5}
 \ctexset{
-    chapter = {
-        format      = \centering\sffamily\bfseries\setfontsize{16\bp@},
-        nameformat  = {},
-        titleformat = \ustc@spacetitle,
-        number      = \thechapter,
-        aftername   = \hspace{\ccwd},
-        beforeskip  = -7\bp@, % 24bp - 31bp
-        afterskip   = 8\bp@, % 18bp - 10bp
-        % fixskip   = true, % will be used in future version
-    },
-    section = {
-        format     = \sffamily\setfontsize{14\bp@},
-        aftername  = \hspace{\ccwd},
-        beforeskip = 24\bp@,
-        afterskip  = 6\bp@,
-    },
-    subsection = {
-        format     = \sffamily\setfontsize{13\bp@},
-        aftername  = \hspace{\ccwd},
-        indent     = 2\ccwd,
-        beforeskip = 12\bp@,
-        afterskip  = 6\bp@,
-    },
-    subsubsection = {
-        format     = \sffamily\setfontsize{12\bp@},
-        number     = \arabic{subsubsection},
-        aftername  = .\space,
-        indent     = 3\ccwd,
-        beforeskip = 12\bp@,
-        afterskip  = 6\bp@,
-    },
-    paragraph = {
-        format     = \sffamily\setfontsize{12\bp@},
-        number     = (\arabic{paragraph}),
-        aftername  = \space,
-        indent     = 3\ccwd,
-        beforeskip = \z@,
-        afterskip  = \z@,
-        runin      = false,
-    },
-    subparagraph = {
-        format     = \sffamily\setfontsize{12\bp@},
-        number     = \ustc@textcircled{subparagraph},
-        aftername  = \space,
-        indent     = 3\ccwd,
-        beforeskip = \z@,
-        afterskip  = \z@,
-        runin      = false,
-    },
+  chapter = {
+    format      = \centering\sffamily\bfseries\setfontsize{16\bp@},
+    nameformat  = {},
+    titleformat = \ustc@spacetitle,
+    number      = \thechapter,
+    aftername   = \hspace{\ccwd},
+    beforeskip  = -7\bp@, % 24bp - 31bp
+    afterskip   = 8\bp@, % 18bp - 10bp
+    % fixskip   = true, % will be used in future version
+  },
+  section = {
+    format     = \sffamily\setfontsize{14\bp@},
+    aftername  = \hspace{\ccwd},
+    beforeskip = 24\bp@,
+    afterskip  = 6\bp@,
+  },
+  subsection = {
+    format     = \sffamily\setfontsize{13\bp@},
+    aftername  = \hspace{\ccwd},
+    indent     = 2\ccwd,
+    beforeskip = 12\bp@,
+    afterskip  = 6\bp@,
+  },
+  subsubsection = {
+    format     = \sffamily\setfontsize{12\bp@},
+    number     = \arabic{subsubsection},
+    aftername  = .\space,
+    indent     = 3\ccwd,
+    beforeskip = 12\bp@,
+    afterskip  = 6\bp@,
+  },
+  paragraph = {
+    format     = \sffamily\setfontsize{12\bp@},
+    number     = (\arabic{paragraph}),
+    aftername  = \space,
+    indent     = 3\ccwd,
+    beforeskip = \z@,
+    afterskip  = \z@,
+    runin      = false,
+  },
+  subparagraph = {
+    format     = \sffamily\setfontsize{12\bp@},
+    number     = \ustc@textcircled{subparagraph},
+    aftername  = \space,
+    indent     = 3\ccwd,
+    beforeskip = \z@,
+    afterskip  = \z@,
+    runin      = false,
+  },
 }
 \if@ustc@bachelor
-    \setcounter{secnumdepth}{4}
+  \setcounter{secnumdepth}{4}
+  \ctexset{
+    chapter = {
+      format = \centering\sffamily\setfontsize{16\bp@},
+    },
+    section = {
+      format = \centering\sffamily\setfontsize{15\bp@},
+    },
+    subsection = {
+      format    = \sffamily\setfontsize{14\bp@},
+      indent    = \z@,
+    },
+    subsubsection = {
+      format    = {\rmfamily\setfontsize{12\bp@}},
+      indent    = \ccwd,
+    },
+    paragraph = {
+      format    = {\rmfamily\setfontsize{12\bp@}},
+      number    = （\arabic{paragraph}）,
+      aftername = {},
+      indent    = \ccwd,
+    },
+    subparagraph = {
+      format    = {},
+      name      = {},
+      aftername = {},
+      indent    = 2\ccwd,
+    },
+  }
+  \if@ustc@arabic\else
     \ctexset{
-        chapter = {
-            format = \centering\sffamily\setfontsize{16\bp@},
-        },
-        section = {
-            format = \centering\sffamily\setfontsize{15\bp@},
-        },
-        subsection = {
-            format    = \sffamily\setfontsize{14\bp@},
-            indent    = \z@,
-        },
-        subsubsection = {
-            format    = {\rmfamily\setfontsize{12\bp@}},
-            indent    = \ccwd,
-        },
-        paragraph = {
-            format    = {\rmfamily\setfontsize{12\bp@}},
-            number    = （\arabic{paragraph}）,
-            aftername = {},
-            indent    = \ccwd,
-        },
-        subparagraph = {
-            format    = {},
-            name      = {},
-            aftername = {},
-            indent    = 2\ccwd,
-        },
+      chapter = {
+        number = \chinese{chapter},
+      },
+      section = {
+        name   = {第,节},
+        number = \chinese{section},
+      },
+      subsection = {
+        number    = \chinese{subsection},
+        aftername = {、},
+      },
     }
-    \if@ustc@arabic\else
-        \ctexset{
-            chapter = {
-                number = \chinese{chapter},
-            },
-            section = {
-                name   = {第,节},
-                number = \chinese{section},
-            },
-            subsection = {
-                number    = \chinese{subsection},
-                aftername = {、},
-            },
-        }
-    \fi
+  \fi
 \fi
 \newcounter{ustc@pdfbookmark}
 \NewDocumentCommand\ustc@chapter{o m}{%
-  \if@openright\cleardoublepage\else\clearpage\fi%
+  \if@openright\cleardoublepage\else\clearpage\fi
   \addtocounter{ustc@pdfbookmark}\@ne
   \IfValueTF{#1}{%
     \pdfbookmark[0]{#1}{ustcchapter.\theustc@pdfbookmark}%
@@ -348,23 +347,23 @@
   }%
   \chapter*{#2}}
 \renewcommand\maketitle{%
-    \newgeometry{
-        top=3.8cm, bottom=3.8cm,
-        left=3.2cm, right=3.2cm,
-        headheight=0cm, headsep=0.8cm,
-        footskip=0.8cm}
-    \pagenumbering{gobble}
-    \pdfbookmark[0]{封面}{titlepage}
-    \make@cntitle \cleardoublepage
-    \pdfbookmark[0]{Title page}{entitlepage}
-    \make@entitle \cleardoublepage
-    \restoregeometry
-    \if@ustc@bachelor\relax\else
-        \if@ustc@pdf\relax\else%
-            \pdfbookmark[0]{原创性声明}{statement}
-            \make@statement \cleardoublepage
-        \fi
+  \newgeometry{
+    top=3.8cm, bottom=3.8cm,
+    left=3.2cm, right=3.2cm,
+    headheight=0cm, headsep=0.8cm,
+    footskip=0.8cm}%
+  \pagenumbering{gobble}%
+  \pdfbookmark[0]{封面}{titlepage}%
+  \make@cntitle \cleardoublepage
+  \pdfbookmark[0]{Title page}{entitlepage}%
+  \make@entitle \cleardoublepage
+  \restoregeometry
+  \if@ustc@bachelor\relax\else
+    \if@ustc@pdf\relax\else
+      \pdfbookmark[0]{原创性声明}{statement}%
+      \make@statement \cleardoublepage
     \fi
+  \fi
 }
 \if@ustc@doctor
   \newcommand\ustc@thesisname{博士学位论文}%
@@ -400,125 +399,115 @@
   \fi}
 \RequirePackage{tikz}
 \newcommand\vpostext[2]{%
-    \tikz[remember picture,overlay]%
-        \node [yshift=-#1] at (current page.north) [below,align=flush center]%
-            {\parbox{\textwidth}{\centering#2}};}
+  \tikz[remember picture,overlay]%
+    \node [yshift=-#1] at (current page.north) [below,align=flush center]%
+      {\parbox{\textwidth}{\centering#2}};}
 \newcommand\make@cntitle{%
-    \begin{titlepage}%
-        \tikz[remember picture,overlay]%
-            \node [yshift=-4cm] at (current page.north) [below,align=flush center]%
-                {\parbox{\textwidth}{\raggedleft\fangsong\setfontsize{14\bp@}\ustc@secrettext}};%
-        \vpostext{4cm}{\includegraphics[height=37\bp@]{figures/ustc_logo_text}}%
-        \if@ustc@professional
-          \vpostext{6.3cm}{\sffamily\setfontsize{56\bp@}\ziju{-0.09}\ustc@thesisname}%
-          \vpostext{9cm}{\sffamily\lishu\setfontsize{26\bp@}\ustc@professionaltype}%
-          \vpostext{10.3cm}{\includegraphics[height=4.7cm]{figures/ustc_logo_fig}}%
-          \vpostext{16.3cm}{\sffamily\bfseries\setfontsize{26\bp@}\ustc@title}%
-        \else
-          \vpostext{6.3cm}{\sffamily\setfontsize{56\bp@}\ustc@thesisname}%
-          \vpostext{9.8cm}{\includegraphics[height=4.7cm]{figures/ustc_logo_fig}}%
-          \vpostext{16.3cm}{\sffamily\bfseries\setfontsize{26\bp@}\ustc@title}%
-        \fi
-        \tikz[remember picture,overlay]%
-            \node [xshift=4.6cm,yshift=-20.3cm] at (current page.north west)%
-            [below right,align=left] {%
-                \setfontsize{16\bp@}%
-                \begin{tabular}{@{}l@{\hspace{\ccwd}}l@{}}%
-                    \textsf{作者姓名：} & \ustc@author \\%
-                    \textsf{\ustc@specialityname：} & \ustc@major \\%
-                    \textsf{导师姓名：} & \ustc@supervisor\quad\ustc@cosupervisor \\%
-                    \textsf{完成时间：} & \ustc@date%
-                \end{tabular}};%
-    \end{titlepage}}
+  \begin{titlepage}%
+    \tikz[remember picture,overlay]%
+      \node [yshift=-4cm] at (current page.north) [below,align=flush center]%
+        {\parbox{\textwidth}{\raggedleft\fangsong\setfontsize{14\bp@}\ustc@secrettext}};%
+    \vpostext{4cm}{\includegraphics[height=37\bp@]{figures/ustc_logo_text}}%
+    \if@ustc@professional
+      \vpostext{6.3cm}{\sffamily\setfontsize{56\bp@}\ziju{-0.09}\ustc@thesisname}%
+      \vpostext{9cm}{\sffamily\lishu\setfontsize{26\bp@}\ustc@professionaltype}%
+      \vpostext{10.3cm}{\includegraphics[height=4.7cm]{figures/ustc_logo_fig}}%
+      \vpostext{16.3cm}{\sffamily\bfseries\setfontsize{26\bp@}\ustc@title}%
+    \else
+      \vpostext{6.3cm}{\sffamily\setfontsize{56\bp@}\ustc@thesisname}%
+      \vpostext{9.8cm}{\includegraphics[height=4.7cm]{figures/ustc_logo_fig}}%
+      \vpostext{16.3cm}{\sffamily\bfseries\setfontsize{26\bp@}\ustc@title}%
+    \fi
+    \tikz[remember picture,overlay]%
+      \node [xshift=4.6cm,yshift=-20.3cm] at (current page.north west)%
+        [below right,align=left] {%
+          \setfontsize{16\bp@}%
+          \begin{tabular}{@{}l@{\hspace{\ccwd}}l@{}}%
+            \textsf{作者姓名：} & \ustc@author \\%
+            \textsf{\ustc@specialityname：} & \ustc@major \\%
+            \textsf{导师姓名：} & \ustc@supervisor\quad\ustc@cosupervisor \\%
+            \textsf{完成时间：} & \ustc@date%
+          \end{tabular}};%
+  \end{titlepage}}
 \newcommand\make@entitle{%
-    \begin{titlepage}%
-        \tikz[remember picture,overlay]%
-            \node [yshift=-4cm] at (current page.north) [below,align=flush center]%
-                {\parbox{\textwidth}{\raggedleft\setfontsize{14\bp@}\ustc@ensecrettext}};%
-        \vpostext{3.9cm}{\sffamily\setfontsize{20\bp@}[30\bp@]%
-            University of Science and Technology of China}%
-        \vpostext{4.9cm}{\sffamily\setfontsize{26\bp@}[30\bp@]\ustc@enthesisname}%
-        \if@ustc@professional
-          \vpostext{6.2cm}{\setfontsize{16\bp@}\ustc@enprofessionaltype}%
-          \vpostext{8.9cm}{\includegraphics[height=5.1cm]{figures/ustc_logo_fig}}%
-          \vpostext{15cm}{\sffamily\bfseries\setfontsize{26\bp@}[30\bp@]\ustc@entitle}%
-        \else
-          \vpostext{7.9cm}{\includegraphics[height=5.1cm]{figures/ustc_logo_fig}}%
-          \vpostext{14.2cm}{\sffamily\bfseries\setfontsize{26\bp@}[30\bp@]\ustc@entitle}%
-        \fi
-        \tikz[remember picture,overlay]%
-            \node [xshift=4.4cm,yshift=-20.2cm] at (current page.north west)%
-            [below right,align=left] {%
-                \setfontsize{16\bp@}[30\bp@]%
-                \begin{tabular}{@{}l@{}}%
-                    Author:        \ustc@enauthor \\%
-                    Speciality:    \ustc@enmajor \\%
-                    \ustc@supervisorline \\%
-                    Finished time: \ustc@endate%
-                \end{tabular}};%
-    \end{titlepage}}
-\newcommand{\ustc@declaretext} {
+  \begin{titlepage}%
+    \tikz[remember picture,overlay]%
+      \node [yshift=-4cm] at (current page.north) [below,align=flush center]%
+        {\parbox{\textwidth}{\raggedleft\setfontsize{14\bp@}\ustc@ensecrettext}};%
+    \vpostext{3.9cm}{\sffamily\setfontsize{20\bp@}[30\bp@]%
+      University of Science and Technology of China}%
+    \vpostext{4.9cm}{\sffamily\setfontsize{26\bp@}[30\bp@]\ustc@enthesisname}%
+    \if@ustc@professional
+      \vpostext{6.2cm}{\setfontsize{16\bp@}\ustc@enprofessionaltype}%
+      \vpostext{8.9cm}{\includegraphics[height=5.1cm]{figures/ustc_logo_fig}}%
+      \vpostext{15cm}{\sffamily\bfseries\setfontsize{26\bp@}[30\bp@]\ustc@entitle}%
+    \else
+      \vpostext{7.9cm}{\includegraphics[height=5.1cm]{figures/ustc_logo_fig}}%
+      \vpostext{14.2cm}{\sffamily\bfseries\setfontsize{26\bp@}[30\bp@]\ustc@entitle}%
+    \fi
+    \tikz[remember picture,overlay]%
+      \node [xshift=4.4cm,yshift=-20.2cm] at (current page.north west)%
+        [below right,align=left] {%
+          \setfontsize{16\bp@}[30\bp@]%
+          \begin{tabular}{@{}l@{}}%
+            Author:        \ustc@enauthor \\%
+            Speciality:    \ustc@enmajor \\%
+            \ustc@supervisorline \\%
+            Finished time: \ustc@endate%
+          \end{tabular}};%
+  \end{titlepage}}
+\newcommand\ustc@declaretext{%
 本人声明所呈交的学位论文，是本人在导师指导下进行研究工作所取得的成果。
 除已特别加以标注和致谢的地方外，论文中不包含任何他人已经发表或撰写过
-的研究成果。与我一同工作的同志对本研究所做的贡献均已在论文中作了明确的说明。
-}
-\newcommand{\ustc@authorization}{
+的研究成果。与我一同工作的同志对本研究所做的贡献均已在论文中作了明确的说明。}
+\newcommand\ustc@authorization{%
 作为申请学位的条件之一，学位论文著作权拥有者授权中国科学技术大学拥有
 学位论文的部分使用权，即：学校有权按有关规定向国家有关部门或机构送交
 论文的复印件和电子版，允许论文被查阅和借阅，可以将学位论文编入《中国
 学位论文全文数据库》等有关数据库进行检索，可以采用影印、缩印或扫描等
 复制手段保存、汇编学位论文。本人提交的电子文档的内容和纸质论文的内容
-相一致。
-
-保密的学位论文在解密后也遵守此规定。
-}
-\newcommand\make@statement{
-    \thispagestyle{empty}
-    \setfontsize{12\bp@}[20\bp@]
-    \vspace*{-0.15cm}
-    \begin{center}
-      \setfontsize{16\bp@}\textbf{中国科学技术大学学位论文原创性声明}
-    \end{center}
-    \vskip 0.3cm
-
-    \ustc@declaretext\par
-
-    \vskip 0.7cm
-    \begin{tabular}{p{7cm}p{7cm}}
-      作者签名：\ustc@underline[7.4em]{} & 签字日期：\ustc@underline[7.4em]{}
-    \end{tabular}
-    \vskip 2.6cm
-
-    \begin{center}
-      \setfontsize{16\bp@}\textbf{中国科学技术大学学位论文授权使用声明}
-    \end{center}
-    \vskip 0.3cm
-
-    \ustc@authorization\par
-    \vskip 0.5cm
-    $\square$公开 \hspace{0.4cm} $\square$保密（\ustc@underline[2em]{}年）
-
-    \vskip 0.5cm
-
-    {\renewcommand{\arraystretch}{2.0}
-    \begin{tabular}{p{7cm}p{7cm}}
-      作者签名：\ustc@underline[7.4em]{} & 导师签名：\ustc@underline[7.4em]{} \\
-      签字日期：\ustc@underline[7.4em]{} & 签字日期：\ustc@underline[7.4em]{} \\
-    \end{tabular}}
+相一致。\par
+保密的学位论文在解密后也遵守此规定。}
+\newcommand\make@statement{%
+  \thispagestyle{empty}%
+  \setfontsize{12\bp@}[20\bp@]%
+  \vspace*{-0.15cm}%
+  \begin{center}%
+    \setfontsize{16\bp@}\textbf{中国科学技术大学学位论文原创性声明}%
+  \end{center}%
+  \vskip 0.3cm\par
+  \ustc@declaretext\par
+  \vskip 0.7cm\relax
+  \begin{tabular}{p{7cm}p{7cm}}%
+    作者签名：\ustc@underline[7.4em]{} & 签字日期：\ustc@underline[7.4em]{}%
+  \end{tabular}%
+  \vskip 2.6cm\par
+  \begin{center}%
+    \setfontsize{16\bp@}\textbf{中国科学技术大学学位论文授权使用声明}%
+  \end{center}%
+  \vskip 0.3cm\par
+  \ustc@authorization\par
+  \vskip 0.5cm\relax
+  $\square$公开 \hspace{0.4cm} $\square$保密（\ustc@underline[2em]{}年）\par
+  \vskip 0.5cm\par
+  {\renewcommand{\arraystretch}{2.0}%
+  \begin{tabular}{p{7cm}p{7cm}}%
+    作者签名：\ustc@underline[7.4em]{} & 导师签名：\ustc@underline[7.4em]{} \\
+    签字日期：\ustc@underline[7.4em]{} & 签字日期：\ustc@underline[7.4em]{} \\
+  \end{tabular}}%
 }
 \newenvironment{abstract}{%
-    \if@ustc@bachelor
-        \chapter{中文内容摘要}%
-    \else
-        \ustc@chapter{摘要}%
-    \fi
-  }{}
+  \if@ustc@bachelor
+    \chapter{中文内容摘要}%
+  \else
+    \ustc@chapter{摘要}%
+  \fi}{}
 \newenvironment{enabstract}{%
-    \if@ustc@bachelor
-        \chapter[英文内容摘要]{Abstract}
-    \else
-        \ustc@chapter[Abstract]{ABSTRACT}
-    \fi}{}
+  \if@ustc@bachelor
+    \chapter[英文内容摘要]{Abstract}%
+  \else
+    \ustc@chapter[Abstract]{ABSTRACT}%
+  \fi}{}
 \newcommand\keywords[1]{%
   \par\phantom{empty line}\par\noindent\hangindent=4\ccwd\relax%
   \textbf{关键词}：#1}
@@ -526,110 +515,108 @@
   \par\phantom{empty}\par\noindent\hangindent=5.3em\relax%
   \textbf{Key Words}: #1}
 \renewcommand\tableofcontents{%
-    \cleardoublepage%
-    \if@ustc@bachelor\pagenumbering{arabic}\fi
-    \ustc@chapter{\contentsname}%
-    \@starttoc{toc}}
+  \cleardoublepage
+  \if@ustc@bachelor\pagenumbering{arabic}\fi
+  \ustc@chapter{\contentsname}%
+  \@starttoc{toc}}
 \RequirePackage{titletoc}
 \newcommand\ustc@leaders{\titlerule*[0.5pc]{$\cdot$}}
 \if@ustc@bachelor
-    \titlecontents{chapter}
-        [\z@]
-        {\setfontsize{12\bp@}[20\bp@]}
-        {\contentspush{\thecontentslabel\hskip\ccwd\relax}}
-        {}{\ustc@leaders\contentspage}
-    \titlecontents{section}
-        [\ccwd]
-        {\setfontsize{12\bp@}[20\bp@]}
-        {\contentspush{\thecontentslabel\hskip\ccwd\relax}}
-        {}{\ustc@leaders\contentspage}
-    \titlecontents{subsection}
-        [2\ccwd]
-        {\setfontsize{12\bp@}[20\bp@]}
-        {\contentspush{\thecontentslabel
-          \if@ustc@arabic\hspace{\ccwd}\else 、\fi}}
-        {}{\ustc@leaders\contentspage}
+  \titlecontents{chapter}
+    [\z@]
+    {\setfontsize{12\bp@}[20\bp@]}
+    {\contentspush{\thecontentslabel\hskip\ccwd\relax}}
+    {}{\ustc@leaders\contentspage}
+  \titlecontents{section}
+    [\ccwd]
+    {\setfontsize{12\bp@}[20\bp@]}
+    {\contentspush{\thecontentslabel\hskip\ccwd\relax}}
+    {}{\ustc@leaders\contentspage}
+  \titlecontents{subsection}
+    [2\ccwd]
+    {\setfontsize{12\bp@}[20\bp@]}
+    {\contentspush{\thecontentslabel
+      \if@ustc@arabic\hspace{\ccwd}\else 、\fi}}
+    {}{\ustc@leaders\contentspage}
 \else
-    \titlecontents{chapter}
-        [\z@]
-        {\addvspace{6\bp@}\setfontsize{14\bp@}[20\bp@]}
-        {\contentspush{\thecontentslabel\unskip\hskip\ccwd\relax}}
-        {}{\ustc@leaders\setfontsize{12\bp@}[20\bp@]\contentspage}
-    \titlecontents{section}
-        [\ccwd]
-        {\setfontsize{12\bp@}[20\bp@]}
-        {\contentspush{\thecontentslabel\hskip\ccwd\relax}}
-        {}{\ustc@leaders\setfontsize{12\bp@}[20\bp@]\contentspage}
-    \titlecontents{subsection}
-        [2\ccwd]
-        {\setfontsize{10.5\bp@}[20\bp@]}
-        {\contentspush{\thecontentslabel\hskip\ccwd\relax}}
-        {}{\ustc@leaders\setfontsize{12\bp@}[20\bp@]\contentspage}
+  \titlecontents{chapter}
+    [\z@]
+    {\addvspace{6\bp@}\setfontsize{14\bp@}[20\bp@]}
+    {\contentspush{\thecontentslabel\unskip\hskip\ccwd\relax}}
+    {}{\ustc@leaders\setfontsize{12\bp@}[20\bp@]\contentspage}
+  \titlecontents{section}
+    [\ccwd]
+    {\setfontsize{12\bp@}[20\bp@]}
+    {\contentspush{\thecontentslabel\hskip\ccwd\relax}}
+    {}{\ustc@leaders\setfontsize{12\bp@}[20\bp@]\contentspage}
+  \titlecontents{subsection}
+    [2\ccwd]
+    {\setfontsize{10.5\bp@}[20\bp@]}
+    {\contentspush{\thecontentslabel\hskip\ccwd\relax}}
+    {}{\ustc@leaders\setfontsize{12\bp@}[20\bp@]\contentspage}
 \fi
 \titlecontents{figure}
-    [\ccwd]
-    {\addvspace{6\bp@}\setfontsize{12\bp@}}
-    {\thecontentslabel\hspace*{0.5em}}
-    {}{\ustc@leaders\contentspage}
+  [\ccwd]
+  {\addvspace{6\bp@}\setfontsize{12\bp@}}
+  {\thecontentslabel\hspace*{0.5em}}
+  {}{\ustc@leaders\contentspage}
 \titlecontents{table}
-    [\ccwd]
-    {\addvspace{6\bp@}\setfontsize{12\bp@}}
-    {\thecontentslabel\hspace*{0.5em}}
-    {}{\ustc@leaders\contentspage}
-    % 为了让图目录另页起，重新定义 \cs{listoffigures}
+  [\ccwd]
+  {\addvspace{6\bp@}\setfontsize{12\bp@}}
+  {\thecontentslabel\hspace*{0.5em}}
+  {}{\ustc@leaders\contentspage}
 \renewcommand\listoffigures{%
-    \if@ustc@bachelor\clearpage\else\cleardoublepage\fi
-    \ustc@chapter{\listfigurename}%
-    \@starttoc{lof}}
-    % 表目录同样
+  \if@ustc@bachelor\clearpage\else\cleardoublepage\fi
+  \ustc@chapter{\listfigurename}%
+  \@starttoc{lof}}
 \renewcommand\listoftables{%
-    \if@ustc@bachelor\clearpage\else\cleardoublepage\fi
-    \ustc@chapter{\listtablename}%
-    \@starttoc{lot}}
+  \if@ustc@bachelor\clearpage\else\cleardoublepage\fi
+  \ustc@chapter{\listtablename}%
+  \@starttoc{lot}}
 \if@ustc@bachelor
-    \g@addto@macro\frontmatter{\@ustc@addtocspacefalse}%
-    \g@addto@macro\mainmatter{\@ustc@addtocspacetrue}%
-    \g@addto@macro\backmatter{\@ustc@addtocspacefalse}%
-    \g@addto@macro\appendix{\@ustc@addtocspacefalse}%
+  \g@addto@macro\frontmatter{\@ustc@addtocspacefalse}%
+  \g@addto@macro\mainmatter{\@ustc@addtocspacetrue}%
+  \g@addto@macro\backmatter{\@ustc@addtocspacefalse}%
+  \g@addto@macro\appendix{\@ustc@addtocspacefalse}%
 \fi
 \newenvironment{notation}{%
-    \if@ustc@bachelor\clearpage\else\cleardoublepage\fi
-    \thispagestyle{ustc@notation}
-    \ctexset{chapter/format = \centering\rmfamily\setfontsize{12\bp@}}
-    \ustc@chapter{\ustc@notationname}
-    \setfontsize{10.5\bp@}[16\bp@]
-    \setlength{\itemsep}{\z@}}{}
+  \if@ustc@bachelor\clearpage\else\cleardoublepage\fi
+  \thispagestyle{ustc@notation}%
+  \ctexset{chapter/format = \centering\rmfamily\setfontsize{12\bp@}}%
+  \ustc@chapter{\ustc@notationname}%
+  \setfontsize{10.5\bp@}[16\bp@]%
+  \setlength{\itemsep}{\z@}}{}%
 \newdimen\bp@ \bp@=1bp
 \if@ustc@bachelor
   \renewcommand\normalsize{%
-     \@setfontsize\normalsize{12\bp@}{22\bp@}%
-     \abovedisplayskip 12\bp@ \@plus3\bp@ \@minus7\bp@
-     \abovedisplayshortskip \z@ \@plus3\bp@
-     \belowdisplayshortskip 6.5\bp@ \@plus3.5\bp@ \@minus3\bp@
-     \belowdisplayskip \abovedisplayskip
-     \let\@listi\@listI}
+    \@setfontsize\normalsize{12\bp@}{22\bp@}%
+    \abovedisplayskip 12\bp@ \@plus3\bp@ \@minus7\bp@
+    \abovedisplayshortskip \z@ \@plus3\bp@
+    \belowdisplayshortskip 6.5\bp@ \@plus3.5\bp@ \@minus3\bp@
+    \belowdisplayskip \abovedisplayskip
+    \let\@listi\@listI}
   \normalsize
   \renewcommand\small{%
-     \@setfontsize\small{10.5\bp@}{19.25\bp@}%
-     \abovedisplayskip 10.5\bp@ \@plus3\bp@ \@minus6\bp@
-     \abovedisplayshortskip \z@ \@plus3\bp@
-     \belowdisplayshortskip 6.5\bp@ \@plus3.5\bp@ \@minus3\bp@
-     \def\@listi{\leftmargin\leftmargini
-                 \topsep 9\bp@ \@plus3\bp@ \@minus5\bp@
-                 \parsep 4.5\bp@ \@plus2\bp@ \@minus\bp@
-                 \itemsep \parsep}%
-     \belowdisplayskip \abovedisplayskip
+    \@setfontsize\small{10.5\bp@}{19.25\bp@}%
+    \abovedisplayskip 10.5\bp@ \@plus3\bp@ \@minus6\bp@
+    \abovedisplayshortskip \z@ \@plus3\bp@
+    \belowdisplayshortskip 6.5\bp@ \@plus3.5\bp@ \@minus3\bp@
+    \def\@listi{\leftmargin\leftmargini
+                \topsep 9\bp@ \@plus3\bp@ \@minus5\bp@
+                \parsep 4.5\bp@ \@plus2\bp@ \@minus\bp@
+                \itemsep \parsep}%
+    \belowdisplayskip \abovedisplayskip
   }
   \renewcommand\footnotesize{%
-     \@setfontsize\footnotesize{9\bp@}{16.5\bp@}
-     \abovedisplayskip 9\bp@ \@plus2\bp@ \@minus5\bp@
-     \abovedisplayshortskip \z@ \@plus3\bp@
-     \belowdisplayshortskip 6\bp@ \@plus3\bp@ \@minus3\bp@
-     \def\@listi{\leftmargin\leftmargini
-                 \topsep 6\bp@ \@plus2\bp@ \@minus2\bp@
-                 \parsep 3\bp@ \@plus2\bp@ \@minus\bp@
-                 \itemsep \parsep}%
-     \belowdisplayskip \abovedisplayskip
+    \@setfontsize\footnotesize{9\bp@}{16.5\bp@}%
+    \abovedisplayskip 9\bp@ \@plus2\bp@ \@minus5\bp@
+    \abovedisplayshortskip \z@ \@plus3\bp@
+    \belowdisplayshortskip 6\bp@ \@plus3\bp@ \@minus3\bp@
+    \def\@listi{\leftmargin\leftmargini
+                \topsep 6\bp@ \@plus2\bp@ \@minus2\bp@
+                \parsep 3\bp@ \@plus2\bp@ \@minus\bp@
+                \itemsep \parsep}%
+    \belowdisplayskip \abovedisplayskip
   }
   \renewcommand\scriptsize{\@setfontsize\scriptsize{7.5\bp@}{13.75\bp@}}
   \renewcommand\tiny{\@setfontsize\tiny{6.5\bp@}{11.92\bp@}}
@@ -640,26 +627,26 @@
   \renewcommand\Huge{\@setfontsize\Huge{26\bp@}{47.67\bp@}}
 \else
   \renewcommand\normalsize{%
-     \@setfontsize\normalsize{12\bp@}{20\bp@}%
-     \abovedisplayskip 12\bp@ \@plus3\bp@ \@minus7\bp@
-     \abovedisplayshortskip \z@ \@plus3\bp@
-     \belowdisplayshortskip 6.5\bp@ \@plus3.5\bp@ \@minus3\bp@
-     \belowdisplayskip \abovedisplayskip
-     \let\@listi\@listI}
+    \@setfontsize\normalsize{12\bp@}{20\bp@}%
+    \abovedisplayskip 12\bp@ \@plus3\bp@ \@minus7\bp@
+    \abovedisplayshortskip \z@ \@plus3\bp@
+    \belowdisplayshortskip 6.5\bp@ \@plus3.5\bp@ \@minus3\bp@
+    \belowdisplayskip \abovedisplayskip
+    \let\@listi\@listI}
   \normalsize
   \renewcommand\small{%
-     \@setfontsize\small{10.5\bp@}{17.5\bp@}%
-     \abovedisplayskip 10.5\bp@ \@plus3\bp@ \@minus6\bp@
-     \abovedisplayshortskip \z@ \@plus3\bp@
-     \belowdisplayshortskip 6.5\bp@ \@plus3.5\bp@ \@minus3\bp@
-     \def\@listi{\leftmargin\leftmargini
-                 \topsep 9\bp@ \@plus3\bp@ \@minus5\bp@
-                 \parsep 4.5\bp@ \@plus2\bp@ \@minus\bp@
-                 \itemsep \parsep}%
-     \belowdisplayskip \abovedisplayskip
+    \@setfontsize\small{10.5\bp@}{17.5\bp@}%
+    \abovedisplayskip 10.5\bp@ \@plus3\bp@ \@minus6\bp@
+    \abovedisplayshortskip \z@ \@plus3\bp@
+    \belowdisplayshortskip 6.5\bp@ \@plus3.5\bp@ \@minus3\bp@
+    \def\@listi{\leftmargin\leftmargini
+                \topsep 9\bp@ \@plus3\bp@ \@minus5\bp@
+                \parsep 4.5\bp@ \@plus2\bp@ \@minus\bp@
+                \itemsep \parsep}%
+    \belowdisplayskip \abovedisplayskip
   }
   \renewcommand\footnotesize{%
-     \@setfontsize\footnotesize{9\bp@}{15\bp@}
+     \@setfontsize\footnotesize{9\bp@}{15\bp@}%
      \abovedisplayskip 9\bp@ \@plus2\bp@ \@minus5\bp@
      \abovedisplayshortskip \z@ \@plus3\bp@
      \belowdisplayshortskip 6\bp@ \@plus3\bp@ \@minus3\bp@
@@ -695,26 +682,26 @@
 \RequirePackage{calc}
 \DeclareCaptionLabelSeparator{zhspace}{\hspace{\ccwd}}
 \captionsetup{
-    format = hang,
-    font = small,
-    labelsep = zhspace,
+  format   = hang,
+  font     = small,
+  labelsep = zhspace,
 }
 \if@ustc@bachelor\else
-    \captionsetup{font+=bf}
+  \captionsetup{font+=bf}
 \fi
 \captionsetup[figure]{
-    position = bottom,
-    aboveskip = 6bp,
-    belowskip = {12bp-\intextsep},
+  position  = bottom,
+  aboveskip = 6\bp@,
+  belowskip = {12\bp@-\intextsep},
 }
 \captionsetup[table]{
-    position = top,
-    aboveskip = 6bp,
-    belowskip = 6bp,
+  position  = top,
+  aboveskip = 6\bp@,
+  belowskip = 6\bp@,
 }
 \newcommand\note[1]{%
-    \captionsetup{position = bottom, font = small}
-    \caption*{\hangindent=2\ccwd\relax\ustc@notesname\rmfamily#1}}
+  \captionsetup{position = bottom, font = small}%
+  \caption*{\hangindent=2\ccwd\relax\ustc@notesname\rmfamily#1}}
 \renewcommand{\thefootnote}{\ustc@textcircled{footnote}}
 \RequirePackage[perpage]{footmisc}
 \renewcommand\footnoterule{%
@@ -736,16 +723,16 @@
 \def\tmp@authoryear{authoryear}
 \newcommand\ustcbibstyle[1]{%
   \def\tmp@gbt{#1}%
-  \ifx\tmp@gbt\tmp@numerical%
+  \ifx\tmp@gbt\tmp@numerical
     \bibliographystyle{ustcnumerical}%
-  \else%
-    \ifx\tmp@gbt\tmp@authoryear%
+  \else
+    \ifx\tmp@gbt\tmp@authoryear
       \bibliographystyle{ustcauthoryear}%
-    \else%
-      \PackageError{ustcthesis}{Unknown argument #1.}
-      {It should be `numerical' or `authoryear'.}
-    \fi%
-  \fi%
+    \else
+      \PackageError{ustcthesis}{Unknown argument #1.}%
+      {It should be `numerical' or `authoryear'.}%
+    \fi
+  \fi
 }
 \if@ustc@bachelor
   \if@ustc@super
@@ -753,7 +740,7 @@
   \else
     \citestyle{numbers}
   \fi
-  \bibliographystyle{ustcbachelor}%
+  \bibliographystyle{ustcbachelor}
 \else
   \if@ustc@numerical
     \if@ustc@super
@@ -761,10 +748,10 @@
     \else
       \citestyle{numbers}
     \fi
-    \bibliographystyle{ustcnumerical}%
+    \bibliographystyle{ustcnumerical}
   \else
     \citestyle{authoryear}
-    \bibliographystyle{ustcauthoryear}%
+    \bibliographystyle{ustcauthoryear}
   \fi
 \fi
 \patchcmd{\NAT@citexnum}{%
@@ -819,9 +806,9 @@
   \do\1\do\2\do\3\do\4\do\5\do\6\do\7\do\8\do\9\do\0%
 }
 \renewcommand\bibsection{%
-    \@mainmatterfalse
-    \chapter{\bibname}%
-    \@mainmattertrue
+  \@mainmatterfalse
+  \chapter{\bibname}%
+  \@mainmattertrue
 }
 \newenvironment{acknowledgements}{%
   \if@ustc@bachelor
