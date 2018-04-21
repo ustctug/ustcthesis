@@ -46,8 +46,9 @@ install : cls doc
 
 zip : main doc
 	ln -sf . $(NAME)
-	zip -r ../$(NAME)-$(VERSION).zip $(NAME)/{README.md,$(NAME).dtx,\
-	$(NAME).cls,$(NAME).pdf,figures,ustcnumerical.bst,ustcauthoryear.bst,\
-	ustcbachelor.bst,ustcextra.sty,$(MAIN).tex,$(MAIN).pdf,chapters,bib,\
+	zip -r ../$(NAME)-$(VERSION).zip $(NAME)/{README.md,LICENSE,\
+	$(NAME).dtx,$(NAME).pdf,$(NAME).cls,figures,\
+	ustcnumerical.bst,ustcauthoryear.bst,ustcbachelor.bst,\
+	$(MAIN).tex,ustcextra.sty,chapters,bib,$(MAIN).pdf,\
 	latexmkrc,Makefile}
 	rm $(NAME)
