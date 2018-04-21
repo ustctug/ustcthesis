@@ -257,7 +257,7 @@
     },
     subsection = {
         format     = \sffamily\setfontsize{13\bp@},
-        aftername  = .\hspace{\ccwd},
+        aftername  = \hspace{\ccwd},
         indent     = 2\ccwd,
         beforeskip = 12\bp@,
         afterskip  = 6\bp@,
@@ -265,7 +265,7 @@
     subsubsection = {
         format     = \sffamily\setfontsize{12\bp@},
         number     = \arabic{subsubsection},
-        aftername  = .\hspace{\ccwd},
+        aftername  = .\space,
         indent     = 3\ccwd,
         beforeskip = 12\bp@,
         afterskip  = 6\bp@,
@@ -273,7 +273,7 @@
     paragraph = {
         format     = \sffamily\setfontsize{12\bp@},
         number     = (\arabic{paragraph}),
-        aftername  = \hspace{\ccwd},
+        aftername  = \space,
         indent     = 3\ccwd,
         beforeskip = \z@,
         afterskip  = \z@,
@@ -282,7 +282,7 @@
     subparagraph = {
         format     = \sffamily\setfontsize{12\bp@},
         number     = \ustc@textcircled{subparagraph},
-        aftername  = \hspace{\ccwd},
+        aftername  = \space,
         indent     = 3\ccwd,
         beforeskip = \z@,
         afterskip  = \z@,
@@ -304,17 +304,18 @@
         },
         subsubsection = {
             format    = {\rmfamily\setfontsize{12\bp@}},
-            aftername = {.\ },
             indent    = \ccwd,
         },
         paragraph = {
             format    = {\rmfamily\setfontsize{12\bp@}},
-            aftername = {\ },
-            indent    = 2\ccwd,
+            number    = （\arabic{paragraph}）,
+            aftername = {},
+            indent    = \ccwd,
         },
         subparagraph = {
             format    = {},
             name      = {},
+            aftername = {},
             indent    = 2\ccwd,
         },
     }
@@ -545,7 +546,8 @@
     \titlecontents{subsection}
         [2\ccwd]
         {\setfontsize{12\bp@}[20\bp@]}
-        {\contentspush{\thecontentslabel、}}
+        {\contentspush{\thecontentslabel
+          \if@ustc@arabic\hspace{\ccwd}\else 、\fi}}
         {}{\ustc@leaders\contentspage}
 \else
     \titlecontents{chapter}
