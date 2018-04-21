@@ -699,7 +699,11 @@ version 2005/12/01 or later.
 %    \begin{macrocode}
 \setmainfont{Times New Roman}
 \setsansfont{Arial}
-\setmonofont{Courier New}
+\IfFileExists{/System/Library/Fonts/Menlo.ttc}{%
+  \setmonofont[Scale=MatchLowercase]{Menlo}
+}{
+  \setmonofont[Scale=MatchLowercase]{Courier New}
+}
 %    \end{macrocode}
 %
 % 中文字体由 \pkg{ctex} 自动设置，但是在 windowsnew 情况下需要取消使用微软雅黑

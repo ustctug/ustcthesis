@@ -67,7 +67,11 @@
 }
 \setmainfont{Times New Roman}
 \setsansfont{Arial}
-\setmonofont{Courier New}
+\IfFileExists{/System/Library/Fonts/Menlo.ttc}{%
+  \setmonofont[Scale=MatchLowercase]{Menlo}
+}{
+  \setmonofont[Scale=MatchLowercase]{Courier New}
+}
 \ifx\yahei\undefined\else
   \setCJKsansfont{SimHei}%
 \fi
