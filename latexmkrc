@@ -8,7 +8,7 @@ $postscript_mode = 0;
 
 $bibtex_use = 1.5;
 
-$clean_ext = 'glo gls hd loa synctex.gz xdv';
+$clean_ext = 'bbl glo gls hd loa synctex.gz xdv';
 
 $makeindex = 'makeindex -s gind.ist %O -o %D %S';
 add_cus_dep('glo', 'gls', 0, 'makegls');
