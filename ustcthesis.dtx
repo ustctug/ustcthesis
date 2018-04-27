@@ -399,19 +399,19 @@ version 2005/12/01 or later.
 %
 % 本科论文的内容按如下顺序排列：
 % \begin{description}
-%   \item[封面] 中文封面、英文封面、原创性声明及授权使用说明
-%   \item[front matter] 致谢、目录、中文摘要、英文摘要
-%   \item[main matter] 正文章节、参考文献
+%   \item[封面] 中文封面，英文封面，原创性声明及授权使用说明
+%   \item[front matter] 致谢，目录，中、英文摘要
+%   \item[main matter] 正文章节，参考文献
 %   \item[appendix] 附录
 % \end{description}
 %
 % 硕博论文的内容按如下顺序排列：
 % \begin{description}
-%   \item[封面] 中文封面、英文封面、原创性声明及授权使用说明
-%   \item[front matter] 中文摘要、英文摘要、目录、图表及代码目录、符号说明
-%   \item[main matter] 正文章节、参考文献
+%   \item[封面] 中文封面，英文封面，原创性声明及授权使用说明
+%   \item[front matter] 中、英文摘要，目录，图、表清单，符号说明
+%   \item[main matter] 正文章节，参考文献
 %   \item[appendix] 附录
-%   \item[back matter] 致谢、已发表论文列表
+%   \item[back matter] 致谢，已发表论文列表
 % \end{description}
 %
 % 示例文档 \file{main.tex} 中的致谢、目录等章节的顺序，是按照研究生论文的格式组
@@ -1285,16 +1285,22 @@ version 2005/12/01 or later.
 % \subsection{摘要}
 %
 % \begin{environment}{abstract}
-% 中文摘要环境
+% 中文摘要环境。
+% 判断 |\ustc@toc@loaded| 是为了防止本科生未调整摘要位置时的目录页码缺失。
 % \changes{v3.0}{2017/07/01}{摘要关键词间隔符号改用分号}
 % \changes{v3.0}{2017/07/01}{摘要不再加入目录}
 %    \begin{macrocode}
 \newenvironment{abstract}{%
   \if@ustc@bachelor
     \chapter{中文内容摘要}%
+    \ifx\ustc@toc@loaded\undefined
+      需要将摘要的位置调整到目录后。\par
+      \pagenumbering{Roman}%
+    \fi
   \else
     \ustc@chapter{摘要}%
-  \fi}{}
+  \fi
+}{}
 %    \end{macrocode}
 % \end{environment}
 %
@@ -1335,7 +1341,10 @@ version 2005/12/01 or later.
 %    \begin{macrocode}
 \renewcommand\tableofcontents{%
   \cleardoublepage
-  \if@ustc@bachelor\pagenumbering{arabic}\fi
+  \if@ustc@bachelor
+    \pagenumbering{arabic}%
+    \def\ustc@toc@loaded{}%
+  \fi
   \ustc@chapter{\contentsname}%
   \@starttoc{toc}}
 %    \end{macrocode}
@@ -1836,6 +1845,9 @@ version 2005/12/01 or later.
 \newenvironment{acknowledgements}{%
   \if@ustc@bachelor
     \ustc@chapter{\ustc@acknowledgementsname}%
+    \ifx\ustc@toc@loaded\undefined\else
+      需要将致谢的位置调整到目录前。\par
+    \fi
   \else
     \chapter{\ustc@acknowledgementsname}%
   \fi

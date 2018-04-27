@@ -503,9 +503,14 @@
 \newenvironment{abstract}{%
   \if@ustc@bachelor
     \chapter{中文内容摘要}%
+    \ifx\ustc@toc@loaded\undefined
+      需要将摘要的位置调整到目录后。\par
+      \pagenumbering{Roman}%
+    \fi
   \else
     \ustc@chapter{摘要}%
-  \fi}{}
+  \fi
+}{}
 \newenvironment{enabstract}{%
   \if@ustc@bachelor
     \chapter[英文内容摘要]{Abstract}%
@@ -520,7 +525,10 @@
   \textbf{Key Words}: #1}
 \renewcommand\tableofcontents{%
   \cleardoublepage
-  \if@ustc@bachelor\pagenumbering{arabic}\fi
+  \if@ustc@bachelor
+    \pagenumbering{arabic}%
+    \def\ustc@toc@loaded{}%
+  \fi
   \ustc@chapter{\contentsname}%
   \@starttoc{toc}}
 \RequirePackage{titletoc}
@@ -817,6 +825,9 @@
 \newenvironment{acknowledgements}{%
   \if@ustc@bachelor
     \ustc@chapter{\ustc@acknowledgementsname}%
+    \ifx\ustc@toc@loaded\undefined\else
+      需要将致谢的位置调整到目录前。\par
+    \fi
   \else
     \chapter{\ustc@acknowledgementsname}%
   \fi
