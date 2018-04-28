@@ -1683,6 +1683,7 @@ version 2005/12/01 or later.
 % \changes{v3.0.2}{2017/03/16}{修正参考文献姓名的“others”}
 % \changes{v3.0.6}{2018/04/12}{参考文献页码的连接号改为 hyphen}
 % \changes{v3.0.7}{2018/04/18}{参考文献允许著录多个 DOI}
+% \changes{v3.0.9}{2018/04/28}{参考文献不再著录“出版地不详”等信息}
 %
 % 定义接口切换引用文献的标注法，可用 \cs{citestyle} 调用 \opt{super} 、
 % \opt{authoryear} 或 \opt{numbers}。
@@ -2694,7 +2695,12 @@ FUNCTION {format.doi}
 FUNCTION {format.title}
 { title empty$
     { "" }
-    { title "t" change.case$ }
+    { title
+      entry.lang lang.en =
+        { "t" change.case$ }
+        'skip$
+      if$
+    }
   if$
 }
 
@@ -3109,7 +3115,7 @@ FUNCTION {format.volume}
     { "" }
     { volume is.number
         { is.in.chinese
-            { "第" volume * "卷" * }
+            { "第 " volume * " 卷" * }
             { "volume" volume tie.or.space.connect }
           if$
         }
@@ -3124,7 +3130,7 @@ FUNCTION {format.number}
     { "" }
     { number is.number
         { is.in.chinese
-            { "第" number * "册" * }
+            { "第 " number * " 册" * }
             { "number" number tie.or.space.connect }
           if$
         }
@@ -3209,7 +3215,7 @@ FUNCTION {format.edition}
     { "" }
     { edition is.number
         { is.in.chinese
-            { edition "版" * }
+            { edition " 版" * }
             { edition num.to.ordinal " ed." * }
           if$
         }
@@ -3230,26 +3236,9 @@ FUNCTION {format.edition}
 
 %    \end{macrocode}
 %
-% 出版地址和出版社会有 “[S.l.: s.n.]” 的情况，所以必须一起处理。
+% USTC requires no ``S.l.'' or ``s.n.''.
 %
 %    \begin{macrocode}
-FUNCTION {format.sine.loco}
-{ is.in.chinese
-    { "[出版地不详]" }
-    { "[S.l.]" }
-  if$
-}
-
-FUNCTION {format.address}
-{ address }
-
-FUNCTION {format.sine.nomine}
-{ is.in.chinese
-    { "[出版者不详]" }
-    { "[s.n.]" }
-  if$
-}
-
 FUNCTION {format.publisher}
 { publisher empty$ not
     { publisher }
@@ -3269,20 +3258,6 @@ FUNCTION {format.publisher}
   if$
 }
 
-FUNCTION {format.sine.loco.sine.nomine}
-{ is.in.chinese
-    { "[出版地不详: 出版者不详]" }
-    { "[S.l.: s.n.]" }
-  if$
-}
-
-%    \end{macrocode}
-%
-% USTC requires no S.l. or s.n. for undergraduates and no S.l.:s.n. for
-% graduates.
-%
-%    \begin{macrocode}
-%<*bachelor>
 FUNCTION {format.address.publisher}
 { address empty$ not
     { address
@@ -3299,37 +3274,6 @@ FUNCTION {format.address.publisher}
   if$
 }
 
-%</bachelor>
-%<*!bachelor>
-FUNCTION {format.address.publisher}
-{ address empty$ not
-    { address
-      format.publisher empty$ not
-        { ": " * format.publisher * }
-        { url empty$ doi empty$ and
-            { ": " * format.sine.nomine * }
-            'skip$
-          if$
-        }
-      if$
-    }
-    { url empty$ doi empty$ and
-        { format.publisher empty$ not
-            { format.sine.loco ": " * format.publisher * }
-            { "" }
-          if$
-        }
-        { format.publisher empty$ not
-            { format.publisher }
-            { "" }
-          if$
-        }
-      if$
-    }
-  if$
-}
-
-%</!bachelor>
 %    \end{macrocode}
 %
 % This function doesn't begin a sentence so "pages" isn't capitalized.
@@ -3665,7 +3609,7 @@ FUNCTION {monograph}
   if$
   output
 %<*authoryear>
-  new.block
+  new.sentence
   format.year "year" output.check
 %</authoryear>
   new.block
@@ -3741,7 +3685,7 @@ FUNCTION {periodical}
   format.authors "author" output.check
   author format.key output
 %<*authoryear>
-  new.block
+  new.sentence
   format.year "year" output.check
 %</authoryear>
   new.block
@@ -3771,7 +3715,7 @@ FUNCTION {article.in.journal}
   format.authors "author" output.check
   author format.key output
 %<*authoryear>
-  new.block
+  new.sentence
   format.year "year" output.check
 %</authoryear>
   new.block
@@ -3805,7 +3749,7 @@ FUNCTION {patent}
   format.authors output
   author format.key output
 %<*authoryear>
-  new.block
+  new.sentence
   format.year "year" output.check
 %</authoryear>
   new.block
@@ -3835,7 +3779,7 @@ FUNCTION {online}
   format.authors output
   author format.key output
 %<*authoryear>
-  new.block
+  new.sentence
   format.year "year" output.check
 %</authoryear>
   new.block

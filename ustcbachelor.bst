@@ -499,7 +499,12 @@ FUNCTION {format.doi}
 FUNCTION {format.title}
 { title empty$
     { "" }
-    { title "t" change.case$ }
+    { title
+      entry.lang lang.en =
+        { "t" change.case$ }
+        'skip$
+      if$
+    }
   if$
 }
 
@@ -785,7 +790,7 @@ FUNCTION {format.volume}
     { "" }
     { volume is.number
         { is.in.chinese
-            { "第" volume * "卷" * }
+            { "第 " volume * " 卷" * }
             { "volume" volume tie.or.space.connect }
           if$
         }
@@ -800,7 +805,7 @@ FUNCTION {format.number}
     { "" }
     { number is.number
         { is.in.chinese
-            { "第" number * "册" * }
+            { "第 " number * " 册" * }
             { "number" number tie.or.space.connect }
           if$
         }
@@ -878,7 +883,7 @@ FUNCTION {format.edition}
     { "" }
     { edition is.number
         { is.in.chinese
-            { edition "版" * }
+            { edition " 版" * }
             { edition num.to.ordinal " ed." * }
           if$
         }
@@ -894,23 +899,6 @@ FUNCTION {format.edition}
         }
       if$
     }
-  if$
-}
-
-FUNCTION {format.sine.loco}
-{ is.in.chinese
-    { "[出版地不详]" }
-    { "[S.l.]" }
-  if$
-}
-
-FUNCTION {format.address}
-{ address }
-
-FUNCTION {format.sine.nomine}
-{ is.in.chinese
-    { "[出版者不详]" }
-    { "[s.n.]" }
   if$
 }
 
@@ -930,13 +918,6 @@ FUNCTION {format.publisher}
         }
       if$
     }
-  if$
-}
-
-FUNCTION {format.sine.loco.sine.nomine}
-{ is.in.chinese
-    { "[出版地不详: 出版者不详]" }
-    { "[S.l.: s.n.]" }
   if$
 }
 

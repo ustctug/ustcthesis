@@ -500,7 +500,12 @@ FUNCTION {format.doi}
 FUNCTION {format.title}
 { title empty$
     { "" }
-    { title "t" change.case$ }
+    { title
+      entry.lang lang.en =
+        { "t" change.case$ }
+        'skip$
+      if$
+    }
   if$
 }
 
@@ -786,7 +791,7 @@ FUNCTION {format.volume}
     { "" }
     { volume is.number
         { is.in.chinese
-            { "第" volume * "卷" * }
+            { "第 " volume * " 卷" * }
             { "volume" volume tie.or.space.connect }
           if$
         }
@@ -801,7 +806,7 @@ FUNCTION {format.number}
     { "" }
     { number is.number
         { is.in.chinese
-            { "第" number * "册" * }
+            { "第 " number * " 册" * }
             { "number" number tie.or.space.connect }
           if$
         }
@@ -879,7 +884,7 @@ FUNCTION {format.edition}
     { "" }
     { edition is.number
         { is.in.chinese
-            { edition "版" * }
+            { edition " 版" * }
             { edition num.to.ordinal " ed." * }
           if$
         }
@@ -895,23 +900,6 @@ FUNCTION {format.edition}
         }
       if$
     }
-  if$
-}
-
-FUNCTION {format.sine.loco}
-{ is.in.chinese
-    { "[出版地不详]" }
-    { "[S.l.]" }
-  if$
-}
-
-FUNCTION {format.address}
-{ address }
-
-FUNCTION {format.sine.nomine}
-{ is.in.chinese
-    { "[出版者不详]" }
-    { "[s.n.]" }
   if$
 }
 
@@ -934,36 +922,17 @@ FUNCTION {format.publisher}
   if$
 }
 
-FUNCTION {format.sine.loco.sine.nomine}
-{ is.in.chinese
-    { "[出版地不详: 出版者不详]" }
-    { "[S.l.: s.n.]" }
-  if$
-}
-
 FUNCTION {format.address.publisher}
 { address empty$ not
     { address
       format.publisher empty$ not
         { ": " * format.publisher * }
-        { url empty$ doi empty$ and
-            { ": " * format.sine.nomine * }
-            'skip$
-          if$
-        }
+        'skip$
       if$
     }
-    { url empty$ doi empty$ and
-        { format.publisher empty$ not
-            { format.sine.loco ": " * format.publisher * }
-            { "" }
-          if$
-        }
-        { format.publisher empty$ not
-            { format.publisher }
-            { "" }
-          if$
-        }
+    { format.publisher empty$ not
+        { format.publisher }
+        { "" }
       if$
     }
   if$
@@ -1125,7 +1094,7 @@ FUNCTION {monograph}
     }
   if$
   output
-  new.block
+  new.sentence
   format.year "year" output.check
   new.block
   format.series.vol.num.title "title" output.check
@@ -1174,7 +1143,7 @@ FUNCTION {periodical}
 { output.bibitem
   format.authors "author" output.check
   author format.key output
-  new.block
+  new.sentence
   format.year "year" output.check
   new.block
   format.title "title" output.check
@@ -1194,7 +1163,7 @@ FUNCTION {article.in.journal}
 { output.bibitem
   format.authors "author" output.check
   author format.key output
-  new.block
+  new.sentence
   format.year "year" output.check
   new.block
   format.title "title" output.check
@@ -1216,7 +1185,7 @@ FUNCTION {patent}
 { output.bibitem
   format.authors output
   author format.key output
-  new.block
+  new.sentence
   format.year "year" output.check
   new.block
   format.title
@@ -1239,7 +1208,7 @@ FUNCTION {online}
 { output.bibitem
   format.authors output
   author format.key output
-  new.block
+  new.sentence
   format.year "year" output.check
   new.block
   format.series.vol.num.title "title" output.check
