@@ -830,7 +830,10 @@ FUNCTION {format.series.vol.num.title}
       if$
     }
   if$
-  "t" change.case$
+  entry.lang lang.en =
+    { "t" change.case$ }
+    'skip$
+  if$
 }
 
 FUNCTION {format.series.vol.num.booktitle}
