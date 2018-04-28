@@ -460,7 +460,7 @@ FUNCTION {format.doi}
       #0 'numnames :=
         { t empty$ not}
         { t #1 #1 substring$ 'tmp.str :=
-          tmp.str "," = tmp.str " " = or
+          tmp.str "," = tmp.str " " = or t #2 #1 substring$ empty$ or
             { s empty$ s is.doi.in.url or
                 'skip$
                 { numnames #1 + 'numnames :=
@@ -478,16 +478,6 @@ FUNCTION {format.doi}
           t #2 global.max$ substring$ 't :=
         }
       while$
-      s is.doi.in.url not
-        { numnames #1 + 'numnames :=
-          numnames #1 >
-            { ", " * }
-            'skip$
-          if$
-          "\doi{" s * "}" * *
-        }
-        'skip$
-      if$
       's :=
       s empty$ not
         { new.block s }
