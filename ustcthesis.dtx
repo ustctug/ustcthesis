@@ -3587,7 +3587,7 @@ FUNCTION {format.incoll.inproc.crossref}
 % The other entry functions are all quite similar, so no "comment version"
 % will be given for them.
 %
-% USTC requires period instead of a comma between author and year.
+% USTC requires a period instead of a comma between author and year.
 %
 % \subsection{专著}
 %
@@ -3649,6 +3649,7 @@ FUNCTION {incollection}
   format.authors "author" output.check
   author format.key output
 %<*authoryear>
+  new.sentence
   format.year "year" output.check
 %</authoryear>
   new.block

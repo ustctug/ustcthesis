@@ -1117,6 +1117,7 @@ FUNCTION {incollection}
 { output.bibitem
   format.authors "author" output.check
   author format.key output
+  new.sentence
   format.year "year" output.check
   new.block
   format.title "title" output.check
