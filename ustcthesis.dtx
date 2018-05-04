@@ -972,6 +972,7 @@ version 2005/12/01 or later.
 %   “\textcircled{\footnotesize{}1}”}
 % \changes{v3.0.1}{2017/12/12}{修正 subsubsection 的前后距离}
 % \changes{v3.0.8}{2018/04/21}{修正 subsection 的格式}
+% \changes{v3.0.9}{2018/05/04}{调整 subsubsection 的缩进}
 %
 %    \begin{macrocode}
 \setcounter{secnumdepth}{5}
@@ -1003,24 +1004,24 @@ version 2005/12/01 or later.
     format     = \sffamily\setfontsize{12\bp@},
     number     = \arabic{subsubsection},
     aftername  = .\space,
-    indent     = 3\ccwd,
+    indent     = 2\ccwd,
     beforeskip = 12\bp@,
     afterskip  = 6\bp@,
   },
   paragraph = {
-    format     = \sffamily\setfontsize{12\bp@},
-    number     = (\arabic{paragraph}),
+    format     = \rmfamily\setfontsize{12\bp@},
+    number     = （\arabic{paragraph}）,
     aftername  = \space,
-    indent     = 3\ccwd,
+    indent     = 2\ccwd,
     beforeskip = \z@,
     afterskip  = \z@,
     runin      = false,
   },
   subparagraph = {
-    format     = \sffamily\setfontsize{12\bp@},
+    format     = \rmfamily\setfontsize{12\bp@},
     number     = \ustc@textcircled{subparagraph},
     aftername  = \space,
-    indent     = 3\ccwd,
+    indent     = 2\ccwd,
     beforeskip = \z@,
     afterskip  = \z@,
     runin      = false,
@@ -1045,12 +1046,10 @@ version 2005/12/01 or later.
       indent    = \z@,
     },
     subsubsection = {
-      format    = {\rmfamily\setfontsize{12\bp@}},
+      format    = \rmfamily\setfontsize{12\bp@},
       indent    = \ccwd,
     },
     paragraph = {
-      format    = {\rmfamily\setfontsize{12\bp@}},
-      number    = （\arabic{paragraph}）,
       aftername = {},
       indent    = \ccwd,
     },
