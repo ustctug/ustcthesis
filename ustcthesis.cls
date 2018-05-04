@@ -18,7 +18,7 @@
 %% 
 \NeedsTeXFormat{LaTeX2e}[1999/12/01]
 \ProvidesClass{ustcthesis}
-  [2018/04/21 v3.0.8 USTC thesis template]
+  [2018/05/04 v3.0.9 USTC thesis template]
 \newif\if@ustc@doctor
 \newif\if@ustc@master
 \newif\if@ustc@bachelor
@@ -72,9 +72,29 @@
 }{
   \setmonofont[Scale=MatchLowercase]{Courier New}
 }
-\ifx\yahei\undefined\else
-  \setCJKsansfont{SimHei}%
-\fi
+\ExplSyntaxOn
+\newcommand\ustc@fontset{\g__ctex_fontset_tl}
+\ExplSyntaxOff
+\RequirePackage{xstring}
+\IfStrEq{\ustc@fontset}{mac}{
+  \setCJKmainfont[
+    UprightFont    = * Light,
+    BoldFont       = * Bold,
+    ItalicFont     = Kaiti SC,
+    BoldItalicFont = Kaiti SC Bold,
+  ]{Songti SC}
+  \setCJKsansfont{Heiti SC}
+}{\IfStrEq{\ustc@fontset}{windows}{
+  \setCJKmainfont[AutoFakeBold, ItalicFont=KaiTi]{SimSun}
+  \setCJKsansfont[AutoFakeBold]{SimHei}
+  \setCJKmonofont{FangSong}
+}{\IfStrEq{\ustc@fontset}{adobe}{
+  \setCJKmainfont[
+    AutoFakeBold,
+    ItalicFont=AdobeKaitiStd-Regular,
+  ]{AdobeSongStd-Light}
+  \setCJKsansfont[AutoFakeBold]{AdobeHeitiStd-Regular}
+}}}
 \RequirePackage{hyperref}
 \hypersetup{
   bookmarksopen=true,
@@ -222,7 +242,6 @@
     \ClassError{ustcthesis}{Cannot display more than 10 footnotes.}{}%
   \fi
   \ding{\the\numexpr\value{#1}+191\relax}}
-\RequirePackage{xstring}
 \newcommand\ustc@spacetitle[1]{%
   \StrLen{#1}[\titlelength]%
   \if@ustc@bachelor
@@ -385,7 +404,7 @@
   \else
     \renewcommand\ustc@thesisname{专业硕士学位论文}%
   \fi
-  \IfFileExists{/System/Library/Fonts/Times.ttc}{%
+  \IfStrEq{\ustc@fontset}{mac}{%
     \setCJKfamilyfont{zhli}{Baoli SC}%
     \newcommand\lishu{\CJKfamily{zhli}}%
   }{}

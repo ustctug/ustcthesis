@@ -53,7 +53,7 @@ version 2005/12/01 or later.
 %<class>\NeedsTeXFormat{LaTeX2e}[1999/12/01]
 %<class>\ProvidesClass{ustcthesis}
 %<*class>
-  [2018/04/21 v3.0.8 USTC thesis template]
+  [2018/05/04 v3.0.9 USTC thesis template]
 %</class>
 %
 %<*driver>
@@ -330,7 +330,7 @@ version 2005/12/01 or later.
 %
 %
 %
-% \section{论文参数设置}
+% \section{模板设置}
 %
 % \subsection{文档类参数}
 % \cls{ustcthesis} 提供了若干选项，应在论文开始时设置，如：
@@ -355,63 +355,64 @@ version 2005/12/01 or later.
 %                & \opt{super}        & 角标数字式参考文献引用标注，默认 \\
 %                & \opt{numbers}      & 数字式参考文献引用标注 \\
 %                & \opt{authoryear}   & 著者-出版年制参考文献 \\
+%                & \opt{arabic}       & 使用阿拉伯数字式章节标题（本科生）\\
 %     \bottomrule
 %   \end{tabular}
 %   \caption{文档类参数}
 %   \label{tab:options}
 % \end{table}
 %
-% 除了本模板的定义的选项，用户还可以使用其他参数，比如 \opt{fontset=fandol}，
-% 这些参数都将传给\cls{ctexbook}。
+% \subsection{字体设置}
+% \cls{ustcthesis} 是以 \pkg{XeTeX} + \pkg{fontspec} + \pkg{xeCJK}
+% 的方式来配置字体的，
+% 所以用户必须使用 UTF-8 编码保存源文件，并且用 |xelatex| 命令进行编译。
 %
-% \subsection{中文字体}
-% \cls{ustcthesis} 只以 \pkg{xeCJK} 的方式提供中文支持，不支持 CJK 方式，
-% 所以用户必须使用UTF-8 编码保存源文件，并且用 |xelatex| 命令进行编译。
-%
-% 默认情况下，本模板可以利用 \pkg{ctex} 宏包的功能自动检测用户的操作系统类型，
-% 并选择合适的中文字库。默认配置的策略如表~\ref{tab:fonts}：
+% 默认情况下，本模板可以自动检测用户的操作系统， 并配置合适的字体。
+% 默认配置的策略如表~\ref{tab:fonts}：
 % \begin{table}[htbp]
 %   \centering
-%   \begin{tabular}{cl}
+%   \begin{tabular}{cll}
 %     \toprule
-%       操作系统                 & 中文字库 \\
+%       字体类型 & Mac             & Windows \\
 %     \midrule
-%       macOS                    & 华文字库 \\
-%       Windows Vista 及以后版本 & 中易字库 + 微软雅黑 \\
-%       Windows XP 及以前版本    & 中易字库 \\
-%       其他                     & Fandol 字库 \\
+%       衬线体   & Times New Roman & Times New Roman \\
+%       非衬线体 & Arial           & Arial \\
+%       等宽体   & Menlo           & Courier New \\
+%       中文字体 & 华文字库        & 中易字库 \\
 %     \bottomrule
 %   \end{tabular}
 %   \caption{默认字体配置}
 %   \label{tab:fonts}
 % \end{table}
 %
-% 用户也可以在调用文档类时加入选项 \opt{fontset=\meta{font}} 来显式地指定加载的字库，参见 \pkg{ctex}、\pkg{fontspec} 宏包。
+% 对于中文字体，用户以在调用文档类时加入选项
+% \opt{fontset=mac/windows/adobe/founder} 指定加载的字库，
+% 也可以使用 \opt{fontset=none}，然后自行配置，
+% 详见 \pkg{ctex}、\pkg{xeCJK}、\pkg{fontspec} 等宏包的。
 %
-% \subsection{英文字体}
-% 模板中使用了三种英文，包括衬线字体 Times New Roman、无衬线字体 Arial 和等宽字体
-% Courier New 。Windows和Mac下自带这三种英文字体，Linux下则需要从其他地方复制字体到
-% 本机。
+% Linux 系统下可能缺失 Times New Roman 等西文字体，
+% 默认配置的中文字库 Fandol 也容易出现缺字的情况。
+% 我们建议 Linux 用户自行配置合适的字体。
 %
 %
 %
 % \section{论文内容}
 %
-% 本科论文的内容按如下顺序排列：
-% \begin{description}
-%   \item[封面] 中文封面，英文封面，原创性声明及授权使用说明
-%   \item[front matter] 致谢，目录，中、英文摘要
-%   \item[main matter] 正文章节，参考文献
-%   \item[appendix] 附录
-% \end{description}
-%
-% 硕博论文的内容按如下顺序排列：
+% 研究生论文的内t容按如下顺序排列：
 % \begin{description}
 %   \item[封面] 中文封面，英文封面，原创性声明及授权使用说明
 %   \item[front matter] 中、英文摘要，目录，图、表清单，符号说明
 %   \item[main matter] 正文章节，参考文献
 %   \item[appendix] 附录
 %   \item[back matter] 致谢，已发表论文列表
+% \end{description}
+%
+% 本科生论文的内容按如下顺序排列：
+% \begin{description}
+%   \item[封面] 中文封面，英文封面，原创性声明及授权使用说明
+%   \item[front matter] 致谢，目录，中、英文摘要
+%   \item[main matter] 正文章节，参考文献
+%   \item[appendix] 附录
 % \end{description}
 %
 % 示例文档 \file{main.tex} 中的致谢、目录等章节的顺序，是按照研究生论文的格式组
@@ -611,16 +612,6 @@ version 2005/12/01 or later.
 % 可选的语言有 english, chinese, japanese, russian，
 % 目前对日语和俄语的支持较为有限。
 %
-% 在使用 \BibTeX{} 时，默认会将标题域的第一个字母大写，其余小写。
-% 对于一些需要强制大写的专有名词（如人名“Riemann”），可以在 bib 数据库中将其用
-% 大括号括起来，比如：
-% \begin{latex}
-% @book{forster,
-%   ...
-%   title = {Lectures on {Riemann} surfaces},
-%   ...
-% \end{latex}
-%
 %
 %
 % \clearpage
@@ -706,12 +697,35 @@ version 2005/12/01 or later.
 }
 %    \end{macrocode}
 %
-% 中文字体由 \pkg{ctex} 自动设置，但是在 windowsnew 情况下需要取消使用微软雅黑
+% 中文字体可以由 \pkg{ctex} 自动设置，但是会有问题：
+% 1. 无衬线字体使用对打印不太友好的微软雅黑或者苹方；
+% 2. 没有粗体的字体不会开启伪粗；
+% 所以必须做一些调整。
 % \changes{v3.0.6}{2018/04/12}{取消使用微软雅黑}
 %    \begin{macrocode}
-\ifx\yahei\undefined\else
-  \setCJKsansfont{SimHei}%
-\fi
+\ExplSyntaxOn
+\newcommand\ustc@fontset{\g__ctex_fontset_tl}
+\ExplSyntaxOff
+\RequirePackage{xstring}
+\IfStrEq{\ustc@fontset}{mac}{
+  \setCJKmainfont[
+    UprightFont    = * Light,
+    BoldFont       = * Bold,
+    ItalicFont     = Kaiti SC,
+    BoldItalicFont = Kaiti SC Bold,
+  ]{Songti SC}
+  \setCJKsansfont{Heiti SC}
+}{\IfStrEq{\ustc@fontset}{windows}{
+  \setCJKmainfont[AutoFakeBold, ItalicFont=KaiTi]{SimSun}
+  \setCJKsansfont[AutoFakeBold]{SimHei}
+  \setCJKmonofont{FangSong}
+}{\IfStrEq{\ustc@fontset}{adobe}{
+  \setCJKmainfont[
+    AutoFakeBold,
+    ItalicFont=AdobeKaitiStd-Regular,
+  ]{AdobeSongStd-Light}
+  \setCJKsansfont[AutoFakeBold]{AdobeHeitiStd-Regular}
+}}}
 %    \end{macrocode}
 %
 % \subsection{超链接与书签}
@@ -945,7 +959,6 @@ version 2005/12/01 or later.
 % \changes{v3.0.1}{2017/12/12}{修正范数命令失效的错误}
 %
 %    \begin{macrocode}
-\RequirePackage{xstring}
 \newcommand\ustc@spacetitle[1]{%
   \StrLen{#1}[\titlelength]%
   \if@ustc@bachelor
@@ -1143,7 +1156,7 @@ version 2005/12/01 or later.
   \else
     \renewcommand\ustc@thesisname{专业硕士学位论文}%
   \fi
-  \IfFileExists{/System/Library/Fonts/Times.ttc}{%
+  \IfStrEq{\ustc@fontset}{mac}{%
     \setCJKfamilyfont{zhli}{Baoli SC}%
     \newcommand\lishu{\CJKfamily{zhli}}%
   }{}
@@ -1682,7 +1695,7 @@ version 2005/12/01 or later.
 % \changes{v3.0.2}{2017/03/16}{修正参考文献姓名的“others”}
 % \changes{v3.0.6}{2018/04/12}{参考文献页码的连接号改为 hyphen}
 % \changes{v3.0.7}{2018/04/18}{参考文献允许著录多个 DOI}
-% \changes{v3.0.9}{2018/04/28}{参考文献不再著录“出版地不详”等信息}
+% \changes{v3.0.9}{2018/05/04}{参考文献不再著录“出版地不详”等信息}
 %
 % 定义接口切换引用文献的标注法，可用 \cs{citestyle} 调用 \opt{super} 、
 % \opt{authoryear} 或 \opt{numbers}。
