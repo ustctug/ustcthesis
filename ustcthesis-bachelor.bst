@@ -1,5 +1,5 @@
 %%
-%% This is file `ustcbachelor.bst',
+%% This is file `ustcthesis-bachelor.bst',
 %% generated with the docstrip utility.
 %%
 %% The original source files were:

@@ -1,7 +1,7 @@
 MAIN = main
 NAME = ustcthesis
 CLSFILES = $(NAME).cls ustcextra.sty
-BSTFILES = ustcnumerical.bst ustcauthoryear.bst ustcbachelor.bst
+BSTFILES = ustcthesis-numerical.bst ustcthesis-authoryear.bst ustcthesis-bachelor.bst
 
 SHELL = bash
 LATEXMK = latexmk -xelatex -file-line-error -halt-on-error -interaction=nonstopmode -synctex=1
@@ -22,7 +22,7 @@ doc : $(NAME).pdf
 $(MAIN).pdf : $(MAIN).tex $(CLSFILES) $(BSTFILES) FORCE_MAKE
 	$(LATEXMK) $<
 
-%.cls %.bst : %.dtx
+%.cls %-numerical.bst %-authoryear.bst %-bachelor.bst : %.dtx
 	xetex $<
 
 $(NAME).pdf : $(NAME).dtx FORCE_MAKE
@@ -47,8 +47,7 @@ install : cls doc
 zip : main doc
 	ln -sf . $(NAME)
 	zip -r ../$(NAME)-$(VERSION).zip $(NAME)/{README.md,LICENSE,\
-	$(NAME).dtx,$(NAME).pdf,$(NAME).cls,figures,\
-	ustcnumerical.bst,ustcauthoryear.bst,ustcbachelor.bst,\
+	$(NAME).dtx,$(NAME).pdf,$(NAME).cls,$(NAME)-*.bst,figures,\
 	$(MAIN).tex,ustcextra.sty,chapters,bib,$(MAIN).pdf,\
 	latexmkrc,Makefile}
 	rm $(NAME)

@@ -753,10 +753,10 @@
 \newcommand\ustcbibstyle[1]{%
   \def\tmp@gbt{#1}%
   \ifx\tmp@gbt\tmp@numerical
-    \bibliographystyle{ustcnumerical}%
+    \bibliographystyle{ustcthesis-numerical}%
   \else
     \ifx\tmp@gbt\tmp@authoryear
-      \bibliographystyle{ustcauthoryear}%
+      \bibliographystyle{ustcthesis-authoryear}%
     \else
       \PackageError{ustcthesis}{Unknown argument #1.}%
       {It should be `numerical' or `authoryear'.}%
@@ -769,7 +769,7 @@
   \else
     \citestyle{numbers}
   \fi
-  \bibliographystyle{ustcbachelor}
+  \bibliographystyle{ustcthesis-bachelor}
 \else
   \if@ustc@numerical
     \if@ustc@super
@@ -777,10 +777,10 @@
     \else
       \citestyle{numbers}
     \fi
-    \bibliographystyle{ustcnumerical}
+    \bibliographystyle{ustcthesis-numerical}
   \else
     \citestyle{authoryear}
-    \bibliographystyle{ustcauthoryear}
+    \bibliographystyle{ustcthesis-authoryear}
   \fi
 \fi
 \patchcmd{\NAT@citexnum}{%

@@ -38,9 +38,9 @@ version 2005/12/01 or later.
 \nopostamble
 \generate{
   \file{\jobname.cls}{\from{\jobname.dtx}{class}}
-  \file{ustcnumerical.bst}{\from{\jobname.dtx}{numerical}}
-  \file{ustcauthoryear.bst}{\from{\jobname.dtx}{authoryear}}
-  \file{ustcbachelor.bst}{\from{\jobname.dtx}{bachelor,numerical}}
+  \file{\jobname-numerical.bst}{\from{\jobname.dtx}{numerical}}
+  \file{\jobname-authoryear.bst}{\from{\jobname.dtx}{authoryear}}
+  \file{\jobname-bachelor.bst}{\from{\jobname.dtx}{bachelor,numerical}}
 }
 \endbatchfile
 %</install>
@@ -136,7 +136,7 @@ version 2005/12/01 or later.
 \OnlyDescription
 
 \begin{document}
-  \DocInput{ustcthesis.dtx}
+  \DocInput{\jobname.dtx}
   \PrintIndex
 \end{document}
 %</driver>
@@ -184,7 +184,7 @@ version 2005/12/01 or later.
 %
 %
 %
-% \GetFileInfo{ustcthesis.dtx}
+% \GetFileInfo{\jobname.dtx}
 %
 % \title{\cls{ustcthesis} 使用说明}
 % \author{Zeping Lee\thanks{zepinglee AT gmail.com} \and
@@ -1719,10 +1719,10 @@ version 2005/12/01 or later.
 \newcommand\ustcbibstyle[1]{%
   \def\tmp@gbt{#1}%
   \ifx\tmp@gbt\tmp@numerical
-    \bibliographystyle{ustcnumerical}%
+    \bibliographystyle{ustcthesis-numerical}%
   \else
     \ifx\tmp@gbt\tmp@authoryear
-      \bibliographystyle{ustcauthoryear}%
+      \bibliographystyle{ustcthesis-authoryear}%
     \else
       \PackageError{ustcthesis}{Unknown argument #1.}%
       {It should be `numerical' or `authoryear'.}%
@@ -1740,7 +1740,7 @@ version 2005/12/01 or later.
   \else
     \citestyle{numbers}
   \fi
-  \bibliographystyle{ustcbachelor}
+  \bibliographystyle{ustcthesis-bachelor}
 \else
   \if@ustc@numerical
     \if@ustc@super
@@ -1748,10 +1748,10 @@ version 2005/12/01 or later.
     \else
       \citestyle{numbers}
     \fi
-    \bibliographystyle{ustcnumerical}
+    \bibliographystyle{ustcthesis-numerical}
   \else
     \citestyle{authoryear}
-    \bibliographystyle{ustcauthoryear}
+    \bibliographystyle{ustcthesis-authoryear}
   \fi
 \fi
 %    \end{macrocode}
