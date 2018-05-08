@@ -29,9 +29,9 @@
 
 - GitHub Releases：https://github.com/ustctug/ustcthesis/releases
 
-- 校内镜像：https://git.ustclug.org/ustctug/ustcthesis/tags
+- 校内镜像：https://git.ustclug.org/ustctug/ustcthesis
 
-- 研究生院网站：http://gradschool.ustc.edu.cn/ylb/xw.html
+- 研究生院网站（版本较旧，不推荐）：http://gradschool.ustc.edu.cn/ylb/xw.html
 
 
 ## 编译文档

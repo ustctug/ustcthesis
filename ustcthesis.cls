@@ -18,7 +18,7 @@
 %% 
 \NeedsTeXFormat{LaTeX2e}[1999/12/01]
 \ProvidesClass{ustcthesis}
-  [2018/05/04 v3.0.9 USTC thesis template]
+  [2018/05/04 v3.0.10 USTC thesis template]
 \newif\if@ustc@doctor
 \newif\if@ustc@master
 \newif\if@ustc@bachelor
@@ -33,7 +33,7 @@
 \DeclareOption{bachelor}{\@ustc@doctorfalse\@ustc@masterfalse\@ustc@bachelortrue}
 \DeclareOption{professional}{\@ustc@professionaltrue}
 \DeclareOption{chinese}{\@ustc@englishfalse}
-\DeclareOption{english}{\@ustc@englishtrue}
+\DeclareOption{english}{\@ustc@englishtrue\@ustc@arabictrue}
 \DeclareOption{print}{\@ustc@pdffalse}
 \DeclareOption{pdf}{\@ustc@pdftrue}
 \DeclareOption{super}{\@ustc@numericaltrue\@ustc@supertrue}

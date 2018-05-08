@@ -53,7 +53,7 @@ version 2005/12/01 or later.
 %<class>\NeedsTeXFormat{LaTeX2e}[1999/12/01]
 %<class>\ProvidesClass{ustcthesis}
 %<*class>
-  [2018/05/04 v3.0.9 USTC thesis template]
+  [2018/05/04 v3.0.10 USTC thesis template]
 %</class>
 %
 %<*driver>
@@ -637,7 +637,7 @@ version 2005/12/01 or later.
 \DeclareOption{bachelor}{\@ustc@doctorfalse\@ustc@masterfalse\@ustc@bachelortrue}
 \DeclareOption{professional}{\@ustc@professionaltrue}
 \DeclareOption{chinese}{\@ustc@englishfalse}
-\DeclareOption{english}{\@ustc@englishtrue}
+\DeclareOption{english}{\@ustc@englishtrue\@ustc@arabictrue}
 \DeclareOption{print}{\@ustc@pdffalse}
 \DeclareOption{pdf}{\@ustc@pdftrue}
 \DeclareOption{super}{\@ustc@numericaltrue\@ustc@supertrue}
