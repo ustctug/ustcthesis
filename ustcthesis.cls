@@ -73,28 +73,52 @@
   \setmonofont[Scale=MatchLowercase]{Courier New}
 }
 \ExplSyntaxOn
-\newcommand\ustc@fontset{\g__ctex_fontset_tl}
-\ExplSyntaxOff
 \RequirePackage{xstring}
-\IfStrEq{\ustc@fontset}{mac}{
-  \setCJKmainfont[
-    UprightFont    = * Light,
-    BoldFont       = * Bold,
-    ItalicFont     = Kaiti SC,
-    BoldItalicFont = Kaiti SC Bold,
-  ]{Songti SC}
-  \setCJKsansfont{Heiti SC}
-}{\IfStrEq{\ustc@fontset}{windows}{
-  \setCJKmainfont[AutoFakeBold, ItalicFont=KaiTi]{SimSun}
-  \setCJKsansfont[AutoFakeBold]{SimHei}
-  \setCJKmonofont{FangSong}
-}{\IfStrEq{\ustc@fontset}{adobe}{
-  \setCJKmainfont[
-    AutoFakeBold,
-    ItalicFont=AdobeKaitiStd-Regular,
-  ]{AdobeSongStd-Light}
-  \setCJKsansfont[AutoFakeBold]{AdobeHeitiStd-Regular}
-}}}
+\str_if_eq:onT { \g__ctex_fontset_tl } { mac }
+  {
+    \setCJKmainfont
+      [
+           UprightFont = *~Light,
+              BoldFont = *~Bold,
+            ItalicFont = Kaiti~SC,
+        BoldItalicFont = Kaiti~SC~Bold
+      ] { Songti~SC }
+    \setCJKsansfont { Heiti~SC }
+    \setCJKfamilyfont { zhsong }
+      [
+           UprightFont = *~Light,
+              BoldFont = *~Bold,
+      ] { Songti~SC }
+    \setCJKfamilyfont { zhhei } { Heiti~SC }
+    \setCJKfamilyfont { zhkai } { Kaiti~SC }
+  }
+\str_if_eq:onT { \g__ctex_fontset_tl } { windows }
+  {
+    \file_if_exist:nTF { C:/bootfont.bin }
+      {
+        \setCJKmainfont
+          [ AutoFakeBold , ItalicFont = KaiTi_GB2312 ] { SimSun }
+      }
+      {
+        \setCJKmainfont
+          [ AutoFakeBold , ItalicFont = KaiTi ] { SimSun }
+      }
+    \setCJKsansfont [ AutoFakeBold ] { SimHei }
+    \setCJKfamilyfont { zhsong } [ AutoFakeBold ] { SimSun }
+    \setCJKfamilyfont { zhhei }  [ AutoFakeBold ] { SimHei }
+  }
+\str_if_eq:onT { \g__ctex_fontset_tl } { adobe }
+  {
+    \setCJKmainfont
+      [
+        AutoFakeBold ,
+        ItalicFont = AdobeKaitiStd-Regular
+      ] { AdobeSongStd-Light }
+    \setCJKsansfont [ AutoFakeBold ] { AdobeHeitiStd-Regular}
+    \setCJKfamilyfont { zhsong } [ AutoFakeBold ] { AdobeSongStd-Light }
+    \setCJKfamilyfont { zhhei }  [ AutoFakeBold ] { AdobeHeitiStd-Regular }
+  }
+\ExplSyntaxOff
 \RequirePackage{hyperref}
 \hypersetup{
   bookmarksopen=true,
