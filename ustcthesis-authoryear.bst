@@ -461,7 +461,11 @@ FUNCTION {format.doi}
         { t empty$ not}
         { t #1 #1 substring$ 'tmp.str :=
           tmp.str "," = tmp.str " " = or t #2 #1 substring$ empty$ or
-            { s empty$ s is.doi.in.url or
+            { t #2 #1 substring$ empty$
+                { s tmp.str * 's := }
+                'skip$
+              if$
+              s empty$ s is.doi.in.url or
                 'skip$
                 { numnames #1 + 'numnames :=
                   numnames #1 >
