@@ -518,7 +518,7 @@
   \setfontsize{12\bp@}[20\bp@]%
   \vspace*{-0.15cm}%
   \begin{center}%
-    \setfontsize{16\bp@}\textbf{中国科学技术大学学位论文原创性声明}%
+    \setfontsize{16\bp@}\textsf{中国科学技术大学学位论文原创性声明}%
   \end{center}%
   \vskip 0.3cm\par
   \ustc@declaretext\par
@@ -528,7 +528,7 @@
   \end{tabular}%
   \vskip 2.6cm\par
   \begin{center}%
-    \setfontsize{16\bp@}\textbf{中国科学技术大学学位论文授权使用声明}%
+    \setfontsize{16\bp@}\textsf{中国科学技术大学学位论文授权使用声明}%
   \end{center}%
   \vskip 0.3cm\par
   \ustc@authorization\par
