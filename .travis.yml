@@ -1,34 +1,17 @@
 os:
   - linux
 
-sudo: required
+cache:
+  directories:
+    - /tmp/texlive
+    - $HOME/.texlive
 
 install:
-  - REMOTE="http://mirror.ctan.org/systems/texlive/tlnet"
-  - INSTALL="/tmp/install-texlive"
-  - mkdir -p $INSTALL
-  - curl -sSL $REMOTE/install-tl-unx.tar.gz | tar -xzv -C $INSTALL --strip-components=1
+  - rm -rf /tmp/texlive $HOME/.texlive
 
-  - echo "selected_scheme scheme-basic" >> $INSTALL/tl.profile
-  - echo "collection-basic 1" >> $INSTALL/tl.profile
-  - echo "collection-fontsrecommended 1" >> $INSTALL/tl.profile
-  - echo "collection-langchinese 1" >> $INSTALL/tl.profile
-  - echo "collection-latex 1" >> $INSTALL/tl.profile
-  - echo "collection-latexextra 1" >> $INSTALL/tl.profile
-  - echo "collection-latexrecommended 1" >> $INSTALL/tl.profile
-  - echo "collection-xetex 1" >> $INSTALL/tl.profile
-  - echo "tlpdbopt_autobackup 0" >> $INSTALL/tl.profile
-  - echo "tlpdbopt_install_docfiles 0" >> $INSTALL/tl.profile
-  - echo "tlpdbopt_install_srcfiles 0" >> $INSTALL/tl.profile
-
-  - sudo $INSTALL/install-tl -profile $INSTALL/tl.profile
-
-  - VERSION=$($INSTALL/install-tl --version | grep 'version' | grep -o '[0-9]\{4\}')
-  - PLATFORM=$($INSTALL/install-tl --print-platform)
-  - TEXBIN="/usr/local/texlive/${VERSION}/bin/${PLATFORM}"
-  - export PATH="$TEXBIN:$PATH"
-
-  - sudo $TEXBIN/tlmgr install algorithm2e latexmk ulem
+  - export PATH="/tmp/texlive/bin/x86_64-linux:$PATH"
+  - bash ./support/texlive.sh
+  - tlmgr update --self --all
 
 # English fonts: replace Windows only fonts to TeX default fonts
 before_script:
@@ -43,5 +26,7 @@ script:
   - sed -i 's/master/bachelor/' main.tex
   - make main
   - sed -i 's/bachelor/doctor,english/' main.tex
+  - make main
+  - sed -i 's/doctor,english/bachelor,english/' main.tex
   - make main
   - make doc
