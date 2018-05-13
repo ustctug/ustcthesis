@@ -411,27 +411,31 @@
   \fi
 }
 \if@ustc@doctor
-  \newcommand\ustc@thesisname{博士学位论文}%
-  \newcommand\ustc@enthesisname{A dissertation for doctor's degree}%
+  \newcommand\ustc@thesisname{博士学位论文}
+  \newcommand\ustc@enthesisname{A dissertation for doctor's degree}
 \else
   \if@ustc@master
-    \newcommand\ustc@thesisname{硕士学位论文}%
-    \newcommand\ustc@enthesisname{A dissertation for master's degree}%
+    \newcommand\ustc@thesisname{硕士学位论文}
+    \newcommand\ustc@enthesisname{A dissertation for master's degree}
   \else
-    \newcommand\ustc@thesisname{学士学位论文}%
-    \newcommand\ustc@enthesisname{A dissertation for bachelor's degree}%
+    \newcommand\ustc@thesisname{学士学位论文}
+    \newcommand\ustc@enthesisname{A dissertation for bachelor's degree}
   \fi
 \fi
 \if@ustc@professional
   \if@ustc@doctor
-    \renewcommand\ustc@thesisname{专业博士学位论文}%
+    \renewcommand\ustc@thesisname{专业博士学位论文}
   \else
-    \renewcommand\ustc@thesisname{专业硕士学位论文}%
+    \renewcommand\ustc@thesisname{专业硕士学位论文}
   \fi
-  \IfStrEq{\ustc@fontset}{mac}{%
-    \setCJKfamilyfont{zhli}{Baoli SC}%
-    \newcommand\lishu{\CJKfamily{zhli}}%
-  }{}
+  \ExplSyntaxOn
+  \str_if_eq:onTF { \g__ctex_fontset_tl } { mac }
+    {
+      \setCJKfamilyfont { zhli }{ Baoli~SC }
+      \providecommand\lishu{\CJKfamily{zhli}}
+    }
+    { \providecommand\lishu{\relax} }
+  \ExplSyntaxOff
   \newcommand\ustc@specialityname{专业领域}
 \else
   \newcommand\ustc@specialityname{学科专业}

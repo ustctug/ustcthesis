@@ -8,7 +8,6 @@ cache:
 
 install:
   - rm -rf /tmp/texlive $HOME/.texlive
-
   - export PATH="/tmp/texlive/bin/x86_64-linux:$PATH"
   - bash ./support/texlive.sh
   - tlmgr update --self --all
@@ -21,12 +20,14 @@ before_script:
 
 script:
   - make main
-  - sed -i 's/doctor/master/' main.tex
+  - sed -i 's/doctor/doctor,english/' main.tex
   - make main
-  - sed -i 's/master/bachelor/' main.tex
+  - sed -i 's/doctor,english/master/' main.tex
   - make main
-  - sed -i 's/bachelor/doctor,english/' main.tex
+  - sed -i 's/master/master,professional/' main.tex
   - make main
-  - sed -i 's/doctor,english/bachelor,english/' main.tex
+  - sed -i 's/master,professional/bachelor/' main.tex
+  - make main
+  - sed -i 's/bachelor/bachelor,english/' main.tex
   - make main
   - make doc
