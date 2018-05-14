@@ -1664,15 +1664,9 @@ version 2005/12/01 or later.
 }
 %    \end{macrocode}
 %
-% 使表的字号略小。
-% \changes{v3.0}{2017/07/01}{表格的字号略小}
-%    \begin{macrocode}
-% \BeforeBeginEnvironment{tabular}{\small}
-% \AtBeginEnvironment{longtable}{\small}
-%    \end{macrocode}
 % \begin{macro}{\note}
-% 新定义了 \cs{note} 来生成图标的附注。
-% 如果用 \cs{caption} 生成图标的附注会导致图标的序号有误；
+% 新定义了 \cs{note} 来生成图表的附注。
+% 如果用 \cs{caption} 生成图表的附注会导致图表的序号有误；
 % 如果用 \cs{bicaption} 会导致表注无法置于表后，而且对齐方式不对。
 %    \begin{macrocode}
 \newcommand\note[1]{%

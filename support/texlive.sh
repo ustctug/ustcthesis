@@ -9,3 +9,11 @@ if ! command -v tlmgr > /dev/null; then
     curl -sSL $REMOTE/install-tl-unx.tar.gz | tar -xzv -C $INSTALL --strip-components=1
     $INSTALL/install-tl -profile ./support/texlive.profile
 fi
+
+tlmgr install latexmk xetex
+
+tlmgr install algorithm2e booktabs caption cjk ctex environ etoolbox fontspec \
+footmisc ifoddpage l3kernel l3packages latexmk listings ms pgf relsize thumbpdf \
+titlesec trimspaces ulem was xcolor xecjk xetex xstring zhnumber \
+
+tlmgr install fandol symbol zapfding
