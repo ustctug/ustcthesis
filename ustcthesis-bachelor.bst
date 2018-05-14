@@ -268,27 +268,7 @@ FUNCTION {emphasize}
   if$
 }
 
-INTEGERS { ascii }
-
-FUNCTION {get.char.lang}
-{ chr.to.int$ 'ascii :=
-  ascii #64 > ascii #91 < and ascii #96 > ascii #123 < and or
-    { lang.en }
-    { ascii #227 > ascii #234 < and
-        { lang.zh }
-        { ascii #227 =
-            { lang.ja }
-            { ascii #207 > ascii #212 < and
-                { lang.ru }
-                { lang.en }
-              if$
-            }
-          if$
-        }
-      if$
-    }
-  if$
-}
+INTEGERS { byte second.byte }
 
 INTEGERS { char.lang tmp.lang }
 
@@ -297,29 +277,67 @@ STRINGS { tmp.str }
 FUNCTION {get.str.lang}
 { 'tmp.str :=
   lang.other 'tmp.lang :=
-  tmp.str empty$
-    { "Empty string!" warning$ }
-    { #1 'charptr :=
-      tmp.str text.length$ #1 + 'len :=
-        { charptr len < }
-        { tmp.str charptr #1 substring$ get.char.lang 'char.lang :=
-          char.lang tmp.lang >
-            { char.lang 'tmp.lang := }
-            'skip$
+  #1 'charptr :=
+  tmp.str text.length$ #1 + 'len :=
+    { charptr len < }
+    { tmp.str charptr #1 substring$ chr.to.int$ 'byte :=
+      byte #128 <
+        { charptr #1 + 'charptr :=
+          byte #64 > byte #91 < and byte #96 > byte #123 < and or
+            { lang.en 'char.lang := }
+            { lang.other 'char.lang := }
           if$
-
-          char.lang lang.zh = char.lang lang.ja = or
-            { charptr #3 + 'charptr := }
-            { char.lang lang.ru =
-                { charptr #2 + 'charptr := }
-                { charptr #1 + 'charptr := }
+        }
+        { tmp.str charptr #1 + #1 substring$ chr.to.int$ 'second.byte :=
+          byte #224 <
+            { charptr #2 + 'charptr :=
+              byte #207 > byte #212 < and
+              byte #212 = second.byte #176 < and or
+                { lang.ru 'char.lang := }
+                { lang.other 'char.lang := }
+              if$
+            }
+            { byte #240 <
+                { charptr #3 + 'charptr :=
+                  byte #227 > byte #234 < and
+                    { lang.zh 'char.lang := }
+                    { byte #227 =
+                        { second.byte #143 >
+                            { lang.zh 'char.lang := }
+                            { second.byte #128 > second.byte #132 < and
+                                { lang.ja 'char.lang := }
+                                { lang.other 'char.lang := }
+                              if$
+                            }
+                          if$
+                        }
+                        { byte #239 =
+                          second.byte #163 > second.byte #172 < and and
+                            { lang.zh 'char.lang := }
+                            { lang.other 'char.lang := }
+                          if$
+                        }
+                      if$
+                    }
+                  if$
+                }
+                { charptr #4 + 'charptr :=
+                  byte #240 = second.byte #159 > and
+                    { lang.zh 'char.lang := }
+                    { lang.other 'char.lang := }
+                  if$
+                }
               if$
             }
           if$
         }
-      while$
+      if$
+      char.lang tmp.lang >
+        { char.lang 'tmp.lang := }
+        'skip$
+      if$
     }
-  if$
+  while$
   tmp.lang
 }
 

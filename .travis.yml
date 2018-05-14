@@ -7,9 +7,10 @@ cache:
     - $HOME/.texlive
 
 install:
+  - rm -rf /tmp/texlive $HOME/.texlive
   - export PATH="/tmp/texlive/bin/x86_64-linux:$PATH"
   - bash ./support/texlive.sh
-  - tlmgr update --self --all
+  - tlmgr update --self --all −−no−auto−install
 
 # English fonts: replace Windows only fonts to TeX default fonts
 before_script:
