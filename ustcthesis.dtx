@@ -1670,8 +1670,8 @@ version 2005/12/01 or later.
 % 如果用 \cs{bicaption} 会导致表注无法置于表后，而且对齐方式不对。
 %    \begin{macrocode}
 \newcommand\note[1]{%
-  \captionsetup{position = bottom, font = small}%
-  \caption*{\hangindent=2\ccwd\relax\ustc@notesname\rmfamily#1}}
+  \captionsetup{position=bottom, font=small}%
+  \caption*{\raggedright\hangindent=2\ccwd\relax\ustc@notesname#1}}
 %    \end{macrocode}
 % \end{macro}
 %

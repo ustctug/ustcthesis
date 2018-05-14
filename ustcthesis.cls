@@ -757,8 +757,8 @@
   belowskip = 6\bp@,
 }
 \newcommand\note[1]{%
-  \captionsetup{position = bottom, font = small}%
-  \caption*{\hangindent=2\ccwd\relax\ustc@notesname\rmfamily#1}}
+  \captionsetup{position=bottom, font=small}%
+  \caption*{\raggedright\hangindent=2\ccwd\relax\ustc@notesname#1}}
 \renewcommand{\thefootnote}{\ustc@textcircled{footnote}}
 \RequirePackage[perpage]{footmisc}
 \renewcommand\footnoterule{%

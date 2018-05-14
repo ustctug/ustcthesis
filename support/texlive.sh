@@ -13,7 +13,9 @@ fi
 tlmgr install latexmk xetex
 
 tlmgr install algorithm2e booktabs caption cjk ctex environ etoolbox fontspec \
-footmisc ifoddpage l3kernel l3packages latexmk listings ms pgf relsize thumbpdf \
-titlesec trimspaces ulem was xcolor xecjk xetex xstring zhnumber \
+footmisc ifoddpage l3kernel l3packages listings ms pgf relsize thumbpdf \
+titlesec trimspaces ulem was xcolor xecjk xstring zhnumber
 
 tlmgr install fandol symbol zapfding
+
+tlmgr update --self --all −−no−auto−install
