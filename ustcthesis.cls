@@ -740,13 +740,11 @@
 \setlength{\parindent}{2\ccwd}
 \setlength{\parskip}{\z@}
 \RequirePackage{upgreek}
-\renewcommand\pi{\uppi}
 \RequirePackage{amssymb}
 \renewcommand\le{\leqslant}
 \renewcommand\leq{\leqslant}
 \renewcommand\ge{\geqslant}
 \renewcommand\geq{\geqslant}
-\DeclareMathSizes{10.5bp}{10.5bp}{7.35bp}{5.25bp}
 \renewcommand{\topfraction}{.85}
 \renewcommand{\bottomfraction}{.65}
 \renewcommand\textfraction{.15}

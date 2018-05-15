@@ -1631,7 +1631,6 @@ version 2005/12/01 or later.
 % \changes{v3.0}{2017/07/01}{规定了 $\pi$ 等数学符号使用正体}
 %    \begin{macrocode}
 \RequirePackage{upgreek}
-\renewcommand\pi{\uppi}
 %    \end{macrocode}
 %
 % 小于等于号要使用倾斜的形式。
@@ -1642,12 +1641,6 @@ version 2005/12/01 or later.
 \renewcommand\leq{\leqslant}
 \renewcommand\ge{\geqslant}
 \renewcommand\geq{\geqslant}
-%    \end{macrocode}
-%
-% \LaTeX{} 在使用 |10pt| 选项时有 |DeclareMathSizes}{\@xpt}{\@xpt}{7}{5}}|，
-% 这里按照相同的比例设置 10.5 bp。
-%    \begin{macrocode}
-\DeclareMathSizes{10.5bp}{10.5bp}{7.35bp}{5.25bp}
 %    \end{macrocode}
 %
 % \subsection{图、表}
