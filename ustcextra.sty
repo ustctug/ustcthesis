@@ -33,6 +33,8 @@
   \newcommand\ustc@remarkname{Remark}
   \newcommand\ustc@theoremname{Theorem}
 \else
+  \renewcommand\listfigurename{插图索引}
+  \renewcommand\listtablename{表格索引}
   \newcommand\ustc@assertionname{断言}
   \newcommand\ustc@axiomname{公理}
   \newcommand\ustc@corollaryname{推论}
@@ -43,6 +45,21 @@
   \newcommand\ustc@propositionname{命题}
   \newcommand\ustc@remarkname{注}
   \newcommand\ustc@theoremname{定理}
+  \def\equationautorefname~#1\null{公式~(#1)\null}%
+  \def\footnoteautorefname{脚注}%
+  \def\itemautorefname~#1\null{第~#1~项\null}%
+  \def\figureautorefname{图}%
+  \def\tableautorefname{表}%
+  \def\partautorefname~#1\null{第~#1~部分\null}%
+  \def\appendixautorefname{附录}%
+  \def\chapterautorefname~#1\null{第~#1~章\null}%
+  \def\sectionautorefname~#1\null{第~#1~节\null}%
+  \def\subsectionautorefname~#1\null{第~#1~小节\null}%
+  \def\subsubsectionautorefname~#1\null{第~#1~小小节\null}%
+  \def\paragraphautorefname~#1\null{第~#1~段\null}%
+  \def\subparagraphautorefname~#1\null{第~#1~小段\null}%
+  \def\theoremautorefname{定理}%
+  \def\pageautorefname~#1\null{第~#1~页\null}%
 \fi
 \newtheorem{theorem}                {\ustc@theoremname}     [chapter]
 \newtheorem{assertion}  [theorem]   {\ustc@assertionname}
