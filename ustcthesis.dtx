@@ -202,7 +202,8 @@ version 2005/12/01 or later.
 % 和《\href{http://www.teach.ustc.edu.cn/document/doc-administration/4032.html}
 % {关于本科毕业论文（设计）格式和统一封面的通知}》 的要求编写。
 %
-% 其前身是中国科学技术大学本科论文模板（作者 XPS，最后维护 ywg）和中国科学技术大学研究生论文
+% 其前身是中国科学技术大学本科论文模板（作者 XPS，最后维护 ywg）
+% 和中国科学技术大学研究生论文
 % 模板（作者 Liuqs，主要维护 Liuqs、Guolicai）。
 % 后来两模板进行了整合梳理，由 ywg 维护。
 % 2015 年，seisman 和 zepinglee 基于 \pkg{ctex} 2.0 重新编写了模板。
@@ -723,7 +724,7 @@ version 2005/12/01 or later.
 }
 %    \end{macrocode}
 %
-% 如果为 |pdf| 样式，设置 hyperlink 颜色
+% 如果为 \opt{pdf} 样式，设置 hyperlink 颜色
 %    \begin{macrocode}
 \if@ustc@pdf
   \hypersetup{
@@ -736,7 +737,7 @@ version 2005/12/01 or later.
 %    \begin{macrocode}
 \urlstyle{same}
 \pdfstringdefDisableCommands{
-  \let\\\empty%
+  \let\\\empty
 }
 %    \end{macrocode}
 %
@@ -1165,9 +1166,9 @@ version 2005/12/01 or later.
         [below right,align=left] {%
           \ustc@setfontsize{16\bp@}{32\bp@}%
           \begin{tabular}{@{}l@{\hspace{\ccwd}}l@{}}%
-            \textsf{作者姓名：} & \ustc@author \\%
-            \textsf{\ustc@specialityname：} & \ustc@major \\%
-            \textsf{导师姓名：} & \ustc@supervisor\quad\ustc@cosupervisor \\%
+            \textsf{作者姓名：} & \ustc@author \\
+            \textsf{\ustc@specialityname：} & \ustc@major \\
+            \textsf{导师姓名：} & \ustc@supervisor\quad\ustc@cosupervisor \\
             \textsf{完成时间：} & \ustc@date%
           \end{tabular}};%
   \end{titlepage}}
@@ -1219,10 +1220,10 @@ version 2005/12/01 or later.
       \node [xshift=4.4cm,yshift=-20.2cm] at (current page.north west)%
         [below right,align=left] {%
           \ustc@setfontsize{16\bp@}{30\bp@}%
-          \begin{tabular}{@{}l@{}}%
-            Author:        \ustc@enauthor \\%
-            Speciality:    \ustc@enmajor \\%
-            \ustc@supervisorline \\%
+          \begin{tabular}{@{}l@{}}
+            Author:        \ustc@enauthor \\
+            Speciality:    \ustc@enmajor \\
+            \ustc@supervisorline \\
             Finished time: \ustc@endate%
           \end{tabular}};%
   \end{titlepage}}
@@ -1294,27 +1295,15 @@ version 2005/12/01 or later.
 %
 % \subsection{章节标题}
 %
-% 用 \pkg{ctex} 的接口设置全局的章节标题格式，注意由于 \pkg{ctex} 2.1 以下版本的 bug，
-% chapter 的 nameformat 和 titleformat 的这两行必须置空。
-%
-% \pkg{ctex} 2.4.3 以下版本的bug会导致章节标题前后的距离的实际值偏大，
-% 临时的解决方案是手动调整，偏移值为beforeskip=-31bp, afterskip=-10bp。
-% 但是\pkg{ctex} 2.2 前的beforeskip的符号有特殊意义，所以临时解决方案只用于
-% \pkg{ctex} 2.2 以及以上版本。
-%
-% 首先设置带圈的数字：
-%
+% 标题最多允许使用五级。
 %    \begin{macrocode}
-\def\ustc@textcircled#1{%
-  \ifnum\value{#1}>9\relax
-    \ClassError{ustcthesis}{Cannot display more than 10 footnotes.}{}%
-  \fi
-  \ding{\the\numexpr\value{#1}+191\relax}}
+\setcounter{secnumdepth}{5}
 %    \end{macrocode}
 %
+% \begin{macro}{\ustc@spacetitle}
 % 研究生规定章题为两字时中间空两字，三字时空一字，四字时空半字，四字以上不空。
-% 另外，\pkg{stringstrings} 宏包会导致范数命令 \verb+\|+ 被修改，所以用
-% \pkg{xstring}。
+% 这里用 \pkg{xstring} 宏包的 \cs{StrLen} 来判断字数。
+% 注意，\pkg{stringstrings} 宏包会导致范数命令 \verb+\|+ 被修改。
 % \changes{v3.0}{2017/07/01}{章题为两字时中间空两字，三字时空一字，
 % 四字时空半字，四字以上不空}
 % \changes{v3.0.1}{2017/12/12}{修正范数命令失效的错误}
@@ -1337,9 +1326,25 @@ version 2005/12/01 or later.
     \fi
   \fi#1}
 %    \end{macrocode}
+% \end{macro}
 %
-% 另外摘要、参考文献等章节在底层也是用 \cs{chapter} 实现的。
-% 这一部分以后可能重新实现 \cs{chapter}。
+% \begin{macro}{\ustc@textcircled}
+% 五级节标题和脚注需要使用带圈的数字，这里使用 \pkg{pifont} 宏包的 \cs{ding}：
+%    \begin{macrocode}
+\def\ustc@textcircled#1{%
+  \ifnum\value{#1}>9\relax
+    \ClassError{ustcthesis}{Cannot display more than 10 footnotes.}{}%
+  \fi
+  \ding{\the\numexpr\value{#1}+191\relax}}
+%    \end{macrocode}
+% \end{macro}
+%
+% 用 \pkg{ctex} 的接口设置全部章节标题格式。
+%
+% \pkg{ctex} 2.4.3 以下版本的bug会导致章节标题前后的距离的实际值偏大，
+% 临时的解决方案是手动调整，偏移值为beforeskip=-31bp, afterskip=-10bp。
+% 但是\pkg{ctex} 2.2 前的beforeskip的符号有特殊意义，
+% 所以要求 \pkg{ctex} 不低于 2.2 版本。
 % \changes{v3.0}{2017/07/01}{新增二级以下节标题的缩进}
 % \changes{v3.0}{2017/07/01}{二级以下节标题编号下采用“1.”、“(1)”、
 %   “\textcircled{\footnotesize{}1}”}
@@ -1450,7 +1455,12 @@ version 2005/12/01 or later.
 \fi
 %    \end{macrocode}
 %
-%
+% \begin{macro}{\ustc@chapter}
+% 默认的 \cs{chapter*} 生成的章标题没有编号、不更改页眉，
+% 也不添加进目录或 PDF 书签。
+% 然而像摘要、目录、符号说明这样的章节，它们不需要编号、不加入目录，
+% 但是需要修改页眉，并且加入 PDF 标签。
+% 所以我们新定义 \cs{ustc@chapter} 用于处理这些章节。%
 %    \begin{macrocode}
 \newcounter{ustc@pdfbookmark}
 \NewDocumentCommand\ustc@chapter{o m}{%
@@ -1465,7 +1475,9 @@ version 2005/12/01 or later.
   }%
   \chapter*{#2}}
 %    \end{macrocode}
+% \end{macro}
 %
+% \begin{macro}{\ustc@chapter}
 % 处理本科生在目录中添加空行。
 %    \begin{macrocode}
 \renewcommand\chapter{%
@@ -1487,20 +1499,21 @@ version 2005/12/01 or later.
   \secdef\@chapter\@schapter
 }
 %    \end{macrocode}
+% \end{macro}
 %
 %
 % \subsection{摘要}
 %
 % \begin{environment}{abstract}
 % 中文摘要环境。
-% 判断 |\ustc@toc@loaded| 是为了防止本科生未调整摘要位置时的目录页码缺失。
+% 判断 \cs{ustc@toc@loaded} 是为了防止本科生未调整摘要位置时的目录页码缺失。
 % \changes{v3.0}{2017/07/01}{摘要关键词间隔符号改用分号}
 % \changes{v3.0}{2017/07/01}{摘要不再加入目录}
 %    \begin{macrocode}
 \newenvironment{abstract}{%
   \if@ustc@bachelor
     \chapter{中文内容摘要}%
-    \ifx\ustc@toc@loaded\undefined
+    \ifx\ustc@tocloaded\undefined
       需要将摘要的位置调整到目录后。\par
       \pagenumbering{Roman}%
     \fi
@@ -1550,7 +1563,7 @@ version 2005/12/01 or later.
   \cleardoublepage
   \if@ustc@bachelor
     \pagenumbering{arabic}%
-    \def\ustc@toc@loaded{}%
+    \def\ustc@tocloaded{}%
   \fi
   \ustc@chapter{\contentsname}%
   \@starttoc{toc}}
@@ -1682,8 +1695,7 @@ version 2005/12/01 or later.
 % 所以必须使用额外的宏包。
 % 其中 zref-perpage 包含在 collection-latex 中，最为推荐，
 % 然而在此处直接似乎不能生效。
-%    \begin{macrocode}
-%    \end{macrocode}
+% 所以我们使用 \pkg{footmisc} 宏包。
 %
 % 脚注线长为版心宽度的四分之一：
 % \changes{v3.0}{2017/07/01}{脚注线长度为版心宽度四分之一}
@@ -1697,7 +1709,7 @@ version 2005/12/01 or later.
 % 注文缩进两字：
 %    \begin{macrocode}
 \renewcommand\@makefntext[1]{%
-  \parindent 2\ccwd%
+  \parindent 2\ccwd\relax
   \noindent
   \hb@xt@2\ccwd{\hss\@makefnmark}#1}
 %    \end{macrocode}
@@ -1917,13 +1929,13 @@ version 2005/12/01 or later.
 % 将 URL 设置为保持原样，并增加可断行的位置。
 %    \begin{macrocode}
 \g@addto@macro\UrlBreaks{%
-  \do\a\do\b\do\c\do\d\do\e\do\f\do\g\do\h\do\i\do\j%
-  \do\k\do\l\do\m\do\n\do\o\do\p\do\q\do\r\do\s\do\t%
-  \do\u\do\v\do\w\do\x\do\y\do\z%
-  \do\A\do\B\do\C\do\D\do\E\do\F\do\G\do\H\do\I\do\J%
-  \do\K\do\L\do\M\do\N\do\O\do\P\do\Q\do\R\do\S\do\T%
-  \do\U\do\V\do\W\do\X\do\Y\do\Z%
-  \do\1\do\2\do\3\do\4\do\5\do\6\do\7\do\8\do\9\do\0%
+  \do\a\do\b\do\c\do\d\do\e\do\f\do\g\do\h\do\i\do\j
+  \do\k\do\l\do\m\do\n\do\o\do\p\do\q\do\r\do\s\do\t
+  \do\u\do\v\do\w\do\x\do\y\do\z
+  \do\A\do\B\do\C\do\D\do\E\do\F\do\G\do\H\do\I\do\J
+  \do\K\do\L\do\M\do\N\do\O\do\P\do\Q\do\R\do\S\do\T
+  \do\U\do\V\do\W\do\X\do\Y\do\Z
+  \do\1\do\2\do\3\do\4\do\5\do\6\do\7\do\8\do\9\do\0
 }
 %    \end{macrocode}
 %
@@ -1946,7 +1958,7 @@ version 2005/12/01 or later.
 \newenvironment{acknowledgements}{%
   \if@ustc@bachelor
     \ustc@chapter{\ustc@acknowledgementsname}%
-    \ifx\ustc@toc@loaded\undefined\else
+    \ifx\ustc@tocloaded\undefined\else
       需要将致谢的位置调整到目录前。\par
     \fi
   \else

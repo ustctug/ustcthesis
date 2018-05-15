@@ -96,7 +96,7 @@
 \fi
 \urlstyle{same}
 \pdfstringdefDisableCommands{
-  \let\\\empty%
+  \let\\\empty
 }
 \setmainfont{Times New Roman}
 \setsansfont{Arial}
@@ -399,9 +399,9 @@
         [below right,align=left] {%
           \ustc@setfontsize{16\bp@}{32\bp@}%
           \begin{tabular}{@{}l@{\hspace{\ccwd}}l@{}}%
-            \textsf{作者姓名：} & \ustc@author \\%
-            \textsf{\ustc@specialityname：} & \ustc@major \\%
-            \textsf{导师姓名：} & \ustc@supervisor\quad\ustc@cosupervisor \\%
+            \textsf{作者姓名：} & \ustc@author \\
+            \textsf{\ustc@specialityname：} & \ustc@major \\
+            \textsf{导师姓名：} & \ustc@supervisor\quad\ustc@cosupervisor \\
             \textsf{完成时间：} & \ustc@date%
           \end{tabular}};%
   \end{titlepage}}
@@ -443,10 +443,10 @@
       \node [xshift=4.4cm,yshift=-20.2cm] at (current page.north west)%
         [below right,align=left] {%
           \ustc@setfontsize{16\bp@}{30\bp@}%
-          \begin{tabular}{@{}l@{}}%
-            Author:        \ustc@enauthor \\%
-            Speciality:    \ustc@enmajor \\%
-            \ustc@supervisorline \\%
+          \begin{tabular}{@{}l@{}}
+            Author:        \ustc@enauthor \\
+            Speciality:    \ustc@enmajor \\
+            \ustc@supervisorline \\
             Finished time: \ustc@endate%
           \end{tabular}};%
   \end{titlepage}}
@@ -494,11 +494,7 @@
     签字日期：\ustc@underline[7.4em]{} & 签字日期：\ustc@underline[7.4em]{} \\
   \end{tabular}}%
 }
-\def\ustc@textcircled#1{%
-  \ifnum\value{#1}>9\relax
-    \ClassError{ustcthesis}{Cannot display more than 10 footnotes.}{}%
-  \fi
-  \ding{\the\numexpr\value{#1}+191\relax}}
+\setcounter{secnumdepth}{5}
 \newcommand\ustc@spacetitle[1]{%
   \StrLen{#1}[\titlelength]%
   \if@ustc@bachelor
@@ -516,6 +512,11 @@
       \fi
     \fi
   \fi#1}
+\def\ustc@textcircled#1{%
+  \ifnum\value{#1}>9\relax
+    \ClassError{ustcthesis}{Cannot display more than 10 footnotes.}{}%
+  \fi
+  \ding{\the\numexpr\value{#1}+191\relax}}
 \setcounter{secnumdepth}{5}
 \ctexset{
   chapter = {
@@ -645,7 +646,7 @@
 \newenvironment{abstract}{%
   \if@ustc@bachelor
     \chapter{中文内容摘要}%
-    \ifx\ustc@toc@loaded\undefined
+    \ifx\ustc@tocloaded\undefined
       需要将摘要的位置调整到目录后。\par
       \pagenumbering{Roman}%
     \fi
@@ -669,7 +670,7 @@
   \cleardoublepage
   \if@ustc@bachelor
     \pagenumbering{arabic}%
-    \def\ustc@toc@loaded{}%
+    \def\ustc@tocloaded{}%
   \fi
   \ustc@chapter{\contentsname}%
   \@starttoc{toc}}
@@ -747,7 +748,7 @@
   \hrule\@width.25\textwidth
   \kern2.6\p@}
 \renewcommand\@makefntext[1]{%
-  \parindent 2\ccwd%
+  \parindent 2\ccwd\relax
   \noindent
   \hb@xt@2\ccwd{\hss\@makefnmark}#1}
 \renewcommand{\topfraction}{.85}
@@ -860,13 +861,13 @@
 \setlength{\bibhang}{2\ccwd}
 \renewcommand\@biblabel[1]{[#1]\hfill}
 \g@addto@macro\UrlBreaks{%
-  \do\a\do\b\do\c\do\d\do\e\do\f\do\g\do\h\do\i\do\j%
-  \do\k\do\l\do\m\do\n\do\o\do\p\do\q\do\r\do\s\do\t%
-  \do\u\do\v\do\w\do\x\do\y\do\z%
-  \do\A\do\B\do\C\do\D\do\E\do\F\do\G\do\H\do\I\do\J%
-  \do\K\do\L\do\M\do\N\do\O\do\P\do\Q\do\R\do\S\do\T%
-  \do\U\do\V\do\W\do\X\do\Y\do\Z%
-  \do\1\do\2\do\3\do\4\do\5\do\6\do\7\do\8\do\9\do\0%
+  \do\a\do\b\do\c\do\d\do\e\do\f\do\g\do\h\do\i\do\j
+  \do\k\do\l\do\m\do\n\do\o\do\p\do\q\do\r\do\s\do\t
+  \do\u\do\v\do\w\do\x\do\y\do\z
+  \do\A\do\B\do\C\do\D\do\E\do\F\do\G\do\H\do\I\do\J
+  \do\K\do\L\do\M\do\N\do\O\do\P\do\Q\do\R\do\S\do\T
+  \do\U\do\V\do\W\do\X\do\Y\do\Z
+  \do\1\do\2\do\3\do\4\do\5\do\6\do\7\do\8\do\9\do\0
 }
 \renewcommand\bibsection{%
   \@mainmatterfalse
@@ -876,7 +877,7 @@
 \newenvironment{acknowledgements}{%
   \if@ustc@bachelor
     \ustc@chapter{\ustc@acknowledgementsname}%
-    \ifx\ustc@toc@loaded\undefined\else
+    \ifx\ustc@tocloaded\undefined\else
       需要将致谢的位置调整到目录前。\par
     \fi
   \else
