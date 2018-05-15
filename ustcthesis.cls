@@ -119,6 +119,85 @@
     \setCJKfamilyfont { zhhei }  [ AutoFakeBold ] { AdobeHeitiStd-Regular }
   }
 \ExplSyntaxOff
+\newdimen\bp@ \bp@=1bp
+\if@ustc@bachelor
+  \renewcommand\normalsize{%
+    \@setfontsize\normalsize{12\bp@}{22\bp@}%
+    \abovedisplayskip 12\bp@ \@plus3\bp@ \@minus7\bp@
+    \abovedisplayshortskip \z@ \@plus3\bp@
+    \belowdisplayshortskip 6.5\bp@ \@plus3.5\bp@ \@minus3\bp@
+    \belowdisplayskip \abovedisplayskip
+    \let\@listi\@listI}
+  \normalsize
+  \renewcommand\small{%
+    \@setfontsize\small{10.5\bp@}{19.25\bp@}%
+    \abovedisplayskip 10.5\bp@ \@plus3\bp@ \@minus6\bp@
+    \abovedisplayshortskip \z@ \@plus3\bp@
+    \belowdisplayshortskip 6.5\bp@ \@plus3.5\bp@ \@minus3\bp@
+    \def\@listi{\leftmargin\leftmargini
+                \topsep 9\bp@ \@plus3\bp@ \@minus5\bp@
+                \parsep 4.5\bp@ \@plus2\bp@ \@minus\bp@
+                \itemsep \parsep}%
+    \belowdisplayskip \abovedisplayskip
+  }
+  \renewcommand\footnotesize{%
+    \@setfontsize\footnotesize{9\bp@}{16.5\bp@}%
+    \abovedisplayskip 9\bp@ \@plus2\bp@ \@minus5\bp@
+    \abovedisplayshortskip \z@ \@plus3\bp@
+    \belowdisplayshortskip 6\bp@ \@plus3\bp@ \@minus3\bp@
+    \def\@listi{\leftmargin\leftmargini
+                \topsep 6\bp@ \@plus2\bp@ \@minus2\bp@
+                \parsep 3\bp@ \@plus2\bp@ \@minus\bp@
+                \itemsep \parsep}%
+    \belowdisplayskip \abovedisplayskip
+  }
+  \renewcommand\scriptsize{\@setfontsize\scriptsize{7.5\bp@}{13.75\bp@}}
+  \renewcommand\tiny{\@setfontsize\tiny{6.5\bp@}{11.92\bp@}}
+  \renewcommand\large{\@setfontsize\large{15\bp@}{27.5\bp@}}
+  \renewcommand\Large{\@setfontsize\Large{18\bp@}{33\bp@}}
+  \renewcommand\LARGE{\@setfontsize\LARGE{22\bp@}{40.33\bp@}}
+  \renewcommand\huge{\@setfontsize\huge{24\bp@}{44\bp@}}
+  \renewcommand\Huge{\@setfontsize\Huge{26\bp@}{47.67\bp@}}
+\else
+  \renewcommand\normalsize{%
+    \@setfontsize\normalsize{12\bp@}{20\bp@}%
+    \abovedisplayskip 12\bp@ \@plus3\bp@ \@minus7\bp@
+    \abovedisplayshortskip \z@ \@plus3\bp@
+    \belowdisplayshortskip 6.5\bp@ \@plus3.5\bp@ \@minus3\bp@
+    \belowdisplayskip \abovedisplayskip
+    \let\@listi\@listI}
+  \normalsize
+  \renewcommand\small{%
+    \@setfontsize\small{10.5\bp@}{17.5\bp@}%
+    \abovedisplayskip 10.5\bp@ \@plus3\bp@ \@minus6\bp@
+    \abovedisplayshortskip \z@ \@plus3\bp@
+    \belowdisplayshortskip 6.5\bp@ \@plus3.5\bp@ \@minus3\bp@
+    \def\@listi{\leftmargin\leftmargini
+                \topsep 9\bp@ \@plus3\bp@ \@minus5\bp@
+                \parsep 4.5\bp@ \@plus2\bp@ \@minus\bp@
+                \itemsep \parsep}%
+    \belowdisplayskip \abovedisplayskip
+  }
+  \renewcommand\footnotesize{%
+     \@setfontsize\footnotesize{9\bp@}{15\bp@}%
+     \abovedisplayskip 9\bp@ \@plus2\bp@ \@minus5\bp@
+     \abovedisplayshortskip \z@ \@plus3\bp@
+     \belowdisplayshortskip 6\bp@ \@plus3\bp@ \@minus3\bp@
+     \def\@listi{\leftmargin\leftmargini
+                 \topsep 6\bp@ \@plus2\bp@ \@minus2\bp@
+                 \parsep 3\bp@ \@plus2\bp@ \@minus\bp@
+                 \itemsep \parsep}%
+     \belowdisplayskip \abovedisplayskip
+  }
+  \renewcommand\scriptsize{\@setfontsize\scriptsize{7.5\bp@}{12.5\bp@}}
+  \renewcommand\tiny{\@setfontsize\tiny{6.5\bp@}{10.83\bp@}}
+  \renewcommand\large{\@setfontsize\large{15\bp@}{25\bp@}}
+  \renewcommand\Large{\@setfontsize\Large{18\bp@}{30\bp@}}
+  \renewcommand\LARGE{\@setfontsize\LARGE{22\bp@}{36.67\bp@}}
+  \renewcommand\huge{\@setfontsize\huge{24\bp@}{40\bp@}}
+  \renewcommand\Huge{\@setfontsize\Huge{26\bp@}{43.33\bp@}}
+\fi
+\linespread{1}
 \RequirePackage{hyperref}
 \hypersetup{
   bookmarksopen=true,
@@ -144,8 +223,8 @@
     pdfauthor={\ustc@author}
   }
 }
-\RequirePackage{xparse}
-\NewDocumentCommand\setfontsize{mo}{\IfValueTF{#2}{\fontsize{#1}{#2}}{\fontsize{#1}{2\dimexpr#1}}\linespread{1}\selectfont\relax}
+\newcommand\ustc@setfontsize[2]{%
+  \fontsize{#1}{#2}\selectfont}
 \newcommand\zhspace[1][1]{\hspace{#1\ccwd}}
 \newcommand\ustc@underline[2][6em]{%
   \hskip1pt\underline{\hb@xt@ #1{\hss#2\hss}}\hskip3pt\relax
@@ -215,13 +294,13 @@
 \if@ustc@bachelor
   \fancypagestyle{ustc@headings}{%
     \fancyhf{}%
-    \fancyhead[C]{\setfontsize{9\bp@}中国科学技术大学本科毕业论文}%
-    \fancyfoot[C]{\setfontsize{9\bp@}\thepage}}%
+    \fancyhead[C]{\ustc@setfontsize{9\bp@}{18\bp@}中国科学技术大学本科毕业论文}%
+    \fancyfoot[C]{\ustc@setfontsize{9\bp@}{18\bp@}\thepage}}%
 \else
   \fancypagestyle{ustc@headings}{%
     \fancyhf{}%
-    \fancyhead[C]{\setfontsize{10.5\bp@}\leftmark}%
-    \fancyfoot[C]{\setfontsize{10.5\bp@}\thepage}}%
+    \fancyhead[C]{\ustc@setfontsize{10.5\bp@}{21\bp@}\leftmark}%
+    \fancyfoot[C]{\ustc@setfontsize{10.5\bp@}{21\bp@}\thepage}}%
 \fi
 \fancypagestyle{ustc@notation}{\fancyfoot{}}
 \pagestyle{ustc@headings}
@@ -250,9 +329,11 @@
   \@afterindenttrue
   \if@ustc@bachelor
     \if@mainmatter
-      \ctexset{chapter/format = \centering\sffamily\setfontsize{16\bp@}}%
+      \ctexset{chapter/format =
+        \centering\sffamily\ustc@setfontsize{16\bp@}{32\bp@}}%
     \else
-      \ctexset{chapter/format = \centering\sffamily\setfontsize{18\bp@}}%
+      \ctexset{chapter/format =
+        \centering\sffamily\ustc@setfontsize{18\bp@}{36\bp@}}%
     \fi
     \if@ustc@addtocspace
       \addtocontents{toc}{\protect\addvspace{12\bp@}}%
@@ -286,7 +367,7 @@
 \setcounter{secnumdepth}{5}
 \ctexset{
   chapter = {
-    format      = \centering\sffamily\bfseries\setfontsize{16\bp@},
+    format      = \centering\sffamily\bfseries\ustc@setfontsize{16\bp@}{32\bp@},
     nameformat  = {},
     titleformat = \ustc@spacetitle,
     number      = \thechapter,
@@ -296,20 +377,20 @@
     % fixskip   = true, % will be used in future version
   },
   section = {
-    format     = \sffamily\setfontsize{14\bp@},
+    format     = \sffamily\ustc@setfontsize{14\bp@}{28\bp@},
     aftername  = \hspace{\ccwd},
     beforeskip = 24\bp@,
     afterskip  = 6\bp@,
   },
   subsection = {
-    format     = \sffamily\setfontsize{13\bp@},
+    format     = \sffamily\ustc@setfontsize{13\bp@}{26\bp@},
     aftername  = \hspace{\ccwd},
     indent     = 2\ccwd,
     beforeskip = 12\bp@,
     afterskip  = 6\bp@,
   },
   subsubsection = {
-    format     = \sffamily\setfontsize{12\bp@},
+    format     = \sffamily\ustc@setfontsize{12\bp@}{24\bp@},
     number     = \arabic{subsubsection},
     aftername  = .\space,
     indent     = 2\ccwd,
@@ -317,7 +398,7 @@
     afterskip  = 6\bp@,
   },
   paragraph = {
-    format     = \rmfamily\setfontsize{12\bp@},
+    format     = \rmfamily\ustc@setfontsize{12\bp@}{24\bp@},
     number     = （\arabic{paragraph}）,
     aftername  = \space,
     indent     = 2\ccwd,
@@ -326,7 +407,7 @@
     runin      = false,
   },
   subparagraph = {
-    format     = \rmfamily\setfontsize{12\bp@},
+    format     = \rmfamily\ustc@setfontsize{12\bp@}{24\bp@},
     number     = \ustc@textcircled{subparagraph},
     aftername  = \space,
     indent     = 2\ccwd,
@@ -339,17 +420,17 @@
   \setcounter{secnumdepth}{4}
   \ctexset{
     chapter = {
-      format = \centering\sffamily\setfontsize{16\bp@},
+      format = \centering\sffamily\ustc@setfontsize{16\bp@}{32\bp@},
     },
     section = {
-      format = \centering\sffamily\setfontsize{15\bp@},
+      format = \centering\sffamily\ustc@setfontsize{15\bp@}{30\bp@},
     },
     subsection = {
-      format    = \sffamily\setfontsize{14\bp@},
+      format    = \sffamily\ustc@setfontsize{14\bp@}{28\bp@},
       indent    = \z@,
     },
     subsubsection = {
-      format    = \rmfamily\setfontsize{12\bp@},
+      format    = \rmfamily\ustc@setfontsize{12\bp@}{24\bp@},
       indent    = \ccwd,
     },
     paragraph = {
@@ -455,22 +536,29 @@
   \begin{titlepage}%
     \tikz[remember picture,overlay]%
       \node [yshift=-4cm] at (current page.north) [below,align=flush center]%
-        {\parbox{\textwidth}{\raggedleft\fangsong\setfontsize{14\bp@}\ustc@secrettext}};%
+        {\parbox{\textwidth}{%
+           \raggedleft\fangsong\ustc@setfontsize{14\bp@}{28\bp@}%
+           \ustc@secrettext}};%
     \vpostext{4cm}{\includegraphics[height=37\bp@]{figures/ustc_logo_text}}%
     \if@ustc@professional
-      \vpostext{6.3cm}{\sffamily\setfontsize{56\bp@}\ziju{-0.09}\ustc@thesisname}%
-      \vpostext{9cm}{\sffamily\lishu\setfontsize{26\bp@}\ustc@professionaltype}%
+      \vpostext{6.3cm}{\sffamily\ustc@setfontsize{56\bp@}{112\bp@}\ziju{-0.09}%
+        \ustc@thesisname}%
+      \vpostext{9cm}{\lishu\ustc@setfontsize{26\bp@}{52\bp@}%
+        \ustc@professionaltype}%
       \vpostext{10.3cm}{\includegraphics[height=4.7cm]{figures/ustc_logo_fig}}%
-      \vpostext{16.3cm}{\sffamily\bfseries\setfontsize{26\bp@}\ustc@title}%
+      \vpostext{16.3cm}{\sffamily\bfseries\ustc@setfontsize{26\bp@}{52\bp@}%
+        \ustc@title}%
     \else
-      \vpostext{6.3cm}{\sffamily\setfontsize{56\bp@}\ustc@thesisname}%
+      \vpostext{6.3cm}{\sffamily\ustc@setfontsize{56\bp@}{112\bp@}%
+        \ustc@thesisname}%
       \vpostext{9.8cm}{\includegraphics[height=4.7cm]{figures/ustc_logo_fig}}%
-      \vpostext{16.3cm}{\sffamily\bfseries\setfontsize{26\bp@}\ustc@title}%
+      \vpostext{16.3cm}{\sffamily\bfseries\ustc@setfontsize{26\bp@}{52\bp@}
+        \ustc@title}%
     \fi
     \tikz[remember picture,overlay]%
       \node [xshift=4.6cm,yshift=-20.3cm] at (current page.north west)%
         [below right,align=left] {%
-          \setfontsize{16\bp@}%
+          \ustc@setfontsize{16\bp@}{32\bp@}%
           \begin{tabular}{@{}l@{\hspace{\ccwd}}l@{}}%
             \textsf{作者姓名：} & \ustc@author \\%
             \textsf{\ustc@specialityname：} & \ustc@major \\%
@@ -482,22 +570,27 @@
   \begin{titlepage}%
     \tikz[remember picture,overlay]%
       \node [yshift=-4cm] at (current page.north) [below,align=flush center]%
-        {\parbox{\textwidth}{\raggedleft\setfontsize{14\bp@}\ustc@ensecrettext}};%
-    \vpostext{3.9cm}{\sffamily\setfontsize{20\bp@}[30\bp@]%
+        {\parbox{\textwidth}{\raggedleft\ustc@setfontsize{14\bp@}{28\bp@}%
+        \ustc@ensecrettext}};%
+    \vpostext{3.9cm}{\sffamily\ustc@setfontsize{20\bp@}{30\bp@}%
       University of Science and Technology of China}%
-    \vpostext{4.9cm}{\sffamily\setfontsize{26\bp@}[30\bp@]\ustc@enthesisname}%
+    \vpostext{4.9cm}{\sffamily\ustc@setfontsize{26\bp@}{30\bp@}%
+      \ustc@enthesisname}%
     \if@ustc@professional
-      \vpostext{6.2cm}{\setfontsize{16\bp@}\ustc@enprofessionaltype}%
+      \vpostext{6.2cm}{\ustc@setfontsize{16\bp@}{32\bp@}%
+        \ustc@enprofessionaltype}%
       \vpostext{8.9cm}{\includegraphics[height=5.1cm]{figures/ustc_logo_fig}}%
-      \vpostext{15cm}{\sffamily\bfseries\setfontsize{26\bp@}[30\bp@]\ustc@entitle}%
+      \vpostext{15cm}{\sffamily\bfseries\ustc@setfontsize{26\bp@}{30\bp@}%
+        \ustc@entitle}%
     \else
       \vpostext{7.9cm}{\includegraphics[height=5.1cm]{figures/ustc_logo_fig}}%
-      \vpostext{14.2cm}{\sffamily\bfseries\setfontsize{26\bp@}[30\bp@]\ustc@entitle}%
+      \vpostext{14.2cm}{\sffamily\bfseries\ustc@setfontsize{26\bp@}{30\bp@}%
+        \ustc@entitle}%
     \fi
     \tikz[remember picture,overlay]%
       \node [xshift=4.4cm,yshift=-20.2cm] at (current page.north west)%
         [below right,align=left] {%
-          \setfontsize{16\bp@}[30\bp@]%
+          \ustc@setfontsize{16\bp@}{30\bp@}%
           \begin{tabular}{@{}l@{}}%
             Author:        \ustc@enauthor \\%
             Speciality:    \ustc@enmajor \\%
@@ -519,10 +612,10 @@
 保密的学位论文在解密后也遵守此规定。}
 \newcommand\make@statement{%
   \thispagestyle{empty}%
-  \setfontsize{12\bp@}[20\bp@]%
   \vspace*{-0.15cm}%
   \begin{center}%
-    \setfontsize{16\bp@}\textsf{中国科学技术大学学位论文原创性声明}%
+    \sffamily\ustc@setfontsize{16\bp@}{32\bp@}%
+    中国科学技术大学学位论文原创性声明%
   \end{center}%
   \vskip 0.3cm\par
   \ustc@declaretext\par
@@ -532,7 +625,8 @@
   \end{tabular}%
   \vskip 2.6cm\par
   \begin{center}%
-    \setfontsize{16\bp@}\textsf{中国科学技术大学学位论文授权使用声明}%
+    \sffamily\ustc@setfontsize{16\bp@}{32\bp@}%
+    中国科学技术大学学位论文授权使用声明%
   \end{center}%
   \vskip 0.3cm\par
   \ustc@authorization\par
@@ -581,45 +675,45 @@
 \if@ustc@bachelor
   \titlecontents{chapter}
     [\z@]
-    {\setfontsize{12\bp@}[20\bp@]}
+    {\ustc@setfontsize{12\bp@}{20\bp@}}
     {\contentspush{\thecontentslabel\hskip\ccwd\relax}}
     {}{\ustc@leaders\contentspage}
   \titlecontents{section}
     [\ccwd]
-    {\setfontsize{12\bp@}[20\bp@]}
+    {\ustc@setfontsize{12\bp@}{20\bp@}}
     {\contentspush{\thecontentslabel\hskip\ccwd\relax}}
     {}{\ustc@leaders\contentspage}
   \titlecontents{subsection}
     [2\ccwd]
-    {\setfontsize{12\bp@}[20\bp@]}
+    {\ustc@setfontsize{12\bp@}{20\bp@}}
     {\contentspush{\thecontentslabel
       \if@ustc@arabic\hspace{\ccwd}\else 、\fi}}
     {}{\ustc@leaders\contentspage}
 \else
   \titlecontents{chapter}
     [\z@]
-    {\addvspace{6\bp@}\setfontsize{14\bp@}[20\bp@]}
+    {\addvspace{6\bp@}\ustc@setfontsize{14\bp@}{20\bp@}}
     {\contentspush{\thecontentslabel\unskip\hskip\ccwd\relax}}
-    {}{\ustc@leaders\setfontsize{12\bp@}[20\bp@]\contentspage}
+    {}{\ustc@leaders\ustc@setfontsize{12\bp@}{20\bp@}\contentspage}
   \titlecontents{section}
     [\ccwd]
-    {\setfontsize{12\bp@}[20\bp@]}
+    {\ustc@setfontsize{12\bp@}{20\bp@}}
     {\contentspush{\thecontentslabel\hskip\ccwd\relax}}
-    {}{\ustc@leaders\setfontsize{12\bp@}[20\bp@]\contentspage}
+    {}{\ustc@leaders\ustc@setfontsize{12\bp@}{20\bp@}\contentspage}
   \titlecontents{subsection}
     [2\ccwd]
-    {\setfontsize{10.5\bp@}[20\bp@]}
+    {\ustc@setfontsize{10.5\bp@}{20\bp@}}
     {\contentspush{\thecontentslabel\hskip\ccwd\relax}}
-    {}{\ustc@leaders\setfontsize{12\bp@}[20\bp@]\contentspage}
+    {}{\ustc@leaders\ustc@setfontsize{12\bp@}{20\bp@}\contentspage}
 \fi
 \titlecontents{figure}
   [\ccwd]
-  {\addvspace{6\bp@}\setfontsize{12\bp@}}
+  {\addvspace{6\bp@}\ustc@setfontsize{12\bp@}{20\bp@}}
   {\thecontentslabel\hspace*{0.5em}}
   {}{\ustc@leaders\contentspage}
 \titlecontents{table}
   [\ccwd]
-  {\addvspace{6\bp@}\setfontsize{12\bp@}}
+  {\addvspace{6\bp@}\ustc@setfontsize{12\bp@}{20\bp@}}
   {\thecontentslabel\hspace*{0.5em}}
   {}{\ustc@leaders\contentspage}
 \renewcommand\listoffigures{%
@@ -639,88 +733,10 @@
 \newenvironment{notation}{%
   \if@ustc@bachelor\clearpage\else\cleardoublepage\fi
   \thispagestyle{ustc@notation}%
-  \ctexset{chapter/format = \centering\rmfamily\setfontsize{12\bp@}}%
+  \ctexset{chapter/format = \centering\rmfamily\ustc@setfontsize{12\bp@}}%
   \ustc@chapter{\ustc@notationname}%
-  \setfontsize{10.5\bp@}[16\bp@]%
+  \ustc@setfontsize{10.5\bp@}{16\bp@}%
   \setlength{\itemsep}{\z@}}{}%
-\newdimen\bp@ \bp@=1bp
-\if@ustc@bachelor
-  \renewcommand\normalsize{%
-    \@setfontsize\normalsize{12\bp@}{22\bp@}%
-    \abovedisplayskip 12\bp@ \@plus3\bp@ \@minus7\bp@
-    \abovedisplayshortskip \z@ \@plus3\bp@
-    \belowdisplayshortskip 6.5\bp@ \@plus3.5\bp@ \@minus3\bp@
-    \belowdisplayskip \abovedisplayskip
-    \let\@listi\@listI}
-  \normalsize
-  \renewcommand\small{%
-    \@setfontsize\small{10.5\bp@}{19.25\bp@}%
-    \abovedisplayskip 10.5\bp@ \@plus3\bp@ \@minus6\bp@
-    \abovedisplayshortskip \z@ \@plus3\bp@
-    \belowdisplayshortskip 6.5\bp@ \@plus3.5\bp@ \@minus3\bp@
-    \def\@listi{\leftmargin\leftmargini
-                \topsep 9\bp@ \@plus3\bp@ \@minus5\bp@
-                \parsep 4.5\bp@ \@plus2\bp@ \@minus\bp@
-                \itemsep \parsep}%
-    \belowdisplayskip \abovedisplayskip
-  }
-  \renewcommand\footnotesize{%
-    \@setfontsize\footnotesize{9\bp@}{16.5\bp@}%
-    \abovedisplayskip 9\bp@ \@plus2\bp@ \@minus5\bp@
-    \abovedisplayshortskip \z@ \@plus3\bp@
-    \belowdisplayshortskip 6\bp@ \@plus3\bp@ \@minus3\bp@
-    \def\@listi{\leftmargin\leftmargini
-                \topsep 6\bp@ \@plus2\bp@ \@minus2\bp@
-                \parsep 3\bp@ \@plus2\bp@ \@minus\bp@
-                \itemsep \parsep}%
-    \belowdisplayskip \abovedisplayskip
-  }
-  \renewcommand\scriptsize{\@setfontsize\scriptsize{7.5\bp@}{13.75\bp@}}
-  \renewcommand\tiny{\@setfontsize\tiny{6.5\bp@}{11.92\bp@}}
-  \renewcommand\large{\@setfontsize\large{15\bp@}{27.5\bp@}}
-  \renewcommand\Large{\@setfontsize\Large{18\bp@}{33\bp@}}
-  \renewcommand\LARGE{\@setfontsize\LARGE{22\bp@}{40.33\bp@}}
-  \renewcommand\huge{\@setfontsize\huge{24\bp@}{44\bp@}}
-  \renewcommand\Huge{\@setfontsize\Huge{26\bp@}{47.67\bp@}}
-\else
-  \renewcommand\normalsize{%
-    \@setfontsize\normalsize{12\bp@}{20\bp@}%
-    \abovedisplayskip 12\bp@ \@plus3\bp@ \@minus7\bp@
-    \abovedisplayshortskip \z@ \@plus3\bp@
-    \belowdisplayshortskip 6.5\bp@ \@plus3.5\bp@ \@minus3\bp@
-    \belowdisplayskip \abovedisplayskip
-    \let\@listi\@listI}
-  \normalsize
-  \renewcommand\small{%
-    \@setfontsize\small{10.5\bp@}{17.5\bp@}%
-    \abovedisplayskip 10.5\bp@ \@plus3\bp@ \@minus6\bp@
-    \abovedisplayshortskip \z@ \@plus3\bp@
-    \belowdisplayshortskip 6.5\bp@ \@plus3.5\bp@ \@minus3\bp@
-    \def\@listi{\leftmargin\leftmargini
-                \topsep 9\bp@ \@plus3\bp@ \@minus5\bp@
-                \parsep 4.5\bp@ \@plus2\bp@ \@minus\bp@
-                \itemsep \parsep}%
-    \belowdisplayskip \abovedisplayskip
-  }
-  \renewcommand\footnotesize{%
-     \@setfontsize\footnotesize{9\bp@}{15\bp@}%
-     \abovedisplayskip 9\bp@ \@plus2\bp@ \@minus5\bp@
-     \abovedisplayshortskip \z@ \@plus3\bp@
-     \belowdisplayshortskip 6\bp@ \@plus3\bp@ \@minus3\bp@
-     \def\@listi{\leftmargin\leftmargini
-                 \topsep 6\bp@ \@plus2\bp@ \@minus2\bp@
-                 \parsep 3\bp@ \@plus2\bp@ \@minus\bp@
-                 \itemsep \parsep}%
-     \belowdisplayskip \abovedisplayskip
-  }
-  \renewcommand\scriptsize{\@setfontsize\scriptsize{7.5\bp@}{12.5\bp@}}
-  \renewcommand\tiny{\@setfontsize\tiny{6.5\bp@}{10.83\bp@}}
-  \renewcommand\large{\@setfontsize\large{15\bp@}{25\bp@}}
-  \renewcommand\Large{\@setfontsize\Large{18\bp@}{30\bp@}}
-  \renewcommand\LARGE{\@setfontsize\LARGE{22\bp@}{36.67\bp@}}
-  \renewcommand\huge{\@setfontsize\huge{24\bp@}{40\bp@}}
-  \renewcommand\Huge{\@setfontsize\Huge{26\bp@}{43.33\bp@}}
-\fi
 \setlength{\parindent}{2\ccwd}
 \setlength{\parskip}{\z@}
 \RequirePackage{upgreek}
@@ -848,7 +864,7 @@
 }{%
   \def@NAT@last@yr{-\NAT@penalty}%
 }{}{}
-\renewcommand\bibfont{\setfontsize{10.5bp}[20bp]}
+\renewcommand\bibfont{\ustc@setfontsize{10.5bp}{20bp}}
 \setlength{\bibsep}{\z@}
 \setlength{\bibhang}{2\ccwd}
 \renewcommand\@biblabel[1]{[#1]\hfill}
