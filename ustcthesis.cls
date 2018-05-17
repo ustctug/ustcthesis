@@ -51,7 +51,7 @@
 \fi
 \PassOptionsToPackage{no-math}{fontspec}
 \LoadClass[UTF8, a4paper, openany, zihao=-4]{ctexbook}[2015/07/01]
-\@ifclasslater{ctexbook}{2015/07/01}{}{%
+\@ifclasslater{ctexbook}{2015/07/01}{}{
   \ClassError{ustcthesis}{%
     This template requires ctex 2.2 or later version.%
   }{%
@@ -512,6 +512,22 @@
   \fi
   \ding{\the\numexpr\value{#1}+191\relax}}
 \setcounter{secnumdepth}{5}
+\@ifclasslater{ctexbook}{2016/09/21}{
+  \ctexset{
+    chapter = {
+      beforeskip = 24\bp@,
+      afterskip  = 18\bp@,
+      fixskip    = true,
+    },
+  }
+}{
+  \ctexset{
+    chapter = {
+      beforeskip  = -7\bp@, % 24bp - 31bp
+      afterskip   = 8\bp@, % 18bp - 10bp
+    },
+  }
+}
 \ctexset{
   chapter = {
     format      = \centering\sffamily\bfseries\@ustc@setfontsize{16\bp@}{32\bp@},
@@ -519,9 +535,6 @@
     titleformat = \@ustc@spacetitle,
     number      = \thechapter,
     aftername   = \hspace{\ccwd},
-    beforeskip  = -7\bp@, % 24bp - 31bp
-    afterskip   = 8\bp@, % 18bp - 10bp
-    % fixskip   = true, % will be used in future version
   },
   section = {
     format     = \sffamily\@ustc@setfontsize{14\bp@}{28\bp@},

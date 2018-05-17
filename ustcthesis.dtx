@@ -679,7 +679,7 @@ version 2005/12/01 or later.
 %
 % 检测 ctexbook 版本，如果版本过低会报错
 %    \begin{macrocode}
-\@ifclasslater{ctexbook}{2015/07/01}{}{%
+\@ifclasslater{ctexbook}{2015/07/01}{}{
   \ClassError{ustcthesis}{%
     This template requires ctex 2.2 or later version.%
   }{%
@@ -1341,6 +1341,22 @@ version 2005/12/01 or later.
 % \changes{v3.0.9}{2018/05/04}{调整 subsubsection 的缩进}
 %    \begin{macrocode}
 \setcounter{secnumdepth}{5}
+\@ifclasslater{ctexbook}{2016/09/21}{
+  \ctexset{
+    chapter = {
+      beforeskip = 24\bp@,
+      afterskip  = 18\bp@,
+      fixskip    = true,
+    },
+  }
+}{
+  \ctexset{
+    chapter = {
+      beforeskip  = -7\bp@, % 24bp - 31bp
+      afterskip   = 8\bp@, % 18bp - 10bp
+    },
+  }
+}
 \ctexset{
   chapter = {
     format      = \centering\sffamily\bfseries\@ustc@setfontsize{16\bp@}{32\bp@},
@@ -1348,9 +1364,6 @@ version 2005/12/01 or later.
     titleformat = \@ustc@spacetitle,
     number      = \thechapter,
     aftername   = \hspace{\ccwd},
-    beforeskip  = -7\bp@, % 24bp - 31bp
-    afterskip   = 8\bp@, % 18bp - 10bp
-    % fixskip   = true, % will be used in future version
   },
   section = {
     format     = \sffamily\@ustc@setfontsize{14\bp@}{28\bp@},
