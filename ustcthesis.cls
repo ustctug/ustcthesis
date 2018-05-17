@@ -261,7 +261,7 @@
 \pagestyle{ustc@headings}
 \patchcmd\chaptermark{\MakeUppercase}{}{}{}
 \patchcmd\chaptermark{#1}{\protect\@ustc@spacetitle{#1}}{}{}
-\renewcommand*{\cleardoublepage}{\clearpage\if@twoside \ifodd\c@page\else
+\def\cleardoublepage{\clearpage\if@twoside \ifodd\c@page\else
   \hbox{}\thispagestyle{empty}\newpage\if@twocolumn\hbox{}\newpage\fi\fi\fi}
 \g@addto@macro\frontmatter{%
   \if@ustc@bachelor
@@ -341,7 +341,7 @@
 \@ustc@define@term{author}{XXX}
 \@ustc@define@term{major}{XXX}
 \@ustc@define@term{supervisor}{XXX\quad 教授}
-\@ustc@define@term{cosupervisor}{XXX\quad 教授}
+\@ustc@define@term{cosupervisor}{}
 \@ustc@define@term{date}{\zhnumsetup{time=Chinese}\zhtoday}
 \@ustc@define@term{professionaltype}{}
 \@ustc@define@term{secrettext}{}
@@ -349,7 +349,7 @@
 \@ustc@define@term{enauthor}{XXX}
 \@ustc@define@term{enmajor}{XXX}
 \@ustc@define@term{ensupervisor}{Prof. XXX}
-\@ustc@define@term{encosupervisor}{Prof. XXX}
+\@ustc@define@term{encosupervisor}{}
 \@ustc@define@term{endate}{\CTEX@todayold}
 \@ustc@define@term{enprofessionaltype}{}
 \@ustc@define@term{ensecrettext}{}

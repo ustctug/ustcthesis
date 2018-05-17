@@ -987,7 +987,7 @@ version 2005/12/01 or later.
 % 空白页不加页眉。
 % \changes{v3.0}{2017/07/01}{空白页不加页眉}
 %    \begin{macrocode}
-\renewcommand*{\cleardoublepage}{\clearpage\if@twoside \ifodd\c@page\else
+\def\cleardoublepage{\clearpage\if@twoside \ifodd\c@page\else
   \hbox{}\thispagestyle{empty}\newpage\if@twocolumn\hbox{}\newpage\fi\fi\fi}
 %    \end{macrocode}
 %
@@ -1096,7 +1096,7 @@ version 2005/12/01 or later.
 \@ustc@define@term{author}{XXX}
 \@ustc@define@term{major}{XXX}
 \@ustc@define@term{supervisor}{XXX\quad 教授}
-\@ustc@define@term{cosupervisor}{XXX\quad 教授}
+\@ustc@define@term{cosupervisor}{}
 \@ustc@define@term{date}{\zhnumsetup{time=Chinese}\zhtoday}
 \@ustc@define@term{professionaltype}{}
 \@ustc@define@term{secrettext}{}
@@ -1104,7 +1104,7 @@ version 2005/12/01 or later.
 \@ustc@define@term{enauthor}{XXX}
 \@ustc@define@term{enmajor}{XXX}
 \@ustc@define@term{ensupervisor}{Prof. XXX}
-\@ustc@define@term{encosupervisor}{Prof. XXX}
+\@ustc@define@term{encosupervisor}{}
 \@ustc@define@term{endate}{\CTEX@todayold}
 \@ustc@define@term{enprofessionaltype}{}
 \@ustc@define@term{ensecrettext}{}
