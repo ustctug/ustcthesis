@@ -1352,8 +1352,8 @@ version 2005/12/01 or later.
 }{
   \ctexset{
     chapter = {
-      beforeskip  = -7\bp@, % 24bp - 31bp
-      afterskip   = 8\bp@, % 18bp - 10bp
+      beforeskip = -7\bp@, % 24bp - 31bp
+      afterskip  = 8\bp@, % 18bp - 10bp
     },
   }
 }
@@ -1407,14 +1407,24 @@ version 2005/12/01 or later.
 }
 %    \end{macrocode}
 %
-% 设置本科生的章节标题，并允许本科生使用阿拉伯数字式标题。
+% 在研究生格式的基础上再设置本科生的章节标题格式。
+% 本科生要求正文章标题使用三号字（16 bp），
+% 但是致谢、目录、摘要和参考文献的章标题使用小二号（18 bp），
+% 这可以通过 \cs{if@mainmatter} 区分。
 % \changes{v3.0.7}{2018/04/18}{修正本科生 subsection 的缩进}
 %    \begin{macrocode}
 \if@ustc@bachelor
   \setcounter{secnumdepth}{4}
   \ctexset{
     chapter = {
-      format = \centering\sffamily\@ustc@setfontsize{16\bp@}{32\bp@},
+      format = {
+        \centering\sffamily
+        \if@mainmatter
+          \@ustc@setfontsize{16\bp@}{32\bp@}
+        \else
+          \@ustc@setfontsize{18\bp@}{36\bp@}
+        \fi
+      },
     },
     section = {
       format = \centering\sffamily\@ustc@setfontsize{15\bp@}{30\bp@},
@@ -1438,6 +1448,10 @@ version 2005/12/01 or later.
       indent    = 2\ccwd,
     },
   }
+%    \end{macrocode}
+%
+% 允许本科生使用阿拉伯数字式标题。
+%    \begin{macrocode}
   \if@ustc@arabic\else
     \ctexset{
       chapter = {
@@ -1490,13 +1504,6 @@ version 2005/12/01 or later.
   \global\@topnum\z@
   \@afterindenttrue
   \if@ustc@bachelor
-    \if@mainmatter
-      \ctexset{chapter/format =
-        \centering\sffamily\@ustc@setfontsize{16\bp@}{32\bp@}}%
-    \else
-      \ctexset{chapter/format =
-        \centering\sffamily\@ustc@setfontsize{18\bp@}{36\bp@}}%
-    \fi
     \if@ustc@addtocspace
       \addtocontents{toc}{\protect\addvspace{12\bp@}}%
     \fi

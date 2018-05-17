@@ -523,8 +523,8 @@
 }{
   \ctexset{
     chapter = {
-      beforeskip  = -7\bp@, % 24bp - 31bp
-      afterskip   = 8\bp@, % 18bp - 10bp
+      beforeskip = -7\bp@, % 24bp - 31bp
+      afterskip  = 8\bp@, % 18bp - 10bp
     },
   }
 }
@@ -580,7 +580,14 @@
   \setcounter{secnumdepth}{4}
   \ctexset{
     chapter = {
-      format = \centering\sffamily\@ustc@setfontsize{16\bp@}{32\bp@},
+      format = {
+        \centering\sffamily
+        \if@mainmatter
+          \@ustc@setfontsize{16\bp@}{32\bp@}
+        \else
+          \@ustc@setfontsize{18\bp@}{36\bp@}
+        \fi
+      },
     },
     section = {
       format = \centering\sffamily\@ustc@setfontsize{15\bp@}{30\bp@},
@@ -641,13 +648,6 @@
   \global\@topnum\z@
   \@afterindenttrue
   \if@ustc@bachelor
-    \if@mainmatter
-      \ctexset{chapter/format =
-        \centering\sffamily\@ustc@setfontsize{16\bp@}{32\bp@}}%
-    \else
-      \ctexset{chapter/format =
-        \centering\sffamily\@ustc@setfontsize{18\bp@}{36\bp@}}%
-    \fi
     \if@ustc@addtocspace
       \addtocontents{toc}{\protect\addvspace{12\bp@}}%
     \fi
