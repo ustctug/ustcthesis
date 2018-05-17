@@ -916,7 +916,7 @@ version 2005/12/01 or later.
 %
 % 设置行距的倍数为 1。
 %    \begin{macrocode}
-\linespread{1}
+\linespread{1}\selectfont
 %    \end{macrocode}
 %
 % \begin{macro}{\@ustc@setfontsize}
@@ -1666,7 +1666,9 @@ version 2005/12/01 or later.
 \newenvironment{notation}{%
   \if@ustc@bachelor\clearpage\else\cleardoublepage\fi
   \thispagestyle{ustc@notation}%
-  \ctexset{chapter/format = \centering\rmfamily\@ustc@setfontsize{12\bp@}}%
+  \ctexset{%
+    chapter/format = \centering\rmfamily\@ustc@setfontsize{12\bp@}{24\bp@}%
+  }%
   \@ustc@chapter{\@ustc@notationname}%
   \@ustc@setfontsize{10.5\bp@}{16\bp@}%
   \setlength{\itemsep}{\z@}}{}%

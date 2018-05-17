@@ -224,7 +224,7 @@
   \renewcommand\huge{\@setfontsize\huge{24\bp@}{40\bp@}}
   \renewcommand\Huge{\@setfontsize\Huge{26\bp@}{43.33\bp@}}
 \fi
-\linespread{1}
+\linespread{1}\selectfont
 \newcommand\@ustc@setfontsize[2]{%
   \fontsize{#1}{#2}\selectfont}
 \if@ustc@english
@@ -735,7 +735,9 @@
 \newenvironment{notation}{%
   \if@ustc@bachelor\clearpage\else\cleardoublepage\fi
   \thispagestyle{ustc@notation}%
-  \ctexset{chapter/format = \centering\rmfamily\@ustc@setfontsize{12\bp@}}%
+  \ctexset{%
+    chapter/format = \centering\rmfamily\@ustc@setfontsize{12\bp@}{24\bp@}%
+  }%
   \@ustc@chapter{\@ustc@notationname}%
   \@ustc@setfontsize{10.5\bp@}{16\bp@}%
   \setlength{\itemsep}{\z@}}{}%
