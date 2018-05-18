@@ -53,7 +53,7 @@ version 2005/12/01 or later.
 %<class>\NeedsTeXFormat{LaTeX2e}[1999/12/01]
 %<class>\ProvidesClass{ustcthesis}
 %<*class>
-  [2018/05/16 v3.0.a USTC thesis template]
+  [2018/05/18 v3.0.b USTC thesis template]
 %</class>
 %
 %<*driver>
@@ -624,7 +624,7 @@ version 2005/12/01 or later.
 %
 % \subsection{处理选项}
 %
-% \changes{v3.0.a}{2018/05/16}{修正本科生英文模板的章节格式}
+% \changes{v3.0.a}{2018/05/16}{更正本科生英文模板的章节格式}
 %    \begin{macrocode}
 %<*class>
 \newif\if@ustc@doctor
@@ -959,7 +959,7 @@ version 2005/12/01 or later.
 %
 % 再用 \pkg{fancyhdr} 宏包设置页眉页码。
 % \changes{v3.0}{2017/07/01}{页码全部居中}
-% \changes{v3.0.2}{2018/03/16}{修正本科生的页码}
+% \changes{v3.0.2}{2018/03/16}{更正本科生的页码}
 %    \begin{macrocode}
 \renewcommand{\headrulewidth}{0.4pt}
 \if@ustc@bachelor
@@ -979,7 +979,7 @@ version 2005/12/01 or later.
 %
 % 取消页眉的英文自动大写，并保持与正文章标题格式一致。
 % 注意，对 \cs{chaptermark} 的修改必须在第一次调用 \cs{pagestyle} 后。
-% \changes{v3.0.7}{2018/04/18}{修正页眉英文大写的错误}
+% \changes{v3.0.7}{2018/04/18}{更正页眉英文大写的错误}
 %    \begin{macrocode}
 \patchcmd\chaptermark{\MakeUppercase}{}{}{}
 \patchcmd\chaptermark{#1}{\@ustc@spacetitle{#1}}{}{}
@@ -1010,7 +1010,7 @@ version 2005/12/01 or later.
 % \end{macro}
 %
 % \begin{macro}{\mainmatter}
-% 研究生要求“第 1 章”要另页起，但是本科生要求另面旗。
+% 研究生要求“第 1 章”要另页起，但是本科生要求另面起。
 %    \begin{macrocode}
 \renewcommand\mainmatter{%
   \if@ustc@bachelor
@@ -1058,7 +1058,7 @@ version 2005/12/01 or later.
 %    \end{macrocode}
 %
 % 定义一些常量。
-% \changes{v3.0.5}{2018/04/11}{修正专业学位类型的字体}
+% \changes{v3.0.5}{2018/04/11}{更正“专业学位类型"的字体}
 % \changes{v3.0.5}{2018/04/11}{专业学位的封面更正为“专业领域”}
 %    \begin{macrocode}
 \if@ustc@doctor
@@ -1308,7 +1308,7 @@ version 2005/12/01 or later.
 % 注意，\pkg{stringstrings} 宏包会导致范数命令 \verb+\|+ 被修改。
 % \changes{v3.0}{2017/07/01}{章题为两字时中间空两字，三字时空一字，
 % 四字时空半字，四字以上不空}
-% \changes{v3.0.1}{2017/12/12}{修正范数命令失效的错误}
+% \changes{v3.0.1}{2017/12/12}{更正范数命令失效的错误}
 %    \begin{macrocode}
 \DeclareRobustCommand\@ustc@spacetitle[1]{%
   \StrLen{#1}[\titlelength]%
@@ -1349,8 +1349,8 @@ version 2005/12/01 or later.
 % \changes{v3.0}{2017/07/01}{新增二级以下节标题的缩进}
 % \changes{v3.0}{2017/07/01}{二级以下节标题编号下采用“1.”、“(1)”、
 %   “\textcircled{\footnotesize{}1}”}
-% \changes{v3.0.1}{2017/12/12}{修正 subsubsection 的前后距离}
-% \changes{v3.0.8}{2018/04/21}{修正 subsection 的格式}
+% \changes{v3.0.1}{2017/12/12}{更正 subsubsection 的前后距离}
+% \changes{v3.0.8}{2018/04/21}{更正 subsection 的格式}
 % \changes{v3.0.9}{2018/05/04}{调整 subsubsection 的缩进}
 %    \begin{macrocode}
 \setcounter{secnumdepth}{5}
@@ -1424,7 +1424,7 @@ version 2005/12/01 or later.
 % 本科生要求正文章标题使用三号字（16 bp），
 % 但是致谢、目录、摘要和参考文献的章标题使用小二号（18 bp），
 % 这可以通过 \cs{if@mainmatter} 区分。
-% \changes{v3.0.7}{2018/04/18}{修正本科生 subsection 的缩进}
+% \changes{v3.0.7}{2018/04/18}{更正本科生 subsection 的缩进}
 %    \begin{macrocode}
 \if@ustc@bachelor
   \setcounter{secnumdepth}{4}
@@ -1569,7 +1569,7 @@ version 2005/12/01 or later.
 % \begin{macro}{\tableofcontents}
 % 研究生规定目录另面起；
 % 本科生规定从目录开始编页码，所以必须另页起。
-% \changes{v3.0.b}{2018/05/18}{修正研究生的目录为另面起}
+% \changes{v3.0.b}{2018/05/18}{更正研究生的目录为另面起}
 %    \begin{macrocode}
 \renewcommand\tableofcontents{%
   \if@ustc@bachelor
@@ -1701,7 +1701,7 @@ version 2005/12/01 or later.
 % 研究生规定符号说明另页起，标题字体字号等同论文正文，
 % 《撰写手册》第 9 页 1.10(2) 还规定“符号说明不加页码”。
 % \changes{v3.0}{2017/07/01}{符号说明不加页码}
-% \changes{v3.0.b}{2018/05/18}{修正符号说明的字体}
+% \changes{v3.0.b}{2018/05/18}{更正符号说明的字号}
 %    \begin{macrocode}
 \newenvironment{notation}{%
   \if@ustc@bachelor\clearpage\else\cleardoublepage\fi
@@ -1815,7 +1815,7 @@ version 2005/12/01 or later.
 % 新定义了 \cs{note} 来生成图表的附注。
 % 如果用 \cs{caption} 生成图表的附注会导致图表的序号有误；
 % 如果用 \cs{bicaption} 会导致表注无法置于表后，而且对齐方式不对。
-% \changes{v3.0.a}{2018/05/16}{修正图表的注释格式}
+% \changes{v3.0.a}{2018/05/16}{更正图表的注释格式}
 %    \begin{macrocode}
 \newcommand\note[1]{%
   \captionsetup{position=bottom, font=small}%
@@ -1827,7 +1827,7 @@ version 2005/12/01 or later.
 % \subsection{数学}
 %
 % 小于等于号要使用倾斜的形式。
-% \changes{v3.0}{2017/07/01}{修正了 LaTeX 的小于等于号}
+% \changes{v3.0}{2017/07/01}{更正了 LaTeX 的小于等于号}
 % \begin{macro}{\le}
 %    \begin{macrocode}
 \renewcommand\le{\leqslant}
@@ -1857,7 +1857,7 @@ version 2005/12/01 or later.
 %
 % \begin{environment}{BibTeX}
 % \changes{v3.0}{2017/07/01}{参考文献列表不出现“[S.l.]: [s.n.]”}
-% \changes{v3.0.2}{2018/03/16}{修正参考文献姓名的“others”}
+% \changes{v3.0.2}{2018/03/16}{更正参考文献姓名的“others”}
 % \changes{v3.0.6}{2018/04/12}{参考文献页码的连接号改为 hyphen}
 % \changes{v3.0.7}{2018/04/18}{参考文献允许著录多个 DOI}
 % \changes{v3.0.9}{2018/05/04}{参考文献不再著录“出版地不详”等信息}
@@ -1992,13 +1992,19 @@ version 2005/12/01 or later.
 %    \end{macrocode}
 % \end{macro}
 %
-% 参考文献列表宋体10.5磅，行距20磅，续行缩进两字
+% \begin{environment}{thebibliography}
+% 研究生规定参考文献列表“宋体10.5磅，行距20磅，续行缩进两字，左对齐”。
+% 本科生依然是小四宋体。
+% \changes{v3.0.b}{2018/05/18}{更正本科生参考文献的字号}
 %    \begin{macrocode}
-\renewcommand\bibfont{\@ustc@setfontsize{10.5bp}{20bp}}
+\if@ustc@bachelor\else
+  \renewcommand\bibfont{\@ustc@setfontsize{10.5bp}{20bp}}
+\fi
 \setlength{\bibsep}{\z@}
 \setlength{\bibhang}{2\ccwd}
 \renewcommand\@biblabel[1]{[#1]\hfill}
 %    \end{macrocode}
+% \end{environment}
 %
 % 将 URL 设置为保持原样，并增加可断行的位置。
 %    \begin{macrocode}

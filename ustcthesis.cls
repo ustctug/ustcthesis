@@ -18,7 +18,7 @@
 %% 
 \NeedsTeXFormat{LaTeX2e}[1999/12/01]
 \ProvidesClass{ustcthesis}
-  [2018/05/16 v3.0.a USTC thesis template]
+  [2018/05/18 v3.0.b USTC thesis template]
 \newif\if@ustc@doctor
 \newif\if@ustc@master
 \newif\if@ustc@bachelor
@@ -872,7 +872,9 @@
 }{%
   \def@NAT@last@yr{-\NAT@penalty}%
 }{}{}
-\renewcommand\bibfont{\@ustc@setfontsize{10.5bp}{20bp}}
+\if@ustc@bachelor\else
+  \renewcommand\bibfont{\@ustc@setfontsize{10.5bp}{20bp}}
+\fi
 \setlength{\bibsep}{\z@}
 \setlength{\bibhang}{2\ccwd}
 \renewcommand\@biblabel[1]{[#1]\hfill}
