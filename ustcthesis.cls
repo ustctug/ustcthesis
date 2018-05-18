@@ -260,7 +260,7 @@
 \fancypagestyle{ustc@notation}{\fancyfoot{}}
 \pagestyle{ustc@headings}
 \patchcmd\chaptermark{\MakeUppercase}{}{}{}
-\patchcmd\chaptermark{#1}{\protect\@ustc@spacetitle{#1}}{}{}
+\patchcmd\chaptermark{#1}{\@ustc@spacetitle{#1}}{}{}
 \def\cleardoublepage{\clearpage\if@twoside \ifodd\c@page\else
   \hbox{}\thispagestyle{empty}\newpage\if@twocolumn\hbox{}\newpage\fi\fi\fi}
 \renewcommand\frontmatter{%
@@ -490,7 +490,7 @@
   \end{tabular}}%
 }
 \setcounter{secnumdepth}{5}
-\newcommand\@ustc@spacetitle[1]{%
+\DeclareRobustCommand\@ustc@spacetitle[1]{%
   \StrLen{#1}[\titlelength]%
   \if@ustc@bachelor
     \if@mainmatter\relax\else
@@ -750,13 +750,12 @@
 }
 \newenvironment{notation}{%
   \if@ustc@bachelor\clearpage\else\cleardoublepage\fi
-  \thispagestyle{ustc@notation}%
-  \ctexset{%
-    chapter/format = \centering\rmfamily\@ustc@setfontsize{12\bp@}{24\bp@}%
-  }%
+  \pagestyle{ustc@notation}%
   \@ustc@chapter{\@ustc@notationname}%
-  \@ustc@setfontsize{10.5\bp@}{16\bp@}%
-  \setlength{\itemsep}{\z@}}{}%
+  \setlength{\itemsep}{\z@}%
+}{%
+  \clearpage\pagestyle{ustc@headings}%
+}%
 \setlength{\parindent}{2\ccwd}
 \setlength{\parskip}{\z@}
 \renewcommand{\thefootnote}{\@ustc@textcircled{footnote}}

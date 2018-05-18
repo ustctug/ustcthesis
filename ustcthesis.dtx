@@ -977,11 +977,12 @@ version 2005/12/01 or later.
 \pagestyle{ustc@headings}
 %    \end{macrocode}
 %
-% 取消页眉的英文自动大写，并保持与征文章标题格式一致。
+% 取消页眉的英文自动大写，并保持与正文章标题格式一致。
+% 注意，对 \cs{chaptermark} 的修改必须在第一次调用 \cs{pagestyle} 后。
 % \changes{v3.0.7}{2018/04/18}{修正页眉英文大写的错误}
 %    \begin{macrocode}
 \patchcmd\chaptermark{\MakeUppercase}{}{}{}
-\patchcmd\chaptermark{#1}{\protect\@ustc@spacetitle{#1}}{}{}
+\patchcmd\chaptermark{#1}{\@ustc@spacetitle{#1}}{}{}
 %    \end{macrocode}
 %
 % \begin{macro}{\cleardoublepage}
@@ -1309,7 +1310,7 @@ version 2005/12/01 or later.
 % 四字时空半字，四字以上不空}
 % \changes{v3.0.1}{2017/12/12}{修正范数命令失效的错误}
 %    \begin{macrocode}
-\newcommand\@ustc@spacetitle[1]{%
+\DeclareRobustCommand\@ustc@spacetitle[1]{%
   \StrLen{#1}[\titlelength]%
   \if@ustc@bachelor
     \if@mainmatter\relax\else
@@ -1697,18 +1698,19 @@ version 2005/12/01 or later.
 % \subsection{符号说明}
 %
 % \begin{environment}{notation}
-% 标题字体字号等同论文正文，说明部分:宋体 10.5 磅，行距 16 磅，段前段后 0 磅。
+% 研究生规定符号说明另页起，标题字体字号等同论文正文，
+% 《撰写手册》第 9 页 1.10(2) 还规定“符号说明不加页码”。
 % \changes{v3.0}{2017/07/01}{符号说明不加页码}
+% \changes{v3.0.b}{2018/05/18}{修正符号说明的字体}
 %    \begin{macrocode}
 \newenvironment{notation}{%
   \if@ustc@bachelor\clearpage\else\cleardoublepage\fi
-  \thispagestyle{ustc@notation}%
-  \ctexset{%
-    chapter/format = \centering\rmfamily\@ustc@setfontsize{12\bp@}{24\bp@}%
-  }%
+  \pagestyle{ustc@notation}%
   \@ustc@chapter{\@ustc@notationname}%
-  \@ustc@setfontsize{10.5\bp@}{16\bp@}%
-  \setlength{\itemsep}{\z@}}{}%
+  \setlength{\itemsep}{\z@}%
+}{%
+  \clearpage\pagestyle{ustc@headings}%
+}%
 %    \end{macrocode}
 % \end{environment}
 %
