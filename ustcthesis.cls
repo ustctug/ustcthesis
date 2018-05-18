@@ -263,7 +263,9 @@
 \patchcmd\chaptermark{#1}{\protect\@ustc@spacetitle{#1}}{}{}
 \def\cleardoublepage{\clearpage\if@twoside \ifodd\c@page\else
   \hbox{}\thispagestyle{empty}\newpage\if@twocolumn\hbox{}\newpage\fi\fi\fi}
-\g@addto@macro\frontmatter{%
+\renewcommand\frontmatter{%
+  \cleardoublepage
+  \@mainmatterfalse
   \if@ustc@bachelor
     \pagenumbering{gobble}%
   \else
@@ -276,8 +278,7 @@
     \cleardoublepage
     \pagenumbering{arabic}%
   \fi
-  \@mainmattertrue
-}
+  \@mainmattertrue}
 \renewcommand\maketitle{%
   \hypersetup{
     pdftitle={\@ustc@title},
@@ -639,21 +640,6 @@
     \chaptermark{#2}%
   }%
   \chapter*{#2}}
-\newif\if@ustc@addtocspace
-\if@ustc@bachelor
-  \@ustc@addtocspacetrue
-\fi
-\renewcommand\chapter{%
-  \if@openright\cleardoublepage\else\clearpage\fi
-  \global\@topnum\z@
-  \@afterindenttrue
-  \if@ustc@bachelor
-    \if@ustc@addtocspace
-      \addtocontents{toc}{\protect\addvspace{12\bp@}}%
-    \fi
-  \fi
-  \secdef\@chapter\@schapter
-}
 \newenvironment{abstract}{%
   \if@ustc@bachelor
     \chapter{中文内容摘要}%
@@ -677,29 +663,42 @@
 \newcommand\enkeywords[1]{%
   \par\phantom{empty}\par\noindent\hangindent=5.3em\relax
   \textbf{Key Words}: #1}
+\newif\if@ustc@tocloaded
 \renewcommand\tableofcontents{%
-  \cleardoublepage
   \if@ustc@bachelor
+    \cleardoublepage
     \pagenumbering{arabic}%
     \@ustc@tocloadedtrue
   \fi
   \@ustc@chapter{\contentsname}%
   \@starttoc{toc}}
+\renewcommand\listoffigures{%
+  \if@ustc@bachelor\else
+    \cleardoublepage
+  \fi
+  \@ustc@chapter{\listfigurename}%
+  \@starttoc{lof}}
+\renewcommand\listoftables{%
+  \if@ustc@bachelor\else
+    \cleardoublepage
+  \fi
+  \@ustc@chapter{\listtablename}%
+  \@starttoc{lot}}
 \newcommand\@ustc@leaders{\titlerule*[0.5pc]{$\cdot$}}
 \if@ustc@bachelor
   \titlecontents{chapter}
     [\z@]
-    {\@ustc@setfontsize{12\bp@}{20\bp@}}
-    {\contentspush{\thecontentslabel\hskip\ccwd\relax}}
+    {\normalsize}
+    {\contentspush{\thecontentslabel\unskip\hskip\ccwd\relax}}
     {}{\@ustc@leaders\contentspage}
   \titlecontents{section}
     [\ccwd]
-    {\@ustc@setfontsize{12\bp@}{20\bp@}}
+    {\normalsize}
     {\contentspush{\thecontentslabel\hskip\ccwd\relax}}
     {}{\@ustc@leaders\contentspage}
   \titlecontents{subsection}
     [2\ccwd]
-    {\@ustc@setfontsize{12\bp@}{20\bp@}}
+    {\normalsize}
     {\contentspush{\thecontentslabel
       \if@ustc@arabic\hspace{\ccwd}\else 、\fi}}
     {}{\@ustc@leaders\contentspage}
@@ -722,29 +721,33 @@
 \fi
 \titlecontents{figure}
   [\ccwd]
-  {\addvspace{6\bp@}\@ustc@setfontsize{12\bp@}{20\bp@}}
+  {\normalsize}
   {\thecontentslabel\hspace*{0.5em}}
   {}{\@ustc@leaders\contentspage}
 \titlecontents{table}
   [\ccwd]
-  {\addvspace{6\bp@}\@ustc@setfontsize{12\bp@}{20\bp@}}
+  {\normalsize}
   {\thecontentslabel\hspace*{0.5em}}
   {}{\@ustc@leaders\contentspage}
-\renewcommand\listoffigures{%
-  \if@ustc@bachelor\clearpage\else\cleardoublepage\fi
-  \@ustc@chapter{\listfigurename}%
-  \@starttoc{lof}}
-\renewcommand\listoftables{%
-  \if@ustc@bachelor\clearpage\else\cleardoublepage\fi
-  \@ustc@chapter{\listtablename}%
-  \@starttoc{lot}}
+\newif\if@ustc@addtocspace
 \if@ustc@bachelor
+  \@ustc@addtocspacetrue
   \g@addto@macro\frontmatter{\@ustc@addtocspacefalse}%
   \g@addto@macro\mainmatter{\@ustc@addtocspacetrue}%
   \g@addto@macro\backmatter{\@ustc@addtocspacefalse}%
   \g@addto@macro\appendix{\@ustc@addtocspacefalse}%
 \fi
-\newif\if@ustc@tocloaded
+\renewcommand\chapter{%
+  \if@openright\cleardoublepage\else\clearpage\fi
+  \global\@topnum\z@
+  \@afterindenttrue
+  \if@ustc@bachelor
+    \if@ustc@addtocspace
+      \addtocontents{toc}{\protect\addvspace{12\bp@}}%
+    \fi
+  \fi
+  \secdef\@chapter\@schapter
+}
 \newenvironment{notation}{%
   \if@ustc@bachelor\clearpage\else\cleardoublepage\fi
   \thispagestyle{ustc@notation}%

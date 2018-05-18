@@ -984,21 +984,33 @@ version 2005/12/01 or later.
 \patchcmd\chaptermark{#1}{\protect\@ustc@spacetitle{#1}}{}{}
 %    \end{macrocode}
 %
+% \begin{macro}{\cleardoublepage}
 % 空白页不加页眉。
 % \changes{v3.0}{2017/07/01}{空白页不加页眉}
 %    \begin{macrocode}
 \def\cleardoublepage{\clearpage\if@twoside \ifodd\c@page\else
   \hbox{}\thispagestyle{empty}\newpage\if@twocolumn\hbox{}\newpage\fi\fi\fi}
 %    \end{macrocode}
+% \end{macro}
 %
-% 将 frontmatter 的页码改为大写的罗马数字，并调整页面风格。
+% \begin{macro}{\frontmatter}
+% 研究生要求从“中文摘要”开始页码用大写罗马数字，
+% 而本科生的 frontmatter（只有致谢）不编页码，从目录开始页码用阿拉伯数字。
 %    \begin{macrocode}
-\g@addto@macro\frontmatter{%
+\renewcommand\frontmatter{%
+  \cleardoublepage
+  \@mainmatterfalse
   \if@ustc@bachelor
     \pagenumbering{gobble}%
   \else
     \pagenumbering{Roman}%
   \fi}
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\mainmatter}
+% 研究生要求“第 1 章”要另页起，但是本科生要求另面旗。
+%    \begin{macrocode}
 \renewcommand\mainmatter{%
   \if@ustc@bachelor
     \clearpage
@@ -1006,9 +1018,9 @@ version 2005/12/01 or later.
     \cleardoublepage
     \pagenumbering{arabic}%
   \fi
-  \@mainmattertrue
-}
+  \@mainmattertrue}
 %    \end{macrocode}
+% \end{macro}
 %
 %
 % \subsection{封面}
@@ -1492,27 +1504,6 @@ version 2005/12/01 or later.
 %    \end{macrocode}
 % \end{macro}
 %
-% \begin{macro}{\@ustc@chapter}
-% 处理本科生在目录中添加空行。
-%    \begin{macrocode}
-\newif\if@ustc@addtocspace
-\if@ustc@bachelor
-  \@ustc@addtocspacetrue
-\fi
-\renewcommand\chapter{%
-  \if@openright\cleardoublepage\else\clearpage\fi
-  \global\@topnum\z@
-  \@afterindenttrue
-  \if@ustc@bachelor
-    \if@ustc@addtocspace
-      \addtocontents{toc}{\protect\addvspace{12\bp@}}%
-    \fi
-  \fi
-  \secdef\@chapter\@schapter
-}
-%    \end{macrocode}
-% \end{macro}
-%
 %
 % \subsection{摘要}
 %
@@ -1569,12 +1560,19 @@ version 2005/12/01 or later.
 %
 % \subsection{目录}
 %
+% 判断是否已经加载目录，用于提醒本科生更改摘要和致谢的顺序。
+%    \begin{macrocode}
+\newif\if@ustc@tocloaded
+%    \end{macrocode}
+%
 % \begin{macro}{\tableofcontents}
-% 为了在 PDF 书签中加入目录，重新定义 \cs{tableofcontents}
+% 研究生规定目录另面起；
+% 本科生规定从目录开始编页码，所以必须另页起。
+% \changes{v3.0.b}{2018/05/18}{修正研究生的目录为另面起}
 %    \begin{macrocode}
 \renewcommand\tableofcontents{%
-  \cleardoublepage
   \if@ustc@bachelor
+    \cleardoublepage
     \pagenumbering{arabic}%
     \@ustc@tocloadedtrue
   \fi
@@ -1583,32 +1581,56 @@ version 2005/12/01 or later.
 %    \end{macrocode}
 % \end{macro}
 %
-% 目录一般由正文第1章（或绪论、引言）开始，列至三级标题（如2.2.2）即可，目录之前
-% 的内容及目录本身不列入目录内。
-% 一级标题顶格书写，二级标题缩进一字，三级标题缩进两字。
-% 由于 \pkg{ctex} 新引入了 \opt{tocline}，导致chatper 的前标题空白多了0.3em，
-% 所以不适合用来设置目录格式。
-% 下面用 \pkg{titletoc} 宏包设置每级目录的格式
+% \begin{macro}{\listoffigures}
+% \begin{macro}{\listoftables}
+% 研究生要求图、表的清单须另页起。
+%    \begin{macrocode}
+\renewcommand\listoffigures{%
+  \if@ustc@bachelor\else
+    \cleardoublepage
+  \fi
+  \@ustc@chapter{\listfigurename}%
+  \@starttoc{lof}}
+\renewcommand\listoftables{%
+  \if@ustc@bachelor\else
+    \cleardoublepage
+  \fi
+  \@ustc@chapter{\listtablename}%
+  \@starttoc{lot}}
+%    \end{macrocode}
+% \end{macro}
+% \end{macro}
+%
+% 下面用 \pkg{titletoc} 宏包设置每级目录的格式。
+%
+% 由于 \pkg{ctex} 新引入了 \opt{tocline}，导致 chatper 的前标题空白多了 0.3em，
+% 所以用 \cs{unskip} 修正。
 %    \begin{macrocode}
 \newcommand\@ustc@leaders{\titlerule*[0.5pc]{$\cdot$}}
 \if@ustc@bachelor
   \titlecontents{chapter}
     [\z@]
-    {\@ustc@setfontsize{12\bp@}{20\bp@}}
-    {\contentspush{\thecontentslabel\hskip\ccwd\relax}}
+    {\normalsize}
+    {\contentspush{\thecontentslabel\unskip\hskip\ccwd\relax}}
     {}{\@ustc@leaders\contentspage}
   \titlecontents{section}
     [\ccwd]
-    {\@ustc@setfontsize{12\bp@}{20\bp@}}
+    {\normalsize}
     {\contentspush{\thecontentslabel\hskip\ccwd\relax}}
     {}{\@ustc@leaders\contentspage}
   \titlecontents{subsection}
     [2\ccwd]
-    {\@ustc@setfontsize{12\bp@}{20\bp@}}
+    {\normalsize}
     {\contentspush{\thecontentslabel
       \if@ustc@arabic\hspace{\ccwd}\else 、\fi}}
     {}{\@ustc@leaders\contentspage}
 \else
+%    \end{macrocode}
+%
+% 尽管《撰写手册》要求目录中各章节单倍行距，段前 6 磅，
+% 但是 Word 模板中实际是 20 磅行距，段前 0 磅，附录的章标题段前 6 磅。
+% 这里目前按照 Word 模板格式执行。
+%    \begin{macrocode}
   \titlecontents{chapter}
     [\z@]
     {\addvspace{6\bp@}\@ustc@setfontsize{14\bp@}{20\bp@}}
@@ -1627,44 +1649,26 @@ version 2005/12/01 or later.
 \fi
 %    \end{macrocode}
 %
-% 同时设置图、表的目录格式
+% 同时设置图、表清单的格式。
 %    \begin{macrocode}
 \titlecontents{figure}
   [\ccwd]
-  {\addvspace{6\bp@}\@ustc@setfontsize{12\bp@}{20\bp@}}
+  {\normalsize}
   {\thecontentslabel\hspace*{0.5em}}
   {}{\@ustc@leaders\contentspage}
 \titlecontents{table}
   [\ccwd]
-  {\addvspace{6\bp@}\@ustc@setfontsize{12\bp@}{20\bp@}}
+  {\normalsize}
   {\thecontentslabel\hspace*{0.5em}}
   {}{\@ustc@leaders\contentspage}
 %    \end{macrocode}
 %
-% \begin{macro}{\listoffigures}
-% 为了让图目录另页起，重新定义 \cs{listoffigures}
+% 本科生要求目录中正文每章前多空一行，而目录、附录等章则不需要空行，
+% 所以不能简单判断 \cs{if@mainmatter}，需要重新定义 \cs{mainmatter} 等命令。
 %    \begin{macrocode}
-\renewcommand\listoffigures{%
-  \if@ustc@bachelor\clearpage\else\cleardoublepage\fi
-  \@ustc@chapter{\listfigurename}%
-  \@starttoc{lof}}
-%    \end{macrocode}
-% \end{macro}
-%
-% \begin{macro}{\listoftables}
-% 表目录同样
-%    \begin{macrocode}
-\renewcommand\listoftables{%
-  \if@ustc@bachelor\clearpage\else\cleardoublepage\fi
-  \@ustc@chapter{\listtablename}%
-  \@starttoc{lot}}
-%    \end{macrocode}
-% \end{macro}
-%
-% 为了让本科生的目录每章之间多空一行，重新定义 \cs{mainmatter}, \cs{backmatter},
-% \cs{appendix}
-%    \begin{macrocode}
+\newif\if@ustc@addtocspace
 \if@ustc@bachelor
+  \@ustc@addtocspacetrue
   \g@addto@macro\frontmatter{\@ustc@addtocspacefalse}%
   \g@addto@macro\mainmatter{\@ustc@addtocspacetrue}%
   \g@addto@macro\backmatter{\@ustc@addtocspacefalse}%
@@ -1672,10 +1676,23 @@ version 2005/12/01 or later.
 \fi
 %    \end{macrocode}
 %
-% 判断是否已经加载目录，用于提醒本科生更改摘要和章节的顺序。
+% \begin{macro}{\chapter}
+% 处理本科生在目录中添加空行。
 %    \begin{macrocode}
-\newif\if@ustc@tocloaded
+\renewcommand\chapter{%
+  \if@openright\cleardoublepage\else\clearpage\fi
+  \global\@topnum\z@
+  \@afterindenttrue
+  \if@ustc@bachelor
+    \if@ustc@addtocspace
+      \addtocontents{toc}{\protect\addvspace{12\bp@}}%
+    \fi
+  \fi
+  \secdef\@chapter\@schapter
+}
 %    \end{macrocode}
+% \end{macro}
+%
 %
 % \subsection{符号说明}
 %
