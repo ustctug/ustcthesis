@@ -18,6 +18,7 @@
 %% 
 INTEGERS {
   uppercase.name
+  max.num.authors
   period.between.author.year
   sentence.case.title
   print.mark
@@ -31,6 +32,7 @@ INTEGERS {
 FUNCTION {init.options}
 {
   #1 'uppercase.name :=
+  #3 'max.num.authors :=
   #1 'period.between.author.year :=
   #1 'sentence.case.title :=
   #1 'print.mark :=
@@ -92,11 +94,13 @@ FUNCTION {init.state.consts}
   #0 'lang.other :=
 }
 
+FUNCTION {bbl.space} { "\ " }
+
+FUNCTION {bbl.wide.space} { "\quad " }
+
 FUNCTION {bbl.colon} { ": " }
 
 FUNCTION {bbl.slash} { "//\allowbreak{}" }
-
-FUNCTION {bbl.space} { "\ " }
 
 FUNCTION {bbl.et.al}
 { lang.zh entry.lang =
@@ -428,7 +432,7 @@ FUNCTION {format.names}
   numnames 'namesleft :=
     { namesleft #0 > }
     { s nameptr "{vv~}{ll}{, jj}{, ff}" format.name$ 't :=
-      nameptr #4 =
+      nameptr max.num.authors #1 + =
         { bbl.et.al
           #1 'namesleft :=
         }
@@ -679,16 +683,16 @@ FUNCTION {format.volume.number}
 FUNCTION {format.series.vol.num.title}
 { format.volume.number 's :=
   series empty$ not
-    { series ": " *
+    { series bbl.colon *
       s empty$ not
-        { s * "\quad " * }
+        { s * bbl.wide.space * }
         'skip$
       if$
       title *
     }
     { title
       s empty$ not
-        { ": " * s * }
+        { bbl.colon * s * }
         'skip$
       if$
     }
@@ -702,16 +706,16 @@ FUNCTION {format.series.vol.num.title}
 FUNCTION {format.series.vol.num.booktitle}
 { format.volume.number 's :=
   series empty$ not
-    { series ": " *
+    { series bbl.colon *
       s empty$ not
-        { s * "\quad " * }
+        { s * bbl.wide.space * }
         'skip$
       if$
       booktitle *
     }
     { booktitle
       s empty$ not
-        { ": " * s * }
+        { bbl.colon * s * }
         'skip$
       if$
     }
@@ -813,9 +817,9 @@ FUNCTION {format.address.publisher}
 { address empty$ not
     { address
       format.publisher empty$ not
-        { ": " * format.publisher * }
+        { bbl.colon * format.publisher * }
         { is.electronic not print.missing.address.publisher and
-            { ": " * bbl.sine.nomine * }
+            { bbl.colon * bbl.sine.nomine * }
             'skip$
           if$
         }
@@ -823,7 +827,7 @@ FUNCTION {format.address.publisher}
     }
     { is.electronic not print.missing.address.publisher and
         { format.publisher empty$ not
-            { bbl.sine.loco ": " * format.publisher * }
+            { bbl.sine.loco bbl.colon * format.publisher * }
             { bbl.sine.loco.sine.nomine }
           if$
         }
@@ -916,15 +920,13 @@ FUNCTION {format.date}
 
 FUNCTION {format.editdate}
 { date empty$ not
-  type$ "newspaper" = not and
-  is.electronic and
     { "\allowbreak(" date * ")" * }
     { "" }
   if$
 }
 
 FUNCTION {format.urldate}
-{ urldate empty$ not
+{ urldate empty$ not is.electronic and
     { "\allowbreak[" urldate * "]" * }
     { "" }
   if$
@@ -1241,7 +1243,6 @@ FUNCTION {article}
   volume output
   format.journal.number "" output.after
   format.journal.pages "" output.after
-  format.editdate "" output.after
   format.urldate "" output.after
   format.url output
   format.doi output
@@ -1304,9 +1305,9 @@ FUNCTION {misc}
     'article
     { booktitle empty$ not
         'incollection
-        { address empty$ not publisher empty$ not and
+        { publisher empty$ not
             'monograph
-            { url empty$ not
+            { url empty$ not doi empty$ not or
                 'electronic
                 { "Z" set.entry.mark
                   monograph

@@ -2073,6 +2073,7 @@ version 2005/12/01 or later.
 %<*authoryear|numerical|bachelor>
 INTEGERS {
   uppercase.name
+  max.num.authors
   period.between.author.year
   sentence.case.title
   print.mark
@@ -2098,6 +2099,11 @@ FUNCTION {init.options}
 %<*bachelor>
   #0 'uppercase.name :=
 %</bachelor>
+%    \end{macrocode}
+%
+% 最多显示的作者数量：
+%    \begin{macrocode}
+  #3 'max.num.authors :=
 %    \end{macrocode}
 %
 % 采用著者-出版年制时，作者姓名与年份之间使用句点连接：
@@ -2374,11 +2380,13 @@ FUNCTION {init.state.consts}
 %
 % 下面是一些常量的定义
 %    \begin{macrocode}
+FUNCTION {bbl.space} { "\ " }
+
+FUNCTION {bbl.wide.space} { "\quad " }
+
 FUNCTION {bbl.colon} { ": " }
 
 FUNCTION {bbl.slash} { "//\allowbreak{}" }
-
-FUNCTION {bbl.space} { "\ " }
 
 FUNCTION {bbl.et.al}
 { lang.zh entry.lang =
@@ -2878,7 +2886,7 @@ FUNCTION {format.names}
   numnames 'namesleft :=
     { namesleft #0 > }
     { s nameptr "{vv~}{ll}{, jj}{, ff}" format.name$ 't :=
-      nameptr #4 =
+      nameptr max.num.authors #1 + =
         { bbl.et.al
           #1 'namesleft :=
         }
@@ -3193,16 +3201,16 @@ FUNCTION {format.volume.number}
 FUNCTION {format.series.vol.num.title}
 { format.volume.number 's :=
   series empty$ not
-    { series ": " *
+    { series bbl.colon *
       s empty$ not
-        { s * "\quad " * }
+        { s * bbl.wide.space * }
         'skip$
       if$
       title *
     }
     { title
       s empty$ not
-        { ": " * s * }
+        { bbl.colon * s * }
         'skip$
       if$
     }
@@ -3216,16 +3224,16 @@ FUNCTION {format.series.vol.num.title}
 FUNCTION {format.series.vol.num.booktitle}
 { format.volume.number 's :=
   series empty$ not
-    { series ": " *
+    { series bbl.colon *
       s empty$ not
-        { s * "\quad " * }
+        { s * bbl.wide.space * }
         'skip$
       if$
       booktitle *
     }
     { booktitle
       s empty$ not
-        { ": " * s * }
+        { bbl.colon * s * }
         'skip$
       if$
     }
@@ -3357,9 +3365,9 @@ FUNCTION {format.address.publisher}
 { address empty$ not
     { address
       format.publisher empty$ not
-        { ": " * format.publisher * }
+        { bbl.colon * format.publisher * }
         { is.electronic not print.missing.address.publisher and
-            { ": " * bbl.sine.nomine * }
+            { bbl.colon * bbl.sine.nomine * }
             'skip$
           if$
         }
@@ -3367,7 +3375,7 @@ FUNCTION {format.address.publisher}
     }
     { is.electronic not print.missing.address.publisher and
         { format.publisher empty$ not
-            { bbl.sine.loco ": " * format.publisher * }
+            { bbl.sine.loco bbl.colon * format.publisher * }
             { bbl.sine.loco.sine.nomine }
           if$
         }
@@ -3447,6 +3455,10 @@ FUNCTION {contains.dash}
   if$
 }
 
+%    \end{macrocode}
+%
+% 著者-出版年制必须提取出年份
+%    \begin{macrocode}
 FUNCTION {format.year}
 { year empty$ not
     { year extract.before.dash }
@@ -3461,6 +3473,10 @@ FUNCTION {format.year}
   extra.label *
 }
 
+%    \end{macrocode}
+%
+% 专利和报纸都是使用日期而不是年
+%    \begin{macrocode}
 FUNCTION {format.date}
 { type$ "patent" = type$ "newspaper" = or
   date empty$ not and
@@ -3469,10 +3485,12 @@ FUNCTION {format.date}
   if$
 }
 
+%    \end{macrocode}
+%
+% 更新、修改日期只用于电子资源 elctronic
+%    \begin{macrocode}
 FUNCTION {format.editdate}
 { date empty$ not
-  type$ "newspaper" = not and
-  is.electronic and
     { "\allowbreak(" date * ")" * }
     { "" }
   if$
@@ -3484,7 +3502,7 @@ FUNCTION {format.editdate}
 % 不是 \BibTeX{} 标准的域，但是实际中很常见。
 %    \begin{macrocode}
 FUNCTION {format.urldate}
-{ urldate empty$ not
+{ urldate empty$ not is.electronic and
     { "\allowbreak[" urldate * "]" * }
     { "" }
   if$
@@ -3966,7 +3984,6 @@ FUNCTION {article}
   volume output
   format.journal.number "" output.after
   format.journal.pages "" output.after
-  format.editdate "" output.after
   format.urldate "" output.after
   format.url output
   format.doi output
@@ -4067,9 +4084,9 @@ FUNCTION {misc}
     'article
     { booktitle empty$ not
         'incollection
-        { address empty$ not publisher empty$ not and
+        { publisher empty$ not
             'monograph
-            { url empty$ not
+            { url empty$ not doi empty$ not or
                 'electronic
                 { "Z" set.entry.mark
                   monograph
