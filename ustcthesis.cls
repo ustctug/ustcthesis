@@ -878,15 +878,18 @@
 \setlength{\bibsep}{\z@}
 \setlength{\bibhang}{2\ccwd}
 \renewcommand\@biblabel[1]{[#1]\hfill}
-\g@addto@macro\UrlBreaks{%
-  \do\a\do\b\do\c\do\d\do\e\do\f\do\g\do\h\do\i\do\j
-  \do\k\do\l\do\m\do\n\do\o\do\p\do\q\do\r\do\s\do\t
-  \do\u\do\v\do\w\do\x\do\y\do\z
-  \do\A\do\B\do\C\do\D\do\E\do\F\do\G\do\H\do\I\do\J
-  \do\K\do\L\do\M\do\N\do\O\do\P\do\Q\do\R\do\S\do\T
-  \do\U\do\V\do\W\do\X\do\Y\do\Z
-  \do\1\do\2\do\3\do\4\do\5\do\6\do\7\do\8\do\9\do\0
+\def\UrlBreaks{%
+  \do\a\do\b\do\c\do\d\do\e\do\f\do\g\do\h\do\i\do\j%
+  \do\k\do\l\do\m\do\n\do\o\do\p\do\q\do\r\do\s\do\t%
+  \do\u\do\v\do\w\do\x\do\y\do\z%
+  \do\A\do\B\do\C\do\D\do\E\do\F\do\G\do\H\do\I\do\J%
+  \do\K\do\L\do\M\do\N\do\O\do\P\do\Q\do\R\do\S\do\T%
+  \do\U\do\V\do\W\do\X\do\Y\do\Z%
+  \do\1\do\2\do\3\do\4\do\5\do\6\do\7\do\8\do\9\do\0%
 }
+\def\UrlBigBreaks{\do\:\do@url@hyp%
+  \do\.\do\@\do\\\do\/\do\!\do\_\do\|\do\;\do\>\do\]%
+  \do\)\do\,\do\?\do\&\do\'\do+\do\=\do\#}%
 \renewcommand\bibsection{%
   \@mainmatterfalse
   \chapter{\bibname}%
