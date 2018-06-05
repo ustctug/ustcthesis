@@ -70,7 +70,7 @@ ENTRY
     volume
     year
   }
-  { entry.lang is.digital }
+  { entry.lang is.electronic }
   { label extra.label sort.label short.list entry.mark entry.url }
 
 INTEGERS { output.state before.all mid.sentence after.sentence after.block after.slash }
@@ -722,20 +722,12 @@ FUNCTION {format.journal}
 { journal
 }
 
-FUNCTION {set.mark}
+FUNCTION {set.entry.mark}
 { entry.mark empty$ not
     'pop$
     { mark empty$ not
         { pop$ mark 'entry.mark := }
         { 'entry.mark := }
-      if$
-      medium empty$ not
-        { entry.mark "/" * medium * 'entry.mark := }
-        { is.digital
-            { entry.mark "/OL" * 'entry.mark := }
-            'skip$
-          if$
-        }
       if$
     }
   if$
@@ -743,7 +735,16 @@ FUNCTION {set.mark}
 
 FUNCTION {format.mark}
 { print.mark
-    { "\allowbreak[" entry.mark * "]" * }
+    { medium empty$ not
+        { entry.mark "/" * medium * 'entry.mark := }
+        { is.electronic
+            { entry.mark "/OL" * 'entry.mark := }
+            'skip$
+          if$
+        }
+      if$
+      "\allowbreak[" entry.mark * "]" *
+    }
     { "" }
   if$
 }
@@ -813,14 +814,14 @@ FUNCTION {format.address.publisher}
     { address
       format.publisher empty$ not
         { ": " * format.publisher * }
-        { is.digital not print.missing.address.publisher and
+        { is.electronic not print.missing.address.publisher and
             { ": " * bbl.sine.nomine * }
             'skip$
           if$
         }
       if$
     }
-    { is.digital not print.missing.address.publisher and
+    { is.electronic not print.missing.address.publisher and
         { format.publisher empty$ not
             { bbl.sine.loco ": " * format.publisher * }
             { bbl.sine.loco.sine.nomine }
@@ -916,7 +917,7 @@ FUNCTION {format.date}
 FUNCTION {format.editdate}
 { date empty$ not
   type$ "newspaper" = not and
-  is.digital and
+  is.electronic and
     { "\allowbreak(" date * ")" * }
     { "" }
   if$
@@ -1006,24 +1007,15 @@ FUNCTION {format.periodical.year.volume.number}
   if$
 }
 
-FUNCTION {format.url}
-{ entry.url empty$ not print.url and
-    { new.block entry.url }
-    { "" }
-  if$
-}
-
-FUNCTION {set.entry.url}
-{ "" 'entry.url :=
-  #0 'is.digital :=
-  url empty$ not
+FUNCTION {check.url}
+{ url empty$ not
     { "\url{" url * "}" * 'entry.url :=
-      #1 'is.digital :=
+      #1 'is.electronic :=
     }
     { howpublished empty$ not
         { howpublished #1 #5 substring$ "\url{" =
             { howpublished 'entry.url :=
-              #1 'is.digital :=
+              #1 'is.electronic :=
             }
             'skip$
           if$
@@ -1031,7 +1023,7 @@ FUNCTION {set.entry.url}
         { note empty$ not
             { note #1 #5 substring$ "\url{" =
                 { note 'entry.url :=
-                  #1 'is.digital :=
+                  #1 'is.electronic :=
                 }
                 'skip$
               if$
@@ -1042,25 +1034,27 @@ FUNCTION {set.entry.url}
       if$
     }
   if$
-  doi empty$ not
-    { #1 'is.digital := }
-    'skip$
+}
+
+FUNCTION {format.url}
+{ entry.url empty$ not
+    { new.block entry.url }
+    { "" }
   if$
-  medium empty$ not
-    { medium "MT" = medium "DK" = or medium "CD" = or medium "OL" = or
-        { #1 'is.digital := }
-        'skip$
-      if$
-    }
+}
+
+FUNCTION {check.doi}
+{ doi empty$ not
+    { #1 'is.electronic := }
     'skip$
   if$
 }
 
-FUNCTION {is.doi.in.url}
+FUNCTION {is.in.url}
 { 's :=
   s empty$
     { #1 }
-    { entry.url empty$ print.url not or
+    { entry.url empty$
         { #0 }
         { s text.length$ 'len :=
           entry.url text.length$ 'charptr :=
@@ -1090,7 +1084,7 @@ FUNCTION {format.doi}
                 { s tmp.str * 's := }
                 'skip$
               if$
-              s empty$ s is.doi.in.url or
+              s empty$ s is.in.url or
                 'skip$
                 { numnames #1 + 'numnames :=
                   numnames #1 >
@@ -1111,6 +1105,25 @@ FUNCTION {format.doi}
       s empty$ not
         { new.block s }
         { "" }
+      if$
+    }
+    'skip$
+  if$
+}
+
+FUNCTION {check.electronic}
+{ "" 'entry.url :=
+  #0 'is.electronic :=
+    'check.doi
+    'skip$
+  if$
+    'check.url
+    'skip$
+  if$
+  medium empty$ not
+    { medium "MT" = medium "DK" = or medium "CD" = or medium "OL" = or
+        { #1 'is.electronic := }
+        'skip$
       if$
     }
     'skip$
@@ -1147,7 +1160,7 @@ FUNCTION {monograph}
   output
   new.block
   format.series.vol.num.title "title" output.check
-  "M" set.mark
+  "M" set.entry.mark
   format.mark "" output.after
   new.block
   format.translators output
@@ -1171,7 +1184,7 @@ FUNCTION {incollection}
   author format.key output
   new.block
   format.title "title" output.check
-  "M" set.mark
+  "M" set.entry.mark
   format.mark "" output.after
   new.block
   format.translators output
@@ -1199,7 +1212,7 @@ FUNCTION {periodical}
   author format.key output
   new.block
   format.title "title" output.check
-  "J" set.mark
+  "J" set.entry.mark
   format.mark "" output.after
   new.block
   format.periodical.year.volume.number output
@@ -1220,7 +1233,7 @@ FUNCTION {article}
   author format.key output
   new.block
   format.title "title" output.check
-  "J" set.mark
+  "J" set.entry.mark
   format.mark "" output.after
   new.block
   format.journal "journal" output.check
@@ -1248,7 +1261,7 @@ FUNCTION {patent}
     'skip$
   if$
   "title" output.check
-  "P" set.mark
+  "P" set.entry.mark
   format.mark "" output.after
   new.block
   format.date "year" output.check
@@ -1261,13 +1274,14 @@ FUNCTION {patent}
 }
 
 FUNCTION {electronic}
-{ #1 'is.digital :=
+{ #1 #1 check.electronic
+  #1 'is.electronic :=
   output.bibitem
   format.authors output
   author format.key output
   new.block
   format.series.vol.num.title "title" output.check
-  "EB" set.mark
+  "EB" set.entry.mark
   format.mark "" output.after
   new.block
   format.address.publisher output
@@ -1290,10 +1304,14 @@ FUNCTION {misc}
     'article
     { booktitle empty$ not
         'incollection
-        { url empty$ not
-            'electronic
-            { "Z" set.mark
-              monograph
+        { address empty$ not publisher empty$ not and
+            'monograph
+            { url empty$ not
+                'electronic
+                { "Z" set.entry.mark
+                  monograph
+                }
+              if$
             }
           if$
         }
@@ -1304,7 +1322,7 @@ FUNCTION {misc}
 }
 
 FUNCTION {archive}
-{ "A" set.mark
+{ "A" set.entry.mark
   misc
 }
 
@@ -1313,75 +1331,75 @@ FUNCTION {book} { monograph }
 FUNCTION {booklet} { book }
 
 FUNCTION {collection}
-{ "G" set.mark
+{ "G" set.entry.mark
   monograph
 }
 
 FUNCTION {database}
-{ "DB" set.mark
+{ "DB" set.entry.mark
   electronic
 }
 
 FUNCTION {dataset}
-{ "DS" set.mark
+{ "DS" set.entry.mark
   electronic
 }
 
 FUNCTION {inbook} { book }
 
 FUNCTION {inproceedings}
-{ "C" set.mark
+{ "C" set.entry.mark
   incollection
 }
 
 FUNCTION {conference} { inproceedings }
 
 FUNCTION {map}
-{ "CM" set.mark
+{ "CM" set.entry.mark
   misc
 }
 
 FUNCTION {manual} { monograph }
 
 FUNCTION {mastersthesis}
-{ "D" set.mark
+{ "D" set.entry.mark
   monograph
 }
 
 FUNCTION {newspaper}
-{ "N" set.mark
+{ "N" set.entry.mark
   article
 }
 
 FUNCTION {online}
-{ "EB" set.mark
+{ "EB" set.entry.mark
   electronic
 }
 
 FUNCTION {phdthesis} { mastersthesis }
 
 FUNCTION {proceedings}
-{ "C" set.mark
+{ "C" set.entry.mark
   monograph
 }
 
 FUNCTION {software}
-{ "CP" set.mark
+{ "CP" set.entry.mark
   electronic
 }
 
 FUNCTION {standard}
-{ "S" set.mark
+{ "S" set.entry.mark
   misc
 }
 
 FUNCTION {techreport}
-{ "R" set.mark
+{ "R" set.entry.mark
   misc
 }
 
 FUNCTION {unpublished}
-{ "Z" set.mark
+{ "Z" set.entry.mark
   misc
 }
 
@@ -1590,7 +1608,7 @@ FUNCTION {int.to.fix}
 
 FUNCTION {presort}
 { set.entry.lang
-  set.entry.url
+  print.url print.doi check.electronic
   calc.label
   label sortify
   "    "
