@@ -500,18 +500,18 @@
 }
 \setcounter{secnumdepth}{5}
 \DeclareRobustCommand\@ustc@spacetitle[1]{%
-  \StrLen{#1}[\titlelength]%
+  \StrLen{#1}[\ustc@titlelength]%
   \if@ustc@bachelor
     \if@mainmatter\relax\else
-      \ifnum\titlelength=2\ziju{1}\else
-        \ifnum\titlelength=4\ziju{0.5}%
+      \ifnum\ustc@titlelength=2\ziju{1}\else
+        \ifnum\ustc@titlelength=4\ziju{0.5}%
         \fi
       \fi
     \fi
   \else
-    \ifnum\titlelength=2\ziju{2}\else
-      \ifnum\titlelength=3\ziju{1}\else
-        \ifnum\titlelength=4\ziju{0.5}%
+    \ifnum\ustc@titlelength=2\ziju{2}\else
+      \ifnum\ustc@titlelength=3\ziju{1}\else
+        \ifnum\ustc@titlelength=4\ziju{0.5}%
         \fi
       \fi
     \fi
