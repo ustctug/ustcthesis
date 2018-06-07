@@ -733,11 +733,30 @@ version 2005/12/01 or later.
 %    \end{macrocode}
 %
 %    \begin{macrocode}
-\urlstyle{same}
 \pdfstringdefDisableCommands{
   \let\\\empty
 }
 %    \end{macrocode}
+%
+% \begin{macro}{\url}
+% 将 URL 设置为保持原样。
+%    \begin{macrocode}
+\urlstyle{same}
+%    \end{macrocode}
+%
+% 使用 \pkg{xurl} 宏包的方法，增加 URL 可断行的位置。
+%    \begin{macrocode}
+\def\UrlBreaks{%
+  \do\/%
+  \do\a\do\b\do\c\do\d\do\e\do\f\do\g\do\h\do\i\do\j\do\k\do\l%
+     \do\m\do\n\do\o\do\p\do\q\do\r\do\s\do\t\do\u\do\v\do\w\do\x\do\y\do\z%
+  \do\A\do\B\do\C\do\D\do\E\do\F\do\G\do\H\do\I\do\J\do\K\do\L%
+     \do\M\do\N\do\O\do\P\do\Q\do\R\do\S\do\T\do\U\do\V\do\W\do\X\do\Y\do\Z%
+  \do0\do1\do2\do3\do4\do5\do6\do7\do8\do9\do=\do/\do.\do:%
+  \do\*\do\-\do\~\do\'\do\"\do\-}
+\Urlmuskip=0mu plus 0.1mu
+%    \end{macrocode}
+% \end{macro}
 %
 %
 % \subsection{字体}
@@ -1937,9 +1956,7 @@ version 2005/12/01 or later.
   }{}%
 }{}{}
 %    \end{macrocode}
-% \end{macro}
 %
-% \begin{macro}{\cite}
 % Numerical 模式的 \cs{citep} 的页码：
 %    \begin{macrocode}
 \renewcommand\NAT@citesuper[3]{\ifNAT@swa
@@ -1950,9 +1967,7 @@ version 2005/12/01 or later.
     [3]{\ifNAT@swa\NAT@@open\if*#2*\else#2\NAT@spacechar\fi
         #1\NAT@@close\if*#3*\else\textsuperscript{#3}\fi\else#1\fi\endgroup}
 %    \end{macrocode}
-% \end{macro}
 %
-% \begin{macro}{\cite}
 % Author-year 模式的 \cs{citet} 的页码：
 %    \begin{macrocode}
 \patchcmd{\NAT@citex}{%
@@ -1963,18 +1978,14 @@ version 2005/12/01 or later.
   \if*#2*\else\textsuperscript{#2}\fi
 }{}{}
 %    \end{macrocode}
-% \end{macro}
 %
-% \begin{macro}{\cite}
 % Author-year 模式的 \cs{citep} 的页码：
 %    \begin{macrocode}
 \renewcommand\NAT@cite%
     [3]{\ifNAT@swa\NAT@@open\if*#2*\else#2\NAT@spacechar\fi
         #1\NAT@@close\if*#3*\else\textsuperscript{#3}\fi\else#1\fi\endgroup}
 %    \end{macrocode}
-% \end{macro}
 %
-% \begin{macro}{\cite}
 % 在顺序编码制下，\pkg{natbib} 只有在三个以上连续文献引用才会使用连接号，
 % 这里修改为允许两个引用使用连接号。
 % \changes{v3.0.3}{2018/03/29}{顺序编码制连续两个文献引用之间使用连接号}
@@ -2001,25 +2012,8 @@ version 2005/12/01 or later.
   \renewcommand\bibfont{\@ustc@setfontsize{10.5bp}{20bp}}
 \fi
 \setlength{\bibsep}{\z@}
-\setlength{\bibhang}{2\ccwd}
 \renewcommand\@biblabel[1]{[#1]\hfill}
-%    \end{macrocode}
-% \end{environment}
-%
-% 将 URL 设置为保持原样，并增加可断行的位置。
-%    \begin{macrocode}
-\def\UrlBreaks{%
-  \do\a\do\b\do\c\do\d\do\e\do\f\do\g\do\h\do\i\do\j%
-  \do\k\do\l\do\m\do\n\do\o\do\p\do\q\do\r\do\s\do\t%
-  \do\u\do\v\do\w\do\x\do\y\do\z%
-  \do\A\do\B\do\C\do\D\do\E\do\F\do\G\do\H\do\I\do\J%
-  \do\K\do\L\do\M\do\N\do\O\do\P\do\Q\do\R\do\S\do\T%
-  \do\U\do\V\do\W\do\X\do\Y\do\Z%
-  \do\1\do\2\do\3\do\4\do\5\do\6\do\7\do\8\do\9\do\0%
-}
-\def\UrlBigBreaks{\do\:\do@url@hyp%
-  \do\.\do\@\do\\\do\/\do\!\do\_\do\|\do\;\do\>\do\]%
-  \do\)\do\,\do\?\do\&\do\'\do+\do\=\do\#}%
+\setlength{\bibhang}{2\ccwd}
 %    \end{macrocode}
 %
 % 为了将参考文献加入目录和 pdf 书签，重新定义 \pkg{natbib} 的 \env{bibsection}
@@ -2030,6 +2024,7 @@ version 2005/12/01 or later.
   \@mainmattertrue
 }
 %    \end{macrocode}
+% \end{environment}
 %
 %
 % \subsection{附录}
@@ -2049,6 +2044,7 @@ version 2005/12/01 or later.
 }{}
 %    \end{macrocode}
 % \end{environment}
+%
 % \begin{environment}{publications}
 % 发表成果环境：
 %    \begin{macrocode}

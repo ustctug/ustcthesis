@@ -88,10 +88,19 @@
     allcolors=blue,
   }
 \fi
-\urlstyle{same}
 \pdfstringdefDisableCommands{
   \let\\\empty
 }
+\urlstyle{same}
+\def\UrlBreaks{%
+  \do\/%
+  \do\a\do\b\do\c\do\d\do\e\do\f\do\g\do\h\do\i\do\j\do\k\do\l%
+     \do\m\do\n\do\o\do\p\do\q\do\r\do\s\do\t\do\u\do\v\do\w\do\x\do\y\do\z%
+  \do\A\do\B\do\C\do\D\do\E\do\F\do\G\do\H\do\I\do\J\do\K\do\L%
+     \do\M\do\N\do\O\do\P\do\Q\do\R\do\S\do\T\do\U\do\V\do\W\do\X\do\Y\do\Z%
+  \do0\do1\do2\do3\do4\do5\do6\do7\do8\do9\do=\do/\do.\do:%
+  \do\*\do\-\do\~\do\'\do\"\do\-}
+\Urlmuskip=0mu plus 0.1mu
 \setmainfont{Times New Roman}
 \setsansfont{Arial}
 \IfFileExists{/System/Library/Fonts/Menlo.ttc}{
@@ -876,20 +885,8 @@
   \renewcommand\bibfont{\@ustc@setfontsize{10.5bp}{20bp}}
 \fi
 \setlength{\bibsep}{\z@}
-\setlength{\bibhang}{2\ccwd}
 \renewcommand\@biblabel[1]{[#1]\hfill}
-\def\UrlBreaks{%
-  \do\a\do\b\do\c\do\d\do\e\do\f\do\g\do\h\do\i\do\j%
-  \do\k\do\l\do\m\do\n\do\o\do\p\do\q\do\r\do\s\do\t%
-  \do\u\do\v\do\w\do\x\do\y\do\z%
-  \do\A\do\B\do\C\do\D\do\E\do\F\do\G\do\H\do\I\do\J%
-  \do\K\do\L\do\M\do\N\do\O\do\P\do\Q\do\R\do\S\do\T%
-  \do\U\do\V\do\W\do\X\do\Y\do\Z%
-  \do\1\do\2\do\3\do\4\do\5\do\6\do\7\do\8\do\9\do\0%
-}
-\def\UrlBigBreaks{\do\:\do@url@hyp%
-  \do\.\do\@\do\\\do\/\do\!\do\_\do\|\do\;\do\>\do\]%
-  \do\)\do\,\do\?\do\&\do\'\do+\do\=\do\#}%
+\setlength{\bibhang}{2\ccwd}
 \renewcommand\bibsection{%
   \@mainmatterfalse
   \chapter{\bibname}%
