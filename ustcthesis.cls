@@ -49,7 +49,6 @@
 \if@ustc@pdf
   \PassOptionsToClass{oneside}{book}
 \fi
-\PassOptionsToPackage{no-math}{fontspec}
 \LoadClass[UTF8, a4paper, openany, zihao=-4]{ctexbook}[2015/07/01]
 \@ifclasslater{ctexbook}{2015/07/01}{}{
   \ClassError{ustcthesis}{%
@@ -60,6 +59,8 @@
 }
 \RequirePackage{hyperref}
 \RequirePackage{etoolbox}
+\RequirePackage{amsmath}
+\RequirePackage{unicode-math}
 \RequirePackage{geometry}
 \RequirePackage{fancyhdr}
 \RequirePackage{xstring}
@@ -69,8 +70,6 @@
 \RequirePackage[perpage]{footmisc}
 \RequirePackage{caption}
 \RequirePackage{calc}
-\RequirePackage{amssymb}
-\RequirePackage{upgreek}
 \if@ustc@numerical
   \PassOptionsToPackage{sort&compress}{natbib}
 \fi
@@ -101,34 +100,33 @@
   \do0\do1\do2\do3\do4\do5\do6\do7\do8\do9\do=\do/\do.\do:%
   \do\*\do\-\do\~\do\'\do\"\do\-}
 \Urlmuskip=0mu plus 0.1mu
-\setmainfont{Times New Roman}
-\setsansfont{Arial}
-\IfFileExists{/System/Library/Fonts/Menlo.ttc}{
-  \setmonofont[Scale=MatchLowercase]{Menlo}
-}{
-  \setmonofont[Scale=MatchLowercase]{Courier New}
-}
 \ExplSyntaxOn
 \str_if_eq:onT { \g__ctex_fontset_tl } { mac }
   {
+    \setmainfont { Times~New~Roman }
+    \setsansfont [ Scale = MatchLowercase ] { Arial }
+    \setmonofont [ Scale = MatchLowercase ] { Menlo }
     \setCJKmainfont
       [
-           UprightFont = *~Light,
-              BoldFont = *~Bold,
-            ItalicFont = Kaiti~SC,
-        BoldItalicFont = Kaiti~SC~Bold
+           UprightFont = *~Light ,
+              BoldFont = *~Bold ,
+            ItalicFont = Kaiti~SC ,
+        BoldItalicFont = Kaiti~SC~Bold ,
       ] { Songti~SC }
     \setCJKsansfont { Heiti~SC }
     \setCJKfamilyfont { zhsong }
       [
-           UprightFont = *~Light,
-              BoldFont = *~Bold,
+           UprightFont = *~Light ,
+              BoldFont = *~Bold ,
       ] { Songti~SC }
     \setCJKfamilyfont { zhhei } { Heiti~SC }
     \setCJKfamilyfont { zhkai } { Kaiti~SC }
   }
 \str_if_eq:onT { \g__ctex_fontset_tl } { windows }
   {
+    \setmainfont { Times~New~Roman }
+    \setsansfont [ Scale = MatchLowercase ] { Arial }
+    \setmonofont [ Scale = MatchLowercase ] { Menlo }
     \file_if_exist:nTF { C:/bootfont.bin }
       {
         \setCJKmainfont
@@ -144,16 +142,71 @@
   }
 \str_if_eq:onT { \g__ctex_fontset_tl } { adobe }
   {
+    \setmainfont { Times~New~Roman }
+    \setsansfont [ Scale = MatchLowercase ] { Arial }
+    \setmonofont [ Scale = MatchLowercase ] { Menlo }
     \setCJKmainfont
       [
         AutoFakeBold ,
-        ItalicFont = AdobeKaitiStd-Regular
+        ItalicFont = AdobeKaitiStd-Regular ,
       ] { AdobeSongStd-Light }
     \setCJKsansfont [ AutoFakeBold ] { AdobeHeitiStd-Regular}
     \setCJKfamilyfont { zhsong } [ AutoFakeBold ] { AdobeSongStd-Light }
     \setCJKfamilyfont { zhhei }  [ AutoFakeBold ] { AdobeHeitiStd-Regular }
   }
+\str_if_eq:onT { \g__ctex_fontset_tl } { fandol }
+  {
+    \setmainfont
+      [
+        Extension      = .otf ,
+        UprightFont    = *-regular ,
+        BoldFont       = *-bold ,
+        ItalicFont     = *-italic ,
+        BoldItalicFont = *-bolditalic ,
+      ] { texgyretermes }
+    \setsansfont
+      [
+        Extension      = .otf ,
+        UprightFont    = *-regular ,
+        BoldFont       = *-bold ,
+        ItalicFont     = *-italic ,
+        BoldItalicFont = *-bolditalic ,
+        Scale          = MatchLowercase ,
+      ] { texgyreheros }
+    \setmonofont
+      [
+        Extension      = .otf ,
+        UprightFont    = *-regular ,
+        BoldFont       = *-bold ,
+        ItalicFont     = *-italic ,
+        BoldItalicFont = *-bolditalic ,
+        Scale          = MatchLowercase ,
+      ] { texgyrecursor }
+    \ClassWarningNoLine{ustcthesis}{%
+      You~are~using~Fandol~font~family. \MessageBreak
+      Some~glyphs~may~be~missing. \MessageBreak
+      Please~manually~configure~a~high-quality~font~set
+    }
+  }
 \ExplSyntaxOff
+\unimathsetup{
+  math-style = ISO,
+  bold-style = ISO,
+  nabla      = upright,
+  partial    = upright,
+}
+\IfFontExistsTF{STIX2Math.otf}{
+  \setmathfont[StylisticSet=8]{STIX2Math.otf}
+  \setmathfont[range={scr,bfscr},StylisticSet=1]{STIX2Math.otf}
+  \setmathfont[range=\partial]{xits-math.otf}
+}{
+  \setmathfont[
+    Extension    = .otf,
+    BoldFont     = *bold,
+    StylisticSet = 8,
+  ]{xits-math}
+  \setmathfont[range={cal,bfcal},StylisticSet=1]{xits-math.otf}
+}
 \newdimen\bp@
 \bp@=1bp
 \if@ustc@bachelor
@@ -490,7 +543,7 @@
   \vskip 0.3cm\par
   \@ustc@authorization\par
   \vskip 0.5cm\relax
-  $\square$公开 \hspace{0.4cm} $\square$保密（\@ustc@underline[2em]{}年）\par
+  $\mdlgwhtsquare$公开 \hspace{0.4cm} $\mdlgwhtsquare$保密（\@ustc@underline[2em]{}年）\par
   \vskip 0.5cm\par
   {\renewcommand{\arraystretch}{2.0}%
   \begin{tabular}{p{7cm}p{7cm}}%
@@ -802,10 +855,29 @@
 \newcommand\note[1]{%
   \captionsetup{position=bottom, font=small}%
   \caption*{\raggedright\hangindent=2\ccwd\relax\@ustc@notesname#1}}
-\renewcommand\le{\leqslant}
-\renewcommand\leq{\leqslant}
-\renewcommand\ge{\geqslant}
-\renewcommand\geq{\geqslant}
+\def\mathellipsis{\cdots}
+\protected\def\le{\leqslant}
+\protected\def\ge{\geqslant}
+\AtBeginDocument{%
+  \renewcommand\leq{\leqslant}%
+  \renewcommand\geq{\geqslant}%
+}
+\AtBeginDocument{%
+  \renewcommand{\Re}{\operatorname{Re}}%
+  \renewcommand{\Im}{\operatorname{Im}}%
+}
+\AtBeginDocument{%
+  \renewcommand\nabla{\mbfnabla}%
+}
+\newcommand\bm{\symbf}
+\renewcommand\boldsymbol{\symbf}
+\newcommand\square{\mdlgblksquare}
+\newcommand\ustc@nopackage[2][]{%
+  \@namedef{ver@#2.sty}{9999/12/31}%
+  \@namedef{opt@#2.sty}{#1}}
+\ustc@nopackage{amssymb}
+\ustc@nopackage{bm}
+\ustc@nopackage{mathrsfs}
 \newcommand\bibstyle@super{\bibpunct{[}{]}{,}{s}{,}{\textsuperscript{,}}}
 \newcommand\bibstyle@numbers{\bibpunct{[}{]}{,}{n}{,}{,}}
 \newcommand\bibstyle@authoryear{\bibpunct{(}{)}{;}{a}{,}{,}}
@@ -819,8 +891,8 @@
     \ifx\tmp@gbt\tmp@authoryear
       \bibliographystyle{ustcthesis-authoryear}%
     \else
-      \PackageError{ustcthesis}{Unknown argument #1.}%
-      {It should be `numerical' or `authoryear'.}%
+      \ClassError{ustcthesis}{Unknown argument #1.}%
+        {It should be `numerical' or `authoryear'.}%
     \fi
   \fi
 }

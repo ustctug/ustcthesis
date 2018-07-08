@@ -6,14 +6,15 @@
 \ProvidesPackage{ustcextra}
 
 % 数学符号：
-\RequirePackage{amsmath,amsthm}
 \newcommand\eu{\mathrm{e}}
 \newcommand\iu{\mathrm{i}}
-\newcommand*{\diff}{\mathop{}\!\mathrm{d}}
+\newcommand\dif{\mathop{}\!\mathrm{d}}
 \DeclareMathOperator*{\argmax}{arg\,max}
 \DeclareMathOperator*{\argmin}{arg\,min}
+
 % 数学定理：
 % 以下定义数学定理环境默认风格为 ustcplain。
+\RequirePackage{amsthm}
 \newtheoremstyle{ustcplain}%
     {}{}%
     {}{2\ccwd}%

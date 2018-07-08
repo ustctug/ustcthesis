@@ -1,5 +1,4 @@
-os:
-  - linux
+language: generic
 
 cache:
   directories:
@@ -9,12 +8,6 @@ cache:
 install:
   - export PATH="/tmp/texlive/bin/x86_64-linux:$PATH"
   - bash ./support/texlive.sh
-
-# English fonts: replace Windows only fonts to TeX default fonts
-before_script:
-  - sed -i '/setmainfont/d' ustcthesis.dtx
-  - sed -i '/setsansfont/d' ustcthesis.dtx
-  - sed -i '/setmonofont/d' ustcthesis.dtx
 
 script:
   - make main
