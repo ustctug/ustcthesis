@@ -53,7 +53,7 @@ version 2005/12/01 or later.
 %<class>\NeedsTeXFormat{LaTeX2e}[1999/12/01]
 %<class>\ProvidesClass{ustcthesis}
 %<*class>
-  [2018/05/18 v3.0.b USTC thesis template]
+  [2018/09/01 v3.1 USTC thesis template]
 %</class>
 %
 %<*driver>
@@ -221,6 +221,7 @@ version 2005/12/01 or later.
 %
 % \section{编译方法}
 %
+%
 % \subsection{文件组成}
 % 本模板的主要文件如表~\ref{tab:files}：
 % \begin{table}[htbp]
@@ -258,6 +259,7 @@ version 2005/12/01 or later.
 % \file{ustcthesis.cls} 和模板使用说明文件 \file{ustcthesis.pdf} 。
 % 原始模板文件仅供模板开发者使用，一般用户无需使用。
 %
+%
 % \subsection{依赖宏包}
 %
 % \cls{ustcthesis} 直接依赖的宏包有：
@@ -274,10 +276,10 @@ version 2005/12/01 or later.
 % \pkg{titletoc},
 % \pkg{tikz},
 % \pkg{unicode-math},
-% \pkg{xparse}
 %
 % 注意 \pkg{ctex} 必须为 2.0 以上版本，所以要求 TeX Live、MacTeX、MikTeX
 % 的版本不低于 2015 年的发行版。
+%
 %
 % \subsection{开始编译}
 %
@@ -332,6 +334,7 @@ version 2005/12/01 or later.
 %
 % \section{模板设置}
 %
+%
 % \subsection{文档类参数}
 % \cls{ustcthesis} 提供了若干选项，应在论文开始时设置，如：
 % \begin{latex}
@@ -361,6 +364,7 @@ version 2005/12/01 or later.
 %   \caption{文档类参数}
 %   \label{tab:options}
 % \end{table}
+%
 %
 % \subsection{字体设置}
 % \cls{ustcthesis} 是以 \pkg{XeTeX} + \pkg{fontspec} + \pkg{xeCJK}
@@ -450,6 +454,7 @@ version 2005/12/01 or later.
 %   \label{tab:covercmds}
 % \end{table}
 %
+%
 % \subsection{摘要等环境}
 % \DescribeEnv{abstract}
 % \DescribeEnv{enabstract}
@@ -485,6 +490,7 @@ version 2005/12/01 or later.
 % \end{abstract}
 % \end{latex}
 %
+%
 % \subsection{目录和图表}
 % 生成目录、插图和表格的索引命令分别如表~\ref{tab:tocs}：
 % \DescribeMacro{\tableofcontents}
@@ -513,6 +519,7 @@ version 2005/12/01 or later.
 %
 % \DescribeMacro{\note}
 % 本模板还提供了 \cs{note\marg{text}} 命令，用于在图表中添加注释。
+%
 %
 % \subsection{数学}
 %
@@ -565,6 +572,7 @@ version 2005/12/01 or later.
 %
 % \DescribeMacro{\newtheoremstyle}
 % 用户还可以用 \cs{newtheoremstyle} 定义环境的格式，具体参见 \pkg{amsthm} 宏包。
+%
 %
 % \subsection{参考文献}
 %
@@ -652,6 +660,7 @@ version 2005/12/01 or later.
 \ExecuteOptions{doctor,chinese,print,super}
 \ProcessOptions\relax
 %    \end{macrocode}
+%
 %
 % \subsection{加载文档类和宏包}
 %
@@ -916,10 +925,6 @@ version 2005/12/01 or later.
     \abovedisplayskip 10.5\bp@ \@plus3\bp@ \@minus6\bp@
     \abovedisplayshortskip \z@ \@plus3\bp@
     \belowdisplayshortskip 6.5\bp@ \@plus3.5\bp@ \@minus3\bp@
-    \def\@listi{\leftmargin\leftmargini
-                \topsep 9\bp@ \@plus3\bp@ \@minus5\bp@
-                \parsep 4.5\bp@ \@plus2\bp@ \@minus\bp@
-                \itemsep \parsep}%
     \belowdisplayskip \abovedisplayskip
   }
   \renewcommand\footnotesize{%
@@ -927,10 +932,6 @@ version 2005/12/01 or later.
     \abovedisplayskip 9\bp@ \@plus2\bp@ \@minus5\bp@
     \abovedisplayshortskip \z@ \@plus3\bp@
     \belowdisplayshortskip 6\bp@ \@plus3\bp@ \@minus3\bp@
-    \def\@listi{\leftmargin\leftmargini
-                \topsep 6\bp@ \@plus2\bp@ \@minus2\bp@
-                \parsep 3\bp@ \@plus2\bp@ \@minus\bp@
-                \itemsep \parsep}%
     \belowdisplayskip \abovedisplayskip
   }
   \renewcommand\scriptsize{\@setfontsize\scriptsize{7.5\bp@}{13.75\bp@}}
@@ -954,10 +955,6 @@ version 2005/12/01 or later.
     \abovedisplayskip 10.5\bp@ \@plus3\bp@ \@minus6\bp@
     \abovedisplayshortskip \z@ \@plus3\bp@
     \belowdisplayshortskip 6.5\bp@ \@plus3.5\bp@ \@minus3\bp@
-    \def\@listi{\leftmargin\leftmargini
-                \topsep 9\bp@ \@plus3\bp@ \@minus5\bp@
-                \parsep 4.5\bp@ \@plus2\bp@ \@minus\bp@
-                \itemsep \parsep}%
     \belowdisplayskip \abovedisplayskip
   }
   \renewcommand\footnotesize{%
@@ -965,10 +962,6 @@ version 2005/12/01 or later.
      \abovedisplayskip 9\bp@ \@plus2\bp@ \@minus5\bp@
      \abovedisplayshortskip \z@ \@plus3\bp@
      \belowdisplayshortskip 6\bp@ \@plus3\bp@ \@minus3\bp@
-     \def\@listi{\leftmargin\leftmargini
-                 \topsep 6\bp@ \@plus2\bp@ \@minus2\bp@
-                 \parsep 3\bp@ \@plus2\bp@ \@minus\bp@
-                 \itemsep \parsep}%
      \belowdisplayskip \abovedisplayskip
   }
   \renewcommand\scriptsize{\@setfontsize\scriptsize{7.5\bp@}{12.5\bp@}}
@@ -1012,6 +1005,7 @@ version 2005/12/01 or later.
   \newcommand\@ustc@notationname{符号说明}
 \fi
 %    \end{macrocode}
+%
 %
 % \subsection{页面设置}
 % 首先用 \pkg{geometry} 宏包设置纸张和页面。
@@ -1781,6 +1775,7 @@ version 2005/12/01 or later.
 %    \end{macrocode}
 % \end{environment}
 %
+%
 % \subsection{正文}
 %
 %    \begin{macrocode}
@@ -1821,6 +1816,38 @@ version 2005/12/01 or later.
   \hb@xt@2\ccwd{\hss\@makefnmark}#1}
 %    \end{macrocode}
 % \end{macro}
+%
+%
+% \subsection{列表}
+%
+% 修复列表中各项之间过大的间距。
+% \begin{environment}{enumerate}
+% \begin{environment}{itemize}
+% \begin{environment}{description}
+% \changes{v3.1}{2018/09/01}{修复列表中各项之间过大的间距}
+%    \begin{macrocode}
+\setlength\partopsep{\z@}
+\newcommand\ustc@nolistsep{%
+  \parsep \z@
+  \topsep \z@
+  \itemsep\z@
+}
+\def\@listi{\leftmargin\leftmargini
+            \ustc@nolistsep}
+\let\@listI\@listi
+\@listi
+\def\@listii {\leftmargin\leftmarginii
+              \labelwidth\leftmarginii
+              \advance\labelwidth-\labelsep
+              \ustc@nolistsep}
+\def\@listiii{\leftmargin\leftmarginiii
+              \labelwidth\leftmarginiii
+              \advance\labelwidth-\labelsep
+              \ustc@nolistsep}
+%    \end{macrocode}
+% \end{environment}
+% \end{environment}
+% \end{environment}
 %
 %
 % \subsection{图、表}
@@ -1892,6 +1919,7 @@ version 2005/12/01 or later.
 %
 %
 % \subsection{数学}
+%
 % \changes{v3.1}{2018/09/01}{更正了数学符号以满足国标要求}
 %
 % \begin{macro}{\ldots}
@@ -4709,6 +4737,7 @@ FUNCTION {calc.label}
 
 %    \end{macrocode}
 %
+%
 % \subsection{Sorting}
 %
 % When sorting, we compute the sortkey by executing "presort" on each entry.
@@ -5051,6 +5080,7 @@ ITERATE {bib.sort.order}
 SORT
 
 %    \end{macrocode}
+%
 %
 % \subsection{Write bbl file}
 %

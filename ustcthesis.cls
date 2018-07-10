@@ -18,7 +18,7 @@
 %% 
 \NeedsTeXFormat{LaTeX2e}[1999/12/01]
 \ProvidesClass{ustcthesis}
-  [2018/05/18 v3.0.b USTC thesis template]
+  [2018/09/01 v3.1 USTC thesis template]
 \newif\if@ustc@doctor
 \newif\if@ustc@master
 \newif\if@ustc@bachelor
@@ -223,10 +223,6 @@
     \abovedisplayskip 10.5\bp@ \@plus3\bp@ \@minus6\bp@
     \abovedisplayshortskip \z@ \@plus3\bp@
     \belowdisplayshortskip 6.5\bp@ \@plus3.5\bp@ \@minus3\bp@
-    \def\@listi{\leftmargin\leftmargini
-                \topsep 9\bp@ \@plus3\bp@ \@minus5\bp@
-                \parsep 4.5\bp@ \@plus2\bp@ \@minus\bp@
-                \itemsep \parsep}%
     \belowdisplayskip \abovedisplayskip
   }
   \renewcommand\footnotesize{%
@@ -234,10 +230,6 @@
     \abovedisplayskip 9\bp@ \@plus2\bp@ \@minus5\bp@
     \abovedisplayshortskip \z@ \@plus3\bp@
     \belowdisplayshortskip 6\bp@ \@plus3\bp@ \@minus3\bp@
-    \def\@listi{\leftmargin\leftmargini
-                \topsep 6\bp@ \@plus2\bp@ \@minus2\bp@
-                \parsep 3\bp@ \@plus2\bp@ \@minus\bp@
-                \itemsep \parsep}%
     \belowdisplayskip \abovedisplayskip
   }
   \renewcommand\scriptsize{\@setfontsize\scriptsize{7.5\bp@}{13.75\bp@}}
@@ -261,10 +253,6 @@
     \abovedisplayskip 10.5\bp@ \@plus3\bp@ \@minus6\bp@
     \abovedisplayshortskip \z@ \@plus3\bp@
     \belowdisplayshortskip 6.5\bp@ \@plus3.5\bp@ \@minus3\bp@
-    \def\@listi{\leftmargin\leftmargini
-                \topsep 9\bp@ \@plus3\bp@ \@minus5\bp@
-                \parsep 4.5\bp@ \@plus2\bp@ \@minus\bp@
-                \itemsep \parsep}%
     \belowdisplayskip \abovedisplayskip
   }
   \renewcommand\footnotesize{%
@@ -272,10 +260,6 @@
      \abovedisplayskip 9\bp@ \@plus2\bp@ \@minus5\bp@
      \abovedisplayshortskip \z@ \@plus3\bp@
      \belowdisplayshortskip 6\bp@ \@plus3\bp@ \@minus3\bp@
-     \def\@listi{\leftmargin\leftmargini
-                 \topsep 6\bp@ \@plus2\bp@ \@minus2\bp@
-                 \parsep 3\bp@ \@plus2\bp@ \@minus\bp@
-                 \itemsep \parsep}%
      \belowdisplayskip \abovedisplayskip
   }
   \renewcommand\scriptsize{\@setfontsize\scriptsize{7.5\bp@}{12.5\bp@}}
@@ -829,6 +813,24 @@
   \parindent 2\ccwd\relax
   \noindent
   \hb@xt@2\ccwd{\hss\@makefnmark}#1}
+\setlength\partopsep{\z@}
+\newcommand\ustc@nolistsep{%
+  \parsep \z@
+  \topsep \z@
+  \itemsep\z@
+}
+\def\@listi{\leftmargin\leftmargini
+            \ustc@nolistsep}
+\let\@listI\@listi
+\@listi
+\def\@listii {\leftmargin\leftmarginii
+              \labelwidth\leftmarginii
+              \advance\labelwidth-\labelsep
+              \ustc@nolistsep}
+\def\@listiii{\leftmargin\leftmarginiii
+              \labelwidth\leftmarginiii
+              \advance\labelwidth-\labelsep
+              \ustc@nolistsep}
 \renewcommand{\topfraction}{.85}
 \renewcommand{\bottomfraction}{.65}
 \renewcommand\textfraction{.15}
