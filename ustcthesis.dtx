@@ -525,7 +525,7 @@ version 2005/12/01 or later.
 %     \midrule
 %       常数$\mathrm{e}$     & \cs{eu} \\
 %       复数单位$\mathrm{i}$ & \cs{iu} \\
-%       微分符号$\mathrm{d}$ & \cs{diff} \\
+%       微分符号$\mathrm{d}$ & \cs{dif} \\
 %       $\arg\,\max$         & \cs{argmax} \\
 %       $\arg\,\min$         & \cs{argmin} \\
 %     \bottomrule
@@ -1351,7 +1351,7 @@ version 2005/12/01 or later.
   \vskip 0.3cm\par
   \@ustc@authorization\par
   \vskip 0.5cm\relax
-  $\mdlgwhtsquare$公开 \hspace{0.4cm} $\mdlgwhtsquare$保密（\@ustc@underline[2em]{}年）\par
+  $\square$公开 \hspace{0.4cm} $\square$保密（\@ustc@underline[2em]{}年）\par
   \vskip 0.5cm\par
   {\renewcommand{\arraystretch}{2.0}%
   \begin{tabular}{p{7cm}p{7cm}}%
@@ -1923,13 +1923,13 @@ version 2005/12/01 or later.
 % \begin{macro}{\int}
 % 积分号 \cs{int} 使用正体，并且上下限默认置于积分号上下两侧。
 %    \begin{macrocode}
-% \removenolimits{%
-%   \int\iint\iiint\iiiint\oint\oiint\oiiint
-%   \intclockwise\varointclockwise\ointctrclockwise\sumint
-%   \intbar\intBar\fint\cirfnint\awint\rppolint
-%   \scpolint\npolint\pointint\sqint\intlarhk\intx
-%   \intcap\intcup\upint\lowint
-% }
+\removenolimits{%
+  \int\iint\iiint\iiiint\oint\oiint\oiiint
+  \intclockwise\varointclockwise\ointctrclockwise\sumint
+  \intbar\intBar\fint\cirfnint\awint\rppolint
+  \scpolint\npolint\pointint\sqint\intlarhk\intx
+  \intcap\intcup\upint\lowint
+}
 %    \end{macrocode}
 % \end{macro}
 %
@@ -1965,16 +1965,12 @@ version 2005/12/01 or later.
 % \end{macro}
 % \end{macro}
 %
-% 兼容传统的 \pkg{amssymb} 等宏包。
+% \begin{macro}{\square}
+% 兼容 \pkg{amssymb} 中的命令。
 %    \begin{macrocode}
 \newcommand\square{\mdlgblksquare}
-\newcommand\ustc@nopackage[2][]{%
-  \@namedef{ver@#2.sty}{9999/12/31}%
-  \@namedef{opt@#2.sty}{#1}}
-\ustc@nopackage{amssymb}
-\ustc@nopackage{bm}
-\ustc@nopackage{mathrsfs}
 %    \end{macrocode}
+% \end{macro}
 %
 %
 % \subsection{参考文献}

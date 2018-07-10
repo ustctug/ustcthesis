@@ -543,7 +543,7 @@
   \vskip 0.3cm\par
   \@ustc@authorization\par
   \vskip 0.5cm\relax
-  $\mdlgwhtsquare$公开 \hspace{0.4cm} $\mdlgwhtsquare$保密（\@ustc@underline[2em]{}年）\par
+  $\square$公开 \hspace{0.4cm} $\square$保密（\@ustc@underline[2em]{}年）\par
   \vskip 0.5cm\par
   {\renewcommand{\arraystretch}{2.0}%
   \begin{tabular}{p{7cm}p{7cm}}%
@@ -862,6 +862,13 @@
   \renewcommand\leq{\leqslant}%
   \renewcommand\geq{\geqslant}%
 }
+\removenolimits{%
+  \int\iint\iiint\iiiint\oint\oiint\oiiint
+  \intclockwise\varointclockwise\ointctrclockwise\sumint
+  \intbar\intBar\fint\cirfnint\awint\rppolint
+  \scpolint\npolint\pointint\sqint\intlarhk\intx
+  \intcap\intcup\upint\lowint
+}
 \AtBeginDocument{%
   \renewcommand{\Re}{\operatorname{Re}}%
   \renewcommand{\Im}{\operatorname{Im}}%
@@ -872,12 +879,6 @@
 \newcommand\bm{\symbf}
 \renewcommand\boldsymbol{\symbf}
 \newcommand\square{\mdlgblksquare}
-\newcommand\ustc@nopackage[2][]{%
-  \@namedef{ver@#2.sty}{9999/12/31}%
-  \@namedef{opt@#2.sty}{#1}}
-\ustc@nopackage{amssymb}
-\ustc@nopackage{bm}
-\ustc@nopackage{mathrsfs}
 \newcommand\bibstyle@super{\bibpunct{[}{]}{,}{s}{,}{\textsuperscript{,}}}
 \newcommand\bibstyle@numbers{\bibpunct{[}{]}{,}{n}{,}{,}}
 \newcommand\bibstyle@authoryear{\bibpunct{(}{)}{;}{a}{,}{,}}
