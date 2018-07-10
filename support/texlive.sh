@@ -16,7 +16,7 @@ tlmgr install latexmk \
     fandol tex-gyre stix2-otf xits \
     caption etoolbox filehook footmisc pgf symbol titlesec unicode-math \
     xcolor xstring zapfding \
-    algorithm2e booktabs ifoddpage listings relsize \
-    thumbpdf
+    booktabs listings thumbpdf \
+    algorithm2e ifoddpage relsize
 
 tlmgr update --self --all −−no−auto−install

@@ -16,8 +16,8 @@
       Windows & MikTeX \\
     \bottomrule
   \end{tabular}
-  \note{一个很长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长
-  长长长长长长长长长长长的表注。}
+  \note{一个很长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长
+    长长长长长长长长长长长的表注。}
 \end{table}
 
 
@@ -78,10 +78,12 @@
 在科技论文中，标准的方式是“图\ref{fig:logo}”、“表~\ref{tab:exampletable}”这样的
 因数方式。
 \begin{figure}[htbp]
-\centering
-\includegraphics[width=.3\textwidth]{ustc_logo_fig}
-\caption{测试图片}
-\label{fig:logo}
+  \centering
+  \includegraphics[width=.3\textwidth]{ustc_logo_fig}
+  \caption{测试图片}
+  \label{fig:logo}
+  \note{必要时，应将图上的符号、标记、代码，以及实验条件等，
+    用最简练的文字，横排于图题下方，作为图例说明（图注）。}
 \end{figure}
 
 关于更多的插图方式，\href{https://arxiv.org}{arXiv} 上的大部分文献会提供 \TeX{}
@@ -95,23 +97,23 @@
 请阅读宏包的官方文档。
 
 \begin{algorithm}[htbp]
-\small
-\SetAlgoLined
-\KwData{this text}
-\KwResult{how to write algorithm with \LaTeX2e }
+  \small
+  \SetAlgoLined
+  \KwData{this text}
+  \KwResult{how to write algorithm with \LaTeX2e }
 
-initialization\;
-\While{not at end of this document}{
-    read current\;
-    \eIf{understand}{
-        go to next section\;
-        current section becomes this one\;
-    }{
-        go back to the beginning of current section\;
-    }
-}
-\caption{算法示例1}
-\label{algo:algorithm1}
+  initialization\;
+  \While{not at end of this document}{
+      read current\;
+      \eIf{understand}{
+          go to next section\;
+          current section becomes this one\;
+      }{
+          go back to the beginning of current section\;
+      }
+  }
+  \caption{算法示例1}
+  \label{algo:algorithm1}
 \end{algorithm}
 
 注意，我们可以在论文中插入算法，但是插入大段的代码是愚蠢的。

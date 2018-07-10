@@ -107,23 +107,7 @@
 \renewcommand\listofalgorithms{%
     \cleardoublepage%
     \ustc@save@listofalgorithms}
-% 代码环境
-\RequirePackage{listings}
-\lstset{
-    basicstyle=\small\ttfamily,
-    xleftmargin=2pc,
-    xrightmargin=2pc,
-    frame=single,
-    columns=flexible,
-    numbers=left,
-}
-\if@ustc@english
-  \renewcommand\lstlistlistingname{List of Code}
-  \renewcommand\lstlistingname{Code}
-\else
-  \renewcommand{\lstlistlistingname}{代码索引}
-  \renewcommand{\lstlistingname}{代码}
-\fi
+
 \endinput
 %%
 %% End of file `ustcextra.sty'.
