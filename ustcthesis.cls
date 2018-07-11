@@ -305,8 +305,14 @@
 \fi
 \fancypagestyle{ustc@notation}{\fancyfoot{}}
 \pagestyle{ustc@headings}
-\patchcmd\chaptermark{\MakeUppercase}{}{}{}
-\patchcmd\chaptermark{#1}{\@ustc@spacetitle{#1}}{}{}
+\newcommand\ustc@patchfailure[1]{%
+  \ClassError{ustcthesis}{Failed to patch command \protect#1.\MessageBreak
+    Please contact the template author.%
+  }{}%
+}
+\patchcmd\chaptermark{\MakeUppercase}{}{}{\ustc@patchfailure{\chaptermark}}
+\patchcmd\chaptermark{#1}{\@ustc@spacetitle{#1}}
+  {}{\ustc@patchfailure{\chaptermark}}
 \def\cleardoublepage{\clearpage\if@twoside \ifodd\c@page\else
   \hbox{}\thispagestyle{empty}\newpage\if@twocolumn\hbox{}\newpage\fi\fi\fi}
 \renewcommand\frontmatter{%
@@ -929,7 +935,7 @@
   \@ifnum{\NAT@ctype=\z@}{%
     \if*#2*\else\textsuperscript{#2}\fi
   }{}%
-}{}{}
+}{}{\ustc@patchfailure{\NAT@citexnum}}
 \renewcommand\NAT@citesuper[3]{\ifNAT@swa
 \if*#2*\else#2\NAT@spacechar\fi
 \unskip\kern\p@\textsuperscript{\NAT@@open#1\NAT@@close\if*#3*\else#3\fi}%
@@ -943,7 +949,7 @@
 }{%
   \if\relax\NAT@date\relax\else\NAT@@close\fi
   \if*#2*\else\textsuperscript{#2}\fi
-}{}{}
+}{}{\ustc@patchfailure{\NAT@citex}}
 \renewcommand\NAT@cite%
     [3]{\ifNAT@swa\NAT@@open\if*#2*\else#2\NAT@spacechar\fi
         #1\NAT@@close\if*#3*\else\textsuperscript{#3}\fi\else#1\fi\endgroup}
@@ -955,7 +961,7 @@
   \fi
 }{%
   \def@NAT@last@yr{-\NAT@penalty}%
-}{}{}
+}{}{\ustc@patchfailure{\NAT@citexnum}}
 \if@ustc@bachelor\else
   \renewcommand\bibfont{\@ustc@setfontsize{10.5bp}{20bp}}
 \fi

@@ -1042,8 +1042,14 @@ version 2005/12/01 or later.
 % 注意，对 \cs{chaptermark} 的修改必须在第一次调用 \cs{pagestyle} 后。
 % \changes{v3.0.7}{2018/04/18}{更正页眉英文大写的错误}
 %    \begin{macrocode}
-\patchcmd\chaptermark{\MakeUppercase}{}{}{}
-\patchcmd\chaptermark{#1}{\@ustc@spacetitle{#1}}{}{}
+\newcommand\ustc@patchfailure[1]{%
+  \ClassError{ustcthesis}{Failed to patch command \protect#1.\MessageBreak
+    Please contact the template author.%
+  }{}%
+}
+\patchcmd\chaptermark{\MakeUppercase}{}{}{\ustc@patchfailure{\chaptermark}}
+\patchcmd\chaptermark{#1}{\@ustc@spacetitle{#1}}
+  {}{\ustc@patchfailure{\chaptermark}}
 %    \end{macrocode}
 %
 % \begin{macro}{\cleardoublepage}
@@ -2083,7 +2089,7 @@ version 2005/12/01 or later.
   \@ifnum{\NAT@ctype=\z@}{%
     \if*#2*\else\textsuperscript{#2}\fi
   }{}%
-}{}{}
+}{}{\ustc@patchfailure{\NAT@citexnum}}
 %    \end{macrocode}
 %
 % Numerical 模式的 \cs{citep} 的页码：
@@ -2105,7 +2111,7 @@ version 2005/12/01 or later.
 }{%
   \if\relax\NAT@date\relax\else\NAT@@close\fi
   \if*#2*\else\textsuperscript{#2}\fi
-}{}{}
+}{}{\ustc@patchfailure{\NAT@citex}}
 %    \end{macrocode}
 %
 % Author-year 模式的 \cs{citep} 的页码：
@@ -2128,7 +2134,7 @@ version 2005/12/01 or later.
   \fi
 }{%
   \def@NAT@last@yr{-\NAT@penalty}%
-}{}{}
+}{}{\ustc@patchfailure{\NAT@citexnum}}
 %    \end{macrocode}
 % \end{macro}
 %
