@@ -886,7 +886,7 @@
 }
 \newcommand\bm{\symbf}
 \renewcommand\boldsymbol{\symbf}
-\newcommand\square{\mdlgblksquare}
+\newcommand\square{\mdlgwhtsquare}
 \newcommand\bibstyle@super{\bibpunct{[}{]}{,}{s}{,}{\textsuperscript{,}}}
 \newcommand\bibstyle@numbers{\bibpunct{[}{]}{,}{n}{,}{,}}
 \newcommand\bibstyle@authoryear{\bibpunct{(}{)}{;}{a}{,}{,}}
