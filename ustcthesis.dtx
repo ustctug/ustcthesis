@@ -66,12 +66,11 @@ version 2005/12/01 or later.
   bookmarksopen=true,
 }
 \usepackage[UTF8]{ctex}
-\IfFileExists{/System/Library/Fonts/Times.ttc}{%
+\IfFileExists{/System/Library/Fonts/Times.ttc}{
   \setmainfont{Times}
   \setsansfont[Scale=MatchLowercase]{Helvetica}
   \setmonofont[Scale=MatchLowercase]{Menlo}
-}{\relax}
-\usepackage{tabularx}
+}{}
 \usepackage{booktabs}
 \usepackage{xcolor}
 \usepackage{listings}
@@ -80,17 +79,16 @@ version 2005/12/01 or later.
   backgroundcolor=\color{lightgray},
   gobble=2,% 重要！否则会生成注释符号"%"
   language=bash}
-\newcommand\shellcmd[1]{%
-\colorbox{lightgray}{\lstinline[style=lstshell]|#1|}}
+\newcommand\shellcmd[1]{\colorbox{lightgray}{\lstinline[style=lstshell]|#1|}}
 \lstnewenvironment{shell}{\lstset{style=lstshell}}{}
 \lstnewenvironment{latex}{%
-  \lstset{%
+  \lstset{
     basicstyle=\small\ttfamily,
     frame=single,
     gobble=2,
     language=[LaTeX]TeX}}{}
 \lstnewenvironment{pseudocode}{%
-  \lstset{%
+  \lstset{
     basicstyle=\ttfamily,
     frame=single,
     gobble=2,
@@ -127,7 +125,7 @@ version 2005/12/01 or later.
   \textit{意大利体的数字表示描述对应索引项的页码；%
     带下划线的数字表示定义对应索引项的代码行号；%
     罗马字体的数字表示使用对应索引项的代码行号。}}
-\newcommand\TeXLive{\TeX\ Live}
+\newcommand\TeXLive{\TeX{} Live}
 
 \EnableCrossrefs
 \CodelineIndex
@@ -136,6 +134,7 @@ version 2005/12/01 or later.
 
 \begin{document}
   \DocInput{\jobname.dtx}
+  \PrintChanges
   \PrintIndex
 \end{document}
 %</driver>
@@ -193,29 +192,33 @@ version 2005/12/01 or later.
 %
 %
 %
-% \PrintChanges
-%
 % \section{简介}
 %
-% \cls{ustcthesis}是用于排版中国科学技术大学本科和研究生学位论文的\LaTeX{}模板，
-% 按照《\href{http://gradschool.ustc.edu.cn/ylb/material/xw/wdxz/32.pdf}
-% {中国科学技术大学研究生学位论文撰写手册}》
-% 和《\href{http://www.teach.ustc.edu.cn/document/doc-administration/4032.html}
-% {关于本科毕业论文（设计）格式和统一封面的通知}》 的要求编写。
+% 本模板 \cls{ustcthesis} 是中国科学技术大学本科生和研究生学位论文的 \LaTeX{}
+% 模板， 按照《\href{http://gradschool.ustc.edu.cn/ylb/material/xw/wdxz/32.pdf}
+% {中国科学技术大学研究生学位论文撰写手册}》和
+% 《\href{http://www.teach.ustc.edu.cn/document/doc-administration/4032.html}
+% {关于本科毕业论文（设计）格式和统一封面的通知}》的要求编写。
 %
 % 其前身是中国科学技术大学本科论文模板（作者 XPS，最后维护 ywg）
-% 和中国科学技术大学研究生论文
-% 模板（作者 Liuqs，主要维护 Liuqs、Guolicai）。
+% 和中国科学技术大学研究生论文模板（作者 Liuqs，主要维护 Liuqs、Guolicai）。
 % 后来两模板进行了整合梳理，由 ywg 维护。
 % 2015 年，seisman 和 zepinglee 基于 \pkg{ctex} 2.0 重新编写了模板。
 % 2017 年，随着学校发布了新版的《撰写手册》，本模板也更新到 v3.0。
 %
-% \cls{ustcthesis} 的下载地址：
+% 下载地址：
 % \begin{itemize}
-% \item 主要地址：\url{https://github.com/ustctug/ustcthesis/releases}
-% \item 学校镜像：\url{https://git.ustclug.org/ustctug/ustcthesis/tags}
-% \item 研究生院网站：\url{http://gradschool.ustc.edu.cn/ylb/xw.html}
+%   \item 主要地址：\url{https://github.com/ustctug/ustcthesis/releases}
+%   \item 学校镜像：\url{https://git.lug.ustc.edu.cn/ustctug/ustcthesis}
+%   \item 研究生院网站（版本较旧）：
+%     \url{http://gradschool.ustc.edu.cn/ylb/xw.html}
 % \end{itemize}
+%
+% 用户在使用 \pkg{ustcthesis} 模板前，应先阅读学校的《撰写手册》等规范。
+% 如果在使用的过程中遇到问题，可以阅读
+% \href{https://github.com/ustctug/ustcthesis/wiki}{常见问题}，
+% 或者在 \href{https://github.com/ustctug/ustcthesis/issues}{GitHub Issues}
+% 中反馈。
 %
 %
 %
@@ -228,25 +231,29 @@ version 2005/12/01 or later.
 %   \centering
 %   \begin{tabular}{lll}
 %     \toprule
-%       类别     & 文件                      & 说明 \\
+%     类别     & 文件                      & 说明 \\
 %     \midrule
-%       模板文件 & \file{ustcthesis.dtx}     & 模板原始代码文件，用户无需使用 \\
-%                & \file{ustcthesis.cls}     & 文档类文件 \\
-%                & \file{ustcextra.sty}      & 模板的附加宏包 \\
-%                & \file{ustcauthoryear.bst} & author-year 风格的参考文献格式 \\
-%                & \file{ustcnumerical.bst}  & numerical 风格的参考文献格式 \\
-%                & \file{figures/ustc_*.pdf} & 校名和校徽图片 \\
+%     模板文件 & \file{ustcthesis.dtx}     & 模板原始代码文件，用户无需使用 \\
+%              & \file{ustcthesis.cls}     & 文档类文件 \\
+%              & \file{ustcextra.sty}      & 模板的附加宏包 \\
+%              & \file{ustcthesis-authoryear.bst}
+%                                          & 著者-出版年制参考文献格式 \\
+%              & \file{ustcthesis-numerical.bst}
+%                                          & 顺序编码制参考文献格式 \\
+%              & \file{ustcthesis-bachelor.bst}
+%                                          & 本科生参考文献格式 \\
+%              & \file{figures/ustc_*.pdf} & 校名和校徽图片 \\
 %     \midrule
-%       生成文件 & \file{ustcthesis.pdf}     & （你正在阅读的）模板使用说明 \\
+%     生成文件 & \file{ustcthesis.pdf}     & （你正在阅读的）模板使用说明 \\
 %     \midrule
-%       示例文档 & \file{main.tex}           & 主文档 \\
-%                & \file{chapters/*.tex}     & 示例文档的各个章节 \\
-%                & \file{figures/}           & 放置图片的目录 \\
-%                & \file{bib/tex.bib}        & \BibTeX{} 示例数据库 \\
+%     示例文档 & \file{main.tex}           & 主文档 \\
+%              & \file{chapters/*.tex}     & 示例文档的各个章节 \\
+%              & \file{figures/}           & 放置图片的目录 \\
+%              & \file{bib/tex.bib}        & \BibTeX{} 示例数据库 \\
 %     \midrule
-%       其他     & \file{README.md}          & 基本说明 \\
-%                & \file{.latexmkrc}         & latexmk 的配置文件 \\
-%                & \file{Makefile}           & GNU make 的配置文件 \\
+%     其他     & \file{README.md}          & 基本说明 \\
+%              & \file{latexmkrc}          & latexmk 的配置文件 \\
+%              & \file{Makefile}           & GNU make 的配置文件 \\
 %     \bottomrule
 %   \end{tabular}
 %   \caption{模板的文件组成}
@@ -255,12 +262,15 @@ version 2005/12/01 or later.
 %
 % 示例文档包括了常用的 \LaTeX{} 命令，建议新手从此入手，用自己的内容进行替换。
 %
-% 文件 \file{ustcthesis.dtx} 是模板的原始代码文件，其可以自动生成文档类文件
+% 文件 \file{ustcthesis.dtx} 是模板的原始代码文件，可以编译生成文档类文件
 % \file{ustcthesis.cls} 和模板使用说明文件 \file{ustcthesis.pdf} 。
 % 原始模板文件仅供模板开发者使用，一般用户无需使用。
 %
 %
 % \subsection{依赖宏包}
+%
+% 本模板要求使用 TeX Live、MacTeX 或 MikTeX 不低于 2016 年的发行版，
+% 推荐升级到最新的版本。
 %
 % \cls{ustcthesis} 直接依赖的宏包有：
 % \pkg{amsmath},
@@ -275,10 +285,7 @@ version 2005/12/01 or later.
 % \pkg{pifont},
 % \pkg{titletoc},
 % \pkg{tikz},
-% \pkg{unicode-math},
-%
-% 注意 \pkg{ctex} 必须为 2.0 以上版本，所以要求 TeX Live、MacTeX、MikTeX
-% 的版本不低于 2015 年的发行版。
+% \pkg{unicode-math}。
 %
 %
 % \subsection{开始编译}
@@ -299,7 +306,7 @@ version 2005/12/01 or later.
 %
 % \item |latexmk| \\
 % Windows 用户可能无法使用GNU make，使用 |latexmk| 也是一个比较简单的方法，
-% 配置文件由 \file{.latexmkrc} 给出，其参数设置为 |-xelatex|，用户编译论文
+% 配置文件由 \file{latexmkrc} 给出，其参数设置为 |-xelatex|，用户编译论文
 % 只需使用命令：
 % \begin{shell}
 % latexmk main
@@ -371,49 +378,32 @@ version 2005/12/01 or later.
 % 的方式来配置字体的，
 % 所以用户必须使用 UTF-8 编码保存源文件，并且用 |xelatex| 命令进行编译。
 %
-% 默认情况下，本模板可以自动检测用户的操作系统， 并配置合适的字体。
-% 默认配置的策略如表~\ref{tab:fonts}：
-% \begin{table}[htbp]
-%   \centering
-%   \begin{tabular}{cll}
-%     \toprule
-%       字体类型 & Mac             & Windows \\
-%     \midrule
-%       衬线体   & Times New Roman & Times New Roman \\
-%       非衬线体 & Arial           & Arial \\
-%       等宽体   & Menlo           & Courier New \\
-%       中文字体 & 华文字库        & 中易字库 \\
-%     \bottomrule
-%   \end{tabular}
-%   \caption{默认字体配置}
-%   \label{tab:fonts}
-% \end{table}
-%
-% 对于中文字体，用户以在调用文档类时加入选项
-% \opt{fontset=mac/windows/adobe/founder} 指定加载的字库，
+% 默认情况下，本模板可以自动检测操作系统，并配置合适的字体。
+% 用户可以在调用文档类时加入选项
+% \opt{fontset=mac/windows/adobe} 指定加载的字库，
 % 也可以使用 \opt{fontset=none}，然后自行配置，
-% 详见 \pkg{ctex}、\pkg{xeCJK}、\pkg{fontspec} 等宏包的。
+% 详见 \pkg{ctex}、\pkg{xeCJK}、\pkg{fontspec} 等宏包的使用说明。
 %
-% Linux 系统下可能缺失 Times New Roman 等西文字体，
-% 默认配置的中文字库 Fandol 也容易出现缺字的情况。
+% 注意，Linux 系统下可能缺失 Times New Roman 等西文字体，
+% 而且默认的中文字库 Fandol 也容易出现缺字的情况。
 % 我们建议 Linux 用户自行配置合适的字体。
 %
 %
 %
 % \section{论文内容}
 %
-% 研究生论文的内t容按如下顺序排列：
+% 研究生论文的内容按照以下顺序排列：
 % \begin{description}
-%   \item[封面] 中文封面，英文封面，原创性声明及授权使用说明
+%   \item[title page] 中文封面，英文封面，原创性声明及授权使用说明
 %   \item[front matter] 中、英文摘要，目录，图、表清单，符号说明
 %   \item[main matter] 正文章节，参考文献
 %   \item[appendix] 附录
 %   \item[back matter] 致谢，已发表论文列表
 % \end{description}
 %
-% 本科生论文的内容按如下顺序排列：
+% 本科生论文的内容按照以下顺序排列：
 % \begin{description}
-%   \item[封面] 中文封面，英文封面，原创性声明及授权使用说明
+%   \item[title page] 中文封面，英文封面
 %   \item[front matter] 致谢，目录，中、英文摘要
 %   \item[main matter] 正文章节，参考文献
 %   \item[appendix] 附录
@@ -576,36 +566,10 @@ version 2005/12/01 or later.
 %
 % \subsection{参考文献}
 %
-% 参考文献和引用标注支持的风格见表~\ref{tab:bib}，默认为角标数字式，
-% \begin{table}[htbp]
-%   \centering
-%   \begin{tabular}{lll}
-%     \toprule
-%       参考文献列表  & 引用标注    & 参数 \\
-%     \midrule
-%       顺序编码制    & 角标数字    & super \\
-%                     & 数字        & numbers \\
-%       著者-出版年制 & 著者-出版年 & authoryear \\
-%     \bottomrule
-%   \end{tabular}
-%   \caption{参考文献列表和引用标注风格}
-%   \label{tab:bib}
-% \end{table}
-%
-% 如果要使用其他风格，可以在载入文档类时加入相应的参数：
+% 参考文献和引用标注默认为角标数字式，
+% 也可以在文档类参数中设置，如：
 % \begin{latex}
 % \documentclass[doctor,authoryear]{ustcthesis}
-% \end{latex}
-%
-% 在使用著者-出版年制时，需要将中文参考文献按照拼音或者笔画排序，
-% 然而 Unicode 中的汉字是根据康熙字典排序的，
-% 而且由于 \BibTeX{} 功能的局限性，我们无法根据著者姓名读取拼音，
-% 所以只能手动处理：在 bib 数据库中设置对应条目的 key 域为著者姓名拼音，如：
-% \begin{latex}
-% @book{capital,
-%   author = {马克思 and 恩格斯},
-%   key    = {ma3 ke4 si1   en1 ge2 si1},
-%   ...
 % \end{latex}
 %
 % \BibTeX{} 默认情况下可以自动识别文献语言，并自动处理文献类型和载体类型标识，
@@ -617,8 +581,18 @@ version 2005/12/01 or later.
 %   medium   = {CD},
 %   ...
 % \end{latex}
-% 可选的语言有 english, chinese, japanese, russian，
-% 目前对日语和俄语的支持较为有限。
+% 可选的语言有 english, chinese, japanese, russian。
+%
+% 注意，在使用著者-出版年制时，需要将中文参考文献按照拼音或者笔画排序，
+% 然而 Unicode 中的汉字是根据康熙字典排序的，
+% 而且由于 \BibTeX{} 功能的局限性，我们无法根据著者姓名读取拼音，
+% 所以只能手动处理：在 bib 数据库中设置对应条目的 key 域为著者姓名拼音，如：
+% \begin{latex}
+% @book{capital,
+%   author = {马克思 and 恩格斯},
+%   key    = {ma3 ke4 si1   en1 ge2 si1},
+%   ...
+% \end{latex}
 %
 %
 %
@@ -676,17 +650,14 @@ version 2005/12/01 or later.
 % 载入 \cls{ctexbook} 文档类，注意要求为 2.2 或更高的版本。
 % \changes{v3.0}{2017/07/01}{正文新的一章另面起}
 %    \begin{macrocode}
-\LoadClass[UTF8, a4paper, openany, zihao=-4]{ctexbook}[2015/07/01]
+\LoadClass[UTF8, a4paper, openany, zihao=-4]{ctexbook}[2016/05/16]
 %    \end{macrocode}
 %
 % 检测 ctexbook 版本，如果版本过低会报错
 %    \begin{macrocode}
-\@ifclasslater{ctexbook}{2015/07/01}{}{
+\@ifclasslater{ctexbook}{2016/05/16}{}{
   \ClassError{ustcthesis}{%
-    This template requires ctex 2.2 or later version.%
-  }{%
-    Please install the latest version of TeX Live.%
-  }
+    This template requires TeX Live\MessageBreak 2016 or later version}{}
 }
 %    \end{macrocode}
 %
@@ -771,95 +742,84 @@ version 2005/12/01 or later.
 % \changes{v3.0.6}{2018/04/12}{取消使用微软雅黑}
 % \changes{v3.0.a}{2018/05/16}{调整中文字体配置}
 %    \begin{macrocode}
-\ExplSyntaxOn
-\str_if_eq:onT { \g__ctex_fontset_tl } { mac }
-  {
-    \setmainfont { Times~New~Roman }
-    \setsansfont [ Scale = MatchLowercase ] { Arial }
-    \setmonofont [ Scale = MatchLowercase ] { Menlo }
-    \setCJKmainfont
-      [
-           UprightFont = *~Light ,
-              BoldFont = *~Bold ,
-            ItalicFont = Kaiti~SC ,
-        BoldItalicFont = Kaiti~SC~Bold ,
-      ] { Songti~SC }
-    \setCJKsansfont { Heiti~SC }
-    \setCJKfamilyfont { zhsong }
-      [
-           UprightFont = *~Light ,
-              BoldFont = *~Bold ,
-      ] { Songti~SC }
-    \setCJKfamilyfont { zhhei } { Heiti~SC }
-    \setCJKfamilyfont { zhkai } { Kaiti~SC }
-  }
-\str_if_eq:onT { \g__ctex_fontset_tl } { windows }
-  {
-    \setmainfont { Times~New~Roman }
-    \setsansfont [ Scale = MatchLowercase ] { Arial }
-    \setmonofont [ Scale = MatchLowercase ] { Menlo }
-    \file_if_exist:nTF { C:/bootfont.bin }
-      {
-        \setCJKmainfont
-          [ AutoFakeBold , ItalicFont = KaiTi_GB2312 ] { SimSun }
-      }
-      {
-        \setCJKmainfont
-          [ AutoFakeBold , ItalicFont = KaiTi ] { SimSun }
-      }
-    \setCJKsansfont [ AutoFakeBold ] { SimHei }
-    \setCJKfamilyfont { zhsong } [ AutoFakeBold ] { SimSun }
-    \setCJKfamilyfont { zhhei }  [ AutoFakeBold ] { SimHei }
-  }
-\str_if_eq:onT { \g__ctex_fontset_tl } { adobe }
-  {
-    \setmainfont { Times~New~Roman }
-    \setsansfont [ Scale = MatchLowercase ] { Arial }
-    \setmonofont [ Scale = MatchLowercase ] { Menlo }
-    \setCJKmainfont
-      [
-        AutoFakeBold ,
-        ItalicFont = AdobeKaitiStd-Regular ,
-      ] { AdobeSongStd-Light }
-    \setCJKsansfont [ AutoFakeBold ] { AdobeHeitiStd-Regular}
-    \setCJKfamilyfont { zhsong } [ AutoFakeBold ] { AdobeSongStd-Light }
-    \setCJKfamilyfont { zhhei }  [ AutoFakeBold ] { AdobeHeitiStd-Regular }
-  }
-\str_if_eq:onT { \g__ctex_fontset_tl } { fandol }
-  {
-    \setmainfont
-      [
-        Extension      = .otf ,
-        UprightFont    = *-regular ,
-        BoldFont       = *-bold ,
-        ItalicFont     = *-italic ,
-        BoldItalicFont = *-bolditalic ,
-      ] { texgyretermes }
-    \setsansfont
-      [
-        Extension      = .otf ,
-        UprightFont    = *-regular ,
-        BoldFont       = *-bold ,
-        ItalicFont     = *-italic ,
-        BoldItalicFont = *-bolditalic ,
-        Scale          = MatchLowercase ,
-      ] { texgyreheros }
-    \setmonofont
-      [
-        Extension      = .otf ,
-        UprightFont    = *-regular ,
-        BoldFont       = *-bold ,
-        ItalicFont     = *-italic ,
-        BoldItalicFont = *-bolditalic ,
-        Scale          = MatchLowercase ,
-      ] { texgyrecursor }
-    \ClassWarningNoLine{ustcthesis}{%
-      You~are~using~Fandol~font~family. \MessageBreak
-      Some~glyphs~may~be~missing. \MessageBreak
-      Please~manually~configure~a~high-quality~font~set
+\newcommand\ustc@ifstreq{\csname str_if_eq:onTF\endcsname}
+\newcommand\ustc@fontset{\csname g__ctex_fontset_tl\endcsname}
+\ustc@ifstreq{\ustc@fontset}{mac}{
+  \setmainfont{Times New Roman}
+  \setsansfont[Scale=MatchLowercase]{Arial}
+  \setmonofont[Scale=MatchLowercase]{Menlo}
+  \setCJKmainfont[
+       UprightFont = * Light,
+          BoldFont = * Bold,
+        ItalicFont = Kaiti SC,
+    BoldItalicFont = Kaiti SC Bold,
+  ]{Songti SC}
+  \setCJKsansfont{Heiti SC}
+  \setCJKfamilyfont{zhsong}[
+       UprightFont = * Light,
+          BoldFont = * Bold,
+  ]{Songti SC}
+  \setCJKfamilyfont{zhhei}{Heiti SC}
+  \setCJKfamilyfont{zhkai}{Kaiti SC}
+}{
+  \ustc@ifstreq{\ustc@fontset}{windows}{
+    \setmainfont{Times New Roman}
+    \setsansfont[Scale=MatchLowercase]{Arial}
+    \setmonofont[Scale=MatchLowercase]{Menlo}
+    \IfFileExists{C:/bootfont.bin}{
+      \setCJKmainfont[AutoFakeBold,ItalicFont=KaiTi_GB2312]{SimSun}
+    }{
+      \setCJKmainfont[AutoFakeBold,ItalicFont=KaiTi]{SimSun}
+    }
+    \setCJKsansfont[AutoFakeBold]{SimHei}
+    \setCJKfamilyfont{zhsong}[AutoFakeBold]{SimSun}
+    \setCJKfamilyfont{zhhei}[AutoFakeBold]{SimHei}
+  }{
+    \ustc@ifstreq{\ustc@fontset}{adobe}{
+      \setmainfont{Times New Roman}
+      \setsansfont[Scale=MatchLowercase]{Arial}
+      \setmonofont[Scale=MatchLowercase]{Menlo}
+      \setCJKmainfont[
+        AutoFakeBold,
+        ItalicFont=AdobeKaitiStd-Regular,
+      ]{AdobeSongStd-Light}
+      \setCJKsansfont[AutoFakeBold]{AdobeHeitiStd-Regular}
+      \setCJKfamilyfont{zhsong}[AutoFakeBold]{AdobeSongStd-Light}
+      \setCJKfamilyfont{zhhei}[AutoFakeBold]{AdobeHeitiStd-Regular}
+    }{
+      \ustc@ifstreq{\ustc@fontset}{fandol}{
+        \setmainfont[
+          Extension      = .otf,
+          UprightFont    = *-regular,
+          BoldFont       = *-bold,
+          ItalicFont     = *-italic,
+          BoldItalicFont = *-bolditalic,
+        ]{texgyretermes}
+        \setsansfont[
+          Extension      = .otf,
+          UprightFont    = *-regular,
+          BoldFont       = *-bold,
+          ItalicFont     = *-italic,
+          BoldItalicFont = *-bolditalic,
+          Scale          = MatchLowercase,
+        ]{texgyreheros}
+        \setmonofont[
+          Extension      = .otf,
+          UprightFont    = *-regular,
+          BoldFont       = *-bold,
+          ItalicFont     = *-italic,
+          BoldItalicFont = *-bolditalic,
+          Scale          = MatchLowercase,
+        ]{texgyrecursor}
+        \ClassWarningNoLine{ustcthesis}{%
+          You are using Fandol font family.\MessageBreak
+          Some glyphs may be missing.\MessageBreak
+          Please switch to a high-quality font set.
+        }
+      }{}
     }
   }
-\ExplSyntaxOff
+}
 %    \end{macrocode}
 %
 % 使用 \pkg{unicode-math} 配置数学字体
@@ -870,18 +830,27 @@ version 2005/12/01 or later.
   nabla      = upright,
   partial    = upright,
 }
-\IfFontExistsTF{STIX2Math.otf}{
+\newcommand\ustc@mathfont{xits}
+\@ifpackagelater{fontspec}{2017/01/20}{
+  \IfFontExistsTF{STIX2Math.otf}{
+    \renewcommand\ustc@mathfont{stix2}
+  }{}
+}{}
+\ustc@ifstreq{\ustc@mathfont}{stix2}{
   \setmathfont[StylisticSet=8]{STIX2Math.otf}
   \setmathfont[range={scr,bfscr},StylisticSet=1]{STIX2Math.otf}
   \setmathfont[range=\partial]{xits-math.otf}
 }{
-  \setmathfont[
-    Extension    = .otf,
-    BoldFont     = *bold,
-    StylisticSet = 8,
-  ]{xits-math}
-  \setmathfont[range={cal,bfcal},StylisticSet=1]{xits-math.otf}
+  \ustc@ifstreq{\ustc@mathfont}{xits}{
+    \setmathfont[
+      Extension    = .otf,
+      BoldFont     = *bold,
+      StylisticSet = 8,
+    ]{xits-math}
+    \setmathfont[range={cal,bfcal},StylisticSet=1]{xits-math.otf}
+  }{}
 }
+
 %    \end{macrocode}
 %
 % 下面设置字号。正文字号12bp，研究生行距20bp，本科生行距22bp；
@@ -1146,14 +1115,12 @@ version 2005/12/01 or later.
   \else
     \renewcommand\@ustc@thesisname{专业硕士学位论文}
   \fi
-  \ExplSyntaxOn
-  \str_if_eq:onTF { \g__ctex_fontset_tl } { mac }
-    {
-      \setCJKfamilyfont { zhli }{ Baoli~SC }
-      \providecommand\lishu{\CJKfamily{zhli}}
-    }
-    { \providecommand\lishu{\relax} }
-  \ExplSyntaxOff
+  \ustc@strifeq{\ustc@fontset}{mac}{
+    \setCJKfamilyfont{zhli}{Baoli SC}
+    \providecommand\lishu{\CJKfamily{zhli}}
+  }{
+    \providecommand\lishu{\relax}
+  }
   \newcommand\@ustc@specialityname{专业领域}
 \else
   \newcommand\@ustc@specialityname{学科专业}
@@ -1828,9 +1795,9 @@ version 2005/12/01 or later.
 %
 % 修复列表中各项之间过大的间距。
 % \begin{environment}{enumerate}
+% \changes{v3.1}{2018/09/01}{修复列表中各项之间过大的间距}
 % \begin{environment}{itemize}
 % \begin{environment}{description}
-% \changes{v3.1}{2018/09/01}{修复列表中各项之间过大的间距}
 %    \begin{macrocode}
 \setlength\partopsep{\z@}
 \newcommand\ustc@nolistsep{%
@@ -1937,10 +1904,8 @@ version 2005/12/01 or later.
 %
 % \begin{macro}{\le}
 % \begin{macro}{\ge}
-% \begin{macro}{\leq}
-% \begin{macro}{\geq}
 % 小于等于号要使用倾斜的形式。
-% \changes{v3.0}{2017/07/01}{更正了 LaTeX 的小于等于号}
+% \changes{v3.0}{2017/07/01}{更正了 LaTeX 的大于等于号}
 %    \begin{macrocode}
 \protected\def\le{\leqslant}
 \protected\def\ge{\geqslant}
@@ -1949,8 +1914,6 @@ version 2005/12/01 or later.
   \renewcommand\geq{\geqslant}%
 }
 %    \end{macrocode}
-% \end{macro}
-% \end{macro}
 % \end{macro}
 % \end{macro}
 %

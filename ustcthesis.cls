@@ -49,13 +49,10 @@
 \if@ustc@pdf
   \PassOptionsToClass{oneside}{book}
 \fi
-\LoadClass[UTF8, a4paper, openany, zihao=-4]{ctexbook}[2015/07/01]
-\@ifclasslater{ctexbook}{2015/07/01}{}{
+\LoadClass[UTF8, a4paper, openany, zihao=-4]{ctexbook}[2016/05/16]
+\@ifclasslater{ctexbook}{2016/05/16}{}{
   \ClassError{ustcthesis}{%
-    This template requires ctex 2.2 or later version.%
-  }{%
-    Please install the latest version of TeX Live.%
-  }
+    This template requires TeX Live\MessageBreak 2016 or later version}{}
 }
 \RequirePackage{hyperref}
 \RequirePackage{etoolbox}
@@ -100,113 +97,111 @@
   \do0\do1\do2\do3\do4\do5\do6\do7\do8\do9\do=\do/\do.\do:%
   \do\*\do\-\do\~\do\'\do\"\do\-}
 \Urlmuskip=0mu plus 0.1mu
-\ExplSyntaxOn
-\str_if_eq:onT { \g__ctex_fontset_tl } { mac }
-  {
-    \setmainfont { Times~New~Roman }
-    \setsansfont [ Scale = MatchLowercase ] { Arial }
-    \setmonofont [ Scale = MatchLowercase ] { Menlo }
-    \setCJKmainfont
-      [
-           UprightFont = *~Light ,
-              BoldFont = *~Bold ,
-            ItalicFont = Kaiti~SC ,
-        BoldItalicFont = Kaiti~SC~Bold ,
-      ] { Songti~SC }
-    \setCJKsansfont { Heiti~SC }
-    \setCJKfamilyfont { zhsong }
-      [
-           UprightFont = *~Light ,
-              BoldFont = *~Bold ,
-      ] { Songti~SC }
-    \setCJKfamilyfont { zhhei } { Heiti~SC }
-    \setCJKfamilyfont { zhkai } { Kaiti~SC }
-  }
-\str_if_eq:onT { \g__ctex_fontset_tl } { windows }
-  {
-    \setmainfont { Times~New~Roman }
-    \setsansfont [ Scale = MatchLowercase ] { Arial }
-    \setmonofont [ Scale = MatchLowercase ] { Menlo }
-    \file_if_exist:nTF { C:/bootfont.bin }
-      {
-        \setCJKmainfont
-          [ AutoFakeBold , ItalicFont = KaiTi_GB2312 ] { SimSun }
-      }
-      {
-        \setCJKmainfont
-          [ AutoFakeBold , ItalicFont = KaiTi ] { SimSun }
-      }
-    \setCJKsansfont [ AutoFakeBold ] { SimHei }
-    \setCJKfamilyfont { zhsong } [ AutoFakeBold ] { SimSun }
-    \setCJKfamilyfont { zhhei }  [ AutoFakeBold ] { SimHei }
-  }
-\str_if_eq:onT { \g__ctex_fontset_tl } { adobe }
-  {
-    \setmainfont { Times~New~Roman }
-    \setsansfont [ Scale = MatchLowercase ] { Arial }
-    \setmonofont [ Scale = MatchLowercase ] { Menlo }
-    \setCJKmainfont
-      [
-        AutoFakeBold ,
-        ItalicFont = AdobeKaitiStd-Regular ,
-      ] { AdobeSongStd-Light }
-    \setCJKsansfont [ AutoFakeBold ] { AdobeHeitiStd-Regular}
-    \setCJKfamilyfont { zhsong } [ AutoFakeBold ] { AdobeSongStd-Light }
-    \setCJKfamilyfont { zhhei }  [ AutoFakeBold ] { AdobeHeitiStd-Regular }
-  }
-\str_if_eq:onT { \g__ctex_fontset_tl } { fandol }
-  {
-    \setmainfont
-      [
-        Extension      = .otf ,
-        UprightFont    = *-regular ,
-        BoldFont       = *-bold ,
-        ItalicFont     = *-italic ,
-        BoldItalicFont = *-bolditalic ,
-      ] { texgyretermes }
-    \setsansfont
-      [
-        Extension      = .otf ,
-        UprightFont    = *-regular ,
-        BoldFont       = *-bold ,
-        ItalicFont     = *-italic ,
-        BoldItalicFont = *-bolditalic ,
-        Scale          = MatchLowercase ,
-      ] { texgyreheros }
-    \setmonofont
-      [
-        Extension      = .otf ,
-        UprightFont    = *-regular ,
-        BoldFont       = *-bold ,
-        ItalicFont     = *-italic ,
-        BoldItalicFont = *-bolditalic ,
-        Scale          = MatchLowercase ,
-      ] { texgyrecursor }
-    \ClassWarningNoLine{ustcthesis}{%
-      You~are~using~Fandol~font~family. \MessageBreak
-      Some~glyphs~may~be~missing. \MessageBreak
-      Please~manually~configure~a~high-quality~font~set
+\newcommand\ustc@ifstreq{\csname str_if_eq:onTF\endcsname}
+\newcommand\ustc@fontset{\csname g__ctex_fontset_tl\endcsname}
+\ustc@ifstreq{\ustc@fontset}{mac}{
+  \setmainfont{Times New Roman}
+  \setsansfont[Scale=MatchLowercase]{Arial}
+  \setmonofont[Scale=MatchLowercase]{Menlo}
+  \setCJKmainfont[
+       UprightFont = * Light,
+          BoldFont = * Bold,
+        ItalicFont = Kaiti SC,
+    BoldItalicFont = Kaiti SC Bold,
+  ]{Songti SC}
+  \setCJKsansfont{Heiti SC}
+  \setCJKfamilyfont{zhsong}[
+       UprightFont = * Light,
+          BoldFont = * Bold,
+  ]{Songti SC}
+  \setCJKfamilyfont{zhhei}{Heiti SC}
+  \setCJKfamilyfont{zhkai}{Kaiti SC}
+}{
+  \ustc@ifstreq{\ustc@fontset}{windows}{
+    \setmainfont{Times New Roman}
+    \setsansfont[Scale=MatchLowercase]{Arial}
+    \setmonofont[Scale=MatchLowercase]{Menlo}
+    \IfFileExists{C:/bootfont.bin}{
+      \setCJKmainfont[AutoFakeBold,ItalicFont=KaiTi_GB2312]{SimSun}
+    }{
+      \setCJKmainfont[AutoFakeBold,ItalicFont=KaiTi]{SimSun}
+    }
+    \setCJKsansfont[AutoFakeBold]{SimHei}
+    \setCJKfamilyfont{zhsong}[AutoFakeBold]{SimSun}
+    \setCJKfamilyfont{zhhei}[AutoFakeBold]{SimHei}
+  }{
+    \ustc@ifstreq{\ustc@fontset}{adobe}{
+      \setmainfont{Times New Roman}
+      \setsansfont[Scale=MatchLowercase]{Arial}
+      \setmonofont[Scale=MatchLowercase]{Menlo}
+      \setCJKmainfont[
+        AutoFakeBold,
+        ItalicFont=AdobeKaitiStd-Regular,
+      ]{AdobeSongStd-Light}
+      \setCJKsansfont[AutoFakeBold]{AdobeHeitiStd-Regular}
+      \setCJKfamilyfont{zhsong}[AutoFakeBold]{AdobeSongStd-Light}
+      \setCJKfamilyfont{zhhei}[AutoFakeBold]{AdobeHeitiStd-Regular}
+    }{
+      \ustc@ifstreq{\ustc@fontset}{fandol}{
+        \setmainfont[
+          Extension      = .otf,
+          UprightFont    = *-regular,
+          BoldFont       = *-bold,
+          ItalicFont     = *-italic,
+          BoldItalicFont = *-bolditalic,
+        ]{texgyretermes}
+        \setsansfont[
+          Extension      = .otf,
+          UprightFont    = *-regular,
+          BoldFont       = *-bold,
+          ItalicFont     = *-italic,
+          BoldItalicFont = *-bolditalic,
+          Scale          = MatchLowercase,
+        ]{texgyreheros}
+        \setmonofont[
+          Extension      = .otf,
+          UprightFont    = *-regular,
+          BoldFont       = *-bold,
+          ItalicFont     = *-italic,
+          BoldItalicFont = *-bolditalic,
+          Scale          = MatchLowercase,
+        ]{texgyrecursor}
+        \ClassWarningNoLine{ustcthesis}{%
+          You are using Fandol font family.\MessageBreak
+          Some glyphs may be missing.\MessageBreak
+          Please switch to a high-quality font set.
+        }
+      }{}
     }
   }
-\ExplSyntaxOff
+}
 \unimathsetup{
   math-style = ISO,
   bold-style = ISO,
   nabla      = upright,
   partial    = upright,
 }
-\IfFontExistsTF{STIX2Math.otf}{
+\newcommand\ustc@mathfont{xits}
+\@ifpackagelater{fontspec}{2017/01/20}{
+  \IfFontExistsTF{STIX2Math.otf}{
+    \renewcommand\ustc@mathfont{stix2}
+  }{}
+}{}
+\ustc@ifstreq{\ustc@mathfont}{stix2}{
   \setmathfont[StylisticSet=8]{STIX2Math.otf}
   \setmathfont[range={scr,bfscr},StylisticSet=1]{STIX2Math.otf}
   \setmathfont[range=\partial]{xits-math.otf}
 }{
-  \setmathfont[
-    Extension    = .otf,
-    BoldFont     = *bold,
-    StylisticSet = 8,
-  ]{xits-math}
-  \setmathfont[range={cal,bfcal},StylisticSet=1]{xits-math.otf}
+  \ustc@ifstreq{\ustc@mathfont}{xits}{
+    \setmathfont[
+      Extension    = .otf,
+      BoldFont     = *bold,
+      StylisticSet = 8,
+    ]{xits-math}
+    \setmathfont[range={cal,bfcal},StylisticSet=1]{xits-math.otf}
+  }{}
 }
+
 \newdimen\bp@
 \bp@=1bp
 \if@ustc@bachelor
@@ -372,14 +367,12 @@
   \else
     \renewcommand\@ustc@thesisname{专业硕士学位论文}
   \fi
-  \ExplSyntaxOn
-  \str_if_eq:onTF { \g__ctex_fontset_tl } { mac }
-    {
-      \setCJKfamilyfont { zhli }{ Baoli~SC }
-      \providecommand\lishu{\CJKfamily{zhli}}
-    }
-    { \providecommand\lishu{\relax} }
-  \ExplSyntaxOff
+  \ustc@strifeq{\ustc@fontset}{mac}{
+    \setCJKfamilyfont{zhli}{Baoli SC}
+    \providecommand\lishu{\CJKfamily{zhli}}
+  }{
+    \providecommand\lishu{\relax}
+  }
   \newcommand\@ustc@specialityname{专业领域}
 \else
   \newcommand\@ustc@specialityname{学科专业}

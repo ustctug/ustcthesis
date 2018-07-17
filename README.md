@@ -17,7 +17,7 @@
 [ustcthesis.pdf](https://github.com/ustctug/ustcthesis/releases/download/v3.0/ustcthesis.pdf)
 在发布版中附带，用户也可自行编译；**使用模板前应仔细阅读**。
 
-2. 本模板要求 TeX Live、MacTeX、MikTeX 不低于 2015 年的发行版，
+2. 本模板要求 TeX Live、MacTeX、MikTeX 不低于 2016 年的发行版，
 并且尽可能升级到最新。安装和升级方法见
 [新手指南](https://github.com/ustctug/ustcthesis/wiki/新手指南)。
 
@@ -29,7 +29,7 @@
 
 - GitHub Releases：https://github.com/ustctug/ustcthesis/releases
 
-- 校内镜像：https://git.ustclug.org/ustctug/ustcthesis
+- 校内镜像：https://git.lug.ustc.edu.cn/ustctug/ustcthesis
 
 - 研究生院网站（版本较旧，不推荐）：http://gradschool.ustc.edu.cn/ylb/xw.html
 
