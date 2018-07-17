@@ -235,7 +235,8 @@ version 2005/12/01 or later.
 %     \midrule
 %     模板文件 & \file{ustcthesis.dtx}     & 模板原始代码文件，用户无需使用 \\
 %              & \file{ustcthesis.cls}     & 文档类文件 \\
-%              & \file{ustcextra.sty}      & 模板的附加宏包 \\
+%              & \file{ustcthesis-extra.sty}
+%                                          & 模板的附加宏包 \\
 %              & \file{ustcthesis-authoryear.bst}
 %                                          & 著者-出版年制参考文献格式 \\
 %              & \file{ustcthesis-numerical.bst}
@@ -531,7 +532,7 @@ version 2005/12/01 or later.
 %   \label{tab:symbols}
 % \end{table}
 %
-% \file{ustcextra.sty} 定义了数学定理格式 |ustcplain|（默认使用）以及一些常用的
+% \file{ustcthesis-extra.sty} 定义了数学定理格式 |ustcplain|（默认使用）以及一些常用的
 % 环境，如表~\ref{tab:theorems}。
 % \begin{table}[htbp]
 %   \centering
@@ -609,27 +610,27 @@ version 2005/12/01 or later.
 % \changes{v3.0.a}{2018/05/16}{更正本科生英文模板的章节格式}
 %    \begin{macrocode}
 %<*class>
-\newif\if@ustc@doctor
-\newif\if@ustc@master
-\newif\if@ustc@bachelor
-\newif\if@ustc@professional
-\newif\if@ustc@english
-\newif\if@ustc@numerical
-\newif\if@ustc@super
-\newif\if@ustc@pdf
-\newif\if@ustc@arabic
-\DeclareOption{doctor}{\@ustc@doctortrue\@ustc@masterfalse\@ustc@bachelorfalse}
-\DeclareOption{master}{\@ustc@doctorfalse\@ustc@mastertrue\@ustc@bachelorfalse}
-\DeclareOption{bachelor}{\@ustc@doctorfalse\@ustc@masterfalse\@ustc@bachelortrue}
-\DeclareOption{professional}{\@ustc@professionaltrue}
-\DeclareOption{chinese}{\@ustc@englishfalse}
-\DeclareOption{english}{\@ustc@englishtrue\@ustc@arabictrue}
-\DeclareOption{print}{\@ustc@pdffalse}
-\DeclareOption{pdf}{\@ustc@pdftrue}
-\DeclareOption{super}{\@ustc@numericaltrue\@ustc@supertrue}
-\DeclareOption{numbers}{\@ustc@numericaltrue\@ustc@superfalse}
-\DeclareOption{authoryear}{\@ustc@numericalfalse}
-\DeclareOption{arabic}{\@ustc@arabictrue}
+\newif\ifustc@doctor
+\newif\ifustc@master
+\newif\ifustc@bachelor
+\newif\ifustc@professional
+\newif\ifustc@english
+\newif\ifustc@numerical
+\newif\ifustc@super
+\newif\ifustc@pdf
+\newif\ifustc@arabic
+\DeclareOption{doctor}{\ustc@doctortrue\ustc@masterfalse\ustc@bachelorfalse}
+\DeclareOption{master}{\ustc@doctorfalse\ustc@mastertrue\ustc@bachelorfalse}
+\DeclareOption{bachelor}{\ustc@doctorfalse\ustc@masterfalse\ustc@bachelortrue}
+\DeclareOption{professional}{\ustc@professionaltrue}
+\DeclareOption{chinese}{\ustc@englishfalse}
+\DeclareOption{english}{\ustc@englishtrue\ustc@arabictrue}
+\DeclareOption{print}{\ustc@pdffalse}
+\DeclareOption{pdf}{\ustc@pdftrue}
+\DeclareOption{super}{\ustc@numericaltrue\ustc@supertrue}
+\DeclareOption{numbers}{\ustc@numericaltrue\ustc@superfalse}
+\DeclareOption{authoryear}{\ustc@numericalfalse}
+\DeclareOption{arabic}{\ustc@arabictrue}
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{ctexbook}}
 \ExecuteOptions{doctor,chinese,print,super}
 \ProcessOptions\relax
@@ -639,10 +640,10 @@ version 2005/12/01 or later.
 % \subsection{加载文档类和宏包}
 %
 %    \begin{macrocode}
-\if@ustc@english
+\ifustc@english
   \PassOptionsToClass{scheme=plain}{ctexbook}
 \fi
-\if@ustc@pdf
+\ifustc@pdf
   \PassOptionsToClass{oneside}{book}
 \fi
 %    \end{macrocode}
@@ -676,7 +677,7 @@ version 2005/12/01 or later.
 \RequirePackage[perpage]{footmisc}
 \RequirePackage{caption}
 \RequirePackage{calc}
-\if@ustc@numerical
+\ifustc@numerical
   \PassOptionsToPackage{sort&compress}{natbib}
 \fi
 \RequirePackage{natbib}
@@ -697,7 +698,7 @@ version 2005/12/01 or later.
 %
 % 如果为 \opt{pdf} 样式，设置 hyperlink 颜色
 %    \begin{macrocode}
-\if@ustc@pdf
+\ifustc@pdf
   \hypersetup{
     colorlinks=true,
     allcolors=blue,
@@ -880,7 +881,7 @@ version 2005/12/01 or later.
 %    \begin{macrocode}
 \newdimen\bp@
 \bp@=1bp
-\if@ustc@bachelor
+\ifustc@bachelor
   \renewcommand\normalsize{%
     \@setfontsize\normalsize{12\bp@}{22\bp@}%
     \abovedisplayskip 12\bp@ \@plus3\bp@ \@minus7\bp@
@@ -948,10 +949,10 @@ version 2005/12/01 or later.
 \linespread{1}\selectfont
 %    \end{macrocode}
 %
-% \begin{macro}{\@ustc@setfontsize}
+% \begin{macro}{\ustc@setfontsize}
 % 类似于 \cs{@setfontsize}，设置字号、行距后直接生效。
 %    \begin{macrocode}
-\newcommand\@ustc@setfontsize[2]{%
+\newcommand\ustc@setfontsize[2]{%
   \fontsize{#1}{#2}\selectfont}
 %    \end{macrocode}
 % \end{macro}
@@ -961,17 +962,17 @@ version 2005/12/01 or later.
 %
 % 这里设置了中英文的各种名字。
 %    \begin{macrocode}
-\if@ustc@english
+\ifustc@english
   \renewcommand\figurename{Fig.}
-  \newcommand\@ustc@notesname{\textbf{Notes}: }
-  \newcommand\@ustc@acknowledgementsname{Acknowledgements}
-  \newcommand\@ustc@publicationsname{Publications}
-  \newcommand\@ustc@notationname{Notation}
+  \newcommand\ustc@notesname{\textbf{Notes}: }
+  \newcommand\ustc@acknowledgementsname{Acknowledgements}
+  \newcommand\ustc@publicationsname{Publications}
+  \newcommand\ustc@notationname{Notation}
 \else
-  \newcommand\@ustc@notesname{\textbf{注}：}
-  \newcommand\@ustc@acknowledgementsname{致谢}
-  \newcommand\@ustc@publicationsname{在读期间发表的学术论文与取得的研究成果}
-  \newcommand\@ustc@notationname{符号说明}
+  \newcommand\ustc@notesname{\textbf{注}：}
+  \newcommand\ustc@acknowledgementsname{致谢}
+  \newcommand\ustc@publicationsname{在读期间发表的学术论文与取得的研究成果}
+  \newcommand\ustc@notationname{符号说明}
 \fi
 %    \end{macrocode}
 %
@@ -992,16 +993,16 @@ version 2005/12/01 or later.
 % \changes{v3.0.2}{2018/03/16}{更正本科生的页码}
 %    \begin{macrocode}
 \renewcommand{\headrulewidth}{0.4pt}
-\if@ustc@bachelor
+\ifustc@bachelor
   \fancypagestyle{ustc@headings}{
     \fancyhf{}
-    \fancyhead[C]{\@ustc@setfontsize{9\bp@}{18\bp@}中国科学技术大学本科毕业论文}
-    \fancyfoot[C]{\@ustc@setfontsize{9\bp@}{18\bp@}\thepage}}
+    \fancyhead[C]{\ustc@setfontsize{9\bp@}{18\bp@}中国科学技术大学本科毕业论文}
+    \fancyfoot[C]{\ustc@setfontsize{9\bp@}{18\bp@}\thepage}}
 \else
   \fancypagestyle{ustc@headings}{
     \fancyhf{}
-    \fancyhead[C]{\@ustc@setfontsize{10.5\bp@}{21\bp@}\leftmark}
-    \fancyfoot[C]{\@ustc@setfontsize{10.5\bp@}{21\bp@}\thepage}}
+    \fancyhead[C]{\ustc@setfontsize{10.5\bp@}{21\bp@}\leftmark}
+    \fancyfoot[C]{\ustc@setfontsize{10.5\bp@}{21\bp@}\thepage}}
 \fi
 \fancypagestyle{ustc@notation}{\fancyfoot{}}
 \pagestyle{ustc@headings}
@@ -1017,7 +1018,7 @@ version 2005/12/01 or later.
   }{}%
 }
 \patchcmd\chaptermark{\MakeUppercase}{}{}{\ustc@patchfailure{\chaptermark}}
-\patchcmd\chaptermark{#1}{\@ustc@spacetitle{#1}}
+\patchcmd\chaptermark{#1}{\ustc@spacetitle{#1}}
   {}{\ustc@patchfailure{\chaptermark}}
 %    \end{macrocode}
 %
@@ -1037,7 +1038,7 @@ version 2005/12/01 or later.
 \renewcommand\frontmatter{%
   \cleardoublepage
   \@mainmatterfalse
-  \if@ustc@bachelor
+  \ifustc@bachelor
     \pagenumbering{gobble}%
   \else
     \pagenumbering{Roman}%
@@ -1049,7 +1050,7 @@ version 2005/12/01 or later.
 % 研究生要求“第 1 章”要另页起，但是本科生要求另面起。
 %    \begin{macrocode}
 \renewcommand\mainmatter{%
-  \if@ustc@bachelor
+  \ifustc@bachelor
     \clearpage
   \else
     \cleardoublepage
@@ -1070,8 +1071,8 @@ version 2005/12/01 or later.
 %    \begin{macrocode}
 \renewcommand\maketitle{%
   \hypersetup{
-    pdftitle={\@ustc@title},
-    pdfauthor={\@ustc@author}
+    pdftitle={\ustc@title},
+    pdfauthor={\ustc@author}
   }
   \newgeometry{
     top=3.8cm, bottom=3.8cm,
@@ -1080,12 +1081,12 @@ version 2005/12/01 or later.
     footskip=0.8cm}%
   \pagenumbering{gobble}%
   \pdfbookmark[0]{封面}{titlepage}%
-  \@ustc@makezhtitle \cleardoublepage
+  \ustc@makezhtitle \cleardoublepage
   \pdfbookmark[0]{Title page}{entitlepage}%
-  \@ustc@makeentitle \cleardoublepage
+  \ustc@makeentitle \cleardoublepage
   \restoregeometry
-  \if@ustc@bachelor\relax\else
-    \if@ustc@pdf\relax\else
+  \ifustc@bachelor\relax\else
+    \ifustc@pdf\relax\else
       \pdfbookmark[0]{原创性声明}{statement}%
       \make@statement \cleardoublepage
     \fi
@@ -1097,23 +1098,23 @@ version 2005/12/01 or later.
 % \changes{v3.0.5}{2018/04/11}{更正“专业学位类型"的字体}
 % \changes{v3.0.5}{2018/04/11}{专业学位的封面更正为“专业领域”}
 %    \begin{macrocode}
-\if@ustc@doctor
-  \newcommand\@ustc@thesisname{博士学位论文}
-  \newcommand\@ustc@enthesisname{A dissertation for doctor's degree}
+\ifustc@doctor
+  \newcommand\ustc@thesisname{博士学位论文}
+  \newcommand\ustc@enthesisname{A dissertation for doctor's degree}
 \else
-  \if@ustc@master
-    \newcommand\@ustc@thesisname{硕士学位论文}
-    \newcommand\@ustc@enthesisname{A dissertation for master's degree}
+  \ifustc@master
+    \newcommand\ustc@thesisname{硕士学位论文}
+    \newcommand\ustc@enthesisname{A dissertation for master's degree}
   \else
-    \newcommand\@ustc@thesisname{学士学位论文}
-    \newcommand\@ustc@enthesisname{A dissertation for bachelor's degree}
+    \newcommand\ustc@thesisname{学士学位论文}
+    \newcommand\ustc@enthesisname{A dissertation for bachelor's degree}
   \fi
 \fi
-\if@ustc@professional
-  \if@ustc@doctor
-    \renewcommand\@ustc@thesisname{专业博士学位论文}
+\ifustc@professional
+  \ifustc@doctor
+    \renewcommand\ustc@thesisname{专业博士学位论文}
   \else
-    \renewcommand\@ustc@thesisname{专业硕士学位论文}
+    \renewcommand\ustc@thesisname{专业硕士学位论文}
   \fi
   \ustc@strifeq{\ustc@fontset}{mac}{
     \setCJKfamilyfont{zhli}{Baoli SC}
@@ -1121,17 +1122,17 @@ version 2005/12/01 or later.
   }{
     \providecommand\lishu{\relax}
   }
-  \newcommand\@ustc@specialityname{专业领域}
+  \newcommand\ustc@specialityname{专业领域}
 \else
-  \newcommand\@ustc@specialityname{学科专业}
+  \newcommand\ustc@specialityname{学科专业}
 \fi
 %    \end{macrocode}
 %
 % 声明“作者姓名”等项目的命令
 %    \begin{macrocode}
-\def\@ustc@define@term#1#2{%
+\def\ustc@define@term#1#2{%
   \expandafter\gdef\csname #1\endcsname##1{%
-    \expandafter\gdef\csname @ustc@#1\endcsname{##1}%
+    \expandafter\gdef\csname ustc@#1\endcsname{##1}%
   }%
   \csname #1\endcsname{#2}%
 }
@@ -1139,29 +1140,29 @@ version 2005/12/01 or later.
 %
 % 定义用户接口：
 %    \begin{macrocode}
-\@ustc@define@term{title}{论文题目}
-\@ustc@define@term{author}{XXX}
-\@ustc@define@term{major}{XXX}
-\@ustc@define@term{supervisor}{XXX\quad 教授}
-\@ustc@define@term{cosupervisor}{}
-\@ustc@define@term{date}{\zhnumsetup{time=Chinese}\zhtoday}
-\@ustc@define@term{professionaltype}{}
-\@ustc@define@term{secrettext}{}
-\@ustc@define@term{entitle}{Title}
-\@ustc@define@term{enauthor}{XXX}
-\@ustc@define@term{enmajor}{XXX}
-\@ustc@define@term{ensupervisor}{Prof. XXX}
-\@ustc@define@term{encosupervisor}{}
-\@ustc@define@term{endate}{\CTEX@todayold}
-\@ustc@define@term{enprofessionaltype}{}
-\@ustc@define@term{ensecrettext}{}
+\ustc@define@term{title}{论文题目}
+\ustc@define@term{author}{XXX}
+\ustc@define@term{major}{XXX}
+\ustc@define@term{supervisor}{XXX\quad 教授}
+\ustc@define@term{cosupervisor}{}
+\ustc@define@term{date}{\zhnumsetup{time=Chinese}\zhtoday}
+\ustc@define@term{professionaltype}{}
+\ustc@define@term{secrettext}{}
+\ustc@define@term{entitle}{Title}
+\ustc@define@term{enauthor}{XXX}
+\ustc@define@term{enmajor}{XXX}
+\ustc@define@term{ensupervisor}{Prof. XXX}
+\ustc@define@term{encosupervisor}{}
+\ustc@define@term{endate}{\CTEX@todayold}
+\ustc@define@term{enprofessionaltype}{}
+\ustc@define@term{ensecrettext}{}
 %    \end{macrocode}
 %
 % 这里使用 \pkg{tikz} 工具设计封面。
 % \cs{ustc@vpostext}\marg{vpos}\marg{text} 命令用来放置居中的文字，
 % 有两个参数，\meta{vpos} 是距离纸的顶端的距离，\meta{text} 是要放置的内容
 %    \begin{macrocode}
-\newcommand\@ustc@vpostext[2]{%
+\newcommand\ustc@vpostext[2]{%
   \tikz[remember picture,overlay]
     \node [yshift=-#1] at (current page.north) [below,align=flush center]
       {\parbox{\textwidth}{\centering#2}};}
@@ -1169,99 +1170,99 @@ version 2005/12/01 or later.
 %
 % 中文封面
 %    \begin{macrocode}
-\newcommand\@ustc@makezhtitle{%
+\newcommand\ustc@makezhtitle{%
   \begin{titlepage}%
     \tikz[remember picture,overlay]%
       \node [yshift=-4cm] at (current page.north) [below,align=flush center]%
         {\parbox{\textwidth}{%
-           \raggedleft\fangsong\@ustc@setfontsize{14\bp@}{28\bp@}%
-           \@ustc@secrettext}};%
-    \@ustc@vpostext{4cm}{%
+           \raggedleft\fangsong\ustc@setfontsize{14\bp@}{28\bp@}%
+           \ustc@secrettext}};%
+    \ustc@vpostext{4cm}{%
       \includegraphics[height=37\bp@]{figures/ustc_logo_text}}%
-    \if@ustc@professional
-      \@ustc@vpostext{6.3cm}{%
-        \sffamily\@ustc@setfontsize{56\bp@}{112\bp@}\ziju{-0.09}%
-        \@ustc@thesisname}%
-      \@ustc@vpostext{9cm}{%
-        \lishu\@ustc@setfontsize{26\bp@}{52\bp@}%
-        \@ustc@professionaltype}%
-      \@ustc@vpostext{10.3cm}{%
+    \ifustc@professional
+      \ustc@vpostext{6.3cm}{%
+        \sffamily\ustc@setfontsize{56\bp@}{112\bp@}\ziju{-0.09}%
+        \ustc@thesisname}%
+      \ustc@vpostext{9cm}{%
+        \lishu\ustc@setfontsize{26\bp@}{52\bp@}%
+        \ustc@professionaltype}%
+      \ustc@vpostext{10.3cm}{%
         \includegraphics[height=4.7cm]{figures/ustc_logo_fig}}%
-      \@ustc@vpostext{16.3cm}{%
-        \sffamily\bfseries\@ustc@setfontsize{26\bp@}{52\bp@}
-        \@ustc@title}%
+      \ustc@vpostext{16.3cm}{%
+        \sffamily\bfseries\ustc@setfontsize{26\bp@}{52\bp@}
+        \ustc@title}%
     \else
-      \@ustc@vpostext{6.3cm}{%
-        \sffamily\@ustc@setfontsize{56\bp@}{112\bp@}%
-        \@ustc@thesisname}%
-      \@ustc@vpostext{9.8cm}{%
+      \ustc@vpostext{6.3cm}{%
+        \sffamily\ustc@setfontsize{56\bp@}{112\bp@}%
+        \ustc@thesisname}%
+      \ustc@vpostext{9.8cm}{%
         \includegraphics[height=4.7cm]{figures/ustc_logo_fig}}%
-      \@ustc@vpostext{16.3cm}{%
-        \sffamily\bfseries\@ustc@setfontsize{26\bp@}{52\bp@}
-        \@ustc@title}%
+      \ustc@vpostext{16.3cm}{%
+        \sffamily\bfseries\ustc@setfontsize{26\bp@}{52\bp@}
+        \ustc@title}%
     \fi
     \tikz[remember picture,overlay]%
       \node [xshift=4.6cm,yshift=-20.3cm] at (current page.north west)%
         [below right,align=left] {%
-          \@ustc@setfontsize{16\bp@}{32\bp@}%
+          \ustc@setfontsize{16\bp@}{32\bp@}%
           \begin{tabular}{@{}l@{\hspace{\ccwd}}l@{}}%
-            \textsf{作者姓名：} & \@ustc@author \\
-            \textsf{\@ustc@specialityname：} & \@ustc@major \\
-            \textsf{导师姓名：} & \@ustc@supervisor\quad\@ustc@cosupervisor \\
-            \textsf{完成时间：} & \@ustc@date%
+            \textsf{作者姓名：} & \ustc@author \\
+            \textsf{\ustc@specialityname：} & \ustc@major \\
+            \textsf{导师姓名：} & \ustc@supervisor\quad\ustc@cosupervisor \\
+            \textsf{完成时间：} & \ustc@date%
           \end{tabular}};%
   \end{titlepage}}
 %    \end{macrocode}
 %
 % 英文封面的 supervisor 一栏需要判断单复数
 %    \begin{macrocode}
-\newcommand\@ustc@supervisorline{%
-  \ifx\@ustc@encosupervisor\@empty
-    Supervisor: \@ustc@ensupervisor
+\newcommand\ustc@supervisorline{%
+  \ifx\ustc@encosupervisor\@empty
+    Supervisor: \ustc@ensupervisor
   \else
-    Supervisors: \@ustc@ensupervisor, \@ustc@encosupervisor
+    Supervisors: \ustc@ensupervisor, \ustc@encosupervisor
   \fi}
 %    \end{macrocode}
 %
 % 英文封面
 %    \begin{macrocode}
-\newcommand\@ustc@makeentitle{%
+\newcommand\ustc@makeentitle{%
   \begin{titlepage}%
     \tikz[remember picture,overlay]%
       \node [yshift=-4cm] at (current page.north) [below,align=flush center]%
-        {\parbox{\textwidth}{\raggedleft\@ustc@setfontsize{14\bp@}{28\bp@}%
-        \@ustc@ensecrettext}};%
-    \@ustc@vpostext{3.9cm}{%
-      \sffamily\@ustc@setfontsize{20\bp@}{30\bp@}%
+        {\parbox{\textwidth}{\raggedleft\ustc@setfontsize{14\bp@}{28\bp@}%
+        \ustc@ensecrettext}};%
+    \ustc@vpostext{3.9cm}{%
+      \sffamily\ustc@setfontsize{20\bp@}{30\bp@}%
       University of Science and Technology of China}%
-    \@ustc@vpostext{4.9cm}{%
-      \sffamily\@ustc@setfontsize{26\bp@}{30\bp@}%
-      \@ustc@enthesisname}%
-    \if@ustc@professional
-      \@ustc@vpostext{6.2cm}{%
-        \@ustc@setfontsize{16\bp@}{32\bp@}%
-        \@ustc@enprofessionaltype}%
-      \@ustc@vpostext{8.9cm}{%
+    \ustc@vpostext{4.9cm}{%
+      \sffamily\ustc@setfontsize{26\bp@}{30\bp@}%
+      \ustc@enthesisname}%
+    \ifustc@professional
+      \ustc@vpostext{6.2cm}{%
+        \ustc@setfontsize{16\bp@}{32\bp@}%
+        \ustc@enprofessionaltype}%
+      \ustc@vpostext{8.9cm}{%
         \includegraphics[height=5.1cm]{figures/ustc_logo_fig}}%
-      \@ustc@vpostext{15cm}{%
-        \sffamily\bfseries\@ustc@setfontsize{26\bp@}{30\bp@}%
-        \@ustc@entitle}%
+      \ustc@vpostext{15cm}{%
+        \sffamily\bfseries\ustc@setfontsize{26\bp@}{30\bp@}%
+        \ustc@entitle}%
     \else
-      \@ustc@vpostext{7.9cm}{%
+      \ustc@vpostext{7.9cm}{%
         \includegraphics[height=5.1cm]{figures/ustc_logo_fig}}%
-      \@ustc@vpostext{14.2cm}{%
-        \sffamily\bfseries\@ustc@setfontsize{26\bp@}{30\bp@}%
-        \@ustc@entitle}%
+      \ustc@vpostext{14.2cm}{%
+        \sffamily\bfseries\ustc@setfontsize{26\bp@}{30\bp@}%
+        \ustc@entitle}%
     \fi
     \tikz[remember picture,overlay]%
       \node [xshift=4.4cm,yshift=-20.2cm] at (current page.north west)%
         [below right,align=left] {%
-          \@ustc@setfontsize{16\bp@}{30\bp@}%
+          \ustc@setfontsize{16\bp@}{30\bp@}%
           \begin{tabular}{@{}l@{}}
-            Author:        \@ustc@enauthor \\
-            Speciality:    \@ustc@enmajor \\
-            \@ustc@supervisorline \\
-            Finished time: \@ustc@endate%
+            Author:        \ustc@enauthor \\
+            Speciality:    \ustc@enmajor \\
+            \ustc@supervisorline \\
+            Finished time: \ustc@endate%
           \end{tabular}};%
   \end{titlepage}}
 %    \end{macrocode}
@@ -1272,11 +1273,11 @@ version 2005/12/01 or later.
 %
 % 定义原创性声明
 %    \begin{macrocode}
-\newcommand\@ustc@declaretext{%
+\newcommand\ustc@declaretext{%
 本人声明所呈交的学位论文，是本人在导师指导下进行研究工作所取得的成果。
 除已特别加以标注和致谢的地方外，论文中不包含任何他人已经发表或撰写过
 的研究成果。与我一同工作的同志对本研究所做的贡献均已在论文中作了明确的说明。}
-\newcommand\@ustc@authorization{%
+\newcommand\ustc@authorization{%
 作为申请学位的条件之一，学位论文著作权拥有者授权中国科学技术大学拥有
 学位论文的部分使用权，即：学校有权按有关规定向国家有关部门或机构送交
 论文的复印件和电子版，允许论文被查阅和借阅，可以将学位论文编入《中国
@@ -1286,44 +1287,44 @@ version 2005/12/01 or later.
 保密的学位论文在解密后也遵守此规定。}
 %    \end{macrocode}
 %
-% \begin{macro}{\@ustc@underline}
+% \begin{macro}{\ustc@underline}
 % 生成空的下划线
 %    \begin{macrocode}
-\newcommand\@ustc@underline[2][6em]{%
+\newcommand\ustc@underline[2][6em]{%
   \hskip1pt\underline{\hb@xt@ #1{\hss#2\hss}}\hskip3pt\relax
 }
 %    \end{macrocode}
 % \end{macro}
 %
-% \begin{macro}{\@ustc@makestatement}
+% \begin{macro}{\ustc@makestatement}
 %    \begin{macrocode}
 \newcommand\make@statement{%
   \thispagestyle{empty}%
   \vspace*{-0.15cm}%
   \begin{center}%
-    \sffamily\@ustc@setfontsize{16\bp@}{32\bp@}%
+    \sffamily\ustc@setfontsize{16\bp@}{32\bp@}%
     中国科学技术大学学位论文原创性声明%
   \end{center}%
   \vskip 0.3cm\par
-  \@ustc@declaretext\par
+  \ustc@declaretext\par
   \vskip 0.7cm\relax
   \begin{tabular}{p{7cm}p{7cm}}%
-    作者签名：\@ustc@underline[7.4em]{} & 签字日期：\@ustc@underline[7.4em]{}%
+    作者签名：\ustc@underline[7.4em]{} & 签字日期：\ustc@underline[7.4em]{}%
   \end{tabular}%
   \vskip 2.6cm\par
   \begin{center}%
-    \sffamily\@ustc@setfontsize{16\bp@}{32\bp@}%
+    \sffamily\ustc@setfontsize{16\bp@}{32\bp@}%
     中国科学技术大学学位论文授权使用声明%
   \end{center}%
   \vskip 0.3cm\par
-  \@ustc@authorization\par
+  \ustc@authorization\par
   \vskip 0.5cm\relax
-  $\square$公开 \hspace{0.4cm} $\square$保密（\@ustc@underline[2em]{}年）\par
+  $\square$公开 \hspace{0.4cm} $\square$保密（\ustc@underline[2em]{}年）\par
   \vskip 0.5cm\par
   {\renewcommand{\arraystretch}{2.0}%
   \begin{tabular}{p{7cm}p{7cm}}%
-    作者签名：\@ustc@underline[7.4em]{} & 导师签名：\@ustc@underline[7.4em]{} \\
-    签字日期：\@ustc@underline[7.4em]{} & 签字日期：\@ustc@underline[7.4em]{} \\
+    作者签名：\ustc@underline[7.4em]{} & 导师签名：\ustc@underline[7.4em]{} \\
+    签字日期：\ustc@underline[7.4em]{} & 签字日期：\ustc@underline[7.4em]{} \\
   \end{tabular}}%
 }
 %    \end{macrocode}
@@ -1344,9 +1345,9 @@ version 2005/12/01 or later.
 % 四字时空半字，四字以上不空}
 % \changes{v3.0.1}{2017/12/12}{更正范数命令失效的错误}
 %    \begin{macrocode}
-\DeclareRobustCommand\@ustc@spacetitle[1]{%
+\DeclareRobustCommand\ustc@spacetitle[1]{%
   \StrLen{#1}[\ustc@titlelength]%
-  \if@ustc@bachelor
+  \ifustc@bachelor
     \if@mainmatter\relax\else
       \ifnum\ustc@titlelength=2\ziju{1}\else
         \ifnum\ustc@titlelength=4\ziju{0.5}%
@@ -1363,10 +1364,10 @@ version 2005/12/01 or later.
   \fi#1}
 %    \end{macrocode}
 %
-% \begin{macro}{\@ustc@textcircled}
+% \begin{macro}{\ustc@textcircled}
 % 五级节标题和脚注需要使用带圈的数字，这里使用 \pkg{pifont} 宏包的 \cs{ding}：
 %    \begin{macrocode}
-\def\@ustc@textcircled#1{%
+\def\ustc@textcircled#1{%
   \ifnum\value{#1}>9\relax
     \ClassError{ustcthesis}{Cannot display more than 10 footnotes.}{}%
   \fi
@@ -1406,27 +1407,27 @@ version 2005/12/01 or later.
 }
 \ctexset{
   chapter = {
-    format      = \centering\sffamily\bfseries\@ustc@setfontsize{16\bp@}{32\bp@},
+    format      = \centering\sffamily\bfseries\ustc@setfontsize{16\bp@}{32\bp@},
     nameformat  = {},
-    titleformat = \@ustc@spacetitle,
+    titleformat = \ustc@spacetitle,
     number      = \thechapter,
     aftername   = \hspace{\ccwd},
   },
   section = {
-    format     = \sffamily\@ustc@setfontsize{14\bp@}{28\bp@},
+    format     = \sffamily\ustc@setfontsize{14\bp@}{28\bp@},
     aftername  = \hspace{\ccwd},
     beforeskip = 24\bp@,
     afterskip  = 6\bp@,
   },
   subsection = {
-    format     = \sffamily\@ustc@setfontsize{13\bp@}{26\bp@},
+    format     = \sffamily\ustc@setfontsize{13\bp@}{26\bp@},
     aftername  = \hspace{\ccwd},
     indent     = 2\ccwd,
     beforeskip = 12\bp@,
     afterskip  = 6\bp@,
   },
   subsubsection = {
-    format     = \sffamily\@ustc@setfontsize{12\bp@}{24\bp@},
+    format     = \sffamily\ustc@setfontsize{12\bp@}{24\bp@},
     number     = \arabic{subsubsection},
     aftername  = .\space,
     indent     = 2\ccwd,
@@ -1434,7 +1435,7 @@ version 2005/12/01 or later.
     afterskip  = 6\bp@,
   },
   paragraph = {
-    format     = \rmfamily\@ustc@setfontsize{12\bp@}{24\bp@},
+    format     = \rmfamily\ustc@setfontsize{12\bp@}{24\bp@},
     number     = （\arabic{paragraph}）,
     aftername  = \space,
     indent     = 2\ccwd,
@@ -1443,8 +1444,8 @@ version 2005/12/01 or later.
     runin      = false,
   },
   subparagraph = {
-    format     = \rmfamily\@ustc@setfontsize{12\bp@}{24\bp@},
-    number     = \@ustc@textcircled{subparagraph},
+    format     = \rmfamily\ustc@setfontsize{12\bp@}{24\bp@},
+    number     = \ustc@textcircled{subparagraph},
     aftername  = \space,
     indent     = 2\ccwd,
     beforeskip = \z@,
@@ -1460,28 +1461,28 @@ version 2005/12/01 or later.
 % 这可以通过 \cs{if@mainmatter} 区分。
 % \changes{v3.0.7}{2018/04/18}{更正本科生 subsection 的缩进}
 %    \begin{macrocode}
-\if@ustc@bachelor
+\ifustc@bachelor
   \setcounter{secnumdepth}{4}
   \ctexset{
     chapter = {
       format = {
         \centering\sffamily
         \if@mainmatter
-          \@ustc@setfontsize{16\bp@}{32\bp@}
+          \ustc@setfontsize{16\bp@}{32\bp@}
         \else
-          \@ustc@setfontsize{18\bp@}{36\bp@}
+          \ustc@setfontsize{18\bp@}{36\bp@}
         \fi
       },
     },
     section = {
-      format = \centering\sffamily\@ustc@setfontsize{15\bp@}{30\bp@},
+      format = \centering\sffamily\ustc@setfontsize{15\bp@}{30\bp@},
     },
     subsection = {
-      format    = \sffamily\@ustc@setfontsize{14\bp@}{28\bp@},
+      format    = \sffamily\ustc@setfontsize{14\bp@}{28\bp@},
       indent    = \z@,
     },
     subsubsection = {
-      format    = \rmfamily\@ustc@setfontsize{12\bp@}{24\bp@},
+      format    = \rmfamily\ustc@setfontsize{12\bp@}{24\bp@},
       indent    = \ccwd,
     },
     paragraph = {
@@ -1499,7 +1500,7 @@ version 2005/12/01 or later.
 %
 % 允许本科生使用阿拉伯数字式标题。
 %    \begin{macrocode}
-  \if@ustc@arabic\else
+  \ifustc@arabic\else
     \ctexset{
       chapter = {
         number = \chinese{chapter},
@@ -1517,7 +1518,7 @@ version 2005/12/01 or later.
 \fi
 %    \end{macrocode}
 %
-% \begin{macro}{\@ustc@chapter}
+% \begin{macro}{\ustc@chapter}
 % 默认的 \cs{chapter*} 生成的章标题没有编号、不更改页眉，
 % 也不添加进目录或 PDF 书签。
 % 然而像摘要、目录、符号说明这样的章节，它们不需要编号、不加入目录，
@@ -1525,7 +1526,7 @@ version 2005/12/01 or later.
 % 所以我们新定义 \cs{ustc@chapter} 用于处理这些章节。%
 %    \begin{macrocode}
 \newcounter{ustc@pdfbookmark}
-\NewDocumentCommand\@ustc@chapter{o m}{%
+\NewDocumentCommand\ustc@chapter{o m}{%
   \if@openright\cleardoublepage\else\clearpage\fi
   \addtocounter{ustc@pdfbookmark}\@ne
   \IfValueTF{#1}{%
@@ -1549,14 +1550,14 @@ version 2005/12/01 or later.
 % \changes{v3.0}{2017/07/01}{摘要不再加入目录}
 %    \begin{macrocode}
 \newenvironment{abstract}{%
-  \if@ustc@bachelor
+  \ifustc@bachelor
     \chapter{中文内容摘要}%
-    \if@ustc@tocloaded\else
+    \ifustc@tocloaded\else
       需要将摘要的位置调整到目录后。\par
       \pagenumbering{Roman}%
     \fi
   \else
-    \@ustc@chapter{摘要}%
+    \ustc@chapter{摘要}%
   \fi
 }{}
 %    \end{macrocode}
@@ -1566,10 +1567,10 @@ version 2005/12/01 or later.
 % 英文摘要环境
 %    \begin{macrocode}
 \newenvironment{enabstract}{%
-  \if@ustc@bachelor
+  \ifustc@bachelor
     \chapter[英文内容摘要]{Abstract}%
   \else
-    \@ustc@chapter[Abstract]{ABSTRACT}%
+    \ustc@chapter[Abstract]{ABSTRACT}%
   \fi}{}
 %    \end{macrocode}
 % \end{environment}
@@ -1597,7 +1598,7 @@ version 2005/12/01 or later.
 %
 % 判断是否已经加载目录，用于提醒本科生更改摘要和致谢的顺序。
 %    \begin{macrocode}
-\newif\if@ustc@tocloaded
+\newif\ifustc@tocloaded
 %    \end{macrocode}
 %
 % \begin{macro}{\tableofcontents}
@@ -1606,12 +1607,12 @@ version 2005/12/01 or later.
 % \changes{v3.0.b}{2018/05/18}{更正研究生的目录为另面起}
 %    \begin{macrocode}
 \renewcommand\tableofcontents{%
-  \if@ustc@bachelor
+  \ifustc@bachelor
     \cleardoublepage
     \pagenumbering{arabic}%
-    \@ustc@tocloadedtrue
+    \ustc@tocloadedtrue
   \fi
-  \@ustc@chapter{\contentsname}%
+  \ustc@chapter{\contentsname}%
   \@starttoc{toc}}
 %    \end{macrocode}
 % \end{macro}
@@ -1621,16 +1622,16 @@ version 2005/12/01 or later.
 % 研究生要求图、表的清单须另页起。
 %    \begin{macrocode}
 \renewcommand\listoffigures{%
-  \if@ustc@bachelor\else
+  \ifustc@bachelor\else
     \cleardoublepage
   \fi
-  \@ustc@chapter{\listfigurename}%
+  \ustc@chapter{\listfigurename}%
   \@starttoc{lof}}
 \renewcommand\listoftables{%
-  \if@ustc@bachelor\else
+  \ifustc@bachelor\else
     \cleardoublepage
   \fi
-  \@ustc@chapter{\listtablename}%
+  \ustc@chapter{\listtablename}%
   \@starttoc{lot}}
 %    \end{macrocode}
 % \end{macro}
@@ -1641,24 +1642,24 @@ version 2005/12/01 or later.
 % 由于 \pkg{ctex} 新引入了 \opt{tocline}，导致 chatper 的前标题空白多了 0.3em，
 % 所以用 \cs{unskip} 修正。
 %    \begin{macrocode}
-\newcommand\@ustc@leaders{\titlerule*[0.5pc]{$\cdot$}}
-\if@ustc@bachelor
+\newcommand\ustc@leaders{\titlerule*[0.5pc]{$\cdot$}}
+\ifustc@bachelor
   \titlecontents{chapter}
     [\z@]
     {\normalsize}
     {\contentspush{\thecontentslabel\unskip\hskip\ccwd\relax}}
-    {}{\@ustc@leaders\contentspage}
+    {}{\ustc@leaders\contentspage}
   \titlecontents{section}
     [\ccwd]
     {\normalsize}
     {\contentspush{\thecontentslabel\hskip\ccwd\relax}}
-    {}{\@ustc@leaders\contentspage}
+    {}{\ustc@leaders\contentspage}
   \titlecontents{subsection}
     [2\ccwd]
     {\normalsize}
     {\contentspush{\thecontentslabel
-      \if@ustc@arabic\hspace{\ccwd}\else 、\fi}}
-    {}{\@ustc@leaders\contentspage}
+      \ifustc@arabic\hspace{\ccwd}\else 、\fi}}
+    {}{\ustc@leaders\contentspage}
 \else
 %    \end{macrocode}
 %
@@ -1668,19 +1669,19 @@ version 2005/12/01 or later.
 %    \begin{macrocode}
   \titlecontents{chapter}
     [\z@]
-    {\addvspace{6\bp@}\@ustc@setfontsize{14\bp@}{20\bp@}}
+    {\addvspace{6\bp@}\ustc@setfontsize{14\bp@}{20\bp@}}
     {\contentspush{\thecontentslabel\unskip\hskip\ccwd\relax}}
-    {}{\@ustc@leaders\@ustc@setfontsize{12\bp@}{20\bp@}\contentspage}
+    {}{\ustc@leaders\ustc@setfontsize{12\bp@}{20\bp@}\contentspage}
   \titlecontents{section}
     [\ccwd]
-    {\@ustc@setfontsize{12\bp@}{20\bp@}}
+    {\ustc@setfontsize{12\bp@}{20\bp@}}
     {\contentspush{\thecontentslabel\hskip\ccwd\relax}}
-    {}{\@ustc@leaders\@ustc@setfontsize{12\bp@}{20\bp@}\contentspage}
+    {}{\ustc@leaders\ustc@setfontsize{12\bp@}{20\bp@}\contentspage}
   \titlecontents{subsection}
     [2\ccwd]
-    {\@ustc@setfontsize{10.5\bp@}{20\bp@}}
+    {\ustc@setfontsize{10.5\bp@}{20\bp@}}
     {\contentspush{\thecontentslabel\hskip\ccwd\relax}}
-    {}{\@ustc@leaders\@ustc@setfontsize{12\bp@}{20\bp@}\contentspage}
+    {}{\ustc@leaders\ustc@setfontsize{12\bp@}{20\bp@}\contentspage}
 \fi
 %    \end{macrocode}
 %
@@ -1690,24 +1691,24 @@ version 2005/12/01 or later.
   [\ccwd]
   {\normalsize}
   {\thecontentslabel\hspace*{0.5em}}
-  {}{\@ustc@leaders\contentspage}
+  {}{\ustc@leaders\contentspage}
 \titlecontents{table}
   [\ccwd]
   {\normalsize}
   {\thecontentslabel\hspace*{0.5em}}
-  {}{\@ustc@leaders\contentspage}
+  {}{\ustc@leaders\contentspage}
 %    \end{macrocode}
 %
 % 本科生要求目录中正文每章前多空一行，而目录、附录等章则不需要空行，
 % 所以不能简单判断 \cs{if@mainmatter}，需要重新定义 \cs{mainmatter} 等命令。
 %    \begin{macrocode}
-\newif\if@ustc@addtocspace
-\if@ustc@bachelor
-  \@ustc@addtocspacetrue
-  \g@addto@macro\frontmatter{\@ustc@addtocspacefalse}%
-  \g@addto@macro\mainmatter{\@ustc@addtocspacetrue}%
-  \g@addto@macro\backmatter{\@ustc@addtocspacefalse}%
-  \g@addto@macro\appendix{\@ustc@addtocspacefalse}%
+\newif\ifustc@addtocspace
+\ifustc@bachelor
+  \ustc@addtocspacetrue
+  \g@addto@macro\frontmatter{\ustc@addtocspacefalse}%
+  \g@addto@macro\mainmatter{\ustc@addtocspacetrue}%
+  \g@addto@macro\backmatter{\ustc@addtocspacefalse}%
+  \g@addto@macro\appendix{\ustc@addtocspacefalse}%
 \fi
 %    \end{macrocode}
 %
@@ -1718,8 +1719,8 @@ version 2005/12/01 or later.
   \if@openright\cleardoublepage\else\clearpage\fi
   \global\@topnum\z@
   \@afterindenttrue
-  \if@ustc@bachelor
-    \if@ustc@addtocspace
+  \ifustc@bachelor
+    \ifustc@addtocspace
       \addtocontents{toc}{\protect\addvspace{12\bp@}}%
     \fi
   \fi
@@ -1738,9 +1739,9 @@ version 2005/12/01 or later.
 % \changes{v3.0.b}{2018/05/18}{更正符号说明的字号}
 %    \begin{macrocode}
 \newenvironment{notation}{%
-  \if@ustc@bachelor\clearpage\else\cleardoublepage\fi
+  \ifustc@bachelor\clearpage\else\cleardoublepage\fi
   \pagestyle{ustc@notation}%
-  \@ustc@chapter{\@ustc@notationname}%
+  \ustc@chapter{\ustc@notationname}%
   \setlength{\itemsep}{\z@}%
 }{%
   \clearpage\pagestyle{ustc@headings}%
@@ -1760,7 +1761,7 @@ version 2005/12/01 or later.
 % 脚注用带圈的数字：
 % \changes{v3.0}{2017/07/01}{脚注用带圈序号，缩进两字}
 %    \begin{macrocode}
-\renewcommand{\thefootnote}{\@ustc@textcircled{footnote}}
+\renewcommand{\thefootnote}{\ustc@textcircled{footnote}}
 %    \end{macrocode}
 %
 % LaTeX 默认脚注按章计数，即每章的开始才重置脚注计数器；我们修改为按页计数。
@@ -1863,7 +1864,7 @@ version 2005/12/01 or later.
   font     = small,
   labelsep = zhspace,
 }
-\if@ustc@bachelor\else
+\ifustc@bachelor\else
   \captionsetup{font+=bf}
 \fi
 \captionsetup[figure]{
@@ -1886,7 +1887,7 @@ version 2005/12/01 or later.
 %    \begin{macrocode}
 \newcommand\note[1]{%
   \captionsetup{position=bottom, font=small}%
-  \caption*{\raggedright\hangindent=2\ccwd\relax\@ustc@notesname#1}}
+  \caption*{\raggedright\hangindent=2\ccwd\relax\ustc@notesname#1}}
 %    \end{macrocode}
 % \end{macro}
 %
@@ -1992,13 +1993,13 @@ version 2005/12/01 or later.
 %    \end{macrocode}
 % \end{macro}
 %
-% \begin{macro}{\@ustcbibstyle}
+% \begin{macro}{\ustcbibstyle}
 % 定义接口切换参考文献表的风格，可选 \opt{authoryear} 和 \opt{numerical}，
 % 这个仅用于\pkg{chapterbib}。
 %    \begin{macrocode}
 \def\tmp@numerical{numerical}
 \def\tmp@authoryear{authoryear}
-\newcommand\@ustcbibstyle[1]{%
+\newcommand\ustcbibstyle[1]{%
   \def\tmp@gbt{#1}%
   \ifx\tmp@gbt\tmp@numerical
     \bibliographystyle{ustcthesis-numerical}%
@@ -2016,16 +2017,16 @@ version 2005/12/01 or later.
 %
 % 处理宏包选项。
 %    \begin{macrocode}
-\if@ustc@bachelor
-  \if@ustc@super
+\ifustc@bachelor
+  \ifustc@super
     \citestyle{super}
   \else
     \citestyle{numbers}
   \fi
   \bibliographystyle{ustcthesis-bachelor}
 \else
-  \if@ustc@numerical
-    \if@ustc@super
+  \ifustc@numerical
+    \ifustc@super
       \citestyle{super}
     \else
       \citestyle{numbers}
@@ -2106,8 +2107,8 @@ version 2005/12/01 or later.
 % 本科生依然是小四宋体。
 % \changes{v3.0.b}{2018/05/18}{更正本科生参考文献的字号}
 %    \begin{macrocode}
-\if@ustc@bachelor\else
-  \renewcommand\bibfont{\@ustc@setfontsize{10.5bp}{20bp}}
+\ifustc@bachelor\else
+  \renewcommand\bibfont{\ustc@setfontsize{10.5bp}{20bp}}
 \fi
 \setlength{\bibsep}{\z@}
 \renewcommand\@biblabel[1]{[#1]\hfill}
@@ -2131,13 +2132,13 @@ version 2005/12/01 or later.
 % 定义了一个满足要求的致谢环境：
 %    \begin{macrocode}
 \newenvironment{acknowledgements}{%
-  \if@ustc@bachelor
-    \@ustc@chapter{\@ustc@acknowledgementsname}%
-    \if@ustc@tocloaded
+  \ifustc@bachelor
+    \ustc@chapter{\ustc@acknowledgementsname}%
+    \ifustc@tocloaded
       需要将致谢的位置调整到目录前。\par
     \fi
   \else
-    \chapter{\@ustc@acknowledgementsname}%
+    \chapter{\ustc@acknowledgementsname}%
   \fi
 }{}
 %    \end{macrocode}
@@ -2146,7 +2147,7 @@ version 2005/12/01 or later.
 % \begin{environment}{publications}
 % 发表成果环境：
 %    \begin{macrocode}
-\newenvironment{publications}{\chapter{\@ustc@publicationsname}}{}
+\newenvironment{publications}{\chapter{\ustc@publicationsname}}{}
 %</class>
 %    \end{macrocode}
 % \end{environment}

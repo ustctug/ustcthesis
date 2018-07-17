@@ -5,6 +5,13 @@
 \NeedsTeXFormat{LaTeX2e}[1999/12/01]
 \ProvidesPackage{ustcextra}
 
+% 图片目录
+\graphicspath{{figures/}}
+% 三线表
+\RequirePackage{booktabs}
+% 跨页表格
+\RequirePackage{longtable}
+
 % 数学符号：
 \newcommand\eu{\mathrm{e}}
 \newcommand\iu{\mathrm{i}}
@@ -22,7 +29,7 @@
     {\ccwd}{}
 \theoremstyle{ustcplain}
 % 定义新的定理
-\if@ustc@english
+\ifustc@english
   \newcommand\ustc@assertionname{Assertion}
   \newcommand\ustc@axiomname{Axiom}
   \newcommand\ustc@corollaryname{Corollary}
@@ -86,16 +93,10 @@
 }
 \renewcommand\proofname\ustc@proofname
 
-% 表格：
-% 三线表
-\RequirePackage{booktabs}
-% 跨页表格
-\RequirePackage{longtable}
-
 % 算法和代码：
 % 算法环境
 \RequirePackage[boxed, algochapter, lined, linesnumbered]{algorithm2e}
-\if@ustc@english
+\ifustc@english
   \renewcommand\listalgorithmcfname{List of Algorithms}
   \renewcommand\algorithmcfname{Algorithm}
 \else

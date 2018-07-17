@@ -1,6 +1,6 @@
 MAIN = main
 NAME = ustcthesis
-CLSFILES = $(NAME).cls ustcextra.sty
+CLSFILES = $(NAME).cls $(NAME)-extra.sty
 BSTFILES = ustcthesis-numerical.bst ustcthesis-authoryear.bst ustcthesis-bachelor.bst
 
 SHELL = bash
@@ -48,6 +48,6 @@ zip : main doc
 	ln -sf . $(NAME)
 	zip -r ../$(NAME)-$(VERSION).zip $(NAME)/{README.md,LICENSE,\
 	$(NAME).dtx,$(NAME).pdf,$(NAME).cls,$(NAME)-*.bst,figures,\
-	$(MAIN).tex,ustcextra.sty,chapters,bib,$(MAIN).pdf,\
+	$(MAIN).tex,$(NAME)-extra.sty,chapters,bib,$(MAIN).pdf,\
 	latexmkrc,Makefile}
 	rm $(NAME)
