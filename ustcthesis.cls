@@ -60,7 +60,6 @@
 \RequirePackage{unicode-math}
 \RequirePackage{geometry}
 \RequirePackage{fancyhdr}
-\RequirePackage{xstring}
 \RequirePackage{pifont}
 \RequirePackage{tikz}
 \RequirePackage{titletoc}
@@ -97,9 +96,9 @@
   \do0\do1\do2\do3\do4\do5\do6\do7\do8\do9\do=\do/\do.\do:%
   \do\*\do\-\do\~\do\'\do\"\do\-}
 \Urlmuskip=0mu plus 0.1mu
-\newcommand\ustc@ifstreq{\csname str_if_eq:onTF\endcsname}
+\newcommand\ustc@strifeq{\csname str_if_eq:onTF\endcsname}
 \newcommand\ustc@fontset{\csname g__ctex_fontset_tl\endcsname}
-\ustc@ifstreq{\ustc@fontset}{mac}{
+\ustc@strifeq{\ustc@fontset}{mac}{
   \setmainfont{Times New Roman}
   \setsansfont[Scale=MatchLowercase]{Arial}
   \setmonofont[Scale=MatchLowercase]{Menlo}
@@ -117,7 +116,7 @@
   \setCJKfamilyfont{zhhei}{Heiti SC}
   \setCJKfamilyfont{zhkai}{Kaiti SC}
 }{
-  \ustc@ifstreq{\ustc@fontset}{windows}{
+  \ustc@strifeq{\ustc@fontset}{windows}{
     \setmainfont{Times New Roman}
     \setsansfont[Scale=MatchLowercase]{Arial}
     \setmonofont[Scale=MatchLowercase]{Menlo}
@@ -130,7 +129,7 @@
     \setCJKfamilyfont{zhsong}[AutoFakeBold]{SimSun}
     \setCJKfamilyfont{zhhei}[AutoFakeBold]{SimHei}
   }{
-    \ustc@ifstreq{\ustc@fontset}{adobe}{
+    \ustc@strifeq{\ustc@fontset}{adobe}{
       \setmainfont{Times New Roman}
       \setsansfont[Scale=MatchLowercase]{Arial}
       \setmonofont[Scale=MatchLowercase]{Menlo}
@@ -142,7 +141,7 @@
       \setCJKfamilyfont{zhsong}[AutoFakeBold]{AdobeSongStd-Light}
       \setCJKfamilyfont{zhhei}[AutoFakeBold]{AdobeHeitiStd-Regular}
     }{
-      \ustc@ifstreq{\ustc@fontset}{fandol}{
+      \ustc@strifeq{\ustc@fontset}{fandol}{
         \setmainfont[
           Extension      = .otf,
           UprightFont    = *-regular,
@@ -187,12 +186,12 @@
     \renewcommand\ustc@mathfont{stix2}
   }{}
 }{}
-\ustc@ifstreq{\ustc@mathfont}{stix2}{
+\ustc@strifeq{\ustc@mathfont}{stix2}{
   \setmathfont[StylisticSet=8]{STIX2Math.otf}
   \setmathfont[range={scr,bfscr},StylisticSet=1]{STIX2Math.otf}
   \setmathfont[range=\partial]{xits-math.otf}
 }{
-  \ustc@ifstreq{\ustc@mathfont}{xits}{
+  \ustc@strifeq{\ustc@mathfont}{xits}{
     \setmathfont[
       Extension    = .otf,
       BoldFont     = *bold,
@@ -536,7 +535,8 @@
 }
 \setcounter{secnumdepth}{5}
 \DeclareRobustCommand\ustc@spacetitle[1]{%
-  \StrLen{#1}[\ustc@titlelength]%
+  \def\ustc@titlelength{\csname str_count:N\endcsname{#1}}
+  \begingroup
   \ifustc@bachelor
     \if@mainmatter\relax\else
       \ifnum\ustc@titlelength=2\ziju{1}\else
@@ -551,10 +551,10 @@
         \fi
       \fi
     \fi
-  \fi#1}
+  \fi#1\endgroup}
 \def\ustc@textcircled#1{%
   \ifnum\value{#1}>9\relax
-    \ClassError{ustcthesis}{Cannot display more than 10 footnotes.}{}%
+    \ClassError{ustcthesis}{Cannot display more than 10 footnotes}{}%
   \fi
   \ding{\the\numexpr\value{#1}+191\relax}}
 \setcounter{secnumdepth}{5}

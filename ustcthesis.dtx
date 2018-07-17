@@ -670,7 +670,6 @@ version 2005/12/01 or later.
 \RequirePackage{unicode-math}
 \RequirePackage{geometry}
 \RequirePackage{fancyhdr}
-\RequirePackage{xstring}
 \RequirePackage{pifont}
 \RequirePackage{tikz}
 \RequirePackage{titletoc}
@@ -712,7 +711,6 @@ version 2005/12/01 or later.
 }
 %    \end{macrocode}
 %
-% \begin{macro}{\url}
 % 将 URL 设置为保持原样。
 %    \begin{macrocode}
 \urlstyle{same}
@@ -730,10 +728,16 @@ version 2005/12/01 or later.
   \do\*\do\-\do\~\do\'\do\"\do\-}
 \Urlmuskip=0mu plus 0.1mu
 %    \end{macrocode}
-% \end{macro}
 %
 %
 % \subsection{字体}
+%
+% \begin{macro}{\ustc@strifeq}
+% 判断字符串是否相等。
+%    \begin{macrocode}
+\newcommand\ustc@strifeq{\csname str_if_eq:onTF\endcsname}
+%    \end{macrocode}
+% \end{macro}
 %
 % 设置西文字体
 % 中文字体可以由 \pkg{ctex} 自动设置，但是会有问题：
@@ -743,9 +747,8 @@ version 2005/12/01 or later.
 % \changes{v3.0.6}{2018/04/12}{取消使用微软雅黑}
 % \changes{v3.0.a}{2018/05/16}{调整中文字体配置}
 %    \begin{macrocode}
-\newcommand\ustc@ifstreq{\csname str_if_eq:onTF\endcsname}
 \newcommand\ustc@fontset{\csname g__ctex_fontset_tl\endcsname}
-\ustc@ifstreq{\ustc@fontset}{mac}{
+\ustc@strifeq{\ustc@fontset}{mac}{
   \setmainfont{Times New Roman}
   \setsansfont[Scale=MatchLowercase]{Arial}
   \setmonofont[Scale=MatchLowercase]{Menlo}
@@ -763,7 +766,7 @@ version 2005/12/01 or later.
   \setCJKfamilyfont{zhhei}{Heiti SC}
   \setCJKfamilyfont{zhkai}{Kaiti SC}
 }{
-  \ustc@ifstreq{\ustc@fontset}{windows}{
+  \ustc@strifeq{\ustc@fontset}{windows}{
     \setmainfont{Times New Roman}
     \setsansfont[Scale=MatchLowercase]{Arial}
     \setmonofont[Scale=MatchLowercase]{Menlo}
@@ -776,7 +779,7 @@ version 2005/12/01 or later.
     \setCJKfamilyfont{zhsong}[AutoFakeBold]{SimSun}
     \setCJKfamilyfont{zhhei}[AutoFakeBold]{SimHei}
   }{
-    \ustc@ifstreq{\ustc@fontset}{adobe}{
+    \ustc@strifeq{\ustc@fontset}{adobe}{
       \setmainfont{Times New Roman}
       \setsansfont[Scale=MatchLowercase]{Arial}
       \setmonofont[Scale=MatchLowercase]{Menlo}
@@ -788,7 +791,7 @@ version 2005/12/01 or later.
       \setCJKfamilyfont{zhsong}[AutoFakeBold]{AdobeSongStd-Light}
       \setCJKfamilyfont{zhhei}[AutoFakeBold]{AdobeHeitiStd-Regular}
     }{
-      \ustc@ifstreq{\ustc@fontset}{fandol}{
+      \ustc@strifeq{\ustc@fontset}{fandol}{
         \setmainfont[
           Extension      = .otf,
           UprightFont    = *-regular,
@@ -832,17 +835,29 @@ version 2005/12/01 or later.
   partial    = upright,
 }
 \newcommand\ustc@mathfont{xits}
+%    \end{macrocode}
+%
+% \cs{IfFontExistsTF} 是 \pkg{fontspec} 2017/01/20 v2.5c 才提供的，
+% 所以需要检测版本。
+%    \begin{macrocode}
 \@ifpackagelater{fontspec}{2017/01/20}{
   \IfFontExistsTF{STIX2Math.otf}{
     \renewcommand\ustc@mathfont{stix2}
   }{}
 }{}
-\ustc@ifstreq{\ustc@mathfont}{stix2}{
+%    \end{macrocode}
+%
+% 由于 \pkg{fontspec} 的 bug
+% \footnote{\url{https://github.com/wspr/unicode-math/issues/484}}，
+% \cs{scriptstyle} 的变体字母不能正确处理，
+% 暂时不要使用 \opt{ss02}。
+%    \begin{macrocode}
+\ustc@strifeq{\ustc@mathfont}{stix2}{
   \setmathfont[StylisticSet=8]{STIX2Math.otf}
   \setmathfont[range={scr,bfscr},StylisticSet=1]{STIX2Math.otf}
   \setmathfont[range=\partial]{xits-math.otf}
 }{
-  \ustc@ifstreq{\ustc@mathfont}{xits}{
+  \ustc@strifeq{\ustc@mathfont}{xits}{
     \setmathfont[
       Extension    = .otf,
       BoldFont     = *bold,
@@ -1338,15 +1353,17 @@ version 2005/12/01 or later.
 \setcounter{secnumdepth}{5}
 %    \end{macrocode}
 %
+% \begin{macro}{\ustc@spacetitle}
 % 研究生规定章题为两字时中间空两字，三字时空一字，四字时空半字，四字以上不空。
-% 这里用 \pkg{xstring} 宏包的 \cs{StrLen} 来判断字数。
+% 这里用 \LaTeX3 的 \cs{str\_count:N} 判断字数。
 % 注意，\pkg{stringstrings} 宏包会导致范数命令 \verb+\|+ 被修改。
 % \changes{v3.0}{2017/07/01}{章题为两字时中间空两字，三字时空一字，
 % 四字时空半字，四字以上不空}
 % \changes{v3.0.1}{2017/12/12}{更正范数命令失效的错误}
 %    \begin{macrocode}
 \DeclareRobustCommand\ustc@spacetitle[1]{%
-  \StrLen{#1}[\ustc@titlelength]%
+  \def\ustc@titlelength{\csname str_count:N\endcsname{#1}}
+  \begingroup
   \ifustc@bachelor
     \if@mainmatter\relax\else
       \ifnum\ustc@titlelength=2\ziju{1}\else
@@ -1361,15 +1378,16 @@ version 2005/12/01 or later.
         \fi
       \fi
     \fi
-  \fi#1}
+  \fi#1\endgroup}
 %    \end{macrocode}
+% \end{macro}
 %
 % \begin{macro}{\ustc@textcircled}
 % 五级节标题和脚注需要使用带圈的数字，这里使用 \pkg{pifont} 宏包的 \cs{ding}：
 %    \begin{macrocode}
 \def\ustc@textcircled#1{%
   \ifnum\value{#1}>9\relax
-    \ClassError{ustcthesis}{Cannot display more than 10 footnotes.}{}%
+    \ClassError{ustcthesis}{Cannot display more than 10 footnotes}{}%
   \fi
   \ding{\the\numexpr\value{#1}+191\relax}}
 %    \end{macrocode}
@@ -1575,7 +1593,7 @@ version 2005/12/01 or later.
 %    \end{macrocode}
 % \end{environment}
 %
-% \begin{macro}{keywords}
+% \begin{macro}{\keywords}
 % 中文关键词
 %    \begin{macrocode}
 \newcommand\keywords[1]{%
@@ -1584,7 +1602,7 @@ version 2005/12/01 or later.
 %    \end{macrocode}
 % \end{macro}
 %
-% \begin{macro}{enkeywords}
+% \begin{macro}{\enkeywords}
 % 英文关键词
 %    \begin{macrocode}
 \newcommand\enkeywords[1]{%
@@ -1981,7 +1999,6 @@ version 2005/12/01 or later.
 % \changes{v3.0.9}{2018/05/04}{参考文献不再著录“出版地不详”等信息}
 % \end{environment}
 %
-% \begin{macro}{\citestyle}
 % 定义接口切换引用文献的标注法，可用 \cs{citestyle} 调用 \opt{super} 、
 % \opt{authoryear} 或 \opt{numbers}。
 % \changes{v3.0}{2017/07/01}{允许文献序号作为叙述文字的一部分}
@@ -1991,7 +2008,6 @@ version 2005/12/01 or later.
 \newcommand\bibstyle@numbers{\bibpunct{[}{]}{,}{n}{,}{,}}
 \newcommand\bibstyle@authoryear{\bibpunct{(}{)}{;}{a}{,}{,}}
 %    \end{macrocode}
-% \end{macro}
 %
 % \begin{macro}{\ustcbibstyle}
 % 定义接口切换参考文献表的风格，可选 \opt{authoryear} 和 \opt{numerical}，
@@ -2039,7 +2055,6 @@ version 2005/12/01 or later.
 \fi
 %    \end{macrocode}
 %
-% \begin{macro}{\cite}
 % 下面修改 \pkg{natbib} 的引用格式，主要是将页码写在上标位置。
 % Numerical 模式的 \cs{citet} 的页码：
 %    \begin{macrocode}
@@ -2100,7 +2115,6 @@ version 2005/12/01 or later.
   \def@NAT@last@yr{-\NAT@penalty}%
 }{}{\ustc@patchfailure{\NAT@citexnum}}
 %    \end{macrocode}
-% \end{macro}
 %
 % \begin{environment}{thebibliography}
 % 研究生规定参考文献列表“宋体10.5磅，行距20磅，续行缩进两字，左对齐”。

@@ -15,7 +15,7 @@ tlmgr install latexmk \
     cjk ctex environ ms trimspaces ulem xecjk zhnumber \
     fandol tex-gyre stix2-otf xits \
     caption etoolbox filehook footmisc pgf symbol titlesec unicode-math \
-    xcolor xstring zapfding \
+    xcolor zapfding \
     booktabs listings thumbpdf \
     algorithm2e ifoddpage relsize
 
