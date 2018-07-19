@@ -97,7 +97,7 @@
   \do0\do1\do2\do3\do4\do5\do6\do7\do8\do9\do=\do/\do.\do:%
   \do\*\do\-\do\~\do\'\do\"\do\-}
 \Urlmuskip=0mu plus 0.1mu
-\newcommand\ustc@strifeq{\csname str_if_eq:onTF\endcsname}
+\newcommand\ustc@strifeq{\csname str_if_eq_x:nnTF\endcsname}
 \newcommand\ustc@fontset{\csname g__ctex_fontset_tl\endcsname}
 \ustc@strifeq{\ustc@fontset}{mac}{
   \setmainfont{Times New Roman}
