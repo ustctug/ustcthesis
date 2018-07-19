@@ -646,6 +646,7 @@ version 2005/12/01 or later.
 \ifustc@pdf
   \PassOptionsToClass{oneside}{book}
 \fi
+\PassOptionsToPackage{quiet}{xeCJK}
 %    \end{macrocode}
 %
 % 载入 \cls{ctexbook} 文档类，注意要求为 2.2 或更高的版本。
@@ -1323,7 +1324,7 @@ version 2005/12/01 or later.
   \vskip 0.3cm\par
   \ustc@declaretext\par
   \vskip 0.7cm\relax
-  \begin{tabular}{p{7cm}p{7cm}}%
+  \begin{tabular}{p{7cm}l}%
     作者签名：\ustc@underline[7.4em]{} & 签字日期：\ustc@underline[7.4em]{}%
   \end{tabular}%
   \vskip 2.6cm\par
@@ -1337,7 +1338,7 @@ version 2005/12/01 or later.
   $\square$公开 \hspace{0.4cm} $\square$保密（\ustc@underline[2em]{}年）\par
   \vskip 0.5cm\par
   {\renewcommand{\arraystretch}{2.0}%
-  \begin{tabular}{p{7cm}p{7cm}}%
+  \begin{tabular}{p{7cm}l}%
     作者签名：\ustc@underline[7.4em]{} & 导师签名：\ustc@underline[7.4em]{} \\
     签字日期：\ustc@underline[7.4em]{} & 签字日期：\ustc@underline[7.4em]{} \\
   \end{tabular}}%

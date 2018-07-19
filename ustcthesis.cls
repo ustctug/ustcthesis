@@ -49,6 +49,7 @@
 \ifustc@pdf
   \PassOptionsToClass{oneside}{book}
 \fi
+\PassOptionsToPackage{quiet}{xeCJK}
 \LoadClass[UTF8, a4paper, openany, zihao=-4]{ctexbook}[2016/05/16]
 \@ifclasslater{ctexbook}{2016/05/16}{}{
   \ClassError{ustcthesis}{%
@@ -514,7 +515,7 @@
   \vskip 0.3cm\par
   \ustc@declaretext\par
   \vskip 0.7cm\relax
-  \begin{tabular}{p{7cm}p{7cm}}%
+  \begin{tabular}{p{7cm}l}%
     作者签名：\ustc@underline[7.4em]{} & 签字日期：\ustc@underline[7.4em]{}%
   \end{tabular}%
   \vskip 2.6cm\par
@@ -528,7 +529,7 @@
   $\square$公开 \hspace{0.4cm} $\square$保密（\ustc@underline[2em]{}年）\par
   \vskip 0.5cm\par
   {\renewcommand{\arraystretch}{2.0}%
-  \begin{tabular}{p{7cm}p{7cm}}%
+  \begin{tabular}{p{7cm}l}%
     作者签名：\ustc@underline[7.4em]{} & 导师签名：\ustc@underline[7.4em]{} \\
     签字日期：\ustc@underline[7.4em]{} & 签字日期：\ustc@underline[7.4em]{} \\
   \end{tabular}}%
