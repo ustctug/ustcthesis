@@ -430,15 +430,16 @@ version 2005/12/01 or later.
 %   \centering
 %   \begin{tabular}{lll}
 %     \toprule
-%       命令              & 命令（英文）        & 说明 \\
+%       命令              & 命令（英文）        & 说明                   \\
 %     \midrule
-%       \cs{title}        & \cs{entitle}        & 论文标题 \\
-%       \cs{author}       & \cs{enauthor}       & 作者姓名 \\
-%       \cs{major}        & \cs{enmajor}        & 学科专业 \\
-%       \cs{supervisor}   & \cs{ensupervisor}   & 导师姓名 \\
-%       \cs{cosupervisor} & \cs{encosupervisor} & 副导师姓名 \\
+%       \cs{title}        & \cs{entitle}        & 论文标题               \\
+%       \cs{author}       & \cs{enauthor}       & 作者姓名               \\
+%       \cs{major}        & \cs{enmajor}        & 学科专业               \\
+%       \cs{supervisor}   & \cs{ensupervisor}   & 导师姓名               \\
+%       \cs{cosupervisor} & \cs{encosupervisor} & 副导师姓名             \\
 %       \cs{date}         & \cs{endate}         & 完成时间（默认为今天） \\
-%       \cs{secrettext}   & \cs{ensecrettext}   & 密级信息（默认不保密） \\
+%       \cs{secretlevel}  & \cs{ensecretlevel}  & 密级（默认不保密）     \\
+%       \cs{secretyear}   & -                   & 保密年限               \\
 %     \bottomrule
 %   \end{tabular}
 %   \caption{用来定义封面项目}
@@ -1151,7 +1152,8 @@ version 2005/12/01 or later.
 \ustc@define@term{cosupervisor}{}
 \ustc@define@term{date}{\zhnumsetup{time=Chinese}\zhtoday}
 \ustc@define@term{professionaltype}{}
-\ustc@define@term{secrettext}{}
+\ustc@define@term{secretlevel}{}
+\ustc@define@term{secretyear}{}
 \ustc@define@term{entitle}{Title}
 \ustc@define@term{enauthor}{XXX}
 \ustc@define@term{enmajor}{XXX}
@@ -1159,7 +1161,7 @@ version 2005/12/01 or later.
 \ustc@define@term{encosupervisor}{}
 \ustc@define@term{endate}{\CTEX@todayold}
 \ustc@define@term{enprofessionaltype}{}
-\ustc@define@term{ensecrettext}{}
+\ustc@define@term{ensecretlevel}{}
 %    \end{macrocode}
 %
 % 中文封面
@@ -1169,7 +1171,7 @@ version 2005/12/01 or later.
     \centering
     \parbox[t][0.6cm][t]{\textwidth}{%
       \raggedleft\fangsong\ustc@setfontsize{14\bp@}{14\bp@}%
-      \null\ustc@secrettext\par}\par
+      \null\ustc@secretlevel\par}\par
     \vskip 0.6cm%
     \includegraphics[height=37\bp@]{figures/ustc_logo_text}\par
     \vskip 0.5cm%
@@ -1226,7 +1228,7 @@ version 2005/12/01 or later.
     \centering
     \parbox[t][0.4cm][t]{\textwidth}{%
       \raggedleft\ustc@setfontsize{14\bp@}{14\bp@}%
-      \null\ustc@ensecrettext\par}\par
+      \null\ustc@ensecretlevel\par}\par
     \vskip 0.5cm%
     {\sffamily\ustc@setfontsize{20\bp@}{30\bp@}%
       University of Science and Technology of China\par}%
@@ -1269,7 +1271,7 @@ version 2005/12/01 or later.
 %
 % 定义原创性声明
 %    \begin{macrocode}
-\newcommand\ustc@declaretext{%
+\newcommand\ustc@originality{%
 本人声明所呈交的学位论文，是本人在导师指导下进行研究工作所取得的成果。
 除已特别加以标注和致谢的地方外，论文中不包含任何他人已经发表或撰写过
 的研究成果。与我一同工作的同志对本研究所做的贡献均已在论文中作了明确的说明。}
@@ -1286,43 +1288,59 @@ version 2005/12/01 or later.
 % \begin{macro}{\ustc@underline}
 % 生成空的下划线
 %    \begin{macrocode}
-\newcommand\ustc@underline[2][6em]{%
-  \hskip1pt\underline{\hb@xt@ #1{\hss#2\hss}}\hskip3pt\relax
+\newcommand\ustc@underline[2][3.2cm]{\underline{\hb@xt@ #1{\hss#2\hss}}}
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\ustc@checkbox}
+%    \begin{macrocode}
+\newcommand\ustc@checkbox{%
+  \makebox[\z@][l]{$\square$}%
+  \raisebox{-0.2ex}{\hspace{0.1em}$\checkmark$}%
 }
 %    \end{macrocode}
 % \end{macro}
 %
-% \begin{macro}{\ustc@makestatement}
+% \begin{macro}{\makestatement}
 %    \begin{macrocode}
-\newcommand\make@statement{%
-  \thispagestyle{empty}%
-  \vspace*{-0.15cm}%
-  \begin{center}%
-    \sffamily\ustc@setfontsize{16\bp@}{32\bp@}%
-    中国科学技术大学学位论文原创性声明%
-  \end{center}%
-  \vskip 0.3cm\par
-  \ustc@declaretext\par
-  \vskip 0.7cm\relax
-  \begin{tabular}{p{7cm}l}%
-    作者签名：\ustc@underline[7.4em]{} & 签字日期：\ustc@underline[7.4em]{}%
-  \end{tabular}%
-  \vskip 2.6cm\par
-  \begin{center}%
-    \sffamily\ustc@setfontsize{16\bp@}{32\bp@}%
-    中国科学技术大学学位论文授权使用声明%
-  \end{center}%
-  \vskip 0.3cm\par
-  \ustc@authorization\par
-  \vskip 0.5cm\relax
-  $\square$公开 \hspace{0.4cm} $\square$保密（\ustc@underline[2em]{}年）\par
-  \vskip 0.5cm\par
-  {\renewcommand{\arraystretch}{2.0}%
-  \begin{tabular}{p{7cm}l}%
-    作者签名：\ustc@underline[7.4em]{} & 导师签名：\ustc@underline[7.4em]{} \\
-    签字日期：\ustc@underline[7.4em]{} & 签字日期：\ustc@underline[7.4em]{} \\
-  \end{tabular}}%
-}
+\ifustc@bachelor
+  \newcommand\makestatement{}
+\else
+  \newcommand\makestatement{%
+    \pdfbookmark[0]{原创性声明}{statement}%
+    \begin{titlepage}%
+      \null
+      \vskip 0.3cm%
+      {\centering\sffamily\ustc@setfontsize{16\bp@}{32\bp@}%
+        中国科学技术大学学位论文原创性声明\par}%
+      \vskip 0.7cm%
+      \ustc@originality\par
+      \vskip 1.3cm%
+      作者签名：\ustc@underline{}\hspace{2.7cm}%
+      签字日期：\ustc@underline{}\par
+      \vskip 1.9cm%
+      {\centering\sffamily\ustc@setfontsize{16\bp@}{32\bp@}%
+        中国科学技术大学学位论文授权使用声明\par}
+      \vskip 0.7cm%
+      \ustc@authorization\par
+      \vskip 0.6cm%
+      \ifx\ustc@secretlevel\@empty
+        \ustc@checkbox{} 公开\quad
+        $\square$ 保密（\ustc@underline[0.85cm]{}年）\par
+      \else
+        $\square$ 公开\quad
+        \ustc@checkbox{} 保密（\ustc@underline[0.8cm]{\ustc@secretyear}年）\par
+      \fi
+      \vskip 0.5cm%
+      作者签名：\ustc@underline{}\hspace{2.7cm}%
+      导师签名：\ustc@underline{}\par
+      \vskip 0.5cm%
+      签字日期：\ustc@underline{}\hspace{2.7cm}%
+      签字日期：\ustc@underline{}\par
+    \end{titlepage}
+    \cleardoublepage
+  }%
+\fi
 %    \end{macrocode}
 % \end{macro}
 %
@@ -1997,11 +2015,11 @@ version 2005/12/01 or later.
 \def\tmp@numerical{numerical}
 \def\tmp@authoryear{authoryear}
 \newcommand\ustcbibstyle[1]{%
-  \def\tmp@gbt{#1}%
-  \ifx\tmp@gbt\tmp@numerical
+  \def\ustc@arg{#1}%
+  \ifx\ustc@arg\tmp@numerical
     \bibliographystyle{ustcthesis-numerical}%
   \else
-    \ifx\tmp@gbt\tmp@authoryear
+    \ifx\ustc@arg\tmp@authoryear
       \bibliographystyle{ustcthesis-authoryear}%
     \else
       \ClassError{ustcthesis}{Unknown argument #1.}%
@@ -5111,3 +5129,4 @@ EXECUTE {end.bib}
 % \clearpage
 % \Finale
 \endinput
+%       \cs{secretlevel}  & \cs{ensecretlevel}  & 密级信息（默认不保密） \\
