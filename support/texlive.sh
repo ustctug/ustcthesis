@@ -14,8 +14,8 @@ tlmgr install latexmk \
     fontspec l3kernel l3packages xetex \
     cjk ctex environ ms trimspaces ulem xecjk zhnumber \
     fandol tex-gyre stix2-otf xits \
-    caption etoolbox filehook footmisc pgf symbol titlesec unicode-math \
-    xcolor zapfding \
+    caption etoolbox filehook footmisc symbol titlesec unicode-math xcolor \
+    zapfding \
     booktabs listings thumbpdf \
     algorithm2e ifoddpage relsize
 

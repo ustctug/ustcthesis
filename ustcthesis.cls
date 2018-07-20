@@ -60,9 +60,9 @@
 \RequirePackage{amsmath}
 \RequirePackage{unicode-math}
 \RequirePackage{geometry}
+\RequirePackage{graphicx}
 \RequirePackage{fancyhdr}
 \RequirePackage{pifont}
-\RequirePackage{tikz}
 \RequirePackage{titletoc}
 \RequirePackage[perpage]{footmisc}
 \RequirePackage{caption}
@@ -101,7 +101,7 @@
 \newcommand\ustc@fontset{\csname g__ctex_fontset_tl\endcsname}
 \ustc@strifeq{\ustc@fontset}{mac}{
   \setmainfont{Times New Roman}
-  \setsansfont[Scale=MatchLowercase]{Arial}
+  \setsansfont{Arial}
   \setmonofont[Scale=MatchLowercase]{Menlo}
   \setCJKmainfont[
        UprightFont = * Light,
@@ -119,7 +119,7 @@
 }{
   \ustc@strifeq{\ustc@fontset}{windows}{
     \setmainfont{Times New Roman}
-    \setsansfont[Scale=MatchLowercase]{Arial}
+    \setsansfont{Arial}
     \setmonofont[Scale=MatchLowercase]{Menlo}
     \IfFileExists{C:/bootfont.bin}{
       \setCJKmainfont[AutoFakeBold,ItalicFont=KaiTi_GB2312]{SimSun}
@@ -132,7 +132,7 @@
   }{
     \ustc@strifeq{\ustc@fontset}{adobe}{
       \setmainfont{Times New Roman}
-      \setsansfont[Scale=MatchLowercase]{Arial}
+      \setsansfont{Arial}
       \setmonofont[Scale=MatchLowercase]{Menlo}
       \setCJKmainfont[
         AutoFakeBold,
@@ -331,23 +331,13 @@
     pdftitle={\ustc@title},
     pdfauthor={\ustc@author}
   }
-  \newgeometry{
-    top=3.8cm, bottom=3.8cm,
-    left=3.2cm, right=3.2cm,
-    headheight=0cm, headsep=0.8cm,
-    footskip=0.8cm}%
   \pagenumbering{gobble}%
   \pdfbookmark[0]{封面}{titlepage}%
-  \ustc@makezhtitle \cleardoublepage
+  \ustc@makezhtitle
+  \cleardoublepage
   \pdfbookmark[0]{Title page}{entitlepage}%
-  \ustc@makeentitle \cleardoublepage
-  \restoregeometry
-  \ifustc@bachelor\relax\else
-    \ifustc@pdf\relax\else
-      \pdfbookmark[0]{原创性声明}{statement}%
-      \make@statement \cleardoublepage
-    \fi
-  \fi
+  \ustc@makeentitle
+  \cleardoublepage
 }
 \ifustc@doctor
   \newcommand\ustc@thesisname{博士学位论文}
@@ -399,52 +389,49 @@
 \ustc@define@term{endate}{\CTEX@todayold}
 \ustc@define@term{enprofessionaltype}{}
 \ustc@define@term{ensecrettext}{}
-\newcommand\ustc@vpostext[2]{%
-  \tikz[remember picture,overlay]
-    \node [yshift=-#1] at (current page.north) [below,align=flush center]
-      {\parbox{\textwidth}{\centering#2}};}
 \newcommand\ustc@makezhtitle{%
   \begin{titlepage}%
-    \tikz[remember picture,overlay]%
-      \node [yshift=-4cm] at (current page.north) [below,align=flush center]%
-        {\parbox{\textwidth}{%
-           \raggedleft\fangsong\ustc@setfontsize{14\bp@}{28\bp@}%
-           \ustc@secrettext}};%
-    \ustc@vpostext{4cm}{%
-      \includegraphics[height=37\bp@]{figures/ustc_logo_text}}%
+    \centering
+    \parbox[t][0.6cm][t]{\textwidth}{%
+      \raggedleft\fangsong\ustc@setfontsize{14\bp@}{14\bp@}%
+      \null\ustc@secrettext\par}\par
+    \vskip 0.6cm%
+    \includegraphics[height=37\bp@]{figures/ustc_logo_text}\par
+    \vskip 0.5cm%
     \ifustc@professional
-      \ustc@vpostext{6.3cm}{%
-        \sffamily\ustc@setfontsize{56\bp@}{112\bp@}\ziju{-0.09}%
-        \ustc@thesisname}%
-      \ustc@vpostext{9cm}{%
-        \lishu\ustc@setfontsize{26\bp@}{52\bp@}%
-        \ustc@professionaltype}%
-      \ustc@vpostext{10.3cm}{%
-        \includegraphics[height=4.7cm]{figures/ustc_logo_fig}}%
-      \ustc@vpostext{16.3cm}{%
-        \sffamily\bfseries\ustc@setfontsize{26\bp@}{52\bp@}
-        \ustc@title}%
+      {\sffamily\ustc@setfontsize{56\bp@}{56\bp@}\ziju{-0.09}%
+        \ustc@thesisname\par}%
+      \vskip 0.8cm%
+      {\lishu\ustc@setfontsize{26\bp@}{26\bp@}%
+        （\ustc@professionaltype）\par}%
+      \vskip 0.7cm%
+      \includegraphics[height=4.7cm]{figures/ustc_logo_fig}\par
+      \vskip 0.6cm%
+      \begin{minipage}[t][3.5cm][c]{\textwidth}%
+        \centering\sffamily\bfseries\ustc@setfontsize{26\bp@}{50\bp@}%
+        \ustc@title\par
+      \end{minipage}\par
     \else
-      \ustc@vpostext{6.3cm}{%
-        \sffamily\ustc@setfontsize{56\bp@}{112\bp@}%
-        \ustc@thesisname}%
-      \ustc@vpostext{9.8cm}{%
-        \includegraphics[height=4.7cm]{figures/ustc_logo_fig}}%
-      \ustc@vpostext{16.3cm}{%
-        \sffamily\bfseries\ustc@setfontsize{26\bp@}{52\bp@}
-        \ustc@title}%
+      {\sffamily\ustc@setfontsize{56\bp@}{56\bp@}%
+        \ustc@thesisname\par}%
+      \vskip 1.7cm%
+      \includegraphics[height=4.7cm]{figures/ustc_logo_fig}\par
+      \vskip 0.6cm%
+      \begin{minipage}[t][3.5cm][c]{\textwidth}%
+        \centering\sffamily\bfseries\ustc@setfontsize{26\bp@}{50\bp@}%
+        \ustc@title\par
+      \end{minipage}\par
     \fi
-    \tikz[remember picture,overlay]%
-      \node [xshift=4.6cm,yshift=-20.3cm] at (current page.north west)%
-        [below right,align=left] {%
-          \ustc@setfontsize{16\bp@}{32\bp@}%
-          \begin{tabular}{@{}l@{\hspace{\ccwd}}l@{}}%
-            \textsf{作者姓名：} & \ustc@author \\
-            \textsf{\ustc@specialityname：} & \ustc@major \\
-            \textsf{导师姓名：} & \ustc@supervisor\quad\ustc@cosupervisor \\
-            \textsf{完成时间：} & \ustc@date%
-          \end{tabular}};%
-  \end{titlepage}}
+    \vskip 0.6cm%
+    {\ustc@setfontsize{16\bp@}{31\bp@}%
+      \begin{tabular}{@{}l@{\hspace{\ccwd}}l@{}}%
+        \textsf{作者姓名：} & \ustc@author \\
+        \textsf{\ustc@specialityname：} & \ustc@major \\
+        \textsf{导师姓名：} & \ustc@supervisor\quad\ustc@cosupervisor \\
+        \textsf{完成时间：} & \ustc@date
+      \end{tabular}\par}%
+  \end{titlepage}%
+}
 \newcommand\ustc@supervisorline{%
   \ifx\ustc@encosupervisor\@empty
     Supervisor: \ustc@ensupervisor
@@ -453,43 +440,44 @@
   \fi}
 \newcommand\ustc@makeentitle{%
   \begin{titlepage}%
-    \tikz[remember picture,overlay]%
-      \node [yshift=-4cm] at (current page.north) [below,align=flush center]%
-        {\parbox{\textwidth}{\raggedleft\ustc@setfontsize{14\bp@}{28\bp@}%
-        \ustc@ensecrettext}};%
-    \ustc@vpostext{3.9cm}{%
-      \sffamily\ustc@setfontsize{20\bp@}{30\bp@}%
-      University of Science and Technology of China}%
-    \ustc@vpostext{4.9cm}{%
-      \sffamily\ustc@setfontsize{26\bp@}{30\bp@}%
-      \ustc@enthesisname}%
+    \centering
+    \parbox[t][0.4cm][t]{\textwidth}{%
+      \raggedleft\ustc@setfontsize{14\bp@}{14\bp@}%
+      \null\ustc@ensecrettext\par}\par
+    \vskip 0.5cm%
+    {\sffamily\ustc@setfontsize{20\bp@}{30\bp@}%
+      University of Science and Technology of China\par}%
+    {\sffamily\ustc@setfontsize{26\bp@}{30\bp@}%
+      \ustc@enthesisname\par}%
     \ifustc@professional
-      \ustc@vpostext{6.2cm}{%
-        \ustc@setfontsize{16\bp@}{32\bp@}%
-        \ustc@enprofessionaltype}%
-      \ustc@vpostext{8.9cm}{%
-        \includegraphics[height=5.1cm]{figures/ustc_logo_fig}}%
-      \ustc@vpostext{15cm}{%
-        \sffamily\bfseries\ustc@setfontsize{26\bp@}{30\bp@}%
-        \ustc@entitle}%
+      {\ustc@setfontsize{16\bp@}{32\bp@}%
+        (\ustc@enprofessionaltype)\par}%
+      \vskip 2.2cm%
+      \includegraphics[height=5.1cm]{figures/ustc_logo_fig}\par
+      \vskip 0.2cm%
+      \begin{minipage}[t][4.5cm][c]{\textwidth}%
+        \centering\sffamily\bfseries\ustc@setfontsize{26\bp@}{30\bp@}%
+        \ustc@entitle\par
+      \end{minipage}\par
     \else
-      \ustc@vpostext{7.9cm}{%
-        \includegraphics[height=5.1cm]{figures/ustc_logo_fig}}%
-      \ustc@vpostext{14.2cm}{%
-        \sffamily\bfseries\ustc@setfontsize{26\bp@}{30\bp@}%
-        \ustc@entitle}%
+      \vskip 2.2cm%
+      \includegraphics[height=5.1cm]{figures/ustc_logo_fig}\par
+      \vskip 0.2cm%
+      \begin{minipage}[t][4.5cm][c]{\textwidth}%
+        \centering\sffamily\bfseries\ustc@setfontsize{26\bp@}{30\bp@}%
+        \ustc@entitle\par
+      \end{minipage}\par
     \fi
-    \tikz[remember picture,overlay]%
-      \node [xshift=4.4cm,yshift=-20.2cm] at (current page.north west)%
-        [below right,align=left] {%
-          \ustc@setfontsize{16\bp@}{30\bp@}%
-          \begin{tabular}{@{}l@{}}
-            Author:        \ustc@enauthor \\
-            Speciality:    \ustc@enmajor \\
-            \ustc@supervisorline \\
-            Finished time: \ustc@endate%
-          \end{tabular}};%
-  \end{titlepage}}
+    \vskip 1.6cm%
+    {\ustc@setfontsize{16\bp@}{30\bp@}%
+      \begin{tabular}{@{}l@{}}
+        Author:        \ustc@enauthor \\
+        Speciality:    \ustc@enmajor \\
+        \ustc@supervisorline \\
+        Finished time: \ustc@endate
+      \end{tabular}\par}%
+  \end{titlepage}%
+}
 \newcommand\ustc@declaretext{%
 本人声明所呈交的学位论文，是本人在导师指导下进行研究工作所取得的成果。
 除已特别加以标注和致谢的地方外，论文中不包含任何他人已经发表或撰写过
