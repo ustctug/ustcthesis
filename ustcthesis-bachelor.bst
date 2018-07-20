@@ -1,12 +1,13 @@
 %%
-%% This is file `ustcthesis-bachelor.bst',
+%% This is file `gbt7714-bachelor.bst',
 %% generated with the docstrip utility.
 %%
 %% The original source files were:
 %%
-%% ustcthesis.dtx  (with options: `bachelor,numerical')
+%% gbt7714.dtx  (with options: `2015,bachelor,numerical')
+%% Version: 2018/06/23 v1.0.8
 %% 
-%% Copyright (C) 2015-2018 by Zeping Lee <zepinglee AT gmail.com>
+%% Copyright (C) 2016-2018 by Zeping Lee <zepinglee AT gmail.com>
 %% 
 %% This file may be distributed and/or modified under the
 %% conditions of the LaTeX Project Public License, either version 1.3c
@@ -16,6 +17,7 @@
 %% and version 1.3c or later is part of all distributions of LaTeX
 %% version 2005/12/01 or later.
 %% 
+
 INTEGERS {
   uppercase.name
   max.num.authors
@@ -39,6 +41,7 @@ FUNCTION {init.options}
   #1 'print.mark :=
   #0 'print.mark :=
   #0 'italic.jounal :=
+  #1 'italic.jounal :=
   #0 'print.missing.address.publisher :=
   #1 'print.url :=
   #1 'print.doi :=
@@ -96,13 +99,14 @@ FUNCTION {init.state.consts}
   #0 'lang.other :=
 }
 
+FUNCTION {bbl.anonymous}
+{ lang.zh entry.lang =
+    { "佚名" }
+    { "Anon" }
+  if$
+}
+
 FUNCTION {bbl.space} { "\ " }
-
-FUNCTION {bbl.wide.space} { "\quad " }
-
-FUNCTION {bbl.colon} { ": " }
-
-FUNCTION {bbl.slash} { "//\allowbreak{}" }
 
 FUNCTION {bbl.et.al}
 { lang.zh entry.lang =
@@ -119,12 +123,11 @@ FUNCTION {bbl.et.al}
   if$
 }
 
-FUNCTION {bbl.anonymous}
-{ lang.zh entry.lang =
-    { "佚名" }
-    { "Anon" }
-  if$
-}
+FUNCTION {bbl.colon} { ": " }
+
+FUNCTION {bbl.wide.space} { "\quad " }
+
+FUNCTION {bbl.slash} { "//\allowbreak{}" }
 
 FUNCTION {bbl.sine.loco}
 { lang.zh entry.lang =
@@ -434,7 +437,7 @@ FUNCTION {format.names}
   numnames 'namesleft :=
     { namesleft #0 > }
     { s nameptr "{vv~}{ll}{, jj}{, ff}" format.name$ 't :=
-      nameptr max.num.authors #1 + =
+      nameptr max.num.authors >
         { bbl.et.al
           #1 'namesleft :=
         }
@@ -594,12 +597,19 @@ FUNCTION {output.bibitem}
   before.all 'output.state :=
 }
 
+FUNCTION {change.sentence.case}
+{ entry.lang lang.en =
+    { "t" change.case$ }
+    'skip$
+  if$
+}
+
 FUNCTION {format.title}
 { title empty$
     { "" }
     { title
-      entry.lang lang.en = sentence.case.title and
-        { "t" change.case$ }
+      sentence.case.title
+        'change.sentence.case
         'skip$
       if$
     }
@@ -685,23 +695,33 @@ FUNCTION {format.volume.number}
 FUNCTION {format.series.vol.num.title}
 { format.volume.number 's :=
   series empty$ not
-    { series bbl.colon *
+    { series
+      sentence.case.title
+        'change.sentence.case
+        'skip$
+      if$
+      bbl.colon *
       s empty$ not
         { s * bbl.wide.space * }
         'skip$
       if$
-      title *
+      title
+      sentence.case.title
+        'change.sentence.case
+        'skip$
+      if$
+      *
     }
     { title
+      sentence.case.title
+        'change.sentence.case
+        'skip$
+      if$
       s empty$ not
         { bbl.colon * s * }
         'skip$
       if$
     }
-  if$
-  entry.lang lang.en = sentence.case.title and
-    { "t" change.case$ }
-    'skip$
   if$
 }
 
@@ -726,7 +746,8 @@ FUNCTION {format.series.vol.num.booktitle}
 
 FUNCTION {format.journal}
 { journal
-  lang.zh entry.lang = not
+  italic.jounal
+  lang.zh entry.lang = not and
     'italicize
     'skip$
   if$
@@ -786,7 +807,7 @@ FUNCTION {format.edition}
           if$
         }
         { entry.lang lang.en =
-            { edition "t" change.case$ 's :=
+            { edition change.sentence.case 's :=
               s "Revised" = s "Revised edition" = or
                 { "Rev. ed." }
                 { s " ed." *}

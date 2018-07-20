@@ -22,7 +22,7 @@ doc : $(NAME).pdf
 $(MAIN).pdf : $(MAIN).tex $(CLSFILES) $(BSTFILES) FORCE_MAKE
 	$(LATEXMK) $<
 
-%.cls %-numerical.bst %-authoryear.bst %-bachelor.bst : %.dtx
+$(NAME).cls : $(NAME).dtx
 	xetex $<
 
 $(NAME).pdf : $(NAME).dtx FORCE_MAKE
