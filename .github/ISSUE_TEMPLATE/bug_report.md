@@ -11,10 +11,10 @@ about: Create a report to help us improve
 - [ ] 已经阅读 [常见问题](https://github.com/ustctug/ustcthesis/wiki/常见问题)
 
 ## 编译环境
-编译的系统：macOS 10.13 / Windows 10 / Ubuntu 18.04 / ShareLaTeX / Overleaf
-TeX 发行版：MacTeX 2018 / TeX Live 2018 / MikTeX 2.9.6753
-相关宏包版本：ctex v2.4.14 / unicode-amth v0.8l
-模板类型： doctor / master / bachelor
+- 编译的系统：macOS 10.13 / Windows 10 / Ubuntu 18.04 / ShareLaTeX / Overleaf
+- TeX 发行版：MacTeX 2018 / TeX Live 2018 / MikTeX 2.9.6753
+- 相关宏包版本：ctex v2.4.14 / unicode-math v0.8l
+- 模板类型： doctor / master / bachelor
 
 ## 描述问题
 《撰写手册》第 xx 页要求……而模板编译的结果是……
