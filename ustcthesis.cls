@@ -62,7 +62,6 @@
 \RequirePackage{geometry}
 \RequirePackage{graphicx}
 \RequirePackage{fancyhdr}
-\RequirePackage{pifont}
 \RequirePackage{titletoc}
 \RequirePackage[perpage]{footmisc}
 \RequirePackage{caption}
@@ -116,6 +115,7 @@
   ]{Songti SC}
   \setCJKfamilyfont{zhhei}{Heiti SC}
   \setCJKfamilyfont{zhkai}{Kaiti SC}
+  \newfontfamily\ustc@circlefont{Songti SC Light}
 }{
   \ustc@strifeq{\ustc@fontset}{windows}{
     \setmainfont{Times New Roman}
@@ -129,6 +129,7 @@
     \setCJKsansfont[AutoFakeBold]{SimHei}
     \setCJKfamilyfont{zhsong}[AutoFakeBold]{SimSun}
     \setCJKfamilyfont{zhhei}[AutoFakeBold]{SimHei}
+    \newfontfamily\ustc@circlefont{SimSun}
   }{
     \ustc@strifeq{\ustc@fontset}{adobe}{
       \setmainfont{Times New Roman}
@@ -141,6 +142,7 @@
       \setCJKsansfont[AutoFakeBold]{AdobeHeitiStd-Regular}
       \setCJKfamilyfont{zhsong}[AutoFakeBold]{AdobeSongStd-Light}
       \setCJKfamilyfont{zhhei}[AutoFakeBold]{AdobeHeitiStd-Regular}
+      \newfontfamily\ustc@circlefont{AdobeSongStd-Light}
     }{
       \ustc@strifeq{\ustc@fontset}{fandol}{
         \setmainfont[
@@ -166,6 +168,14 @@
           BoldItalicFont = *-bolditalic,
           Scale          = MatchLowercase,
         ]{texgyrecursor}
+        \newfontfamily\ustc@circlefont[
+          Extension      = .otf,
+          UprightFont    = *-regular,
+          BoldFont       = *-bold,
+          ItalicFont     = *-italic,
+          BoldItalicFont = *-bolditalic,
+          Scale          = MatchLowercase,
+        ]{xits}
         \ClassWarningNoLine{ustcthesis}{%
           You are using Fandol font family.\MessageBreak
           Some glyphs may be missing.\MessageBreak
@@ -553,11 +563,13 @@
       \fi
     \fi
   \fi#1\endgroup}
-\def\ustc@textcircled#1{%
-  \ifnum\value{#1}>9\relax
+\newcommand\ustc@textcircled[1]{%
+  \ifnum\value{#1}<21\relax
+    {\ustc@circlefont\symbol{\numexpr\value{#1} + "245F\relax}}%
+  \else
     \ClassError{ustcthesis}{Cannot display more than 10 footnotes}{}%
   \fi
-  \ding{\the\numexpr\value{#1}+191\relax}}
+}
 \setcounter{secnumdepth}{5}
 \@ifclasslater{ctexbook}{2016/09/21}{
   \ctexset{

@@ -6,8 +6,7 @@ cache:
     - $HOME/.texlive
 
 install:
-  - export PATH="/tmp/texlive/bin/x86_64-linux:$PATH"
-  - bash ./support/texlive.sh
+  - source ./support/texlive.sh
 
 script:
   - make main

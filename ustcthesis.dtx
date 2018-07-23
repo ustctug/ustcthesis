@@ -281,7 +281,6 @@ version 2005/12/01 or later.
 % \pkg{graphicx},
 % \pkg{hyperref},
 % \pkg{natbib},
-% \pkg{pifont},
 % \pkg{titletoc},
 % \pkg{unicode-math}。
 %
@@ -670,7 +669,6 @@ version 2005/12/01 or later.
 \RequirePackage{geometry}
 \RequirePackage{graphicx}
 \RequirePackage{fancyhdr}
-\RequirePackage{pifont}
 \RequirePackage{titletoc}
 \RequirePackage[perpage]{footmisc}
 \RequirePackage{caption}
@@ -764,6 +762,7 @@ version 2005/12/01 or later.
   ]{Songti SC}
   \setCJKfamilyfont{zhhei}{Heiti SC}
   \setCJKfamilyfont{zhkai}{Kaiti SC}
+  \newfontfamily\ustc@circlefont{Songti SC Light}
 }{
   \ustc@strifeq{\ustc@fontset}{windows}{
     \setmainfont{Times New Roman}
@@ -777,6 +776,7 @@ version 2005/12/01 or later.
     \setCJKsansfont[AutoFakeBold]{SimHei}
     \setCJKfamilyfont{zhsong}[AutoFakeBold]{SimSun}
     \setCJKfamilyfont{zhhei}[AutoFakeBold]{SimHei}
+    \newfontfamily\ustc@circlefont{SimSun}
   }{
     \ustc@strifeq{\ustc@fontset}{adobe}{
       \setmainfont{Times New Roman}
@@ -789,6 +789,7 @@ version 2005/12/01 or later.
       \setCJKsansfont[AutoFakeBold]{AdobeHeitiStd-Regular}
       \setCJKfamilyfont{zhsong}[AutoFakeBold]{AdobeSongStd-Light}
       \setCJKfamilyfont{zhhei}[AutoFakeBold]{AdobeHeitiStd-Regular}
+      \newfontfamily\ustc@circlefont{AdobeSongStd-Light}
     }{
       \ustc@strifeq{\ustc@fontset}{fandol}{
         \setmainfont[
@@ -814,6 +815,14 @@ version 2005/12/01 or later.
           BoldItalicFont = *-bolditalic,
           Scale          = MatchLowercase,
         ]{texgyrecursor}
+        \newfontfamily\ustc@circlefont[
+          Extension      = .otf,
+          UprightFont    = *-regular,
+          BoldFont       = *-bold,
+          ItalicFont     = *-italic,
+          BoldItalicFont = *-bolditalic,
+          Scale          = MatchLowercase,
+        ]{xits}
         \ClassWarningNoLine{ustcthesis}{%
           You are using Fandol font family.\MessageBreak
           Some glyphs may be missing.\MessageBreak
@@ -1379,13 +1388,15 @@ version 2005/12/01 or later.
 % \end{macro}
 %
 % \begin{macro}{\ustc@textcircled}
-% 五级节标题和脚注需要使用带圈的数字，这里使用 \pkg{pifont} 宏包的 \cs{ding}：
+% 五级节标题和脚注需要使用带圈的数字，这里使用 \cs{ustc@circlefont} ：
 %    \begin{macrocode}
-\def\ustc@textcircled#1{%
-  \ifnum\value{#1}>9\relax
+\newcommand\ustc@textcircled[1]{%
+  \ifnum\value{#1}<21\relax
+    {\ustc@circlefont\symbol{\numexpr\value{#1} + "245F\relax}}%
+  \else
     \ClassError{ustcthesis}{Cannot display more than 10 footnotes}{}%
   \fi
-  \ding{\the\numexpr\value{#1}+191\relax}}
+}
 %    \end{macrocode}
 % \end{macro}
 %
