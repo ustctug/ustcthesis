@@ -1,0 +1,11 @@
+\input{regression-test}
+\documentclass[doctor,english,fontset=fandol]{ustcthesis}
+\begin{document}
+\START
+\showoutput
+
+\include{chapters}
+
+\clearpage
+\END
+\end{document}

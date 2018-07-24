@@ -1,0 +1,26 @@
+\input{regression-test}
+\documentclass[doctor,fontset=fandol]{ustcthesis}
+
+\entitle{An example of thesis template for University of Science and Technology
+  of China}
+\enauthor{Zeping Li}
+\enmajor{Mathematics and Applied Mathematics}
+\ensupervisor{Prof. Luogeng Hua}
+\encosupervisor{Prof. Xuesen Qian}
+\endate{May 1, 2017}      % Today if commented
+% \enprofessionaltype{Professional degree type}
+% \ensecretlevel{Secret}    % Top secret|Highly secret|Secret
+
+
+
+\begin{document}
+\START
+\showoutput
+
+\makeatletter
+\ustc@makeentitle
+\makeatother
+
+\clearpage
+\END
+\end{document}

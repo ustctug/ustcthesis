@@ -1,0 +1,11 @@
+\input{regression-test}
+\documentclass[bachelor,fontset=fandol]{ustcthesis}
+\begin{document}
+\START
+\showoutput
+
+\include{chapters-bachelor}
+
+\clearpage
+\END
+\end{document}

@@ -1,0 +1,17 @@
+\input{regression-test}
+\documentclass[doctor,fontset=fandol]{ustcthesis}
+
+% \secretlevel{机密}        % 绝密|机密|秘密，注释本行则不保密
+% \secretyear{20}           % 保密年限
+
+
+
+\begin{document}
+\START
+\showoutput
+
+\makestatement
+
+\clearpage
+\END
+\end{document}

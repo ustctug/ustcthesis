@@ -10,14 +10,5 @@ install:
 
 script:
   - make main
-  - sed -i 's/doctor/doctor,english/' main.tex
-  - make main
-  - sed -i 's/doctor,english/master/' main.tex
-  - make main
-  - sed -i 's/master/master,professional/' main.tex
-  - make main
-  - sed -i 's/master,professional/bachelor/' main.tex
-  - make main
-  - sed -i 's/bachelor/bachelor,english/' main.tex
-  - make main
   - make doc
+  - make test

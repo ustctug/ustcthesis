@@ -10,11 +10,11 @@ if ! command -v tlmgr > /dev/null; then
     $INSTALL/install-tl -profile ./support/texlive.profile
 fi
 
-tlmgr install latexmk \
+tlmgr install latexmk l3build \
     fontspec l3kernel l3packages xetex \
     cjk ctex environ ms trimspaces ulem xecjk zhnumber \
     fandol tex-gyre stix2-otf xits \
-    caption etoolbox filehook footmisc titlesec unicode-math \
+    caption etoolbox filehook footmisc titlesec unicode-math zapfding \
     booktabs listings thumbpdf xcolor \
     algorithm2e ifoddpage relsize
 
