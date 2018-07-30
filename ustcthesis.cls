@@ -570,7 +570,6 @@
     \ClassError{ustcthesis}{Cannot display more than 10 footnotes}{}%
   \fi
 }
-\setcounter{secnumdepth}{5}
 \@ifclasslater{ctexbook}{2016/09/21}{
   \ctexset{
     chapter = {
@@ -589,46 +588,46 @@
 }
 \ctexset{
   chapter = {
-    format      = \centering\sffamily\bfseries\ustc@setfontsize{16\bp@}{32\bp@},
+    format      = \centering\sffamily\bfseries\ustc@setfontsize{16\bp@}{26.67\bp@},
     nameformat  = {},
     titleformat = \ustc@spacetitle,
     number      = \thechapter,
     aftername   = \hspace{\ccwd},
   },
   section = {
-    format     = \sffamily\ustc@setfontsize{14\bp@}{28\bp@},
+    format     = \sffamily\ustc@setfontsize{14\bp@}{23.33\bp@},
     aftername  = \hspace{\ccwd},
     beforeskip = 24\bp@,
     afterskip  = 6\bp@,
   },
   subsection = {
-    format     = \sffamily\ustc@setfontsize{13\bp@}{26\bp@},
+    format     = \sffamily\ustc@setfontsize{13\bp@}{21.67\bp@},
     aftername  = \hspace{\ccwd},
     indent     = 2\ccwd,
     beforeskip = 12\bp@,
     afterskip  = 6\bp@,
   },
   subsubsection = {
-    format     = \sffamily\ustc@setfontsize{12\bp@}{24\bp@},
+    format     = \sffamily\ustc@setfontsize{12\bp@}{20\bp@},
     number     = \arabic{subsubsection},
-    aftername  = .\space,
+    aftername  = .\hspace{0.5\ccwd},
     indent     = 2\ccwd,
-    beforeskip = 12\bp@,
-    afterskip  = 6\bp@,
+    beforeskip = \z@,
+    afterskip  = \z@,
   },
   paragraph = {
-    format     = \rmfamily\ustc@setfontsize{12\bp@}{24\bp@},
+    format     = \rmfamily\ustc@setfontsize{12\bp@}{20\bp@},
     number     = （\arabic{paragraph}）,
-    aftername  = \space,
+    aftername  = \hspace{0.5\ccwd},
     indent     = 2\ccwd,
     beforeskip = \z@,
     afterskip  = \z@,
     runin      = false,
   },
   subparagraph = {
-    format     = \rmfamily\ustc@setfontsize{12\bp@}{24\bp@},
+    format     = \rmfamily\ustc@setfontsize{12\bp@}{20\bp@},
     number     = \ustc@textcircled{subparagraph},
-    aftername  = \space,
+    aftername  = \hspace{0.5\ccwd},
     indent     = 2\ccwd,
     beforeskip = \z@,
     afterskip  = \z@,
@@ -642,32 +641,27 @@
       format = {
         \centering\sffamily
         \if@mainmatter
-          \ustc@setfontsize{16\bp@}{32\bp@}
+          \ustc@setfontsize{16\bp@}{29.33\bp@}
         \else
-          \ustc@setfontsize{18\bp@}{36\bp@}
+          \ustc@setfontsize{18\bp@}{33\bp@}
         \fi
       },
     },
     section = {
-      format = \centering\sffamily\ustc@setfontsize{15\bp@}{30\bp@},
+      format = \centering\sffamily\ustc@setfontsize{15\bp@}{27.5\bp@},
     },
     subsection = {
-      format    = \sffamily\ustc@setfontsize{14\bp@}{28\bp@},
+      format    = \sffamily\ustc@setfontsize{14\bp@}{25.67\bp@},
       indent    = \z@,
     },
     subsubsection = {
-      format    = \rmfamily\ustc@setfontsize{12\bp@}{24\bp@},
+      format    = \rmfamily\ustc@setfontsize{12\bp@}{22\bp@},
       indent    = \ccwd,
     },
     paragraph = {
+      format    = \rmfamily\ustc@setfontsize{12\bp@}{22\bp@},
       aftername = {},
       indent    = \ccwd,
-    },
-    subparagraph = {
-      format    = {},
-      name      = {},
-      aftername = {},
-      indent    = 2\ccwd,
     },
   }
   \ifustc@arabic\else

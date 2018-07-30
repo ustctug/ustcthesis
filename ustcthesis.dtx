@@ -1170,7 +1170,13 @@ version 2005/12/01 or later.
 \ustc@define@term{ensecretlevel}{}
 %    \end{macrocode}
 %
-% 中文封面
+% 中文封面：
+% 密级仿宋 14 磅；
+% 论文类型黑体 56 磅；
+% 论文题目黑体 26 磅加粗居中，单倍行距；
+% 作者姓名宋体 16 磅，单倍行距；
+% 注意这里的“单倍行距”的地方开启了“对齐到网格”，所以实际行距有所偏差，
+% 所以只能使用直尺测量。
 %    \begin{macrocode}
 \newcommand\ustc@makezhtitle{%
   \begin{titlepage}%
@@ -1402,18 +1408,17 @@ version 2005/12/01 or later.
 %
 % 用 \pkg{ctex} 的接口设置全部章节标题格式。
 %
-% \pkg{ctex} 2.4.3 以下版本的bug会导致章节标题前后的距离的实际值偏大，
+% 各章标题：黑体 16 磅加粗居中，单倍行距，段前 24 磅，段后 18 磅，
+% 章序号与章名间空一字。
+% 注意 \pkg{ctex} 2.4.3 以下版本的bug会导致章节标题前后的距离的实际值偏大，
 % 临时的解决方案是手动调整，偏移值为beforeskip=-31bp, afterskip=-10bp。
 % 但是\pkg{ctex} 2.2 前的beforeskip的符号有特殊意义，
 % 所以要求 \pkg{ctex} 不低于 2.2 版本。
-% \changes{v3.0}{2017/07/01}{新增二级以下节标题的缩进}
-% \changes{v3.0}{2017/07/01}{二级以下节标题编号下采用“1.”、“(1)”、
-%   “\textcircled{\footnotesize{}1}”}
-% \changes{v3.0.1}{2017/12/12}{更正 subsubsection 的前后距离}
-% \changes{v3.0.8}{2018/04/21}{更正 subsection 的格式}
-% \changes{v3.0.9}{2018/05/04}{调整 subsubsection 的缩进}
+%
+% 另外由于 Word 模板中使用“单倍行距”，还“对齐到网格”，这在 TeX 中容易实现。
+% 所以目前按照默认的行距。
+% \changes{v3.1}{2018/09/01}{更正章节标题的行距}
 %    \begin{macrocode}
-\setcounter{secnumdepth}{5}
 \@ifclasslater{ctexbook}{2016/09/21}{
   \ctexset{
     chapter = {
@@ -1432,46 +1437,78 @@ version 2005/12/01 or later.
 }
 \ctexset{
   chapter = {
-    format      = \centering\sffamily\bfseries\ustc@setfontsize{16\bp@}{32\bp@},
+    format      = \centering\sffamily\bfseries\ustc@setfontsize{16\bp@}{26.67\bp@},
     nameformat  = {},
     titleformat = \ustc@spacetitle,
     number      = \thechapter,
     aftername   = \hspace{\ccwd},
   },
+%    \end{macrocode}
+%
+% 一级节标题：黑体 14 磅左顶格，单倍行距，段前 24 磅，段后 6 磅，
+% 序号与题名间空一字。
+%    \begin{macrocode}
   section = {
-    format     = \sffamily\ustc@setfontsize{14\bp@}{28\bp@},
+    format     = \sffamily\ustc@setfontsize{14\bp@}{23.33\bp@},
     aftername  = \hspace{\ccwd},
     beforeskip = 24\bp@,
     afterskip  = 6\bp@,
   },
+%    \end{macrocode}
+%
+% 二级节标题：黑体 13 磅，左缩进两字，单倍行距，段前 12 磅，段后 6 磅，
+% 序号与题名间空一字。
+% \changes{v3.0.8}{2018/04/21}{更正 subsection 的格式}
+%    \begin{macrocode}
   subsection = {
-    format     = \sffamily\ustc@setfontsize{13\bp@}{26\bp@},
+    format     = \sffamily\ustc@setfontsize{13\bp@}{21.67\bp@},
     aftername  = \hspace{\ccwd},
     indent     = 2\ccwd,
     beforeskip = 12\bp@,
     afterskip  = 6\bp@,
   },
+%    \end{macrocode}
+%
+% 三级及以下节标题的格式没有具体规定，按照 Word 模板的格式：
+% 使用黑体 12 磅，左缩进两字，行距 20 磅，段前段后 0 磅，序号与题名间空半字宽。
+% \changes{v3.0}{2017/07/01}{新增二级以下节标题的缩进}
+% \changes{v3.0}{2017/07/01}{二级以下节标题编号下采用“1.”、“(1)”、
+%   “\textcircled{\footnotesize{}1}”}
+% \changes{v3.0.9}{2018/05/04}{调整 subsubsection 的缩进}
+% \changes{v3.1}{2018/09/01}{更正 subsubsection 的前后距离}
+%    \begin{macrocode}
   subsubsection = {
-    format     = \sffamily\ustc@setfontsize{12\bp@}{24\bp@},
+    format     = \sffamily\ustc@setfontsize{12\bp@}{20\bp@},
     number     = \arabic{subsubsection},
-    aftername  = .\space,
+    aftername  = .\hspace{0.5\ccwd},
     indent     = 2\ccwd,
-    beforeskip = 12\bp@,
-    afterskip  = 6\bp@,
+    beforeskip = \z@,
+    afterskip  = \z@,
   },
+%    \end{macrocode}
+%
+% 按照 Word 模板的格式，四级节标题：宋体 12 磅，左缩进两字，行距 20 磅，
+% 段前段后 0 磅，序号使用全宽括号，与题名间空半字宽。
+% \changes{v3.0.1}{2017/12/12}{更正 paragraph 的前后距离}
+%    \begin{macrocode}
   paragraph = {
-    format     = \rmfamily\ustc@setfontsize{12\bp@}{24\bp@},
+    format     = \rmfamily\ustc@setfontsize{12\bp@}{20\bp@},
     number     = （\arabic{paragraph}）,
-    aftername  = \space,
+    aftername  = \hspace{0.5\ccwd},
     indent     = 2\ccwd,
     beforeskip = \z@,
     afterskip  = \z@,
     runin      = false,
   },
+%    \end{macrocode}
+%
+% 按照 Word 模板的格式，五级节标题：宋体 12 磅，左缩进两字，行距 20 磅，
+% 段前段后 0 磅，序号使用全宽括号，与题名间空半字宽。
+%    \begin{macrocode}
   subparagraph = {
-    format     = \rmfamily\ustc@setfontsize{12\bp@}{24\bp@},
+    format     = \rmfamily\ustc@setfontsize{12\bp@}{20\bp@},
     number     = \ustc@textcircled{subparagraph},
-    aftername  = \space,
+    aftername  = \hspace{0.5\ccwd},
     indent     = 2\ccwd,
     beforeskip = \z@,
     afterskip  = \z@,
@@ -1481,49 +1518,63 @@ version 2005/12/01 or later.
 %    \end{macrocode}
 %
 % 在研究生格式的基础上再设置本科生的章节标题格式。
-% 本科生要求正文章标题使用三号字（16 bp），
-% 但是致谢、目录、摘要和参考文献的章标题使用小二号（18 bp），
-% 这可以通过 \cs{if@mainmatter} 区分。
-% \changes{v3.0.7}{2018/04/18}{更正本科生 subsection 的缩进}
 %    \begin{macrocode}
 \ifustc@bachelor
   \setcounter{secnumdepth}{4}
   \ctexset{
+%    \end{macrocode}
+%
+% 本科生要求正文章标题使用三号字（16 bp），
+% 但是致谢、目录、摘要和参考文献的章标题使用小二号（18 bp），
+% 这通过 \cs{if@mainmatter} 区分。
+%    \begin{macrocode}
     chapter = {
       format = {
         \centering\sffamily
         \if@mainmatter
-          \ustc@setfontsize{16\bp@}{32\bp@}
+          \ustc@setfontsize{16\bp@}{29.33\bp@}
         \else
-          \ustc@setfontsize{18\bp@}{36\bp@}
+          \ustc@setfontsize{18\bp@}{33\bp@}
         \fi
       },
     },
+%    \end{macrocode}
+%
+% 本科生一级节标题使用小三（15 bp）黑体居中。
+%    \begin{macrocode}
     section = {
-      format = \centering\sffamily\ustc@setfontsize{15\bp@}{30\bp@},
+      format = \centering\sffamily\ustc@setfontsize{15\bp@}{27.5\bp@},
     },
+%    \end{macrocode}
+%
+% 本科生二级节标题使用四号（14 bp）黑体左对齐。
+% \changes{v3.0.7}{2018/04/18}{更正本科生 subsection 的缩进}
+%    \begin{macrocode}
     subsection = {
-      format    = \sffamily\ustc@setfontsize{14\bp@}{28\bp@},
+      format    = \sffamily\ustc@setfontsize{14\bp@}{25.67\bp@},
       indent    = \z@,
     },
+%    \end{macrocode}
+%
+% 本科生三级节标题使用小四（12 bp）宋体，左缩进一字宽。
+%    \begin{macrocode}
     subsubsection = {
-      format    = \rmfamily\ustc@setfontsize{12\bp@}{24\bp@},
+      format    = \rmfamily\ustc@setfontsize{12\bp@}{22\bp@},
       indent    = \ccwd,
     },
+%    \end{macrocode}
+%
+% 本科生四级节标题使用小四（12 bp）宋体，左缩进一字宽。
+%    \begin{macrocode}
     paragraph = {
+      format    = \rmfamily\ustc@setfontsize{12\bp@}{22\bp@},
       aftername = {},
       indent    = \ccwd,
-    },
-    subparagraph = {
-      format    = {},
-      name      = {},
-      aftername = {},
-      indent    = 2\ccwd,
     },
   }
 %    \end{macrocode}
 %
-% 允许本科生使用阿拉伯数字式标题。
+% 本科生的阿拉伯数字式标题的格式与研究生几乎一致，只有中文数字式需要修改。
 %    \begin{macrocode}
   \ifustc@arabic\else
     \ctexset{

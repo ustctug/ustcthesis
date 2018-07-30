@@ -1,7 +1,6 @@
 This is a generated file for the l3build validation system.
 Don't change this file in any respect.
 (chapters-bachelor.tex
-\g__fontspec_family_FandolHei-Regular_int=\count...
 LaTeX Font Info:    Font shape `TU/texgyreheros(0)/m/n' will be
 (Font)              scaled to size 10.34387pt on input line ....
 LaTeX Font Info:    Font shape `TU/texgyreheros(0)/m/n' will be
@@ -873,7 +872,7 @@ Completed box being shipped out [4]
 .......\glue -0.4
 ...\glue 8.2511
 ...\glue(\lineskip) 0.0
-...\vbox(700.50723+0.0)x417.11752, glue set 309.4112fil
+...\vbox(700.50723+0.0)x417.11752, glue set 334.33403fil
 ....\write-{}
 ....\write2{\protect \FN@pp@footnotehinttrue }
 ....\write-{}
@@ -946,7 +945,7 @@ Completed box being shipped out [4]
 ....\glue -24.08972
 ....\glue 24.08972
 ....\glue(\parskip) 0.0
-....\glue(\baselineskip) 15.71254
+....\glue(\baselineskip) 13.20319
 ....\hbox(11.77385+2.6348)x417.11752, glue set 154.40428fil
 .....\glue(\leftskip) 0.0 plus 1.0fil
 .....\hbox(9.16727+0.0)x33.02858
@@ -995,7 +994,7 @@ t \ETC.}
 ....\glue -12.04486
 ....\glue 12.04486
 ....\glue(\parskip) 0.0
-....\glue(\baselineskip) 16.94714
+....\glue(\baselineskip) 14.60843
 ....\hbox(10.98892+2.45914)x417.11752, glue set 305.96458fil
 .....\hbox(8.5561+0.0)x40.89125
 ......\glue 0.0
@@ -1035,23 +1034,21 @@ t \ETC.}
 .....\glue(\parfillskip) 0.0 plus 1.0fil
 .....\glue(\rightskip) 0.0
 ....\penalty -300
-....\glue 12.04486
+....\glue 0.0
 ....\special{pdf:dest (subsubsection.1.1.1.1) [@thispage /XYZ @xpos @ypos null]}
 ....\penalty 10000
-....\glue -12.04486
-....\glue 12.04486
 ....\glue(\parskip) 0.0
-....\glue(\baselineskip) 14.55022
-....\hbox(9.3709+2.14397)x417.11752, glue set 331.79976fil
-.....\hbox(8.14233+0.13248)x25.09346
+....\glue(\baselineskip) 12.54274
+....\hbox(9.3709+2.14397)x417.11752, glue set 329.79228fil
+.....\hbox(8.14233+0.13248)x27.10094
 ......\glue 12.04486
 ......\TU/texgyretermes(0)/m/n/12.04486 1
 ......\kern -0.0002
 ......\kern 0.0002
 ......\TU/texgyretermes(0)/m/n/12.04486 .
-......\kern -0.00021
-......\kern 0.00021
-......\glue 4.01495 plus 4.5168 minus 0.33458
+......\kern -0.0002
+......\kern 0.0002
+......\glue 6.02243
 .....\TU/FandolSong-Regular(0)/m/n/12.04486 三
 .....\glue 0.0 plus 0.61366
 .....\TU/FandolSong-Regular(0)/m/n/12.04486 级
@@ -1068,7 +1065,7 @@ t \ETC.}
 .....\glue(\rightskip) 0.0
 ....\write2{\@writefile{toc}{\protect \contentsline {subsubsection}{\protect \numberline \ETC.}
 ....\penalty 10000
-....\glue 6.02243
+....\glue 0.0
 ....\glue(\parskip) 0.0
 ....\glue(\baselineskip) 11.71164
 ....\hbox(8.22664+0.16861)x417.11752, glue set 323.85417fil

@@ -1,7 +1,6 @@
 This is a generated file for the l3build validation system.
 Don't change this file in any respect.
 (chapters.tex
-\g__fontspec_family_FandolHei-Regular_int=\count...
 LaTeX Font Info:    Font shape `TU/texgyreheros(0)/m/n' will be
 (Font)              scaled to size 10.34387pt on input line ....
 LaTeX Font Info:    Font shape `TU/texgyreheros(0)/bx/n' will be
@@ -787,7 +786,7 @@ Completed box being shipped out [1]
 .....\glue 0.0 plus 1.0fil minus 1.0fil
 ...\glue 8.2511
 ...\glue(\lineskip) 0.0
-...\vbox(700.50723+0.0)x417.11752, glue set 329.8106fil
+...\vbox(700.50723+0.0)x417.11752, glue set 360.9265fil
 ....\write2{\protect \FN@pp@footnotehinttrue }
 ....\write-{}
 ....\special{pdf:dest (chapter.1) [@thispage /XYZ @xpos @ypos null]}
@@ -858,7 +857,7 @@ Completed box being shipped out [1]
 ....\glue -24.08972
 ....\glue 24.08972
 ....\glue(\parskip) 0.0
-....\glue(\baselineskip) 14.48999
+....\glue(\baselineskip) 9.80252
 ....\hbox(10.98892+2.45914)x417.11752, glue set 316.02917fil
 .....\hbox(8.5561+0.0)x30.82666
 ......\glue 0.0
@@ -907,7 +906,7 @@ Completed box being shipped out [1]
 ....\glue -12.04486
 ....\glue 12.04486
 ....\glue(\parskip) 0.0
-....\glue(\baselineskip) 15.72458
+....\glue(\baselineskip) 11.37839
 ....\hbox(10.20401+2.2835)x417.11752, glue set 287.80687fil
 .....\hbox(7.94496+0.0)x64.06766
 ......\glue 26.0972
@@ -948,23 +947,21 @@ Completed box being shipped out [1]
 .....\glue(\parfillskip) 0.0 plus 1.0fil
 .....\glue(\rightskip) 0.0
 ....\penalty -300
-....\glue 12.04486
+....\glue 0.0
 ....\special{pdf:dest (subsubsection.1.1.1.1) [@thispage /XYZ @xpos @ypos null]}
 ....\penalty 10000
-....\glue -12.04486
-....\glue 12.04486
 ....\glue(\parskip) 0.0
-....\glue(\baselineskip) 14.50203
-....\hbox(9.41908+2.10783)x417.11752, glue set 320.34259fil
-.....\hbox(7.3338+0.0)x36.55063
+....\glue(\baselineskip) 10.48708
+....\hbox(9.41908+2.10783)x417.11752, glue set 318.15428fil
+.....\hbox(7.3338+0.0)x38.73894
 ......\glue 24.08972
 ......\TU/texgyreheros(0)/m/n/12.04486 1
 ......\kern -0.0002
 ......\kern 0.0002
 ......\TU/texgyreheros(0)/m/n/12.04486 .
-......\kern -0.00021
-......\kern 0.00021
-......\glue 3.83412 plus 4.31337 minus 0.3195
+......\kern -0.0002
+......\kern 0.0002
+......\glue 6.02243
 .....\TU/FandolHei-Regular(0)/m/n/12.04486 三
 .....\glue 0.0 plus 0.61366
 .....\TU/FandolHei-Regular(0)/m/n/12.04486 级
@@ -981,7 +978,7 @@ Completed box being shipped out [1]
 .....\glue(\rightskip) 0.0
 ....\write2{\@writefile{toc}{\protect \contentsline {subsubsection}{\protect \numberline \ETC.}
 ....\penalty 10000
-....\glue 6.02243
+....\glue 0.0
 ....\glue(\parskip) 0.0
 ....\glue(\baselineskip) 9.7403
 ....\hbox(8.22664+0.16861)x417.11752, glue set 299.76445fil
@@ -1002,8 +999,8 @@ Completed box being shipped out [1]
 ....\penalty 10000
 ....\glue(\parskip) 0.0
 ....\glue(\baselineskip) 10.27026
-....\hbox(9.6359+2.40895)x417.11752, glue set 299.68013fil
-.....\hbox(9.6359+2.40895)x57.21309
+....\hbox(9.6359+2.40895)x417.11752, glue set 296.66891fil
+.....\hbox(9.6359+2.40895)x60.2243
 ......\glue 24.08972
 ......\glue 7.63644 minus 6.02243
 ......\rule(0.0+0.0)x-7.63644
@@ -1017,7 +1014,7 @@ Completed box being shipped out [1]
 ......\kern -0.99623
 ......\kern 0.99623
 ......\glue 7.63644 minus 6.02243
-......\glue 3.01122 plus 1.5056 minus 1.00374
+......\glue 6.02243
 .....\TU/FandolSong-Regular(0)/m/n/12.04486 四
 .....\glue 0.0 plus 0.61366
 .....\TU/FandolSong-Regular(0)/m/n/12.04486 级
@@ -1055,13 +1052,13 @@ Completed box being shipped out [1]
 ....\penalty 10000
 ....\glue(\parskip) 0.0
 ....\glue(\baselineskip) 8.07811
-....\hbox(9.3709+2.14397)x417.11752, glue set 321.5536fil
-.....\hbox(8.14233+0.16861)x35.33961
+....\hbox(9.3709+2.14397)x417.11752, glue set 318.54239fil
+.....\hbox(8.14233+0.16861)x38.35083
 ......\glue 24.08972
 ......\TU/xits(0)/m/n/12.04486 ①
 ......\kern -0.0002
 ......\kern 0.0002
-......\glue 3.01122 plus 1.5056 minus 1.00374
+......\glue 6.02243
 .....\TU/FandolSong-Regular(0)/m/n/12.04486 五
 .....\glue 0.0 plus 0.61366
 .....\TU/FandolSong-Regular(0)/m/n/12.04486 级
