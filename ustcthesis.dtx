@@ -736,7 +736,52 @@ version 2005/12/01 or later.
 %    \end{macrocode}
 % \end{macro}
 %
+% 将 \pkg{ctex} 的 \opt{fontset} 存在 \cs{ustc@fontset} 方便 \LaTeXe{} 调用。
+%    \begin{macrocode}
+\newcommand\ustc@fontset{\csname g__ctex_fontset_tl\endcsname}
+%    \end{macrocode}
+%
 % 设置西文字体
+%    \begin{macrocode}
+\ustc@strifeq{\ustc@fontset}{fandol}{
+  \setmainfont[
+    Extension      = .otf,
+    UprightFont    = *-regular,
+    BoldFont       = *-bold,
+    ItalicFont     = *-italic,
+    BoldItalicFont = *-bolditalic,
+  ]{texgyretermes}
+  \setsansfont[
+    Extension      = .otf,
+    UprightFont    = *-regular,
+    BoldFont       = *-bold,
+    ItalicFont     = *-italic,
+    BoldItalicFont = *-bolditalic,
+  ]{texgyreheros}
+  \setmonofont[
+    Extension      = .otf,
+    UprightFont    = *-regular,
+    BoldFont       = *-bold,
+    ItalicFont     = *-italic,
+    BoldItalicFont = *-bolditalic,
+    Scale          = MatchLowercase,
+  ]{texgyrecursor}
+  \ClassWarningNoLine{ustcthesis}{%
+    You are using Fandol font family.\MessageBreak
+    Some glyphs may be missing.\MessageBreak
+    Please switch to a high-quality font set
+  }
+}{
+  \setmainfont{Times New Roman}
+  \setsansfont{Arial}
+  \ustc@strifeq{\ustc@fontset}{mac}{
+    \setmonofont[Scale=MatchLowercase]{Menlo}
+  }{
+    \setmonofont[Scale=MatchLowercase]{Courier}
+  }
+}
+%    \end{macrocode}
+%
 % 中文字体可以由 \pkg{ctex} 自动设置，但是会有问题：
 % 1. 无衬线字体默认会使用微软雅黑或者苹方，这对打印不太友好；
 % 2. 没有粗体的字体不会开启伪粗；
@@ -744,11 +789,7 @@ version 2005/12/01 or later.
 % \changes{v3.0.6}{2018/04/12}{取消使用微软雅黑}
 % \changes{v3.0.a}{2018/05/16}{调整中文字体配置}
 %    \begin{macrocode}
-\newcommand\ustc@fontset{\csname g__ctex_fontset_tl\endcsname}
 \ustc@strifeq{\ustc@fontset}{mac}{
-  \setmainfont{Times New Roman}
-  \setsansfont{Arial}
-  \setmonofont[Scale=MatchLowercase]{Menlo}
   \setCJKmainfont[
        UprightFont = * Light,
           BoldFont = * Bold,
@@ -762,12 +803,8 @@ version 2005/12/01 or later.
   ]{Songti SC}
   \setCJKfamilyfont{zhhei}{Heiti SC}
   \setCJKfamilyfont{zhkai}{Kaiti SC}
-  \newfontfamily\ustc@circlefont{Songti SC Light}
 }{
   \ustc@strifeq{\ustc@fontset}{windows}{
-    \setmainfont{Times New Roman}
-    \setsansfont{Arial}
-    \setmonofont[Scale=MatchLowercase]{Menlo}
     \IfFileExists{C:/bootfont.bin}{
       \setCJKmainfont[AutoFakeBold,ItalicFont=KaiTi_GB2312]{SimSun}
     }{
@@ -776,12 +813,8 @@ version 2005/12/01 or later.
     \setCJKsansfont[AutoFakeBold]{SimHei}
     \setCJKfamilyfont{zhsong}[AutoFakeBold]{SimSun}
     \setCJKfamilyfont{zhhei}[AutoFakeBold]{SimHei}
-    \newfontfamily\ustc@circlefont{SimSun}
   }{
     \ustc@strifeq{\ustc@fontset}{adobe}{
-      \setmainfont{Times New Roman}
-      \setsansfont{Arial}
-      \setmonofont[Scale=MatchLowercase]{Menlo}
       \setCJKmainfont[
         AutoFakeBold,
         ItalicFont=AdobeKaitiStd-Regular,
@@ -789,50 +822,27 @@ version 2005/12/01 or later.
       \setCJKsansfont[AutoFakeBold]{AdobeHeitiStd-Regular}
       \setCJKfamilyfont{zhsong}[AutoFakeBold]{AdobeSongStd-Light}
       \setCJKfamilyfont{zhhei}[AutoFakeBold]{AdobeHeitiStd-Regular}
-      \newfontfamily\ustc@circlefont{AdobeSongStd-Light}
-    }{
-      \ustc@strifeq{\ustc@fontset}{fandol}{
-        \setmainfont[
-          Extension      = .otf,
-          UprightFont    = *-regular,
-          BoldFont       = *-bold,
-          ItalicFont     = *-italic,
-          BoldItalicFont = *-bolditalic,
-        ]{texgyretermes}
-        \setsansfont[
-          Extension      = .otf,
-          UprightFont    = *-regular,
-          BoldFont       = *-bold,
-          ItalicFont     = *-italic,
-          BoldItalicFont = *-bolditalic,
-          Scale          = MatchLowercase,
-        ]{texgyreheros}
-        \setmonofont[
-          Extension      = .otf,
-          UprightFont    = *-regular,
-          BoldFont       = *-bold,
-          ItalicFont     = *-italic,
-          BoldItalicFont = *-bolditalic,
-          Scale          = MatchLowercase,
-        ]{texgyrecursor}
-        \newfontfamily\ustc@circlefont[
-          Extension      = .otf,
-          UprightFont    = *-regular,
-          BoldFont       = *-bold,
-          ItalicFont     = *-italic,
-          BoldItalicFont = *-bolditalic,
-          Scale          = MatchLowercase,
-        ]{xits}
-        \ClassWarningNoLine{ustcthesis}{%
-          You are using Fandol font family.\MessageBreak
-          Some glyphs may be missing.\MessageBreak
-          Please switch to a high-quality font set.
-        }
-      }{}
-    }
+    }{}
   }
 }
 %    \end{macrocode}
+%
+% \begin{macro}{\ustc@circlefont}
+% 研究生的五级节标题和脚注要求使用带圈数字，
+% 但 Times New Roman 没有这些符号的字形，而华文宋体和中易宋体提供了这些字形，
+% 配置在 \cs{ustc@circlefont}。
+%    \begin{macrocode}
+\ustc@strifeq{\ustc@fontset}{mac}{
+  \newfontfamily\ustc@circlefont{Songti SC Light}
+}{
+  \ustc@strifeq{\ustc@fontset}{windows}{
+    \newfontfamily\ustc@circlefont{SimSun}
+  }{
+    \newfontfamily\ustc@circlefont{xits-regular.otf}
+  }
+}
+%    \end{macrocode}
+% \end{macro}
 %
 % 使用 \pkg{unicode-math} 配置数学字体
 %    \begin{macrocode}

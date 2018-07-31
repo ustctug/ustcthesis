@@ -98,10 +98,44 @@
 \Urlmuskip=0mu plus 0.1mu
 \newcommand\ustc@strifeq{\csname str_if_eq_x:nnTF\endcsname}
 \newcommand\ustc@fontset{\csname g__ctex_fontset_tl\endcsname}
-\ustc@strifeq{\ustc@fontset}{mac}{
+\ustc@strifeq{\ustc@fontset}{fandol}{
+  \setmainfont[
+    Extension      = .otf,
+    UprightFont    = *-regular,
+    BoldFont       = *-bold,
+    ItalicFont     = *-italic,
+    BoldItalicFont = *-bolditalic,
+  ]{texgyretermes}
+  \setsansfont[
+    Extension      = .otf,
+    UprightFont    = *-regular,
+    BoldFont       = *-bold,
+    ItalicFont     = *-italic,
+    BoldItalicFont = *-bolditalic,
+  ]{texgyreheros}
+  \setmonofont[
+    Extension      = .otf,
+    UprightFont    = *-regular,
+    BoldFont       = *-bold,
+    ItalicFont     = *-italic,
+    BoldItalicFont = *-bolditalic,
+    Scale          = MatchLowercase,
+  ]{texgyrecursor}
+  \ClassWarningNoLine{ustcthesis}{%
+    You are using Fandol font family.\MessageBreak
+    Some glyphs may be missing.\MessageBreak
+    Please switch to a high-quality font set
+  }
+}{
   \setmainfont{Times New Roman}
   \setsansfont{Arial}
-  \setmonofont[Scale=MatchLowercase]{Menlo}
+  \ustc@strifeq{\ustc@fontset}{mac}{
+    \setmonofont[Scale=MatchLowercase]{Menlo}
+  }{
+    \setmonofont[Scale=MatchLowercase]{Courier}
+  }
+}
+\ustc@strifeq{\ustc@fontset}{mac}{
   \setCJKmainfont[
        UprightFont = * Light,
           BoldFont = * Bold,
@@ -115,12 +149,8 @@
   ]{Songti SC}
   \setCJKfamilyfont{zhhei}{Heiti SC}
   \setCJKfamilyfont{zhkai}{Kaiti SC}
-  \newfontfamily\ustc@circlefont{Songti SC Light}
 }{
   \ustc@strifeq{\ustc@fontset}{windows}{
-    \setmainfont{Times New Roman}
-    \setsansfont{Arial}
-    \setmonofont[Scale=MatchLowercase]{Menlo}
     \IfFileExists{C:/bootfont.bin}{
       \setCJKmainfont[AutoFakeBold,ItalicFont=KaiTi_GB2312]{SimSun}
     }{
@@ -129,12 +159,8 @@
     \setCJKsansfont[AutoFakeBold]{SimHei}
     \setCJKfamilyfont{zhsong}[AutoFakeBold]{SimSun}
     \setCJKfamilyfont{zhhei}[AutoFakeBold]{SimHei}
-    \newfontfamily\ustc@circlefont{SimSun}
   }{
     \ustc@strifeq{\ustc@fontset}{adobe}{
-      \setmainfont{Times New Roman}
-      \setsansfont{Arial}
-      \setmonofont[Scale=MatchLowercase]{Menlo}
       \setCJKmainfont[
         AutoFakeBold,
         ItalicFont=AdobeKaitiStd-Regular,
@@ -142,47 +168,16 @@
       \setCJKsansfont[AutoFakeBold]{AdobeHeitiStd-Regular}
       \setCJKfamilyfont{zhsong}[AutoFakeBold]{AdobeSongStd-Light}
       \setCJKfamilyfont{zhhei}[AutoFakeBold]{AdobeHeitiStd-Regular}
-      \newfontfamily\ustc@circlefont{AdobeSongStd-Light}
-    }{
-      \ustc@strifeq{\ustc@fontset}{fandol}{
-        \setmainfont[
-          Extension      = .otf,
-          UprightFont    = *-regular,
-          BoldFont       = *-bold,
-          ItalicFont     = *-italic,
-          BoldItalicFont = *-bolditalic,
-        ]{texgyretermes}
-        \setsansfont[
-          Extension      = .otf,
-          UprightFont    = *-regular,
-          BoldFont       = *-bold,
-          ItalicFont     = *-italic,
-          BoldItalicFont = *-bolditalic,
-          Scale          = MatchLowercase,
-        ]{texgyreheros}
-        \setmonofont[
-          Extension      = .otf,
-          UprightFont    = *-regular,
-          BoldFont       = *-bold,
-          ItalicFont     = *-italic,
-          BoldItalicFont = *-bolditalic,
-          Scale          = MatchLowercase,
-        ]{texgyrecursor}
-        \newfontfamily\ustc@circlefont[
-          Extension      = .otf,
-          UprightFont    = *-regular,
-          BoldFont       = *-bold,
-          ItalicFont     = *-italic,
-          BoldItalicFont = *-bolditalic,
-          Scale          = MatchLowercase,
-        ]{xits}
-        \ClassWarningNoLine{ustcthesis}{%
-          You are using Fandol font family.\MessageBreak
-          Some glyphs may be missing.\MessageBreak
-          Please switch to a high-quality font set.
-        }
-      }{}
-    }
+    }{}
+  }
+}
+\ustc@strifeq{\ustc@fontset}{mac}{
+  \newfontfamily\ustc@circlefont{Songti SC Light}
+}{
+  \ustc@strifeq{\ustc@fontset}{windows}{
+    \newfontfamily\ustc@circlefont{SimSun}
+  }{
+    \newfontfamily\ustc@circlefont{xits-regular.otf}
   }
 }
 \unimathsetup{

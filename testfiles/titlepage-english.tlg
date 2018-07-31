@@ -1,17 +1,7 @@
 This is a generated file for the l3build validation system.
 Don't change this file in any respect.
-LaTeX Font Info:    Font shape `TU/texgyreheros(0)/m/n' will be
-(Font)              scaled to size 10.34387pt on input line ....
-LaTeX Font Info:    Font shape `TU/texgyreheros(0)/m/n' will be
-(Font)              scaled to size 17.2398pt on input line ....
-LaTeX Font Info:    Font shape `TU/texgyreheros(0)/m/n' will be
-(Font)              scaled to size 22.41174pt on input line ....
 File: figures/ustc_logo_fig.pdf Graphic file (type pdf)
 <use figures/ustc_logo_fig.pdf>
-LaTeX Font Info:    Font shape `TU/texgyreheros(0)/bx/n' will be
-(Font)              scaled to size 10.03731pt on input line ....
-LaTeX Font Info:    Font shape `TU/texgyreheros(0)/bx/n' will be
-(Font)              scaled to size 21.74753pt on input line ....
 LaTeX Font Info:    Calculating math sizes for size <16.05981> on input line ....
 LaTeX Font Info:    Font shape `TU/STIX2Math.otf(2)/m/n' will be
 (Font)              scaled to size 16.06006pt on input line ....
@@ -50,7 +40,7 @@ Completed box being shipped out [1]
 ....\hbox(0.0+0.0)x417.11752
 ...\glue 8.2511
 ...\glue(\lineskip) 0.0
-...\vbox(700.50723+0.0)x417.11752, glue set 85.68988fil
+...\vbox(700.50723+0.0)x417.11752, glue set 84.88644fil
 ....\write-{}
 ....\special{pdf:docview<</OpenAction[@page1/Fit]/PageMode/UseOutlines>>}
 ....\special{pdf:dest (Doc-Start) [@thispage /XYZ @xpos @ypos null]}
@@ -70,34 +60,34 @@ Completed box being shipped out [1]
 .....\glue(\rightskip) 0.0 plus 1.0fil
 ....\glue 14.22636
 ....\glue(\parskip) 0.0
-....\glue(\baselineskip) 5.85309
-....\hbox(12.87814+3.75827)x417.11752, glue set 30.85083fil
+....\glue(\baselineskip) 3.73538
+....\hbox(14.99585+4.37628)x417.11752, glue set 1.62807fil
 .....\glue(\leftskip) 0.0 plus 1.0fil
 .....\hbox(0.0+0.0)x0.0
 .....\TU/texgyreheros(0)/m/n/20.07477 University
 .....\kern -0.00021
 .....\kern 0.00021
-.....\glue 4.79266 plus 2.39633 minus 1.59755
+.....\glue 5.58078 plus 2.79039 minus 1.86026
 .....\TU/texgyreheros(0)/m/n/20.07477 of
 .....\kern -0.00021
 .....\kern 0.00021
-.....\glue 4.79266 plus 2.39633 minus 1.59755
+.....\glue 5.58078 plus 2.79039 minus 1.86026
 .....\TU/texgyreheros(0)/m/n/20.07477 Science
 .....\kern -0.00021
 .....\kern 0.00021
-.....\glue 4.79266 plus 2.39633 minus 1.59755
+.....\glue 5.58078 plus 2.79039 minus 1.86026
 .....\TU/texgyreheros(0)/m/n/20.07477 and
 .....\kern -0.00021
 .....\kern 0.00021
-.....\glue 4.79266 plus 2.39633 minus 1.59755
+.....\glue 5.58078 plus 2.79039 minus 1.86026
 .....\TU/texgyreheros(0)/m/n/20.07477 Technology
 .....\kern -0.00021
 .....\kern 0.00021
-.....\glue 4.79266 plus 2.39633 minus 1.59755
+.....\glue 5.58078 plus 2.79039 minus 1.86026
 .....\TU/texgyreheros(0)/m/n/20.07477 of
 .....\kern -0.00021
 .....\kern 0.00021
-.....\glue 4.79266 plus 2.39633 minus 1.59755
+.....\glue 5.58078 plus 2.79039 minus 1.86026
 .....\TU/texgyreheros(0)/m/n/20.07477 China
 .....\kern -0.0002
 .....\kern 0.0002
@@ -105,26 +95,26 @@ Completed box being shipped out [1]
 .....\glue(\parfillskip) 0.0
 .....\glue(\rightskip) 0.0 plus 1.0fil
 ....\glue(\parskip) 0.0
-....\glue(\baselineskip) 9.94849
-....\hbox(16.4054+4.88574)x417.11752, glue set 44.35912fil
+....\glue(\baselineskip) 6.63272
+....\hbox(19.10315+5.68918)x417.11752, glue set 17.35764fil
 .....\glue(\leftskip) 0.0 plus 1.0fil
 .....\hbox(0.0+0.0)x0.0
 .....\TU/texgyreheros(0)/m/n/26.0972 A
 .....\kern -0.00021
 .....\kern 0.00021
-.....\glue 6.23047 plus 3.1121 minus 2.07889
+.....\glue 7.25502 plus 3.62387 minus 2.42075
 .....\TU/texgyreheros(0)/m/n/26.0972 dissertation
 .....\kern -0.00021
 .....\kern 0.00021
-.....\glue 6.23047 plus 3.11523 minus 2.07681
+.....\glue 7.25502 plus 3.6275 minus 2.41833
 .....\TU/texgyreheros(0)/m/n/26.0972 for
 .....\kern -0.00021
 .....\kern 0.00021
-.....\glue 6.23047 plus 3.11523 minus 2.07681
+.....\glue 7.25502 plus 3.6275 minus 2.41833
 .....\TU/texgyreheros(0)/m/n/26.0972 doctor’s
 .....\kern -0.00021
 .....\kern 0.00021
-.....\glue 6.23047 plus 3.11523 minus 2.07681
+.....\glue 7.25502 plus 3.6275 minus 2.41833
 .....\TU/texgyreheros(0)/m/n/26.0972 degree
 .....\kern -0.0002
 .....\kern 0.0002
@@ -159,67 +149,67 @@ Completed box being shipped out [1]
 ....\hbox(0.0+128.0374)x417.11752
 .....\glue(\leftskip) 0.0 plus 1.0fil
 .....\hbox(0.0+0.0)x0.0
-.....\vbox(0.0+128.0374)x417.11752, glue set 25.67513fil
+.....\vbox(0.0+128.0374)x417.11752, glue set 21.32771fil
 ......\glue 0.0 plus 1.0fil minus 1.0fil
-......\hbox(16.2019+4.74095)x417.11752, glue set 34.97011fil
+......\hbox(19.44241+5.68918)x417.11752, glue set 0.25102fil
 .......\glue(\leftskip) 0.0 plus 1.0fil
 .......\hbox(0.0+0.0)x0.0
 .......\TU/texgyreheros(0)/bx/n/26.0972 An
 .......\kern -0.00021
 .......\kern 0.00021
-.......\glue 6.0458 plus 3.0229 minus 2.01526
+.......\glue 7.25502 plus 3.6275 minus 2.41833
 .......\TU/texgyreheros(0)/bx/n/26.0972 example
 .......\kern -0.00021
 .......\kern 0.00021
-.......\glue 6.0458 plus 3.0229 minus 2.01526
+.......\glue 7.25502 plus 3.6275 minus 2.41833
 .......\TU/texgyreheros(0)/bx/n/26.0972 of
 .......\kern -0.00021
 .......\kern 0.00021
-.......\glue 6.0458 plus 3.0229 minus 2.01526
+.......\glue 7.25502 plus 3.6275 minus 2.41833
 .......\TU/texgyreheros(0)/bx/n/26.0972 thesis
 .......\kern -0.00021
 .......\kern 0.00021
-.......\glue 6.0458 plus 3.0229 minus 2.01526
+.......\glue 7.25502 plus 3.6275 minus 2.41833
 .......\TU/texgyreheros(0)/bx/n/26.0972 template
 .......\kern -0.00021
 .......\kern 0.00021
-.......\glue 6.0458 plus 3.0229 minus 2.01526
+.......\glue 7.25502 plus 3.6275 minus 2.41833
 .......\TU/texgyreheros(0)/bx/n/26.0972 for
 .......\kern -0.00021
 .......\kern 0.0
 .......\glue(\rightskip) 0.0 plus 1.0fil
 ......\penalty 150
-......\glue(\baselineskip) 9.1693
-......\hbox(16.2019+4.7627)x417.11752, glue set - 0.06041
+......\glue(\baselineskip) 4.98056
+......\hbox(19.44241+5.71527)x417.11752, glue set 49.80962fil
 .......\glue(\leftskip) 0.0 plus 1.0fil
 .......\TU/texgyreheros(0)/bx/n/26.0972 University
 .......\kern -0.00021
 .......\kern 0.00021
-.......\glue 6.0458 plus 3.0229 minus 2.01526
+.......\glue 7.25502 plus 3.6275 minus 2.41833
 .......\TU/texgyreheros(0)/bx/n/26.0972 of
 .......\kern -0.00021
 .......\kern 0.00021
-.......\glue 6.0458 plus 3.0229 minus 2.01526
+.......\glue 7.25502 plus 3.6275 minus 2.41833
 .......\TU/texgyreheros(0)/bx/n/26.0972 Science
 .......\kern -0.00021
 .......\kern 0.00021
-.......\glue 6.0458 plus 3.0229 minus 2.01526
+.......\glue 7.25502 plus 3.6275 minus 2.41833
 .......\TU/texgyreheros(0)/bx/n/26.0972 and
-.......\kern -0.00021
-.......\kern 0.00021
-.......\glue 6.0458 plus 3.0229 minus 2.01526
-.......\TU/texgyreheros(0)/bx/n/26.0972 Technology
-.......\kern -0.00021
-.......\kern 0.00021
-.......\glue 6.0458 plus 3.0229 minus 2.01526
-.......\TU/texgyreheros(0)/bx/n/26.0972 of
 .......\kern -0.00021
 .......\kern 0.0
 .......\glue(\rightskip) 0.0 plus 1.0fil
 ......\penalty 150
-......\glue(\baselineskip) 9.14755
-......\hbox(16.2019+0.26096)x417.11752, glue set 178.35144fil
+......\glue(\baselineskip) 4.95447
+......\hbox(19.44241+5.71527)x417.11752, glue set 80.42152fil
 .......\glue(\leftskip) 0.0 plus 1.0fil
+.......\TU/texgyreheros(0)/bx/n/26.0972 Technology
+.......\kern -0.00021
+.......\kern 0.00021
+.......\glue 7.25502 plus 3.6275 minus 2.41833
+.......\TU/texgyreheros(0)/bx/n/26.0972 of
+.......\kern -0.00021
+.......\kern 0.00021
+.......\glue 7.25502 plus 3.6275 minus 2.41833
 .......\TU/texgyreheros(0)/bx/n/26.0972 China
 .......\kern -0.0002
 .......\kern 0.0002

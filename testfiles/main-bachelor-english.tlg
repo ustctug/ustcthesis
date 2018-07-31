@@ -1,10 +1,6 @@
 This is a generated file for the l3build validation system.
 Don't change this file in any respect.
 (chapters-bachelor.tex
-LaTeX Font Info:    Font shape `TU/texgyreheros(0)/m/n' will be
-(Font)              scaled to size 10.34387pt on input line ....
-LaTeX Font Info:    Font shape `TU/texgyreheros(0)/m/n' will be
-(Font)              scaled to size 15.51582pt on input line ....
 Completed box being shipped out [1]
 \vbox(722.98453+5.42024)x435.04271
 .\hbox(0.0+0.0)x0.0
@@ -92,7 +88,7 @@ Completed box being shipped out [1]
 .....\glue 0.0 plus 1.0fil minus 1.0fil
 ...\glue 8.2511
 ...\glue(\lineskip) 0.0
-...\vbox(700.50723+0.0)x417.11752, glue set 634.33403fil
+...\vbox(700.50723+0.0)x417.11752, glue set 631.91779fil
 ....\write-{}
 ....\special{pdf:docview<</OpenAction[@page1/Fit]/PageMode/UseOutlines>>}
 ....\special{pdf:dest (Doc-Start) [@thispage /XYZ @xpos @ypos null]}
@@ -116,7 +112,7 @@ Completed box being shipped out [1]
 ....\glue 12.08972
 ....\glue 0.0
 ....\glue(\parskip) 0.0
-....\hbox(11.31104+3.38243)x417.11752, glue set 141.41403fil
+....\hbox(13.17105+3.93866)x417.11752, glue set 130.37256fil
 .....\glue(\leftskip) 0.0 plus 1.0fil
 .....\hbox(0.0+0.0)x0.0
 .....\TU/texgyreheros(0)/m/n/18.06729 Acknowledgements
@@ -307,7 +303,7 @@ Completed box being shipped out [1]
 .....\glue 0.0 plus 1.0fil minus 1.0fil
 ...\glue 8.2511
 ...\glue(\lineskip) 0.0
-...\vbox(700.50723+0.0)x417.11752, glue set 646.48064fil
+...\vbox(700.50723+0.0)x417.11752, glue set 644.52876fil
 ....\write2{\protect \FN@pp@footnotehinttrue }
 ....\write-{}
 ....\write3{\protect \BOOKMARK [0][]{ustcchapter.2.0}{\376\377\000C\000o\000n\000\ETC.}
@@ -322,7 +318,7 @@ Completed box being shipped out [1]
 ....\glue 12.08972
 ....\glue 0.0
 ....\glue(\parskip) 0.0
-....\hbox(11.59032+0.27927)x417.11752, glue set 177.62798fil
+....\hbox(13.49626+0.3252)x417.11752, glue set 172.54163fil
 .....\glue(\leftskip) 0.0 plus 1.0fil
 .....\hbox(0.0+0.0)x0.0
 .....\TU/texgyreheros(0)/m/n/18.06729 Contents
@@ -674,7 +670,7 @@ Completed box being shipped out [3]
 .....\glue 0.0 plus 1.0fil minus 1.0fil
 ...\glue 8.2511
 ...\glue(\lineskip) 0.0
-...\vbox(700.50723+0.0)x417.11752, glue set 594.41533fil
+...\vbox(700.50723+0.0)x417.11752, glue set 592.51704fil
 ....\write-{}
 ....\special{pdf:dest (chapter*.4) [@thispage /XYZ @xpos @ypos null]}
 ....\write3{\protect \BOOKMARK [0][]{chapter*.4}{\376\377\202\361\145\207\121\205\ETC.}
@@ -688,7 +684,7 @@ Completed box being shipped out [3]
 ....\glue 12.08972
 ....\glue 0.0
 ....\glue(\parskip) 0.0
-....\hbox(11.31104+0.23273)x417.11752, glue set 180.14154fil
+....\hbox(13.17105+0.271)x417.11752, glue set 175.46852fil
 .....\glue(\leftskip) 0.0 plus 1.0fil
 .....\hbox(0.0+0.0)x0.0
 .....\TU/texgyreheros(0)/m/n/18.06729 Abstract
@@ -781,12 +777,6 @@ Completed box being shipped out [3]
 ..........\glue(\rightskip) 0.0
 ....\glue 0.0 plus 1.0fil minus 1.0fil
 Chapter 1
-LaTeX Font Info:    Font shape `TU/texgyreheros(0)/m/n' will be
-(Font)              scaled to size 13.79184pt on input line ....
-LaTeX Font Info:    Font shape `TU/texgyreheros(0)/m/n' will be
-(Font)              scaled to size 12.92986pt on input line ....
-LaTeX Font Info:    Font shape `TU/texgyreheros(0)/m/n' will be
-(Font)              scaled to size 12.06786pt on input line ....
 Completed box being shipped out [4]
 \vbox(722.98453+5.42024)x435.04271
 .\vbox(0.0+0.0)x0.0, glue set 30.59457fil
@@ -872,7 +862,7 @@ Completed box being shipped out [4]
 .......\glue -0.4
 ...\glue 8.2511
 ...\glue(\lineskip) 0.0
-...\vbox(700.50723+0.0)x417.11752, glue set 334.33403fil
+...\vbox(700.50723+0.0)x417.11752, glue set 333.83961fil
 ....\write-{}
 ....\write2{\protect \FN@pp@footnotehinttrue }
 ....\write-{}
@@ -889,18 +879,18 @@ Completed box being shipped out [4]
 ....\glue 12.08972
 ....\glue 0.0
 ....\glue(\parskip) 0.0
-....\hbox(12.49454+3.0066)x417.11752, glue set 152.40991fil
+....\hbox(12.49454+3.50102)x417.11752, glue set 147.138fil
 .....\glue(\leftskip) 0.0 plus 1.0fil
 .....\hbox(0.0+0.0)x0.0
 .....\TU/texgyreheros(0)/m/n/16.05981 Chapter
 .....\kern -0.00021
 .....\kern 0.00021
-.....\glue 3.83414 plus 1.91707 minus 1.27805
+.....\glue 4.46463 plus 2.23232 minus 1.4882
 .....\TU/texgyreheros(0)/m/n/16.05981 1
 .....\kern -0.0002
 .....\kern 0.0002
 .....\glue 16.05981
-.....\glue 3.83414 plus 1.91707 minus 1.27805
+.....\glue 4.46463 plus 2.23232 minus 1.4882
 .....\TU/FandolHei-Regular(0)/m/n/16.05981 简
 .....\glue 0.0 plus 1.37747
 .....\TU/FandolHei-Regular(0)/m/n/16.05981 介
@@ -946,9 +936,9 @@ Completed box being shipped out [4]
 ....\glue 24.08972
 ....\glue(\parskip) 0.0
 ....\glue(\baselineskip) 13.20319
-....\hbox(11.77385+2.6348)x417.11752, glue set 154.40428fil
+....\hbox(11.77385+2.6348)x417.11752, glue set 152.92656fil
 .....\glue(\leftskip) 0.0 plus 1.0fil
-.....\hbox(9.16727+0.0)x33.02858
+.....\hbox(10.67476+0.0)x35.98402
 ......\glue 0.0
 ......\TU/texgyreheros(0)/m/n/15.05608 1.1
 ......\kern -0.0002
@@ -995,8 +985,8 @@ t \ETC.}
 ....\glue 12.04486
 ....\glue(\parskip) 0.0
 ....\glue(\baselineskip) 14.60843
-....\hbox(10.98892+2.45914)x417.11752, glue set 305.96458fil
-.....\hbox(8.5561+0.0)x40.89125
+....\hbox(10.98892+2.45914)x417.11752, glue set 301.5511fil
+.....\hbox(9.9631+0.0)x45.30473
 ......\glue 0.0
 ......\TU/texgyreheros(0)/m/n/14.05234 1.1.1
 ......\kern -0.0002
@@ -1313,7 +1303,7 @@ Completed box being shipped out [5]
 .....\glue 0.0 plus 1.0fil minus 1.0fil
 ...\glue 8.2511
 ...\glue(\lineskip) 0.0
-...\vbox(700.50723+0.0)x417.11752, glue set 649.83519fil
+...\vbox(700.50723+0.0)x417.11752, glue set 649.34077fil
 ....\write-{}
 ....\write2{\@writefile{toc}{\protect \addvspace {12\bp@ }}}
 ....\special{pdf:dest (chapter.2) [@thispage /XYZ @xpos @ypos null]}
@@ -1328,18 +1318,18 @@ Completed box being shipped out [5]
 ....\glue 12.08972
 ....\glue 0.0
 ....\glue(\parskip) 0.0
-....\hbox(12.4303+3.0066)x417.11752, glue set 144.38fil
+....\hbox(12.4303+3.50102)x417.11752, glue set 139.1081fil
 .....\glue(\leftskip) 0.0 plus 1.0fil
 .....\hbox(0.0+0.0)x0.0
 .....\TU/texgyreheros(0)/m/n/16.05981 Chapter
 .....\kern -0.00021
 .....\kern 0.00021
-.....\glue 3.83414 plus 1.91707 minus 1.27805
+.....\glue 4.46463 plus 2.23232 minus 1.4882
 .....\TU/texgyreheros(0)/m/n/16.05981 2
 .....\kern -0.0002
 .....\kern 0.0002
 .....\glue 16.05981
-.....\glue 3.83414 plus 1.91707 minus 1.27805
+.....\glue 4.46463 plus 2.23232 minus 1.4882
 .....\TU/FandolHei-Regular(0)/m/n/16.05981 浮
 .....\glue 0.0 plus 1.37747
 .....\TU/FandolHei-Regular(0)/m/n/16.05981 动
@@ -1497,7 +1487,7 @@ Completed box being shipped out [6]
 .......\glue -0.4
 ...\glue 8.2511
 ...\glue(\lineskip) 0.0
-...\vbox(700.50723+0.0)x417.11752, glue set 613.34787fil
+...\vbox(700.50723+0.0)x417.11752, glue set 610.93163fil
 ....\write-{}
 ....\write2{\@writefile{toc}{\protect \addvspace {12\bp@ }}}
 ....\special{pdf:dest (chapter*.6) [@thispage /XYZ @xpos @ypos null]}
@@ -1512,7 +1502,7 @@ Completed box being shipped out [6]
 ....\glue 12.08972
 ....\glue 0.0
 ....\glue(\parskip) 0.0
-....\hbox(11.31104+3.38243)x417.11752, glue set 166.06868fil
+....\hbox(13.17105+3.93866)x417.11752, glue set 159.08148fil
 .....\glue(\leftskip) 0.0 plus 1.0fil
 .....\hbox(0.0+0.0)x0.0
 .....\TU/texgyreheros(0)/m/n/18.06729 Bibliography
@@ -1763,7 +1753,7 @@ Completed box being shipped out [7]
 .....\glue 0.0 plus 1.0fil minus 1.0fil
 ...\glue 8.2511
 ...\glue(\lineskip) 0.0
-...\vbox(700.50723+0.0)x417.11752, glue set 633.47415fil
+...\vbox(700.50723+0.0)x417.11752, glue set 632.97974fil
 ....\write-{}
 ....\special{pdf:dest (appendix.A) [@thispage /XYZ @xpos @ypos null]}
 ....\write3{\protect \BOOKMARK [0][]{appendix.A}{\376\377\000A\000p\000p\000e\000\ETC.}
@@ -1777,18 +1767,18 @@ Completed box being shipped out [7]
 ....\glue 12.08972
 ....\glue 0.0
 ....\glue(\parskip) 0.0
-....\hbox(12.55878+3.0066)x417.11752, glue set 131.22643fil
+....\hbox(12.55878+3.50102)x417.11752, glue set 125.11197fil
 .....\glue(\leftskip) 0.0 plus 1.0fil
 .....\hbox(0.0+0.0)x0.0
 .....\TU/texgyreheros(0)/m/n/16.05981 Appendix
 .....\kern -0.00021
 .....\kern 0.00021
-.....\glue 3.83414 plus 1.91707 minus 1.27805
+.....\glue 4.46463 plus 2.23232 minus 1.4882
 .....\TU/texgyreheros(0)/m/n/16.05981 A
 .....\kern -0.0002
 .....\kern 0.0002
 .....\glue 16.05981
-.....\glue 3.83414 plus 1.91515 minus 1.27931
+.....\glue 4.46463 plus 2.23007 minus 1.48969
 .....\TU/FandolHei-Regular(0)/m/n/16.05981 附
 .....\glue 0.0 plus 1.37747
 .....\TU/FandolHei-Regular(0)/m/n/16.05981 录
