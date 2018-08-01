@@ -66,8 +66,21 @@ Completed box being shipped out [1]
 ...\glue(\lineskip) 0.0
 ...\vbox(700.50723+0.0)x417.11752, glue set 593.33208fil
 ....\write-{}
+....\special{pdf:outline [] 0<</Title(\376\377\144\130\211\201)/A<</S/GoTo/D(ustcc\ETC.}
+....\special{pdf:outline [] 0<</Title(\376\377\000A\000b\000s\000t\000r\000a\000c\\ETC.}
+....\special{pdf:outline [] 0<</Title(\376\377\166\356\137\125)/A<</S/GoTo/D(ustcc\ETC.}
+....\special{pdf:outline [] 0<</Title(\376\377\173\046\123\367\213\364\146\016)/A<\ETC.}
+....\special{pdf:outline [] 0<</Title(\376\377\173\054\0001\172\340\000\040\000\04\ETC.}
+....\special{pdf:outline [-] 1<</Title(\376\377\0001\000.\0001\000\040\116\000\176\ETC.}
+....\special{pdf:outline [-] 2<</Title(\376\377\0001\000.\0001\000.\0001\000\040\1\ETC.}
+....\special{pdf:outline [] 0<</Title(\376\377\173\054\0002\172\340\000\040\000\04\ETC.}
+....\special{pdf:outline [] 0<</Title(\376\377\123\302\200\003\145\207\163\056)/A<\ETC.}
+....\special{pdf:outline [] 0<</Title(\376\377\226\104\137\125\000\040\000A\000\04\ETC.}
+....\special{pdf:outline [] 0<</Title(\376\377\201\364\214\042)/A<</S/GoTo/D(appen\ETC.}
+....\special{pdf:outline [] 0<</Title(\376\377\127\050\213\373\147\037\225\364\123\ETC.}
 ....\special{pdf:docview<</OpenAction[@page1/Fit]/PageMode/UseOutlines>>}
 ....\special{pdf:dest (Doc-Start) [@thispage /XYZ @xpos @ypos null]}
+....\special{pdf:docview <</PageLabels<</Nums[0<</S/R>>6<</S/D>>]>>>>}
 ....\write1{\protect \providecommand {\protect \FN@pp@footnotehinttrue }{}}
 ....\write1{\protect \providecommand {\protect \FN@pp@footnote@aux }[2]{}}
 ....\write1{\protect \FN@pp@footnotehinttrue }
@@ -360,6 +373,47 @@ Completed box being shipped out [2]
 ..........\penalty 10000
 ..........\glue(\parfillskip) 0.0
 ..........\glue(\rightskip) 0.0
+(main.toc
+LaTeX Font Info:    Calculating math sizes for size <14.05234> on input line ....
+LaTeX Font Info:    Font shape `TU/STIX2Math.otf(2)/m/n' will be
+(Font)              scaled to size 14.05255pt on input line ....
+LaTeX Font Info:    Font shape `TU/STIX2Math.otf(2)/m/n' will be
+(Font)              scaled to size 9.83672pt on input line ....
+LaTeX Font Info:    Font shape `TU/STIX2Math.otf(2)/m/n' will be
+(Font)              scaled to size 7.02628pt on input line ....
+LaTeX Font Info:    Font shape `TU/STIX2Math.otf(3)/m/n' will be
+(Font)              scaled to size 14.05211pt on input line ....
+LaTeX Font Info:    Font shape `TU/STIX2Math.otf(3)/m/n' will be
+(Font)              scaled to size 9.83643pt on input line ....
+LaTeX Font Info:    Font shape `TU/STIX2Math.otf(3)/m/n' will be
+(Font)              scaled to size 7.02605pt on input line ....
+LaTeX Font Info:    Calculating math sizes for size <12.04486> on input line ....
+LaTeX Font Info:    Font shape `TU/STIX2Math.otf(2)/m/n' will be
+(Font)              scaled to size 12.04504pt on input line ....
+LaTeX Font Info:    Font shape `TU/STIX2Math.otf(2)/m/n' will be
+(Font)              scaled to size 8.43147pt on input line ....
+LaTeX Font Info:    Font shape `TU/STIX2Math.otf(2)/m/n' will be
+(Font)              scaled to size 6.02252pt on input line ....
+LaTeX Font Info:    Font shape `TU/STIX2Math.otf(3)/m/n' will be
+(Font)              scaled to size 12.04466pt on input line ....
+LaTeX Font Info:    Font shape `TU/STIX2Math.otf(3)/m/n' will be
+(Font)              scaled to size 8.43121pt on input line ....
+LaTeX Font Info:    Font shape `TU/STIX2Math.otf(3)/m/n' will be
+(Font)              scaled to size 6.02232pt on input line ....
+LaTeX Font Info:    Calculating math sizes for size <10.53925> on input line ....
+LaTeX Font Info:    Font shape `TU/STIX2Math.otf(2)/m/n' will be
+(Font)              scaled to size 10.5394pt on input line ....
+LaTeX Font Info:    Font shape `TU/STIX2Math.otf(2)/m/n' will be
+(Font)              scaled to size 7.37753pt on input line ....
+LaTeX Font Info:    Font shape `TU/STIX2Math.otf(2)/m/n' will be
+(Font)              scaled to size 5.2697pt on input line ....
+LaTeX Font Info:    Font shape `TU/STIX2Math.otf(3)/m/n' will be
+(Font)              scaled to size 10.53908pt on input line ....
+LaTeX Font Info:    Font shape `TU/STIX2Math.otf(3)/m/n' will be
+(Font)              scaled to size 7.3773pt on input line ....
+LaTeX Font Info:    Font shape `TU/STIX2Math.otf(3)/m/n' will be
+(Font)              scaled to size 5.26953pt on input line ....
+)
 \tf@toc=\write...
 Completed box being shipped out [3]
 \vbox(722.98453+6.32361)x435.04271
@@ -422,7 +476,7 @@ Completed box being shipped out [3]
 .....\glue 0.0 plus 1.0fil minus 1.0fil
 ...\glue 8.2511
 ...\glue(\lineskip) 0.0
-...\vbox(700.50723+0.0)x417.11752, glue set 644.04094fil
+...\vbox(700.50723+0.0)x417.11752, glue set 453.30823fil
 ....\write-{}
 ....\write3{\protect \BOOKMARK [0][]{ustcchapter.3.0}{\376\377\166\356\137\125}{}\ETC.}
 ....\special{pdf:dest (ustcchapter.3.0) [@thispage /XYZ @xpos @ypos null]}
@@ -449,7 +503,449 @@ Completed box being shipped out [3]
 .....\glue(\rightskip) 0.0 plus 1.0fil
 ....\penalty 10000
 ....\glue 18.06729
+....\penalty 10000
+....\glue 0.0 plus 0.1
+....\penalty 10000
+....\glue 6.02243
+....\glue(\parskip) 0.0
+....\hbox(14.05226+6.02249)x417.11752, glue set 316.01637fill
+.....\glue(\leftskip) 56.20937
+.....\hbox(0.0+0.0)x0.0
+.....\rule(14.05226+6.02249)x0.0
+.....\hbox(10.91867+2.58562)x0.0, glue set - 56.20937fil
+......\glue 0.0 plus 1.0fil minus 1.0fil
+......\hbox(10.91867+2.58562)x56.20937
+.......\TU/FandolSong-Regular(0)/m/n/14.05234 第
+.......\glue 3.51309 plus 1.75655 minus 1.17102
+.......\TU/texgyretermes(0)/m/n/14.05234 1
+.......\glue 3.51309 plus 1.75655 minus 1.17102
+.......\TU/FandolSong-Regular(0)/m/n/14.05234 章
+.......\kern -0.00017
+.......\kern 0.00017
+.......\glue 14.05234
+.....\special{pdf:bann<</Type/Annot/Subtype/Link/Border[0 0 0]/H/I/C[1 0 0]/A<</S/G\ETC.}
+.....\TU/FandolSong-Regular(0)/m/n/14.05234 简
+.....\glue 0.0 plus 0.876
+.....\TU/FandolSong-Regular(0)/m/n/14.05234 介
+.....\kern -0.00017
+.....\kern 0.00017
+.....\special{pdf:eann}
+.....\rule(14.05226+6.02249)x0.0
+.....\kern 0.0
+.....\glue -6.0
+.....\glue 4.11734
+.....\leaders 0.0 plus 1.0fill
+......\hbox(4.49675+0.0)x6.0, glue set 1.88266fil
+.......\glue 0.0 plus 1.0fil minus 1.0fil
+.......\hbox(4.49675+0.0)x4.11734
+........\mathon
+........\TU/STIX2Math.otf(1)/m/n/14.05234 glyph#1938
+........\mathoff
+.....\kern 0.0
+.....\hbox(8.14233+0.0)x18.66977, glue set 12.64734fil
+......\glue 0.0 plus 1.0fil
+......\special{pdf:bann<</Type/Annot/Subtype/Link/Border[0 0 0]/H/I/C[1 0 0]/A<</S/G\ETC.}
+......\TU/texgyretermes(0)/m/n/12.04486 1
+......\kern -0.0002
+......\kern 0.0002
+......\special{pdf:eann}
+.....\rule(*+*)x0.0
+.....\penalty 10000
+.....\glue -18.66977
+.....\penalty 10000
+.....\glue(\parfillskip) -12.045 plus 1.0fil
+.....\glue(\rightskip) 30.71477
+....\penalty 10000
+....\penalty 10000
+....\glue 0.0 plus 0.1
+....\penalty 10000
+....\glue(\parskip) 0.0
+....\glue(\baselineskip) 0.00002
+....\hbox(14.05226+6.02249)x417.11752, glue set 301.54851fill
+.....\glue(\leftskip) 39.1458
+.....\hbox(0.0+0.0)x0.0
+.....\rule(14.05226+6.02249)x0.0
+.....\hbox(8.14233+0.13248)x0.0, glue set - 27.10094fil
+......\glue 0.0 plus 1.0fil minus 1.0fil
+......\hbox(8.14233+0.13248)x27.10094
+.......\TU/texgyretermes(0)/m/n/12.04486 1.1
+.......\kern -0.0002
+.......\kern 0.0002
+.......\glue 12.04486
+.....\special{pdf:bann<</Type/Annot/Subtype/Link/Border[0 0 0]/H/I/C[1 0 0]/A<</S/G\ETC.}
+.....\TU/FandolSong-Regular(0)/m/n/12.04486 一
+.....\glue 0.0 plus 0.61366
+.....\TU/FandolSong-Regular(0)/m/n/12.04486 级
+.....\glue 0.0 plus 0.61366
+.....\TU/FandolSong-Regular(0)/m/n/12.04486 节
+.....\glue 0.0 plus 0.61366
+.....\TU/FandolSong-Regular(0)/m/n/12.04486 标
+.....\glue 0.0 plus 0.61366
+.....\TU/FandolSong-Regular(0)/m/n/12.04486 题
+.....\kern -0.00017
+.....\kern 0.00017
+.....\special{pdf:eann}
+.....\rule(14.05226+6.02249)x0.0
+.....\kern 0.0
+.....\glue -6.0
+.....\glue 3.52914
+.....\leaders 0.0 plus 1.0fill
+......\hbox(3.85435+0.0)x6.0, glue set 2.47086fil
+.......\glue 0.0 plus 1.0fil minus 1.0fil
+.......\hbox(3.85435+0.0)x3.52914
+........\mathon
+........\TU/STIX2Math.otf(1)/m/n/12.04486 glyph#1938
+........\mathoff
+.....\kern 0.0
+.....\hbox(8.14233+0.0)x18.66977, glue set 12.64734fil
+......\glue 0.0 plus 1.0fil
+......\special{pdf:bann<</Type/Annot/Subtype/Link/Border[0 0 0]/H/I/C[1 0 0]/A<</S/G\ETC.}
+......\TU/texgyretermes(0)/m/n/12.04486 1
+......\kern -0.0002
+......\kern 0.0002
+......\special{pdf:eann}
+.....\rule(*+*)x0.0
+.....\penalty 10000
+.....\glue -18.66977
+.....\penalty 10000
+.....\glue(\parfillskip) -12.045 plus 1.0fil
+.....\glue(\rightskip) 30.71477
+....\penalty 10000
+....\penalty 10000
+....\glue 0.0 plus 0.1
+....\penalty 10000
+....\glue(\parskip) 0.0
+....\glue(\baselineskip) 0.00002
+....\hbox(14.05226+6.02249)x417.11752, glue set 292.95607fill
+.....\glue(\leftskip) 55.70746
+.....\hbox(0.0+0.0)x0.0
+.....\rule(14.05226+6.02249)x0.0
+.....\hbox(7.12453+0.11592)x0.0, glue set - 31.61774fil
+......\glue 0.0 plus 1.0fil minus 1.0fil
+......\hbox(7.12453+0.11592)x31.61774
+.......\TU/texgyretermes(0)/m/n/10.53925 1.1.1
+.......\kern -0.0002
+.......\kern 0.0002
+.......\glue 10.53925
+.....\special{pdf:bann<</Type/Annot/Subtype/Link/Border[0 0 0]/H/I/C[1 0 0]/A<</S/G\ETC.}
+.....\TU/FandolSong-Regular(0)/m/n/10.53925 二
+.....\glue 0.0 plus 0.44936
+.....\TU/FandolSong-Regular(0)/m/n/10.53925 级
+.....\glue 0.0 plus 0.44936
+.....\TU/FandolSong-Regular(0)/m/n/10.53925 节
+.....\glue 0.0 plus 0.44936
+.....\TU/FandolSong-Regular(0)/m/n/10.53925 标
+.....\glue 0.0 plus 0.44936
+.....\TU/FandolSong-Regular(0)/m/n/10.53925 题
+.....\kern -0.00017
+.....\kern 0.00017
+.....\special{pdf:eann}
+.....\rule(14.05226+6.02249)x0.0
+.....\kern 0.0
+.....\glue -6.0
+.....\glue 3.088
+.....\leaders 0.0 plus 1.0fill
+......\hbox(3.37256+0.0)x6.0, glue set 2.912fil
+.......\glue 0.0 plus 1.0fil minus 1.0fil
+.......\hbox(3.37256+0.0)x3.088
+........\mathon
+........\TU/STIX2Math.otf(1)/m/n/10.53925 glyph#1938
+........\mathoff
+.....\kern 0.0
+.....\hbox(8.14233+0.0)x18.66977, glue set 12.64734fil
+......\glue 0.0 plus 1.0fil
+......\special{pdf:bann<</Type/Annot/Subtype/Link/Border[0 0 0]/H/I/C[1 0 0]/A<</S/G\ETC.}
+......\TU/texgyretermes(0)/m/n/12.04486 1
+......\kern -0.0002
+......\kern 0.0002
+......\special{pdf:eann}
+.....\rule(*+*)x0.0
+.....\penalty 10000
+.....\glue -18.66977
+.....\penalty 10000
+.....\glue(\parfillskip) -12.045 plus 1.0fil
+.....\glue(\rightskip) 30.71477
+....\penalty 10000
+....\penalty -300
+....\glue 0.0 plus 0.1
+....\penalty 10000
+....\glue 6.02243
+....\glue(\parskip) 0.0
+....\glue(\baselineskip) 0.00002
+....\hbox(14.05226+6.02249)x417.11752, glue set 301.96404fill
+.....\glue(\leftskip) 56.20937
+.....\hbox(0.0+0.0)x0.0
+.....\rule(14.05226+6.02249)x0.0
+.....\hbox(10.91867+2.58562)x0.0, glue set - 56.20937fil
+......\glue 0.0 plus 1.0fil minus 1.0fil
+......\hbox(10.91867+2.58562)x56.20937
+.......\TU/FandolSong-Regular(0)/m/n/14.05234 第
+.......\glue 3.51309 plus 1.75655 minus 1.17102
+.......\TU/texgyretermes(0)/m/n/14.05234 2
+.......\glue 3.51309 plus 1.75655 minus 1.17102
+.......\TU/FandolSong-Regular(0)/m/n/14.05234 章
+.......\kern -0.00017
+.......\kern 0.00017
+.......\glue 14.05234
+.....\special{pdf:bann<</Type/Annot/Subtype/Link/Border[0 0 0]/H/I/C[1 0 0]/A<</S/G\ETC.}
+.....\TU/FandolSong-Regular(0)/m/n/14.05234 浮
+.....\glue 0.0 plus 0.876
+.....\TU/FandolSong-Regular(0)/m/n/14.05234 动
+.....\glue 0.0 plus 0.876
+.....\TU/FandolSong-Regular(0)/m/n/14.05234 体
+.....\kern -0.00017
+.....\kern 0.00017
+.....\special{pdf:eann}
+.....\rule(14.05226+6.02249)x0.0
+.....\kern 0.0
+.....\glue -6.0
+.....\glue 4.11734
+.....\leaders 0.0 plus 1.0fill
+......\hbox(4.49675+0.0)x6.0, glue set 1.88266fil
+.......\glue 0.0 plus 1.0fil minus 1.0fil
+.......\hbox(4.49675+0.0)x4.11734
+........\mathon
+........\TU/STIX2Math.otf(1)/m/n/14.05234 glyph#1938
+........\mathoff
+.....\kern 0.0
+.....\hbox(8.14233+0.0)x18.66977, glue set 12.64734fil
+......\glue 0.0 plus 1.0fil
+......\special{pdf:bann<</Type/Annot/Subtype/Link/Border[0 0 0]/H/I/C[1 0 0]/A<</S/G\ETC.}
+......\TU/texgyretermes(0)/m/n/12.04486 2
+......\kern -0.0002
+......\kern 0.0002
+......\special{pdf:eann}
+.....\rule(*+*)x0.0
+.....\penalty 10000
+.....\glue -18.66977
+.....\penalty 10000
+.....\glue(\parfillskip) -12.045 plus 1.0fil
+.....\glue(\rightskip) 30.71477
+....\penalty 10000
+....\penalty 0
+....\glue 0.0 plus 0.1
+....\penalty 10000
+....\glue 6.02243
+....\glue(\parskip) 0.0
+....\glue(\baselineskip) 0.00002
+....\hbox(14.05226+6.02249)x417.11752, glue set 344.12106fill
+.....\hbox(0.0+0.0)x0.0
+.....\rule(14.05226+6.02249)x0.0
+.....\special{pdf:bann<</Type/Annot/Subtype/Link/Border[0 0 0]/H/I/C[1 0 0]/A<</S/G\ETC.}
+.....\TU/FandolSong-Regular(0)/m/n/14.05234 参
+.....\glue 0.0 plus 0.876
+.....\TU/FandolSong-Regular(0)/m/n/14.05234 考
+.....\glue 0.0 plus 0.876
+.....\TU/FandolSong-Regular(0)/m/n/14.05234 文
+.....\glue 0.0 plus 0.876
+.....\TU/FandolSong-Regular(0)/m/n/14.05234 献
+.....\kern -0.00017
+.....\kern 0.00017
+.....\special{pdf:eann}
+.....\rule(14.05226+6.02249)x0.0
+.....\kern 0.0
+.....\glue -6.0
+.....\glue 4.11734
+.....\leaders 0.0 plus 1.0fill
+......\hbox(4.49675+0.0)x6.0, glue set 1.88266fil
+.......\glue 0.0 plus 1.0fil minus 1.0fil
+.......\hbox(4.49675+0.0)x4.11734
+........\mathon
+........\TU/STIX2Math.otf(1)/m/n/14.05234 glyph#1938
+........\mathoff
+.....\kern 0.0
+.....\hbox(8.14233+0.16861)x18.66977, glue set 12.64734fil
+......\glue 0.0 plus 1.0fil
+......\special{pdf:bann<</Type/Annot/Subtype/Link/Border[0 0 0]/H/I/C[1 0 0]/A<</S/G\ETC.}
+......\TU/texgyretermes(0)/m/n/12.04486 3
+......\kern -0.0002
+......\kern 0.0002
+......\special{pdf:eann}
+.....\rule(*+*)x0.0
+.....\penalty 10000
+.....\glue -18.66977
+.....\penalty 10000
+.....\glue(\parfillskip) -12.045 plus 1.0fil
+.....\glue(\rightskip) 30.71477
+....\penalty 10000
+....\penalty 0
+....\glue 0.0 plus 0.1
+....\penalty 10000
+....\glue 6.02243
+....\glue(\parskip) 0.0
+....\glue(\baselineskip) 0.00002
+....\hbox(14.05226+6.02249)x417.11752, glue set 288.30518fill
+.....\glue(\leftskip) 55.81589
+.....\hbox(0.0+0.0)x0.0
+.....\rule(14.05226+6.02249)x0.0
+.....\hbox(10.66573+2.33267)x0.0, glue set - 55.81589fil
+......\glue 0.0 plus 1.0fil minus 1.0fil
+......\hbox(10.66573+2.33267)x55.81589
+.......\TU/FandolSong-Regular(0)/m/n/14.05234 附
+.......\glue 0.0 plus 0.876
+.......\TU/FandolSong-Regular(0)/m/n/14.05234 录
+.......\glue 3.51309 plus 1.75478 minus 1.17218
+.......\TU/texgyretermes(0)/m/n/14.05234 A
+.......\kern -0.0002
+.......\kern 0.0002
+.......\glue 14.05234
+.....\special{pdf:bann<</Type/Annot/Subtype/Link/Border[0 0 0]/H/I/C[1 0 0]/A<</S/G\ETC.}
+.....\TU/FandolSong-Regular(0)/m/n/14.05234 附
+.....\glue 0.0 plus 0.876
+.....\TU/FandolSong-Regular(0)/m/n/14.05234 录
+.....\glue 0.0 plus 0.876
+.....\TU/FandolSong-Regular(0)/m/n/14.05234 章
+.....\glue 0.0 plus 0.876
+.....\TU/FandolSong-Regular(0)/m/n/14.05234 节
+.....\kern -0.00017
+.....\kern 0.00017
+.....\special{pdf:eann}
+.....\rule(14.05226+6.02249)x0.0
+.....\kern 0.0
+.....\glue -6.0
+.....\glue 4.11734
+.....\leaders 0.0 plus 1.0fill
+......\hbox(4.49675+0.0)x6.0, glue set 1.88266fil
+.......\glue 0.0 plus 1.0fil minus 1.0fil
+.......\hbox(4.49675+0.0)x4.11734
+........\mathon
+........\TU/STIX2Math.otf(1)/m/n/14.05234 glyph#1938
+........\mathoff
+.....\kern 0.0
+.....\hbox(8.14233+0.0)x18.66977, glue set 12.64734fil
+......\glue 0.0 plus 1.0fil
+......\special{pdf:bann<</Type/Annot/Subtype/Link/Border[0 0 0]/H/I/C[1 0 0]/A<</S/G\ETC.}
+......\TU/texgyretermes(0)/m/n/12.04486 4
+......\kern -0.0002
+......\kern 0.0002
+......\special{pdf:eann}
+.....\rule(*+*)x0.0
+.....\penalty 10000
+.....\glue -18.66977
+.....\penalty 10000
+.....\glue(\parfillskip) -12.045 plus 1.0fil
+.....\glue(\rightskip) 30.71477
+....\penalty 10000
+....\penalty 0
+....\glue 0.0 plus 0.1
+....\penalty 10000
+....\glue 6.02243
+....\glue(\parskip) 0.0
+....\glue(\baselineskip) 0.00002
+....\hbox(14.05226+6.02249)x417.11752, glue set 372.22574fill
+.....\hbox(0.0+0.0)x0.0
+.....\rule(14.05226+6.02249)x0.0
+.....\special{pdf:bann<</Type/Annot/Subtype/Link/Border[0 0 0]/H/I/C[1 0 0]/A<</S/G\ETC.}
+.....\TU/FandolSong-Regular(0)/m/n/14.05234 致
+.....\glue 0.0 plus 0.876
+.....\TU/FandolSong-Regular(0)/m/n/14.05234 谢
+.....\kern -0.00017
+.....\kern 0.00017
+.....\special{pdf:eann}
+.....\rule(14.05226+6.02249)x0.0
+.....\kern 0.0
+.....\glue -6.0
+.....\glue 4.11734
+.....\leaders 0.0 plus 1.0fill
+......\hbox(4.49675+0.0)x6.0, glue set 1.88266fil
+.......\glue 0.0 plus 1.0fil minus 1.0fil
+.......\hbox(4.49675+0.0)x4.11734
+........\mathon
+........\TU/STIX2Math.otf(1)/m/n/14.05234 glyph#1938
+........\mathoff
+.....\kern 0.0
+.....\hbox(8.28687+0.16861)x18.66977, glue set 12.64734fil
+......\glue 0.0 plus 1.0fil
+......\special{pdf:bann<</Type/Annot/Subtype/Link/Border[0 0 0]/H/I/C[1 0 0]/A<</S/G\ETC.}
+......\TU/texgyretermes(0)/m/n/12.04486 5
+......\kern -0.0002
+......\kern 0.0002
+......\special{pdf:eann}
+.....\rule(*+*)x0.0
+.....\penalty 10000
+.....\glue -18.66977
+.....\penalty 10000
+.....\glue(\parfillskip) -12.045 plus 1.0fil
+.....\glue(\rightskip) 30.71477
+....\penalty 10000
+....\penalty 0
+....\glue 0.0 plus 0.1
+....\penalty 10000
+....\glue 6.02243
+....\glue(\parskip) 0.0
+....\glue(\baselineskip) 0.00002
+....\hbox(14.05226+6.02249)x417.11752, glue set 133.336fill
+.....\hbox(0.0+0.0)x0.0
+.....\rule(14.05226+6.02249)x0.0
+.....\special{pdf:bann<</Type/Annot/Subtype/Link/Border[0 0 0]/H/I/C[1 0 0]/A<</S/G\ETC.}
+.....\TU/FandolSong-Regular(0)/m/n/14.05234 在
+.....\glue 0.0 plus 0.876
+.....\TU/FandolSong-Regular(0)/m/n/14.05234 读
+.....\glue 0.0 plus 0.876
+.....\TU/FandolSong-Regular(0)/m/n/14.05234 期
+.....\glue 0.0 plus 0.876
+.....\TU/FandolSong-Regular(0)/m/n/14.05234 间
+.....\glue 0.0 plus 0.876
+.....\TU/FandolSong-Regular(0)/m/n/14.05234 发
+.....\glue 0.0 plus 0.876
+.....\TU/FandolSong-Regular(0)/m/n/14.05234 表
+.....\glue 0.0 plus 0.876
+.....\TU/FandolSong-Regular(0)/m/n/14.05234 的
+.....\glue 0.0 plus 0.876
+.....\TU/FandolSong-Regular(0)/m/n/14.05234 学
+.....\glue 0.0 plus 0.876
+.....\TU/FandolSong-Regular(0)/m/n/14.05234 术
+.....\glue 0.0 plus 0.876
+.....\TU/FandolSong-Regular(0)/m/n/14.05234 论
+.....\glue 0.0 plus 0.876
+.....\TU/FandolSong-Regular(0)/m/n/14.05234 文
+.....\glue 0.0 plus 0.876
+.....\TU/FandolSong-Regular(0)/m/n/14.05234 与
+.....\glue 0.0 plus 0.876
+.....\TU/FandolSong-Regular(0)/m/n/14.05234 取
+.....\glue 0.0 plus 0.876
+.....\TU/FandolSong-Regular(0)/m/n/14.05234 得
+.....\glue 0.0 plus 0.876
+.....\TU/FandolSong-Regular(0)/m/n/14.05234 的
+.....\glue 0.0 plus 0.876
+.....\TU/FandolSong-Regular(0)/m/n/14.05234 研
+.....\glue 0.0 plus 0.876
+.....\TU/FandolSong-Regular(0)/m/n/14.05234 究
+.....\glue 0.0 plus 0.876
+.....\TU/FandolSong-Regular(0)/m/n/14.05234 成
+.....\glue 0.0 plus 0.876
+.....\TU/FandolSong-Regular(0)/m/n/14.05234 果
+.....\kern -0.00017
+.....\kern 0.00017
+.....\special{pdf:eann}
+.....\rule(14.05226+6.02249)x0.0
+.....\kern 0.0
+.....\glue -6.0
+.....\glue 4.11734
+.....\leaders 0.0 plus 1.0fill
+......\hbox(4.49675+0.0)x6.0, glue set 1.88266fil
+.......\glue 0.0 plus 1.0fil minus 1.0fil
+.......\hbox(4.49675+0.0)x4.11734
+........\mathon
+........\TU/STIX2Math.otf(1)/m/n/14.05234 glyph#1938
+........\mathoff
+.....\kern 0.0
+.....\hbox(8.23868+0.16861)x18.66977, glue set 12.64734fil
+......\glue 0.0 plus 1.0fil
+......\special{pdf:bann<</Type/Annot/Subtype/Link/Border[0 0 0]/H/I/C[1 0 0]/A<</S/G\ETC.}
+......\TU/texgyretermes(0)/m/n/12.04486 6
+......\kern -0.0002
+......\kern 0.0002
+......\special{pdf:eann}
+.....\rule(*+*)x0.0
+.....\penalty 10000
+.....\glue -18.66977
+.....\penalty 10000
+.....\glue(\parfillskip) -12.045 plus 1.0fil
+.....\glue(\rightskip) 30.71477
+....\penalty 10000
 ....\write2{\protect \FN@pp@footnotehinttrue }
+....\glue -6.0
 ....\glue 0.0 plus 1.0fil
 ....\glue 0.0
 ...\glue(\baselineskip) 7.7226
@@ -1123,20 +1619,6 @@ Completed box being shipped out [1]
 ..........\glue(\rightskip) 0.0
 ....\glue 0.0 plus 1.0fil minus 1.0fil
 第2章
-LaTeX Font Info:    Calculating math sizes for size <12.04486> on input line ....
-LaTeX Font Info:    Font shape `TU/STIX2Math.otf(2)/m/n' will be
-(Font)              scaled to size 12.04504pt on input line ....
-LaTeX Font Info:    Font shape `TU/STIX2Math.otf(2)/m/n' will be
-(Font)              scaled to size 8.43147pt on input line ....
-LaTeX Font Info:    Font shape `TU/STIX2Math.otf(2)/m/n' will be
-(Font)              scaled to size 6.02252pt on input line ....
-LaTeX Font Info:    Font shape `TU/STIX2Math.otf(3)/m/n' will be
-(Font)              scaled to size 12.04466pt on input line ....
-LaTeX Font Info:    Font shape `TU/STIX2Math.otf(3)/m/n' will be
-(Font)              scaled to size 8.43121pt on input line ....
-LaTeX Font Info:    Font shape `TU/STIX2Math.otf(3)/m/n' will be
-(Font)              scaled to size 6.02232pt on input line ....
-Package natbib Warning: Citation `knuth86a' on page 2 undefined on input line ....
 Completed box being shipped out [2]
 \vbox(722.98453+6.32361)x435.04271
 .\vbox(0.0+0.0)x0.0, glue set 30.59457fil
@@ -1209,7 +1691,7 @@ Completed box being shipped out [2]
 .......\glue -0.4
 ...\glue 8.2511
 ...\glue(\lineskip) 0.0
-...\vbox(700.50723+0.0)x417.11752, glue set 650.1277fil
+...\vbox(700.50723+0.0)x417.11752, glue set 650.2373fil
 ....\write-{}
 ....\special{pdf:dest (chapter.2) [@thispage /XYZ @xpos @ypos null]}
 ....\write3{\protect \BOOKMARK [0][]{chapter.2}{\376\377\173\054\0002\172\340\000\ETC.}
@@ -1247,15 +1729,17 @@ Completed box being shipped out [2]
 ....\penalty 10000
 ....\kern 1.0
 ....\glue(\parskip) 0.0
-....\hbox(10.14542+0.0)x417.11752, glue set 379.88641fil
+....\hbox(10.03581+0.0)x417.11752, glue set 382.69685fil
 .....\hbox(0.0+0.0)x24.08972
 .....\mathon
-.....\hbox(5.8092+1.31528)x13.14139, shifted -4.33621
+.....\hbox(5.6996+1.31528)x10.33095, shifted -4.33621
 ......\TU/texgyretermes(0)/m/n/8.43135 [
-......\TU/texgyretermes(0)/bx/n/8.43135 ?
-......\kern -0.0002
-......\kern 0.0002
-......\glue 2.81044 plus 3.16173 minus 0.23419
+......\hbox(5.6996+0.0)x4.21568
+.......\special{pdf:bann<</Type/Annot/Subtype/Link/Border[0 0 0]/H/I/C[0 1 0]/A<</S/G\ETC.}
+.......\TU/texgyretermes(0)/m/n/8.43135 1
+.......\kern -0.0002
+.......\kern 0.0002
+.......\special{pdf:eann}
 ......\TU/texgyretermes(0)/m/n/8.43135 ]
 ......\kern -0.0002
 ......\kern 0.0002
@@ -1405,11 +1889,11 @@ TC.}
 ....\glue 18.06729
 ....\glue(\parskip) 0.0
 ....\hbox(7.1984+2.37135)x398.82861, glue set - 0.15508, shifted 18.28891
-.....\hbox(6.97707+1.64412)x0.0
+.....\hbox(7.12462+1.64412)x0.0
 ......\glue 0.0
 ......\glue -12.28891
 ......\glue -6.0
-......\hbox(6.97707+1.64412)x12.28891, glue set 5.26968fill
+......\hbox(7.12462+1.64412)x12.28891
 .......\glue 0.0 plus 1.0fil
 .......\glue 0.0 plus 1.0fil
 .......\penalty 10000
@@ -1417,7 +1901,7 @@ TC.}
 ........\hbox(0.0+0.0)x0.0, shifted -20.075
 .........\special{pdf:dest (cite.knuth86a) [@thispage /XYZ @xpos @ypos null]}
 .........\penalty 10000
-.......\TU/texgyretermes(0)/m/n/10.53937 []
+.......\TU/texgyretermes(0)/m/n/10.53937 [1]
 .......\kern -0.0002
 .......\kern 0.0002
 .......\glue 0.0 plus 1.0fill
@@ -2116,5 +2600,11 @@ Completed box being shipped out [6]
 ..........\penalty 10000
 ..........\glue(\parfillskip) 0.0
 ..........\glue(\rightskip) 0.0
-***************
-Compilation 1 of test file completed with exit status 0
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line ....
+Package atveryend Info: Empty hook `AfterLastShipout' on input line ....
+(main.aux (chapters.aux))
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line ....
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line ....
+Package rerunfilecheck Info: File `main.out' has not changed.
+(rerunfilecheck)             Checksum: 07B8CBBD313B4ECB58E61A10A4BC3804.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line ....
