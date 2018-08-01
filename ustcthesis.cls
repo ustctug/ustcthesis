@@ -43,6 +43,12 @@
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{ctexbook}}
 \ExecuteOptions{doctor,chinese,print,super}
 \ProcessOptions\relax
+\newif\ifustc@graduate
+\ifustc@bachelor
+  \ustc@graduatefalse
+\else
+  \ustc@graduatetrue
+\fi
 \ifustc@english
   \PassOptionsToClass{scheme=plain}{ctexbook}
 \fi
@@ -206,10 +212,39 @@
     \setmathfont[range={cal,bfcal},StylisticSet=1]{xits-math.otf}
   }{}
 }
-
 \newdimen\bp@
 \bp@=1bp
-\ifustc@bachelor
+\ifustc@graduate
+  \renewcommand\normalsize{%
+    \@setfontsize\normalsize{12\bp@}{20\bp@}%
+    \abovedisplayskip 12\bp@ \@plus3\bp@ \@minus7\bp@
+    \abovedisplayshortskip \z@ \@plus3\bp@
+    \belowdisplayshortskip 6.5\bp@ \@plus3.5\bp@ \@minus3\bp@
+    \belowdisplayskip \abovedisplayskip
+    \let\@listi\@listI}
+  \normalsize
+  \renewcommand\small{%
+    \@setfontsize\small{10.5\bp@}{17.5\bp@}%
+    \abovedisplayskip 10.5\bp@ \@plus3\bp@ \@minus6\bp@
+    \abovedisplayshortskip \z@ \@plus3\bp@
+    \belowdisplayshortskip 6.5\bp@ \@plus3.5\bp@ \@minus3\bp@
+    \belowdisplayskip \abovedisplayskip
+  }
+  \renewcommand\footnotesize{%
+    \@setfontsize\footnotesize{9\bp@}{15\bp@}%
+    \abovedisplayskip 9\bp@ \@plus2\bp@ \@minus5\bp@
+    \abovedisplayshortskip \z@ \@plus3\bp@
+    \belowdisplayshortskip 6\bp@ \@plus3\bp@ \@minus3\bp@
+    \belowdisplayskip \abovedisplayskip
+  }
+  \renewcommand\scriptsize{\@setfontsize\scriptsize{7.5\bp@}{12.5\bp@}}
+  \renewcommand\tiny{\@setfontsize\tiny{6.5\bp@}{10.83\bp@}}
+  \renewcommand\large{\@setfontsize\large{15\bp@}{25\bp@}}
+  \renewcommand\Large{\@setfontsize\Large{18\bp@}{30\bp@}}
+  \renewcommand\LARGE{\@setfontsize\LARGE{22\bp@}{36.67\bp@}}
+  \renewcommand\huge{\@setfontsize\huge{24\bp@}{40\bp@}}
+  \renewcommand\Huge{\@setfontsize\Huge{26\bp@}{43.33\bp@}}
+\else
   \renewcommand\normalsize{%
     \@setfontsize\normalsize{12\bp@}{22\bp@}%
     \abovedisplayskip 12\bp@ \@plus3\bp@ \@minus7\bp@
@@ -239,36 +274,6 @@
   \renewcommand\LARGE{\@setfontsize\LARGE{22\bp@}{40.33\bp@}}
   \renewcommand\huge{\@setfontsize\huge{24\bp@}{44\bp@}}
   \renewcommand\Huge{\@setfontsize\Huge{26\bp@}{47.67\bp@}}
-\else
-  \renewcommand\normalsize{%
-    \@setfontsize\normalsize{12\bp@}{20\bp@}%
-    \abovedisplayskip 12\bp@ \@plus3\bp@ \@minus7\bp@
-    \abovedisplayshortskip \z@ \@plus3\bp@
-    \belowdisplayshortskip 6.5\bp@ \@plus3.5\bp@ \@minus3\bp@
-    \belowdisplayskip \abovedisplayskip
-    \let\@listi\@listI}
-  \normalsize
-  \renewcommand\small{%
-    \@setfontsize\small{10.5\bp@}{17.5\bp@}%
-    \abovedisplayskip 10.5\bp@ \@plus3\bp@ \@minus6\bp@
-    \abovedisplayshortskip \z@ \@plus3\bp@
-    \belowdisplayshortskip 6.5\bp@ \@plus3.5\bp@ \@minus3\bp@
-    \belowdisplayskip \abovedisplayskip
-  }
-  \renewcommand\footnotesize{%
-     \@setfontsize\footnotesize{9\bp@}{15\bp@}%
-     \abovedisplayskip 9\bp@ \@plus2\bp@ \@minus5\bp@
-     \abovedisplayshortskip \z@ \@plus3\bp@
-     \belowdisplayshortskip 6\bp@ \@plus3\bp@ \@minus3\bp@
-     \belowdisplayskip \abovedisplayskip
-  }
-  \renewcommand\scriptsize{\@setfontsize\scriptsize{7.5\bp@}{12.5\bp@}}
-  \renewcommand\tiny{\@setfontsize\tiny{6.5\bp@}{10.83\bp@}}
-  \renewcommand\large{\@setfontsize\large{15\bp@}{25\bp@}}
-  \renewcommand\Large{\@setfontsize\Large{18\bp@}{30\bp@}}
-  \renewcommand\LARGE{\@setfontsize\LARGE{22\bp@}{36.67\bp@}}
-  \renewcommand\huge{\@setfontsize\huge{24\bp@}{40\bp@}}
-  \renewcommand\Huge{\@setfontsize\Huge{26\bp@}{43.33\bp@}}
 \fi
 \linespread{1}\selectfont
 \newcommand\ustc@setfontsize[2]{%
@@ -292,16 +297,16 @@
   headheight=0.75cm, headsep=0.29cm,
   footskip=0.79cm}
 \renewcommand{\headrulewidth}{0.4pt}
-\ifustc@bachelor
-  \fancypagestyle{ustc@headings}{
-    \fancyhf{}
-    \fancyhead[C]{\ustc@setfontsize{9\bp@}{18\bp@}中国科学技术大学本科毕业论文}
-    \fancyfoot[C]{\ustc@setfontsize{9\bp@}{18\bp@}\thepage}}
-\else
+\ifustc@graduate
   \fancypagestyle{ustc@headings}{
     \fancyhf{}
     \fancyhead[C]{\ustc@setfontsize{10.5\bp@}{21\bp@}\leftmark}
     \fancyfoot[C]{\ustc@setfontsize{10.5\bp@}{21\bp@}\thepage}}
+\else
+  \fancypagestyle{ustc@headings}{
+    \fancyhf{}
+    \fancyhead[C]{\ustc@setfontsize{9\bp@}{18\bp@}中国科学技术大学本科毕业论文}
+    \fancyfoot[C]{\ustc@setfontsize{9\bp@}{18\bp@}\thepage}}
 \fi
 \fancypagestyle{ustc@notation}{\fancyfoot{}}
 \pagestyle{ustc@headings}
@@ -318,17 +323,17 @@
 \renewcommand\frontmatter{%
   \cleardoublepage
   \@mainmatterfalse
-  \ifustc@bachelor
-    \pagenumbering{gobble}%
-  \else
+  \ifustc@graduate
     \pagenumbering{Roman}%
+  \else
+    \pagenumbering{gobble}%
   \fi}
 \renewcommand\mainmatter{%
-  \ifustc@bachelor
-    \clearpage
-  \else
+  \ifustc@graduate
     \cleardoublepage
     \pagenumbering{arabic}%
+  \else
+    \clearpage
   \fi
   \@mainmattertrue}
 \renewcommand\maketitle{%
@@ -501,9 +506,7 @@
   \makebox[\z@][l]{$\square$}%
   \raisebox{-0.2ex}{\hspace{0.1em}$\checkmark$}%
 }
-\ifustc@bachelor
-  \newcommand\makestatement{}
-\else
+\ifustc@graduate
   \newcommand\makestatement{%
     \pdfbookmark[0]{原创性声明}{statement}%
     \begin{titlepage}%
@@ -538,21 +541,23 @@
     \end{titlepage}
     \cleardoublepage
   }%
+\else
+  \newcommand\makestatement{}
 \fi
 \setcounter{secnumdepth}{5}
 \DeclareRobustCommand\ustc@spacetitle[1]{%
   \def\ustc@titlelength{\csname str_count:N\endcsname{#1}}
   \begingroup
-  \ifustc@bachelor
-    \if@mainmatter\relax\else
-      \ifnum\ustc@titlelength=2\ziju{1}\else
+  \ifustc@graduate
+    \ifnum\ustc@titlelength=2\ziju{2}\else
+      \ifnum\ustc@titlelength=3\ziju{1}\else
         \ifnum\ustc@titlelength=4\ziju{0.5}%
         \fi
       \fi
     \fi
   \else
-    \ifnum\ustc@titlelength=2\ziju{2}\else
-      \ifnum\ustc@titlelength=3\ziju{1}\else
+    \if@mainmatter\relax\else
+      \ifnum\ustc@titlelength=2\ziju{1}\else
         \ifnum\ustc@titlelength=4\ziju{0.5}%
         \fi
       \fi
@@ -688,21 +693,21 @@
   }%
   \chapter*{#2}}
 \newenvironment{abstract}{%
-  \ifustc@bachelor
+  \ifustc@graduate
+    \ustc@chapter{摘要}%
+  \else
     \chapter{中文内容摘要}%
     \ifustc@tocloaded\else
       需要将摘要的位置调整到目录后。\par
       \pagenumbering{Roman}%
     \fi
-  \else
-    \ustc@chapter{摘要}%
   \fi
 }{}
 \newenvironment{enabstract}{%
-  \ifustc@bachelor
-    \chapter[英文内容摘要]{Abstract}%
-  \else
+  \ifustc@graduate
     \ustc@chapter[Abstract]{ABSTRACT}%
+  \else
+    \chapter[英文内容摘要]{Abstract}%
   \fi}{}
 \newcommand\keywords[1]{%
   \par\phantom{empty line}\par\noindent\hangindent=4\ccwd\relax
@@ -720,19 +725,35 @@
   \ustc@chapter{\contentsname}%
   \@starttoc{toc}}
 \renewcommand\listoffigures{%
-  \ifustc@bachelor\else
+  \ifustc@graduate
     \cleardoublepage
   \fi
   \ustc@chapter{\listfigurename}%
   \@starttoc{lof}}
 \renewcommand\listoftables{%
-  \ifustc@bachelor\else
+  \ifustc@graduate
     \cleardoublepage
   \fi
   \ustc@chapter{\listtablename}%
   \@starttoc{lot}}
 \newcommand\ustc@leaders{\titlerule*[0.5pc]{$\cdot$}}
-\ifustc@bachelor
+\ifustc@graduate
+  \titlecontents{chapter}
+    [\z@]
+    {\addvspace{6\bp@}\ustc@setfontsize{14\bp@}{20\bp@}}
+    {\contentspush{\thecontentslabel\unskip\hskip\ccwd\relax}}
+    {}{\ustc@leaders\ustc@setfontsize{12\bp@}{20\bp@}\contentspage}
+  \titlecontents{section}
+    [\ccwd]
+    {\ustc@setfontsize{12\bp@}{20\bp@}}
+    {\contentspush{\thecontentslabel\hskip\ccwd\relax}}
+    {}{\ustc@leaders\ustc@setfontsize{12\bp@}{20\bp@}\contentspage}
+  \titlecontents{subsection}
+    [2\ccwd]
+    {\ustc@setfontsize{10.5\bp@}{20\bp@}}
+    {\contentspush{\thecontentslabel\hskip\ccwd\relax}}
+    {}{\ustc@leaders\ustc@setfontsize{12\bp@}{20\bp@}\contentspage}
+\else
   \titlecontents{chapter}
     [\z@]
     {\normalsize}
@@ -749,22 +770,6 @@
     {\contentspush{\thecontentslabel
       \ifustc@arabic\hspace{\ccwd}\else 、\fi}}
     {}{\ustc@leaders\contentspage}
-\else
-  \titlecontents{chapter}
-    [\z@]
-    {\addvspace{6\bp@}\ustc@setfontsize{14\bp@}{20\bp@}}
-    {\contentspush{\thecontentslabel\unskip\hskip\ccwd\relax}}
-    {}{\ustc@leaders\ustc@setfontsize{12\bp@}{20\bp@}\contentspage}
-  \titlecontents{section}
-    [\ccwd]
-    {\ustc@setfontsize{12\bp@}{20\bp@}}
-    {\contentspush{\thecontentslabel\hskip\ccwd\relax}}
-    {}{\ustc@leaders\ustc@setfontsize{12\bp@}{20\bp@}\contentspage}
-  \titlecontents{subsection}
-    [2\ccwd]
-    {\ustc@setfontsize{10.5\bp@}{20\bp@}}
-    {\contentspush{\thecontentslabel\hskip\ccwd\relax}}
-    {}{\ustc@leaders\ustc@setfontsize{12\bp@}{20\bp@}\contentspage}
 \fi
 \titlecontents{figure}
   [\ccwd]
@@ -796,7 +801,7 @@
   \secdef\@chapter\@schapter
 }
 \newenvironment{notation}{%
-  \ifustc@bachelor\clearpage\else\cleardoublepage\fi
+  \ifustc@graduate\cleardoublepage\else\clearpage\fi
   \pagestyle{ustc@notation}%
   \ustc@chapter{\ustc@notationname}%
   \setlength{\itemsep}{\z@}%
@@ -842,7 +847,7 @@
   font     = small,
   labelsep = zhspace,
 }
-\ifustc@bachelor\else
+\ifustc@graduate
   \captionsetup{font+=bf}
 \fi
 \captionsetup[figure]{
@@ -900,14 +905,7 @@
     \fi
   \fi
 }
-\ifustc@bachelor
-  \ifustc@super
-    \citestyle{super}
-  \else
-    \citestyle{numbers}
-  \fi
-  \bibliographystyle{ustcthesis-bachelor}
-\else
+\ifustc@graduate
   \ifustc@numerical
     \ifustc@super
       \citestyle{super}
@@ -919,6 +917,13 @@
     \citestyle{authoryear}
     \bibliographystyle{ustcthesis-authoryear}
   \fi
+\else
+  \ifustc@super
+    \citestyle{super}
+  \else
+    \citestyle{numbers}
+  \fi
+  \bibliographystyle{ustcthesis-bachelor}
 \fi
 \patchcmd{\NAT@citexnum}{%
   \@ifnum{\NAT@ctype=\z@}{%
@@ -957,7 +962,7 @@
 }{%
   \def@NAT@last@yr{-\NAT@penalty}%
 }{}{\ustc@patchfailure{\NAT@citexnum}}
-\ifustc@bachelor\else
+\ifustc@graduate
   \renewcommand\bibfont{\ustc@setfontsize{10.5bp}{20bp}}
 \fi
 \setlength{\bibsep}{\z@}
@@ -969,13 +974,13 @@
   \@mainmattertrue
 }
 \newenvironment{acknowledgements}{%
-  \ifustc@bachelor
+  \ifustc@graduate
+    \chapter{\ustc@acknowledgementsname}%
+  \else
     \ustc@chapter{\ustc@acknowledgementsname}%
     \ifustc@tocloaded
       需要将致谢的位置调整到目录前。\par
     \fi
-  \else
-    \chapter{\ustc@acknowledgementsname}%
   \fi
 }{}
 \newenvironment{publications}{\chapter{\ustc@publicationsname}}{}

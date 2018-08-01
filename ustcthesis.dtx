@@ -627,6 +627,12 @@ version 2005/12/01 or later.
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{ctexbook}}
 \ExecuteOptions{doctor,chinese,print,super}
 \ProcessOptions\relax
+\newif\ifustc@graduate
+\ifustc@bachelor
+  \ustc@graduatefalse
+\else
+  \ustc@graduatetrue
+\fi
 %    \end{macrocode}
 %
 %
@@ -880,7 +886,12 @@ version 2005/12/01 or later.
     \setmathfont[range={cal,bfcal},StylisticSet=1]{xits-math.otf}
   }{}
 }
-
+%    \end{macrocode}
+%
+% 印刷的长度单位点（磅）通常指 PostScript point，在 \LaTeX{} 是 bp。
+%    \begin{macrocode}
+\newdimen\bp@
+\bp@=1bp
 %    \end{macrocode}
 %
 % 下面设置字号。正文字号12bp，研究生行距20bp，本科生行距22bp；
@@ -908,9 +919,41 @@ version 2005/12/01 or later.
 % \end{table}
 % \changes{v3.0}{2017/07/01}{优化图注、算法的行距}
 %    \begin{macrocode}
-\newdimen\bp@
-\bp@=1bp
-\ifustc@bachelor
+\ifustc@graduate
+  \renewcommand\normalsize{%
+    \@setfontsize\normalsize{12\bp@}{20\bp@}%
+    \abovedisplayskip 12\bp@ \@plus3\bp@ \@minus7\bp@
+    \abovedisplayshortskip \z@ \@plus3\bp@
+    \belowdisplayshortskip 6.5\bp@ \@plus3.5\bp@ \@minus3\bp@
+    \belowdisplayskip \abovedisplayskip
+    \let\@listi\@listI}
+  \normalsize
+%    \end{macrocode}
+%
+% 注意已经去掉了列表的间距，所以不再修改 \cs{@listi}。
+%    \begin{macrocode}
+  \renewcommand\small{%
+    \@setfontsize\small{10.5\bp@}{17.5\bp@}%
+    \abovedisplayskip 10.5\bp@ \@plus3\bp@ \@minus6\bp@
+    \abovedisplayshortskip \z@ \@plus3\bp@
+    \belowdisplayshortskip 6.5\bp@ \@plus3.5\bp@ \@minus3\bp@
+    \belowdisplayskip \abovedisplayskip
+  }
+  \renewcommand\footnotesize{%
+    \@setfontsize\footnotesize{9\bp@}{15\bp@}%
+    \abovedisplayskip 9\bp@ \@plus2\bp@ \@minus5\bp@
+    \abovedisplayshortskip \z@ \@plus3\bp@
+    \belowdisplayshortskip 6\bp@ \@plus3\bp@ \@minus3\bp@
+    \belowdisplayskip \abovedisplayskip
+  }
+  \renewcommand\scriptsize{\@setfontsize\scriptsize{7.5\bp@}{12.5\bp@}}
+  \renewcommand\tiny{\@setfontsize\tiny{6.5\bp@}{10.83\bp@}}
+  \renewcommand\large{\@setfontsize\large{15\bp@}{25\bp@}}
+  \renewcommand\Large{\@setfontsize\Large{18\bp@}{30\bp@}}
+  \renewcommand\LARGE{\@setfontsize\LARGE{22\bp@}{36.67\bp@}}
+  \renewcommand\huge{\@setfontsize\huge{24\bp@}{40\bp@}}
+  \renewcommand\Huge{\@setfontsize\Huge{26\bp@}{43.33\bp@}}
+\else
   \renewcommand\normalsize{%
     \@setfontsize\normalsize{12\bp@}{22\bp@}%
     \abovedisplayskip 12\bp@ \@plus3\bp@ \@minus7\bp@
@@ -940,36 +983,6 @@ version 2005/12/01 or later.
   \renewcommand\LARGE{\@setfontsize\LARGE{22\bp@}{40.33\bp@}}
   \renewcommand\huge{\@setfontsize\huge{24\bp@}{44\bp@}}
   \renewcommand\Huge{\@setfontsize\Huge{26\bp@}{47.67\bp@}}
-\else
-  \renewcommand\normalsize{%
-    \@setfontsize\normalsize{12\bp@}{20\bp@}%
-    \abovedisplayskip 12\bp@ \@plus3\bp@ \@minus7\bp@
-    \abovedisplayshortskip \z@ \@plus3\bp@
-    \belowdisplayshortskip 6.5\bp@ \@plus3.5\bp@ \@minus3\bp@
-    \belowdisplayskip \abovedisplayskip
-    \let\@listi\@listI}
-  \normalsize
-  \renewcommand\small{%
-    \@setfontsize\small{10.5\bp@}{17.5\bp@}%
-    \abovedisplayskip 10.5\bp@ \@plus3\bp@ \@minus6\bp@
-    \abovedisplayshortskip \z@ \@plus3\bp@
-    \belowdisplayshortskip 6.5\bp@ \@plus3.5\bp@ \@minus3\bp@
-    \belowdisplayskip \abovedisplayskip
-  }
-  \renewcommand\footnotesize{%
-     \@setfontsize\footnotesize{9\bp@}{15\bp@}%
-     \abovedisplayskip 9\bp@ \@plus2\bp@ \@minus5\bp@
-     \abovedisplayshortskip \z@ \@plus3\bp@
-     \belowdisplayshortskip 6\bp@ \@plus3\bp@ \@minus3\bp@
-     \belowdisplayskip \abovedisplayskip
-  }
-  \renewcommand\scriptsize{\@setfontsize\scriptsize{7.5\bp@}{12.5\bp@}}
-  \renewcommand\tiny{\@setfontsize\tiny{6.5\bp@}{10.83\bp@}}
-  \renewcommand\large{\@setfontsize\large{15\bp@}{25\bp@}}
-  \renewcommand\Large{\@setfontsize\Large{18\bp@}{30\bp@}}
-  \renewcommand\LARGE{\@setfontsize\LARGE{22\bp@}{36.67\bp@}}
-  \renewcommand\huge{\@setfontsize\huge{24\bp@}{40\bp@}}
-  \renewcommand\Huge{\@setfontsize\Huge{26\bp@}{43.33\bp@}}
 \fi
 %    \end{macrocode}
 %
@@ -1019,19 +1032,25 @@ version 2005/12/01 or later.
 %
 % 再用 \pkg{fancyhdr} 宏包设置页眉页码。
 % \changes{v3.0}{2017/07/01}{页码全部居中}
-% \changes{v3.0.2}{2018/03/16}{更正本科生的页码}
 %    \begin{macrocode}
 \renewcommand{\headrulewidth}{0.4pt}
-\ifustc@bachelor
-  \fancypagestyle{ustc@headings}{
-    \fancyhf{}
-    \fancyhead[C]{\ustc@setfontsize{9\bp@}{18\bp@}中国科学技术大学本科毕业论文}
-    \fancyfoot[C]{\ustc@setfontsize{9\bp@}{18\bp@}\thepage}}
-\else
+\ifustc@graduate
   \fancypagestyle{ustc@headings}{
     \fancyhf{}
     \fancyhead[C]{\ustc@setfontsize{10.5\bp@}{21\bp@}\leftmark}
     \fancyfoot[C]{\ustc@setfontsize{10.5\bp@}{21\bp@}\thepage}}
+%    \end{macrocode}
+%
+% 本科生要求除封面、扉页外，每面上部加页眉，
+% 用小 5 号字（9 bp）标注“中国科学技术大学本科毕业论文”，居中；
+% 从目录页开始在每面底部居中用小五宋体（9 bp）连续编页码。
+% \changes{v3.0.2}{2018/03/16}{更正本科生的页码}
+%    \begin{macrocode}
+\else
+  \fancypagestyle{ustc@headings}{
+    \fancyhf{}
+    \fancyhead[C]{\ustc@setfontsize{9\bp@}{18\bp@}中国科学技术大学本科毕业论文}
+    \fancyfoot[C]{\ustc@setfontsize{9\bp@}{18\bp@}\thepage}}
 \fi
 \fancypagestyle{ustc@notation}{\fancyfoot{}}
 \pagestyle{ustc@headings}
@@ -1067,10 +1086,10 @@ version 2005/12/01 or later.
 \renewcommand\frontmatter{%
   \cleardoublepage
   \@mainmatterfalse
-  \ifustc@bachelor
-    \pagenumbering{gobble}%
-  \else
+  \ifustc@graduate
     \pagenumbering{Roman}%
+  \else
+    \pagenumbering{gobble}%
   \fi}
 %    \end{macrocode}
 % \end{macro}
@@ -1079,11 +1098,11 @@ version 2005/12/01 or later.
 % 研究生要求“第 1 章”要另页起，但是本科生要求另面起。
 %    \begin{macrocode}
 \renewcommand\mainmatter{%
-  \ifustc@bachelor
-    \clearpage
-  \else
+  \ifustc@graduate
     \cleardoublepage
     \pagenumbering{arabic}%
+  \else
+    \clearpage
   \fi
   \@mainmattertrue}
 %    \end{macrocode}
@@ -1321,9 +1340,7 @@ version 2005/12/01 or later.
 %
 % \begin{macro}{\makestatement}
 %    \begin{macrocode}
-\ifustc@bachelor
-  \newcommand\makestatement{}
-\else
+\ifustc@graduate
   \newcommand\makestatement{%
     \pdfbookmark[0]{原创性声明}{statement}%
     \begin{titlepage}%
@@ -1358,6 +1375,8 @@ version 2005/12/01 or later.
     \end{titlepage}
     \cleardoublepage
   }%
+\else
+  \newcommand\makestatement{}
 \fi
 %    \end{macrocode}
 % \end{macro}
@@ -1381,16 +1400,16 @@ version 2005/12/01 or later.
 \DeclareRobustCommand\ustc@spacetitle[1]{%
   \def\ustc@titlelength{\csname str_count:N\endcsname{#1}}
   \begingroup
-  \ifustc@bachelor
-    \if@mainmatter\relax\else
-      \ifnum\ustc@titlelength=2\ziju{1}\else
+  \ifustc@graduate
+    \ifnum\ustc@titlelength=2\ziju{2}\else
+      \ifnum\ustc@titlelength=3\ziju{1}\else
         \ifnum\ustc@titlelength=4\ziju{0.5}%
         \fi
       \fi
     \fi
   \else
-    \ifnum\ustc@titlelength=2\ziju{2}\else
-      \ifnum\ustc@titlelength=3\ziju{1}\else
+    \if@mainmatter\relax\else
+      \ifnum\ustc@titlelength=2\ziju{1}\else
         \ifnum\ustc@titlelength=4\ziju{0.5}%
         \fi
       \fi
@@ -1530,9 +1549,11 @@ version 2005/12/01 or later.
   \ctexset{
 %    \end{macrocode}
 %
-% 本科生要求正文章标题使用三号字（16 bp），
-% 但是致谢、目录、摘要和参考文献的章标题使用小二号（18 bp），
+% 论文的致谢、目录、摘要和参考文献等标题用小二号（18 bp）黑体字，居中，
 % 这通过 \cs{if@mainmatter} 区分。
+% 正文中的标题分章、节、段三级；章、节标题居中，段标题居左，
+% 分别用三号（16 bp）黑体、小三（15 bp）黑体、四号（14 bp）黑体。
+% \changes{v3.0.7}{2018/04/18}{更正本科生 subsection 的缩进}
 %    \begin{macrocode}
     chapter = {
       format = {
@@ -1544,34 +1565,17 @@ version 2005/12/01 or later.
         \fi
       },
     },
-%    \end{macrocode}
-%
-% 本科生一级节标题使用小三（15 bp）黑体居中。
-%    \begin{macrocode}
     section = {
       format = \centering\sffamily\ustc@setfontsize{15\bp@}{27.5\bp@},
     },
-%    \end{macrocode}
-%
-% 本科生二级节标题使用四号（14 bp）黑体左对齐。
-% \changes{v3.0.7}{2018/04/18}{更正本科生 subsection 的缩进}
-%    \begin{macrocode}
     subsection = {
       format    = \sffamily\ustc@setfontsize{14\bp@}{25.67\bp@},
       indent    = \z@,
     },
-%    \end{macrocode}
-%
-% 本科生三级节标题使用小四（12 bp）宋体，左缩进一字宽。
-%    \begin{macrocode}
     subsubsection = {
       format    = \rmfamily\ustc@setfontsize{12\bp@}{22\bp@},
       indent    = \ccwd,
     },
-%    \end{macrocode}
-%
-% 本科生四级节标题使用小四（12 bp）宋体，左缩进一字宽。
-%    \begin{macrocode}
     paragraph = {
       format    = \rmfamily\ustc@setfontsize{12\bp@}{22\bp@},
       aftername = {},
@@ -1632,14 +1636,14 @@ version 2005/12/01 or later.
 % \changes{v3.0}{2017/07/01}{摘要不再加入目录}
 %    \begin{macrocode}
 \newenvironment{abstract}{%
-  \ifustc@bachelor
+  \ifustc@graduate
+    \ustc@chapter{摘要}%
+  \else
     \chapter{中文内容摘要}%
     \ifustc@tocloaded\else
       需要将摘要的位置调整到目录后。\par
       \pagenumbering{Roman}%
     \fi
-  \else
-    \ustc@chapter{摘要}%
   \fi
 }{}
 %    \end{macrocode}
@@ -1649,10 +1653,10 @@ version 2005/12/01 or later.
 % 英文摘要环境
 %    \begin{macrocode}
 \newenvironment{enabstract}{%
-  \ifustc@bachelor
-    \chapter[英文内容摘要]{Abstract}%
-  \else
+  \ifustc@graduate
     \ustc@chapter[Abstract]{ABSTRACT}%
+  \else
+    \chapter[英文内容摘要]{Abstract}%
   \fi}{}
 %    \end{macrocode}
 % \end{environment}
@@ -1704,13 +1708,13 @@ version 2005/12/01 or later.
 % 研究生要求图、表的清单须另页起。
 %    \begin{macrocode}
 \renewcommand\listoffigures{%
-  \ifustc@bachelor\else
+  \ifustc@graduate
     \cleardoublepage
   \fi
   \ustc@chapter{\listfigurename}%
   \@starttoc{lof}}
 \renewcommand\listoftables{%
-  \ifustc@bachelor\else
+  \ifustc@graduate
     \cleardoublepage
   \fi
   \ustc@chapter{\listtablename}%
@@ -1721,11 +1725,48 @@ version 2005/12/01 or later.
 %
 % 下面用 \pkg{titletoc} 宏包设置每级目录的格式。
 %
-% 由于 \pkg{ctex} 新引入了 \opt{tocline}，导致 chatper 的前标题空白多了 0.3em，
-% 所以用 \cs{unskip} 修正。
 %    \begin{macrocode}
 \newcommand\ustc@leaders{\titlerule*[0.5pc]{$\cdot$}}
-\ifustc@bachelor
+\ifustc@graduate
+%    \end{macrocode}
+%
+% 各章目录要求宋体 14 磅，单倍行距，段前 6 磅，段后 0 磅，两端对齐，
+% 页码右对齐，章序号与章名间空一字。
+% 但是 Word 模板中实际是行距 20 磅。
+% 另外 \pkg{ctex} 在章目录的序号后加 |\hspace{.3em}|，所以用 \cs{unskip} 修正。
+%    \begin{macrocode}
+  \titlecontents{chapter}
+    [\z@]
+    {\addvspace{6\bp@}\ustc@setfontsize{14\bp@}{20\bp@}}
+    {\contentspush{\thecontentslabel\unskip\hskip\ccwd\relax}}
+    {}{\ustc@leaders\ustc@setfontsize{12\bp@}{20\bp@}\contentspage}
+%    \end{macrocode}
+%
+% 一级节标题目录要求宋体 12 磅，单倍行距，左缩进一字，段前 6 磅，段后 0 磅，
+% 两端对齐，页码右对齐，序号与题名间空一字。
+% Word 模板中实际是行距 20 磅，段前 0 磅。
+%    \begin{macrocode}
+  \titlecontents{section}
+    [\ccwd]
+    {\ustc@setfontsize{12\bp@}{20\bp@}}
+    {\contentspush{\thecontentslabel\hskip\ccwd\relax}}
+    {}{\ustc@leaders\ustc@setfontsize{12\bp@}{20\bp@}\contentspage}
+%    \end{macrocode}
+%
+% 二级节标题目录要求宋体 10.5 磅，单倍行距，左缩进两字，段前 6 磅，段后 0 磅，
+% 两端对齐，页码右对齐，序号与题名间空一字。
+% Word 模板中实际是行距 20 磅，段前 0 磅。
+%    \begin{macrocode}
+  \titlecontents{subsection}
+    [2\ccwd]
+    {\ustc@setfontsize{10.5\bp@}{20\bp@}}
+    {\contentspush{\thecontentslabel\hskip\ccwd\relax}}
+    {}{\ustc@leaders\ustc@setfontsize{12\bp@}{20\bp@}\contentspage}
+%    \end{macrocode}
+%
+% 本科生的目录使用小四宋体（同正文字体），其他同研究生的格式相近。
+%    \begin{macrocode}
+\else
   \titlecontents{chapter}
     [\z@]
     {\normalsize}
@@ -1742,28 +1783,6 @@ version 2005/12/01 or later.
     {\contentspush{\thecontentslabel
       \ifustc@arabic\hspace{\ccwd}\else 、\fi}}
     {}{\ustc@leaders\contentspage}
-\else
-%    \end{macrocode}
-%
-% 尽管《撰写手册》要求目录中各章节单倍行距，段前 6 磅，
-% 但是 Word 模板中实际是 20 磅行距，段前 0 磅，附录的章标题段前 6 磅。
-% 这里目前按照 Word 模板格式执行。
-%    \begin{macrocode}
-  \titlecontents{chapter}
-    [\z@]
-    {\addvspace{6\bp@}\ustc@setfontsize{14\bp@}{20\bp@}}
-    {\contentspush{\thecontentslabel\unskip\hskip\ccwd\relax}}
-    {}{\ustc@leaders\ustc@setfontsize{12\bp@}{20\bp@}\contentspage}
-  \titlecontents{section}
-    [\ccwd]
-    {\ustc@setfontsize{12\bp@}{20\bp@}}
-    {\contentspush{\thecontentslabel\hskip\ccwd\relax}}
-    {}{\ustc@leaders\ustc@setfontsize{12\bp@}{20\bp@}\contentspage}
-  \titlecontents{subsection}
-    [2\ccwd]
-    {\ustc@setfontsize{10.5\bp@}{20\bp@}}
-    {\contentspush{\thecontentslabel\hskip\ccwd\relax}}
-    {}{\ustc@leaders\ustc@setfontsize{12\bp@}{20\bp@}\contentspage}
 \fi
 %    \end{macrocode}
 %
@@ -1821,7 +1840,7 @@ version 2005/12/01 or later.
 % \changes{v3.0.b}{2018/05/18}{更正符号说明的字号}
 %    \begin{macrocode}
 \newenvironment{notation}{%
-  \ifustc@bachelor\clearpage\else\cleardoublepage\fi
+  \ifustc@graduate\cleardoublepage\else\clearpage\fi
   \pagestyle{ustc@notation}%
   \ustc@chapter{\ustc@notationname}%
   \setlength{\itemsep}{\z@}%
@@ -1876,11 +1895,11 @@ version 2005/12/01 or later.
 %
 % \subsection{列表}
 %
-% 修复列表中各项之间过大的间距。
 % \begin{environment}{enumerate}
-% \changes{v3.1}{2018/09/01}{修复列表中各项之间过大的间距}
-% \begin{environment}{itemize}
 % \begin{environment}{description}
+% \begin{environment}{itemize}
+% 修复列表中各项之间过大的间距。
+% \changes{v3.1}{2018/09/01}{修复列表中各项之间过大的间距}
 %    \begin{macrocode}
 \setlength\partopsep{\z@}
 \newcommand\ustc@nolistsep{%
@@ -1946,7 +1965,7 @@ version 2005/12/01 or later.
   font     = small,
   labelsep = zhspace,
 }
-\ifustc@bachelor\else
+\ifustc@graduate
   \captionsetup{font+=bf}
 \fi
 \captionsetup[figure]{
@@ -2097,14 +2116,7 @@ version 2005/12/01 or later.
 %
 % 处理宏包选项。
 %    \begin{macrocode}
-\ifustc@bachelor
-  \ifustc@super
-    \citestyle{super}
-  \else
-    \citestyle{numbers}
-  \fi
-  \bibliographystyle{ustcthesis-bachelor}
-\else
+\ifustc@graduate
   \ifustc@numerical
     \ifustc@super
       \citestyle{super}
@@ -2116,6 +2128,13 @@ version 2005/12/01 or later.
     \citestyle{authoryear}
     \bibliographystyle{ustcthesis-authoryear}
   \fi
+\else
+  \ifustc@super
+    \citestyle{super}
+  \else
+    \citestyle{numbers}
+  \fi
+  \bibliographystyle{ustcthesis-bachelor}
 \fi
 %    \end{macrocode}
 %
@@ -2185,7 +2204,7 @@ version 2005/12/01 or later.
 % 本科生依然是小四宋体。
 % \changes{v3.0.b}{2018/05/18}{更正本科生参考文献的字号}
 %    \begin{macrocode}
-\ifustc@bachelor\else
+\ifustc@graduate
   \renewcommand\bibfont{\ustc@setfontsize{10.5bp}{20bp}}
 \fi
 \setlength{\bibsep}{\z@}
@@ -2210,13 +2229,13 @@ version 2005/12/01 or later.
 % 定义了一个满足要求的致谢环境：
 %    \begin{macrocode}
 \newenvironment{acknowledgements}{%
-  \ifustc@bachelor
+  \ifustc@graduate
+    \chapter{\ustc@acknowledgementsname}%
+  \else
     \ustc@chapter{\ustc@acknowledgementsname}%
     \ifustc@tocloaded
       需要将致谢的位置调整到目录前。\par
     \fi
-  \else
-    \chapter{\ustc@acknowledgementsname}%
   \fi
 }{}
 %    \end{macrocode}
