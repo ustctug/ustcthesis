@@ -16,7 +16,7 @@ LaTeX Font Info:    Font shape `TU/STIX2Math.otf(3)/m/n' will be
 Completed box being shipped out [1]
 \vbox(722.98453+0.0)x435.04271
 .\hbox(0.0+0.0)x0.0
-..\special{pdf:docinfo<</Title()/Subject()/Creator(LaTeX with hyperref package)/\ETC.}
+..\special{pdf:docinfo<</Title(\376\377\116\055\126\375\171\321\133\146\142\200\\ETC.}
 .\vbox(0.0+0.0)x0.0, glue set 30.59457fil
 ..\kern 0.0
 ..\kern -29.59084
@@ -40,11 +40,11 @@ Completed box being shipped out [1]
 ...\glue(\lineskip) 0.0
 ...\vbox(700.50723+0.0)x417.11752, glue set 138.2036fil
 ....\write-{}
+....\write1{\protect \providecommand {\protect \FN@pp@footnotehinttrue }{}}
+....\write1{\protect \providecommand {\protect \FN@pp@footnote@aux }[2]{}}
 ....\special{pdf:outline [] 0<</Title(\376\377\123\237\122\033\140\047\130\360\146\ETC.}
 ....\special{pdf:docview<</OpenAction[@page1/Fit]/PageMode/UseOutlines>>}
 ....\special{pdf:dest (Doc-Start) [@thispage /XYZ @xpos @ypos null]}
-....\write1{\protect \providecommand {\protect \FN@pp@footnotehinttrue }{}}
-....\write1{\protect \providecommand {\protect \FN@pp@footnote@aux }[2]{}}
 ....\write3{\protect \BOOKMARK [0][]{statement.0}{\376\377\123\237\122\033\140\04\ETC.}
 ....\special{pdf:dest (statement.0) [@thispage /XYZ @xpos @ypos null]}
 ....\write1{\protect \FN@pp@footnotehinttrue }
@@ -1099,4 +1099,3 @@ Package atveryend Info: Empty hook `AtVeryEndDocument' on input line ....
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line ....
 Package rerunfilecheck Info: File `statement.out' has not changed.
 (rerunfilecheck)             Checksum: CBF997DEA4DEEFE015FA43A9016A0F7F.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line ....

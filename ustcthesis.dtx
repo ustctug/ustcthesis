@@ -664,7 +664,6 @@ version 2005/12/01 or later.
 %
 % 加载所需宏包，注意不要轻易改变加载顺序。
 %    \begin{macrocode}
-\RequirePackage{hyperref}
 \RequirePackage{etoolbox}
 \RequirePackage{amsmath}
 \RequirePackage{unicode-math}
@@ -679,6 +678,7 @@ version 2005/12/01 or later.
   \PassOptionsToPackage{sort&compress}{natbib}
 \fi
 \RequirePackage{natbib}
+\RequirePackage{hyperref}
 %    \end{macrocode}
 %
 %
@@ -690,7 +690,6 @@ version 2005/12/01 or later.
   bookmarksopen=true,
   bookmarksopenlevel=1,
   linktoc=all,
-  pdfborder=0 0 0,
 }
 %    \end{macrocode}
 %
@@ -701,12 +700,32 @@ version 2005/12/01 or later.
     colorlinks=true,
     allcolors=blue,
   }
+\else
+  \hypersetup{hidelinks}
 \fi
 %    \end{macrocode}
 %
+% 填写 PDF 元信息。
+%    \begin{macrocode}
+\AtBeginDocument{%
+  \ifustc@english
+    \hypersetup{
+      pdftitle={\ustc@entitle},
+      pdfauthor={\ustc@enauthor},
+    }%
+  \else
+    \hypersetup{
+      pdftitle={\ustc@title},
+      pdfauthor={\ustc@author},
+    }%
+  \fi
+}
+%    \end{macrocode}
+%
+% 在 PDF 字符串中去掉换行，以减少 \pkg{hyperref} 的警告信息。
 %    \begin{macrocode}
 \pdfstringdefDisableCommands{
-  \let\\\empty
+  \let\\\@empty
 }
 %    \end{macrocode}
 %
@@ -1024,10 +1043,12 @@ version 2005/12/01 or later.
 %    \begin{macrocode}
 \geometry{
   paper=a4paper,
-  top=2.54cm, bottom=2.54cm,
-  left=3.17cm, right=3.17cm,
-  headheight=0.75cm, headsep=0.29cm,
-  footskip=0.79cm}
+  vmargin=2.54cm,
+  hmargin=3.17cm,
+  headheight=0.75cm,
+  headsep=0.29cm,
+  footskip=0.79cm,
+}
 %    \end{macrocode}
 %
 % 再用 \pkg{fancyhdr} 宏包设置页眉页码。
@@ -1116,10 +1137,7 @@ version 2005/12/01 or later.
 % 分别生成中、英文封面。
 %    \begin{macrocode}
 \renewcommand\maketitle{%
-  \hypersetup{
-    pdftitle={\ustc@title},
-    pdfauthor={\ustc@author}
-  }
+  \newgeometry{margin=2.54cm}
   \pagenumbering{gobble}%
   \pdfbookmark[0]{封面}{titlepage}%
   \ustc@makezhtitle
@@ -1127,6 +1145,7 @@ version 2005/12/01 or later.
   \pdfbookmark[0]{Title page}{entitlepage}%
   \ustc@makeentitle
   \cleardoublepage
+  \restoregeometry
 }
 %    \end{macrocode}
 %
@@ -1156,7 +1175,13 @@ version 2005/12/01 or later.
     \setCJKfamilyfont{zhli}{Baoli SC}
     \providecommand\lishu{\CJKfamily{zhli}}
   }{
-    \providecommand\lishu{\relax}
+    \ifx\lishu\relax
+      \ClassWarningNoLine{ustcthesis}{%
+        The lishu font is required.\MessageBreak
+        Please configure it manually
+      }
+      \providecommand\lishu{\sffamily}
+    \fi
   }
   \newcommand\ustc@specialityname{专业领域}
 \else
@@ -1182,7 +1207,7 @@ version 2005/12/01 or later.
 \ustc@define@term{supervisor}{XXX\quad 教授}
 \ustc@define@term{cosupervisor}{}
 \ustc@define@term{date}{\zhnumsetup{time=Chinese}\zhtoday}
-\ustc@define@term{professionaltype}{}
+\ustc@define@term{professionaltype}{专业学位类型}
 \ustc@define@term{secretlevel}{}
 \ustc@define@term{secretyear}{}
 \ustc@define@term{entitle}{Title}
@@ -1191,8 +1216,10 @@ version 2005/12/01 or later.
 \ustc@define@term{ensupervisor}{Prof. XXX}
 \ustc@define@term{encosupervisor}{}
 \ustc@define@term{endate}{\CTEX@todayold}
-\ustc@define@term{enprofessionaltype}{}
+\ustc@define@term{enprofessionaltype}{Professional degree type}
 \ustc@define@term{ensecretlevel}{}
+\ustc@define@term{keywords}{}
+\ustc@define@term{enkeywords}{}
 %    \end{macrocode}
 %
 % 中文封面：
@@ -1213,7 +1240,7 @@ version 2005/12/01 or later.
     \includegraphics[height=37\bp@]{figures/ustc_logo_text}\par
     \vskip 0.5cm%
     \ifustc@professional
-      {\sffamily\ustc@setfontsize{56\bp@}{56\bp@}\ziju{-0.09}%
+      {\sffamily\ustc@setfontsize{56\bp@}{56\bp@}%
         \ustc@thesisname\par}%
       \vskip 0.8cm%
       {\lishu\ustc@setfontsize{26\bp@}{26\bp@}%
@@ -1645,7 +1672,10 @@ version 2005/12/01 or later.
       \pagenumbering{Roman}%
     \fi
   \fi
-}{}
+}{
+  \par\null\par\noindent\hangindent=4\ccwd\relax
+  \textbf{关键词}：\ustc@keywords
+}
 %    \end{macrocode}
 % \end{environment}
 %
@@ -1657,27 +1687,13 @@ version 2005/12/01 or later.
     \ustc@chapter[Abstract]{ABSTRACT}%
   \else
     \chapter[英文内容摘要]{Abstract}%
-  \fi}{}
+  \fi
+}{
+  \par\null\par\noindent\hangindent=5.3em\relax
+  \textbf{Key Words}: \ustc@enkeywords
+}
 %    \end{macrocode}
 % \end{environment}
-%
-% \begin{macro}{\keywords}
-% 中文关键词
-%    \begin{macrocode}
-\newcommand\keywords[1]{%
-  \par\phantom{empty line}\par\noindent\hangindent=4\ccwd\relax
-  \textbf{关键词}：#1}
-%    \end{macrocode}
-% \end{macro}
-%
-% \begin{macro}{\enkeywords}
-% 英文关键词
-%    \begin{macrocode}
-\newcommand\enkeywords[1]{%
-  \par\phantom{empty}\par\noindent\hangindent=5.3em\relax
-  \textbf{Key Words}: #1}
-%    \end{macrocode}
-% \end{macro}
 %
 %
 % \subsection{目录}

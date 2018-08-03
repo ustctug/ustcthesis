@@ -61,7 +61,6 @@
   \ClassError{ustcthesis}{%
     This template requires TeX Live\MessageBreak 2016 or later version}{}
 }
-\RequirePackage{hyperref}
 \RequirePackage{etoolbox}
 \RequirePackage{amsmath}
 \RequirePackage{unicode-math}
@@ -76,21 +75,36 @@
   \PassOptionsToPackage{sort&compress}{natbib}
 \fi
 \RequirePackage{natbib}
+\RequirePackage{hyperref}
 \hypersetup{
   bookmarksnumbered=true,
   bookmarksopen=true,
   bookmarksopenlevel=1,
   linktoc=all,
-  pdfborder=0 0 0,
 }
 \ifustc@pdf
   \hypersetup{
     colorlinks=true,
     allcolors=blue,
   }
+\else
+  \hypersetup{hidelinks}
 \fi
+\AtBeginDocument{%
+  \ifustc@english
+    \hypersetup{
+      pdftitle={\ustc@entitle},
+      pdfauthor={\ustc@enauthor},
+    }%
+  \else
+    \hypersetup{
+      pdftitle={\ustc@title},
+      pdfauthor={\ustc@author},
+    }%
+  \fi
+}
 \pdfstringdefDisableCommands{
-  \let\\\empty
+  \let\\\@empty
 }
 \urlstyle{same}
 \def\UrlBreaks{%
@@ -292,10 +306,12 @@
 \fi
 \geometry{
   paper=a4paper,
-  top=2.54cm, bottom=2.54cm,
-  left=3.17cm, right=3.17cm,
-  headheight=0.75cm, headsep=0.29cm,
-  footskip=0.79cm}
+  vmargin=2.54cm,
+  hmargin=3.17cm,
+  headheight=0.75cm,
+  headsep=0.29cm,
+  footskip=0.79cm,
+}
 \renewcommand{\headrulewidth}{0.4pt}
 \ifustc@graduate
   \fancypagestyle{ustc@headings}{
@@ -337,10 +353,7 @@
   \fi
   \@mainmattertrue}
 \renewcommand\maketitle{%
-  \hypersetup{
-    pdftitle={\ustc@title},
-    pdfauthor={\ustc@author}
-  }
+  \newgeometry{margin=2.54cm}
   \pagenumbering{gobble}%
   \pdfbookmark[0]{封面}{titlepage}%
   \ustc@makezhtitle
@@ -348,6 +361,7 @@
   \pdfbookmark[0]{Title page}{entitlepage}%
   \ustc@makeentitle
   \cleardoublepage
+  \restoregeometry
 }
 \ifustc@doctor
   \newcommand\ustc@thesisname{博士学位论文}
@@ -371,7 +385,13 @@
     \setCJKfamilyfont{zhli}{Baoli SC}
     \providecommand\lishu{\CJKfamily{zhli}}
   }{
-    \providecommand\lishu{\relax}
+    \ifx\lishu\relax
+      \ClassWarningNoLine{ustcthesis}{%
+        The lishu font is required.\MessageBreak
+        Please configure it manually
+      }
+      \providecommand\lishu{\sffamily}
+    \fi
   }
   \newcommand\ustc@specialityname{专业领域}
 \else
@@ -389,7 +409,7 @@
 \ustc@define@term{supervisor}{XXX\quad 教授}
 \ustc@define@term{cosupervisor}{}
 \ustc@define@term{date}{\zhnumsetup{time=Chinese}\zhtoday}
-\ustc@define@term{professionaltype}{}
+\ustc@define@term{professionaltype}{专业学位类型}
 \ustc@define@term{secretlevel}{}
 \ustc@define@term{secretyear}{}
 \ustc@define@term{entitle}{Title}
@@ -398,8 +418,10 @@
 \ustc@define@term{ensupervisor}{Prof. XXX}
 \ustc@define@term{encosupervisor}{}
 \ustc@define@term{endate}{\CTEX@todayold}
-\ustc@define@term{enprofessionaltype}{}
+\ustc@define@term{enprofessionaltype}{Professional degree type}
 \ustc@define@term{ensecretlevel}{}
+\ustc@define@term{keywords}{}
+\ustc@define@term{enkeywords}{}
 \newcommand\ustc@makezhtitle{%
   \begin{titlepage}%
     \centering
@@ -410,7 +432,7 @@
     \includegraphics[height=37\bp@]{figures/ustc_logo_text}\par
     \vskip 0.5cm%
     \ifustc@professional
-      {\sffamily\ustc@setfontsize{56\bp@}{56\bp@}\ziju{-0.09}%
+      {\sffamily\ustc@setfontsize{56\bp@}{56\bp@}%
         \ustc@thesisname\par}%
       \vskip 0.8cm%
       {\lishu\ustc@setfontsize{26\bp@}{26\bp@}%
@@ -702,19 +724,20 @@
       \pagenumbering{Roman}%
     \fi
   \fi
-}{}
+}{
+  \par\null\par\noindent\hangindent=4\ccwd\relax
+  \textbf{关键词}：\ustc@keywords
+}
 \newenvironment{enabstract}{%
   \ifustc@graduate
     \ustc@chapter[Abstract]{ABSTRACT}%
   \else
     \chapter[英文内容摘要]{Abstract}%
-  \fi}{}
-\newcommand\keywords[1]{%
-  \par\phantom{empty line}\par\noindent\hangindent=4\ccwd\relax
-  \textbf{关键词}：#1}
-\newcommand\enkeywords[1]{%
-  \par\phantom{empty}\par\noindent\hangindent=5.3em\relax
-  \textbf{Key Words}: #1}
+  \fi
+}{
+  \par\null\par\noindent\hangindent=5.3em\relax
+  \textbf{Key Words}: \ustc@enkeywords
+}
 \newif\ifustc@tocloaded
 \renewcommand\tableofcontents{%
   \ifustc@bachelor
