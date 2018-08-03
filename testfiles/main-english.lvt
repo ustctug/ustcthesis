@@ -1,10 +1,13 @@
 \input{regression-test}
 \documentclass[doctor,english,fontset=fandol]{ustcthesis}
+
+\input{info.tex}
+
 \begin{document}
 \START
 \showoutput
 
-\include{chapters}
+\input{chapters.tex}
 
 \clearpage
 \end{document}

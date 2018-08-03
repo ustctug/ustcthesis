@@ -85,14 +85,12 @@ Completed box being shipped out [1]
 ....\write1{\protect \providecommand {\protect \FN@pp@footnote@aux }[2]{}}
 ....\write1{\protect \FN@pp@footnotehinttrue }
 ....\write-{}
-....\write2{\protect \FN@pp@footnotehinttrue }
-....\write-{}
-....\write2{\protect \FN@pp@footnotehinttrue }
+....\write1{\protect \FN@pp@footnotehinttrue }
 ....\write-{}
 ....\write3{\protect \BOOKMARK [0][]{ustcchapter.1.0}{\376\377\144\130\211\201}{}\ETC.}
 ....\special{pdf:dest (ustcchapter.1.0) [@thispage /XYZ @xpos @ypos null]}
 ....\mark{{{\protect \ustc@spacetitle  {摘要}}}{}}
-....\write2{\protect \FN@pp@footnotehinttrue }
+....\write1{\protect \FN@pp@footnotehinttrue }
 ....\write-{}
 ....\special{pdf:dest (chapter*.1) [@thispage /XYZ @xpos @ypos null]}
 ....\glue(\topskip) 12.0
@@ -163,7 +161,7 @@ Completed box being shipped out [1]
 .....\penalty 10000
 .....\glue(\parfillskip) 0.0 plus 1.0fil
 .....\glue(\rightskip) 0.0
-....\write2{\protect \FN@pp@footnotehinttrue }
+....\write1{\protect \FN@pp@footnotehinttrue }
 ....\glue -2.21623
 ....\glue 0.0 plus 1.0fil
 ....\glue 0.0
@@ -272,7 +270,7 @@ Completed box being shipped out [2]
 ....\write3{\protect \BOOKMARK [0][]{ustcchapter.2.0}{\376\377\000A\000b\000s\000\ETC.}
 ....\special{pdf:dest (ustcchapter.2.0) [@thispage /XYZ @xpos @ypos null]}
 ....\mark{{{\protect \ustc@spacetitle  {Abstract}}}{}}
-....\write2{\protect \FN@pp@footnotehinttrue }
+....\write1{\protect \FN@pp@footnotehinttrue }
 ....\write-{}
 ....\special{pdf:dest (chapter*.2) [@thispage /XYZ @xpos @ypos null]}
 ....\glue(\topskip) 12.0
@@ -329,7 +327,7 @@ Completed box being shipped out [2]
 .....\penalty 10000
 .....\glue(\parfillskip) 0.0 plus 1.0fil
 .....\glue(\rightskip) 0.0
-....\write2{\protect \FN@pp@footnotehinttrue }
+....\write1{\protect \FN@pp@footnotehinttrue }
 ....\glue -2.62576
 ....\glue 0.0 plus 1.0fil
 ....\glue 0.0
@@ -481,7 +479,7 @@ Completed box being shipped out [3]
 ....\write3{\protect \BOOKMARK [0][]{ustcchapter.3.0}{\376\377\166\356\137\125}{}\ETC.}
 ....\special{pdf:dest (ustcchapter.3.0) [@thispage /XYZ @xpos @ypos null]}
 ....\mark{{{\protect \ustc@spacetitle  {目录}}}{}}
-....\write2{\protect \FN@pp@footnotehinttrue }
+....\write1{\protect \FN@pp@footnotehinttrue }
 ....\write-{}
 ....\special{pdf:dest (chapter*.3) [@thispage /XYZ @xpos @ypos null]}
 ....\glue(\topskip) 12.0
@@ -944,7 +942,7 @@ Completed box being shipped out [3]
 .....\glue(\parfillskip) -12.045 plus 1.0fil
 .....\glue(\rightskip) 30.71477
 ....\penalty 10000
-....\write2{\protect \FN@pp@footnotehinttrue }
+....\write1{\protect \FN@pp@footnotehinttrue }
 ....\glue -6.0
 ....\glue 0.0 plus 1.0fil
 ....\glue 0.0
@@ -1085,12 +1083,12 @@ Completed box being shipped out [5]
 ...\glue 8.2511
 ...\glue(\lineskip) 0.0
 ...\vbox(700.50723+0.0)x417.11752, glue set 635.13577fil
-....\write2{\protect \FN@pp@footnotehinttrue }
+....\write1{\protect \FN@pp@footnotehinttrue }
 ....\write-{}
 ....\write3{\protect \BOOKMARK [0][]{ustcchapter.4.0}{\376\377\173\046\123\367\21\ETC.}
 ....\special{pdf:dest (ustcchapter.4.0) [@thispage /XYZ @xpos @ypos null]}
 ....\mark{{{\protect \ustc@spacetitle  {符号说明}}}{}}
-....\write2{\protect \FN@pp@footnotehinttrue }
+....\write1{\protect \FN@pp@footnotehinttrue }
 ....\write-{}
 ....\special{pdf:dest (chapter*.4) [@thispage /XYZ @xpos @ypos null]}
 ....\glue(\topskip) 12.0
@@ -1123,7 +1121,7 @@ Completed box being shipped out [5]
 .....\kern -0.00021
 .....\kern 0.00021
 .....\glue 4.01495 plus 4.5168 minus 0.33458
-.....\write2{\protect \FN@pp@footnotehinttrue }
+.....\write1{\protect \FN@pp@footnotehinttrue }
 .....\penalty 10000
 .....\glue(\parfillskip) 0.0 plus 1.0fil
 .....\glue(\rightskip) 0.0
@@ -1191,7 +1189,7 @@ Completed box being shipped out [6]
 ...\glue(\lineskip) 0.0
 ...\vbox(700.50723+0.0)x0.0, glue set 688.50723fil
 ....\write-{}
-....\write2{\protect \FN@pp@footnotehinttrue }
+....\write1{\protect \FN@pp@footnotehinttrue }
 ....\write-{}
 ....\glue(\topskip) 12.0
 ....\hbox(0.0+0.0)x0.0
@@ -1271,14 +1269,14 @@ Completed box being shipped out [1]
 ...\glue 8.2511
 ...\glue(\lineskip) 0.0
 ...\vbox(700.50723+0.0)x417.11752, glue set 360.9265fil
-....\write2{\protect \FN@pp@footnotehinttrue }
+....\write1{\protect \FN@pp@footnotehinttrue }
 ....\write-{}
 ....\special{pdf:dest (chapter.1) [@thispage /XYZ @xpos @ypos null]}
 ....\write3{\protect \BOOKMARK [0][]{chapter.1}{\376\377\173\054\0001\172\340\000\ETC.}
-....\write2{\@writefile{toc}{\protect \contentsline {chapter}{\protect \numberline \ETC.}
+....\write1{\@writefile{toc}{\protect \contentsline {chapter}{\protect \numberline \ETC.}
 ....\mark{{{第1章\hskip 1em\relax \protect \ustc@spacetitle  {简介}}}{}}
-....\write2{\@writefile{lof}{\protect \addvspace {10.0pt}}}
-....\write2{\@writefile{lot}{\protect \addvspace {10.0pt}}}
+....\write1{\@writefile{lof}{\protect \addvspace {10.0pt}}}
+....\write1{\@writefile{lot}{\protect \addvspace {10.0pt}}}
 ....\glue(\topskip) 12.0
 ....\rule(0.0+0.0)x*
 ....\penalty 10000
@@ -1366,7 +1364,7 @@ Completed box being shipped out [1]
 ....\mark{{{第1章\hskip 1em\relax \protect \ustc@spacetitle  {简介}}}{\protect \ETC
 .}
 ....\write3{\protect \BOOKMARK [1][-]{section.1.1}{\376\377\0001\000.\0001\000\04\ETC.}
-....\write2{\@writefile{toc}{\protect \contentsline {section}{\protect \numberline \ETC.}
+....\write1{\@writefile{toc}{\protect \contentsline {section}{\protect \numberline \ETC.}
 ....\penalty 10000
 ....\glue 6.02243
 ....\glue(\parskip) 0.0
@@ -1413,7 +1411,7 @@ Completed box being shipped out [1]
 .....\glue(\parfillskip) 0.0 plus 1.0fil
 .....\glue(\rightskip) 0.0
 ....\write3{\protect \BOOKMARK [2][-]{subsection.1.1.1}{\376\377\0001\000.\0001\0\ETC.}
-....\write2{\@writefile{toc}{\protect \contentsline {subsection}{\protect \numberline \ETC.}
+....\write1{\@writefile{toc}{\protect \contentsline {subsection}{\protect \numberline \ETC.}
 ....\penalty 10000
 ....\glue 6.02243
 ....\glue(\parskip) 0.0
@@ -1460,7 +1458,7 @@ Completed box being shipped out [1]
 .....\penalty 10000
 .....\glue(\parfillskip) 0.0 plus 1.0fil
 .....\glue(\rightskip) 0.0
-....\write2{\@writefile{toc}{\protect \contentsline {subsubsection}{\protect \numberline \ETC.}
+....\write1{\@writefile{toc}{\protect \contentsline {subsubsection}{\protect \numberline \ETC.}
 ....\penalty 10000
 ....\glue 0.0
 ....\glue(\parskip) 0.0
@@ -1510,7 +1508,7 @@ Completed box being shipped out [1]
 .....\TU/FandolSong-Regular(0)/m/n/12.04486 题
 .....\kern -0.00017
 .....\kern 0.00017
-.....\write2{\@writefile{toc}{\protect \contentsline {paragraph}{\protect \numberline \ETC.}
+.....\write1{\@writefile{toc}{\protect \contentsline {paragraph}{\protect \numberline \ETC.}
 .....\penalty 10000
 .....\glue(\parfillskip) 0.0 plus 1.0fil
 .....\glue(\rightskip) 0.0
@@ -1554,7 +1552,7 @@ Completed box being shipped out [1]
 .....\TU/FandolSong-Regular(0)/m/n/12.04486 题
 .....\kern -0.00017
 .....\kern 0.00017
-.....\write2{\@writefile{toc}{\protect \contentsline {subparagraph}{\protect \numberline \ETC.}
+.....\write1{\@writefile{toc}{\protect \contentsline {subparagraph}{\protect \numberline \ETC.}
 .....\penalty 10000
 .....\glue(\parfillskip) 0.0 plus 1.0fil
 .....\glue(\rightskip) 0.0
@@ -1574,7 +1572,7 @@ Completed box being shipped out [1]
 .....\penalty 10000
 .....\glue(\parfillskip) 0.0 plus 1.0fil
 .....\glue(\rightskip) 0.0
-....\write2{\protect \FN@pp@footnotehinttrue }
+....\write1{\protect \FN@pp@footnotehinttrue }
 ....\glue -2.62576
 ....\glue 0.0 plus 1.0fil
 ....\glue 0.0
@@ -1695,9 +1693,9 @@ Completed box being shipped out [2]
 ....\write-{}
 ....\special{pdf:dest (chapter.2) [@thispage /XYZ @xpos @ypos null]}
 ....\write3{\protect \BOOKMARK [0][]{chapter.2}{\376\377\173\054\0002\172\340\000\ETC.}
-....\write2{\@writefile{toc}{\protect \contentsline {chapter}{\protect \numberline \ETC.}
-....\mark{{{第2章\hskip 1em\relax \protect \ustc@spacetitle  {浮动体}}}{}}....\write2{\@writefile{lof}{\protect \addvspace {10.0pt}}}
-....\write2{\@writefile{lot}{\protect \addvspace {10.0pt}}}
+....\write1{\@writefile{toc}{\protect \contentsline {chapter}{\protect \numberline \ETC.}
+....\mark{{{第2章\hskip 1em\relax \protect \ustc@spacetitle  {浮动体}}}{}}....\write1{\@writefile{lof}{\protect \addvspace {10.0pt}}}
+....\write1{\@writefile{lot}{\protect \addvspace {10.0pt}}}
 ....\glue(\topskip) 12.0
 ....\rule(0.0+0.0)x*
 ....\penalty 10000
@@ -1747,7 +1745,7 @@ Completed box being shipped out [2]
 .....\penalty 10000
 .....\glue(\parfillskip) 0.0 plus 1.0fil
 .....\glue(\rightskip) 0.0
-....\write2{\protect \FN@pp@footnotehinttrue }
+....\write1{\protect \FN@pp@footnotehinttrue }
 ....\glue 0.0 plus 1.0fil
 ....\glue 0.0
 ...\glue(\baselineskip) 7.7226
@@ -1859,11 +1857,11 @@ Completed box being shipped out [3]
 ....\write-{}
 ....\special{pdf:dest (chapter*.5) [@thispage /XYZ @xpos @ypos null]}
 ....\write3{\protect \BOOKMARK [0][]{chapter*.5}{\376\377\123\302\200\003\145\207\ETC.}
-....\write2{\@writefile{toc}{\protect \contentsline {chapter}{参考文献}{\thepage \E
+....\write1{\@writefile{toc}{\protect \contentsline {chapter}{参考文献}{\thepage \E
 TC.}
 ....\mark{{{\protect \ustc@spacetitle  {参考文献}}}{}}
-....\write2{\@writefile{lof}{\protect \addvspace {10.0pt}}}
-....\write2{\@writefile{lot}{\protect \addvspace {10.0pt}}}
+....\write1{\@writefile{lof}{\protect \addvspace {10.0pt}}}
+....\write1{\@writefile{lot}{\protect \addvspace {10.0pt}}}
 ....\glue(\topskip) 12.0
 ....\rule(0.0+0.0)x*
 ....\penalty 10000
@@ -1996,7 +1994,7 @@ TC.}
 ....\penalty -51
 ....\glue 0.0
 ....\glue 0.0
-....\write2{\protect \FN@pp@footnotehinttrue }
+....\write1{\protect \FN@pp@footnotehinttrue }
 ....\glue -2.29756
 ....\glue 0.0 plus 1.0fil
 ....\glue 0.0
@@ -2119,10 +2117,10 @@ Completed box being shipped out [4]
 ....\write-{}
 ....\special{pdf:dest (appendix.A) [@thispage /XYZ @xpos @ypos null]}
 ....\write3{\protect \BOOKMARK [0][]{appendix.A}{\376\377\226\104\137\125\000\040\ETC.}
-....\write2{\@writefile{toc}{\protect \contentsline {chapter}{\protect \numberline \ETC.}
+....\write1{\@writefile{toc}{\protect \contentsline {chapter}{\protect \numberline \ETC.}
 ....\mark{{{附录 A\hskip 1em\relax \protect \ustc@spacetitle  {附录章节}}\ETC.}
-....\write2{\@writefile{lof}{\protect \addvspace {10.0pt}}}
-....\write2{\@writefile{lot}{\protect \addvspace {10.0pt}}}
+....\write1{\@writefile{lof}{\protect \addvspace {10.0pt}}}
+....\write1{\@writefile{lot}{\protect \addvspace {10.0pt}}}
 ....\glue(\topskip) 12.0
 ....\rule(0.0+0.0)x*
 ....\penalty 10000
@@ -2177,7 +2175,7 @@ Completed box being shipped out [4]
 .....\penalty 10000
 .....\glue(\parfillskip) 0.0 plus 1.0fil
 .....\glue(\rightskip) 0.0
-....\write2{\protect \FN@pp@footnotehinttrue }
+....\write1{\protect \FN@pp@footnotehinttrue }
 ....\glue -2.2042
 ....\glue 0.0 plus 1.0fil
 ....\glue 0.0
@@ -2284,15 +2282,15 @@ Completed box being shipped out [5]
 ...\glue(\lineskip) 0.0
 ...\vbox(700.50723+0.0)x417.11752, glue set 633.851fil
 ....\write-{}
-....\write2{\protect \FN@pp@footnotehinttrue }
+....\write1{\protect \FN@pp@footnotehinttrue }
 ....\write-{}
 ....\special{pdf:dest (appendix*.6) [@thispage /XYZ @xpos @ypos null]}
 ....\write3{\protect \BOOKMARK [0][]{appendix*.6}{\376\377\201\364\214\042}{}% 11}
-....\write2{\@writefile{toc}{\protect \contentsline {chapter}{致谢}{\thepage }{\E
+....\write1{\@writefile{toc}{\protect \contentsline {chapter}{致谢}{\thepage }{\E
 TC.}
 ....\mark{{{\protect \ustc@spacetitle  {致谢}}}{}}
-....\write2{\@writefile{lof}{\protect \addvspace {10.0pt}}}
-....\write2{\@writefile{lot}{\protect \addvspace {10.0pt}}}
+....\write1{\@writefile{lof}{\protect \addvspace {10.0pt}}}
+....\write1{\@writefile{lot}{\protect \addvspace {10.0pt}}}
 ....\glue(\topskip) 12.0
 ....\rule(0.0+0.0)x*
 ....\penalty 10000
@@ -2333,7 +2331,7 @@ TC.}
 .....\penalty 10000
 .....\glue(\parfillskip) 0.0 plus 1.0fil
 .....\glue(\rightskip) 0.0
-....\write2{\protect \FN@pp@footnotehinttrue }
+....\write1{\protect \FN@pp@footnotehinttrue }
 ....\glue -2.2042
 ....\glue 0.0 plus 1.0fil
 ....\glue 0.0
@@ -2477,10 +2475,10 @@ Completed box being shipped out [6]
 ....\write-{}
 ....\special{pdf:dest (appendix*.7) [@thispage /XYZ @xpos @ypos null]}
 ....\write3{\protect \BOOKMARK [0][]{appendix*.7}{\376\377\127\050\213\373\147\03\ETC.}
-....\write2{\@writefile{toc}{\protect \contentsline {chapter}{在读期间发表的\ETC.}
+....\write1{\@writefile{toc}{\protect \contentsline {chapter}{在读期间发表的\ETC.}
 ....\mark{{{\protect \ustc@spacetitle  {在读期间发表的学术论文与取\ETC.}
-....\write2{\@writefile{lof}{\protect \addvspace {10.0pt}}}
-....\write2{\@writefile{lot}{\protect \addvspace {10.0pt}}}
+....\write1{\@writefile{lof}{\protect \addvspace {10.0pt}}}
+....\write1{\@writefile{lot}{\protect \addvspace {10.0pt}}}
 ....\glue(\topskip) 12.0
 ....\rule(0.0+0.0)x*
 ....\penalty 10000
@@ -2553,10 +2551,10 @@ Completed box being shipped out [6]
 .....\kern 0.18753
 .....\glue 7.7569 minus 6.02243
 .....\glue 3.01122 plus 1.5056 minus 1.00374
-.....\write2{\protect \FN@pp@footnotehinttrue }
 .....\penalty 10000
 .....\glue(\parfillskip) 0.0 plus 1.0fil
 .....\glue(\rightskip) 0.0
+....\write1{\protect \FN@pp@footnotehinttrue }
 ....\glue -2.21623
 ....\glue 0.0 plus 1.0fil
 ....\glue 0.0
@@ -2602,7 +2600,7 @@ Completed box being shipped out [6]
 ..........\glue(\rightskip) 0.0
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line ....
 Package atveryend Info: Empty hook `AfterLastShipout' on input line ....
-(main.aux (chapters.aux))
+(main.aux)
 Package atveryend Info: Empty hook `AtVeryEndDocument' on input line ....
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line ....
 Package rerunfilecheck Info: File `main.out' has not changed.
