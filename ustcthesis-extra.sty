@@ -13,9 +13,12 @@
 \RequirePackage{longtable}
 
 % 数学符号：
-\newcommand\eu{\mathrm{e}}
-\newcommand\iu{\mathrm{i}}
+\newcommand\upe{\symup{e}}
+\newcommand\upi{\symup{i}}
 \newcommand\dif{\mathop{}\!\mathrm{d}}
+\renewcommand\vec{\symbf}
+\newcommand\mat{\symbf}
+\newcommand\ts{\symbfsf}
 \DeclareMathOperator*{\argmax}{arg\,max}
 \DeclareMathOperator*{\argmin}{arg\,min}
 
@@ -108,6 +111,10 @@
 \renewcommand\listofalgorithms{%
     \cleardoublepage%
     \ustc@save@listofalgorithms}
+
+% 命令和宏包
+\DeclareRobustCommand\cs[1]{\texttt{\char`\\#1}}
+\newcommand\pkg{\textsf}
 
 \endinput
 %%

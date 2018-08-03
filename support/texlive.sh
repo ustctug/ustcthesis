@@ -11,10 +11,10 @@ if ! command -v tlmgr > /dev/null; then
 fi
 
 tlmgr install latexmk l3build \
-    fontspec l3kernel l3packages xetex \
+    fontname fontspec l3kernel l3packages xetex \
     cjk ctex environ ms trimspaces ulem xecjk zhnumber \
-    fandol tex-gyre stix2-otf xits \
     caption etoolbox filehook footmisc titlesec unicode-math zapfding \
+    fandol tex-gyre stix2-otf xits \
     booktabs listings thumbpdf xcolor \
     algorithm2e ifoddpage relsize
 

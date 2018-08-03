@@ -55,7 +55,7 @@ version 2005/12/01 or later.
 %
 %<*driver>
 \documentclass{ltxdoc}
-\usepackage[paper=a4paper,hmargin={1.5in,1in},vmargin=1.5in]{geometry}
+\usepackage[paper=a4paper,margin=1in,left=1.5in]{geometry}
 \usepackage{hypdoc}
 \hypersetup{
   allcolors=blue,
@@ -63,11 +63,14 @@ version 2005/12/01 or later.
   bookmarksopen=true,
 }
 \usepackage[UTF8]{ctex}
+\usepackage[math-style=ISO,bold-style=ISO]{unicode-math}
 \IfFileExists{/System/Library/Fonts/Times.ttc}{
   \setmainfont{Times}
   \setsansfont[Scale=MatchLowercase]{Helvetica}
   \setmonofont[Scale=MatchLowercase]{Menlo}
 }{}
+\setmathfont{STIX2Math.otf}
+\usepackage{caption}
 \usepackage{booktabs}
 \usepackage{xcolor}
 \usepackage{listings}
@@ -90,15 +93,29 @@ version 2005/12/01 or later.
     frame=single,
     gobble=2,
     language=bash}}{}
+\makeatletter
+\def\DescribeOption{\leavevmode\@bsphack\begingroup\MakePrivateLetters
+  \Describe@Option}
+\def\Describe@Option#1{\endgroup
+              \marginpar{\raggedleft\PrintDescribeOption{#1}}%
+              \SpecialEnvIndex{#1}\@esphack\ignorespaces}
+\@ifundefined{PrintDescribeOption}
+   {\def\PrintDescribeOption#1{\strut \MacroFont #1\ }}{}
 % 模仿 l3doc 的定义（见 l3styleguide）
 \DeclareRobustCommand\file{\nolinkurl}
 \DeclareRobustCommand\env{\texttt}
 \DeclareRobustCommand\pkg{\textsf}
 \DeclareRobustCommand\cls{\textsf}
 \DeclareRobustCommand\opt{\texttt}
+\setlength\partopsep{\z@}
+\def\@listi{\leftmargin\leftmargini
+            \parsep \z@
+            \topsep 5\p@ \@plus2\p@ \@minus3\p@
+            \itemsep2\p@ \@plus\p@ \@minus\p@}
+\let\@listI\@listi
+\@listi
 \renewcommand\glossaryname{版本历史}
 \GlossaryPrologue{\section*{\glossaryname}}
-\makeatletter
 \def\changes@#1#2#3{%
   \protected@edef\@tempa{%
     \noexpand\glossary{#1 (#2)\levelchar
@@ -115,7 +132,6 @@ version 2005/12/01 or later.
     \fi
     #3}}%
   \@tempa\endgroup\@esphack}
-\makeatother
 \renewcommand\indexname{命令索引}
 \IndexPrologue{%
   \section*{\indexname}
@@ -123,6 +139,7 @@ version 2005/12/01 or later.
     带下划线的数字表示定义对应索引项的代码行号；%
     罗马字体的数字表示使用对应索引项的代码行号。}}
 \newcommand\TeXLive{\TeX{} Live}
+\makeatother
 
 \EnableCrossrefs
 \CodelineIndex
@@ -219,8 +236,10 @@ version 2005/12/01 or later.
 %
 % \subsection{文件组成}
 % 本模板的主要文件如表~\ref{tab:files}：
-% \begin{table}[htbp]
-%   \centering
+% \begin{table}[htb]
+%   \centering\small
+%   \caption{模板的文件组成}
+%   \label{tab:files}
 %   \begin{tabular}{lll}
 %     \toprule
 %     类别     & 文件                      & 说明 \\
@@ -249,8 +268,6 @@ version 2005/12/01 or later.
 %              & \file{Makefile}           & GNU make 的配置文件 \\
 %     \bottomrule
 %   \end{tabular}
-%   \caption{模板的文件组成}
-%   \label{tab:files}
 % \end{table}
 %
 % 示例文档包括了常用的 \LaTeX{} 命令，建议新手从此入手，用自己的内容进行替换。
@@ -265,7 +282,7 @@ version 2005/12/01 or later.
 % 本模板要求使用 TeX Live、MacTeX 或 MikTeX 不低于 2016 年的发行版，
 % 推荐升级到最新的版本。
 %
-% \cls{ustcthesis} 直接依赖的宏包有：
+% 本模板直接依赖的宏包有：
 % \pkg{amsmath},
 % \pkg{caption},
 % \pkg{calc},
@@ -278,6 +295,16 @@ version 2005/12/01 or later.
 % \pkg{natbib},
 % \pkg{titletoc},
 % \pkg{unicode-math}。
+%
+% 本模板\emph{不}兼容的宏包有：
+% \pkg{amsfonts},
+% \pkg{amssymb},
+% \pkg{biblatex},
+% \pkg{bm},
+% \pkg{cite},
+% \pkg{mathrsfs},
+% \pkg{newtx},
+% \pkg{upgreek}。
 %
 %
 % \subsection{开始编译}
@@ -335,41 +362,45 @@ version 2005/12/01 or later.
 %
 %
 % \subsection{文档类参数}
-% \cls{ustcthesis} 提供了若干选项，应在论文开始时设置，如：
+% 模板提供了若干选项，应在载入模板时设置，如：
 % \begin{latex}
 % \documentclass[doctor,english,pdf]{ustcthesis}
 % \end{latex}
 %
-% 全部的选项见表~\ref{tab:options}
-% \begin{table}[htbp]
-%   \centering
-%   \begin{tabular}{lll}
-%     \toprule
-%       必需参数 & \opt{bachelor}     & 本科论文 \\
-%                & \opt{master}       & 硕士论文 \\
-%                & \opt{doctor}       & 博士论文 \\
-%     \midrule
-%       可选参数 & \opt{professional} & 专业学位 \\
-%                & \opt{chinese}      & 中文，默认 \\
-%                & \opt{english}      & English \\
-%                & \opt{print}        & 用于双面打印纸质论文，默认 \\
-%                & \opt{pdf}          & 单面打印，并保留超链接颜色 \\
-%                & \opt{super}        & 角标数字式参考文献引用标注，默认 \\
-%                & \opt{numbers}      & 数字式参考文献引用标注 \\
-%                & \opt{authoryear}   & 著者-出版年制参考文献 \\
-%                & \opt{arabic}       & 使用阿拉伯数字式章节标题（本科生）\\
-%     \bottomrule
-%   \end{tabular}
+% 全部的选项见表~\ref{tab:options}。
+% \begin{table}[htb]
+%   \centering\small
 %   \caption{文档类参数}
 %   \label{tab:options}
+%   \begin{tabular}{ll}
+%     \toprule
+%     文档类参数         & 说明 \\
+%     \midrule
+%     \opt{doctor}*      & 博士论文 \\
+%     \opt{master}       & 硕士论文 \\
+%     \opt{bachelor}     & 本科论文 \\
+%     \opt{academic}*    & 学术型学位 \\
+%     \opt{professional} & 专业型学位（限研究生） \\
+%     \opt{chinese}*     & 中文 \\
+%     \opt{english}      & English \\
+%     \opt{print}*       & 用于双面打印纸质论文 \\
+%     \opt{pdf}          & 单面打印，并保留超链接颜色 \\
+%     \opt{super}*       & 角标数字式文献引用标注 \\
+%     \opt{numbers}      & 数字式文献引用标注 \\
+%     \opt{authoryear}   & 著者-出版年制文献引用标注 \\
+%     \opt{arabic}       & 阿拉伯数字式章节标题（限本科生）\\
+%     \bottomrule
+%   \end{tabular}
+%   \caption*{\small 注：带 * 号的是默认参数}
 % \end{table}
 %
 %
 % \subsection{字体设置}
-% \cls{ustcthesis} 是以 \pkg{XeTeX} + \pkg{fontspec} + \pkg{xeCJK}
+% 本模板是以 \pkg{XeTeX} + \pkg{fontspec} + \pkg{xeCJK}
 % 的方式来配置字体的，
 % 所以用户必须使用 UTF-8 编码保存源文件，并且用 |xelatex| 命令进行编译。
 %
+% \DescribeOption{fontset=\meta{font}}
 % 默认情况下，本模板可以自动检测操作系统，并配置合适的字体。
 % 用户可以在调用文档类时加入选项
 % \opt{fontset=mac/windows/adobe} 指定加载的字库，
@@ -404,9 +435,6 @@ version 2005/12/01 or later.
 % 示例文档 \file{main.tex} 中的致谢、目录等章节的顺序，是按照研究生论文的格式组
 % 织内容的，\emph{本科生需要手动调整顺序}。
 %
-% 如果使用文档类选项 \opt{print} （默认），“原创性声明” 页则会加在封面后；
-% 若为 \opt{pdf}，则没有声明页。
-%
 %
 % \subsection{封面}
 %
@@ -414,120 +442,136 @@ version 2005/12/01 or later.
 % 以指书打开后的第一页（title page）。在这里指的是后者，所以本模板从 title page
 % 开始。
 %
-% 封面由 \cs{maketitle} 命令生成，其中的各项信息使用 \cs{\meta{item}\marg{info}}
-% 的方式填写，本模板提供的命令如表~\ref{tab:covercmds}，其中带 |en| 前缀的命令是
-% 设置英文封面的命令：
-% \begin{table}[htbp]
-%   \centering
+% \DescribeMacro{\maketitle}
+% \DescribeMacro{\makestatement}
+% 封面和声明页分别由 \cs{maketitle} 和 \cs{makestatement} 命令生成，
+% 其中的各项信息使用 \cs{\meta{item}\marg{info}} 的方式填写，
+% 本模板提供的命令如表~\ref{tab:covercmds}，
+% 其中带 |en| 前缀的命令是 设置英文封面的命令：
+% \begin{table}[htb]
+%   \centering\small
+%   \caption{录入封面信息的命令}
+%   \label{tab:covercmds}
 %   \begin{tabular}{lll}
 %     \toprule
-%       命令              & 命令（英文）        & 说明                   \\
+%     命令              & 命令（英文）        & 说明                   \\
 %     \midrule
-%       \cs{title}        & \cs{entitle}        & 论文标题               \\
-%       \cs{author}       & \cs{enauthor}       & 作者姓名               \\
-%       \cs{major}        & \cs{enmajor}        & 学科专业               \\
-%       \cs{supervisor}   & \cs{ensupervisor}   & 导师姓名               \\
-%       \cs{cosupervisor} & \cs{encosupervisor} & 副导师姓名             \\
-%       \cs{date}         & \cs{endate}         & 完成时间（默认为今天） \\
-%       \cs{secretlevel}  & \cs{ensecretlevel}  & 密级（默认不保密）     \\
-%       \cs{secretyear}   & -                   & 保密年限               \\
+%     \cs{title}        & \cs{entitle}        & 论文标题               \\
+%     \cs{author}       & \cs{enauthor}       & 作者姓名               \\
+%     \cs{major}        & \cs{enmajor}        & 学科专业               \\
+%     \cs{supervisor}   & \cs{ensupervisor}   & 导师姓名               \\
+%     \cs{cosupervisor} & \cs{encosupervisor} & 副导师姓名             \\
+%     \cs{date}         & \cs{endate}         & 完成时间（默认为今天） \\
+%     \cs{secretlevel}  & \cs{ensecretlevel}  & 密级（默认不保密）     \\
+%     \cs{secretyear}   & -                   & 保密年限               \\
 %     \bottomrule
 %   \end{tabular}
-%   \caption{用来定义封面项目}
-%   \label{tab:covercmds}
 % \end{table}
 %
 %
-% \subsection{摘要等环境}
+% \subsection{摘要和章节}
 % \DescribeEnv{abstract}
 % \DescribeEnv{enabstract}
 % \DescribeEnv{notation}
 % \DescribeEnv{acknowledgements}
 % \DescribeEnv{publications}
-% 对于特殊的章节，\cls{ustcthesis} 还提供了相应的环境，如表~\ref{tab:environments}。
-% \begin{table}[htbp]
-%   \centering
-%   \begin{tabular}{ll}
-%     \toprule
-%       环境                   & 说明 \\
-%     \midrule
-%       \env{abstract}         & 中文摘要 \\
-%       \env{enabstract}       & 英文摘要 \\
-%       \env{notation}         & 符号 \\
-%       \env{acknowledgements} & 致谢 \\
-%       \env{publications}     & 发表成果 \\
-%     \bottomrule
-%   \end{tabular}
-%   \caption{特殊章节的环境}
-%   \label{tab:environments}
-% \end{table}
+% 对于特殊的章节，\cls{ustcthesis} 还提供了相应的环境：
+% \begin{itemize}
+%   \item 中文摘要：\env{abstract}
+%   \item 英文摘要：\env{enabstract}
+%   \item 符号说明：\env{notation}
+%   \item 致谢：    \env{acknowledgements}
+%   \item 发表成果：\env{publications}
+% \end{itemize}
 %
 % \DescribeMacro{\keywords}
 % \DescribeMacro{\enkeywords}
-% 其中，摘要的关键词应使用 \cs{keywords} 和 \cs{enkeywords} 命令，并包含在摘要环
-% 境中；
+% 摘要的关键词应使用 \cs{keywords} 和 \cs{enkeywords} 命令，
+% 并包含在摘要环境中，比如：
 % \begin{latex}
 % \begin{abstract}
-% 这里是摘要。
-% \keywords{论文；摘要；关键词}
+%   这里是摘要。
+%   \keywords{论文；摘要；关键词}
 % \end{abstract}
 % \end{latex}
 %
-%
-% \subsection{目录和图表}
-% 生成目录、插图和表格的索引命令分别如表~\ref{tab:tocs}：
 % \DescribeMacro{\tableofcontents}
 % \DescribeMacro{\listoffigures}
 % \DescribeMacro{\listoftables}
-% \begin{table}[htbp]
-%   \centering
-%   \begin{tabular}{ll}
-%     \toprule
-%       命令                  & 说明 \\
-%     \midrule
-%       \cs{tableofcontents}  & 目录 \\
-%       \cs{listoffigures}    & 图目录 \\
-%       \cs{listoftables}     & 表目录 \\
-%       \cs{listofalgorithms} & 算法目录 \\
-%     \bottomrule
-%   \end{tabular}
-%   \caption{各种目录的环境}
-%   \label{tab:tocs}
-% \end{table}
+% 目录和图、表清单可以使用命令自动生成：
+% \begin{itemize}
+%   \item 目录：  \cs{tableofcontents}
+%   \item 图清单：\cs{listoffigures}
+%   \item 表清单：\cs{listoftables}
+% \end{itemize}
 %
-% \LaTeX{} 的图表索引，是通过 \cs{caption} 命令完成的，因此它们必须出现在浮动环
-% 境中，否则不被计数。
-% 如果不想让某个表格或者图片出现在索引里面，那么应使用命令 \cs{caption*}，
-% 这个命令不会给表格编号，也就是出来的只有标题文字而没有“表~xx”，“图~xx”。
+%
+% \subsection{浮动体}
+%
+% 《撰写手册》要求图题置于图的下方，表题置于表的上方。
+% \LaTeX{} 的 \cs{caption} 命令并不能控制在浮动体中的位置，
+% 需要作者注意写在合适的地方。
 %
 % \DescribeMacro{\note}
-% 本模板还提供了 \cs{note\marg{text}} 命令，用于在图表中添加注释。
+% 本模板还提供了 \cs{note}\marg{notes} 命令，用于在图表中添加注释。
+%
+% 关于图片的并排，推荐使用较新的 \pkg{subcaption} 宏包，不建议使用
+% \pkg{subfigure} 或 \pkg{subfig}。
+%
+% 更多的表格样式参见 \pkg{booktabs}（三线表）、\pkg{longtable}（跨页表格）。
+%
+% 算法可以使用 \pkg{algorithms} 宏包或者较新的 \pkg{algorithm2e}。
 %
 %
 % \subsection{数学}
 %
-% 模板中定义了一些使用正体的数学符号（表~\ref{tab:symbols}）。
-% \begin{table}
-%   \centering
-%   \begin{tabular}{rl}
-%     \toprule
-%       符号                 & 命令 \\
-%     \midrule
-%       常数$\mathrm{e}$     & \cs{eu} \\
-%       复数单位$\mathrm{i}$ & \cs{iu} \\
-%       微分符号$\mathrm{d}$ & \cs{dif} \\
-%       $\arg\,\max$         & \cs{argmax} \\
-%       $\arg\,\min$         & \cs{argmin} \\
-%     \bottomrule
-%   \end{tabular}
-%   \caption{模板定义的数学符号}
-%   \label{tab:symbols}
-% \end{table}
+% \LaTeX{} 默认按照美国的习惯排版数学公式和符号，
+% 但是《撰写手册》要求数学符号依据《GB 3102.11--1993》执行，
+% 与 \LaTeX{} 的习惯有所差异。
+% 本模板基于 \pkg{unicode-math} 配置数学符号，以遵循国标的规定。
+%
+% 注意，\pkg{unicode-math} 宏包与 \pkg{amsfonts}, \pkg{amssymb}, \pkg{bm},
+% \pkg{mathrsfs}, \pkg{upgreek} 等宏包\emph{不}兼容。
+% 本模板作了处理，用户可以直接使用这些宏包的命令，如 \cs{bm}, \cs{mathscr},
+% \cs{upGamma}。
+%
+% \DescribeMacro{\symup}
+% \DescribeMacro{\symbf}
+% 本模板中数学符号的用法与 \LaTeX{} 传统有些区别：
+% \begin{itemize}
+%   \item 数学常数和特殊函数使用正体，
+%     如圆周率 $\symup{\pi}$、$\symup{\Gamma}$ 函数。
+%     应使用 \pkg{unicode-math} 宏包提供的 \cs{symup} 命令转为正体，
+%     如 |\symup{\pi}|。
+%   \item 向量、矩阵和张量要求粗斜体，应使用 \cs{symbf} 命令，
+%     如 |\symbf{A}|、|\symbf{u}|。
+%   \item 有限增量符号 $\increment$ （U+2206）应使用 \cs{increment} 命令。
+%   \item 微分符号 $\mathrm{d}$ 使用正体，本模板提供了 \cs{dif} 命令。
+% \end{itemize}
+%
+% 关于数学符号更多的用法，参见 \pkg{unicode-math} 宏包的使用说明和符号列表
+% \pkg{unimath-symbols}。
+%
+% 在编辑数学公式时，最好避免直接使用字体命令，比如
+% “$\symbf{A} \symbf{x} = \lambda \symbf{x}$”：
+% \begin{latex}
+% $\symbf{A} \symbf{x} = \lambda \symbf{x}$
+% \end{latex}
+% 而应该定义一些语义命令取代字体命令，
+% 这样输入更简单，也让 \LaTeX{} 代码更有可读性，
+% 而且还方便根据需要统一修改格式，比如：
+% \begin{latex}
+% \newcommand\mat{\symbf}
+% \renewcommand\vec{\symbf}
+% $\mat{A} \vec{u} = \lambda \vec{u}$
+% \end{latex}
 %
 % \file{ustcthesis-extra.sty} 定义了数学定理格式 |ustcplain|（默认使用）以及一些常用的
 % 环境，如表~\ref{tab:theorems}。
-% \begin{table}[htbp]
-%   \centering
+% \begin{table}[htb]
+%   \caption{数学定理相关的环境}
+%   \label{tab:theorems}
+%   \centering\small
 %   \begin{tabular}{*{5}{l}}
 %     \toprule
 %       theorem     & assertion  & axiom   & corollary & lemma \\
@@ -537,14 +581,11 @@ version 2005/12/01 or later.
 %       命题        & 定义       & 例      & 注        & 证明  \\
 %     \bottomrule
 %   \end{tabular}
-%   \caption{数学定理相关的环境}
-%   \label{tab:theorems}
 % \end{table}
 %
 % 注意\env{proof} 环境与其它不同的是，其第二个参数会完全取代“证明”标题，
 % 并且会在末尾加一个 \cs{qed}。
 %
-% \DescribeMacro{\newtheorem}
 % 用户可以使用 \cs{newtheorem} 命令来分别定义新的数学环境，比如定义并使用“传说”环境：
 % \begin{latex}
 % \newtheorem{legend}{传说}
@@ -553,33 +594,64 @@ version 2005/12/01 or later.
 % \end{legend}
 % \end{latex}
 %
-% \DescribeMacro{\newtheoremstyle}
-% 用户还可以用 \cs{newtheoremstyle} 定义环境的格式，具体参见 \pkg{amsthm} 宏包。
+% 还可以用 \cs{newtheoremstyle} 定义环境的格式，具体参见 \pkg{amsthm} 宏包。
+% 用户也可以改用 \cs{ntheorem} 宏包实现定理环境。
 %
 %
 % \subsection{参考文献}
 %
-% 参考文献和引用标注默认为角标数字式，
-% 也可以在文档类参数中设置，如：
+% \DescribeOption{authoryear}
+% \DescribeOption{super}
+% \DescribeOption{numbers}
+% 按照《撰写手册》和 《GB/T 7714-2015》 的规定，
+% 参考文献的标注体系分为“顺序编码制”和“著者-出版年制”（authoryear），
+% 其中顺序编码制根据引用标注样式的不同分为角标数字式（super）
+% 和与正文平排的数字式（numbers）。
+%
+% 《撰写手册》推荐使用角标数字式顺序编码制（默认），
+% 用户也可以在文档类参数中设置，如：
 % \begin{latex}
 % \documentclass[doctor,authoryear]{ustcthesis}
 % \end{latex}
 %
+% \DescribeMacro{\cite}
+% 在正文中引用文献时应使用 \cs{cite} 命令。
+% 同一处引用多篇文献时，需要将各篇文献的 key 一同写在参数中，
+% 如 |\cite{knuth84,lamport94,mittelbach04}|。
+% 它可以自动排序并用处理连续编号。
+% 更多的引用标注方法可以参考 \pkg{natbib} 宏包的使用说明。
+%
+% \DescribeMacro{\inlinecite}
+% 在使用角标数字式时，如果文献序号作为叙述文字的一部分，
+% 需要临时将文献序号与正文平排，可以使用 \cs{inlinecite} 命令，如：
+% \begin{latex}
+% 文献~\inlinecite{knuth84} 提出了一种新的断行算法
+% \end{latex}
+%
+% 若需要标出引文的页码，可以标在 \cs{cite} 的可选参数中，如
+% |\cite[42]{knuth84}|。
+%
+% \DescribeMacro{\bibliography}
+% 参考文献表可以使用 \BibTeX{} 生成，并在文中使用 \cs{bibliography} 命令调用。
+% 注意文献列表的样式已经在模板中根据选项设置，
+% 用户\emph{不再}需要使用 \cs{bibliographystyle} 命令。
+%
 % \BibTeX{} 默认情况下可以自动识别文献语言，并自动处理文献类型和载体类型标识，
 % 但是在少数情况下需要用户手动指定，如：
 % \begin{latex}
-% @article{citekey,
+% @misc{citekey,
 %   language = {japanese},
-%   mark     = {M},
-%   medium   = {CD},
+%   mark     = {Z},
+%   medium   = {DK},
 %   ...
 % \end{latex}
 % 可选的语言有 english, chinese, japanese, russian。
 %
-% 注意，在使用著者-出版年制时，需要将中文参考文献按照拼音或者笔画排序，
-% 然而 Unicode 中的汉字是根据康熙字典排序的，
-% 而且由于 \BibTeX{} 功能的局限性，我们无法根据著者姓名读取拼音，
-% 所以只能手动处理：在 bib 数据库中设置对应条目的 key 域为著者姓名拼音，如：
+% 注意，国标规定参考文献表采用著者-出版年制组织时，各篇文献首先按文种集中，
+% 然后按著者字顺和出版年排列；
+% 中文文献可以按著者汉语拼音字顺排列，也可以按著者的笔画笔顺排列。
+% 然而由于 \BibTeX{} 功能的局限性，无法自动获取著者姓名的拼音或笔画笔顺，
+% 所以\emph{必须}在 bib 数据库中的 key 域手动录入著者姓名的拼音，如：
 % \begin{latex}
 % @book{capital,
 %   author = {马克思 and 恩格斯},
@@ -587,6 +659,37 @@ version 2005/12/01 or later.
 %   ...
 % \end{latex}
 %
+% \BibTeX{} 对自定义样式的支持比较有限，
+% 所以用户只能通过修改 \file{bst} 文件来修改文献列表的格式。
+% 本宏包提供了一些接口供用户更方便地修改。
+%
+% 在 \file{bst} 文件开始处的 |load.config| 函数中，
+% 有一组配置参数用来控制样式，表~\ref{tab:config} 列出了每一项的默认值和功能。
+% 若变量被设为 |#1| 则表示该项被启用，设为 |#0| 则不启用。
+% 默认的值是严格遵循《撰写手册》的配置。
+%
+% \begin{table}[htb]
+% \centering\small
+% \caption{参考文献表样式的配置参数}
+% \label{tab:config}
+% \begin{tabular}{lcl}
+%   \toprule
+%   参数值                         & 默认值 & 功能                           \\
+%   \midrule
+%   uppercase.name                 & |#1|   & 将著者姓名转为大写             \\
+%   max.num.authors                & |#3|   & 输出著者的最多数量             \\
+%   period.between.author.year     & |#0|   & 著者和年份之间使用句点连接     \\
+%   sentence.case.title            & |#1|   & 将西文的题名转为 sentence case \\
+%   link.title                     & |#0|   & 在题名上添加 url 的超链接      \\
+%   show.mark                      & |#1|   & 显示文献类型标识               \\
+%   italic.jounal                  & |#0|   & 西文期刊名使用斜体             \\
+%   show.missing.address.publisher & |#1|   & 出版项缺失时显示“出版者不详”   \\
+%   show.url                       & |#1|   & 显示 url                       \\
+%   show.doi                       & |#1|   & 显示 doi                       \\
+%   show.note                      & |#0|   & 显示 note 域的信息             \\
+%   \bottomrule
+% \end{tabular}
+% \end{table}
 %
 %
 % \clearpage
@@ -615,6 +718,7 @@ version 2005/12/01 or later.
 \DeclareOption{doctor}{\ustc@doctortrue\ustc@masterfalse\ustc@bachelorfalse}
 \DeclareOption{master}{\ustc@doctorfalse\ustc@mastertrue\ustc@bachelorfalse}
 \DeclareOption{bachelor}{\ustc@doctorfalse\ustc@masterfalse\ustc@bachelortrue}
+\DeclareOption{academic}{\ustc@professionalfalse}
 \DeclareOption{professional}{\ustc@professionaltrue}
 \DeclareOption{chinese}{\ustc@englishfalse}
 \DeclareOption{english}{\ustc@englishtrue\ustc@arabictrue}
@@ -625,7 +729,7 @@ version 2005/12/01 or later.
 \DeclareOption{authoryear}{\ustc@numericalfalse}
 \DeclareOption{arabic}{\ustc@arabictrue}
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{ctexbook}}
-\ExecuteOptions{doctor,chinese,print,super}
+\ExecuteOptions{doctor,academic,chinese,print,super}
 \ProcessOptions\relax
 \newif\ifustc@graduate
 \ifustc@bachelor
@@ -915,7 +1019,7 @@ version 2005/12/01 or later.
 %
 % 下面设置字号。正文字号12bp，研究生行距20bp，本科生行距22bp；
 % 其他命令的行距按照相同的的比例设置，如表~\ref{tab:fontsize}。
-% \begin{table}[htbp]
+% \begin{table}[htb]
 %   \centering
 %   \begin{tabular}{lllll}
 %     \toprule
@@ -1941,7 +2045,7 @@ version 2005/12/01 or later.
 % \end{environment}
 %
 %
-% \subsection{图、表}
+% \subsection{浮动体}
 %
 % 下面这组命令使浮动对象的缺省值稍微宽松一点，从而防止幅度对象占据过多的文本
 % 页面， 也可以防止在很大空白的浮动页上放置很小的图形。
@@ -1985,12 +2089,10 @@ version 2005/12/01 or later.
   \captionsetup{font+=bf}
 \fi
 \captionsetup[figure]{
-  position  = bottom,
   aboveskip = 6\bp@,
   belowskip = {12\bp@-\intextsep},
 }
 \captionsetup[table]{
-  position  = top,
   aboveskip = 6\bp@,
   belowskip = 6\bp@,
 }
@@ -2003,8 +2105,17 @@ version 2005/12/01 or later.
 % \changes{v3.0.a}{2018/05/16}{更正图表的注释格式}
 %    \begin{macrocode}
 \newcommand\note[1]{%
-  \captionsetup{position=bottom, font=small}%
-  \caption*{\raggedright\hangindent=2\ccwd\relax\ustc@notesname#1}}
+  \begingroup
+  \captionsetup{
+    format=plain,
+    font=small,
+    justification=justified,
+    margin=2\ccwd,
+    position=bottom,
+  }%
+  \caption*{#1}%
+  \endgroup
+}
 %    \end{macrocode}
 % \end{macro}
 %
@@ -2090,14 +2201,7 @@ version 2005/12/01 or later.
 %
 % \subsection{参考文献}
 %
-% \begin{environment}{BibTeX}
-% \changes{v3.0}{2017/07/01}{参考文献列表不出现“[S.l.]: [s.n.]”}
-% \changes{v3.0.2}{2018/03/16}{更正参考文献姓名的“others”}
-% \changes{v3.0.6}{2018/04/12}{参考文献页码的连接号改为 hyphen}
-% \changes{v3.0.7}{2018/04/18}{参考文献允许著录多个 DOI}
-% \changes{v3.0.9}{2018/05/04}{参考文献不再著录“出版地不详”等信息}
-% \end{environment}
-%
+% \begin{macro}{\citestyle}
 % 定义接口切换引用文献的标注法，可用 \cs{citestyle} 调用 \opt{super} 、
 % \opt{authoryear} 或 \opt{numbers}。
 % \changes{v3.0}{2017/07/01}{允许文献序号作为叙述文字的一部分}
@@ -2107,6 +2211,7 @@ version 2005/12/01 or later.
 \newcommand\bibstyle@numbers{\bibpunct{[}{]}{,}{n}{,}{,}}
 \newcommand\bibstyle@authoryear{\bibpunct{(}{)}{;}{a}{,}{,}}
 %    \end{macrocode}
+% \end{macro}
 %
 % \begin{macro}{\ustcbibstyle}
 % 定义接口切换参考文献表的风格，可选 \opt{authoryear} 和 \opt{numerical}，
@@ -2154,7 +2259,8 @@ version 2005/12/01 or later.
 \fi
 %    \end{macrocode}
 %
-% 下面修改 \pkg{natbib} 的引用格式，主要是将页码写在上标位置。
+% \begin{macro}{\cite}
+% 下面修改引用标注的格式，主要是将页码写在上标位置。
 % Numerical 模式的 \cs{citet} 的页码：
 %    \begin{macrocode}
 \patchcmd{\NAT@citexnum}{%
@@ -2201,6 +2307,7 @@ version 2005/12/01 or later.
 %
 % 在顺序编码制下，\pkg{natbib} 只有在三个以上连续文献引用才会使用连接号，
 % 这里修改为允许两个引用使用连接号。
+% \footnote{\url{https://tex.stackexchange.com/questions/86987/cite-like-1-2-instead-of-1-2}}
 % \changes{v3.0.3}{2018/03/29}{顺序编码制连续两个文献引用之间使用连接号}
 % \changes{v3.0.6}{2018/04/12}{文献引用之间的连接号改为 hyphen}
 %    \begin{macrocode}
@@ -2214,6 +2321,15 @@ version 2005/12/01 or later.
   \def@NAT@last@yr{-\NAT@penalty}%
 }{}{\ustc@patchfailure{\NAT@citexnum}}
 %    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\inlinecite}
+% 如果文献序号作为叙述文字的一部分，需要临时将文献序号与 正文平排
+%    \begin{macrocode}
+\DeclareRobustCommand\inlinecite{\@inlinecite}
+\def\@inlinecite#1{\begingroup\let\@cite\NAT@citenum\citep{#1}\endgroup}
+%    \end{macrocode}
+% \end{macro}
 %
 % \begin{environment}{thebibliography}
 % 研究生规定参考文献列表“宋体10.5磅，行距20磅，续行缩进两字，左对齐”。
@@ -2236,6 +2352,15 @@ version 2005/12/01 or later.
   \@mainmattertrue
 }
 %    \end{macrocode}
+% \end{environment}
+%
+% \begin{environment}{BibTeX}
+% BibTeX 生成参考文献表的样式在 \file{bst} 文件中提供。
+% \changes{v3.0}{2017/07/01}{参考文献列表不出现“[S.l.]: [s.n.]”}
+% \changes{v3.0.2}{2018/03/16}{更正参考文献姓名的“others”}
+% \changes{v3.0.6}{2018/04/12}{参考文献页码的连接号改为 hyphen}
+% \changes{v3.0.7}{2018/04/18}{参考文献允许著录多个 DOI}
+% \changes{v3.0.9}{2018/05/04}{参考文献不再著录“出版地不详”等信息}
 % \end{environment}
 %
 %

@@ -31,6 +31,7 @@
 \DeclareOption{doctor}{\ustc@doctortrue\ustc@masterfalse\ustc@bachelorfalse}
 \DeclareOption{master}{\ustc@doctorfalse\ustc@mastertrue\ustc@bachelorfalse}
 \DeclareOption{bachelor}{\ustc@doctorfalse\ustc@masterfalse\ustc@bachelortrue}
+\DeclareOption{academic}{\ustc@professionalfalse}
 \DeclareOption{professional}{\ustc@professionaltrue}
 \DeclareOption{chinese}{\ustc@englishfalse}
 \DeclareOption{english}{\ustc@englishtrue\ustc@arabictrue}
@@ -41,7 +42,7 @@
 \DeclareOption{authoryear}{\ustc@numericalfalse}
 \DeclareOption{arabic}{\ustc@arabictrue}
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{ctexbook}}
-\ExecuteOptions{doctor,chinese,print,super}
+\ExecuteOptions{doctor,academic,chinese,print,super}
 \ProcessOptions\relax
 \newif\ifustc@graduate
 \ifustc@bachelor
@@ -874,18 +875,25 @@
   \captionsetup{font+=bf}
 \fi
 \captionsetup[figure]{
-  position  = bottom,
   aboveskip = 6\bp@,
   belowskip = {12\bp@-\intextsep},
 }
 \captionsetup[table]{
-  position  = top,
   aboveskip = 6\bp@,
   belowskip = 6\bp@,
 }
 \newcommand\note[1]{%
-  \captionsetup{position=bottom, font=small}%
-  \caption*{\raggedright\hangindent=2\ccwd\relax\ustc@notesname#1}}
+  \begingroup
+  \captionsetup{
+    format=plain,
+    font=small,
+    justification=justified,
+    margin=2\ccwd,
+    position=bottom,
+  }%
+  \caption*{#1}%
+  \endgroup
+}
 \def\mathellipsis{\cdots}
 \protected\def\le{\leqslant}
 \protected\def\ge{\geqslant}
@@ -985,6 +993,8 @@
 }{%
   \def@NAT@last@yr{-\NAT@penalty}%
 }{}{\ustc@patchfailure{\NAT@citexnum}}
+\DeclareRobustCommand\inlinecite{\@inlinecite}
+\def\@inlinecite#1{\begingroup\let\@cite\NAT@citenum\citep{#1}\endgroup}
 \ifustc@graduate
   \renewcommand\bibfont{\ustc@setfontsize{10.5bp}{20bp}}
 \fi

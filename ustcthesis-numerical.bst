@@ -5,7 +5,7 @@
 %% The original source files were:
 %%
 %% gbt7714.dtx  (with options: `2015,numerical')
-%% Version: 2018/06/23 v1.0.8
+%% Version: 2018/08/05 v1.0.9
 %% 
 %% Copyright (C) 2016-2018 by Zeping Lee <zepinglee AT gmail.com>
 %% 
@@ -23,26 +23,28 @@ INTEGERS {
   max.num.authors
   period.between.author.year
   sentence.case.title
-  print.mark
+  link.title
+  show.mark
   italic.jounal
-  print.missing.address.publisher
-  print.url
-  print.doi
-  print.note
+  show.missing.address.publisher
+  show.url
+  show.doi
+  show.note
 }
 
-FUNCTION {init.options}
+FUNCTION {load.config}
 {
   #1 'uppercase.name :=
   #3 'max.num.authors :=
   #1 'period.between.author.year :=
   #1 'sentence.case.title :=
-  #1 'print.mark :=
+  #0 'link.title :=
+  #1 'show.mark :=
   #0 'italic.jounal :=
-  #0 'print.missing.address.publisher :=
-  #1 'print.url :=
-  #1 'print.doi :=
-  #0 'print.note :=
+  #0 'show.missing.address.publisher :=
+  #1 'show.url :=
+  #1 'show.doi :=
+  #0 'show.note :=
 }
 
 ENTRY
@@ -74,7 +76,7 @@ ENTRY
     volume
     year
   }
-  { entry.lang is.electronic }
+  { entry.lang entry.is.electronic }
   { label extra.label sort.label short.list entry.mark entry.url }
 
 INTEGERS { output.state before.all mid.sentence after.sentence after.block after.slash }
@@ -107,9 +109,9 @@ FUNCTION {bbl.space} { "\ " }
 
 FUNCTION {bbl.et.al}
 { lang.zh entry.lang =
-    { "等"}
+    { "等" }
     { lang.ja entry.lang =
-        { "他"}
+        { "他" }
         { lang.ru entry.lang =
             { "идр" }
             { "et~al." }
@@ -601,12 +603,27 @@ FUNCTION {change.sentence.case}
   if$
 }
 
+FUNCTION {add.link}
+ { url empty$ not
+     { "\href{" url * "}{" * swap$ * "}" * }
+     { doi empty$ not
+         { "\href{http://dx.doi.org/" doi * "}{" * swap$ * "}" * }
+         'skip$
+       if$
+     }
+   if$
+ }
+
 FUNCTION {format.title}
 { title empty$
     { "" }
     { title
       sentence.case.title
         'change.sentence.case
+        'skip$
+      if$
+      link.title
+        'add.link
         'skip$
       if$
     }
@@ -720,6 +737,10 @@ FUNCTION {format.series.vol.num.title}
       if$
     }
   if$
+  link.title
+    'add.link
+    'skip$
+  if$
 }
 
 FUNCTION {format.series.vol.num.booktitle}
@@ -761,10 +782,10 @@ FUNCTION {set.entry.mark}
 }
 
 FUNCTION {format.mark}
-{ print.mark
+{ show.mark
     { medium empty$ not
         { entry.mark "/" * medium * 'entry.mark := }
-        { is.electronic
+        { entry.is.electronic
             { entry.mark "/OL" * 'entry.mark := }
             'skip$
           if$
@@ -841,14 +862,14 @@ FUNCTION {format.address.publisher}
     { address
       format.publisher empty$ not
         { bbl.colon * format.publisher * }
-        { is.electronic not print.missing.address.publisher and
+        { entry.is.electronic not show.missing.address.publisher and
             { bbl.colon * bbl.sine.nomine * }
             'skip$
           if$
         }
       if$
     }
-    { is.electronic not print.missing.address.publisher and
+    { entry.is.electronic not show.missing.address.publisher and
         { format.publisher empty$ not
             { bbl.sine.loco bbl.colon * format.publisher * }
             { bbl.sine.loco.sine.nomine }
@@ -949,7 +970,7 @@ FUNCTION {format.editdate}
 }
 
 FUNCTION {format.urldate}
-{ urldate empty$ not is.electronic and
+{ urldate empty$ not entry.is.electronic and
     { "\allowbreak[" urldate * "]" * }
     { "" }
   if$
@@ -997,7 +1018,7 @@ FUNCTION {format.journal.pages}
 FUNCTION {format.periodical.year.volume.number}
 { year empty$ not
     { year extract.before.dash }
-    { "No year in periodical " cite$ * warning$ }
+    { "empty year in periodical " cite$ * warning$ }
   if$
   volume empty$ not
     { ", " * volume extract.before.dash * }
@@ -1035,12 +1056,12 @@ FUNCTION {format.periodical.year.volume.number}
 FUNCTION {check.url}
 { url empty$ not
     { "\url{" url * "}" * 'entry.url :=
-      #1 'is.electronic :=
+      #1 'entry.is.electronic :=
     }
     { howpublished empty$ not
         { howpublished #1 #5 substring$ "\url{" =
             { howpublished 'entry.url :=
-              #1 'is.electronic :=
+              #1 'entry.is.electronic :=
             }
             'skip$
           if$
@@ -1048,7 +1069,7 @@ FUNCTION {check.url}
         { note empty$ not
             { note #1 #5 substring$ "\url{" =
                 { note 'entry.url :=
-                  #1 'is.electronic :=
+                  #1 'entry.is.electronic :=
                 }
                 'skip$
               if$
@@ -1070,7 +1091,7 @@ FUNCTION {format.url}
 
 FUNCTION {check.doi}
 { doi empty$ not
-    { #1 'is.electronic := }
+    { #1 'entry.is.electronic := }
     'skip$
   if$
 }
@@ -1098,7 +1119,7 @@ FUNCTION {is.in.url}
 
 FUNCTION {format.doi}
 { ""
-  doi empty$ not print.doi and
+  doi empty$ not show.doi and
     { "" 's :=
       doi 't :=
       #0 'numnames :=
@@ -1138,7 +1159,7 @@ FUNCTION {format.doi}
 
 FUNCTION {check.electronic}
 { "" 'entry.url :=
-  #0 'is.electronic :=
+  #0 'entry.is.electronic :=
     'check.doi
     'skip$
   if$
@@ -1147,7 +1168,7 @@ FUNCTION {check.electronic}
   if$
   medium empty$ not
     { medium "MT" = medium "DK" = or medium "CD" = or medium "OL" = or
-        { #1 'is.electronic := }
+        { #1 'entry.is.electronic := }
         'skip$
       if$
     }
@@ -1156,7 +1177,7 @@ FUNCTION {check.electronic}
 }
 
 FUNCTION {format.note}
-{ note empty$ not print.note and
+{ note empty$ not show.note and
     { note }
     { "" }
   if$
@@ -1299,7 +1320,7 @@ FUNCTION {patent}
 
 FUNCTION {electronic}
 { #1 #1 check.electronic
-  #1 'is.electronic :=
+  #1 'entry.is.electronic :=
   output.bibitem
   format.authors output
   author format.key output
@@ -1330,7 +1351,7 @@ FUNCTION {misc}
         'incollection
         { publisher empty$ not
             'monograph
-            { url empty$ not doi empty$ not or
+            { entry.is.electronic
                 'electronic
                 { "Z" set.entry.mark
                   monograph
@@ -1494,12 +1515,6 @@ MACRO {toplas} {"ACM Transactions on Programming Languages and Systems"}
 
 MACRO {tcs} {"Theoretical Computer Science"}
 
-READ
-
-EXECUTE {init.state.consts}
-
-EXECUTE {init.options}
-
 FUNCTION {sortify}
 { purify$
   "l" change.case$
@@ -1623,8 +1638,6 @@ INTEGERS { seq.num }
 FUNCTION {init.seq}
 { #0 'seq.num :=}
 
-EXECUTE {init.seq}
-
 FUNCTION {int.to.fix}
 { "000000000" swap$ int.to.str$ *
   #-1 #10 substring$
@@ -1632,7 +1645,7 @@ FUNCTION {int.to.fix}
 
 FUNCTION {presort}
 { set.entry.lang
-  print.url print.doi check.electronic
+  show.url show.doi check.electronic
   calc.label
   label sortify
   "    "
@@ -1644,10 +1657,6 @@ FUNCTION {presort}
   #1 entry.max$ substring$
   'sort.key$ :=
 }
-
-ITERATE {presort}
-
-SORT
 
 STRINGS { longest.label last.label next.extra }
 
@@ -1690,19 +1699,9 @@ FUNCTION {reverse.pass}
   label extra.label * 'label :=
 }
 
-EXECUTE {initialize.longest.label}
-
-ITERATE {forward.pass}
-
-REVERSE {reverse.pass}
-
 FUNCTION {bib.sort.order}
 { sort.label  'sort.key$ :=
 }
-
-ITERATE {bib.sort.order}
-
-SORT
 
 FUNCTION {begin.bib}
 {   preamble$ empty$
@@ -1713,7 +1712,7 @@ FUNCTION {begin.bib}
   write$ newline$
   "\providecommand{\natexlab}[1]{#1}"
   write$ newline$
-  print.url print.doi or
+  show.url show.doi or
     { "\providecommand{\url}[1]{#1}"
       write$ newline$
       "\expandafter\ifx\csname urlstyle\endcsname\relax\relax\else"
@@ -1723,7 +1722,7 @@ FUNCTION {begin.bib}
     }
     'skip$
   if$
-  print.doi
+  show.doi
     { "\providecommand{\href}[2]{\url{#2}}"
       write$ newline$
       "\providecommand{\doi}[1]{\href{https://doi.org/#1}{#1}}"
@@ -1733,13 +1732,35 @@ FUNCTION {begin.bib}
   if$
 }
 
-EXECUTE {begin.bib}
-
-ITERATE {call.type$}
-
 FUNCTION {end.bib}
 { newline$
   "\end{thebibliography}" write$ newline$
 }
+
+READ
+
+EXECUTE {init.state.consts}
+
+EXECUTE {load.config}
+
+EXECUTE {init.seq}
+
+ITERATE {presort}
+
+SORT
+
+EXECUTE {initialize.longest.label}
+
+ITERATE {forward.pass}
+
+REVERSE {reverse.pass}
+
+ITERATE {bib.sort.order}
+
+SORT
+
+EXECUTE {begin.bib}
+
+ITERATE {call.type$}
 
 EXECUTE {end.bib}

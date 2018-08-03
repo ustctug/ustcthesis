@@ -1,8 +1,9 @@
 %!TEX encoding = UTF-8 Unicode
-%!TEX program = xelatexmk
+%!TEX program = latexmk
 
 \documentclass[doctor]{ustcthesis}
-% bachelor|master|doctor [professional] [english] [pdf] [authoryear|numebers]
+% doctor|master|bachelor [academic|professional] [chinese|english] [print|pdf]
+% [super|numebers|authoryear]
 
 \title{中国科学技术大学\\学位论文模板示例文档}
 \author{李泽平}
@@ -45,7 +46,6 @@
 %   appendix: 附录
 
 \maketitle
-
 \makestatement
 
 \frontmatter
@@ -58,8 +58,8 @@
 
 \mainmatter
 \input{chapters/intro}
-\input{chapters/math}
 \input{chapters/floats}
+\input{chapters/math}
 \input{chapters/citations}
 \bibliography{bib/ustc}
 

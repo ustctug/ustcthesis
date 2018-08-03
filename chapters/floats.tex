@@ -1,102 +1,59 @@
+%!TEX root = ../main.tex
+
 \chapter{浮动体}
 
 \section{三线表}
 
-三线表是《撰写手册》推荐使用的方式，如表~\ref{tab:exampletable}。
-\begin{table}[htbp]
-  \centering
-  \caption{这里是表的标题}
+三线表是《撰写手册》推荐使用的格式，如表~\ref{tab:exampletable}。
+\begin{table}[htb]
+  \centering\small
+  \caption{表号和表题在表的正上方}
   \label{tab:exampletable}
   \begin{tabular}{cl}
     \toprule
-    操作系统 & TeX 发行版 \\
+    类型   & 描述     \\
     \midrule
-    所有 & TeX Live \\
-    macOS & MacTeX \\
-    Windows & MikTeX \\
+    挂线表 & 挂线表也称系统表、组织表，用于表现系统结构 \\
+    无线表 & 无线表一般用于设备配置单、技术参数列表等 \\
+    卡线表 & 卡线表有完全表，不完全表和三线表三种 \\
     \bottomrule
   \end{tabular}
-  \note{一个很长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长
-    长长长长长长长长长长长的表注。}
+  \note{注：表注分两种，第一种是对全表的注释，用不加阿拉伯数字排在表的下边，
+    前面加“注：”；第二种是和表内的某处文字或数字相呼应的注，
+    在表里面用带圈的阿拉伯数字在右上角标出，然后在表下面用同样的圈码注出来}
 \end{table}
 
-
-
-\section{长表格}
-
-超过一页的表格要使用专门的 \texttt{longtable} 环境（表~\ref{tab:longtable}）。
-\begin{longtable}{ccc}
-  % 首页表头
-  \caption[长表格演示]{长表格演示}
-  \label{tab:longtable}\\
-  \toprule[1.5pt]
-    名称  & 说明 & 备注\\
-  \midrule[1pt]
-  \endfirsthead
-  % 续页表头
-  \caption[]{长表格演示（续）} \\
-  \toprule[1.5pt]
-  名称  & 说明 & 备注 \\
-  \midrule[1pt]
-  \endhead
-  % 首页表尾
-  \hline
-  \multicolumn{3}{r}{\small 续下页}
-  \endfoot
-  % 续页表尾
-  \bottomrule[1.5pt]
-  \endlastfoot
-
-  AAAAAAAAAAAA   &   BBBBBBBBBBB   &   CCCCCCCCCCCCCC   \\
-  AAAAAAAAAAAA   &   BBBBBBBBBBB   &   CCCCCCCCCCCCCC   \\
-  AAAAAAAAAAAA   &   BBBBBBBBBBB   &   CCCCCCCCCCCCCC   \\
-  AAAAAAAAAAAA   &   BBBBBBBBBBB   &   CCCCCCCCCCCCCC   \\
-  AAAAAAAAAAAA   &   BBBBBBBBBBB   &   CCCCCCCCCCCCCC   \\
-  AAAAAAAAAAAA   &   BBBBBBBBBBB   &   CCCCCCCCCCCCCC   \\
-  AAAAAAAAAAAA   &   BBBBBBBBBBB   &   CCCCCCCCCCCCCC   \\
-  AAAAAAAAAAAA   &   BBBBBBBBBBB   &   CCCCCCCCCCCCCC   \\
-  AAAAAAAAAAAA   &   BBBBBBBBBBB   &   CCCCCCCCCCCCCC   \\
-  AAAAAAAAAAAA   &   BBBBBBBBBBB   &   CCCCCCCCCCCCCC   \\
-  AAAAAAAAAAAA   &   BBBBBBBBBBB   &   CCCCCCCCCCCCCC   \\
-  AAAAAAAAAAAA   &   BBBBBBBBBBB   &   CCCCCCCCCCCCCC   \\
-  AAAAAAAAAAAA   &   BBBBBBBBBBB   &   CCCCCCCCCCCCCC   \\
-  AAAAAAAAAAAA   &   BBBBBBBBBBB   &   CCCCCCCCCCCCCC   \\
-  AAAAAAAAAAAA   &   BBBBBBBBBBB   &   CCCCCCCCCCCCCC   \\
-  AAAAAAAAAAAA   &   BBBBBBBBBBB   &   CCCCCCCCCCCCCC   \\
-  AAAAAAAAAAAA   &   BBBBBBBBBBB   &   CCCCCCCCCCCCCC   \\
-  AAAAAAAAAAAA   &   BBBBBBBBBBB   &   CCCCCCCCCCCCCC   \\
-  AAAAAAAAAAAA   &   BBBBBBBBBBB   &   CCCCCCCCCCCCCC   \\
-  AAAAAAAAAAAA   &   BBBBBBBBBBB   &   CCCCCCCCCCCCCC   \\
-\end{longtable}
+编制表格应简单明了，表达一致，明晰易懂，表文呼应、内容一直。
+排版时表格字号略小，或变换字体，尽量不分页，尽量不跨节。
+表格太大需要转页是，需要在续表上方注明“续表”，表头页应重复排出。
 
 
 
 \section{插图}
 
-有的同学可能习惯了“下图”、“上表”这样的相对位置引述方式，希望浮动体放在固定位置。
-事实上，这是不合理的，因为这很容易导致大片的空白。
-在科技论文中，标准的方式是“图\ref{fig:logo}”、“表~\ref{tab:exampletable}”这样的
-因数方式。
-\begin{figure}[htbp]
+有的同学可能听说“\LaTeX{} 只能使用 eps 格式的图片”，甚至把 jpg 格式转为 eps。
+事实上，这种做法已经过时。
+而且每次编译时都要要调用外部工具解析 eps，导致降低编译速度。
+所以我们推荐矢量图直接使用 pdf 格式，位图使用 jpeg 或 png 格式。
+\begin{figure}[htb]
   \centering
-  \includegraphics[width=.3\textwidth]{ustc_logo_fig}
-  \caption{测试图片}
+  \includegraphics[width=0.3\textwidth]{ustc_logo_fig.pdf}
+  \caption{图号、图题置于图的下方}
   \label{fig:logo}
-  \note{必要时，应将图上的符号、标记、代码，以及实验条件等，
-    用最简练的文字，横排于图题下方，作为图例说明（图注）。}
+  \note{注：图注的内容不宜放到图题中。}
 \end{figure}
 
-关于更多的插图方式，\href{https://arxiv.org}{arXiv} 上的大部分文献会提供 \TeX{}
-源码，大家可以参考学习。
+关于图片的并排，推荐使用较新的 \pkg{subcaption} 宏包，
+不建议使用 \pkg{subfigure} 或 \pkg{subfig} 等宏包。
 
 
 
 \section{算法环境}
 
-模板中使用 \texttt{algorithm2e} 宏包实现算法环境。关于该宏包的具体用法，
+模板中使用 \pkg{algorithm2e} 宏包实现算法环境。关于该宏包的具体用法，
 请阅读宏包的官方文档。
 
-\begin{algorithm}[htbp]
+\begin{algorithm}[htb]
   \small
   \SetAlgoLined
   \KwData{this text}
@@ -117,4 +74,4 @@
 \end{algorithm}
 
 注意，我们可以在论文中插入算法，但是插入大段的代码是愚蠢的。
-然而这并不妨碍有的同学选择这么做，对于这些同学，建议用 \textsf{listings} 宏包。
+然而这并不妨碍有的同学选择这么做，对于这些同学，建议用 \pkg{listings} 宏包。
