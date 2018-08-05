@@ -3,7 +3,6 @@ language: generic
 cache:
   directories:
     - /tmp/texlive
-    - $HOME/.texlive
 
 install:
   - source ./support/texlive.sh
