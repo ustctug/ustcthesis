@@ -216,7 +216,7 @@
 \ustc@strifeq{\ustc@mathfont}{stix2}{
   \setmathfont[StylisticSet=8]{STIX2Math.otf}
   \setmathfont[range={scr,bfscr},StylisticSet=1]{STIX2Math.otf}
-  \setmathfont[range=\partial]{xits-math.otf}
+  \setmathfont[range={\partial,\lbrace,\rbrace}]{xits-math.otf}
 }{
   \ustc@strifeq{\ustc@mathfont}{xits}{
     \setmathfont[
