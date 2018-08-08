@@ -861,10 +861,18 @@
               \labelwidth\leftmarginiii
               \advance\labelwidth-\labelsep
               \ustc@nolistsep}
-\renewcommand{\topfraction}{.85}
-\renewcommand{\bottomfraction}{.65}
+\renewcommand\topfraction{.85}
+\renewcommand\bottomfraction{.7}
 \renewcommand\textfraction{.15}
-\renewcommand{\floatpagefraction}{.6}
+\renewcommand\floatpagefraction{.66}
+\renewcommand\dbltopfraction{.66}
+\renewcommand\dblfloatpagefraction{.66}
+\setcounter{topnumber}{9}
+\setcounter{bottomnumber}{9}
+\setcounter{totalnumber}{20}
+\setcounter{dbltopnumber}{9}
+\def\fps@figure{htbp}
+\def\fps@table{htbp}
 \DeclareCaptionLabelSeparator{zhspace}{\hspace{\ccwd}}
 \captionsetup{
   format   = hang,

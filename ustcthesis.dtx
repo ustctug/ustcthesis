@@ -2047,32 +2047,26 @@ version 2005/12/01 or later.
 %
 % \subsection{浮动体}
 %
-% 下面这组命令使浮动对象的缺省值稍微宽松一点，从而防止幅度对象占据过多的文本
-% 页面， 也可以防止在很大空白的浮动页上放置很小的图形。
-%
-% This macro holds the maximum proportion (as a decimal number) of a text page
-% or column that can be occupied by floats at the top. (Original: .7)
+% \LaTeX{} 对放置浮动体的要求比较强，这里按照 UK TeX FAQ
+% \footnote{\url{https://texfaq.org/FAQ-floats}} 的建议对其适当放宽。
+% \changes{v3.1}{2018/09/01}{优化了浮动体放置策略的参数}
 %    \begin{macrocode}
-\renewcommand{\topfraction}{.85}
-%    \end{macrocode}
-%
-% This macro holds the maximum proportion (as a decimal number) of a text page
-% or column that can be occupied by floats at the bottom. (Original: .3)
-%    \begin{macrocode}
-\renewcommand{\bottomfraction}{.65}
-%    \end{macrocode}
-%
-% This macro holds the minimum proportion (as a decimal number) of a text page
-% or column that must be occupied by text. (Original: .2)
-%    \begin{macrocode}
+\renewcommand\topfraction{.85}
+\renewcommand\bottomfraction{.7}
 \renewcommand\textfraction{.15}
+\renewcommand\floatpagefraction{.66}
+\renewcommand\dbltopfraction{.66}
+\renewcommand\dblfloatpagefraction{.66}
+\setcounter{topnumber}{9}
+\setcounter{bottomnumber}{9}
+\setcounter{totalnumber}{20}
+\setcounter{dbltopnumber}{9}
 %    \end{macrocode}
 %
-% This macro holds the minimum proportion (as a decimal number) of a page or
-% column that must be occupied by floating objects before a ‘float page’ is
-% produced. (Original: .5)
+% 修改默认的浮动体描述符为 |htbp|。
 %    \begin{macrocode}
-\renewcommand{\floatpagefraction}{.6}
+\def\fps@figure{htbp}
+\def\fps@table{htbp}
 %    \end{macrocode}
 %
 % 用 \pkg{caption} 宏包设置图、表的格式
