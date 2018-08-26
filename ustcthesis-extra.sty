@@ -25,10 +25,10 @@
 % 数学定理：
 % 以下定义数学定理环境默认风格为 ustcplain。
 \RequirePackage{amsthm}
-\newtheoremstyle{ustcplain}%
-    {}{}%
-    {}{2\ccwd}%
-    {\bfseries}{}%
+\newtheoremstyle{ustcplain}
+    {}{}
+    {}{2\ccwd}
+    {\bfseries}{}
     {\ccwd}{}
 \theoremstyle{ustcplain}
 % 定义新的定理
@@ -56,21 +56,22 @@
   \newcommand\ustc@propositionname{命题}
   \newcommand\ustc@remarkname{注}
   \newcommand\ustc@theoremname{定理}
-  \def\equationautorefname~#1\null{公式~(#1)\null}%
-  \def\footnoteautorefname{脚注}%
-  \def\itemautorefname~#1\null{第~#1~项\null}%
-  \def\figureautorefname{图}%
-  \def\tableautorefname{表}%
-  \def\partautorefname~#1\null{第~#1~部分\null}%
-  \def\appendixautorefname{附录}%
-  \def\chapterautorefname~#1\null{第~#1~章\null}%
-  \def\sectionautorefname~#1\null{第~#1~节\null}%
-  \def\subsectionautorefname~#1\null{第~#1~小节\null}%
-  \def\subsubsectionautorefname~#1\null{第~#1~小小节\null}%
-  \def\paragraphautorefname~#1\null{第~#1~段\null}%
-  \def\subparagraphautorefname~#1\null{第~#1~小段\null}%
-  \def\theoremautorefname{定理}%
-  \def\pageautorefname~#1\null{第~#1~页\null}%
+% 参考 \url{https://tex.stackexchange.com/a/66150/82731}
+  \def\equationautorefname~#1\null{公式~(#1)\null}
+  \def\footnoteautorefname{脚注}
+  \def\itemautorefname~#1\null{第~#1~项\null}
+  \def\figureautorefname{图}
+  \def\tableautorefname{表}
+  \def\partautorefname~#1\null{第~#1~部分\null}
+  \def\appendixautorefname{附录}
+  \def\chapterautorefname~#1\null{第~#1~章\null}
+  \def\sectionautorefname~#1\null{第~#1~节\null}
+  \def\subsectionautorefname~#1\null{第~#1~小节\null}
+  \def\subsubsectionautorefname~#1\null{第~#1~小小节\null}
+  \def\paragraphautorefname~#1\null{第~#1~段\null}
+  \def\subparagraphautorefname~#1\null{第~#1~小段\null}
+  \def\theoremautorefname{定理}
+  \def\HyRef@autopageref#1{\hyperref[{#1}]{第~\pageref*{#1} 页}}
 \fi
 \newtheorem{theorem}                {\ustc@theoremname}     [chapter]
 \newtheorem{assertion}  [theorem]   {\ustc@assertionname}
@@ -109,7 +110,7 @@
 % 使算法目录另起一页
 \let\ustc@save@listofalgorithms=\listofalgorithms
 \renewcommand\listofalgorithms{%
-    \cleardoublepage%
+    \cleardoublepage
     \ustc@save@listofalgorithms}
 
 % 命令和宏包
