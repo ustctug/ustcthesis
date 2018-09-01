@@ -434,21 +434,26 @@
     \parbox[t][0.6cm][t]{\textwidth}{%
       \raggedleft\fangsong\ustc@setfontsize{14\bp@}{14\bp@}%
       \null\ustc@secretlevel\par}\par
-    \vskip 0.6cm%
-    \includegraphics[height=37\bp@]{figures/ustc_logo_text}\par
     \vskip 0.5cm%
+    \includegraphics[height=1.3cm]{figures/ustc_logo_text.pdf}\par
+    \vskip 0.6cm%
     {\sffamily\ustc@setfontsize{56\bp@}{56\bp@}%
       \ustc@thesisname\par}%
     \ifustc@academic
-      \vskip 1.7cm%
+      \vskip 2.0cm%
     \else
       \vskip 0.8cm%
       {\lishu\ustc@setfontsize{26\bp@}{26\bp@}%
         （\ustc@professionaltype）\par}%
-      \vskip 0.7cm%
+      \vskip 1.0cm%
     \fi
-    \includegraphics[height=4.7cm]{figures/ustc_logo_fig}\par
-    \vskip 0.6cm%
+    \ifustc@colorlogo
+      \textcolor{ustcblue}{%
+        \includegraphics[height=4.1cm]{figures/ustc_logo_fig.pdf}}%
+    \else
+      \includegraphics[height=4.1cm]{figures/ustc_logo_fig.pdf}%
+    \fi\par
+    \vskip 0.9cm%
     \begin{minipage}[t][3.5cm][c]{\textwidth}%
       \centering\sffamily\bfseries\ustc@setfontsize{26\bp@}{50\bp@}%
       \ustc@title\par
@@ -484,9 +489,14 @@
       {\ustc@setfontsize{16\bp@}{32\bp@}%
         (\ustc@enprofessionaltype)\par}%
     \fi
-    \vskip 2.2cm%
-    \includegraphics[height=5.1cm]{figures/ustc_logo_fig}\par
-    \vskip 0.2cm%
+    \vskip 2.5cm%
+    \ifustc@colorlogo
+      \textcolor{ustcblue}{%
+        \includegraphics[height=4.5cm]{figures/ustc_logo_fig.pdf}}%
+    \else
+      \includegraphics[height=4.5cm]{figures/ustc_logo_fig.pdf}%
+    \fi\par
+    \vskip 0.5cm%
     \begin{minipage}[t][4.5cm][c]{\textwidth}%
       \centering\sffamily\bfseries\ustc@setfontsize{26\bp@}{30\bp@}%
       \ustc@entitle\par

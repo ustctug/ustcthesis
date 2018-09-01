@@ -76,7 +76,7 @@ Completed box being shipped out [1]
 .....\special{color pop}
 ...\glue 8.2511
 ...\glue(\lineskip) 0.0
-...\vbox(700.50723+0.0)x452.96826, glue set 79.47652fil
+...\vbox(700.50723+0.0)x452.96826, glue set 79.62617fil
 ....\write-{}
 ....\write1{\protect \providecommand {\protect \FN@pp@footnotehinttrue }{}}
 ....\write1{\protect \providecommand {\protect \FN@pp@footnote@aux }[2]{}}
@@ -101,29 +101,29 @@ Completed box being shipped out [1]
 .....\penalty 10000
 .....\glue(\parfillskip) 0.0
 .....\glue(\rightskip) 0.0 plus 1.0fil
-....\glue 17.07182
+....\glue 14.22636
 ....\glue(\parskip) 0.0
 ....\glue(\lineskip) 1.0
-....\hbox(37.13832+0.0)x452.96826, glue set 83.23898fil
+....\hbox(36.98866+0.0)x452.96826, glue set 83.81503fil
 .....\glue(\leftskip) 0.0 plus 1.0fil
 .....\hbox(0.0+0.0)x0.0
-.....\hbox(37.13832+0.0)x286.49031
-......\hbox(37.13771+0.0)x286.49101
-.......\hbox(37.13771+0.0)x286.49101
-........\hbox(37.13771+0.0)x0.0
+.....\hbox(36.98866+0.0)x285.33821
+......\hbox(36.98837+0.0)x285.33891
+.......\hbox(36.98837+0.0)x285.33891
+........\hbox(36.98837+0.0)x0.0
 .........\special{pdf:btrans}
-.........\special{x:scale 0.75508 0.75508}
+.........\special{x:scale 0.75204 0.75204}
 .........\hbox(49.18375+0.0)x0.0, glue set - 379.41751fil
 ..........\hbox(49.18375+0.0)x379.41751
 ...........\XeTeXpdffile ".../ustc_logo_text.pdf"
 ..........\glue 0.0 plus 1.0fil minus 1.0fil
 .........\special{pdf:etrans}
-........\kern 286.49101
+........\kern 285.33891
 ........\glue 0.0 plus 1.0fil minus 1.0fil
 .....\penalty 10000
 .....\glue(\parfillskip) 0.0
 .....\glue(\rightskip) 0.0 plus 1.0fil
-....\glue 14.22636
+....\glue 17.07182
 ....\glue(\parskip) 0.0
 ....\glue(\baselineskip) 12.25363
 ....\hbox(43.95572+9.94904)x452.96826, glue set 57.85608fil
@@ -145,29 +145,31 @@ Completed box being shipped out [1]
 .....\penalty 10000
 .....\glue(\parfillskip) 0.0
 .....\glue(\rightskip) 0.0 plus 1.0fil
-....\glue 48.36958
+....\glue 56.9055
 ....\glue(\parskip) 0.0
 ....\glue(\lineskip) 1.0
-....\hbox(133.72786+0.0)x452.96826, glue set 159.61978fil
+....\hbox(116.65646+0.0)x452.96826, glue set 168.15689fil
 .....\glue(\leftskip) 0.0 plus 1.0fil
 .....\hbox(0.0+0.0)x0.0
-.....\hbox(133.72786+0.0)x133.7287
-......\hbox(133.72903+0.0)x133.72903
-.......\hbox(133.72903+0.0)x133.72903
-........\hbox(133.72903+0.0)x0.0
+.....\special{color push cmyk 1 0.8 0 0}
+.....\hbox(116.65646+0.0)x116.6545
+......\hbox(116.65477+0.0)x116.65477
+.......\hbox(116.65477+0.0)x116.65477
+........\hbox(116.65477+0.0)x0.0
 .........\special{pdf:btrans}
-.........\special{x:scale 0.33475 0.33475}
+.........\special{x:scale 0.292 0.292}
 .........\hbox(399.4925+0.0)x0.0, glue set - 399.4925fil
 ..........\hbox(399.4925+0.0)x399.4925
 ...........\XeTeXpdffile ".../ustc_logo_fig.pdf"
 ..........\glue 0.0 plus 1.0fil minus 1.0fil
 .........\special{pdf:etrans}
-........\kern 133.72903
+........\kern 116.65477
 ........\glue 0.0 plus 1.0fil minus 1.0fil
+.....\special{color pop}
 .....\penalty 10000
 .....\glue(\parfillskip) 0.0
 .....\glue(\rightskip) 0.0 plus 1.0fil
-....\glue 17.07182
+....\glue 25.6073
 ....\glue(\parskip) 0.0
 ....\glue(\baselineskip) 20.07477
 ....\hbox(0.0+99.58464)x452.96826
@@ -577,29 +579,31 @@ Completed box being shipped out [1]
 .....\penalty 10000
 .....\glue(\parfillskip) 0.0
 .....\glue(\rightskip) 0.0 plus 1.0fil
-....\glue 62.59596
+....\glue 71.13188
 ....\glue(\parskip) 0.0
 ....\glue(\lineskip) 1.0
-....\hbox(145.10922+0.0)x452.96826, glue set 153.9294fil
+....\hbox(128.0374+0.0)x452.96826, glue set 162.4665fil
 .....\glue(\leftskip) 0.0 plus 1.0fil
 .....\hbox(0.0+0.0)x0.0
-.....\hbox(145.10922+0.0)x145.10948
-......\hbox(145.10983+0.0)x145.10983
-.......\hbox(145.10983+0.0)x145.10983
-........\hbox(145.10983+0.0)x0.0
+.....\special{color push cmyk 1 0.8 0 0}
+.....\hbox(128.0374+0.0)x128.03526
+......\hbox(128.03558+0.0)x128.03558
+.......\hbox(128.03558+0.0)x128.03558
+........\hbox(128.03558+0.0)x0.0
 .........\special{pdf:btrans}
-.........\special{x:scale 0.36324 0.36324}
+.........\special{x:scale 0.3205 0.3205}
 .........\hbox(399.4925+0.0)x0.0, glue set - 399.4925fil
 ..........\hbox(399.4925+0.0)x399.4925
 ...........\XeTeXpdffile ".../ustc_logo_fig.pdf"
 ..........\glue 0.0 plus 1.0fil minus 1.0fil
 .........\special{pdf:etrans}
-........\kern 145.10983
+........\kern 128.03558
 ........\glue 0.0 plus 1.0fil minus 1.0fil
+.....\special{color pop}
 .....\penalty 10000
 .....\glue(\parfillskip) 0.0
 .....\glue(\rightskip) 0.0 plus 1.0fil
-....\glue 5.69046
+....\glue 14.22636
 ....\glue(\parskip) 0.0
 ....\glue(\baselineskip) 20.07477
 ....\hbox(0.0+128.0374)x452.96826
