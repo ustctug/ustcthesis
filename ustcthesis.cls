@@ -22,17 +22,18 @@
 \newif\ifustc@doctor
 \newif\ifustc@master
 \newif\ifustc@bachelor
-\newif\ifustc@professional
+\newif\ifustc@academic
 \newif\ifustc@english
 \newif\ifustc@numerical
 \newif\ifustc@super
 \newif\ifustc@pdf
+\newif\ifustc@colorlogo
 \newif\ifustc@arabic
 \DeclareOption{doctor}{\ustc@doctortrue\ustc@masterfalse\ustc@bachelorfalse}
 \DeclareOption{master}{\ustc@doctorfalse\ustc@mastertrue\ustc@bachelorfalse}
 \DeclareOption{bachelor}{\ustc@doctorfalse\ustc@masterfalse\ustc@bachelortrue}
-\DeclareOption{academic}{\ustc@professionalfalse}
-\DeclareOption{professional}{\ustc@professionaltrue}
+\DeclareOption{academic}{\ustc@academictrue}
+\DeclareOption{professional}{\ustc@academicfalse}
 \DeclareOption{chinese}{\ustc@englishfalse}
 \DeclareOption{english}{\ustc@englishtrue\ustc@arabictrue}
 \DeclareOption{print}{\ustc@pdffalse}
@@ -40,9 +41,11 @@
 \DeclareOption{super}{\ustc@numericaltrue\ustc@supertrue}
 \DeclareOption{numbers}{\ustc@numericaltrue\ustc@superfalse}
 \DeclareOption{authoryear}{\ustc@numericalfalse}
+\DeclareOption{colorlogo}{\ustc@colorlogotrue}
+\DeclareOption{bwlogo}{\ustc@colorlogofalse}
 \DeclareOption{arabic}{\ustc@arabictrue}
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{ctexbook}}
-\ExecuteOptions{doctor,academic,chinese,print,super}
+\ExecuteOptions{doctor,academic,chinese,print,colorlogo,super}
 \ProcessOptions\relax
 \newif\ifustc@graduate
 \ifustc@bachelor
@@ -67,6 +70,7 @@
 \RequirePackage{unicode-math}
 \RequirePackage{geometry}
 \RequirePackage{graphicx}
+\RequirePackage{color}
 \RequirePackage{fancyhdr}
 \RequirePackage{titletoc}
 \RequirePackage[perpage]{footmisc}
@@ -376,7 +380,9 @@
     \newcommand\ustc@enthesisname{A dissertation for bachelor's degree}
   \fi
 \fi
-\ifustc@professional
+\ifustc@academic
+  \newcommand\ustc@specialityname{学科专业}
+\else
   \ifustc@doctor
     \renewcommand\ustc@thesisname{专业博士学位论文}
   \else
@@ -395,9 +401,8 @@
     \providecommand\lishu{\sffamily}
   }
   \newcommand\ustc@specialityname{专业领域}
-\else
-  \newcommand\ustc@specialityname{学科专业}
 \fi
+\definecolor{ustcblue}{cmyk}{1,0.8,0,0}
 \def\ustc@define@term#1#2{%
   \expandafter\gdef\csname #1\endcsname##1{%
     \expandafter\gdef\csname ustc@#1\endcsname{##1}%
@@ -432,30 +437,22 @@
     \vskip 0.6cm%
     \includegraphics[height=37\bp@]{figures/ustc_logo_text}\par
     \vskip 0.5cm%
-    \ifustc@professional
-      {\sffamily\ustc@setfontsize{56\bp@}{56\bp@}%
-        \ustc@thesisname\par}%
+    {\sffamily\ustc@setfontsize{56\bp@}{56\bp@}%
+      \ustc@thesisname\par}%
+    \ifustc@academic
+      \vskip 1.7cm%
+    \else
       \vskip 0.8cm%
       {\lishu\ustc@setfontsize{26\bp@}{26\bp@}%
         （\ustc@professionaltype）\par}%
       \vskip 0.7cm%
-      \includegraphics[height=4.7cm]{figures/ustc_logo_fig}\par
-      \vskip 0.6cm%
-      \begin{minipage}[t][3.5cm][c]{\textwidth}%
-        \centering\sffamily\bfseries\ustc@setfontsize{26\bp@}{50\bp@}%
-        \ustc@title\par
-      \end{minipage}\par
-    \else
-      {\sffamily\ustc@setfontsize{56\bp@}{56\bp@}%
-        \ustc@thesisname\par}%
-      \vskip 1.7cm%
-      \includegraphics[height=4.7cm]{figures/ustc_logo_fig}\par
-      \vskip 0.6cm%
-      \begin{minipage}[t][3.5cm][c]{\textwidth}%
-        \centering\sffamily\bfseries\ustc@setfontsize{26\bp@}{50\bp@}%
-        \ustc@title\par
-      \end{minipage}\par
     \fi
+    \includegraphics[height=4.7cm]{figures/ustc_logo_fig}\par
+    \vskip 0.6cm%
+    \begin{minipage}[t][3.5cm][c]{\textwidth}%
+      \centering\sffamily\bfseries\ustc@setfontsize{26\bp@}{50\bp@}%
+      \ustc@title\par
+    \end{minipage}\par
     \vskip 0.6cm%
     {\ustc@setfontsize{16\bp@}{31\bp@}%
       \begin{tabular}{@{}l@{\hspace{\ccwd}}l@{}}%
@@ -483,25 +480,17 @@
       University of Science and Technology of China\par}%
     {\sffamily\ustc@setfontsize{26\bp@}{30\bp@}%
       \ustc@enthesisname\par}%
-    \ifustc@professional
+    \ifustc@academic\else
       {\ustc@setfontsize{16\bp@}{32\bp@}%
         (\ustc@enprofessionaltype)\par}%
-      \vskip 2.2cm%
-      \includegraphics[height=5.1cm]{figures/ustc_logo_fig}\par
-      \vskip 0.2cm%
-      \begin{minipage}[t][4.5cm][c]{\textwidth}%
-        \centering\sffamily\bfseries\ustc@setfontsize{26\bp@}{30\bp@}%
-        \ustc@entitle\par
-      \end{minipage}\par
-    \else
-      \vskip 2.2cm%
-      \includegraphics[height=5.1cm]{figures/ustc_logo_fig}\par
-      \vskip 0.2cm%
-      \begin{minipage}[t][4.5cm][c]{\textwidth}%
-        \centering\sffamily\bfseries\ustc@setfontsize{26\bp@}{30\bp@}%
-        \ustc@entitle\par
-      \end{minipage}\par
     \fi
+    \vskip 2.2cm%
+    \includegraphics[height=5.1cm]{figures/ustc_logo_fig}\par
+    \vskip 0.2cm%
+    \begin{minipage}[t][4.5cm][c]{\textwidth}%
+      \centering\sffamily\bfseries\ustc@setfontsize{26\bp@}{30\bp@}%
+      \ustc@entitle\par
+    \end{minipage}\par
     \vskip 1.6cm%
     {\ustc@setfontsize{16\bp@}{30\bp@}%
       \begin{tabular}{@{}l@{}}

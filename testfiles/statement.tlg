@@ -36,6 +36,9 @@ Completed box being shipped out [1]
 ...\vbox(21.33955+0.0)x417.11752, glue set 21.33955fil
 ....\glue 0.0 plus 1.0fil
 ....\hbox(0.0+0.0)x417.11752
+.....\special{color push  Black}
+.....\hbox(0.0+0.0)x417.11752
+.....\special{color pop}
 ...\glue 8.2511
 ...\glue(\lineskip) 0.0
 ...\vbox(700.50723+0.0)x417.11752, glue set 138.2036fil
@@ -1059,6 +1062,9 @@ Completed box being shipped out [1]
 ....\glue 0.0
 ...\glue(\baselineskip) 22.47748
 ...\hbox(0.0+0.0)x417.11752
+....\special{color push  Black}
+....\hbox(0.0+0.0)x417.11752
+....\special{color pop}
 .\kern 0.0
 Completed box being shipped out [2]
 \vbox(722.98453+0.0)x435.04271
@@ -1081,6 +1087,9 @@ Completed box being shipped out [2]
 ...\vbox(21.33955+0.0)x417.11752, glue set 21.33955fil
 ....\glue 0.0 plus 1.0fil
 ....\hbox(0.0+0.0)x417.11752
+.....\special{color push  Black}
+.....\hbox(0.0+0.0)x417.11752
+.....\special{color pop}
 ...\glue 8.2511
 ...\glue(\lineskip) 0.0
 ...\vbox(700.50723+0.0)x0.0, glue set 688.50723fil
@@ -1092,6 +1101,9 @@ Completed box being shipped out [2]
 ....\glue 0.0
 ...\glue(\baselineskip) 22.47748
 ...\hbox(0.0+0.0)x417.11752
+....\special{color push  Black}
+....\hbox(0.0+0.0)x417.11752
+....\special{color pop}
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line ....
 Package atveryend Info: Empty hook `AfterLastShipout' on input line ....
 (statement.aux)

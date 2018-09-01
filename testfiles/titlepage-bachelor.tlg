@@ -71,6 +71,9 @@ Completed box being shipped out [1]
 ...\vbox(21.33955+0.0)x452.96826, glue set 21.33955fil
 ....\glue 0.0 plus 1.0fil
 ....\hbox(0.0+0.0)x452.96826
+.....\special{color push  Black}
+.....\hbox(0.0+0.0)x452.96826
+.....\special{color pop}
 ...\glue 8.2511
 ...\glue(\lineskip) 0.0
 ...\vbox(700.50723+0.0)x452.96826, glue set 77.46904fil
@@ -101,21 +104,21 @@ Completed box being shipped out [1]
 ....\glue 17.07182
 ....\glue(\parskip) 0.0
 ....\glue(\lineskip) 1.0
-....\hbox(37.13832+0.0)x452.96826, glue set 82.017fil
+....\hbox(37.13832+0.0)x452.96826, glue set 83.23898fil
 .....\glue(\leftskip) 0.0 plus 1.0fil
 .....\hbox(0.0+0.0)x0.0
-.....\hbox(37.13832+0.0)x288.93428
-......\hbox(37.13979+0.0)x288.93498
-.......\hbox(37.13979+0.0)x288.93498
-........\hbox(37.13979+0.0)x0.0
+.....\hbox(37.13832+0.0)x286.49031
+......\hbox(37.13771+0.0)x286.49101
+.......\hbox(37.13771+0.0)x286.49101
+........\hbox(37.13771+0.0)x0.0
 .........\special{pdf:btrans}
-.........\special{x:scale 0.62714 0.62714}
-.........\hbox(59.22125+0.0)x0.0, glue set - 460.72125fil
-..........\hbox(59.22125+0.0)x460.72125
+.........\special{x:scale 0.75508 0.75508}
+.........\hbox(49.18375+0.0)x0.0, glue set - 379.41751fil
+..........\hbox(49.18375+0.0)x379.41751
 ...........\XeTeXpdffile ".../ustc_logo_text.pdf"
 ..........\glue 0.0 plus 1.0fil minus 1.0fil
 .........\special{pdf:etrans}
-........\kern 288.93498
+........\kern 286.49101
 ........\glue 0.0 plus 1.0fil minus 1.0fil
 .....\penalty 10000
 .....\glue(\parfillskip) 0.0
@@ -145,21 +148,21 @@ Completed box being shipped out [1]
 ....\glue 48.36958
 ....\glue(\parskip) 0.0
 ....\glue(\lineskip) 1.0
-....\hbox(133.72786+0.0)x452.96826, glue set 159.61975fil
+....\hbox(133.72786+0.0)x452.96826, glue set 159.61978fil
 .....\glue(\leftskip) 0.0 plus 1.0fil
 .....\hbox(0.0+0.0)x0.0
-.....\hbox(133.72786+0.0)x133.72878
-......\hbox(133.7291+0.0)x133.7291
-.......\hbox(133.7291+0.0)x133.7291
-........\hbox(133.7291+0.0)x0.0
+.....\hbox(133.72786+0.0)x133.7287
+......\hbox(133.72903+0.0)x133.72903
+.......\hbox(133.72903+0.0)x133.72903
+........\hbox(133.72903+0.0)x0.0
 .........\special{pdf:btrans}
-.........\special{x:scale 0.29346 0.29346}
-.........\hbox(455.70251+0.0)x0.0, glue set - 455.70251fil
-..........\hbox(455.70251+0.0)x455.70251
+.........\special{x:scale 0.33475 0.33475}
+.........\hbox(399.4925+0.0)x0.0, glue set - 399.4925fil
+..........\hbox(399.4925+0.0)x399.4925
 ...........\XeTeXpdffile ".../ustc_logo_fig.pdf"
 ..........\glue 0.0 plus 1.0fil minus 1.0fil
 .........\special{pdf:etrans}
-........\kern 133.7291
+........\kern 133.72903
 ........\glue 0.0 plus 1.0fil minus 1.0fil
 .....\penalty 10000
 .....\glue(\parfillskip) 0.0
@@ -426,6 +429,9 @@ Completed box being shipped out [1]
 ....\glue 0.0
 ...\glue(\baselineskip) 22.47748
 ...\hbox(0.0+0.0)x452.96826
+....\special{color push  Black}
+....\hbox(0.0+0.0)x452.96826
+....\special{color pop}
 .\kern 0.0
 Completed box being shipped out [2]
 \vbox(722.98453+0.0)x452.96808
@@ -448,6 +454,9 @@ Completed box being shipped out [2]
 ...\vbox(21.33955+0.0)x452.96826, glue set 21.33955fil
 ....\glue 0.0 plus 1.0fil
 ....\hbox(0.0+0.0)x452.96826
+.....\special{color push  Black}
+.....\hbox(0.0+0.0)x452.96826
+.....\special{color pop}
 ...\glue 8.2511
 ...\glue(\lineskip) 0.0
 ...\vbox(700.50723+0.0)x0.0, glue set 688.50723fil
@@ -459,6 +468,9 @@ Completed box being shipped out [2]
 ....\glue 0.0
 ...\glue(\baselineskip) 22.47748
 ...\hbox(0.0+0.0)x452.96826
+....\special{color push  Black}
+....\hbox(0.0+0.0)x452.96826
+....\special{color pop}
 File: figures/ustc_logo_fig.pdf Graphic file (type pdf)
 <use figures/ustc_logo_fig.pdf>
 Completed box being shipped out [1]
@@ -482,6 +494,9 @@ Completed box being shipped out [1]
 ...\vbox(21.33955+0.0)x452.96826, glue set 21.33955fil
 ....\glue 0.0 plus 1.0fil
 ....\hbox(0.0+0.0)x452.96826
+.....\special{color push  Black}
+.....\hbox(0.0+0.0)x452.96826
+.....\special{color pop}
 ...\glue 8.2511
 ...\glue(\lineskip) 0.0
 ...\vbox(700.50723+0.0)x452.96826, glue set 82.87897fil
@@ -565,21 +580,21 @@ Completed box being shipped out [1]
 ....\glue 62.59596
 ....\glue(\parskip) 0.0
 ....\glue(\lineskip) 1.0
-....\hbox(145.10922+0.0)x452.96826, glue set 153.92834fil
+....\hbox(145.10922+0.0)x452.96826, glue set 153.9294fil
 .....\glue(\leftskip) 0.0 plus 1.0fil
 .....\hbox(0.0+0.0)x0.0
-.....\hbox(145.10922+0.0)x145.11157
-......\hbox(145.11192+0.0)x145.11192
-.......\hbox(145.11192+0.0)x145.11192
-........\hbox(145.11192+0.0)x0.0
+.....\hbox(145.10922+0.0)x145.10948
+......\hbox(145.10983+0.0)x145.10983
+.......\hbox(145.10983+0.0)x145.10983
+........\hbox(145.10983+0.0)x0.0
 .........\special{pdf:btrans}
-.........\special{x:scale 0.31844 0.31844}
-.........\hbox(455.70251+0.0)x0.0, glue set - 455.70251fil
-..........\hbox(455.70251+0.0)x455.70251
+.........\special{x:scale 0.36324 0.36324}
+.........\hbox(399.4925+0.0)x0.0, glue set - 399.4925fil
+..........\hbox(399.4925+0.0)x399.4925
 ...........\XeTeXpdffile ".../ustc_logo_fig.pdf"
 ..........\glue 0.0 plus 1.0fil minus 1.0fil
 .........\special{pdf:etrans}
-........\kern 145.11192
+........\kern 145.10983
 ........\glue 0.0 plus 1.0fil minus 1.0fil
 .....\penalty 10000
 .....\glue(\parfillskip) 0.0
@@ -786,6 +801,9 @@ Completed box being shipped out [1]
 ....\glue 0.0
 ...\glue(\baselineskip) 22.47748
 ...\hbox(0.0+0.0)x452.96826
+....\special{color push  Black}
+....\hbox(0.0+0.0)x452.96826
+....\special{color pop}
 Completed box being shipped out [2]
 \vbox(722.98453+0.0)x452.96808
 .\vbox(0.0+0.0)x0.0, glue set 30.59457fil
@@ -807,6 +825,9 @@ Completed box being shipped out [2]
 ...\vbox(21.33955+0.0)x452.96826, glue set 21.33955fil
 ....\glue 0.0 plus 1.0fil
 ....\hbox(0.0+0.0)x452.96826
+.....\special{color push  Black}
+.....\hbox(0.0+0.0)x452.96826
+.....\special{color pop}
 ...\glue 8.2511
 ...\glue(\lineskip) 0.0
 ...\vbox(700.50723+0.0)x0.0, glue set 688.50723fil
@@ -818,6 +839,9 @@ Completed box being shipped out [2]
 ....\glue 0.0
 ...\glue(\baselineskip) 22.47748
 ...\hbox(0.0+0.0)x452.96826
+....\special{color push  Black}
+....\hbox(0.0+0.0)x452.96826
+....\special{color pop}
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line ....
 Package atveryend Info: Empty hook `AfterLastShipout' on input line ....
 (titlepage-bachelor.aux)
