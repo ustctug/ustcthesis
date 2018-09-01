@@ -391,8 +391,8 @@
         The lishu font is required.\MessageBreak
         Please configure it manually
       }
-      \providecommand\lishu{\sffamily}
     \fi
+    \providecommand\lishu{\sffamily}
   }
   \newcommand\ustc@specialityname{专业领域}
 \else
