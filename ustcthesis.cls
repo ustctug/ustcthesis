@@ -157,7 +157,7 @@
   \ustc@strifeq{\ustc@fontset}{mac}{
     \setmonofont[Scale=MatchLowercase]{Menlo}
   }{
-    \setmonofont[Scale=MatchLowercase]{Courier}
+    \setmonofont[Scale=MatchLowercase]{Courier New}
   }
 }
 \ustc@strifeq{\ustc@fontset}{mac}{
