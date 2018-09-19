@@ -2125,7 +2125,8 @@ version 2005/12/01 or later.
 % \begin{macro}{\ldots}
 % 省略号一律居中，所以 \cs{ldots} 不再居于底部。
 %    \begin{macrocode}
-\def\mathellipsis{\cdots}
+\ifustc@english\else
+  \def\mathellipsis{\cdots}
 %    \end{macrocode}
 % \end{macro}
 %
@@ -2134,12 +2135,13 @@ version 2005/12/01 or later.
 % 小于等于号要使用倾斜的形式。
 % \changes{v3.0}{2017/07/01}{更正了 LaTeX 的大于等于号}
 %    \begin{macrocode}
-\protected\def\le{\leqslant}
-\protected\def\ge{\geqslant}
-\AtBeginDocument{%
-  \renewcommand\leq{\leqslant}%
-  \renewcommand\geq{\geqslant}%
-}
+  \protected\def\le{\leqslant}
+  \protected\def\ge{\geqslant}
+  \AtBeginDocument{%
+    \renewcommand\leq{\leqslant}%
+    \renewcommand\geq{\geqslant}%
+  }
+\fi
 %    \end{macrocode}
 % \end{macro}
 % \end{macro}

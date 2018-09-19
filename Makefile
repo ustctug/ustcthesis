@@ -1,10 +1,10 @@
 MAIN = main
 NAME = ustcthesis
 CLSFILES = $(NAME).cls $(NAME)-extra.sty
-BSTFILES = ustcthesis-numerical.bst ustcthesis-authoryear.bst ustcthesis-bachelor.bst
+BSTFILES = $(NAME)-numerical.bst $(NAME)-authoryear.bst $(NAME)-bachelor.bst
 
 SHELL = bash
-LATEXMK = latexmk -xelatex -file-line-error -halt-on-error -interaction=nonstopmode -synctex=1
+LATEXMK = latexmk -xelatex
 VERSION = $(shell cat $(NAME).dtx | egrep -o "\[\d\d\d\d/\d\d\/\d\d v.+\]" \
 	  | egrep -o "v\S+")
 TEXMF = $(shell kpsewhich --var-value TEXMFHOME)

@@ -901,13 +901,15 @@
   \caption*{#1}%
   \endgroup
 }
-\def\mathellipsis{\cdots}
-\protected\def\le{\leqslant}
-\protected\def\ge{\geqslant}
-\AtBeginDocument{%
-  \renewcommand\leq{\leqslant}%
-  \renewcommand\geq{\geqslant}%
-}
+\ifustc@english\else
+  \def\mathellipsis{\cdots}
+  \protected\def\le{\leqslant}
+  \protected\def\ge{\geqslant}
+  \AtBeginDocument{%
+    \renewcommand\leq{\leqslant}%
+    \renewcommand\geq{\geqslant}%
+  }
+\fi
 \removenolimits{%
   \int\iint\iiint\iiiint\oint\oiint\oiiint
   \intclockwise\varointclockwise\ointctrclockwise\sumint
