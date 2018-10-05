@@ -176,22 +176,22 @@
 }{
   \ustc@strifeq{\ustc@fontset}{windows}{
     \IfFileExists{C:/bootfont.bin}{
-      \setCJKmainfont[AutoFakeBold,ItalicFont=KaiTi_GB2312]{SimSun}
+      \setCJKmainfont[AutoFakeBold=2,ItalicFont=KaiTi_GB2312]{SimSun}
     }{
-      \setCJKmainfont[AutoFakeBold,ItalicFont=KaiTi]{SimSun}
+      \setCJKmainfont[AutoFakeBold=2,ItalicFont=KaiTi]{SimSun}
     }
-    \setCJKsansfont[AutoFakeBold]{SimHei}
-    \setCJKfamilyfont{zhsong}[AutoFakeBold]{SimSun}
-    \setCJKfamilyfont{zhhei}[AutoFakeBold]{SimHei}
+    \setCJKsansfont[AutoFakeBold=2]{SimHei}
+    \setCJKfamilyfont{zhsong}[AutoFakeBold=2]{SimSun}
+    \setCJKfamilyfont{zhhei}[AutoFakeBold=2]{SimHei}
   }{
     \ustc@strifeq{\ustc@fontset}{adobe}{
       \setCJKmainfont[
-        AutoFakeBold,
-        ItalicFont=AdobeKaitiStd-Regular,
+        AutoFakeBold = 2,
+        ItalicFont   = AdobeKaitiStd-Regular,
       ]{AdobeSongStd-Light}
-      \setCJKsansfont[AutoFakeBold]{AdobeHeitiStd-Regular}
-      \setCJKfamilyfont{zhsong}[AutoFakeBold]{AdobeSongStd-Light}
-      \setCJKfamilyfont{zhhei}[AutoFakeBold]{AdobeHeitiStd-Regular}
+      \setCJKsansfont[AutoFakeBold=2]{AdobeHeitiStd-Regular}
+      \setCJKfamilyfont{zhsong}[AutoFakeBold=2]{AdobeSongStd-Light}
+      \setCJKfamilyfont{zhhei}[AutoFakeBold=2]{AdobeHeitiStd-Regular}
     }{}
   }
 }
