@@ -65,7 +65,6 @@
   \ClassError{ustcthesis}{%
     This template requires TeX Live\MessageBreak 2016 or later version}{}
 }
-\RequirePackage{etoolbox}
 \RequirePackage{amsmath}
 \RequirePackage{unicode-math}
 \RequirePackage{geometry}
@@ -350,14 +349,9 @@
 \fi
 \fancypagestyle{ustc@notation}{\fancyfoot{}}
 \pagestyle{ustc@headings}
-\newcommand\ustc@patchfailure[1]{%
-  \ClassError{ustcthesis}{Failed to patch command \protect#1.\MessageBreak
-    Please contact the template author.%
-  }{}%
-}
-\patchcmd\chaptermark{\MakeUppercase}{}{}{\ustc@patchfailure{\chaptermark}}
-\patchcmd\chaptermark{#1}{\ustc@spacetitle{#1}}
-  {}{\ustc@patchfailure{\chaptermark}}
+\newcommand\ustc@patchcmd{\csname ctex_patch_cmd:Nnn\endcsname}
+\ustc@patchcmd\chaptermark{\MakeUppercase}{}
+\ustc@patchcmd\chaptermark{#1}{\ustc@spacetitle{#1}}
 \def\cleardoublepage{\clearpage\if@twoside \ifodd\c@page\else
   \hbox{}\thispagestyle{empty}\newpage\if@twocolumn\hbox{}\newpage\fi\fi\fi}
 \renewcommand\frontmatter{%
@@ -984,7 +978,7 @@
   \fi
   \bibliographystyle{ustcthesis-bachelor}
 \fi
-\patchcmd{\NAT@citexnum}{%
+\ustc@patchcmd{\NAT@citexnum}{%
   \@ifnum{\NAT@ctype=\z@}{%
     \if*#2*\else\NAT@cmt#2\fi
   }{}%
@@ -994,7 +988,7 @@
   \@ifnum{\NAT@ctype=\z@}{%
     \if*#2*\else\textsuperscript{#2}\fi
   }{}%
-}{}{\ustc@patchfailure{\NAT@citexnum}}
+}
 \renewcommand\NAT@citesuper[3]{\ifNAT@swa
 \if*#2*\else#2\NAT@spacechar\fi
 \unskip\kern\p@\textsuperscript{\NAT@@open#1\NAT@@close\if*#3*\else#3\fi}%
@@ -1002,17 +996,17 @@
 \renewcommand\NAT@citenum%
     [3]{\ifNAT@swa\NAT@@open\if*#2*\else#2\NAT@spacechar\fi
         #1\NAT@@close\if*#3*\else\textsuperscript{#3}\fi\else#1\fi\endgroup}
-\patchcmd{\NAT@citex}{%
+\ustc@patchcmd{\NAT@citex}{%
   \if*#2*\else\NAT@cmt#2\fi
   \if\relax\NAT@date\relax\else\NAT@@close\fi
 }{%
   \if\relax\NAT@date\relax\else\NAT@@close\fi
   \if*#2*\else\textsuperscript{#2}\fi
-}{}{\ustc@patchfailure{\NAT@citex}}
+}
 \renewcommand\NAT@cite%
     [3]{\ifNAT@swa\NAT@@open\if*#2*\else#2\NAT@spacechar\fi
         #1\NAT@@close\if*#3*\else\textsuperscript{#3}\fi\else#1\fi\endgroup}
-\patchcmd{\NAT@citexnum}{%
+\ustc@patchcmd{\NAT@citexnum}{%
   \ifx\NAT@last@yr\relax
     \def@NAT@last@yr{\@citea}%
   \else
@@ -1020,7 +1014,7 @@
   \fi
 }{%
   \def@NAT@last@yr{-\NAT@penalty}%
-}{}{\ustc@patchfailure{\NAT@citexnum}}
+}
 \DeclareRobustCommand\inlinecite{\@inlinecite}
 \def\@inlinecite#1{\begingroup\let\@cite\NAT@citenum\citep{#1}\endgroup}
 \ifustc@graduate

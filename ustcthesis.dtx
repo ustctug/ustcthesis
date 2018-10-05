@@ -287,7 +287,6 @@ version 2005/12/01 or later.
 % \pkg{caption},
 % \pkg{calc},
 % \pkg{ctex},
-% \pkg{etoolbox},
 % \pkg{fancyhdr},
 % \pkg{geometry},
 % \pkg{graphicx},
@@ -771,7 +770,6 @@ version 2005/12/01 or later.
 %
 % 加载所需宏包，注意不要轻易改变加载顺序。
 %    \begin{macrocode}
-\RequirePackage{etoolbox}
 \RequirePackage{amsmath}
 \RequirePackage{unicode-math}
 \RequirePackage{geometry}
@@ -1208,17 +1206,14 @@ version 2005/12/01 or later.
 %    \end{macrocode}
 %
 % 取消页眉的英文自动大写，并保持与正文章标题格式一致。
+% 这里使用 \pkg{ctex} 的 \cs{ctex\_patch\_cmd:Nnn} 命令。
 % 注意，对 \cs{chaptermark} 的修改必须在第一次调用 \cs{pagestyle} 后。
 % \changes{v3.0.7}{2018/04/18}{更正页眉英文大写的错误}
+% \changes{v3.1.01}{2018/10/05}{取消依赖 \pkg{etoolbox}}
 %    \begin{macrocode}
-\newcommand\ustc@patchfailure[1]{%
-  \ClassError{ustcthesis}{Failed to patch command \protect#1.\MessageBreak
-    Please contact the template author.%
-  }{}%
-}
-\patchcmd\chaptermark{\MakeUppercase}{}{}{\ustc@patchfailure{\chaptermark}}
-\patchcmd\chaptermark{#1}{\ustc@spacetitle{#1}}
-  {}{\ustc@patchfailure{\chaptermark}}
+\newcommand\ustc@patchcmd{\csname ctex_patch_cmd:Nnn\endcsname}
+\ustc@patchcmd\chaptermark{\MakeUppercase}{}
+\ustc@patchcmd\chaptermark{#1}{\ustc@spacetitle{#1}}
 %    \end{macrocode}
 %
 % \begin{macro}{\cleardoublepage}
@@ -2285,7 +2280,7 @@ version 2005/12/01 or later.
 % 下面修改引用标注的格式，主要是将页码写在上标位置。
 % Numerical 模式的 \cs{citet} 的页码：
 %    \begin{macrocode}
-\patchcmd{\NAT@citexnum}{%
+\ustc@patchcmd{\NAT@citexnum}{%
   \@ifnum{\NAT@ctype=\z@}{%
     \if*#2*\else\NAT@cmt#2\fi
   }{}%
@@ -2295,7 +2290,7 @@ version 2005/12/01 or later.
   \@ifnum{\NAT@ctype=\z@}{%
     \if*#2*\else\textsuperscript{#2}\fi
   }{}%
-}{}{\ustc@patchfailure{\NAT@citexnum}}
+}
 %    \end{macrocode}
 %
 % Numerical 模式的 \cs{citep} 的页码：
@@ -2311,13 +2306,13 @@ version 2005/12/01 or later.
 %
 % Author-year 模式的 \cs{citet} 的页码：
 %    \begin{macrocode}
-\patchcmd{\NAT@citex}{%
+\ustc@patchcmd{\NAT@citex}{%
   \if*#2*\else\NAT@cmt#2\fi
   \if\relax\NAT@date\relax\else\NAT@@close\fi
 }{%
   \if\relax\NAT@date\relax\else\NAT@@close\fi
   \if*#2*\else\textsuperscript{#2}\fi
-}{}{\ustc@patchfailure{\NAT@citex}}
+}
 %    \end{macrocode}
 %
 % Author-year 模式的 \cs{citep} 的页码：
@@ -2333,7 +2328,7 @@ version 2005/12/01 or later.
 % \changes{v3.0.3}{2018/03/29}{顺序编码制连续两个文献引用之间使用连接号}
 % \changes{v3.0.6}{2018/04/12}{文献引用之间的连接号改为 hyphen}
 %    \begin{macrocode}
-\patchcmd{\NAT@citexnum}{%
+\ustc@patchcmd{\NAT@citexnum}{%
   \ifx\NAT@last@yr\relax
     \def@NAT@last@yr{\@citea}%
   \else
@@ -2341,7 +2336,7 @@ version 2005/12/01 or later.
   \fi
 }{%
   \def@NAT@last@yr{-\NAT@penalty}%
-}{}{\ustc@patchfailure{\NAT@citexnum}}
+}
 %    \end{macrocode}
 % \end{macro}
 %
