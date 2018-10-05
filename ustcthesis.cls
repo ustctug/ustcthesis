@@ -196,13 +196,27 @@
     }{}
   }
 }
+\newif\ifustc@stixtwo
+\newif\ifustc@xitsnew
+\@ifpackagelater{fontspec}{2017/01/20}{
+  \IfFontExistsTF{STIX2Math.otf}{
+    \ustc@stixtwotrue
+  }{}
+  \IfFontExistsTF{XITS-Regular.otf}{
+    \ustc@xitsnewtrue
+  }{}
+}{}
 \ustc@strifeq{\ustc@fontset}{mac}{
   \newfontfamily\ustc@circlefont{Songti SC Light}
 }{
   \ustc@strifeq{\ustc@fontset}{windows}{
     \newfontfamily\ustc@circlefont{SimSun}
   }{
-    \newfontfamily\ustc@circlefont{xits-regular.otf}
+    \ifustc@xitsnew
+      \newfontfamily\ustc@circlefont{XITS-Regular.otf}
+    \else
+      \newfontfamily\ustc@circlefont{xits-regular.otf}
+    \fi
   }
 }
 \unimathsetup{
@@ -211,26 +225,31 @@
   nabla      = upright,
   partial    = upright,
 }
-\newcommand\ustc@mathfont{xits}
-\@ifpackagelater{fontspec}{2017/01/20}{
-  \IfFontExistsTF{STIX2Math.otf}{
-    \renewcommand\ustc@mathfont{stix2}
-  }{}
-}{}
-\ustc@strifeq{\ustc@mathfont}{stix2}{
+\ifustc@stixtwo
   \setmathfont[StylisticSet=8]{STIX2Math.otf}
   \setmathfont[range={scr,bfscr},StylisticSet=1]{STIX2Math.otf}
-  \setmathfont[range={\partial,\lbrace,\rbrace}]{xits-math.otf}
-}{
-  \ustc@strifeq{\ustc@mathfont}{xits}{
+  \ifustc@xitsnew
+    \setmathfont[range={\partial,\lbrace,\rbrace}]{XITSMath-Regular.otf}
+  \else
+    \setmathfont[range={\partial,\lbrace,\rbrace}]{xits-math.otf}
+  \fi
+\else
+  \ifustc@xitsnew
+    \setmathfont[
+      Extension    = .otf,
+      BoldFont     = XITSMath-Bold,
+      StylisticSet = 8,
+    ]{XITSMath}
+    \setmathfont[range={cal,bfcal},StylisticSet=1]{XITSMath-Regular}
+  \else
     \setmathfont[
       Extension    = .otf,
       BoldFont     = *bold,
       StylisticSet = 8,
     ]{xits-math}
     \setmathfont[range={cal,bfcal},StylisticSet=1]{xits-math.otf}
-  }{}
-}
+  \fi
+\fi
 \newdimen\bp@
 \bp@=1bp
 \ifustc@graduate

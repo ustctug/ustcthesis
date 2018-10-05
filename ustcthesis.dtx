@@ -956,6 +956,24 @@ version 2005/12/01 or later.
 }
 %    \end{macrocode}
 %
+% 需要检测 STIX/XITS 字体：
+% \cs{IfFontExistsTF} 是 \pkg{fontspec} 2017/01/20 v2.5c 才提供的；
+% \pkg{stix2-otf} 是 2018-04-13 才提交到 CTAN；
+% XITS 字体于 2018-10-03 更改了文件名。
+% \changes{v3.1.01}{2018/10/05}{同步 \pkg{xits} 字体文件名的修改}
+%    \begin{macrocode}
+\newif\ifustc@stixtwo
+\newif\ifustc@xitsnew
+\@ifpackagelater{fontspec}{2017/01/20}{
+  \IfFontExistsTF{STIX2Math.otf}{
+    \ustc@stixtwotrue
+  }{}
+  \IfFontExistsTF{XITS-Regular.otf}{
+    \ustc@xitsnewtrue
+  }{}
+}{}
+%    \end{macrocode}
+%
 % \begin{macro}{\ustc@circlefont}
 % 研究生的五级节标题和脚注要求使用带圈数字，
 % 但 Times New Roman 没有这些符号的字形，而华文宋体和中易宋体提供了这些字形，
@@ -967,7 +985,11 @@ version 2005/12/01 or later.
   \ustc@strifeq{\ustc@fontset}{windows}{
     \newfontfamily\ustc@circlefont{SimSun}
   }{
-    \newfontfamily\ustc@circlefont{xits-regular.otf}
+    \ifustc@xitsnew
+      \newfontfamily\ustc@circlefont{XITS-Regular.otf}
+    \else
+      \newfontfamily\ustc@circlefont{xits-regular.otf}
+    \fi
   }
 }
 %    \end{macrocode}
@@ -981,17 +1003,6 @@ version 2005/12/01 or later.
   nabla      = upright,
   partial    = upright,
 }
-\newcommand\ustc@mathfont{xits}
-%    \end{macrocode}
-%
-% \cs{IfFontExistsTF} 是 \pkg{fontspec} 2017/01/20 v2.5c 才提供的，
-% 所以需要检测版本。
-%    \begin{macrocode}
-\@ifpackagelater{fontspec}{2017/01/20}{
-  \IfFontExistsTF{STIX2Math.otf}{
-    \renewcommand\ustc@mathfont{stix2}
-  }{}
-}{}
 %    \end{macrocode}
 %
 % 由于 \pkg{fontspec} 的 bug
@@ -999,20 +1010,31 @@ version 2005/12/01 or later.
 % \cs{scriptstyle} 的变体字母不能正确处理，
 % 暂时不要使用 \opt{ss02}。
 %    \begin{macrocode}
-\ustc@strifeq{\ustc@mathfont}{stix2}{
+\ifustc@stixtwo
   \setmathfont[StylisticSet=8]{STIX2Math.otf}
   \setmathfont[range={scr,bfscr},StylisticSet=1]{STIX2Math.otf}
-  \setmathfont[range={\partial,\lbrace,\rbrace}]{xits-math.otf}
-}{
-  \ustc@strifeq{\ustc@mathfont}{xits}{
+  \ifustc@xitsnew
+    \setmathfont[range={\partial,\lbrace,\rbrace}]{XITSMath-Regular.otf}
+  \else
+    \setmathfont[range={\partial,\lbrace,\rbrace}]{xits-math.otf}
+  \fi
+\else
+  \ifustc@xitsnew
+    \setmathfont[
+      Extension    = .otf,
+      BoldFont     = XITSMath-Bold,
+      StylisticSet = 8,
+    ]{XITSMath}
+    \setmathfont[range={cal,bfcal},StylisticSet=1]{XITSMath-Regular}
+  \else
     \setmathfont[
       Extension    = .otf,
       BoldFont     = *bold,
       StylisticSet = 8,
     ]{xits-math}
     \setmathfont[range={cal,bfcal},StylisticSet=1]{xits-math.otf}
-  }{}
-}
+  \fi
+\fi
 %    \end{macrocode}
 %
 % 印刷的长度单位点（磅）通常指 PostScript point，在 \LaTeX{} 是 bp。
