@@ -26,8 +26,21 @@
 % \enprofessionaltype{Professional degree type}
 % \ensecretlevel{Secret}    % Top secret|Highly secret|Secret
 
-% 额外的宏包和配置写进 ustcthesis-extra.sty
-\usepackage{ustcthesis-extra}
+
+% 加载宏包和配置
+\usepackage{graphicx}
+\graphicspath{{figures/}}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage[boxed,algochapter,lined,linesnumbered]{algorithm2e}
+\usepackage{amsthm}
+
+\DeclareRobustCommand\cs[1]{\texttt{\char`\\#1}}
+\newcommand\pkg{\textsf}
+
+\renewcommand\vec{\symbf}
+\newcommand\mat{\symbf}
+\newcommand\ts{\symbfsf}
 
 
 

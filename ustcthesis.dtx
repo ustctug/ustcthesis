@@ -144,7 +144,7 @@ version 2005/12/01 or later.
 \EnableCrossrefs
 \CodelineIndex
 \RecordChanges
-\OnlyDescription
+% \OnlyDescription
 
 \begin{document}
   \DocInput{\jobname.dtx}
@@ -691,6 +691,7 @@ version 2005/12/01 or later.
 % \end{table}
 %
 %
+% \StopEventually
 % \clearpage
 % \appendix
 %
@@ -709,7 +710,7 @@ version 2005/12/01 or later.
 \newif\ifustc@master
 \newif\ifustc@bachelor
 \newif\ifustc@academic
-\newif\ifustc@english
+\newif\ifustc@chinese
 \newif\ifustc@numerical
 \newif\ifustc@super
 \newif\ifustc@pdf
@@ -720,8 +721,8 @@ version 2005/12/01 or later.
 \DeclareOption{bachelor}{\ustc@doctorfalse\ustc@masterfalse\ustc@bachelortrue}
 \DeclareOption{academic}{\ustc@academictrue}
 \DeclareOption{professional}{\ustc@academicfalse}
-\DeclareOption{chinese}{\ustc@englishfalse}
-\DeclareOption{english}{\ustc@englishtrue\ustc@arabictrue}
+\DeclareOption{chinese}{\ustc@chinesetrue}
+\DeclareOption{english}{\ustc@chinesefalse\ustc@arabictrue}
 \DeclareOption{print}{\ustc@pdffalse}
 \DeclareOption{pdf}{\ustc@pdftrue}
 \DeclareOption{super}{\ustc@numericaltrue\ustc@supertrue}
@@ -745,7 +746,9 @@ version 2005/12/01 or later.
 % \subsection{加载文档类和宏包}
 %
 %    \begin{macrocode}
-\ifustc@english
+\ifustc@chinese
+  \PassOptionsToClass{scheme=chinese}{ctexbook}
+\else
   \PassOptionsToClass{scheme=plain}{ctexbook}
 \fi
 \ifustc@pdf
@@ -757,7 +760,7 @@ version 2005/12/01 or later.
 % 载入 \cls{ctexbook} 文档类，注意要求为 2.2 或更高的版本。
 % \changes{v3.0}{2017/07/01}{正文新的一章另面起}
 %    \begin{macrocode}
-\LoadClass[UTF8, a4paper, openany, zihao=-4]{ctexbook}[2016/05/16]
+\LoadClass[UTF8,a4paper,openany,zihao=-4]{ctexbook}[2016/05/16]
 %    \end{macrocode}
 %
 % 检测 ctexbook 版本，如果版本过低会报错
@@ -768,7 +771,8 @@ version 2005/12/01 or later.
 }
 %    \end{macrocode}
 %
-% 加载所需宏包，注意不要轻易改变加载顺序。
+% 建议在模板开始处载入全部宏包，不要轻易改变加载顺序。
+% \pkg{hyperref} 一般在最后加载。
 %    \begin{macrocode}
 \RequirePackage{amsmath}
 \RequirePackage{unicode-math}
@@ -788,87 +792,25 @@ version 2005/12/01 or later.
 %    \end{macrocode}
 %
 %
-% \subsection{PDF 设置}
-%
-%    \begin{macrocode}
-\hypersetup{
-  bookmarksnumbered=true,
-  bookmarksopen=true,
-  bookmarksopenlevel=1,
-  linktoc=all,
-}
-%    \end{macrocode}
-%
-% 如果为 \opt{pdf} 样式，设置 hyperlink 颜色
-%    \begin{macrocode}
-\ifustc@pdf
-  \hypersetup{
-    colorlinks=true,
-    allcolors=blue,
-  }
-\else
-  \hypersetup{hidelinks}
-\fi
-%    \end{macrocode}
-%
-% 填写 PDF 元信息。
-%    \begin{macrocode}
-\AtBeginDocument{%
-  \ifustc@english
-    \hypersetup{
-      pdftitle={\ustc@entitle},
-      pdfauthor={\ustc@enauthor},
-    }%
-  \else
-    \hypersetup{
-      pdftitle={\ustc@title},
-      pdfauthor={\ustc@author},
-    }%
-  \fi
-}
-%    \end{macrocode}
-%
-% 在 PDF 字符串中去掉换行，以减少 \pkg{hyperref} 的警告信息。
-%    \begin{macrocode}
-\pdfstringdefDisableCommands{
-  \let\\\@empty
-}
-%    \end{macrocode}
-%
-% 将 URL 设置为保持原样。
-%    \begin{macrocode}
-\urlstyle{same}
-%    \end{macrocode}
-%
-% 使用 \pkg{xurl} 宏包的方法，增加 URL 可断行的位置。
-%    \begin{macrocode}
-\def\UrlBreaks{%
-  \do\/%
-  \do\a\do\b\do\c\do\d\do\e\do\f\do\g\do\h\do\i\do\j\do\k\do\l%
-     \do\m\do\n\do\o\do\p\do\q\do\r\do\s\do\t\do\u\do\v\do\w\do\x\do\y\do\z%
-  \do\A\do\B\do\C\do\D\do\E\do\F\do\G\do\H\do\I\do\J\do\K\do\L%
-     \do\M\do\N\do\O\do\P\do\Q\do\R\do\S\do\T\do\U\do\V\do\W\do\X\do\Y\do\Z%
-  \do0\do1\do2\do3\do4\do5\do6\do7\do8\do9\do=\do/\do.\do:%
-  \do\*\do\-\do\~\do\'\do\"\do\-}
-\Urlmuskip=0mu plus 0.1mu
-%    \end{macrocode}
-%
-%
 % \subsection{字体}
 %
 % \begin{macro}{\ustc@strifeq}
-% 判断字符串是否相等。
+% 使用 \LaTeX3 的功能判断字符串是否相等。这里也可以使用 \pkg{xstring} 宏包。
 %    \begin{macrocode}
 \newcommand\ustc@strifeq{\csname str_if_eq_x:nnTF\endcsname}
 %    \end{macrocode}
 % \end{macro}
 %
+% \begin{macro}{\ustc@fontset}
 % 将 \pkg{ctex} 的 \opt{fontset} 存在 \cs{ustc@fontset} 方便 \LaTeXe{} 调用。
 %    \begin{macrocode}
 \newcommand\ustc@fontset{\csname g__ctex_fontset_tl\endcsname}
 %    \end{macrocode}
+% \end{macro}
 %
-% 设置西文字体
+% 《撰写手册》要求西文字体使用 Times New Roman 和 Arial，
+% 但是在 Linux 下没有这两个字体，所以使用它们的克隆版 TeX Gyre Termes 和
+% TeX Gyre Heros。
 %    \begin{macrocode}
 \ustc@strifeq{\ustc@fontset}{fandol}{
   \setmainfont[
@@ -910,9 +852,11 @@ version 2005/12/01 or later.
 %    \end{macrocode}
 %
 % 中文字体可以由 \pkg{ctex} 自动设置，但是会有问题：
-% 1. 无衬线字体默认会使用微软雅黑或者苹方，这对打印不太友好；
-% 2. 没有粗体的字体不会开启伪粗；
-% 所以必须做一些调整。
+% \begin{enumerate}
+%   \item 无衬线字体默认会使用微软雅黑或者苹方，这对打印不太友好；
+%   \item 没有粗体的字体不会开启伪粗；
+% \end{enumerate}
+% 所以需要重新配置一部分，参考 \pkg{ctex} 宏包。
 % \changes{v3.0.6}{2018/04/12}{取消使用微软雅黑}
 % \changes{v3.0.a}{2018/05/16}{调整中文字体配置}
 % \changes{v3.1.01}{2018/10/05}{调整伪粗体的粗细程度}
@@ -930,7 +874,7 @@ version 2005/12/01 or later.
           BoldFont = * Bold,
   ]{Songti SC}
   \setCJKfamilyfont{zhhei}{Heiti SC}
-  \setCJKfamilyfont{zhkai}{Kaiti SC}
+  \setCJKfamilyfont{zhkai}[BoldFont=Kaiti SC Bold]{Kaiti SC}
 }{
   \ustc@strifeq{\ustc@fontset}{windows}{
     \IfFileExists{C:/bootfont.bin}{
@@ -955,10 +899,23 @@ version 2005/12/01 or later.
 }
 %    \end{macrocode}
 %
-% 需要检测 STIX/XITS 字体：
-% \cs{IfFontExistsTF} 是 \pkg{fontspec} 2017/01/20 v2.5c 才提供的；
-% \pkg{stix2-otf} 是 2018-04-13 才提交到 CTAN；
-% XITS 字体于 2018-10-03 更改了文件名。
+% 使用 \pkg{unicode-math} 配置数学字体。
+% \changes{v3.1}{2018/09/01}{更正了数学符号以满足国标要求}
+%    \begin{macrocode}
+\unimathsetup{
+  math-style = ISO,
+  bold-style = ISO,
+  nabla      = upright,
+  partial    = upright,
+}
+%    \end{macrocode}
+%
+% 优先使用 STIX Two Math 字体，如果找不到则使用 XITS Math。
+% 所以需要检测字体是否存在。
+%
+% 注意，\cs{IfFontExistsTF} 是 \pkg{fontspec} 2017/01/20 v2.5c 才提供的；
+% \pkg{stix2-otf} 是 2018-04-13 发布；
+% 而 XITS 字体于 2018-10-03 更改了字体的文件名。
 % \changes{v3.1.01}{2018/10/05}{同步 \pkg{xits} 字体文件名的修改}
 %    \begin{macrocode}
 \newif\ifustc@stixtwo
@@ -973,41 +930,11 @@ version 2005/12/01 or later.
 }{}
 %    \end{macrocode}
 %
-% \begin{macro}{\ustc@circlefont}
-% 研究生的五级节标题和脚注要求使用带圈数字，
-% 但 Times New Roman 没有这些符号的字形，而华文宋体和中易宋体提供了这些字形，
-% 配置在 \cs{ustc@circlefont}。
-%    \begin{macrocode}
-\ustc@strifeq{\ustc@fontset}{mac}{
-  \newfontfamily\ustc@circlefont{Songti SC Light}
-}{
-  \ustc@strifeq{\ustc@fontset}{windows}{
-    \newfontfamily\ustc@circlefont{SimSun}
-  }{
-    \ifustc@xitsnew
-      \newfontfamily\ustc@circlefont{XITS-Regular.otf}
-    \else
-      \newfontfamily\ustc@circlefont{xits-regular.otf}
-    \fi
-  }
-}
-%    \end{macrocode}
-% \end{macro}
-%
-% 使用 \pkg{unicode-math} 配置数学字体
-%    \begin{macrocode}
-\unimathsetup{
-  math-style = ISO,
-  bold-style = ISO,
-  nabla      = upright,
-  partial    = upright,
-}
-%    \end{macrocode}
-%
 % 由于 \pkg{fontspec} 的 bug
 % \footnote{\url{https://github.com/wspr/unicode-math/issues/484}}，
-% \cs{scriptstyle} 的变体字母不能正确处理，
-% 暂时不要使用 \opt{ss02}。
+% \cs{scriptstyle} 的变体字母不能正确处理，暂时不要使用 \opt{ss02}。
+%
+% 另外目前版本的 STIX Two Math 的个别符号存在一些问题，所以替换为 XITS Math。
 %    \begin{macrocode}
 \ifustc@stixtwo
   \setmathfont[StylisticSet=8]{STIX2Math.otf}
@@ -1036,7 +963,31 @@ version 2005/12/01 or later.
 \fi
 %    \end{macrocode}
 %
-% 印刷的长度单位点（磅）通常指 PostScript point，在 \LaTeX{} 是 bp。
+% \begin{macro}{\ustc@circlefont}
+% 研究生的五级节标题和脚注需要使用带圈数字，
+% 但 Times New Roman 没有这些符号的字形，而华文宋体和中易宋体提供了这些字形，
+% 配置在 \cs{ustc@circlefont}。
+%    \begin{macrocode}
+\ustc@strifeq{\ustc@fontset}{mac}{
+  \newfontfamily\ustc@circlefont{Songti SC Light}
+}{
+  \ustc@strifeq{\ustc@fontset}{windows}{
+    \newfontfamily\ustc@circlefont{SimSun}
+  }{
+    \ifustc@xitsnew
+      \newfontfamily\ustc@circlefont{XITS-Regular.otf}
+    \else
+      \newfontfamily\ustc@circlefont{xits-regular.otf}
+    \fi
+  }
+}
+%    \end{macrocode}
+% \end{macro}
+%
+% 目前最广泛使用的印刷的长度单位点（磅）通常指 PostScript point
+% \footnote{\url{https://en.wikipedia.org/wiki/Point_(typography)}}，
+% 在 \LaTeX{} 中是 bp，比默认的 pt 略大。
+% 这里保存起来可以节约编译时间。
 %    \begin{macrocode}
 \newdimen\bp@
 \bp@=1bp
@@ -1046,6 +997,8 @@ version 2005/12/01 or later.
 % 其他命令的行距按照相同的的比例设置，如表~\ref{tab:fontsize}。
 % \begin{table}[htb]
 %   \centering
+%   \caption{标准字体命令与字号、行距的对应}
+%   \label{tab:fontsize}
 %   \begin{tabular}{lllll}
 %     \toprule
 %     字体命令          & 字号 & bp   & 研究生行距 & 本科生行距 \\
@@ -1062,8 +1015,6 @@ version 2005/12/01 or later.
 %     \cs{Huge}         & 一号 & 26   & 43.33      & 47.67      \\
 %     \bottomrule
 %   \end{tabular}
-%   \caption{标准字体命令与字号、行距的对应}
-%   \label{tab:fontsize}
 % \end{table}
 % \changes{v3.0}{2017/07/01}{优化图注、算法的行距}
 %    \begin{macrocode}
@@ -1078,7 +1029,7 @@ version 2005/12/01 or later.
   \normalsize
 %    \end{macrocode}
 %
-% 注意已经去掉了列表的间距，所以不再修改 \cs{@listi}。
+% 注意第~\ref{sec:list} 节去掉了列表的间距，所以不再修改 \cs{@listi}。
 %    \begin{macrocode}
   \renewcommand\small{%
     \@setfontsize\small{10.5\bp@}{17.5\bp@}%
@@ -1139,56 +1090,50 @@ version 2005/12/01 or later.
 \linespread{1}\selectfont
 %    \end{macrocode}
 %
-% \begin{macro}{\ustc@setfontsize}
-% 类似于 \cs{@setfontsize}，设置字号、行距后直接生效。
-%    \begin{macrocode}
-\newcommand\ustc@setfontsize[2]{%
-  \fontsize{#1}{#2}\selectfont}
-%    \end{macrocode}
-% \end{macro}
-%
 %
 % \subsection{处理语言}
 %
 % 这里设置了中英文的各种名字。
 %    \begin{macrocode}
-\ifustc@english
-  \renewcommand\figurename{Fig.}
-  \newcommand\ustc@notesname{\textbf{Notes}: }
-  \newcommand\ustc@acknowledgementsname{Acknowledgements}
-  \newcommand\ustc@publicationsname{Publications}
-  \newcommand\ustc@notationname{Notation}
-\else
-  \newcommand\ustc@notesname{\textbf{注}：}
+\newcommand\ustc@universityname{中国科学技术大学}
+\newcommand\ustc@enuniversityname{University of Science and Technology of China}
+\ifustc@chinese
+  \renewcommand\listfigurename{插图清单}
+  \renewcommand\listtablename{表格清单}
   \newcommand\ustc@acknowledgementsname{致谢}
   \newcommand\ustc@publicationsname{在读期间发表的学术论文与取得的研究成果}
   \newcommand\ustc@notationname{符号说明}
+\else
+  \renewcommand\figurename{Fig.}
+  \newcommand\ustc@acknowledgementsname{Acknowledgements}
+  \newcommand\ustc@publicationsname{Publications}
+  \newcommand\ustc@notationname{Notation}
 \fi
 %    \end{macrocode}
 %
 %
-% \subsection{页面设置}
+% \subsection{页面和页眉}
 % 首先用 \pkg{geometry} 宏包设置纸张和页面。
 %    \begin{macrocode}
 \geometry{
-  paper=a4paper,
-  vmargin=2.54cm,
-  hmargin=3.17cm,
-  headheight=0.75cm,
-  headsep=0.29cm,
-  footskip=0.79cm,
+  paper      = a4paper,
+  vmargin    = 2.54cm,
+  hmargin    = 3.17cm,
+  headheight = 0.75cm,
+  headsep    = 0.29cm,
+  footskip   = 0.79cm,
 }
 %    \end{macrocode}
 %
-% 再用 \pkg{fancyhdr} 宏包设置页眉页码。
+% 使用 \pkg{fancyhdr} 宏包设置页眉和页码。
 % \changes{v3.0}{2017/07/01}{页码全部居中}
 %    \begin{macrocode}
-\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand\headrulewidth{0.4\p@}
 \ifustc@graduate
   \fancypagestyle{ustc@headings}{
     \fancyhf{}
-    \fancyhead[C]{\ustc@setfontsize{10.5\bp@}{21\bp@}\leftmark}
-    \fancyfoot[C]{\ustc@setfontsize{10.5\bp@}{21\bp@}\thepage}}
+    \fancyhead[C]{\fontsize{10.5\bp@}{21\bp@}\selectfont\leftmark}
+    \fancyfoot[C]{\fontsize{10.5\bp@}{21\bp@}\selectfont\thepage}}
 %    \end{macrocode}
 %
 % 本科生要求除封面、扉页外，每面上部加页眉，
@@ -1199,8 +1144,8 @@ version 2005/12/01 or later.
 \else
   \fancypagestyle{ustc@headings}{
     \fancyhf{}
-    \fancyhead[C]{\ustc@setfontsize{9\bp@}{18\bp@}中国科学技术大学本科毕业论文}
-    \fancyfoot[C]{\ustc@setfontsize{9\bp@}{18\bp@}\thepage}}
+    \fancyhead[C]{\fontsize{9\bp@}{18\bp@}\selectfont 中国科学技术大学本科毕业论文}
+    \fancyfoot[C]{\fontsize{9\bp@}{18\bp@}\selectfont\thepage}}
 \fi
 \fancypagestyle{ustc@notation}{\fancyfoot{}}
 \pagestyle{ustc@headings}
@@ -1218,7 +1163,7 @@ version 2005/12/01 or later.
 %    \end{macrocode}
 %
 % \begin{macro}{\cleardoublepage}
-% 空白页不加页眉。
+% 空白页不加页眉和页码。
 % \changes{v3.0}{2017/07/01}{空白页不加页眉}
 %    \begin{macrocode}
 \def\cleardoublepage{\clearpage\if@twoside \ifodd\c@page\else
@@ -1259,20 +1204,37 @@ version 2005/12/01 or later.
 % \subsection{封面}
 %
 % \begin{macro}{\maketitle}
-% 重新定义 \cs{maketitle}，调用 \cs{ustc@makezhtitle}, \cs{ustc@makeentitle}
-% 分别生成中、英文封面。
+% 定义命令用于录入信息。
 %    \begin{macrocode}
-\renewcommand\maketitle{%
-  \newgeometry{margin=2.54cm}
-  \pagenumbering{gobble}%
-  \pdfbookmark[0]{封面}{titlepage}%
-  \ustc@makezhtitle
-  \cleardoublepage
-  \pdfbookmark[0]{Title page}{entitlepage}%
-  \ustc@makeentitle
-  \cleardoublepage
-  \restoregeometry
+\def\ustc@define@term#1#2{%
+  \expandafter\gdef\csname #1\endcsname##1{%
+    \expandafter\gdef\csname ustc@#1\endcsname{##1}%
+  }%
+  \csname #1\endcsname{#2}%
 }
+%    \end{macrocode}
+%
+% 定义用户接口：
+%    \begin{macrocode}
+\ustc@define@term{title}{论文题目}
+\ustc@define@term{author}{XXX}
+\ustc@define@term{major}{XXX}
+\ustc@define@term{supervisor}{XXX\quad 教授}
+\ustc@define@term{cosupervisor}{}
+\ustc@define@term{date}{\zhnumsetup{time=Chinese}\zhtoday}
+\ustc@define@term{professionaltype}{专业学位类型}
+\ustc@define@term{secretlevel}{}
+\ustc@define@term{secretyear}{}
+\ustc@define@term{entitle}{Title}
+\ustc@define@term{enauthor}{XXX}
+\ustc@define@term{enmajor}{XXX}
+\ustc@define@term{ensupervisor}{Prof. XXX}
+\ustc@define@term{encosupervisor}{}
+\ustc@define@term{endate}{\CTEX@todayold}
+\ustc@define@term{enprofessionaltype}{Professional degree type}
+\ustc@define@term{ensecretlevel}{}
+\ustc@define@term{keywords}{}
+\ustc@define@term{enkeywords}{}
 %    \end{macrocode}
 %
 % 定义一些常量。
@@ -1320,39 +1282,6 @@ version 2005/12/01 or later.
 \definecolor{ustcblue}{cmyk}{1,0.8,0,0}
 %    \end{macrocode}
 %
-% 声明“作者姓名”等项目的命令
-%    \begin{macrocode}
-\def\ustc@define@term#1#2{%
-  \expandafter\gdef\csname #1\endcsname##1{%
-    \expandafter\gdef\csname ustc@#1\endcsname{##1}%
-  }%
-  \csname #1\endcsname{#2}%
-}
-%    \end{macrocode}
-%
-% 定义用户接口：
-%    \begin{macrocode}
-\ustc@define@term{title}{论文题目}
-\ustc@define@term{author}{XXX}
-\ustc@define@term{major}{XXX}
-\ustc@define@term{supervisor}{XXX\quad 教授}
-\ustc@define@term{cosupervisor}{}
-\ustc@define@term{date}{\zhnumsetup{time=Chinese}\zhtoday}
-\ustc@define@term{professionaltype}{专业学位类型}
-\ustc@define@term{secretlevel}{}
-\ustc@define@term{secretyear}{}
-\ustc@define@term{entitle}{Title}
-\ustc@define@term{enauthor}{XXX}
-\ustc@define@term{enmajor}{XXX}
-\ustc@define@term{ensupervisor}{Prof. XXX}
-\ustc@define@term{encosupervisor}{}
-\ustc@define@term{endate}{\CTEX@todayold}
-\ustc@define@term{enprofessionaltype}{Professional degree type}
-\ustc@define@term{ensecretlevel}{}
-\ustc@define@term{keywords}{}
-\ustc@define@term{enkeywords}{}
-%    \end{macrocode}
-%
 % 中文封面：
 % 密级仿宋 14 磅；
 % 论文类型黑体 56 磅；
@@ -1366,18 +1295,18 @@ version 2005/12/01 or later.
   \begin{titlepage}%
     \centering
     \parbox[t][0.6cm][t]{\textwidth}{%
-      \raggedleft\fangsong\ustc@setfontsize{14\bp@}{14\bp@}%
+      \raggedleft\fangsong\fontsize{14\bp@}{14\bp@}\selectfont
       \null\ustc@secretlevel\par}\par
     \vskip 0.5cm%
     \includegraphics[height=1.3cm]{figures/ustc_logo_text.pdf}\par
     \vskip 0.6cm%
-    {\sffamily\ustc@setfontsize{56\bp@}{56\bp@}%
+    {\sffamily\fontsize{56\bp@}{56\bp@}\selectfont
       \ustc@thesisname\par}%
     \ifustc@academic
       \vskip 2.0cm%
     \else
       \vskip 0.8cm%
-      {\lishu\ustc@setfontsize{26\bp@}{26\bp@}%
+      {\lishu\fontsize{26\bp@}{26\bp@}\selectfont
         （\ustc@professionaltype）\par}%
       \vskip 1.0cm%
     \fi
@@ -1389,11 +1318,11 @@ version 2005/12/01 or later.
     \fi\par
     \vskip 0.9cm%
     \begin{minipage}[t][3.5cm][c]{\textwidth}%
-      \centering\sffamily\bfseries\ustc@setfontsize{26\bp@}{50\bp@}%
+      \centering\sffamily\bfseries\fontsize{26\bp@}{50\bp@}\selectfont
       \ustc@title\par
     \end{minipage}\par
     \vskip 0.6cm%
-    {\ustc@setfontsize{16\bp@}{31\bp@}%
+    {\fontsize{16\bp@}{31\bp@}\selectfont
       \begin{tabular}{@{}l@{\hspace{\ccwd}}l@{}}%
         \textsf{作者姓名：} & \ustc@author \\
         \textsf{\ustc@specialityname：} & \ustc@major \\
@@ -1420,15 +1349,15 @@ version 2005/12/01 or later.
   \begin{titlepage}%
     \centering
     \parbox[t][0.4cm][t]{\textwidth}{%
-      \raggedleft\ustc@setfontsize{14\bp@}{14\bp@}%
+      \raggedleft\fontsize{14\bp@}{14\bp@}\selectfont
       \null\ustc@ensecretlevel\par}\par
     \vskip 0.5cm%
-    {\sffamily\ustc@setfontsize{20\bp@}{30\bp@}%
-      University of Science and Technology of China\par}%
-    {\sffamily\ustc@setfontsize{26\bp@}{30\bp@}%
+    {\sffamily\fontsize{20\bp@}{30\bp@}\selectfont
+      \ustc@enuniversityname\par}%
+    {\sffamily\fontsize{26\bp@}{30\bp@}\selectfont
       \ustc@enthesisname\par}%
     \ifustc@academic\else
-      {\ustc@setfontsize{16\bp@}{32\bp@}%
+      {\fontsize{16\bp@}{32\bp@}\selectfont
         (\ustc@enprofessionaltype)\par}%
     \fi
     \vskip 2.5cm%
@@ -1440,11 +1369,11 @@ version 2005/12/01 or later.
     \fi\par
     \vskip 0.5cm%
     \begin{minipage}[t][4.5cm][c]{\textwidth}%
-      \centering\sffamily\bfseries\ustc@setfontsize{26\bp@}{30\bp@}%
+      \centering\sffamily\bfseries\fontsize{26\bp@}{30\bp@}\selectfont
       \ustc@entitle\par
     \end{minipage}\par
     \vskip 1.6cm%
-    {\ustc@setfontsize{16\bp@}{30\bp@}%
+    {\fontsize{16\bp@}{30\bp@}\selectfont
       \begin{tabular}{@{}l@{}}
         Author:        \ustc@enauthor \\
         Speciality:    \ustc@enmajor \\
@@ -1452,6 +1381,22 @@ version 2005/12/01 or later.
         Finished time: \ustc@endate
       \end{tabular}\par}%
   \end{titlepage}%
+}
+%    \end{macrocode}
+%
+% 重新定义 \cs{maketitle}，调用 \cs{ustc@makezhtitle}, \cs{ustc@makeentitle}
+% 分别生成中、英文封面。
+%    \begin{macrocode}
+\renewcommand\maketitle{%
+  \newgeometry{margin=2.54cm}
+  \pagenumbering{gobble}%
+  \pdfbookmark[0]{封面}{titlepage}%
+  \ustc@makezhtitle
+  \cleardoublepage
+  \pdfbookmark[0]{Title page}{entitlepage}%
+  \ustc@makeentitle
+  \cleardoublepage
+  \restoregeometry
 }
 %    \end{macrocode}
 % \end{macro}
@@ -1462,17 +1407,18 @@ version 2005/12/01 or later.
 % 定义原创性声明
 %    \begin{macrocode}
 \newcommand\ustc@originality{%
-本人声明所呈交的学位论文，是本人在导师指导下进行研究工作所取得的成果。
-除已特别加以标注和致谢的地方外，论文中不包含任何他人已经发表或撰写过
-的研究成果。与我一同工作的同志对本研究所做的贡献均已在论文中作了明确的说明。}
+  本人声明所呈交的学位论文，是本人在导师指导下进行研究工作所取得的成果。%
+  除已特别加以标注和致谢的地方外，论文中不包含任何他人已经发表或撰写过的%
+  研究成果。%
+  与我一同工作的同志对本研究所做的贡献均已在论文中作了明确的说明。}
 \newcommand\ustc@authorization{%
-作为申请学位的条件之一，学位论文著作权拥有者授权中国科学技术大学拥有
-学位论文的部分使用权，即：学校有权按有关规定向国家有关部门或机构送交
-论文的复印件和电子版，允许论文被查阅和借阅，可以将学位论文编入《中国
-学位论文全文数据库》等有关数据库进行检索，可以采用影印、缩印或扫描等
-复制手段保存、汇编学位论文。本人提交的电子文档的内容和纸质论文的内容
-相一致。\par
-保密的学位论文在解密后也遵守此规定。}
+  作为申请学位的条件之一，学位论文著作权拥有者授权\ustc@universityname{}拥有%
+  学位论文的部分使用权，%
+  即：学校有权按有关规定向国家有关部门或机构送交论文的复印件和电子版，%
+  允许论文被查阅和借阅，可以将学位论文编入《中国学位论文全文数据库》等%
+  有关数据库进行检索，可以采用影印、缩印或扫描等复制手段保存、汇编学位论文。%
+  本人提交的电子文档的内容和纸质论文的内容相一致。\par
+  保密的学位论文在解密后也遵守此规定。}
 %    \end{macrocode}
 %
 % \begin{macro}{\ustc@underline}
@@ -1493,43 +1439,42 @@ version 2005/12/01 or later.
 %
 % \begin{macro}{\makestatement}
 %    \begin{macrocode}
-\ifustc@graduate
-  \newcommand\makestatement{%
-    \pdfbookmark[0]{原创性声明}{statement}%
-    \begin{titlepage}%
-      \null
-      \vskip 0.3cm%
-      {\centering\sffamily\ustc@setfontsize{16\bp@}{32\bp@}%
-        中国科学技术大学学位论文原创性声明\par}%
-      \vskip 0.7cm%
-      \ustc@originality\par
-      \vskip 1.3cm%
-      作者签名：\ustc@underline{}\hspace{2.7cm}%
-      签字日期：\ustc@underline{}\par
-      \vskip 1.9cm%
-      {\centering\sffamily\ustc@setfontsize{16\bp@}{32\bp@}%
-        中国科学技术大学学位论文授权使用声明\par}
-      \vskip 0.7cm%
-      \ustc@authorization\par
-      \vskip 0.6cm%
-      \ifx\ustc@secretlevel\@empty
-        \ustc@checkbox{} 公开\quad
-        $\square$ 保密（\ustc@underline[0.85cm]{}年）\par
-      \else
-        $\square$ 公开\quad
-        \ustc@checkbox{} 保密（\ustc@underline[0.8cm]{\ustc@secretyear}年）\par
-      \fi
-      \vskip 0.5cm%
-      作者签名：\ustc@underline{}\hspace{2.7cm}%
-      导师签名：\ustc@underline{}\par
-      \vskip 0.5cm%
-      签字日期：\ustc@underline{}\hspace{2.7cm}%
-      签字日期：\ustc@underline{}\par
-    \end{titlepage}
-    \cleardoublepage
-  }%
-\else
-  \newcommand\makestatement{}
+\newcommand\makestatement{%
+  \pdfbookmark[0]{原创性声明}{statement}%
+  \begin{titlepage}%
+    \null
+    \vskip 0.3cm%
+    {\centering\sffamily\fontsize{16\bp@}{32\bp@}\selectfont
+      \ustc@universityname{}学位论文原创性声明\par}%
+    \vskip 0.7cm%
+    \ustc@originality\par
+    \vskip 1.3cm%
+    作者签名：\ustc@underline{}\hspace{2.7cm}%
+    签字日期：\ustc@underline{}\par
+    \vskip 1.9cm%
+    {\centering\sffamily\fontsize{16\bp@}{32\bp@}\selectfont
+      \ustc@universityname{}学位论文授权使用声明\par}
+    \vskip 0.7cm%
+    \ustc@authorization\par
+    \vskip 0.6cm%
+    \ifx\ustc@secretlevel\@empty
+      \ustc@checkbox{} 公开\quad
+      $\square$ 保密（\ustc@underline[0.85cm]{}年）\par
+    \else
+      $\square$ 公开\quad
+      \ustc@checkbox{} 保密（\ustc@underline[0.8cm]{\ustc@secretyear}年）\par
+    \fi
+    \vskip 0.5cm%
+    作者签名：\ustc@underline{}\hspace{2.7cm}%
+    导师签名：\ustc@underline{}\par
+    \vskip 0.5cm%
+    签字日期：\ustc@underline{}\hspace{2.7cm}%
+    签字日期：\ustc@underline{}\par
+  \end{titlepage}
+  \cleardoublepage
+}%
+\ifustc@bachelor
+  \renewcommand\makestatement{}
 \fi
 %    \end{macrocode}
 % \end{macro}
@@ -1588,14 +1533,28 @@ version 2005/12/01 or later.
 %
 % 各章标题：黑体 16 磅加粗居中，单倍行距，段前 24 磅，段后 18 磅，
 % 章序号与章名间空一字。
-% 注意 \pkg{ctex} 2.4.3 以下版本的bug会导致章节标题前后的距离的实际值偏大，
-% 临时的解决方案是手动调整，偏移值为beforeskip=-31bp, afterskip=-10bp。
-% 但是\pkg{ctex} 2.2 前的beforeskip的符号有特殊意义，
-% 所以要求 \pkg{ctex} 不低于 2.2 版本。
 %
-% 另外由于 Word 模板中使用“单倍行距”，还“对齐到网格”，这在 TeX 中容易实现。
+% 由于 Word 模板中使用“单倍行距”，还“对齐到网格”，这在 TeX 中不容易实现。
 % 所以目前按照默认的行距。
 % \changes{v3.1}{2018/09/01}{更正章节标题的行距}
+%    \begin{macrocode}
+\ctexset{
+  chapter = {
+    format      = \centering\sffamily\bfseries\fontsize{16\bp@}{26.67\bp@}\selectfont,
+    nameformat  = {},
+    titleformat = \ustc@spacetitle,
+    number      = \thechapter,
+    aftername   = \hspace{\ccwd},
+    pagestyle   = ustc@headings,
+  },
+}
+%    \end{macrocode}
+%
+% 注意 \pkg{ctex} 2.4.3 以下版本的bug会导致章节标题前后的距离的实际值偏大，
+% 临时的解决方案是手动调整，偏移值为beforeskip=-31bp, afterskip=-10bp。
+%
+% 另外 \pkg{ctex} 2.2 前的beforeskip的符号有特殊意义，
+% 所以要求 \pkg{ctex} 不低于 2.2 版本。
 %    \begin{macrocode}
 \@ifclasslater{ctexbook}{2016/09/21}{
   \ctexset{
@@ -1608,26 +1567,19 @@ version 2005/12/01 or later.
 }{
   \ctexset{
     chapter = {
-      beforeskip = -7\bp@, % 24bp - 31bp
-      afterskip  = 8\bp@, % 18bp - 10bp
+      beforeskip = -7\bp@,  % 24bp - 31bp
+      afterskip  =  8\bp@,  % 18bp - 10bp
     },
   }
 }
-\ctexset{
-  chapter = {
-    format      = \centering\sffamily\bfseries\ustc@setfontsize{16\bp@}{26.67\bp@},
-    nameformat  = {},
-    titleformat = \ustc@spacetitle,
-    number      = \thechapter,
-    aftername   = \hspace{\ccwd},
-  },
 %    \end{macrocode}
 %
 % 一级节标题：黑体 14 磅左顶格，单倍行距，段前 24 磅，段后 6 磅，
 % 序号与题名间空一字。
 %    \begin{macrocode}
+\ctexset{
   section = {
-    format     = \sffamily\ustc@setfontsize{14\bp@}{23.33\bp@},
+    format     = \sffamily\fontsize{14\bp@}{23.33\bp@}\selectfont,
     aftername  = \hspace{\ccwd},
     beforeskip = 24\bp@,
     afterskip  = 6\bp@,
@@ -1639,7 +1591,7 @@ version 2005/12/01 or later.
 % \changes{v3.0.8}{2018/04/21}{更正 subsection 的格式}
 %    \begin{macrocode}
   subsection = {
-    format     = \sffamily\ustc@setfontsize{13\bp@}{21.67\bp@},
+    format     = \sffamily\fontsize{13\bp@}{21.67\bp@}\selectfont,
     aftername  = \hspace{\ccwd},
     indent     = 2\ccwd,
     beforeskip = 12\bp@,
@@ -1656,7 +1608,7 @@ version 2005/12/01 or later.
 % \changes{v3.1}{2018/09/01}{更正 subsubsection 的前后距离}
 %    \begin{macrocode}
   subsubsection = {
-    format     = \sffamily\ustc@setfontsize{12\bp@}{20\bp@},
+    format     = \sffamily\fontsize{12\bp@}{20\bp@}\selectfont,
     number     = \arabic{subsubsection},
     aftername  = .\hspace{0.5\ccwd},
     indent     = 2\ccwd,
@@ -1670,7 +1622,7 @@ version 2005/12/01 or later.
 % \changes{v3.0.1}{2017/12/12}{更正 paragraph 的前后距离}
 %    \begin{macrocode}
   paragraph = {
-    format     = \rmfamily\ustc@setfontsize{12\bp@}{20\bp@},
+    format     = \rmfamily\fontsize{12\bp@}{20\bp@}\selectfont,
     number     = （\arabic{paragraph}）,
     aftername  = \hspace{0.5\ccwd},
     indent     = 2\ccwd,
@@ -1684,7 +1636,7 @@ version 2005/12/01 or later.
 % 段前段后 0 磅，序号使用全宽括号，与题名间空半字宽。
 %    \begin{macrocode}
   subparagraph = {
-    format     = \rmfamily\ustc@setfontsize{12\bp@}{20\bp@},
+    format     = \rmfamily\fontsize{12\bp@}{20\bp@}\selectfont,
     number     = \ustc@textcircled{subparagraph},
     aftername  = \hspace{0.5\ccwd},
     indent     = 2\ccwd,
@@ -1712,25 +1664,25 @@ version 2005/12/01 or later.
       format = {
         \centering\sffamily
         \if@mainmatter
-          \ustc@setfontsize{16\bp@}{29.33\bp@}
+          \fontsize{16\bp@}{29.33\bp@}\selectfont
         \else
-          \ustc@setfontsize{18\bp@}{33\bp@}
+          \fontsize{18\bp@}{33\bp@}\selectfont
         \fi
       },
     },
     section = {
-      format = \centering\sffamily\ustc@setfontsize{15\bp@}{27.5\bp@},
+      format = \centering\sffamily\fontsize{15\bp@}{27.5\bp@}\selectfont,
     },
     subsection = {
-      format    = \sffamily\ustc@setfontsize{14\bp@}{25.67\bp@},
+      format    = \sffamily\fontsize{14\bp@}{25.67\bp@}\selectfont,
       indent    = \z@,
     },
     subsubsection = {
-      format    = \rmfamily\ustc@setfontsize{12\bp@}{22\bp@},
+      format    = \rmfamily\fontsize{12\bp@}{22\bp@}\selectfont,
       indent    = \ccwd,
     },
     paragraph = {
-      format    = \rmfamily\ustc@setfontsize{12\bp@}{22\bp@},
+      format    = \rmfamily\fontsize{12\bp@}{22\bp@}\selectfont,
       aftername = {},
       indent    = \ccwd,
     },
@@ -1865,23 +1817,24 @@ version 2005/12/01 or later.
 % \end{macro}
 % \end{macro}
 %
-% 下面用 \pkg{titletoc} 宏包设置每级目录的格式。
-%
+% 下面用 \pkg{titletoc} 宏包设置目录内容的格式。
+% 先定义目录线：
 %    \begin{macrocode}
 \newcommand\ustc@leaders{\titlerule*[0.5pc]{$\cdot$}}
-\ifustc@graduate
 %    \end{macrocode}
 %
 % 各章目录要求宋体 14 磅，单倍行距，段前 6 磅，段后 0 磅，两端对齐，
 % 页码右对齐，章序号与章名间空一字。
 % 但是 Word 模板中实际是行距 20 磅。
+%
 % 另外 \pkg{ctex} 在章目录的序号后加 |\hspace{.3em}|，所以用 \cs{unskip} 修正。
 %    \begin{macrocode}
+\ifustc@graduate
   \titlecontents{chapter}
     [\z@]
-    {\addvspace{6\bp@}\ustc@setfontsize{14\bp@}{20\bp@}}
+    {\addvspace{6\bp@}\fontsize{14\bp@}{20\bp@}\selectfont}
     {\contentspush{\thecontentslabel\unskip\hskip\ccwd\relax}}
-    {}{\ustc@leaders\ustc@setfontsize{12\bp@}{20\bp@}\contentspage}
+    {}{\ustc@leaders\fontsize{12\bp@}{20\bp@}\selectfont\contentspage}
 %    \end{macrocode}
 %
 % 一级节标题目录要求宋体 12 磅，单倍行距，左缩进一字，段前 6 磅，段后 0 磅，
@@ -1890,9 +1843,9 @@ version 2005/12/01 or later.
 %    \begin{macrocode}
   \titlecontents{section}
     [\ccwd]
-    {\ustc@setfontsize{12\bp@}{20\bp@}}
+    {\fontsize{12\bp@}{20\bp@}\selectfont}
     {\contentspush{\thecontentslabel\hskip\ccwd\relax}}
-    {}{\ustc@leaders\ustc@setfontsize{12\bp@}{20\bp@}\contentspage}
+    {}{\ustc@leaders\fontsize{12\bp@}{20\bp@}\selectfont\contentspage}
 %    \end{macrocode}
 %
 % 二级节标题目录要求宋体 10.5 磅，单倍行距，左缩进两字，段前 6 磅，段后 0 磅，
@@ -1901,9 +1854,9 @@ version 2005/12/01 or later.
 %    \begin{macrocode}
   \titlecontents{subsection}
     [2\ccwd]
-    {\ustc@setfontsize{10.5\bp@}{20\bp@}}
+    {\fontsize{10.5\bp@}{20\bp@}\selectfont}
     {\contentspush{\thecontentslabel\hskip\ccwd\relax}}
-    {}{\ustc@leaders\ustc@setfontsize{12\bp@}{20\bp@}\contentspage}
+    {}{\ustc@leaders\fontsize{12\bp@}{20\bp@}\selectfont\contentspage}
 %    \end{macrocode}
 %
 % 本科生的目录使用小四宋体（同正文字体），其他同研究生的格式相近。
@@ -1960,6 +1913,7 @@ version 2005/12/01 or later.
 %    \begin{macrocode}
 \renewcommand\chapter{%
   \if@openright\cleardoublepage\else\clearpage\fi
+  \thispagestyle{\CTEX@chapter@pagestyle}%
   \global\@topnum\z@
   \@afterindenttrue
   \ifustc@bachelor
@@ -1995,8 +1949,8 @@ version 2005/12/01 or later.
 %
 % \subsection{正文}
 %
+% 段间距 0 磅。
 %    \begin{macrocode}
-\setlength{\parindent}{2\ccwd}
 \setlength{\parskip}{\z@}
 %    \end{macrocode}
 %
@@ -2004,15 +1958,12 @@ version 2005/12/01 or later.
 % 脚注用带圈的数字：
 % \changes{v3.0}{2017/07/01}{脚注用带圈序号，缩进两字}
 %    \begin{macrocode}
-\renewcommand{\thefootnote}{\ustc@textcircled{footnote}}
+\renewcommand\thefootnote{\ustc@textcircled{footnote}}
 %    \end{macrocode}
 %
 % LaTeX 默认脚注按章计数，即每章的开始才重置脚注计数器；我们修改为按页计数。
 % 简单的|\@addtoreset{footnote}{page}|并不可靠，
 % \footnote{\url{https://texfaq.org/FAQ-footnpp.html}}
-% 所以必须使用额外的宏包。
-% 其中 zref-perpage 包含在 collection-latex 中，最为推荐，
-% 然而在此处直接似乎不能生效。
 % 所以我们使用 \pkg{footmisc} 宏包。
 % \changes{v3.0.4}{2018/03/30}{脚注按页计数}
 %
@@ -2036,11 +1987,12 @@ version 2005/12/01 or later.
 %
 %
 % \subsection{列表}
+% \label{sec:list}
 %
 % \begin{environment}{enumerate}
 % \begin{environment}{description}
 % \begin{environment}{itemize}
-% 修复列表中各项之间过大的间距。
+% 调整列表中各项之间过大的间距。
 % \changes{v3.1}{2018/09/01}{修复列表中各项之间过大的间距}
 %    \begin{macrocode}
 \setlength\partopsep{\z@}
@@ -2069,8 +2021,8 @@ version 2005/12/01 or later.
 %
 % \subsection{浮动体}
 %
-% \LaTeX{} 对放置浮动体的要求比较强，这里按照 UK TeX FAQ
-% \footnote{\url{https://texfaq.org/FAQ-floats}} 的建议对其适当放宽。
+% \LaTeX{} 对放置浮动体的要求比较强，这里按照 UK TeX FAQ 的建议
+% \footnote{\url{https://texfaq.org/FAQ-floats}} 对其适当放宽。
 % \changes{v3.1}{2018/09/01}{优化了浮动体放置策略的参数}
 %    \begin{macrocode}
 \renewcommand\topfraction{.85}
@@ -2123,11 +2075,11 @@ version 2005/12/01 or later.
 \newcommand\note[1]{%
   \begingroup
   \captionsetup{
-    format=plain,
-    font=small,
-    justification=justified,
-    margin=2\ccwd,
-    position=bottom,
+    format        = plain,
+    font          = small,
+    justification = justified,
+    margin        = 2\ccwd,
+    position      = bottom,
   }%
   \caption*{#1}%
   \endgroup
@@ -2136,36 +2088,36 @@ version 2005/12/01 or later.
 % \end{macro}
 %
 %
-% \subsection{数学}
+% \subsection{数学符号}
 %
-% \changes{v3.1}{2018/09/01}{更正了数学符号以满足国标要求}
+% 根据中文的数学排印习惯进行设置：
 %
 % \begin{macro}{\ldots}
 % 省略号一律居中，所以 \cs{ldots} 不再居于底部。
 %    \begin{macrocode}
-\ifustc@english\else
+\ifustc@chinese
   \def\mathellipsis{\cdots}
+\fi
 %    \end{macrocode}
 % \end{macro}
 %
 % \begin{macro}{\le}
 % \begin{macro}{\ge}
-% 小于等于号要使用倾斜的形式。
+% 小于等于号、大于等于号要使用倾斜的字形。
 % \changes{v3.0}{2017/07/01}{更正了 LaTeX 的大于等于号}
 %    \begin{macrocode}
-  \protected\def\le{\leqslant}
-  \protected\def\ge{\geqslant}
-  \AtBeginDocument{%
-    \renewcommand\leq{\leqslant}%
-    \renewcommand\geq{\geqslant}%
-  }
-\fi
+\protected\def\le{\leqslant}
+\protected\def\ge{\geqslant}
+\AtBeginDocument{%
+  \renewcommand\leq{\leqslant}%
+  \renewcommand\geq{\geqslant}%
+}
 %    \end{macrocode}
 % \end{macro}
 % \end{macro}
 %
 % \begin{macro}{\int}
-% 积分号 \cs{int} 使用正体，并且上下限默认置于积分号上下两侧。
+% 积分号的上下限默认置于上下两侧。
 %    \begin{macrocode}
 \removenolimits{%
   \int\iint\iiint\iiiint\oint\oiint\oiiint
@@ -2183,8 +2135,8 @@ version 2005/12/01 or later.
 % $\Re$、$\Im$。
 %    \begin{macrocode}
 \AtBeginDocument{%
-  \renewcommand{\Re}{\operatorname{Re}}%
-  \renewcommand{\Im}{\operatorname{Im}}%
+  \renewcommand\Re{\operatorname{Re}}%
+  \renewcommand\Im{\operatorname{Im}}%
 }
 %    \end{macrocode}
 % \end{macro}
@@ -2216,6 +2168,15 @@ version 2005/12/01 or later.
 %    \end{macrocode}
 % \end{macro}
 %
+% 提供一些方便的命令：
+%    \begin{macrocode}
+\newcommand\upe{\symup{e}}
+\newcommand\upi{\symup{i}}
+\newcommand\dif{\mathop{}\!\mathrm{d}}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+%    \end{macrocode}
+%
 %
 % \subsection{参考文献}
 %
@@ -2228,28 +2189,6 @@ version 2005/12/01 or later.
 \newcommand\bibstyle@super{\bibpunct{[}{]}{,}{s}{,}{\textsuperscript{,}}}
 \newcommand\bibstyle@numbers{\bibpunct{[}{]}{,}{n}{,}{,}}
 \newcommand\bibstyle@authoryear{\bibpunct{(}{)}{;}{a}{,}{,}}
-%    \end{macrocode}
-% \end{macro}
-%
-% \begin{macro}{\ustcbibstyle}
-% 定义接口切换参考文献表的风格，可选 \opt{authoryear} 和 \opt{numerical}，
-% 这个仅用于\pkg{chapterbib}。
-%    \begin{macrocode}
-\def\tmp@numerical{numerical}
-\def\tmp@authoryear{authoryear}
-\newcommand\ustcbibstyle[1]{%
-  \def\ustc@arg{#1}%
-  \ifx\ustc@arg\tmp@numerical
-    \bibliographystyle{ustcthesis-numerical}%
-  \else
-    \ifx\ustc@arg\tmp@authoryear
-      \bibliographystyle{ustcthesis-authoryear}%
-    \else
-      \ClassError{ustcthesis}{Unknown argument #1.}%
-        {It should be `numerical' or `authoryear'.}%
-    \fi
-  \fi
-}
 %    \end{macrocode}
 % \end{macro}
 %
@@ -2350,16 +2289,16 @@ version 2005/12/01 or later.
 % \end{macro}
 %
 % \begin{environment}{thebibliography}
-% 研究生规定参考文献列表“宋体10.5磅，行距20磅，续行缩进两字，左对齐”。
+% 参考文献列表格式：宋体 10.5 磅，行距 20 磅，续行缩进两字，左对齐。
 % 本科生依然是小四宋体。
 % \changes{v3.0.b}{2018/05/18}{更正本科生参考文献的字号}
 %    \begin{macrocode}
 \ifustc@graduate
-  \renewcommand\bibfont{\ustc@setfontsize{10.5bp}{20bp}}
+  \renewcommand\bibfont{\fontsize{10.5\bp@}{20\bp@}\selectfont}
 \fi
 \setlength{\bibsep}{\z@}
-\renewcommand\@biblabel[1]{[#1]\hfill}
 \setlength{\bibhang}{2\ccwd}
+\renewcommand\@biblabel[1]{[#1]\hfill}
 %    \end{macrocode}
 %
 % 为了将参考文献加入目录和 pdf 书签，重新定义 \pkg{natbib} 的 \env{bibsection}
@@ -2404,10 +2343,195 @@ version 2005/12/01 or later.
 % 发表成果环境：
 %    \begin{macrocode}
 \newenvironment{publications}{\chapter{\ustc@publicationsname}}{}
-%</class>
 %    \end{macrocode}
 % \end{environment}
 %
+%
+% \subsection{PDF 设置}
+%
+%    \begin{macrocode}
+\hypersetup{
+  bookmarksnumbered  = true,
+  bookmarksopen      = true,
+  bookmarksopenlevel = 1,
+  linktoc            = all,
+}
+%    \end{macrocode}
+%
+% 如果为 \opt{pdf} 样式，设置 hyperlink 颜色
+%    \begin{macrocode}
+\ifustc@pdf
+  \hypersetup{
+    colorlinks = true,
+    allcolors  = blue,
+  }
+\else
+  \hypersetup{hidelinks}
+\fi
+%    \end{macrocode}
+%
+% 填写 PDF 元信息。
+%    \begin{macrocode}
+\AtBeginDocument{%
+  \ifustc@chinese
+    \hypersetup{
+      pdftitle  = \ustc@title,
+      pdfauthor = \ustc@author,
+    }%
+  \else
+    \hypersetup{
+      pdftitle  = \ustc@entitle,
+      pdfauthor = \ustc@enauthor,
+    }%
+  \fi
+}
+%    \end{macrocode}
+%
+% 在 PDF 字符串中去掉换行，以减少 \pkg{hyperref} 的警告信息。
+%    \begin{macrocode}
+\pdfstringdefDisableCommands{
+  \let\\\@empty
+  \let\hspace\@gobble
+}
+%    \end{macrocode}
+%
+% 将 URL 的字体设置为保持原样。
+%    \begin{macrocode}
+\urlstyle{same}
+%    \end{macrocode}
+%
+% 使用 \pkg{xurl} 宏包的方法，增加 URL 可断行的位置。
+%    \begin{macrocode}
+\def\UrlBreaks{%
+  \do\/%
+  \do\a\do\b\do\c\do\d\do\e\do\f\do\g\do\h\do\i\do\j\do\k\do\l%
+     \do\m\do\n\do\o\do\p\do\q\do\r\do\s\do\t\do\u\do\v\do\w\do\x\do\y\do\z%
+  \do\A\do\B\do\C\do\D\do\E\do\F\do\G\do\H\do\I\do\J\do\K\do\L%
+     \do\M\do\N\do\O\do\P\do\Q\do\R\do\S\do\T\do\U\do\V\do\W\do\X\do\Y\do\Z%
+  \do0\do1\do2\do3\do4\do5\do6\do7\do8\do9\do=\do/\do.\do:%
+  \do\*\do\-\do\~\do\'\do\"\do\-}
+\Urlmuskip=0mu plus 0.1mu
+%    \end{macrocode}
+%
+% 设置中文的 \cs{autoref}。
+% \footnote{\url{https://tex.stackexchange.com/a/66150/82731}}
+%    \begin{macrocode}
+\ifustc@chinese
+  \def\equationautorefname~#1\null{公式~(#1)\null}
+  \def\footnoteautorefname{脚注}
+  \def\itemautorefname~#1\null{第~#1~项\null}
+  \def\figureautorefname{图}
+  \def\tableautorefname{表}
+  \def\partautorefname~#1\null{第~#1~部分\null}
+  \def\appendixautorefname{附录}
+  \def\chapterautorefname~#1\null{第~#1~章\null}
+  \def\sectionautorefname~#1\null{第~#1~节\null}
+  \def\subsectionautorefname~#1\null{第~#1~小节\null}
+  \def\subsubsectionautorefname~#1\null{第~#1~小小节\null}
+  \def\paragraphautorefname~#1\null{第~#1~段\null}
+  \def\subparagraphautorefname~#1\null{第~#1~小段\null}
+  \def\theoremautorefname{定理}
+  \def\HyRef@autopageref#1{\hyperref[{#1}]{第~\pageref*{#1} 页}}
+\fi
+%    \end{macrocode}
+%
+%
+% \subsection{其他宏包的设置}
+%
+% 这些宏包并非格式要求，但是为了方便同学们使用，在这里进行简单设置。
+%    \begin{macrocode}
+\newcommand\ustc@atendpackage{\csname ctex_at_end_package:nn\endcsname}
+%    \end{macrocode}
+%
+% \subsubsection{amsthm 宏包}
+%
+%    \begin{macrocode}
+\ustc@atendpackage{amsthm}{
+  \newtheoremstyle{ustcplain}
+    {}{}
+    {}{2\ccwd}
+    {\bfseries}{}
+    {\ccwd}{}
+  \theoremstyle{ustcplain}
+%    \end{macrocode}
+% 定义新的定理
+%    \begin{macrocode}
+  \ifustc@chinese
+    \newcommand\ustc@assertionname{断言}
+    \newcommand\ustc@axiomname{公理}
+    \newcommand\ustc@corollaryname{推论}
+    \newcommand\ustc@definitionname{定义}
+    \newcommand\ustc@examplename{例}
+    \newcommand\ustc@lemmaname{引理}
+    \newcommand\ustc@proofname{证明}
+    \newcommand\ustc@propositionname{命题}
+    \newcommand\ustc@remarkname{注}
+    \newcommand\ustc@theoremname{定理}
+  \else
+    \newcommand\ustc@assertionname{Assertion}
+    \newcommand\ustc@axiomname{Axiom}
+    \newcommand\ustc@corollaryname{Corollary}
+    \newcommand\ustc@definitionname{Definition}
+    \newcommand\ustc@examplename{Example}
+    \newcommand\ustc@lemmaname{Lemma}
+    \newcommand\ustc@proofname{Proof}
+    \newcommand\ustc@propositionname{Proposition}
+    \newcommand\ustc@remarkname{Remark}
+    \newcommand\ustc@theoremname{Theorem}
+  \fi
+  \newtheorem{theorem}                {\ustc@theoremname}     [chapter]
+  \newtheorem{assertion}  [theorem]   {\ustc@assertionname}
+  \newtheorem{axiom}      [theorem]   {\ustc@axiomname}
+  \newtheorem{corollary}  [theorem]   {\ustc@corollaryname}
+  \newtheorem{lemma}      [theorem]   {\ustc@lemmaname}
+  \newtheorem{proposition}[theorem]   {\ustc@propositionname}
+  \newtheorem{definition}             {\ustc@definitionname}  [chapter]
+  \newtheorem{example}                {\ustc@examplename}     [chapter]
+  \newtheorem*{remark}                {\ustc@remarkname}
+%    \end{macrocode}
+% \pkg{amsthm} 单独定义了 proof 环境，这里重新定义以满足格式要求。
+% 原本模仿 \pkg{amsthm} 写成 |\item[\hskip\labelsep\hskip2\ccwd #1\hskip\ccwd]|，
+% 但是却会多出一些间隙。
+%    \begin{macrocode}
+  \renewenvironment{proof}[1][\proofname]{\par
+    \pushQED{\qed}%
+    \normalfont \topsep6\p@\@plus6\p@\relax
+    \trivlist
+      \item\relax\hskip2\ccwd
+      \textbf{#1}
+      \hskip\ccwd\ignorespaces
+    }{%
+    \popQED\endtrivlist\@endpefalse
+  }
+  \renewcommand\proofname\ustc@proofname
+}
+%    \end{macrocode}
+%
+% \subsubsection{algorithm2e 宏包}
+%
+%    \begin{macrocode}
+\ustc@atendpackage{algorithm2e}{
+  \ifustc@chinese
+    \renewcommand\listalgorithmcfname{算法索引}
+    \renewcommand\algorithmcfname{算法}
+  \else
+    \renewcommand\listalgorithmcfname{List of Algorithms}
+    \renewcommand\algorithmcfname{Algorithm}
+  \fi
+%    \end{macrocode}
+%
+% 使算法目录另起一页
+%    \begin{macrocode}
+  \let\ustc@save@listofalgorithms=\listofalgorithms
+  \renewcommand\listofalgorithms{%
+    \cleardoublepage
+    \ustc@save@listofalgorithms}
+}
+%    \end{macrocode}
+%
+%    \begin{macrocode}
+%</class>
+%    \end{macrocode}
 % \clearpage
 % \Finale
 \endinput

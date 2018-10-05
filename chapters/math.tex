@@ -72,7 +72,7 @@
   If the integral of function $f$ is measurable and non-negative, we define
   its (extended) \textbf{Lebesgue integral} by
   \begin{equation}
-      \int f = \sup_g \int g,
+    \int f = \sup_g \int g,
   \end{equation}
   where the supremum is taken over all measurable functions $g$ such that
   $0 \le g \le f$, and where $g$ is bounded and supported on a set of
@@ -85,12 +85,12 @@
   \begin{equation}
     f_a(x) =
     \begin{cases}
-      |x|^{-a} & \text{if } |x| \le 1,\\
+      |x|^{-a} & \text{if } |x| \le 1, \\
       0        & \text{if } x > 1.
     \end{cases}
   \end{equation}
   \begin{equation}
-      F_a(x) = \frac{1}{1 + |x|^a}, \qquad \text{all } x \in \real^d.
+    F_a(x) = \frac{1}{1 + |x|^a}, \qquad \text{all } x \in \real^d.
   \end{equation}
   Then $f_a$ is integrable exactly when $a < d$, while $F_a$ is integrable
   exactly when $a > d$.
@@ -100,7 +100,7 @@
   Suppose $\{f_n\}$ is a sequence of measurable functions with $f_n \geq 0$.
   If $\lim_{n \to \infty} f_n(x) = f(x)$ for a.e. $x$, then
   \begin{equation}
-      \int f \le \liminf_{n \to \infty} \int f_n.
+    \int f \le \liminf_{n \to \infty} \int f_n.
   \end{equation}
 \end{lemma}
 
@@ -122,14 +122,15 @@
   Suppose $f$ is integrable on $\real^d$. Then for every $\epsilon > 0$:
   \begin{enumerate}
     \renewcommand{\theenumi}{\roman{enumi}}
-    \item There exists a set of finite measure $B$ (a ball, for example) such that
-    \begin{equation}
-      \int_{B^c} |f| < \epsilon.
-    \end{equation}
+    \item There exists a set of finite measure $B$ (a ball, for example) such
+      that
+      \begin{equation}
+        \int_{B^c} |f| < \epsilon.
+      \end{equation}
     \item There is a $\delta > 0$ such that
-    \begin{equation}
-      \int_E |f| < \epsilon \qquad \text{whenever } m(E) < \delta.
-    \end{equation}
+      \begin{equation}
+        \int_E |f| < \epsilon \qquad \text{whenever } m(E) < \delta.
+      \end{equation}
   \end{enumerate}
 \end{proposition}
 

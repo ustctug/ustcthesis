@@ -1,6 +1,6 @@
 MAIN = main
 NAME = ustcthesis
-CLSFILES = $(NAME).cls $(NAME)-extra.sty
+CLSFILES = $(NAME).cls
 BSTFILES = $(NAME)-numerical.bst $(NAME)-authoryear.bst $(NAME)-bachelor.bst
 
 SHELL = bash
@@ -46,13 +46,13 @@ save:
 	-texlua build.lua save main-bachelor-english
 
 clean : FORCE_MAKE
-	latexmk -c $(MAIN).tex
-	latexmk -c $(NAME).dtx
+	$(LATEXMK) -c $(MAIN).tex
+	$(LATEXMK) -c $(NAME).dtx
 	rm -rf build
 
 distclean :
-	latexmk -C $(MAIN).tex
-	latexmk -C $(NAME).dtx
+	$(LATEXMK) -C $(MAIN).tex
+	$(LATEXMK) -C $(NAME).dtx
 	rm -rf build
 
 install : cls doc
@@ -67,6 +67,6 @@ zip : main doc
 	ln -sf . $(NAME)
 	zip -r ../$(NAME)-$(VERSION).zip $(NAME)/{README.md,LICENSE,\
 	$(NAME).dtx,$(NAME).pdf,$(NAME).cls,$(NAME)-*.bst,figures,\
-	$(MAIN).tex,$(NAME)-extra.sty,chapters,bib,$(MAIN).pdf,\
+	$(MAIN).tex,chapters,bib,$(MAIN).pdf,\
 	latexmkrc,Makefile}
 	rm $(NAME)
