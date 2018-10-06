@@ -18,7 +18,7 @@
 %% 
 \NeedsTeXFormat{LaTeX2e}[1999/12/01]
 \ProvidesClass{ustcthesis}
-  [2018/09/01 v3.1 USTC thesis template]
+  [2018/10/06 v3.1.01 USTC thesis template]
 \newif\ifustc@doctor
 \newif\ifustc@master
 \newif\ifustc@bachelor

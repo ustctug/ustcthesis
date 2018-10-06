@@ -50,7 +50,7 @@ version 2005/12/01 or later.
 %<class>\NeedsTeXFormat{LaTeX2e}[1999/12/01]
 %<class>\ProvidesClass{ustcthesis}
 %<*class>
-  [2018/09/01 v3.1 USTC thesis template]
+  [2018/10/06 v3.1.01 USTC thesis template]
 %</class>
 %
 %<*driver>
@@ -859,7 +859,7 @@ version 2005/12/01 or later.
 % 所以需要重新配置一部分，参考 \pkg{ctex} 宏包。
 % \changes{v3.0.6}{2018/04/12}{取消使用微软雅黑}
 % \changes{v3.0.a}{2018/05/16}{调整中文字体配置}
-% \changes{v3.1.01}{2018/10/05}{调整伪粗体的粗细程度}
+% \changes{v3.1.01}{2018/10/06}{调整伪粗体的粗细程度}
 %    \begin{macrocode}
 \ustc@strifeq{\ustc@fontset}{mac}{
   \setCJKmainfont[
@@ -916,7 +916,7 @@ version 2005/12/01 or later.
 % 注意，\cs{IfFontExistsTF} 是 \pkg{fontspec} 2017/01/20 v2.5c 才提供的；
 % \pkg{stix2-otf} 是 2018-04-13 发布；
 % 而 XITS 字体于 2018-10-03 更改了字体的文件名。
-% \changes{v3.1.01}{2018/10/05}{同步 \pkg{xits} 字体文件名的修改}
+% \changes{v3.1.01}{2018/10/06}{同步 \pkg{xits} 字体文件名的修改}
 %    \begin{macrocode}
 \newif\ifustc@stixtwo
 \newif\ifustc@xitsnew
@@ -1155,7 +1155,7 @@ version 2005/12/01 or later.
 % 这里使用 \pkg{ctex} 的 \cs{ctex\_patch\_cmd:Nnn} 命令。
 % 注意，对 \cs{chaptermark} 的修改必须在第一次调用 \cs{pagestyle} 后。
 % \changes{v3.0.7}{2018/04/18}{更正页眉英文大写的错误}
-% \changes{v3.1.01}{2018/10/05}{取消依赖 \pkg{etoolbox}}
+% \changes{v3.1.01}{2018/10/06}{取消依赖 \pkg{etoolbox}}
 %    \begin{macrocode}
 \newcommand\ustc@patchcmd{\csname ctex_patch_cmd:Nnn\endcsname}
 \ustc@patchcmd\chaptermark{\MakeUppercase}{}
