@@ -187,8 +187,8 @@
       Extension    = .otf,
       BoldFont     = XITSMath-Bold,
       StylisticSet = 8,
-    ]{XITSMath}
-    \setmathfont[range={cal,bfcal},StylisticSet=1]{XITSMath-Regular}
+    ]{XITSMath-Regular}
+    \setmathfont[range={cal,bfcal},StylisticSet=1]{XITSMath-Regular.otf}
   \else
     \setmathfont[
       Extension    = .otf,
