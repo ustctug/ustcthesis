@@ -72,7 +72,6 @@
 \RequirePackage{geometry}
 \RequirePackage{graphicx}
 \RequirePackage{color}
-\RequirePackage{fancyhdr}
 \RequirePackage{titletoc}
 \RequirePackage[perpage]{footmisc}
 \RequirePackage{caption}
@@ -293,37 +292,79 @@
   paper      = a4paper,
   vmargin    = 2.54cm,
   hmargin    = 3.17cm,
-  headheight = 0.75cm,
-  headsep    = 0.29cm,
+  headheight = 0.8cm,
+  headsep    = 0.24cm,
   footskip   = 0.79cm,
 }
-\renewcommand\headrulewidth{0.4\p@}
 \ifustc@graduate
-  \fancypagestyle{ustc@headings}{
-    \fancyhf{}
-    \fancyhead[C]{\fontsize{10.5\bp@}{21\bp@}\selectfont\leftmark}
-    \fancyfoot[C]{\fontsize{10.5\bp@}{21\bp@}\selectfont\thepage}}
+  \newcommand\ustc@header@font{\fontsize{10.5\bp@}{12\bp@}\selectfont}
+  \newcommand\ustc@header{\leftmark}
 \else
-  \fancypagestyle{ustc@headings}{
-    \fancyhf{}
-    \fancyhead[C]{\fontsize{9\bp@}{18\bp@}\selectfont 中国科学技术大学本科毕业论文}
-    \fancyfoot[C]{\fontsize{9\bp@}{18\bp@}\selectfont\thepage}}
+  \newcommand\ustc@header@font{\fontsize{9\bp@}{12\bp@}\selectfont}
+  \newcommand\ustc@header{\ustc@universityname{}本科毕业论文}
 \fi
-\fancypagestyle{ustc@notation}{\fancyfoot{}}
-\pagestyle{ustc@headings}
-\newcommand\ustc@patchcmd{\csname ctex_patch_cmd:Nnn\endcsname}
-\ustc@patchcmd\chaptermark{\MakeUppercase}{}
-\ustc@patchcmd\chaptermark{#1}{\ustc@spacetitle{#1}}
+\newcommand\ustc@head{%
+  \vbox to\headheight{%
+    \hfil\ustc@header@font\ustc@header\strut\hfil
+    \hrule\@height 0.4\p@\@width\textwidth
+    \vfil
+  }%
+}
+\newcommand\ustc@foot{\hfil\ustc@header@font\thepage\hfil}
+\def\ps@plain{%
+  \def\@oddhead{\ustc@head}%
+  \def\@oddfoot{\ustc@foot}%
+  \let\@evenhead\@oddhead
+  \let\@evenfoot\@oddfoot
+  \let\@mkboth\markboth
+}
+\ifustc@graduate
+  \@ifclasslater{ctexbook}{2016/09/21}{
+    \def\chaptermark#1{%
+      \markboth{%
+        \CTEXifname{\CTEXthechapter\CTEX@chapter@aftername}{}%
+        \ustc@spacetitle{#1}%
+      }{}%
+    }
+  }{
+    \def\chaptermark#1{%
+      \markboth{%
+        \ifnum \c@secnumdepth >\m@ne
+          \if@mainmatter
+            \ifodd\CTEX@chapter@numbering
+              \CTEXthechapter\CTEX@chapter@aftername
+            \fi
+          \fi
+        \fi
+        \ustc@spacetitle{#1}%
+      }{}%
+    }
+  }
+\else
+  \let\chaptermark\@gobble
+\fi
+\let\sectionmark\@gobble
+\pagestyle{plain}
+\def\ps@headings{%
+  \def\@oddhead{\ustc@head}%
+  \let\@evenhead\@oddhead
+  \let\@oddfoot\@empty
+  \let\@evenfoot\@empty
+  \let\@mkboth\markboth
+}
+\def\ps@none{}
 \def\cleardoublepage{\clearpage\if@twoside \ifodd\c@page\else
   \hbox{}\thispagestyle{empty}\newpage\if@twocolumn\hbox{}\newpage\fi\fi\fi}
 \renewcommand\frontmatter{%
   \cleardoublepage
   \@mainmatterfalse
+  \pagenumbering{Roman}%
   \ifustc@graduate
-    \pagenumbering{Roman}%
+    \pagestyle{plain}%
   \else
-    \pagenumbering{gobble}%
-  \fi}
+    \pagestyle{headings}%
+  \fi
+}
 \renewcommand\mainmatter{%
   \ifustc@graduate
     \cleardoublepage
@@ -331,6 +372,7 @@
   \else
     \clearpage
   \fi
+  \pagestyle{plain}%
   \@mainmattertrue}
 \def\ustc@define@term#1#2{%
   \expandafter\gdef\csname #1\endcsname##1{%
@@ -393,6 +435,17 @@
 \fi
 \definecolor{ustcblue}{cmyk}{1,0.8,0,0}
 \newcommand\ustc@pdfbookmark{\@gobble}
+\renewenvironment{titlepage}{%
+  \cleardoublepage
+  \if@twocolumn
+    \@restonecoltrue\onecolumn
+  \else
+    \@restonecolfalse\newpage
+  \fi
+  \thispagestyle{empty}%
+}{%
+  \if@restonecol\twocolumn \else \newpage \fi
+}
 \newcommand\ustc@makezhtitle{%
   \begin{titlepage}%
     \ustc@pdfbookmark{封面}%
@@ -420,10 +473,9 @@
       \includegraphics[height=4.1cm]{figures/ustc_logo_fig.pdf}%
     \fi\par
     \vskip 0.9cm%
-    \begin{minipage}[t][3.5cm][c]{\textwidth}%
+    \parbox[t][3.5cm][c]{\textwidth}{%
       \centering\sffamily\bfseries\fontsize{26\bp@}{50\bp@}\selectfont
-      \ustc@title\par
-    \end{minipage}\par
+      \ustc@title\par}\par
     \vskip 0.6cm%
     {\fontsize{16\bp@}{31\bp@}\selectfont
       \begin{tabular}{@{}l@{\hspace{\ccwd}}l@{}}%
@@ -480,12 +532,12 @@
 }
 \renewcommand\maketitle{%
   \newgeometry{margin=2.54cm}
-  \pagenumbering{gobble}%
+  \pagenumbering{Alph}%
+  \pagestyle{empty}%
   \ustc@makezhtitle
-  \cleardoublepage
   \ustc@makeentitle
-  \cleardoublepage
   \restoregeometry
+  \pagestyle{plain}%
 }
 \newcommand\ustc@originality{%
   本人声明所呈交的学位论文，是本人在导师指导下进行研究工作所取得的成果。%
@@ -537,7 +589,6 @@
     签字日期：\ustc@underline{}\hspace{2.7cm}%
     签字日期：\ustc@underline{}\par
   \end{titlepage}%
-  \cleardoublepage
 }
 \ifustc@bachelor
   \renewcommand\makestatement{}
@@ -575,7 +626,7 @@
     titleformat = \ustc@spacetitle,
     number      = \thechapter,
     aftername   = \hspace{\ccwd},
-    pagestyle   = ustc@headings,
+    pagestyle   = none,
   },
 }
 \@ifclasslater{ctexbook}{2016/09/21}{
@@ -697,8 +748,7 @@
   \else
     \chapter{中文内容摘要}%
     \ifustc@tocloaded\else
-      需要将摘要的位置调整到目录后。\par
-      \pagenumbering{Roman}%
+      摘要应置于目录后。\par
     \fi
   \fi
 }{
@@ -720,6 +770,7 @@
   \ifustc@bachelor
     \cleardoublepage
     \pagenumbering{arabic}%
+    \pagestyle{plain}%
     \ustc@tocloadedtrue
   \fi
   \ustc@chapter{\contentsname}%
@@ -803,11 +854,11 @@
 }
 \newenvironment{notation}{%
   \ifustc@graduate\cleardoublepage\else\clearpage\fi
-  \pagestyle{ustc@notation}%
+  \pagestyle{headings}%
   \ustc@chapter{\ustc@notationname}%
   \setlength{\itemsep}{\z@}%
 }{%
-  \clearpage\pagestyle{ustc@headings}%
+  \clearpage\pagestyle{plain}%
 }%
 \setlength{\parskip}{\z@}
 \urlstyle{same}
@@ -942,6 +993,7 @@
   \fi
   \bibliographystyle{ustcthesis-bachelor}
 \fi
+\newcommand\ustc@patchcmd{\csname ctex_patch_cmd:Nnn\endcsname}
 \ustc@patchcmd{\NAT@citexnum}{%
   \@ifnum{\NAT@ctype=\z@}{%
     \if*#2*\else\NAT@cmt#2\fi
@@ -998,7 +1050,7 @@
   \else
     \ustc@chapter{\ustc@acknowledgementsname}%
     \ifustc@tocloaded
-      需要将致谢的位置调整到目录前。\par
+      致谢应置于目录前。\par
     \fi
   \fi
 }{}

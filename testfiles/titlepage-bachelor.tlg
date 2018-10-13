@@ -14,9 +14,9 @@ Don't change this file in any respect.
 * \textheight=700.50723pt
 * \oddsidemargin=-0.00018pt
 * \evensidemargin=-0.00018pt
-* \topmargin=-29.59084pt
-* \headheight=21.33955pt
-* \headsep=8.2511pt
+* \topmargin=-29.59128pt
+* \headheight=22.76228pt
+* \headsep=6.82881pt
 * \topskip=12.0pt
 * \footskip=22.47748pt
 * \marginparwidth=88.0pt
@@ -50,15 +50,15 @@ LaTeX Font Info:    Font shape `TU/STIX2Math.otf(3)/m/n' will be
 (Font)              scaled to size 8.02977pt on input line ....
 Completed box being shipped out [1]
 \vbox(722.98453+0.0)x452.96808
-.\glue -29.59084
-.\vbox(752.57536+0.0)x452.96826, shifted -0.00018
-..\vbox(21.33955+0.0)x452.96826, glue set 21.33955fil
+.\glue -29.59128
+.\vbox(752.5758+0.0)x452.96826, shifted -0.00018
+..\vbox(22.76228+0.0)x452.96826, glue set 22.76228fil
 ...\glue 0.0 plus 1.0fil
 ...\hbox(0.0+0.0)x452.96826
 ....\special{color push  Black}
 ....\hbox(0.0+0.0)x452.96826
 ....\special{color pop}
-..\glue 8.2511
+..\glue 6.82881
 ..\glue(\lineskip) 0.0
 ..\vbox(700.50723+0.0)x452.96826, glue set 77.6187fil
 ...\write-{}
@@ -413,15 +413,15 @@ Completed box being shipped out [1]
 ...\special{color pop}
 Completed box being shipped out [2]
 \vbox(722.98453+0.0)x452.96808
-.\glue -29.59084
-.\vbox(752.57536+0.0)x452.96826, shifted -0.00018
-..\vbox(21.33955+0.0)x452.96826, glue set 21.33955fil
+.\glue -29.59128
+.\vbox(752.5758+0.0)x452.96826, shifted -0.00018
+..\vbox(22.76228+0.0)x452.96826, glue set 22.76228fil
 ...\glue 0.0 plus 1.0fil
 ...\hbox(0.0+0.0)x452.96826
 ....\special{color push  Black}
 ....\hbox(0.0+0.0)x452.96826
 ....\special{color pop}
-..\glue 8.2511
+..\glue 6.82881
 ..\glue(\lineskip) 0.0
 ..\vbox(700.50723+0.0)x0.0, glue set 688.50723fil
 ...\write1{\protect \FN@pp@footnotehinttrue }
@@ -437,21 +437,19 @@ Completed box being shipped out [2]
 ...\special{color pop}
 File: figures/ustc_logo_fig.pdf Graphic file (type pdf)
 <use figures/ustc_logo_fig.pdf>
-Completed box being shipped out [1]
+Completed box being shipped out [3]
 \vbox(722.98453+0.0)x452.96808
-.\glue -29.59084
-.\vbox(752.57536+0.0)x452.96826, shifted -0.00018
-..\vbox(21.33955+0.0)x452.96826, glue set 21.33955fil
+.\glue -29.59128
+.\vbox(752.5758+0.0)x452.96826, shifted -0.00018
+..\vbox(22.76228+0.0)x452.96826, glue set 22.76228fil
 ...\glue 0.0 plus 1.0fil
 ...\hbox(0.0+0.0)x452.96826
 ....\special{color push  Black}
 ....\hbox(0.0+0.0)x452.96826
 ....\special{color pop}
-..\glue 8.2511
+..\glue 6.82881
 ..\glue(\lineskip) 0.0
 ..\vbox(700.50723+0.0)x452.96826, glue set 82.87897fil
-...\write1{\protect \FN@pp@footnotehinttrue }
-...\write-{}
 ...\glue(\topskip) 12.0
 ...\hbox(0.0+11.38092)x452.96826, glue set 226.48413fil
 ....\glue(\leftskip) 0.0 plus 1.0fil
@@ -747,30 +745,6 @@ Completed box being shipped out [1]
 ....\glue(\parfillskip) 0.0
 ....\glue(\rightskip) 0.0 plus 1.0fil
 ...\glue -6.0
-...\glue 0.0 plus 1.0fil
-...\glue 0.0
-..\glue(\baselineskip) 22.47748
-..\hbox(0.0+0.0)x452.96826
-...\special{color push  Black}
-...\hbox(0.0+0.0)x452.96826
-...\special{color pop}
-Completed box being shipped out [2]
-\vbox(722.98453+0.0)x452.96808
-.\glue -29.59084
-.\vbox(752.57536+0.0)x452.96826, shifted -0.00018
-..\vbox(21.33955+0.0)x452.96826, glue set 21.33955fil
-...\glue 0.0 plus 1.0fil
-...\hbox(0.0+0.0)x452.96826
-....\special{color push  Black}
-....\hbox(0.0+0.0)x452.96826
-....\special{color pop}
-..\glue 8.2511
-..\glue(\lineskip) 0.0
-..\vbox(700.50723+0.0)x0.0, glue set 688.50723fil
-...\write1{\protect \FN@pp@footnotehinttrue }
-...\write-{}
-...\glue(\topskip) 12.0
-...\hbox(0.0+0.0)x0.0
 ...\glue 0.0 plus 1.0fil
 ...\glue 0.0
 ..\glue(\baselineskip) 22.47748
