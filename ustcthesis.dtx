@@ -290,7 +290,7 @@ version 2005/12/01 or later.
 % \pkg{fancyhdr},
 % \pkg{geometry},
 % \pkg{graphicx},
-% \pkg{hyperref},
+% \pkg{url},
 % \pkg{natbib},
 % \pkg{titletoc},
 % \pkg{unicode-math}。
@@ -787,8 +787,8 @@ version 2005/12/01 or later.
 \ifustc@numerical
   \PassOptionsToPackage{sort&compress}{natbib}
 \fi
+\RequirePackage{url}
 \RequirePackage{natbib}
-\RequirePackage{hyperref}
 %    \end{macrocode}
 %
 %
@@ -1282,6 +1282,13 @@ version 2005/12/01 or later.
 \definecolor{ustcblue}{cmyk}{1,0.8,0,0}
 %    \end{macrocode}
 %
+% \begin{macro}{\ustc@pdfbookmark}
+% 添加 DFP 书签，在 \pkg{hyperref} 载入后才有效。
+%    \begin{macrocode}
+\newcommand\ustc@pdfbookmark{\@gobble}
+%    \end{macrocode}
+% \end{macro}
+%
 % 中文封面：
 % 密级仿宋 14 磅；
 % 论文类型黑体 56 磅；
@@ -1293,6 +1300,7 @@ version 2005/12/01 or later.
 %    \begin{macrocode}
 \newcommand\ustc@makezhtitle{%
   \begin{titlepage}%
+    \ustc@pdfbookmark{封面}%
     \centering
     \parbox[t][0.6cm][t]{\textwidth}{%
       \raggedleft\fangsong\fontsize{14\bp@}{14\bp@}\selectfont
@@ -1347,6 +1355,7 @@ version 2005/12/01 or later.
 %    \begin{macrocode}
 \newcommand\ustc@makeentitle{%
   \begin{titlepage}%
+    \ustc@pdfbookmark{Title page}%
     \centering
     \parbox[t][0.4cm][t]{\textwidth}{%
       \raggedleft\fontsize{14\bp@}{14\bp@}\selectfont
@@ -1390,10 +1399,8 @@ version 2005/12/01 or later.
 \renewcommand\maketitle{%
   \newgeometry{margin=2.54cm}
   \pagenumbering{gobble}%
-  \pdfbookmark[0]{封面}{titlepage}%
   \ustc@makezhtitle
   \cleardoublepage
-  \pdfbookmark[0]{Title page}{entitlepage}%
   \ustc@makeentitle
   \cleardoublepage
   \restoregeometry
@@ -1440,8 +1447,8 @@ version 2005/12/01 or later.
 % \begin{macro}{\makestatement}
 %    \begin{macrocode}
 \newcommand\makestatement{%
-  \pdfbookmark[0]{原创性声明}{statement}%
   \begin{titlepage}%
+    \ustc@pdfbookmark{原创性和授权使用声明}%
     \null
     \vskip 0.3cm%
     {\centering\sffamily\fontsize{16\bp@}{32\bp@}\selectfont
@@ -1453,7 +1460,7 @@ version 2005/12/01 or later.
     签字日期：\ustc@underline{}\par
     \vskip 1.9cm%
     {\centering\sffamily\fontsize{16\bp@}{32\bp@}\selectfont
-      \ustc@universityname{}学位论文授权使用声明\par}
+      \ustc@universityname{}学位论文授权使用声明\par}%
     \vskip 0.7cm%
     \ustc@authorization\par
     \vskip 0.6cm%
@@ -1470,9 +1477,9 @@ version 2005/12/01 or later.
     \vskip 0.5cm%
     签字日期：\ustc@underline{}\hspace{2.7cm}%
     签字日期：\ustc@underline{}\par
-  \end{titlepage}
+  \end{titlepage}%
   \cleardoublepage
-}%
+}
 \ifustc@bachelor
   \renewcommand\makestatement{}
 \fi
@@ -1716,15 +1723,13 @@ version 2005/12/01 or later.
 % 但是需要修改页眉，并且加入 PDF 标签。
 % 所以我们新定义 \cs{ustc@chapter} 用于处理这些章节。%
 %    \begin{macrocode}
-\newcounter{ustc@pdfbookmark}
 \NewDocumentCommand\ustc@chapter{o m}{%
   \if@openright\cleardoublepage\else\clearpage\fi
-  \addtocounter{ustc@pdfbookmark}\@ne
   \IfValueTF{#1}{%
-    \pdfbookmark[0]{#1}{ustcchapter.\theustc@pdfbookmark}%
+    \ustc@pdfbookmark{#1}%
     \chaptermark{#1}%
   }{%
-    \pdfbookmark[0]{#2}{ustcchapter.\theustc@pdfbookmark}%
+    \ustc@pdfbookmark{#2}%
     \chaptermark{#2}%
   }%
   \chapter*{#2}}
@@ -1952,6 +1957,24 @@ version 2005/12/01 or later.
 % 段间距 0 磅。
 %    \begin{macrocode}
 \setlength{\parskip}{\z@}
+%    \end{macrocode}
+%
+% URL 的字体设为保持原样。
+%    \begin{macrocode}
+\urlstyle{same}
+%    \end{macrocode}
+%
+% 使用 \pkg{xurl} 宏包的方法，增加 URL 可断行的位置。
+%    \begin{macrocode}
+\def\UrlBreaks{%
+  \do\/%
+  \do\a\do\b\do\c\do\d\do\e\do\f\do\g\do\h\do\i\do\j\do\k\do\l%
+     \do\m\do\n\do\o\do\p\do\q\do\r\do\s\do\t\do\u\do\v\do\w\do\x\do\y\do\z%
+  \do\A\do\B\do\C\do\D\do\E\do\F\do\G\do\H\do\I\do\J\do\K\do\L%
+     \do\M\do\N\do\O\do\P\do\Q\do\R\do\S\do\T\do\U\do\V\do\W\do\X\do\Y\do\Z%
+  \do0\do1\do2\do3\do4\do5\do6\do7\do8\do9\do=\do/\do.\do:%
+  \do\*\do\-\do\~\do\'\do\"\do\-}
+\Urlmuskip=0mu plus 0.1mu
 %    \end{macrocode}
 %
 % \begin{macro}{\footnote}
@@ -2347,101 +2370,97 @@ version 2005/12/01 or later.
 % \end{environment}
 %
 %
-% \subsection{PDF 设置}
-%
-%    \begin{macrocode}
-\hypersetup{
-  bookmarksnumbered  = true,
-  bookmarksopen      = true,
-  bookmarksopenlevel = 1,
-  linktoc            = all,
-}
-%    \end{macrocode}
-%
-% 如果为 \opt{pdf} 样式，设置 hyperlink 颜色
-%    \begin{macrocode}
-\ifustc@pdf
-  \hypersetup{
-    colorlinks = true,
-    allcolors  = blue,
-  }
-\else
-  \hypersetup{hidelinks}
-\fi
-%    \end{macrocode}
-%
-% 填写 PDF 元信息。
-%    \begin{macrocode}
-\AtBeginDocument{%
-  \ifustc@chinese
-    \hypersetup{
-      pdftitle  = \ustc@title,
-      pdfauthor = \ustc@author,
-    }%
-  \else
-    \hypersetup{
-      pdftitle  = \ustc@entitle,
-      pdfauthor = \ustc@enauthor,
-    }%
-  \fi
-}
-%    \end{macrocode}
-%
-% 在 PDF 字符串中去掉换行，以减少 \pkg{hyperref} 的警告信息。
-%    \begin{macrocode}
-\pdfstringdefDisableCommands{
-  \let\\\@empty
-  \let\hspace\@gobble
-}
-%    \end{macrocode}
-%
-% 将 URL 的字体设置为保持原样。
-%    \begin{macrocode}
-\urlstyle{same}
-%    \end{macrocode}
-%
-% 使用 \pkg{xurl} 宏包的方法，增加 URL 可断行的位置。
-%    \begin{macrocode}
-\def\UrlBreaks{%
-  \do\/%
-  \do\a\do\b\do\c\do\d\do\e\do\f\do\g\do\h\do\i\do\j\do\k\do\l%
-     \do\m\do\n\do\o\do\p\do\q\do\r\do\s\do\t\do\u\do\v\do\w\do\x\do\y\do\z%
-  \do\A\do\B\do\C\do\D\do\E\do\F\do\G\do\H\do\I\do\J\do\K\do\L%
-     \do\M\do\N\do\O\do\P\do\Q\do\R\do\S\do\T\do\U\do\V\do\W\do\X\do\Y\do\Z%
-  \do0\do1\do2\do3\do4\do5\do6\do7\do8\do9\do=\do/\do.\do:%
-  \do\*\do\-\do\~\do\'\do\"\do\-}
-\Urlmuskip=0mu plus 0.1mu
-%    \end{macrocode}
-%
-% 设置中文的 \cs{autoref}。
-% \footnote{\url{https://tex.stackexchange.com/a/66150/82731}}
-%    \begin{macrocode}
-\ifustc@chinese
-  \def\equationautorefname~#1\null{公式~(#1)\null}
-  \def\footnoteautorefname{脚注}
-  \def\itemautorefname~#1\null{第~#1~项\null}
-  \def\figureautorefname{图}
-  \def\tableautorefname{表}
-  \def\partautorefname~#1\null{第~#1~部分\null}
-  \def\appendixautorefname{附录}
-  \def\chapterautorefname~#1\null{第~#1~章\null}
-  \def\sectionautorefname~#1\null{第~#1~节\null}
-  \def\subsectionautorefname~#1\null{第~#1~小节\null}
-  \def\subsubsectionautorefname~#1\null{第~#1~小小节\null}
-  \def\paragraphautorefname~#1\null{第~#1~段\null}
-  \def\subparagraphautorefname~#1\null{第~#1~小段\null}
-  \def\theoremautorefname{定理}
-  \def\HyRef@autopageref#1{\hyperref[{#1}]{第~\pageref*{#1} 页}}
-\fi
-%    \end{macrocode}
-%
-%
 % \subsection{其他宏包的设置}
 %
 % 这些宏包并非格式要求，但是为了方便同学们使用，在这里进行简单设置。
 %    \begin{macrocode}
 \newcommand\ustc@atendpackage{\csname ctex_at_end_package:nn\endcsname}
 %    \end{macrocode}
+%
+%
+% \subsubsection{hyperref 宏包}
+%
+%    \begin{macrocode}
+\ustc@atendpackage{hyperref}{
+  \hypersetup{
+    bookmarksnumbered  = true,
+    bookmarksopen      = true,
+    bookmarksopenlevel = 1,
+    linktoc            = all,
+  }
+%    \end{macrocode}
+%
+% 如果为 \opt{pdf} 样式，设置 hyperlink 颜色
+%    \begin{macrocode}
+  \ifustc@pdf
+    \hypersetup{
+      colorlinks = true,
+      allcolors  = blue,
+    }
+  \else
+    \hypersetup{hidelinks}
+  \fi
+%    \end{macrocode}
+%
+% 填写 PDF 元信息。
+%    \begin{macrocode}
+  \AtBeginDocument{%
+    \ifustc@chinese
+      \hypersetup{
+        pdftitle  = \ustc@title,
+        pdfauthor = \ustc@author,
+      }%
+    \else
+      \hypersetup{
+        pdftitle  = \ustc@entitle,
+        pdfauthor = \ustc@enauthor,
+      }%
+    \fi
+  }
+%    \end{macrocode}
+%
+% 添加 PDF 书签
+%
+%    \begin{macrocode}
+  \newcounter{ustc@bookmarknumber}
+  \renewcommand\ustc@pdfbookmark[1]{%
+    \phantomsection
+    \stepcounter{ustc@bookmarknumber}%
+    \pdfbookmark[0]{#1}{ustcchapter.\theustc@bookmarknumber}%
+  }
+%    \end{macrocode}
+%
+% 在 PDF 字符串中去掉换行，以减少 \pkg{hyperref} 的警告信息。
+%    \begin{macrocode}
+  \pdfstringdefDisableCommands{
+    \let\\\@empty
+    \let\hspace\@gobble
+  }
+%    \end{macrocode}
+%
+% 设置中文的 \cs{autoref}。
+% \footnote{\url{https://tex.stackexchange.com/a/66150/82731}}
+%    \begin{macrocode}
+  \ifustc@chinese
+    \def\equationautorefname~#1\null{公式~(#1)\null}
+    \def\footnoteautorefname{脚注}
+    \def\itemautorefname~#1\null{第~#1~项\null}
+    \def\figureautorefname{图}
+    \def\tableautorefname{表}
+    \def\partautorefname~#1\null{第~#1~部分\null}
+    \def\appendixautorefname{附录}
+    \def\chapterautorefname~#1\null{第~#1~章\null}
+    \def\sectionautorefname~#1\null{第~#1~节\null}
+    \def\subsectionautorefname~#1\null{第~#1~小节\null}
+    \def\subsubsectionautorefname~#1\null{第~#1~小小节\null}
+    \def\paragraphautorefname~#1\null{第~#1~段\null}
+    \def\subparagraphautorefname~#1\null{第~#1~小段\null}
+    \def\theoremautorefname{定理}
+    \def\HyRef@autopageref#1{\hyperref[{#1}]{第~\pageref*{#1} 页}}
+  \fi
+}
+%    \end{macrocode}
+%
 %
 % \subsubsection{amsthm 宏包}
 %
@@ -2506,6 +2525,7 @@ version 2005/12/01 or later.
   \renewcommand\proofname\ustc@proofname
 }
 %    \end{macrocode}
+%
 %
 % \subsubsection{algorithm2e 宏包}
 %

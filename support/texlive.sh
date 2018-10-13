@@ -16,7 +16,7 @@ tlmgr update --self --all −−no−auto−install;
 tlmgr install latexmk l3build \
     fontname fontspec l3kernel l3packages xetex \
     cjk ctex environ ms trimspaces ulem xecjk zhnumber \
-    caption filehook footmisc titlesec unicode-math zapfding \
-    fandol tex-gyre stix2-otf xits \
-    booktabs listings thumbpdf xcolor \
+    caption filehook footmisc titlesec unicode-math \
+    fandol stix2-otf tex-gyre xits \
+    booktabs listings thumbpdf xcolor zapfding \
     algorithm2e ifoddpage relsize;
