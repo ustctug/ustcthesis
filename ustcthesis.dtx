@@ -864,19 +864,21 @@ version 2005/12/01 or later.
         ItalicFont = Kaiti SC,
     BoldItalicFont = Kaiti SC Bold,
   ]{Songti SC}
-  \setCJKsansfont{Heiti SC}
+  \setCJKsansfont[BoldFont=* Medium]{Heiti SC}
   \setCJKfamilyfont{zhsong}[
        UprightFont = * Light,
           BoldFont = * Bold,
   ]{Songti SC}
-  \setCJKfamilyfont{zhhei}{Heiti SC}
-  \setCJKfamilyfont{zhkai}[BoldFont=Kaiti SC Bold]{Kaiti SC}
+  \setCJKfamilyfont{zhhei}[BoldFont=* Medium]{Heiti SC}
+  \setCJKfamilyfont{zhkai}[BoldFont=* Bold]{Kaiti SC}
 }{
+  \xeCJKsetup{EmboldenFactor=2}
   \ustc@strifeq{\ustc@fontset}{windows}{
     \IfFileExists{C:/bootfont.bin}{
       \setCJKmainfont[AutoFakeBold=2,ItalicFont=KaiTi_GB2312]{SimSun}
     }{
       \setCJKmainfont[AutoFakeBold=2,ItalicFont=KaiTi]{SimSun}
+      % \setCJKfamilyfont{zhkai}[AutoFakeBold=true]{KaiTi}
     }
     \setCJKsansfont[AutoFakeBold=2]{SimHei}
     \setCJKfamilyfont{zhsong}[AutoFakeBold=2]{SimSun}
