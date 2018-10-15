@@ -973,7 +973,6 @@
   \ifustc@graduate\cleardoublepage\else\clearpage\fi
   \pagestyle{headings}%
   \ustc@chapter{\ustc@notationname}%
-  \setlength{\itemsep}{\z@}%
 }{%
   \clearpage\pagestyle{plain}%
 }%
@@ -1291,4 +1290,23 @@
   \renewcommand\listofalgorithms{%
     \cleardoublepage
     \ustc@save@listofalgorithms}
+}
+\ustc@atendpackage{nomencl}{
+  \let\nomname\ustc@notationname
+  \def\thenomenclature{%
+    \ifustc@graduate\cleardoublepage\else\clearpage\fi
+    \pagestyle{headings}%
+    \ustc@chapter{\ustc@notationname}%
+    \nompreamble
+    \list{}{%
+      \labelwidth\nom@tempdim
+      \leftmargin\labelwidth
+      \advance\leftmargin\labelsep
+      \itemsep\nomitemsep
+      \let\makelabel\nomlabel}}
+  \def\endthenomenclature{%
+    \endlist
+    \nompostamble
+    \clearpage\pagestyle{plain}%
+  }
 }

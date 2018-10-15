@@ -14,3 +14,9 @@ sub glo2gls {
     system("makeindex -s gglo.ist -o \"$_[0].gls\" \"$_[0].glo\"");
 }
 push @generated_exts, "glo", "gls";
+
+add_cus_dep('nlo', 'nls', 0, 'nlo2nls');
+sub nlo2nls {
+    system("makeindex -s nomencl.ist -o \"$_[0].nls\" \"$_[0].nlo\"");
+}
+push @generated_exts, "nlo", "nls";
