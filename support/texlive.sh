@@ -19,4 +19,4 @@ tlmgr install latexmk l3build \
     caption filehook footmisc unicode-math \
     fandol stix2-otf tex-gyre xits \
     booktabs listings thumbpdf xcolor zapfding \
-    algorithm2e ifoddpage relsize;
+    algorithm2e ifoddpage relsize siunitx;

@@ -44,6 +44,7 @@ save:
 	-texlua build.lua save main-bachelor
 	-texlua build.lua save main-bachelor-arabic
 	-texlua build.lua save main-bachelor-english
+	-texlua build.lua save package-siunitx
 
 clean : FORCE_MAKE
 	$(LATEXMK) -c $(MAIN).tex

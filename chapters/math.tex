@@ -2,7 +2,27 @@
 
 \chapter{数学}
 
-\section{数学符号}
+\section{数字和单位}
+
+宏包 \pkg{siunitx} 提供了更好的数字和单位支持：
+\begin{itemize}
+  \item \num{12345.67890}
+  \item \num{1+-2i}
+  \item \num{.3e45}
+  \item \num{1.654 x 2.34 x 3.430}
+  \item \si{kg.m.s^{-1}}
+  \item \si{\micro\meter} $\si{\micro\meter}$
+  \item \si{\ohm} $\si{\ohm}$
+  \item \numlist{10;20}
+  \item \numlist{10;20;30}
+  \item \SIlist{0.13;0.67;0.80}{\milli\metre}
+  \item \numrange{10}{20}
+  \item \SIrange{10}{20}{\degreeCelsius}
+\end{itemize}
+
+
+
+\section{数学符号和公式}
 
 \LaTeX{} 默认按照美国的习惯排版数学公式和符号，
 但是《撰写手册》要求数学符号依据《GB 3102.11--1993》执行，
@@ -64,9 +84,7 @@
 
 
 
-\section{定理、引理和证明}
-
-\newcommand\real{\mathbf{R}}
+\section{定理和证明}
 
 \begin{definition}
   If the integral of function $f$ is measurable and non-negative, we define
@@ -150,10 +168,6 @@
 \begin{proof}
   Trivial.
 \end{proof}
-
-
-
-\section{自定义}
 
 \newtheorem*{axiomofchoice}{Axiom of choice}
 \begin{axiomofchoice}

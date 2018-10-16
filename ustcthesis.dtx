@@ -2150,7 +2150,7 @@ version 2005/12/01 or later.
 %
 % 段间距 0 磅。
 %    \begin{macrocode}
-\setlength{\parskip}{\z@}
+\setlength{\parskip}{\z@ \@plus .2\p@}
 %    \end{macrocode}
 %
 % URL 的字体设为保持原样。
@@ -2214,9 +2214,9 @@ version 2005/12/01 or later.
 %    \begin{macrocode}
 \setlength\partopsep{\z@}
 \newcommand\ustc@nolistsep{%
-  \parsep \z@
-  \topsep \z@
-  \itemsep\z@
+  \parsep \z@ \@plus .2\p@
+  \topsep \z@ \@plus .2\p@
+  \itemsep\z@ \@plus .2\p@
 }
 \def\@listi{\leftmargin\leftmargini
             \ustc@nolistsep}
@@ -2765,6 +2765,26 @@ version 2005/12/01 or later.
     \nompostamble
     \clearpage\pagestyle{plain}%
   }
+}
+%    \end{macrocode}
+%
+%
+% \subsubsection{siunitx 宏包}
+%
+%    \begin{macrocode}
+\ustc@atendpackage{siunitx}{
+  \sisetup{
+    group-minimum-digits = 4,
+    separate-uncertainty = true,
+    inter-unit-product   = \ensuremath{{}\cdot{}},
+  }
+  \ifustc@chinese
+    \sisetup{
+      list-final-separator = { 和 },
+      list-pair-separator  = { 和 },
+      range-phrase         = {～},
+    }
+  \fi
 }
 %    \end{macrocode}
 %

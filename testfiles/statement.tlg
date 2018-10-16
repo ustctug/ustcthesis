@@ -34,7 +34,7 @@ Completed box being shipped out [1]
 ...\glue(\topskip) 12.0
 ...\hbox(0.0+0.0)x0.0
 ...\glue 8.5359
-...\glue(\parskip) 0.0
+...\glue(\parskip) 0.0 plus 0.2
 ...\glue(\baselineskip) 19.56085
 ...\hbox(12.55878+2.8747)x417.11752, glue set 72.05034fil
 ....\glue(\leftskip) 0.0 plus 1.0fil
@@ -78,7 +78,7 @@ Completed box being shipped out [1]
 ....\glue(\parfillskip) 0.0
 ....\glue(\rightskip) 0.0 plus 1.0fil
 ...\glue 19.91684
-...\glue(\parskip) 0.0
+...\glue(\parskip) 0.0 plus 0.2
 ...\glue(\baselineskip) 7.80508
 ...\hbox(9.39499+2.32465)x417.11752, glue set 0.4124
 ....\hbox(0.0+0.0)x24.08972
@@ -320,7 +320,7 @@ Completed box being shipped out [1]
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
 ...\glue 36.98866
-...\glue(\parskip) 0.0
+...\glue(\parskip) 0.0 plus 0.2
 ...\glue(\baselineskip) 8.51172
 ...\hbox(9.38295+4.09515)x417.11752, glue set 13.65941fil
 ....\hbox(0.0+0.0)x24.08972
@@ -377,7 +377,7 @@ Completed box being shipped out [1]
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
 ...\glue 54.06006
-...\glue(\parskip) 0.0
+...\glue(\parskip) 0.0 plus 0.2
 ...\glue(\baselineskip) 15.4657
 ...\hbox(12.55878+2.8747)x417.11752, glue set 64.02043fil
 ....\glue(\leftskip) 0.0 plus 1.0fil
@@ -423,7 +423,7 @@ Completed box being shipped out [1]
 ....\glue(\parfillskip) 0.0
 ....\glue(\rightskip) 0.0 plus 1.0fil
 ...\glue 19.91684
-...\glue(\parskip) 0.0
+...\glue(\parskip) 0.0 plus 0.2
 ...\glue(\baselineskip) 7.79303
 ...\hbox(9.40704+2.32465)x417.11752, glue set 0.4124
 ....\hbox(0.0+0.0)x24.08972
@@ -814,7 +814,7 @@ Completed box being shipped out [1]
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
-...\glue(\parskip) 0.0
+...\glue(\parskip) 0.0 plus 0.2
 ...\glue(\baselineskip) 8.68034
 ...\hbox(9.46725+2.21623)x417.11752, glue set 183.9772fil
 ....\hbox(0.0+0.0)x24.08972
@@ -862,7 +862,7 @@ Completed box being shipped out [1]
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
 ...\glue 17.07182
-...\glue(\parskip) 0.0
+...\glue(\parskip) 0.0 plus 0.2
 ...\glue(\baselineskip) 8.22264
 ...\hbox(9.6359+4.09515)x417.11752, glue set 249.34564fil
 ....\hbox(0.0+0.0)x24.08972
@@ -923,7 +923,7 @@ Completed box being shipped out [1]
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
 ...\glue 14.22636
-...\glue(\parskip) 0.0
+...\glue(\parskip) 0.0 plus 0.2
 ...\glue(\baselineskip) 6.59666
 ...\hbox(9.38295+4.09515)x417.11752, glue set 13.65941fil
 ....\hbox(0.0+0.0)x24.08972
@@ -980,7 +980,7 @@ Completed box being shipped out [1]
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
 ...\glue 14.22636
-...\glue(\parskip) 0.0
+...\glue(\parskip) 0.0 plus 0.2
 ...\glue(\baselineskip) 6.65689
 ...\hbox(9.32272+4.09515)x417.11752, glue set 13.65941fil
 ....\hbox(0.0+0.0)x24.08972

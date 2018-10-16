@@ -976,7 +976,7 @@
 }{%
   \clearpage\pagestyle{plain}%
 }%
-\setlength{\parskip}{\z@}
+\setlength{\parskip}{\z@ \@plus .2\p@}
 \urlstyle{same}
 \def\UrlBreaks{%
   \do\/%
@@ -998,9 +998,9 @@
   \hb@xt@2\ccwd{\hss\@makefnmark}#1}
 \setlength\partopsep{\z@}
 \newcommand\ustc@nolistsep{%
-  \parsep \z@
-  \topsep \z@
-  \itemsep\z@
+  \parsep \z@ \@plus .2\p@
+  \topsep \z@ \@plus .2\p@
+  \itemsep\z@ \@plus .2\p@
 }
 \def\@listi{\leftmargin\leftmargini
             \ustc@nolistsep}
@@ -1309,4 +1309,18 @@
     \nompostamble
     \clearpage\pagestyle{plain}%
   }
+}
+\ustc@atendpackage{siunitx}{
+  \sisetup{
+    group-minimum-digits = 4,
+    separate-uncertainty = true,
+    inter-unit-product   = \ensuremath{{}\cdot{}},
+  }
+  \ifustc@chinese
+    \sisetup{
+      list-final-separator = { 和 },
+      list-pair-separator  = { 和 },
+      range-phrase         = {～},
+    }
+  \fi
 }
