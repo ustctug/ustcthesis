@@ -291,7 +291,6 @@ version 2005/12/01 or later.
 % \pkg{graphicx},
 % \pkg{url},
 % \pkg{natbib},
-% \pkg{titletoc},
 % \pkg{unicode-math}。
 %
 % 本模板\emph{不}兼容的宏包有：
@@ -778,7 +777,6 @@ version 2005/12/01 or later.
 \RequirePackage{geometry}
 \RequirePackage{graphicx}
 \RequirePackage{color}
-\RequirePackage{titletoc}
 \RequirePackage[perpage]{footmisc}
 \RequirePackage{caption}
 \RequirePackage{calc}
@@ -1574,24 +1572,32 @@ version 2005/12/01 or later.
 % 四字时空半字，四字以上不空}
 % \changes{v3.0.1}{2017/12/12}{更正范数命令失效的错误}
 %    \begin{macrocode}
+\newcount\ustc@titlelength
 \DeclareRobustCommand\ustc@spacetitle[1]{%
-  \def\ustc@titlelength{\csname str_count:N\endcsname{#1}}
+  \ustc@titlelength=\csname str_count:N\endcsname{#1}%
   \begingroup
-  \ifustc@graduate
-    \ifnum\ustc@titlelength=2\ziju{2}\else
-      \ifnum\ustc@titlelength=3\ziju{1}\else
-        \ifnum\ustc@titlelength=4\ziju{0.5}%
+    \ifustc@graduate
+      \ifcase\ustc@titlelength
+      \or\or
+        \ziju{2}%
+      \or
+        \ziju{1}%
+      \or
+        \ziju{0.5}%
+      \fi
+    \else
+      \if@mainmatter\else
+        \ifcase\ustc@titlelength
+        \or\or
+          \ziju{1}%
+        \or\or
+          \ziju{0.5}%
         \fi
       \fi
     \fi
-  \else
-    \if@mainmatter\relax\else
-      \ifnum\ustc@titlelength=2\ziju{1}\else
-        \ifnum\ustc@titlelength=4\ziju{0.5}%
-        \fi
-      \fi
-    \fi
-  \fi#1\endgroup}
+    #1%
+  \endgroup
+}
 %    \end{macrocode}
 % \end{macro}
 %
@@ -1870,34 +1876,106 @@ version 2005/12/01 or later.
     \ustc@tocloadedtrue
   \fi
   \ustc@chapter{\contentsname}%
-  \@starttoc{toc}}
+  \@starttoc{toc}%
+}
 %    \end{macrocode}
 % \end{macro}
 %
-% \begin{macro}{\listoffigures}
-% \begin{macro}{\listoftables}
-% 研究生要求图、表的清单须另页起。
+% 使用 \pkg{ctex} 的 \cs{ctex\_patch\_cmd:Nnn} 命令。
+% \changes{v3.1.01}{2018/10/06}{取消依赖 \pkg{etoolbox}}
 %    \begin{macrocode}
-\renewcommand\listoffigures{%
-  \ifustc@graduate
-    \cleardoublepage
-  \fi
-  \ustc@chapter{\listfigurename}%
-  \@starttoc{lof}}
-\renewcommand\listoftables{%
-  \ifustc@graduate
-    \cleardoublepage
-  \fi
-  \ustc@chapter{\listtablename}%
-  \@starttoc{lot}}
+\newcommand\ustc@patchcmd{\csname ctex_patch_cmd:Nnn\endcsname}
 %    \end{macrocode}
-% \end{macro}
-% \end{macro}
 %
-% 下面用 \pkg{titletoc} 宏包设置目录内容的格式。
+% \pkg{ctex} v2.4.5 （2016/10/25）引入了 \cs{CTEXnumberline} 和 \opt{tocline}。
+%    \begin{macrocode}
+\@ifclasslater{ctexbook}{2016/10/25}{
+  \def\CTEXnumberline#1{%
+    \CTEXifname{%
+      \protect\numberline{\@nameuse{CTEXthe#1}\@nameuse{CTEX@#1@aftername}}%
+    }{}%
+  }
+  \ctexset{chapter/tocline=\CTEXnumberline{#1}#2}
+}{
+  \ustc@patchcmd{\@chapter}{%
+    \CTEXthechapter\hspace{0.3em}%
+  }{%
+    \@nameuse{CTEXthechapter}\@nameuse{CTEX@chapter@aftername}%
+  }
+  \def\@sect#1#2#3#4#5#6[#7]#8{%
+    \ifnum #2>\c@secnumdepth
+      \let\@svsec\@empty
+    \else
+      \ifodd \csname CTEX@#1@numbering\endcsname
+        \refstepcounter{#1}%
+        \protected@edef\@svsec{\@seccntformat{#1}\relax}%
+      \else
+        \CTEX@makeheadinganchor
+        \let\@svsec\@empty
+      \fi
+    \fi
+    \unless \ifodd \CTEX@runin
+      \begingroup
+        #6{%
+          \@hangfrom{\hskip\glueexpr #3\relax\@svsec}%
+          \interlinepenalty \@M
+          \csname CTEX@#1@titleformat\endcsname{#8}%
+          \csname CTEX@#1@aftertitle\endcsname}%
+      \endgroup
+      \csname #1mark\endcsname{#7}%
+      \addcontentsline{toc}{#1}{%
+        \ifnum #2>\c@secnumdepth \else
+          \ifodd \csname CTEX@#1@numbering\endcsname
+            \protect\numberline{\csname CTEXthe#1\endcsname
+              \csname CTEX@#1@aftername\endcsname
+            }%
+          \fi
+        \fi
+        #7}%
+    \else
+      \def\@svsechd{%
+      #6{\hskip\glueexpr #3\relax
+        \@svsec
+        \csname CTEX@#1@titleformat\endcsname{#8}%
+        \csname CTEX@#1@aftertitle\endcsname}%
+      \csname #1mark\endcsname{#7}%
+      \addcontentsline{toc}{#1}{%
+        \ifnum #2>\c@secnumdepth \else
+          \ifodd \csname CTEX@#1@numbering\endcsname
+            \protect\numberline{\csname CTEXthe#1\endcsname
+              \csname CTEX@#1@aftername\endcsname
+            }%
+          \fi
+        \fi
+        #7}}%
+    \fi
+    \@xsect{#5}}
+}
+%    \end{macrocode}
+%
 % 先定义目录线：
 %    \begin{macrocode}
-\newcommand\ustc@leaders{\titlerule*[0.5pc]{$\cdot$}}
+\newcommand\ustc@leaders{%
+  \leaders\hbox{$\m@th \mkern \@dotsep mu\hbox{$\cdot$}\mkern \@dotsep mu$}%
+}
+%    \end{macrocode}
+%
+%    \begin{macrocode}
+\def\ustc@dottedtocline#1#2#3#4#5{%
+  \ifnum #1>\c@tocdepth \else
+    \vskip \z@ \@plus.2\p@
+    {\leftskip #2\relax \rightskip \@tocrmarg \parfillskip -\rightskip
+     \parindent #2\relax\@afterindenttrue
+     \interlinepenalty\@M
+     \leavevmode
+     \setlength\@tempdima{1em}%
+     \advance\leftskip \@tempdima \null\nobreak\hskip -\leftskip
+     {#3#4}\nobreak
+     \ustc@leaders\hfill \nobreak
+     \hb@xt@\@pnumwidth{\hfil\normalfont \normalcolor #5}%
+     \par}%
+  \fi}
+\def\numberline#1{\settowidth{\@tempdima}{#1}#1}
 %    \end{macrocode}
 %
 % 各章目录要求宋体 14 磅，单倍行距，段前 6 磅，段后 0 磅，两端对齐，
@@ -1907,69 +1985,88 @@ version 2005/12/01 or later.
 % 另外 \pkg{ctex} 在章目录的序号后加 |\hspace{.3em}|，所以用 \cs{unskip} 修正。
 %    \begin{macrocode}
 \ifustc@graduate
-  \titlecontents{chapter}
-    [\z@]
-    {\addvspace{6\bp@}\fontsize{14\bp@}{20\bp@}\selectfont}
-    {\contentspush{\thecontentslabel\unskip\hskip\ccwd\relax}}
-    {}{\ustc@leaders\fontsize{12\bp@}{20\bp@}\selectfont\contentspage}
+  \renewcommand*\l@chapter[2]{%
+    \ifnum \c@tocdepth >\m@ne
+      \addpenalty{-\@highpenalty}%
+      \vskip 6\p@ \@plus\p@
+      \setlength\@tempdima{1em}%
+      \begingroup
+        \parindent \z@ \rightskip \@pnumwidth
+        \parfillskip -\@pnumwidth
+        \leavevmode
+        \advance\leftskip\@tempdima
+        \hskip -\leftskip
+        {\fontsize{14\bp@}{20\bp@}\selectfont#1}\nobreak
+        \ustc@leaders\hfil \nobreak
+        \hb@xt@\@pnumwidth{\hfil\normalfont \normalcolor #2}\par
+        \penalty\@highpenalty
+      \endgroup
+    \fi}
 %    \end{macrocode}
 %
 % 一级节标题目录要求宋体 12 磅，单倍行距，左缩进一字，段前 6 磅，段后 0 磅，
 % 两端对齐，页码右对齐，序号与题名间空一字。
 % Word 模板中实际是行距 20 磅，段前 0 磅。
 %    \begin{macrocode}
-  \titlecontents{section}
-    [\ccwd]
-    {\fontsize{12\bp@}{20\bp@}\selectfont}
-    {\contentspush{\thecontentslabel\hskip\ccwd\relax}}
-    {}{\ustc@leaders\fontsize{12\bp@}{20\bp@}\selectfont\contentspage}
+  \renewcommand*\l@section{%
+    \ustc@dottedtocline{1}{\ccwd}{\fontsize{12\bp@}{20\bp@}\selectfont}%
+  }
 %    \end{macrocode}
 %
 % 二级节标题目录要求宋体 10.5 磅，单倍行距，左缩进两字，段前 6 磅，段后 0 磅，
 % 两端对齐，页码右对齐，序号与题名间空一字。
 % Word 模板中实际是行距 20 磅，段前 0 磅。
 %    \begin{macrocode}
-  \titlecontents{subsection}
-    [2\ccwd]
-    {\fontsize{10.5\bp@}{20\bp@}\selectfont}
-    {\contentspush{\thecontentslabel\hskip\ccwd\relax}}
-    {}{\ustc@leaders\fontsize{12\bp@}{20\bp@}\selectfont\contentspage}
+  \renewcommand*\l@subsection{%
+    \ustc@dottedtocline{2}{2\ccwd}{\fontsize{10.5\bp@}{20\bp@}\selectfont}%
+  }
+  \renewcommand*\l@subsubsection{%
+    \ustc@dottedtocline{3}{3\ccwd}{\fontsize{10.5\bp@}{20\bp@}\selectfont}%
+  }
+  \renewcommand*\l@paragraph{%
+    \ustc@dottedtocline{4}{4\ccwd}{\fontsize{10.5\bp@}{20\bp@}\selectfont}%
+  }
+  \renewcommand*\l@subparagraph{%
+    \ustc@dottedtocline{5}{5\ccwd}{\fontsize{10.5\bp@}{20\bp@}\selectfont}%
+  }
 %    \end{macrocode}
 %
 % 本科生的目录使用小四宋体（同正文字体），其他同研究生的格式相近。
 %    \begin{macrocode}
 \else
-  \titlecontents{chapter}
-    [\z@]
-    {\normalsize}
-    {\contentspush{\thecontentslabel\unskip\hskip\ccwd\relax}}
-    {}{\ustc@leaders\contentspage}
-  \titlecontents{section}
-    [\ccwd]
-    {\normalsize}
-    {\contentspush{\thecontentslabel\hskip\ccwd\relax}}
-    {}{\ustc@leaders\contentspage}
-  \titlecontents{subsection}
-    [2\ccwd]
-    {\normalsize}
-    {\contentspush{\thecontentslabel
-      \ifustc@arabic\hspace{\ccwd}\else 、\fi}}
-    {}{\ustc@leaders\contentspage}
+  \renewcommand*\l@chapter[2]{%
+    \ifnum \c@tocdepth >\m@ne
+      \addpenalty{-\@highpenalty}%
+      \vskip \z@ \@plus.2\p@
+      \setlength\@tempdima{1em}%
+      \begingroup
+        \parindent \z@ \rightskip \@pnumwidth
+        \parfillskip -\@pnumwidth
+        \leavevmode
+        \advance\leftskip\@tempdima
+        \hskip -\leftskip
+        #1\nobreak
+        \ustc@leaders\hfil \nobreak
+        \hb@xt@\@pnumwidth{\hfil\normalfont \normalcolor #2}\par
+        \penalty\@highpenalty
+      \endgroup
+    \fi}
+  \renewcommand*\l@section{%
+    \ustc@dottedtocline{1}{\ccwd}{\normalsize}%
+  }
+  \renewcommand*\l@subsection{%
+    \ustc@dottedtocline{2}{2\ccwd}{\normalsize}%
+  }
+  \renewcommand*\l@subsubsection{%
+    \ustc@dottedtocline{3}{3\ccwd}{\normalsize}%
+  }
+  \renewcommand*\l@paragraph{%
+    \ustc@dottedtocline{4}{4\ccwd}{\normalsize}%
+  }
+  \renewcommand*\l@subparagraph{%
+    \ustc@dottedtocline{5}{5\ccwd}{\normalsize}%
+  }
 \fi
-%    \end{macrocode}
-%
-% 同时设置图、表清单的格式。
-%    \begin{macrocode}
-\titlecontents{figure}
-  [\ccwd]
-  {\normalsize}
-  {\thecontentslabel\hspace*{0.5em}}
-  {}{\ustc@leaders\contentspage}
-\titlecontents{table}
-  [\ccwd]
-  {\normalsize}
-  {\thecontentslabel\hspace*{0.5em}}
-  {}{\ustc@leaders\contentspage}
 %    \end{macrocode}
 %
 % 本科生要求目录中正文每章前多空一行，而目录、附录等章则不需要空行，
@@ -2001,6 +2098,30 @@ version 2005/12/01 or later.
   \secdef\@chapter\@schapter
 }
 %    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\listoffigures}
+% \begin{macro}{\listoftables}
+% 研究生要求图、表的清单须另页起。
+%    \begin{macrocode}
+\renewcommand\listoffigures{%
+  \ifustc@graduate
+    \cleardoublepage
+  \fi
+  \ustc@chapter{\listfigurename}%
+  \@starttoc{lof}%
+}
+\renewcommand\listoftables{%
+  \ifustc@graduate
+    \cleardoublepage
+  \fi
+  \ustc@chapter{\listtablename}%
+  \@starttoc{lot}%
+}
+\renewcommand*\l@figure{\ustc@dottedtocline{1}{\ccwd}{\normalsize}}
+\let\l@table\l@figure
+%    \end{macrocode}
+% \end{macro}
 % \end{macro}
 %
 %
@@ -2309,12 +2430,6 @@ version 2005/12/01 or later.
   \fi
   \bibliographystyle{ustcthesis-bachelor}
 \fi
-%    \end{macrocode}
-%
-% 使用 \pkg{ctex} 的 \cs{ctex\_patch\_cmd:Nnn} 命令。
-% \changes{v3.1.01}{2018/10/06}{取消依赖 \pkg{etoolbox}}
-%    \begin{macrocode}
-\newcommand\ustc@patchcmd{\csname ctex_patch_cmd:Nnn\endcsname}
 %    \end{macrocode}
 %
 % \begin{macro}{\cite}

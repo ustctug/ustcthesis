@@ -72,7 +72,6 @@
 \RequirePackage{geometry}
 \RequirePackage{graphicx}
 \RequirePackage{color}
-\RequirePackage{titletoc}
 \RequirePackage[perpage]{footmisc}
 \RequirePackage{caption}
 \RequirePackage{calc}
@@ -594,24 +593,32 @@
   \renewcommand\makestatement{}
 \fi
 \setcounter{secnumdepth}{5}
+\newcount\ustc@titlelength
 \DeclareRobustCommand\ustc@spacetitle[1]{%
-  \def\ustc@titlelength{\csname str_count:N\endcsname{#1}}
+  \ustc@titlelength=\csname str_count:N\endcsname{#1}%
   \begingroup
-  \ifustc@graduate
-    \ifnum\ustc@titlelength=2\ziju{2}\else
-      \ifnum\ustc@titlelength=3\ziju{1}\else
-        \ifnum\ustc@titlelength=4\ziju{0.5}%
+    \ifustc@graduate
+      \ifcase\ustc@titlelength
+      \or\or
+        \ziju{2}%
+      \or
+        \ziju{1}%
+      \or
+        \ziju{0.5}%
+      \fi
+    \else
+      \if@mainmatter\else
+        \ifcase\ustc@titlelength
+        \or\or
+          \ziju{1}%
+        \or\or
+          \ziju{0.5}%
         \fi
       \fi
     \fi
-  \else
-    \if@mainmatter\relax\else
-      \ifnum\ustc@titlelength=2\ziju{1}\else
-        \ifnum\ustc@titlelength=4\ziju{0.5}%
-        \fi
-      \fi
-    \fi
-  \fi#1\endgroup}
+    #1%
+  \endgroup
+}
 \newcommand\ustc@textcircled[1]{%
   \ifnum\value{#1}<21\relax
     {\ustc@circlefont\symbol{\numexpr\value{#1} + "245F\relax}}%
@@ -774,64 +781,156 @@
     \ustc@tocloadedtrue
   \fi
   \ustc@chapter{\contentsname}%
-  \@starttoc{toc}}
-\renewcommand\listoffigures{%
-  \ifustc@graduate
-    \cleardoublepage
-  \fi
-  \ustc@chapter{\listfigurename}%
-  \@starttoc{lof}}
-\renewcommand\listoftables{%
-  \ifustc@graduate
-    \cleardoublepage
-  \fi
-  \ustc@chapter{\listtablename}%
-  \@starttoc{lot}}
-\newcommand\ustc@leaders{\titlerule*[0.5pc]{$\cdot$}}
+  \@starttoc{toc}%
+}
+\newcommand\ustc@patchcmd{\csname ctex_patch_cmd:Nnn\endcsname}
+\@ifclasslater{ctexbook}{2016/10/25}{
+  \def\CTEXnumberline#1{%
+    \CTEXifname{%
+      \protect\numberline{\@nameuse{CTEXthe#1}\@nameuse{CTEX@#1@aftername}}%
+    }{}%
+  }
+  \ctexset{chapter/tocline=\CTEXnumberline{#1}#2}
+}{
+  \ustc@patchcmd{\@chapter}{%
+    \CTEXthechapter\hspace{0.3em}%
+  }{%
+    \@nameuse{CTEXthechapter}\@nameuse{CTEX@chapter@aftername}%
+  }
+  \def\@sect#1#2#3#4#5#6[#7]#8{%
+    \ifnum #2>\c@secnumdepth
+      \let\@svsec\@empty
+    \else
+      \ifodd \csname CTEX@#1@numbering\endcsname
+        \refstepcounter{#1}%
+        \protected@edef\@svsec{\@seccntformat{#1}\relax}%
+      \else
+        \CTEX@makeheadinganchor
+        \let\@svsec\@empty
+      \fi
+    \fi
+    \unless \ifodd \CTEX@runin
+      \begingroup
+        #6{%
+          \@hangfrom{\hskip\glueexpr #3\relax\@svsec}%
+          \interlinepenalty \@M
+          \csname CTEX@#1@titleformat\endcsname{#8}%
+          \csname CTEX@#1@aftertitle\endcsname}%
+      \endgroup
+      \csname #1mark\endcsname{#7}%
+      \addcontentsline{toc}{#1}{%
+        \ifnum #2>\c@secnumdepth \else
+          \ifodd \csname CTEX@#1@numbering\endcsname
+            \protect\numberline{\csname CTEXthe#1\endcsname
+              \csname CTEX@#1@aftername\endcsname
+            }%
+          \fi
+        \fi
+        #7}%
+    \else
+      \def\@svsechd{%
+      #6{\hskip\glueexpr #3\relax
+        \@svsec
+        \csname CTEX@#1@titleformat\endcsname{#8}%
+        \csname CTEX@#1@aftertitle\endcsname}%
+      \csname #1mark\endcsname{#7}%
+      \addcontentsline{toc}{#1}{%
+        \ifnum #2>\c@secnumdepth \else
+          \ifodd \csname CTEX@#1@numbering\endcsname
+            \protect\numberline{\csname CTEXthe#1\endcsname
+              \csname CTEX@#1@aftername\endcsname
+            }%
+          \fi
+        \fi
+        #7}}%
+    \fi
+    \@xsect{#5}}
+}
+\newcommand\ustc@leaders{%
+  \leaders\hbox{$\m@th \mkern \@dotsep mu\hbox{$\cdot$}\mkern \@dotsep mu$}%
+}
+\def\ustc@dottedtocline#1#2#3#4#5{%
+  \ifnum #1>\c@tocdepth \else
+    \vskip \z@ \@plus.2\p@
+    {\leftskip #2\relax \rightskip \@tocrmarg \parfillskip -\rightskip
+     \parindent #2\relax\@afterindenttrue
+     \interlinepenalty\@M
+     \leavevmode
+     \setlength\@tempdima{1em}%
+     \advance\leftskip \@tempdima \null\nobreak\hskip -\leftskip
+     {#3#4}\nobreak
+     \ustc@leaders\hfill \nobreak
+     \hb@xt@\@pnumwidth{\hfil\normalfont \normalcolor #5}%
+     \par}%
+  \fi}
+\def\numberline#1{\settowidth{\@tempdima}{#1}#1}
 \ifustc@graduate
-  \titlecontents{chapter}
-    [\z@]
-    {\addvspace{6\bp@}\fontsize{14\bp@}{20\bp@}\selectfont}
-    {\contentspush{\thecontentslabel\unskip\hskip\ccwd\relax}}
-    {}{\ustc@leaders\fontsize{12\bp@}{20\bp@}\selectfont\contentspage}
-  \titlecontents{section}
-    [\ccwd]
-    {\fontsize{12\bp@}{20\bp@}\selectfont}
-    {\contentspush{\thecontentslabel\hskip\ccwd\relax}}
-    {}{\ustc@leaders\fontsize{12\bp@}{20\bp@}\selectfont\contentspage}
-  \titlecontents{subsection}
-    [2\ccwd]
-    {\fontsize{10.5\bp@}{20\bp@}\selectfont}
-    {\contentspush{\thecontentslabel\hskip\ccwd\relax}}
-    {}{\ustc@leaders\fontsize{12\bp@}{20\bp@}\selectfont\contentspage}
+  \renewcommand*\l@chapter[2]{%
+    \ifnum \c@tocdepth >\m@ne
+      \addpenalty{-\@highpenalty}%
+      \vskip 6\p@ \@plus\p@
+      \setlength\@tempdima{1em}%
+      \begingroup
+        \parindent \z@ \rightskip \@pnumwidth
+        \parfillskip -\@pnumwidth
+        \leavevmode
+        \advance\leftskip\@tempdima
+        \hskip -\leftskip
+        {\fontsize{14\bp@}{20\bp@}\selectfont#1}\nobreak
+        \ustc@leaders\hfil \nobreak
+        \hb@xt@\@pnumwidth{\hfil\normalfont \normalcolor #2}\par
+        \penalty\@highpenalty
+      \endgroup
+    \fi}
+  \renewcommand*\l@section{%
+    \ustc@dottedtocline{1}{\ccwd}{\fontsize{12\bp@}{20\bp@}\selectfont}%
+  }
+  \renewcommand*\l@subsection{%
+    \ustc@dottedtocline{2}{2\ccwd}{\fontsize{10.5\bp@}{20\bp@}\selectfont}%
+  }
+  \renewcommand*\l@subsubsection{%
+    \ustc@dottedtocline{3}{3\ccwd}{\fontsize{10.5\bp@}{20\bp@}\selectfont}%
+  }
+  \renewcommand*\l@paragraph{%
+    \ustc@dottedtocline{4}{4\ccwd}{\fontsize{10.5\bp@}{20\bp@}\selectfont}%
+  }
+  \renewcommand*\l@subparagraph{%
+    \ustc@dottedtocline{5}{5\ccwd}{\fontsize{10.5\bp@}{20\bp@}\selectfont}%
+  }
 \else
-  \titlecontents{chapter}
-    [\z@]
-    {\normalsize}
-    {\contentspush{\thecontentslabel\unskip\hskip\ccwd\relax}}
-    {}{\ustc@leaders\contentspage}
-  \titlecontents{section}
-    [\ccwd]
-    {\normalsize}
-    {\contentspush{\thecontentslabel\hskip\ccwd\relax}}
-    {}{\ustc@leaders\contentspage}
-  \titlecontents{subsection}
-    [2\ccwd]
-    {\normalsize}
-    {\contentspush{\thecontentslabel
-      \ifustc@arabic\hspace{\ccwd}\else 、\fi}}
-    {}{\ustc@leaders\contentspage}
+  \renewcommand*\l@chapter[2]{%
+    \ifnum \c@tocdepth >\m@ne
+      \addpenalty{-\@highpenalty}%
+      \vskip \z@ \@plus.2\p@
+      \setlength\@tempdima{1em}%
+      \begingroup
+        \parindent \z@ \rightskip \@pnumwidth
+        \parfillskip -\@pnumwidth
+        \leavevmode
+        \advance\leftskip\@tempdima
+        \hskip -\leftskip
+        #1\nobreak
+        \ustc@leaders\hfil \nobreak
+        \hb@xt@\@pnumwidth{\hfil\normalfont \normalcolor #2}\par
+        \penalty\@highpenalty
+      \endgroup
+    \fi}
+  \renewcommand*\l@section{%
+    \ustc@dottedtocline{1}{\ccwd}{\normalsize}%
+  }
+  \renewcommand*\l@subsection{%
+    \ustc@dottedtocline{2}{2\ccwd}{\normalsize}%
+  }
+  \renewcommand*\l@subsubsection{%
+    \ustc@dottedtocline{3}{3\ccwd}{\normalsize}%
+  }
+  \renewcommand*\l@paragraph{%
+    \ustc@dottedtocline{4}{4\ccwd}{\normalsize}%
+  }
+  \renewcommand*\l@subparagraph{%
+    \ustc@dottedtocline{5}{5\ccwd}{\normalsize}%
+  }
 \fi
-\titlecontents{figure}
-  [\ccwd]
-  {\normalsize}
-  {\thecontentslabel\hspace*{0.5em}}
-  {}{\ustc@leaders\contentspage}
-\titlecontents{table}
-  [\ccwd]
-  {\normalsize}
-  {\thecontentslabel\hspace*{0.5em}}
-  {}{\ustc@leaders\contentspage}
 \newif\ifustc@addtocspace
 \ifustc@bachelor
   \ustc@addtocspacetrue
@@ -852,6 +951,22 @@
   \fi
   \secdef\@chapter\@schapter
 }
+\renewcommand\listoffigures{%
+  \ifustc@graduate
+    \cleardoublepage
+  \fi
+  \ustc@chapter{\listfigurename}%
+  \@starttoc{lof}%
+}
+\renewcommand\listoftables{%
+  \ifustc@graduate
+    \cleardoublepage
+  \fi
+  \ustc@chapter{\listtablename}%
+  \@starttoc{lot}%
+}
+\renewcommand*\l@figure{\ustc@dottedtocline{1}{\ccwd}{\normalsize}}
+\let\l@table\l@figure
 \newenvironment{notation}{%
   \ifustc@graduate\cleardoublepage\else\clearpage\fi
   \pagestyle{headings}%
@@ -993,7 +1108,6 @@
   \fi
   \bibliographystyle{ustcthesis-bachelor}
 \fi
-\newcommand\ustc@patchcmd{\csname ctex_patch_cmd:Nnn\endcsname}
 \ustc@patchcmd{\NAT@citexnum}{%
   \@ifnum{\NAT@ctype=\z@}{%
     \if*#2*\else\NAT@cmt#2\fi
