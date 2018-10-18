@@ -242,30 +242,23 @@ version 2005/12/01 or later.
 %   \label{tab:files}
 %   \begin{tabular}{lll}
 %     \toprule
-%     类别     & 文件                      & 说明 \\
+%     类别     & 文件                      & 说明                           \\
 %     \midrule
 %     模板文件 & \file{ustcthesis.dtx}     & 模板原始代码文件，用户无需使用 \\
-%              & \file{ustcthesis.cls}     & 文档类文件 \\
-%              & \file{ustcthesis-extra.sty}
-%                                          & 模板的附加宏包 \\
-%              & \file{ustcthesis-authoryear.bst}
-%                                          & 著者-出版年制参考文献格式 \\
-%              & \file{ustcthesis-numerical.bst}
-%                                          & 顺序编码制参考文献格式 \\
-%              & \file{ustcthesis-bachelor.bst}
-%                                          & 本科生参考文献格式 \\
-%              & \file{figures/ustc_*.pdf} & 校名和校徽图片 \\
+%              & \file{ustcthesis.cls}     & 文档类文件                     \\
+%              & \file{ustcthesis-*.bst}   & 参考文献表格式                 \\
+%              & \file{figures/ustc_*.pdf} & 校名和校徽图片                 \\
 %     \midrule
-%     生成文件 & \file{ustcthesis.pdf}     & （你正在阅读的）模板使用说明 \\
+%     生成文件 & \file{ustcthesis.pdf}     & （你正在阅读的）模板使用说明   \\
 %     \midrule
-%     示例文档 & \file{main.tex}           & 主文档 \\
-%              & \file{chapters/*.tex}     & 示例文档的各个章节 \\
-%              & \file{figures/}           & 放置图片的目录 \\
-%              & \file{bib/tex.bib}        & \BibTeX{} 示例数据库 \\
+%     示例文档 & \file{main.tex}           & 主文档                         \\
+%              & \file{chapters/*.tex}     & 示例文档的各个章节             \\
+%              & \file{figures/}           & 放置图片的目录                 \\
+%              & \file{bib/ustc.bib}        & \BibTeX{} 示例数据库           \\
 %     \midrule
-%     其他     & \file{README.md}          & 基本说明 \\
-%              & \file{latexmkrc}          & latexmk 的配置文件 \\
-%              & \file{Makefile}           & GNU make 的配置文件 \\
+%     其他     & \file{README.md}          & 基本说明                       \\
+%              & \file{latexmkrc}          & latexmk 的配置文件             \\
+%              & \file{Makefile}           & GNU make 的配置文件            \\
 %     \bottomrule
 %   \end{tabular}
 % \end{table}
@@ -282,7 +275,7 @@ version 2005/12/01 or later.
 % 本模板要求使用 TeX Live、MacTeX 或 MikTeX 不低于 2016 年的发行版，
 % 推荐升级到最新的版本。
 %
-% 本模板直接依赖的宏包有：
+% 模板直接依赖的宏包有：
 % \pkg{amsmath},
 % \pkg{caption},
 % \pkg{calc},
@@ -293,7 +286,16 @@ version 2005/12/01 or later.
 % \pkg{natbib},
 % \pkg{unicode-math}。
 %
-% 本模板\emph{不}兼容的宏包有：
+% 另外，模板还对其他宏包提供了支持，包括：
+% \pkg{amsmath},
+% \pkg{algorithm2e},
+% \pkg{hyperref},
+% \pkg{nomencl},
+% \pkg{siunitx}。
+% 这些宏包并非必需，用户可以根据需要选择使用。
+% 模板在检测到这些宏包被调用后会自动进行配置。
+%
+% 注意，本模板\emph{不}兼容的宏包有：
 % \pkg{amsfonts},
 % \pkg{amssymb},
 % \pkg{biblatex},
@@ -525,7 +527,7 @@ version 2005/12/01 or later.
 % \LaTeX{} 默认按照美国的习惯排版数学公式和符号，
 % 但是《撰写手册》要求数学符号依据《GB 3102.11--1993》执行，
 % 与 \LaTeX{} 的习惯有所差异。
-% 本模板基于 \pkg{unicode-math} 配置数学符号，以遵循国标的规定。
+% 本模板基于 \pkg{unicode-math} 宏包配置数学符号，以遵循国标的规定。
 %
 % 注意，\pkg{unicode-math} 宏包与 \pkg{amsfonts}, \pkg{amssymb}, \pkg{bm},
 % \pkg{mathrsfs}, \pkg{upgreek} 等宏包\emph{不}兼容。
@@ -548,51 +550,6 @@ version 2005/12/01 or later.
 %
 % 关于数学符号更多的用法，参见 \pkg{unicode-math} 宏包的使用说明和符号列表
 % \pkg{unimath-symbols}。
-%
-% 在编辑数学公式时，最好避免直接使用字体命令，比如
-% “$\symbf{A} \symbf{x} = \lambda \symbf{x}$”：
-% \begin{latex}
-% $\symbf{A} \symbf{x} = \lambda \symbf{x}$
-% \end{latex}
-% 而应该定义一些语义命令取代字体命令，
-% 这样输入更简单，也让 \LaTeX{} 代码更有可读性，
-% 而且还方便根据需要统一修改格式，比如：
-% \begin{latex}
-% \newcommand\mat{\symbf}
-% \renewcommand\vec{\symbf}
-% $\mat{A} \vec{u} = \lambda \vec{u}$
-% \end{latex}
-%
-% \file{ustcthesis-extra.sty} 定义了数学定理格式 |ustcplain|（默认使用）以及一些常用的
-% 环境，如表~\ref{tab:theorems}。
-% \begin{table}[htb]
-%   \caption{数学定理相关的环境}
-%   \label{tab:theorems}
-%   \centering\small
-%   \begin{tabular}{*{5}{l}}
-%     \toprule
-%       theorem     & assertion  & axiom   & corollary & lemma \\
-%       定理        & 断言       & 公理    & 推论      & 引理  \\
-%     \midrule
-%       proposition & definition & example & remark    & proof \\
-%       命题        & 定义       & 例      & 注        & 证明  \\
-%     \bottomrule
-%   \end{tabular}
-% \end{table}
-%
-% 注意\env{proof} 环境与其它不同的是，其第二个参数会完全取代“证明”标题，
-% 并且会在末尾加一个 \cs{qed}。
-%
-% 用户可以使用 \cs{newtheorem} 命令来分别定义新的数学环境，比如定义并使用“传说”环境：
-% \begin{latex}
-% \newtheorem{legend}{传说}
-% \begin{legend}
-%     龙生龙，凤生凤，华罗庚的弟子会打洞。
-% \end{legend}
-% \end{latex}
-%
-% 还可以用 \cs{newtheoremstyle} 定义环境的格式，具体参见 \pkg{amsthm} 宏包。
-% 用户也可以改用 \cs{ntheorem} 宏包实现定理环境。
 %
 %
 % \subsection{参考文献}
