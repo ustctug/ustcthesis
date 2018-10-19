@@ -5,7 +5,7 @@ cache:
     - /tmp/texlive
 
 install:
-  - source ./support/texlive.sh
+  - source ./.ci/texlive.sh
 
 script:
   - make main

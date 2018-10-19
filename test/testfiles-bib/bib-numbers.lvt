@@ -1,0 +1,12 @@
+\input{regression-test.tex}
+\documentclass[doctor,numbers,fontset=fandol]{ustcthesis}
+
+\begin{document}
+\START
+\showoutput
+
+\input{citations.tex}
+
+\clearpage
+\end{document}
+\END

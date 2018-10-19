@@ -8,7 +8,7 @@ if ! command -v tlmgr > /dev/null; then
     mkdir -p $INSTALL;
     curl -sSL $REMOTE/install-tl-unx.tar.gz | tar -xzv -C $INSTALL \
         --strip-components=1;
-    $INSTALL/install-tl -profile ./support/texlive.profile;
+    $INSTALL/install-tl -profile ./.ci/texlive.profile;
 fi
 
 tlmgr update --self --all −−no−auto−install;
@@ -19,4 +19,4 @@ tlmgr install latexmk l3build \
     caption filehook footmisc unicode-math \
     fandol stix2-otf tex-gyre xits \
     booktabs listings thumbpdf xcolor zapfding \
-    algorithm2e ifoddpage relsize siunitx;
+    algorithm2e ifoddpage nomencl relsize siunitx;

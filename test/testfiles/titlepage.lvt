@@ -1,4 +1,4 @@
-\input{regression-test}
+\input{regression-test.tex}
 \documentclass[doctor,fontset=fandol]{ustcthesis}
 
 \input{info.tex}
@@ -7,7 +7,7 @@
 \START
 \showoutput
 
-\makestatement
+\maketitle
 
 \clearpage
 \end{document}

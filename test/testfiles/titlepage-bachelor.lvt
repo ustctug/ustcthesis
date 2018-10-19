@@ -1,4 +1,4 @@
-\input{regression-test}
+\input{regression-test.tex}
 \documentclass[bachelor,fontset=fandol]{ustcthesis}
 
 \input{info.tex}
@@ -7,7 +7,7 @@
 \START
 \showoutput
 
-\input{chapters-bachelor.tex}
+\maketitle
 
 \clearpage
 \end{document}

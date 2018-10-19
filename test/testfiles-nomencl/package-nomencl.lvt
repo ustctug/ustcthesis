@@ -1,0 +1,25 @@
+\input{regression-test.tex}
+\documentclass[doctor,fontset=fandol]{ustcthesis}
+
+\usepackage{nomencl}
+\makenomenclature
+
+\begin{document}
+\START
+\showoutput
+
+\frontmatter
+\printnomenclature
+
+\mainmatter
+\chapter{Main matter}
+Lorem ipsum.
+\nomenclature{$a$}{The number of angels per unit area}
+\nomenclature{$N$}{The number of angels per needle point}
+\nomenclature{$A$}{The area of the needle point}
+\nomenclature{$\sigma$}{The total mass of angels per unit area}
+\nomenclature{$m$}{The mass of one angel}
+
+\clearpage
+\end{document}
+\END

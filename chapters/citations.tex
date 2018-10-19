@@ -1,6 +1,11 @@
 % !TeX root = ../main.tex
 
-\chapter{引用文献标注方法}
+\chapter{引用文献的标注}
+
+模板使用 \pkg{natbib} 宏包来设置参考文献引用的格式，
+更多引用方法可以参考该宏包的使用说明。
+
+
 
 \section{顺序编码制}
 
@@ -9,26 +14,12 @@
 \citestyle{super}
 \noindent
 \begin{tabular}{l@{\quad$\Rightarrow$\quad}l}
-  \verb|\cite{knuth86a}|              & \cite{knuth86a}              \\
-  \verb|\citet{knuth86a}|             & \citet{knuth86a}             \\
-  \verb|\citet[42]{knuth86a}|         & \citet[42]{knuth86a}         \\
-  \verb|\citep{knuth86a}|             & \citep{knuth86a}             \\
-  \verb|\citep[42]{knuth86a}|         & \citep[42]{knuth86a}         \\
-  \verb|\citep[see][42]{knuth86a}|    & \citep[see][42]{knuth86a}    \\
-  \verb|\citet*{knuth86a}|            & \citet*{knuth86a}            \\
-  \verb|\citep*{knuth86a}|            & \citep*{knuth86a}            \\
+  \verb|\cite{knuth86a}|         & \cite{knuth86a}         \\
+  \verb|\citet{knuth86a}|        & \citet{knuth86a}        \\
+  \verb|\cite[42]{knuth86a}|     & \cite[42]{knuth86a}     \\
+  \verb|\cite{knuth86a,tlc2}|    & \cite{knuth86a,tlc2}    \\
+  \verb|\cite{knuth86a,knuth84}| & \cite{knuth86a,knuth84} \\
 \end{tabular}
-\par\vskip 0pt plus 10pt
-\noindent
-\begin{tabular}{l@{\quad$\Rightarrow$\quad}l}
-  \verb|\citet{knuth86a,tlc2}|        & \citet{knuth86a,tlc2}        \\
-  \verb|\citep{knuth86a,tlc2}|        & \citep{knuth86a,tlc2}        \\
-  \verb|\cite{knuth86a,knuth84}|      & \cite{knuth86a,knuth84}      \\
-  \verb|\citet{knuth86a,knuth84}|     & \citet{knuth86a,knuth84}     \\
-  \verb|\citep{knuth86a,knuth84}|     & \citep{knuth86a,knuth84}     \\
-  \verb|\cite{knuth86a,knuth84,tlc2}| & \cite{knuth86a,knuth84,tlc2} \\
-\end{tabular}
-
 
 
 \subsection{数字标注法}
@@ -36,24 +27,11 @@
 \citestyle{numbers}
 \noindent
 \begin{tabular}{l@{\quad$\Rightarrow$\quad}l}
-  \verb|\cite{knuth86a}|              & \cite{knuth86a}              \\
-  \verb|\citet{knuth86a}|             & \citet{knuth86a}             \\
-  \verb|\citet[42]{knuth86a}|         & \citet[42]{knuth86a}         \\
-  \verb|\citep{knuth86a}|             & \citep{knuth86a}             \\
-  \verb|\citep[42]{knuth86a}|         & \citep[42]{knuth86a}         \\
-  \verb|\citep[see][42]{knuth86a}|    & \citep[see][42]{knuth86a}    \\
-  \verb|\citet*{knuth86a}|            & \citet*{knuth86a}            \\
-  \verb|\citep*{knuth86a}|            & \citep*{knuth86a}            \\
-\end{tabular}
-\par\vskip 0pt plus 10pt
-\noindent
-\begin{tabular}{l@{\quad$\Rightarrow$\quad}l}
-  \verb|\citet{knuth86a,tlc2}|        & \citet{knuth86a,tlc2}        \\
-  \verb|\citep{knuth86a,tlc2}|        & \citep{knuth86a,tlc2}        \\
-  \verb|\cite{knuth86a,knuth84}|      & \cite{knuth86a,knuth84}      \\
-  \verb|\citet{knuth86a,knuth84}|     & \citet{knuth86a,knuth84}     \\
-  \verb|\citep{knuth86a,knuth84}|     & \citep{knuth86a,knuth84}     \\
-  \verb|\cite{knuth86a,knuth84,tlc2}| & \cite{knuth86a,knuth84,tlc2} \\
+  \verb|\cite{knuth86a}|         & \cite{knuth86a}         \\
+  \verb|\citet{knuth86a}|        & \citet{knuth86a}        \\
+  \verb|\cite[42]{knuth86a}|     & \cite[42]{knuth86a}     \\
+  \verb|\cite{knuth86a,tlc2}|    & \cite{knuth86a,tlc2}    \\
+  \verb|\cite{knuth86a,knuth84}| & \cite{knuth86a,knuth84} \\
 \end{tabular}
 
 
@@ -63,38 +41,13 @@
 \citestyle{authoryear}
 \noindent
 \begin{tabular}{l@{\quad$\Rightarrow$\quad}l}
-  \verb|\cite{knuth86a}|              & \cite{knuth86a}              \\
-  \verb|\citet{knuth86a}|             & \citet{knuth86a}             \\
-  \verb|\citet[42]{knuth86a}|         & \citet[42]{knuth86a}         \\
-  \verb|\citep{knuth86a}|             & \citep{knuth86a}             \\
-  \verb|\citep[42]{knuth86a}|         & \citep[42]{knuth86a}         \\
-  \verb|\citep[see][42]{knuth86a}|    & \citep[see][42]{knuth86a}    \\
-  \verb|\citet*{knuth86a}|            & \citet*{knuth86a}            \\
-  \verb|\citep*{knuth86a}|            & \citep*{knuth86a}            \\
-\end{tabular}
-\par\vskip 0pt plus 10pt
-\noindent
-\begin{tabular}{l@{\quad$\Rightarrow$\quad}l}
-  \verb|\citet{knuth86a,tlc2}|        & \citet{knuth86a,tlc2}        \\
-  \verb|\citep{knuth86a,tlc2}|        & \citep{knuth86a,tlc2}        \\
-  \verb|\cite{knuth86a,knuth84}|      & \cite{knuth86a,knuth84}      \\
-  \verb|\citet{knuth86a,knuth84}|     & \citet{knuth86a,knuth84}     \\
-  \verb|\citep{knuth86a,knuth84}|     & \citep{knuth86a,knuth84}     \\
+  \verb|\cite{knuth86a}|         & \cite{knuth86a}         \\
+  \verb|\citep{knuth86a}|        & \citep{knuth86a}        \\
+  \verb|\cite[42]{knuth86a}|     & \cite[42]{knuth86a}     \\
+  \verb|\cite{knuth86a,tlc2}|    & \cite{knuth86a,tlc2}    \\
+  \verb|\cite{knuth86a,knuth84}| & \cite{knuth86a,knuth84} \\
 \end{tabular}
 
-
-
-\section{其他形式的标注}
-
-\citestyle{super}
-\noindent
-\begin{tabular}{l@{\quad$\Rightarrow$\quad}l}
-  \verb|\citenum{tlc2}|               & \citenum{tlc2}               \\
-  \verb|\citeauthor{tlc2}|            & \citeauthor{tlc2}            \\
-  \verb|\citeauthor*{tlc2}|           & \citeauthor*{tlc2}           \\
-  \verb|\citeyear{tlc2}|              & \citeyear{tlc2}              \\
-  \verb|\citeyearpar{tlc2}|           & \citeyearpar{tlc2}           \\
-\end{tabular}
-
+\vskip 2ex \citestyle{super}
 注意，参考文献列表中的每条文献在正文中都要被引用
 \cite{slg,lyc,ljs,cgw,cjb,kqy,yhs,yx,dwx,jxz,wjk,syw,wf,xd,twh,huston}。

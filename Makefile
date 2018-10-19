@@ -29,22 +29,29 @@ $(NAME).pdf : $(NAME).dtx FORCE_MAKE
 	$(LATEXMK) $<
 
 test:
-	texlua build.lua check --halt-on-error
+	texlua test/build.lua check --halt-on-error --quiet
+	texlua test/build-toc.lua check --halt-on-error --quiet
+	texlua test/build-bib.lua check --halt-on-error --quiet
+	texlua test/build-nomencl.lua check --halt-on-error --quiet
 
 save:
-	-texlua build.lua save titlepage
-	-texlua build.lua save titlepage-english
-	-texlua build.lua save titlepage-master
-	-texlua build.lua save titlepage-secret
-	-texlua build.lua save titlepage-bachelor
-	-texlua build.lua save statement
-	-texlua build.lua save statement-secret
-	-texlua build.lua save main
-	-texlua build.lua save main-english
-	-texlua build.lua save main-bachelor
-	-texlua build.lua save main-bachelor-arabic
-	-texlua build.lua save main-bachelor-english
-	-texlua build.lua save package-siunitx
+	texlua test/build.lua save --quiet titlepage
+	texlua test/build.lua save --quiet titlepage-master
+	texlua test/build.lua save --quiet titlepage-secret
+	texlua test/build.lua save --quiet titlepage-bachelor
+	texlua test/build.lua save --quiet statement
+	texlua test/build.lua save --quiet statement-secret
+	texlua test/build.lua save --quiet package-siunitx
+	texlua test/build-toc.lua save --quiet main
+	texlua test/build-toc.lua save --quiet main-english
+	texlua test/build-toc.lua save --quiet main-bachelor
+	texlua test/build-toc.lua save --quiet main-bachelor-arabic
+	texlua test/build-toc.lua save --quiet main-bachelor-english
+	texlua test/build-bib.lua save --quiet bib-super
+	texlua test/build-bib.lua save --quiet bib-numbers
+	texlua test/build-bib.lua save --quiet bib-authoryear
+	texlua test/build-bib.lua save --quiet bib-bachelor
+	texlua test/build-nomencl.lua save --quiet package-nomencl
 
 clean : FORCE_MAKE
 	$(LATEXMK) -c $(MAIN).tex

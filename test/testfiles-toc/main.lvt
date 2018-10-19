@@ -1,7 +1,5 @@
-\input{regression-test}
+\input{regression-test.tex}
 \documentclass[doctor,fontset=fandol]{ustcthesis}
-
-\input{info.tex}
 
 \begin{document}
 \START

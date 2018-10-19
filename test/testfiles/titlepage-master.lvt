@@ -1,4 +1,4 @@
-\input{regression-test}
+\input{regression-test.tex}
 \documentclass[master,professional,fontset=fandol]{ustcthesis}
 
 \input{info.tex}
