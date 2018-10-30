@@ -1,6 +1,6 @@
 ---
-name: Bug report
-about: Create a report to help us improve
+name: 报告 bug
+about: 报告模板中的 bug，帮助我们改进
 
 ---
 
@@ -11,15 +11,13 @@ about: Create a report to help us improve
 - [ ] 已经阅读 [常见问题](https://github.com/ustctug/ustcthesis/wiki/常见问题)
 
 ## 编译环境
-- 编译的系统：macOS 10.13 / Windows 10 / Ubuntu 18.04 / ShareLaTeX / Overleaf
+- 编译的系统：macOS 10.14 / Windows 10 / Ubuntu 18.04 / Overleaf
 - TeX 发行版：MacTeX 2018 / TeX Live 2018 / MikTeX 2.9.6753
-- 相关宏包版本：ctex v2.4.14 / unicode-math v0.8l
+- 相关宏包版本：ctex v2.4.14 / unicode-math v0.8m
 - 模板类型： doctor / master / bachelor
 
 ## 描述问题
 《撰写手册》第 xx 页要求……而模板编译的结果是……
-
-截图：
 
 
 示例代码：
@@ -29,3 +27,6 @@ about: Create a report to help us improve
 abc
 \end{document}
 ```
+
+截图：
+

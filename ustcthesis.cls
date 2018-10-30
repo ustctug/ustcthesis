@@ -18,7 +18,7 @@
 %% 
 \NeedsTeXFormat{LaTeX2e}[1999/12/01]
 \ProvidesClass{ustcthesis}
-  [2018/10/06 v3.1.01 USTC thesis template]
+  [2018/10/30 v3.1.02 USTC thesis template]
 \newif\ifustc@doctor
 \newif\ifustc@master
 \newif\ifustc@bachelor
@@ -72,13 +72,13 @@
 \RequirePackage{geometry}
 \RequirePackage{graphicx}
 \RequirePackage{color}
+\RequirePackage{url}
 \RequirePackage[perpage]{footmisc}
 \RequirePackage{caption}
 \RequirePackage{calc}
 \ifustc@numerical
   \PassOptionsToPackage{sort&compress}{natbib}
 \fi
-\RequirePackage{url}
 \RequirePackage{natbib}
 \newcommand\ustc@strifeq{\csname str_if_eq_x:nnTF\endcsname}
 \newcommand\ustc@fontset{\csname g__ctex_fontset_tl\endcsname}
@@ -137,23 +137,25 @@
   \xeCJKsetup{EmboldenFactor=2}
   \ustc@strifeq{\ustc@fontset}{windows}{
     \IfFileExists{C:/bootfont.bin}{
-      \setCJKmainfont[AutoFakeBold=2,ItalicFont=KaiTi_GB2312]{SimSun}
+      \setCJKmainfont[AutoFakeBold,ItalicFont=KaiTi_GB2312]{SimSun}
+      \setCJKfamilyfont{zhkai}[AutoFakeBold]{KaiTi_GB2312}
     }{
-      \setCJKmainfont[AutoFakeBold=2,ItalicFont=KaiTi]{SimSun}
-      % \setCJKfamilyfont{zhkai}[AutoFakeBold=true]{KaiTi}
+      \setCJKmainfont[AutoFakeBold,ItalicFont=KaiTi]{SimSun}
+      \setCJKfamilyfont{zhkai}[AutoFakeBold]{KaiTi}
     }
-    \setCJKsansfont[AutoFakeBold=2]{SimHei}
-    \setCJKfamilyfont{zhsong}[AutoFakeBold=2]{SimSun}
-    \setCJKfamilyfont{zhhei}[AutoFakeBold=2]{SimHei}
+    \setCJKsansfont[AutoFakeBold]{SimHei}
+    \setCJKfamilyfont{zhsong}[AutoFakeBold]{SimSun}
+    \setCJKfamilyfont{zhhei}[AutoFakeBold]{SimHei}
   }{
     \ustc@strifeq{\ustc@fontset}{adobe}{
       \setCJKmainfont[
-        AutoFakeBold = 2,
+        AutoFakeBold = true,
         ItalicFont   = AdobeKaitiStd-Regular,
       ]{AdobeSongStd-Light}
-      \setCJKsansfont[AutoFakeBold=2]{AdobeHeitiStd-Regular}
-      \setCJKfamilyfont{zhsong}[AutoFakeBold=2]{AdobeSongStd-Light}
-      \setCJKfamilyfont{zhhei}[AutoFakeBold=2]{AdobeHeitiStd-Regular}
+      \setCJKsansfont[AutoFakeBold]{AdobeHeitiStd-Regular}
+      \setCJKfamilyfont{zhsong}[AutoFakeBold]{AdobeSongStd-Light}
+      \setCJKfamilyfont{zhhei}[AutoFakeBold]{AdobeHeitiStd-Regular}
+      \setCJKfamilyfont{zhkai}[AutoFakeBold]{AdobeKaitiStd-Regular}
     }{}
   }
 }
@@ -354,6 +356,7 @@
   \let\@mkboth\markboth
 }
 \def\ps@none{}
+\ctexset{chapter/pagestyle=none}
 \def\cleardoublepage{\clearpage\if@twoside \ifodd\c@page\else
   \hbox{}\thispagestyle{empty}\newpage\if@twocolumn\hbox{}\newpage\fi\fi\fi}
 \renewcommand\frontmatter{%
@@ -492,7 +495,8 @@
     Supervisor: \ustc@ensupervisor
   \else
     Supervisors: \ustc@ensupervisor, \ustc@encosupervisor
-  \fi}
+  \fi
+}
 \newcommand\ustc@makeentitle{%
   \begin{titlepage}%
     \ustc@pdfbookmark{Title page}%
@@ -517,13 +521,12 @@
       \includegraphics[height=4.5cm]{figures/ustc_logo_fig.pdf}%
     \fi\par
     \vskip 0.5cm%
-    \begin{minipage}[t][4.5cm][c]{\textwidth}%
+    \parbox[t][4.5cm][c]{\textwidth}{%
       \centering\sffamily\bfseries\fontsize{26\bp@}{30\bp@}\selectfont
-      \ustc@entitle\par
-    \end{minipage}\par
+      \ustc@entitle\par}\par
     \vskip 1.6cm%
     {\fontsize{16\bp@}{30\bp@}\selectfont
-      \begin{tabular}{@{}l@{}}
+      \begin{tabular}{@{}l@{}}%
         Author:        \ustc@enauthor \\
         Speciality:    \ustc@enmajor \\
         \ustc@supervisorline \\
@@ -635,7 +638,6 @@
     titleformat = \ustc@spacetitle,
     number      = \thechapter,
     aftername   = \hspace{\ccwd},
-    pagestyle   = none,
   },
 }
 \@ifclasslater{ctexbook}{2016/09/21}{
@@ -960,6 +962,7 @@
   \ustc@chapter{\listfigurename}%
   \@starttoc{lof}%
 }
+\renewcommand*\l@figure{\ustc@dottedtocline{1}{\ccwd}{\normalsize}}
 \renewcommand\listoftables{%
   \ifustc@graduate
     \cleardoublepage
@@ -967,7 +970,6 @@
   \ustc@chapter{\listtablename}%
   \@starttoc{lot}%
 }
-\renewcommand*\l@figure{\ustc@dottedtocline{1}{\ccwd}{\normalsize}}
 \let\l@table\l@figure
 \newenvironment{notation}{%
   \ifustc@graduate\cleardoublepage\else\clearpage\fi
@@ -976,7 +978,7 @@
 }{%
   \clearpage\pagestyle{plain}%
 }%
-\setlength{\parskip}{\z@ \@plus .2\p@}
+\setlength{\parskip}{0\p@ \@plus .2\p@}
 \urlstyle{same}
 \def\UrlBreaks{%
   \do\/%
@@ -998,9 +1000,9 @@
   \hb@xt@2\ccwd{\hss\@makefnmark}#1}
 \setlength\partopsep{\z@}
 \newcommand\ustc@nolistsep{%
-  \parsep \z@ \@plus .2\p@
-  \topsep \z@ \@plus .2\p@
-  \itemsep\z@ \@plus .2\p@
+  \parsep 0\p@ \@plus.2\p@
+  \topsep 0\p@ \@plus.2\p@
+  \itemsep0\p@ \@plus.2\p@
 }
 \def\@listi{\leftmargin\leftmargini
             \ustc@nolistsep}
@@ -1151,7 +1153,7 @@
 \ifustc@graduate
   \renewcommand\bibfont{\fontsize{10.5\bp@}{20\bp@}\selectfont}
 \fi
-\setlength{\bibsep}{\z@}
+\setlength{\bibsep}{0\p@ \@plus.2\p@}
 \setlength{\bibhang}{2\ccwd}
 \renewcommand\@biblabel[1]{[#1]\hfill}
 \renewcommand\bibsection{%

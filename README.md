@@ -38,11 +38,11 @@
 
 - 编译模板的使用说明文档 `ustcthesis.pdf`：
    ```
-   latexmk ustcthesis.dtx
+   latexmk -xelatex ustcthesis.dtx
    ```
 - 编译论文 `main.pdf`：
    ```
-   latexmk
+   latexmk -xelatex main.tex
    ```
 - 如需清理论文编译过程中的临时文件，可以：
    ```

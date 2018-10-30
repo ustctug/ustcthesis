@@ -11,7 +11,7 @@ if ! command -v tlmgr > /dev/null; then
     $INSTALL/install-tl -profile ./.ci/texlive.profile;
 fi
 
-tlmgr update --self --all −−no−auto−install;
+tlmgr update --self --all --reinstall-forcibly-removed;
 
 tlmgr install latexmk l3build \
     fontname fontspec l3kernel l3packages xetex \

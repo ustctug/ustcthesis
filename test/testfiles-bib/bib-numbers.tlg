@@ -623,7 +623,7 @@ C.}
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
 ...\penalty -51
-...\glue 0.0
+...\glue 0.0 plus 0.2
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 10.57892
 ...\hbox(7.1983+2.37132)x393.55914, glue set 0.65211, shifted 23.55838
@@ -750,7 +750,7 @@ C.}
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
 ...\penalty -51
-...\glue 0.0
+...\glue 0.0 plus 0.2
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 10.57892
 ...\hbox(7.1983+2.29755)x393.55914, glue set 47.86133fil, shifted 23.55838
@@ -824,7 +824,7 @@ C.}
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
 ...\penalty -51
-...\glue 0.0
+...\glue 0.0 plus 0.2
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 10.57892
 ...\hbox(7.1983+2.37132)x393.55914, glue set - 0.12094, shifted 23.55838
@@ -937,7 +937,7 @@ C.}
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
 ...\penalty -51
-...\glue 0.0
+...\glue 0.0 plus 0.2
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 9.34583
 ...\hbox(8.4314+2.10783)x393.55914, glue set 0.64137, shifted 23.55838
@@ -1050,7 +1050,7 @@ C.}
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
 ...\penalty -51
-...\glue 0.0
+...\glue 0.0 plus 0.2
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 11.68555
 ...\hbox(8.24168+1.96028)x393.55914, glue set 0.1136, shifted 23.55838
@@ -1196,7 +1196,7 @@ C.}
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
 ...\penalty -51
-...\glue 0.0
+...\glue 0.0 plus 0.2
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 9.91495
 ...\hbox(8.29439+1.94975)x393.55914, glue set 0.02734, shifted 23.55838
@@ -1333,7 +1333,7 @@ C.}
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
 ...\penalty -51
-...\glue 0.0
+...\glue 0.0 plus 0.2
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 9.97818
 ...\hbox(8.23116+1.98137)x393.55914, glue set 101.72743fil, shifted 23.55838
@@ -1413,7 +1413,7 @@ C.}
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
 ...\penalty -51
-...\glue 0.0
+...\glue 0.0 plus 0.2
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 9.79901
 ...\hbox(8.29439+2.03406)x393.55914, glue set 76.24355fil, shifted 23.55838
@@ -1491,7 +1491,7 @@ C.}
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
 ...\penalty -51
-...\glue 0.0
+...\glue 0.0 plus 0.2
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 9.60931
 ...\hbox(8.4314+2.10783)x393.55914, glue set - 0.10648, shifted 23.55838
@@ -1607,7 +1607,7 @@ C.}
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
 ...\penalty -51
-...\glue 0.0
+...\glue 0.0 plus 0.2
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 10.0625
 ...\hbox(8.23116+1.86543)x393.55914, glue set 151.47969fil, shifted 23.55838
