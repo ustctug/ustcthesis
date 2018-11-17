@@ -47,6 +47,8 @@ save:
 	texlua test/build-toc.lua save --quiet main-bachelor
 	texlua test/build-toc.lua save --quiet main-bachelor-arabic
 	texlua test/build-toc.lua save --quiet main-bachelor-english
+	texlua test/build-toc.lua save --quiet main-lof
+	texlua test/build-toc.lua save --quiet main-lot
 	texlua test/build-bib.lua save --quiet bib-super
 	texlua test/build-bib.lua save --quiet bib-numbers
 	texlua test/build-bib.lua save --quiet bib-authoryear

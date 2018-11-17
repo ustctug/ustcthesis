@@ -18,7 +18,7 @@
 %% 
 \NeedsTeXFormat{LaTeX2e}[1999/12/01]
 \ProvidesClass{ustcthesis}
-  [2018/10/30 v3.1.02 USTC thesis template]
+  [2018/11/17 v3.1.03 USTC thesis template]
 \newif\ifustc@doctor
 \newif\ifustc@master
 \newif\ifustc@bachelor
@@ -955,6 +955,8 @@
   \fi
   \secdef\@chapter\@schapter
 }
+\renewcommand*\caption@@@addcontentsline[4]{%
+  \addcontentsline{#1}{#2}{\protect\numberline{#3\hspace{\ccwd}}{#4}}}
 \renewcommand\listoffigures{%
   \ifustc@graduate
     \cleardoublepage

@@ -1,0 +1,43 @@
+\input{regression-test.tex}
+\documentclass[doctor,fontset=fandol]{ustcthesis}
+
+\begin{document}
+\START
+\showoutput
+
+\listoffigures
+
+\mainmatter
+\chapter{Foo}
+
+\begin{figure}
+  \caption{Figure foo}
+\end{figure}
+
+\begin{figure}
+  \caption{Figure bar}
+\end{figure}
+
+\begin{figure}
+  \caption{Figure foo}
+\end{figure}
+
+
+
+\chapter{Bar}
+
+\begin{figure}
+  \caption{Figure foo}
+\end{figure}
+
+\begin{figure}
+  \caption{Figure bar}
+\end{figure}
+
+\begin{figure}
+  \caption{Figure foo}
+\end{figure}
+
+\clearpage
+\end{document}
+\END

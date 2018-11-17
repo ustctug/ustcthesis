@@ -50,7 +50,7 @@ version 2005/12/01 or later.
 %<class>\NeedsTeXFormat{LaTeX2e}[1999/12/01]
 %<class>\ProvidesClass{ustcthesis}
 %<*class>
-  [2018/10/30 v3.1.02 USTC thesis template]
+  [2018/11/17 v3.1.03 USTC thesis template]
 %</class>
 %
 %<*driver>
@@ -183,7 +183,7 @@ version 2005/12/01 or later.
 %             \m,\n,\o,\p,\q,\r,\s,\t,\u,\v,\w,\x,\y,\z,%
 %             \A,\B,\C,\D,\E,\F,\G,\H,\I,\J,\K,\L,%
 %             \M,\N,\O,\P,\Q,\R,\S,\T,\U,\V,\W,\X,\Y,\Z,%
-%             \do\#,\$,\%,\&,\@,\\,\{,\},\^,\_,\~,\ ,\',\",\/,\*,\-}
+%             \do\#,\$,\%,\&,\@,\\,\{,\},\^,\_,\~,\ ,\,,\!,\',\",\/,\*,\-}
 % \DoNotIndex{\NAT@@close,\NAT@@open,\NAT@cite,\NAT@citenum,\NAT@citesuper,%
 %             \NAT@citex,\NAT@citexnum,\NAT@cmt,\NAT@ctype,\NAT@date,%
 %             \NAT@last@yr,\NAT@mbox,\NAT@penalty,\NAT@spacechar,%
@@ -2069,6 +2069,13 @@ version 2005/12/01 or later.
 }
 %    \end{macrocode}
 % \end{macro}
+%
+% 在图表清单的标签后添加空白
+% \changes{v3.1.03}{2018/11/17}{修正图表清单标签后的空白}
+%    \begin{macrocode}
+\renewcommand*\caption@@@addcontentsline[4]{%
+  \addcontentsline{#1}{#2}{\protect\numberline{#3\hspace{\ccwd}}{#4}}}
+%    \end{macrocode}
 %
 % \begin{macro}{\listoffigures}
 % 研究生要求图、表的清单须另页起。
