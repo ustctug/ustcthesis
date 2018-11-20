@@ -68,6 +68,7 @@ version 2005/12/01 or later.
   \setmainfont{Times}
   \setsansfont[Scale=MatchLowercase]{Helvetica}
   \setmonofont[Scale=MatchLowercase]{Menlo}
+  \xeCJKsetwidth{‘’“”}{1em}
 }{}
 \setmathfont{STIX2Math.otf}
 \usepackage{caption}
@@ -139,6 +140,7 @@ version 2005/12/01 or later.
     带下划线的数字表示定义对应索引项的代码行号；%
     罗马字体的数字表示使用对应索引项的代码行号。}}
 \newcommand\TeXLive{\TeX{} Live}
+\newcommand\unicodechar[1]{U+#1（\symbol{"#1}）}
 \makeatother
 
 \EnableCrossrefs
@@ -830,6 +832,7 @@ version 2005/12/01 or later.
   ]{Songti SC}
   \setCJKfamilyfont{zhhei}[BoldFont=* Medium]{Heiti SC}
   \setCJKfamilyfont{zhkai}[BoldFont=* Bold]{Kaiti SC}
+  \xeCJKsetwidth{‘’“”}{1em}
 }{
   \xeCJKsetup{EmboldenFactor=2}
   \ustc@strifeq{\ustc@fontset}{windows}{
@@ -1051,6 +1054,40 @@ version 2005/12/01 or later.
 %
 %
 % \subsection{处理语言}
+%
+% 由于 Unicode 的一些标点符号是中西文混用的：
+% \unicodechar{00B7}、
+% \unicodechar{2013}、
+% \unicodechar{2014}、
+% \unicodechar{2018}、
+% \unicodechar{2019}、
+% \unicodechar{201C}、
+% \unicodechar{201D}、
+% \unicodechar{2025}、
+% \unicodechar{2026}、
+% \unicodechar{2E3A}，
+% 所以要根据语言设置正确的字体。
+% \footnote{\url{https://github.com/CTeX-org/ctex-kit/issues/389}}
+% 所以要根据语言设置正确的字体。
+% \changes{v3.1.03}{2018/11/20}{修正英文模式下的 Unicode 引号字体}
+%    \begin{macrocode}
+\newcommand\ustc@setchinese{%
+  \xeCJKResetPunctClass
+}
+\newcommand\ustc@setenglish{%
+  \xeCJKDeclareCharClass{HalfLeft}{"2018, "201C}%
+  \xeCJKDeclareCharClass{HalfRight}{%
+    "00B7, "2019, "201D, "2013, "2014, "2025, "2026, "2E3A%
+  }%
+}
+\newcommand\ustc@setdefaultlanguage{%
+  \ifustc@chinese
+    \ustc@setchinese
+  \else
+    \ustc@setenglish
+  \fi
+}
+%    \end{macrocode}
 %
 % 这里设置了中英文的各种名字。
 %    \begin{macrocode}
@@ -1341,6 +1378,7 @@ version 2005/12/01 or later.
 % \changes{v3.1}{2018/09/01}{更正封面的校名}
 %    \begin{macrocode}
 \newcommand\ustc@makezhtitle{%
+  \ustc@setchinese
   \begin{titlepage}%
     \ustc@pdfbookmark{封面}%
     \centering
@@ -1379,6 +1417,7 @@ version 2005/12/01 or later.
         \textsf{完成时间：} & \ustc@date
       \end{tabular}\par}%
   \end{titlepage}%
+  \ustc@setdefaultlanguage
 }
 %    \end{macrocode}
 %
@@ -1396,6 +1435,7 @@ version 2005/12/01 or later.
 % 英文封面
 %    \begin{macrocode}
 \newcommand\ustc@makeentitle{%
+  \ustc@setenglish
   \begin{titlepage}%
     \ustc@pdfbookmark{Title page}%
     \centering
@@ -1431,6 +1471,7 @@ version 2005/12/01 or later.
         Finished time: \ustc@endate
       \end{tabular}\par}%
   \end{titlepage}%
+  \ustc@setdefaultlanguage
 }
 %    \end{macrocode}
 %
@@ -1793,6 +1834,7 @@ version 2005/12/01 or later.
 % \changes{v3.0}{2017/07/01}{摘要不再加入目录}
 %    \begin{macrocode}
 \newenvironment{abstract}{%
+  \ustc@setchinese
   \ifustc@graduate
     \ustc@chapter{摘要}%
   \else
@@ -1804,6 +1846,7 @@ version 2005/12/01 or later.
 }{
   \par\null\par\noindent\hangindent=4\ccwd\relax
   \textbf{关键词}：\ustc@keywords
+  \ustc@setdefaultlanguage
 }
 %    \end{macrocode}
 % \end{environment}
@@ -1812,6 +1855,7 @@ version 2005/12/01 or later.
 % 英文摘要环境
 %    \begin{macrocode}
 \newenvironment{enabstract}{%
+  \ustc@setenglish
   \ifustc@graduate
     \ustc@chapter[Abstract]{ABSTRACT}%
   \else
@@ -1820,6 +1864,7 @@ version 2005/12/01 or later.
 }{
   \par\null\par\noindent\hangindent=5.3em\relax
   \textbf{Key Words}: \ustc@enkeywords
+  \ustc@setdefaultlanguage
 }
 %    \end{macrocode}
 % \end{environment}
@@ -2129,6 +2174,12 @@ version 2005/12/01 or later.
 % 段间距 0 磅。
 %    \begin{macrocode}
 \setlength{\parskip}{0\p@ \@plus .2\p@}
+%    \end{macrocode}
+%
+% 首段缩进。
+%    \begin{macrocode}
+\let\@afterindentfalse\@afterindenttrue
+\@afterindenttrue
 %    \end{macrocode}
 %
 % URL 的字体设为保持原样。

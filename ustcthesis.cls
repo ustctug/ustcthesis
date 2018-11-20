@@ -133,6 +133,7 @@
   ]{Songti SC}
   \setCJKfamilyfont{zhhei}[BoldFont=* Medium]{Heiti SC}
   \setCJKfamilyfont{zhkai}[BoldFont=* Bold]{Kaiti SC}
+  \xeCJKsetwidth{‘’“”}{1em}
 }{
   \xeCJKsetup{EmboldenFactor=2}
   \ustc@strifeq{\ustc@fontset}{windows}{
@@ -277,6 +278,22 @@
   \renewcommand\Huge{\@setfontsize\Huge{26\bp@}{47.67\bp@}}
 \fi
 \linespread{1}\selectfont
+\newcommand\ustc@setchinese{%
+  \xeCJKResetPunctClass
+}
+\newcommand\ustc@setenglish{%
+  \xeCJKDeclareCharClass{HalfLeft}{"2018, "201C}%
+  \xeCJKDeclareCharClass{HalfRight}{%
+    "00B7, "2019, "201D, "2013, "2014, "2025, "2026, "2E3A%
+  }%
+}
+\newcommand\ustc@setdefaultlanguage{%
+  \ifustc@chinese
+    \ustc@setchinese
+  \else
+    \ustc@setenglish
+  \fi
+}
 \newcommand\ustc@universityname{中国科学技术大学}
 \newcommand\ustc@enuniversityname{University of Science and Technology of China}
 \ifustc@chinese
@@ -451,6 +468,7 @@
   \if@restonecol\twocolumn \else \newpage \fi
 }
 \newcommand\ustc@makezhtitle{%
+  \ustc@setchinese
   \begin{titlepage}%
     \ustc@pdfbookmark{封面}%
     \centering
@@ -489,6 +507,7 @@
         \textsf{完成时间：} & \ustc@date
       \end{tabular}\par}%
   \end{titlepage}%
+  \ustc@setdefaultlanguage
 }
 \newcommand\ustc@supervisorline{%
   \ifx\ustc@encosupervisor\@empty
@@ -498,6 +517,7 @@
   \fi
 }
 \newcommand\ustc@makeentitle{%
+  \ustc@setenglish
   \begin{titlepage}%
     \ustc@pdfbookmark{Title page}%
     \centering
@@ -533,6 +553,7 @@
         Finished time: \ustc@endate
       \end{tabular}\par}%
   \end{titlepage}%
+  \ustc@setdefaultlanguage
 }
 \renewcommand\maketitle{%
   \newgeometry{margin=2.54cm}
@@ -754,6 +775,7 @@
   }%
   \chapter*{#2}}
 \newenvironment{abstract}{%
+  \ustc@setchinese
   \ifustc@graduate
     \ustc@chapter{摘要}%
   \else
@@ -765,8 +787,10 @@
 }{
   \par\null\par\noindent\hangindent=4\ccwd\relax
   \textbf{关键词}：\ustc@keywords
+  \ustc@setdefaultlanguage
 }
 \newenvironment{enabstract}{%
+  \ustc@setenglish
   \ifustc@graduate
     \ustc@chapter[Abstract]{ABSTRACT}%
   \else
@@ -775,6 +799,7 @@
 }{
   \par\null\par\noindent\hangindent=5.3em\relax
   \textbf{Key Words}: \ustc@enkeywords
+  \ustc@setdefaultlanguage
 }
 \newif\ifustc@tocloaded
 \renewcommand\tableofcontents{%
@@ -981,6 +1006,8 @@
   \clearpage\pagestyle{plain}%
 }%
 \setlength{\parskip}{0\p@ \@plus .2\p@}
+\let\@afterindentfalse\@afterindenttrue
+\@afterindenttrue
 \urlstyle{same}
 \def\UrlBreaks{%
   \do\/%
