@@ -284,8 +284,10 @@ version 2005/12/01 or later.
 % \pkg{caption},
 % \pkg{calc},
 % \pkg{ctex},
+% \pkg{footmisc},
 % \pkg{geometry},
 % \pkg{graphicx},
+% \pkg{titletoc},
 % \pkg{url},
 % \pkg{natbib},
 % \pkg{unicode-math}。
@@ -737,9 +739,10 @@ version 2005/12/01 or later.
 \RequirePackage{geometry}
 \RequirePackage{graphicx}
 \RequirePackage{color}
-\RequirePackage{url}
-\RequirePackage[perpage]{footmisc}
+\RequirePackage{titletoc}
 \RequirePackage{caption}
+\RequirePackage[perpage]{footmisc}
+\RequirePackage{url}
 \RequirePackage{calc}
 \ifustc@numerical
   \PassOptionsToPackage{sort&compress}{natbib}
@@ -1881,7 +1884,6 @@ version 2005/12/01 or later.
 % 研究生规定目录另面起；
 % 本科生规定从目录开始编页码，所以必须另页起。
 % \changes{v3.0.b}{2018/05/18}{更正研究生的目录为另面起}
-% \changes{v3.1.02}{2018/10/30}{取消依赖 \pkg{titletoc}}
 %    \begin{macrocode}
 \renewcommand\tableofcontents{%
   \ifustc@bachelor
@@ -1902,95 +1904,9 @@ version 2005/12/01 or later.
 \newcommand\ustc@patchcmd{\csname ctex_patch_cmd:Nnn\endcsname}
 %    \end{macrocode}
 %
-% \pkg{ctex} v2.4.5 （2016/10/25）引入了 \cs{CTEXnumberline} 和 \opt{tocline}。
-%    \begin{macrocode}
-\@ifclasslater{ctexbook}{2016/10/25}{
-  \def\CTEXnumberline#1{%
-    \CTEXifname{%
-      \protect\numberline{\@nameuse{CTEXthe#1}\@nameuse{CTEX@#1@aftername}}%
-    }{}%
-  }
-  \ctexset{chapter/tocline=\CTEXnumberline{#1}#2}
-}{
-  \ustc@patchcmd{\@chapter}{%
-    \CTEXthechapter\hspace{0.3em}%
-  }{%
-    \@nameuse{CTEXthechapter}\@nameuse{CTEX@chapter@aftername}%
-  }
-  \def\@sect#1#2#3#4#5#6[#7]#8{%
-    \ifnum #2>\c@secnumdepth
-      \let\@svsec\@empty
-    \else
-      \ifodd \csname CTEX@#1@numbering\endcsname
-        \refstepcounter{#1}%
-        \protected@edef\@svsec{\@seccntformat{#1}\relax}%
-      \else
-        \CTEX@makeheadinganchor
-        \let\@svsec\@empty
-      \fi
-    \fi
-    \unless \ifodd \CTEX@runin
-      \begingroup
-        #6{%
-          \@hangfrom{\hskip\glueexpr #3\relax\@svsec}%
-          \interlinepenalty \@M
-          \csname CTEX@#1@titleformat\endcsname{#8}%
-          \csname CTEX@#1@aftertitle\endcsname}%
-      \endgroup
-      \csname #1mark\endcsname{#7}%
-      \addcontentsline{toc}{#1}{%
-        \ifnum #2>\c@secnumdepth \else
-          \ifodd \csname CTEX@#1@numbering\endcsname
-            \protect\numberline{\csname CTEXthe#1\endcsname
-              \csname CTEX@#1@aftername\endcsname
-            }%
-          \fi
-        \fi
-        #7}%
-    \else
-      \def\@svsechd{%
-      #6{\hskip\glueexpr #3\relax
-        \@svsec
-        \csname CTEX@#1@titleformat\endcsname{#8}%
-        \csname CTEX@#1@aftertitle\endcsname}%
-      \csname #1mark\endcsname{#7}%
-      \addcontentsline{toc}{#1}{%
-        \ifnum #2>\c@secnumdepth \else
-          \ifodd \csname CTEX@#1@numbering\endcsname
-            \protect\numberline{\csname CTEXthe#1\endcsname
-              \csname CTEX@#1@aftername\endcsname
-            }%
-          \fi
-        \fi
-        #7}}%
-    \fi
-    \@xsect{#5}}
-}
-%    \end{macrocode}
-%
 % 先定义目录线：
 %    \begin{macrocode}
-\newcommand\ustc@leaders{%
-  \leaders\hbox{$\m@th \mkern \@dotsep mu\hbox{$\cdot$}\mkern \@dotsep mu$}%
-}
-%    \end{macrocode}
-%
-%    \begin{macrocode}
-\def\ustc@dottedtocline#1#2#3#4#5{%
-  \ifnum #1>\c@tocdepth \else
-    \vskip \z@ \@plus.2\p@
-    {\leftskip #2\relax \rightskip \@tocrmarg \parfillskip -\rightskip
-     \parindent #2\relax\@afterindenttrue
-     \interlinepenalty\@M
-     \leavevmode
-     \setlength\@tempdima{1em}%
-     \advance\leftskip \@tempdima \null\nobreak\hskip -\leftskip
-     {#3#4}\nobreak
-     \ustc@leaders\hfill \nobreak
-     \hb@xt@\@pnumwidth{\hfil\normalfont \normalcolor #5}%
-     \par}%
-  \fi}
-\def\numberline#1{\settowidth{\@tempdima}{#1}#1}
+\newcommand\ustc@leaders{\titlerule*[9\bp@]{\textperiodcentered}}
 %    \end{macrocode}
 %
 % 各章目录要求宋体 14 磅，单倍行距，段前 6 磅，段后 0 磅，两端对齐，
@@ -2000,87 +1916,48 @@ version 2005/12/01 or later.
 % 另外 \pkg{ctex} 在章目录的序号后加 |\hspace{.3em}|，所以用 \cs{unskip} 修正。
 %    \begin{macrocode}
 \ifustc@graduate
-  \renewcommand*\l@chapter[2]{%
-    \ifnum \c@tocdepth >\m@ne
-      \addpenalty{-\@highpenalty}%
-      \vskip 6\p@ \@plus\p@
-      \setlength\@tempdima{1em}%
-      \begingroup
-        \parindent \z@ \rightskip \@pnumwidth
-        \parfillskip -\@pnumwidth
-        \leavevmode
-        \advance\leftskip\@tempdima
-        \hskip -\leftskip
-        {\fontsize{14\bp@}{20\bp@}\selectfont#1}\nobreak
-        \ustc@leaders\hfil \nobreak
-        \hb@xt@\@pnumwidth{\hfil\normalfont \normalcolor #2}\par
-        \penalty\@highpenalty
-      \endgroup
-    \fi}
+  \titlecontents{chapter}
+    [\z@]{\addvspace{6\bp@}\fontsize{14\bp@}{20\bp@}\selectfont}
+    {\contentspush{\thecontentslabel\unskip\hspace{\ccwd}}}{}
+    {\fontsize{12\bp@}{20\bp@}\selectfont\ustc@leaders\contentspage}
 %    \end{macrocode}
 %
 % 一级节标题目录要求宋体 12 磅，单倍行距，左缩进一字，段前 6 磅，段后 0 磅，
 % 两端对齐，页码右对齐，序号与题名间空一字。
 % Word 模板中实际是行距 20 磅，段前 0 磅。
 %    \begin{macrocode}
-  \renewcommand*\l@section{%
-    \ustc@dottedtocline{1}{\ccwd}{\fontsize{12\bp@}{20\bp@}\selectfont}%
-  }
+  \titlecontents{section}
+    [\ccwd]{\fontsize{12\bp@}{20\bp@}\selectfont}
+    {\contentspush{\thecontentslabel\hspace{\ccwd}}}{}
+    {\fontsize{12\bp@}{20\bp@}\selectfont\ustc@leaders\contentspage}
 %    \end{macrocode}
 %
 % 二级节标题目录要求宋体 10.5 磅，单倍行距，左缩进两字，段前 6 磅，段后 0 磅，
 % 两端对齐，页码右对齐，序号与题名间空一字。
 % Word 模板中实际是行距 20 磅，段前 0 磅。
 %    \begin{macrocode}
-  \renewcommand*\l@subsection{%
-    \ustc@dottedtocline{2}{2\ccwd}{\fontsize{10.5\bp@}{20\bp@}\selectfont}%
-  }
-  \renewcommand*\l@subsubsection{%
-    \ustc@dottedtocline{3}{3\ccwd}{\fontsize{10.5\bp@}{20\bp@}\selectfont}%
-  }
-  \renewcommand*\l@paragraph{%
-    \ustc@dottedtocline{4}{4\ccwd}{\fontsize{10.5\bp@}{20\bp@}\selectfont}%
-  }
-  \renewcommand*\l@subparagraph{%
-    \ustc@dottedtocline{5}{5\ccwd}{\fontsize{10.5\bp@}{20\bp@}\selectfont}%
-  }
+  \titlecontents{subsection}
+    [2\ccwd]{\fontsize{10.5\bp@}{20\bp@}\selectfont}
+    {\contentspush{\thecontentslabel\hspace{\ccwd}}}{}
+    {\fontsize{12\bp@}{20\bp@}\selectfont\ustc@leaders\contentspage}
 %    \end{macrocode}
 %
 % 本科生的目录使用小四宋体（同正文字体），其他同研究生的格式相近。
 %    \begin{macrocode}
 \else
-  \renewcommand*\l@chapter[2]{%
-    \ifnum \c@tocdepth >\m@ne
-      \addpenalty{-\@highpenalty}%
-      \vskip \z@ \@plus.2\p@
-      \setlength\@tempdima{1em}%
-      \begingroup
-        \parindent \z@ \rightskip \@pnumwidth
-        \parfillskip -\@pnumwidth
-        \leavevmode
-        \advance\leftskip\@tempdima
-        \hskip -\leftskip
-        #1\nobreak
-        \ustc@leaders\hfil \nobreak
-        \hb@xt@\@pnumwidth{\hfil\normalfont \normalcolor #2}\par
-        \penalty\@highpenalty
-      \endgroup
-    \fi}
-  \renewcommand*\l@section{%
-    \ustc@dottedtocline{1}{\ccwd}{\normalsize}%
-  }
-  \renewcommand*\l@subsection{%
-    \ustc@dottedtocline{2}{2\ccwd}{\normalsize}%
-  }
-  \renewcommand*\l@subsubsection{%
-    \ustc@dottedtocline{3}{3\ccwd}{\normalsize}%
-  }
-  \renewcommand*\l@paragraph{%
-    \ustc@dottedtocline{4}{4\ccwd}{\normalsize}%
-  }
-  \renewcommand*\l@subparagraph{%
-    \ustc@dottedtocline{5}{5\ccwd}{\normalsize}%
-  }
+  \titlecontents{chapter}
+    [\z@]{\normalsize}
+    {\contentspush{\thecontentslabel\unskip\hspace{\ccwd}}}{}
+    {\ustc@leaders\contentspage}
+  \titlecontents{section}
+    [\ccwd]{\normalsize}
+    {\contentspush{\thecontentslabel\hspace{\ccwd}}}{}
+    {\ustc@leaders\contentspage}
+  \titlecontents{subsection}
+    [2\ccwd]{\normalsize}
+    {\contentspush{\thecontentslabel
+      \ifustc@arabic\hspace{\ccwd}\else 、\fi}}{}
+    {\ustc@leaders\contentspage}
 \fi
 %    \end{macrocode}
 %
@@ -2115,15 +1992,9 @@ version 2005/12/01 or later.
 %    \end{macrocode}
 % \end{macro}
 %
-% 在图表清单的标签后添加空白
-% \changes{v3.1.03}{2018/11/17}{修正图表清单标签后的空白}
-%    \begin{macrocode}
-\renewcommand*\caption@@@addcontentsline[4]{%
-  \addcontentsline{#1}{#2}{\protect\numberline{#3\hspace{\ccwd}}{#4}}}
-%    \end{macrocode}
-%
 % \begin{macro}{\listoffigures}
 % 研究生要求图、表的清单须另页起。
+% \changes{v3.1.03}{2018/11/20}{修正图表清单的格式}
 %    \begin{macrocode}
 \renewcommand\listoffigures{%
   \ifustc@graduate
@@ -2132,7 +2003,10 @@ version 2005/12/01 or later.
   \ustc@chapter{\listfigurename}%
   \@starttoc{lof}%
 }
-\renewcommand*\l@figure{\ustc@dottedtocline{1}{\ccwd}{\normalsize}}
+\titlecontents{figure}
+  [2.3em]{\normalsize}
+  {\contentslabel{2.3em}}{}
+  {\ustc@leaders\contentspage}
 %    \end{macrocode}
 % \end{macro}
 %
@@ -2145,7 +2019,10 @@ version 2005/12/01 or later.
   \ustc@chapter{\listtablename}%
   \@starttoc{lot}%
 }
-\let\l@table\l@figure
+\titlecontents{table}
+  [2.3em]{\normalsize}
+  {\contentslabel{2.3em}}{}
+  {\ustc@leaders\contentspage}
 %    \end{macrocode}
 % \end{macro}
 %

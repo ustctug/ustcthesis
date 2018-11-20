@@ -1,20 +1,6 @@
 This is a generated file for the l3build validation system.
 Don't change this file in any respect.
-(main-lot.lot
-LaTeX Font Info:    Calculating math sizes for size <12.04486> on input line ....
-LaTeX Font Info:    Font shape `TU/STIX2Math.otf(2)/m/n' will be
-(Font)              scaled to size 12.04504pt on input line ....
-LaTeX Font Info:    Font shape `TU/STIX2Math.otf(2)/m/n' will be
-(Font)              scaled to size 8.43147pt on input line ....
-LaTeX Font Info:    Font shape `TU/STIX2Math.otf(2)/m/n' will be
-(Font)              scaled to size 6.02252pt on input line ....
-LaTeX Font Info:    Font shape `TU/STIX2Math.otf(3)/m/n' will be
-(Font)              scaled to size 12.04466pt on input line ....
-LaTeX Font Info:    Font shape `TU/STIX2Math.otf(3)/m/n' will be
-(Font)              scaled to size 8.43121pt on input line ....
-LaTeX Font Info:    Font shape `TU/STIX2Math.otf(3)/m/n' will be
-(Font)              scaled to size 6.02232pt on input line ....
-)
+(main-lot.lot)
 \tf@lot=\write...
 Completed box being shipped out [1]
 \vbox(722.98453+0.0)x435.04271
@@ -47,7 +33,7 @@ Completed box being shipped out [1]
 ....\special{color pop}
 ..\glue 6.82881
 ..\glue(\lineskip) 0.0
-..\vbox(700.50723+0.0)x417.11752, glue set 524.6696fil
+..\vbox(700.50723+0.0)x417.11752, glue set 518.82149fil
 ...\write-{}
 ...\write1{\protect \providecommand {\protect \FN@pp@footnotehinttrue }{}}
 ...\write1{\protect \providecommand {\protect \FN@pp@footnote@aux }[2]{}}
@@ -81,18 +67,22 @@ Completed box being shipped out [1]
 ....\glue(\rightskip) 0.0 plus 1.0fil
 ...\penalty 10000
 ...\glue 18.06729 plus -0.2
-...\glue 0.0 plus 0.2
+...\glue 0.0 plus 0.1
+...\penalty 10000
 ...\glue(\parskip) 0.0 plus 0.2
-...\hbox(8.22664+0.13248)x417.11752, glue set 314.19415fill
-....\glue(\leftskip) 24.08972
-....\hbox(0.0+0.0)x12.04486
+...\hbox(14.05226+6.02249)x417.11752, glue set 331.65897fill
+....\glue(\leftskip) 27.70322
 ....\hbox(0.0+0.0)x0.0
+....\rule(14.05226+6.02249)x0.0
+....\rule(*+*)x0.0
 ....\penalty 10000
-....\glue -24.08972
-....\TU/texgyretermes(0)/m/n/12.04486 1.1
-....\kern -0.0002
-....\kern 0.0002
-....\glue 12.04486
+....\glue -27.70322
+....\glue 0.0
+....\hbox(8.14233+0.13248)x27.70322, glue set 12.64714fil
+.....\TU/texgyretermes(0)/m/n/12.04486 1.1
+.....\kern -0.0002
+.....\kern 0.0002
+.....\glue 0.0 plus 1.0fil
 ....\TU/texgyretermes(0)/m/n/12.04486 Table
 ....\kern -0.00021
 ....\kern 0.00021
@@ -100,41 +90,48 @@ Completed box being shipped out [1]
 ....\TU/texgyretermes(0)/m/n/12.04486 foo
 ....\kern -0.0002
 ....\kern 0.0002
-....\penalty 10000
+....\rule(14.05226+6.02249)x0.0
+....\kern 0.0
+....\glue -9.03365
+....\glue 3.01122
 ....\leaders 0.0 plus 1.0fill
-.....\hbox(3.85435+0.0)x9.55157
-......\mathon
-......\kern 3.01122
-......\hbox(3.85435+0.0)x3.52914
-.......\mathon
-.......\TU/STIX2Math.otf(1)/m/n/12.04486 glyph#1938
-.......\mathoff
-......\kern 3.01122
-......\mathoff
-....\penalty 10000
-....\hbox(8.14233+0.0)x18.66957, glue set 12.64714fil
+.....\hbox(3.68573+0.0)x9.03365, glue set 6.02243fil
+......\glue 0.0 plus 1.0fil minus 1.0fil
+......\hbox(3.68573+0.0)x3.01122
+.......\special{color push  Black}
+.......\TU/texgyretermes(0)/m/n/12.04486 ^^b7
+.......\special{color pop}
+....\kern 0.0
+....\hbox(8.14233+0.0)x18.66977, glue set 12.64734fil
 .....\glue 0.0 plus 1.0fil
-.....\special{color push  Black}
 .....\TU/texgyretermes(0)/m/n/12.04486 1
 .....\kern -0.0002
 .....\kern 0.0002
-....\special{color pop}
+....\rule(*+*)x0.0
 ....\penalty 10000
-....\glue(\parfillskip) -30.71443
-....\glue(\rightskip) 30.71443
-...\glue 0.0 plus 0.2
+....\glue -18.66977
+....\penalty 10000
+....\glue(\parfillskip) -12.045 plus 1.0fil
+....\glue(\rightskip) 30.71477
+...\penalty 10000
+...\penalty 0
+...\glue 0.0 plus 0.1
+...\penalty 10000
 ...\glue(\parskip) 0.0 plus 0.2
-...\glue(\baselineskip) 11.71565
-...\hbox(8.22664+0.13248)x417.11752, glue set 314.38687fill
-....\glue(\leftskip) 24.08972
-....\hbox(0.0+0.0)x12.04486
+...\glue(\baselineskip) 0.00002
+...\hbox(14.05226+6.02249)x417.11752, glue set 331.85168fill
+....\glue(\leftskip) 27.70322
 ....\hbox(0.0+0.0)x0.0
+....\rule(14.05226+6.02249)x0.0
+....\rule(*+*)x0.0
 ....\penalty 10000
-....\glue -24.08972
-....\TU/texgyretermes(0)/m/n/12.04486 1.2
-....\kern -0.0002
-....\kern 0.0002
-....\glue 12.04486
+....\glue -27.70322
+....\glue 0.0
+....\hbox(8.14233+0.13248)x27.70322, glue set 12.64714fil
+.....\TU/texgyretermes(0)/m/n/12.04486 1.2
+.....\kern -0.0002
+.....\kern 0.0002
+.....\glue 0.0 plus 1.0fil
 ....\TU/texgyretermes(0)/m/n/12.04486 Table
 ....\kern -0.00021
 ....\kern 0.00021
@@ -142,41 +139,48 @@ Completed box being shipped out [1]
 ....\TU/texgyretermes(0)/m/n/12.04486 bar
 ....\kern -0.0002
 ....\kern 0.0002
-....\penalty 10000
+....\rule(14.05226+6.02249)x0.0
+....\kern 0.0
+....\glue -9.03365
+....\glue 3.01122
 ....\leaders 0.0 plus 1.0fill
-.....\hbox(3.85435+0.0)x9.55157
-......\mathon
-......\kern 3.01122
-......\hbox(3.85435+0.0)x3.52914
-.......\mathon
-.......\TU/STIX2Math.otf(1)/m/n/12.04486 glyph#1938
-.......\mathoff
-......\kern 3.01122
-......\mathoff
-....\penalty 10000
-....\hbox(8.14233+0.0)x18.66957, glue set 12.64714fil
+.....\hbox(3.68573+0.0)x9.03365, glue set 6.02243fil
+......\glue 0.0 plus 1.0fil minus 1.0fil
+......\hbox(3.68573+0.0)x3.01122
+.......\special{color push  Black}
+.......\TU/texgyretermes(0)/m/n/12.04486 ^^b7
+.......\special{color pop}
+....\kern 0.0
+....\hbox(8.14233+0.0)x18.66977, glue set 12.64734fil
 .....\glue 0.0 plus 1.0fil
-.....\special{color push  Black}
 .....\TU/texgyretermes(0)/m/n/12.04486 1
 .....\kern -0.0002
 .....\kern 0.0002
-....\special{color pop}
+....\rule(*+*)x0.0
 ....\penalty 10000
-....\glue(\parfillskip) -30.71443
-....\glue(\rightskip) 30.71443
-...\glue 0.0 plus 0.2
+....\glue -18.66977
+....\penalty 10000
+....\glue(\parfillskip) -12.045 plus 1.0fil
+....\glue(\rightskip) 30.71477
+...\penalty 10000
+...\penalty 0
+...\glue 0.0 plus 0.1
+...\penalty 10000
 ...\glue(\parskip) 0.0 plus 0.2
-...\glue(\baselineskip) 11.71565
-...\hbox(8.22664+0.16861)x417.11752, glue set 314.19415fill
-....\glue(\leftskip) 24.08972
-....\hbox(0.0+0.0)x12.04486
+...\glue(\baselineskip) 0.00002
+...\hbox(14.05226+6.02249)x417.11752, glue set 331.65897fill
+....\glue(\leftskip) 27.70322
 ....\hbox(0.0+0.0)x0.0
+....\rule(14.05226+6.02249)x0.0
+....\rule(*+*)x0.0
 ....\penalty 10000
-....\glue -24.08972
-....\TU/texgyretermes(0)/m/n/12.04486 1.3
-....\kern -0.0002
-....\kern 0.0002
-....\glue 12.04486
+....\glue -27.70322
+....\glue 0.0
+....\hbox(8.14233+0.16861)x27.70322, glue set 12.64714fil
+.....\TU/texgyretermes(0)/m/n/12.04486 1.3
+.....\kern -0.0002
+.....\kern 0.0002
+.....\glue 0.0 plus 1.0fil
 ....\TU/texgyretermes(0)/m/n/12.04486 Table
 ....\kern -0.00021
 ....\kern 0.00021
@@ -184,42 +188,52 @@ Completed box being shipped out [1]
 ....\TU/texgyretermes(0)/m/n/12.04486 foo
 ....\kern -0.0002
 ....\kern 0.0002
-....\penalty 10000
+....\rule(14.05226+6.02249)x0.0
+....\kern 0.0
+....\glue -9.03365
+....\glue 3.01122
 ....\leaders 0.0 plus 1.0fill
-.....\hbox(3.85435+0.0)x9.55157
-......\mathon
-......\kern 3.01122
-......\hbox(3.85435+0.0)x3.52914
-.......\mathon
-.......\TU/STIX2Math.otf(1)/m/n/12.04486 glyph#1938
-.......\mathoff
-......\kern 3.01122
-......\mathoff
-....\penalty 10000
-....\hbox(8.14233+0.0)x18.66957, glue set 12.64714fil
+.....\hbox(3.68573+0.0)x9.03365, glue set 6.02243fil
+......\glue 0.0 plus 1.0fil minus 1.0fil
+......\hbox(3.68573+0.0)x3.01122
+.......\special{color push  Black}
+.......\TU/texgyretermes(0)/m/n/12.04486 ^^b7
+.......\special{color pop}
+....\kern 0.0
+....\hbox(8.14233+0.0)x18.66977, glue set 12.64734fil
 .....\glue 0.0 plus 1.0fil
-.....\special{color push  Black}
 .....\TU/texgyretermes(0)/m/n/12.04486 1
 .....\kern -0.0002
 .....\kern 0.0002
-....\special{color pop}
+....\rule(*+*)x0.0
 ....\penalty 10000
-....\glue(\parfillskip) -30.71443
-....\glue(\rightskip) 30.71443
+....\glue -18.66977
+....\penalty 10000
+....\glue(\parfillskip) -12.045 plus 1.0fil
+....\glue(\rightskip) 30.71477
+...\penalty 10000
 ...\glue 10.0
-...\glue 0.0 plus 0.2
+...\glue -16.0
+...\penalty 0
+...\glue 6.0
+...\glue 10.0
+...\glue 0.0 plus 0.1
+...\penalty 10000
 ...\glue(\parskip) 0.0 plus 0.2
-...\glue(\baselineskip) 11.67952
-...\hbox(8.22664+0.13248)x417.11752, glue set 314.19415fill
-....\glue(\leftskip) 24.08972
-....\hbox(0.0+0.0)x12.04486
+...\glue(\baselineskip) 0.00002
+...\hbox(14.05226+6.02249)x417.11752, glue set 331.65897fill
+....\glue(\leftskip) 27.70322
 ....\hbox(0.0+0.0)x0.0
+....\rule(14.05226+6.02249)x0.0
+....\rule(*+*)x0.0
 ....\penalty 10000
-....\glue -24.08972
-....\TU/texgyretermes(0)/m/n/12.04486 2.1
-....\kern -0.0002
-....\kern 0.0002
-....\glue 12.04486
+....\glue -27.70322
+....\glue 0.0
+....\hbox(8.14233+0.13248)x27.70322, glue set 12.64714fil
+.....\TU/texgyretermes(0)/m/n/12.04486 2.1
+.....\kern -0.0002
+.....\kern 0.0002
+.....\glue 0.0 plus 1.0fil
 ....\TU/texgyretermes(0)/m/n/12.04486 Table
 ....\kern -0.00021
 ....\kern 0.00021
@@ -227,41 +241,48 @@ Completed box being shipped out [1]
 ....\TU/texgyretermes(0)/m/n/12.04486 foo
 ....\kern -0.0002
 ....\kern 0.0002
-....\penalty 10000
+....\rule(14.05226+6.02249)x0.0
+....\kern 0.0
+....\glue -9.03365
+....\glue 3.01122
 ....\leaders 0.0 plus 1.0fill
-.....\hbox(3.85435+0.0)x9.55157
-......\mathon
-......\kern 3.01122
-......\hbox(3.85435+0.0)x3.52914
-.......\mathon
-.......\TU/STIX2Math.otf(1)/m/n/12.04486 glyph#1938
-.......\mathoff
-......\kern 3.01122
-......\mathoff
-....\penalty 10000
-....\hbox(8.14233+0.0)x18.66957, glue set 12.64714fil
+.....\hbox(3.68573+0.0)x9.03365, glue set 6.02243fil
+......\glue 0.0 plus 1.0fil minus 1.0fil
+......\hbox(3.68573+0.0)x3.01122
+.......\special{color push  Black}
+.......\TU/texgyretermes(0)/m/n/12.04486 ^^b7
+.......\special{color pop}
+....\kern 0.0
+....\hbox(8.14233+0.0)x18.66977, glue set 12.64734fil
 .....\glue 0.0 plus 1.0fil
-.....\special{color push  Black}
 .....\TU/texgyretermes(0)/m/n/12.04486 2
 .....\kern -0.0002
 .....\kern 0.0002
-....\special{color pop}
+....\rule(*+*)x0.0
 ....\penalty 10000
-....\glue(\parfillskip) -30.71443
-....\glue(\rightskip) 30.71443
-...\glue 0.0 plus 0.2
+....\glue -18.66977
+....\penalty 10000
+....\glue(\parfillskip) -12.045 plus 1.0fil
+....\glue(\rightskip) 30.71477
+...\penalty 10000
+...\penalty 0
+...\glue 0.0 plus 0.1
+...\penalty 10000
 ...\glue(\parskip) 0.0 plus 0.2
-...\glue(\baselineskip) 11.71565
-...\hbox(8.22664+0.13248)x417.11752, glue set 314.38687fill
-....\glue(\leftskip) 24.08972
-....\hbox(0.0+0.0)x12.04486
+...\glue(\baselineskip) 0.00002
+...\hbox(14.05226+6.02249)x417.11752, glue set 331.85168fill
+....\glue(\leftskip) 27.70322
 ....\hbox(0.0+0.0)x0.0
+....\rule(14.05226+6.02249)x0.0
+....\rule(*+*)x0.0
 ....\penalty 10000
-....\glue -24.08972
-....\TU/texgyretermes(0)/m/n/12.04486 2.2
-....\kern -0.0002
-....\kern 0.0002
-....\glue 12.04486
+....\glue -27.70322
+....\glue 0.0
+....\hbox(8.14233+0.13248)x27.70322, glue set 12.64714fil
+.....\TU/texgyretermes(0)/m/n/12.04486 2.2
+.....\kern -0.0002
+.....\kern 0.0002
+.....\glue 0.0 plus 1.0fil
 ....\TU/texgyretermes(0)/m/n/12.04486 Table
 ....\kern -0.00021
 ....\kern 0.00021
@@ -269,41 +290,48 @@ Completed box being shipped out [1]
 ....\TU/texgyretermes(0)/m/n/12.04486 bar
 ....\kern -0.0002
 ....\kern 0.0002
-....\penalty 10000
+....\rule(14.05226+6.02249)x0.0
+....\kern 0.0
+....\glue -9.03365
+....\glue 3.01122
 ....\leaders 0.0 plus 1.0fill
-.....\hbox(3.85435+0.0)x9.55157
-......\mathon
-......\kern 3.01122
-......\hbox(3.85435+0.0)x3.52914
-.......\mathon
-.......\TU/STIX2Math.otf(1)/m/n/12.04486 glyph#1938
-.......\mathoff
-......\kern 3.01122
-......\mathoff
-....\penalty 10000
-....\hbox(8.14233+0.0)x18.66957, glue set 12.64714fil
+.....\hbox(3.68573+0.0)x9.03365, glue set 6.02243fil
+......\glue 0.0 plus 1.0fil minus 1.0fil
+......\hbox(3.68573+0.0)x3.01122
+.......\special{color push  Black}
+.......\TU/texgyretermes(0)/m/n/12.04486 ^^b7
+.......\special{color pop}
+....\kern 0.0
+....\hbox(8.14233+0.0)x18.66977, glue set 12.64734fil
 .....\glue 0.0 plus 1.0fil
-.....\special{color push  Black}
 .....\TU/texgyretermes(0)/m/n/12.04486 2
 .....\kern -0.0002
 .....\kern 0.0002
-....\special{color pop}
+....\rule(*+*)x0.0
 ....\penalty 10000
-....\glue(\parfillskip) -30.71443
-....\glue(\rightskip) 30.71443
-...\glue 0.0 plus 0.2
+....\glue -18.66977
+....\penalty 10000
+....\glue(\parfillskip) -12.045 plus 1.0fil
+....\glue(\rightskip) 30.71477
+...\penalty 10000
+...\penalty 0
+...\glue 0.0 plus 0.1
+...\penalty 10000
 ...\glue(\parskip) 0.0 plus 0.2
-...\glue(\baselineskip) 11.71565
-...\hbox(8.22664+0.16861)x417.11752, glue set 314.19415fill
-....\glue(\leftskip) 24.08972
-....\hbox(0.0+0.0)x12.04486
+...\glue(\baselineskip) 0.00002
+...\hbox(14.05226+6.02249)x417.11752, glue set 331.65897fill
+....\glue(\leftskip) 27.70322
 ....\hbox(0.0+0.0)x0.0
+....\rule(14.05226+6.02249)x0.0
+....\rule(*+*)x0.0
 ....\penalty 10000
-....\glue -24.08972
-....\TU/texgyretermes(0)/m/n/12.04486 2.3
-....\kern -0.0002
-....\kern 0.0002
-....\glue 12.04486
+....\glue -27.70322
+....\glue 0.0
+....\hbox(8.14233+0.16861)x27.70322, glue set 12.64714fil
+.....\TU/texgyretermes(0)/m/n/12.04486 2.3
+.....\kern -0.0002
+.....\kern 0.0002
+.....\glue 0.0 plus 1.0fil
 ....\TU/texgyretermes(0)/m/n/12.04486 Table
 ....\kern -0.00021
 ....\kern 0.00021
@@ -311,30 +339,32 @@ Completed box being shipped out [1]
 ....\TU/texgyretermes(0)/m/n/12.04486 foo
 ....\kern -0.0002
 ....\kern 0.0002
-....\penalty 10000
+....\rule(14.05226+6.02249)x0.0
+....\kern 0.0
+....\glue -9.03365
+....\glue 3.01122
 ....\leaders 0.0 plus 1.0fill
-.....\hbox(3.85435+0.0)x9.55157
-......\mathon
-......\kern 3.01122
-......\hbox(3.85435+0.0)x3.52914
-.......\mathon
-.......\TU/STIX2Math.otf(1)/m/n/12.04486 glyph#1938
-.......\mathoff
-......\kern 3.01122
-......\mathoff
-....\penalty 10000
-....\hbox(8.14233+0.0)x18.66957, glue set 12.64714fil
+.....\hbox(3.68573+0.0)x9.03365, glue set 6.02243fil
+......\glue 0.0 plus 1.0fil minus 1.0fil
+......\hbox(3.68573+0.0)x3.01122
+.......\special{color push  Black}
+.......\TU/texgyretermes(0)/m/n/12.04486 ^^b7
+.......\special{color pop}
+....\kern 0.0
+....\hbox(8.14233+0.0)x18.66977, glue set 12.64734fil
 .....\glue 0.0 plus 1.0fil
-.....\special{color push  Black}
 .....\TU/texgyretermes(0)/m/n/12.04486 2
 .....\kern -0.0002
 .....\kern 0.0002
-....\special{color pop}
+....\rule(*+*)x0.0
 ....\penalty 10000
-....\glue(\parfillskip) -30.71443
-....\glue(\rightskip) 30.71443
+....\glue -18.66977
+....\penalty 10000
+....\glue(\parfillskip) -12.045 plus 1.0fil
+....\glue(\rightskip) 30.71477
+...\penalty 10000
 ...\write1{\protect \FN@pp@footnotehinttrue }
-...\glue -0.16861
+...\glue -6.0
 ...\glue 0.0 plus 1.0fil
 ...\glue 0.0
 ..\glue(\baselineskip) 15.35295
