@@ -54,8 +54,7 @@ version 2005/12/01 or later.
 %</class>
 %
 %<*driver>
-\documentclass{ltxdoc}
-\usepackage[paper=a4paper,margin=1in,left=1.5in]{geometry}
+\documentclass[a4paper]{ltxdoc}
 \usepackage{hypdoc}
 \hypersetup{
   allcolors=blue,
@@ -88,12 +87,6 @@ version 2005/12/01 or later.
     frame=single,
     gobble=2,
     language=[LaTeX]TeX}}{}
-\lstnewenvironment{pseudocode}{%
-  \lstset{
-    basicstyle=\ttfamily,
-    frame=single,
-    gobble=2,
-    language=bash}}{}
 \makeatletter
 \def\DescribeOption{\leavevmode\@bsphack\begingroup\MakePrivateLetters
   \Describe@Option}
@@ -2630,23 +2623,46 @@ version 2005/12/01 or later.
 %
 % \subsubsection{\pkg{algorithm2e} 宏包}
 %
+% 按章节编号。
+% \changes{v3.1.03}{2018/11/21}{修正算法的格式}
+%    \begin{macrocode}
+\PassOptionsToPackage{algochapter}{algorithm2e}
+%    \end{macrocode}
+%
 %    \begin{macrocode}
 \ustc@atendpackage{algorithm2e}{
   \ifustc@chinese
-    \renewcommand\listalgorithmcfname{算法索引}
-    \renewcommand\algorithmcfname{算法}
+    \SetAlgorithmName{算法}{算法}{算法清单}
   \else
-    \renewcommand\listalgorithmcfname{List of Algorithms}
-    \renewcommand\algorithmcfname{Algorithm}
+    \SetAlgorithmName{Algorithm}{Algorithm}{List of Algorithms}
   \fi
 %    \end{macrocode}
 %
-% 使算法目录另起一页
+% 设置算法环境的格式。
 %    \begin{macrocode}
-  \let\ustc@save@listofalgorithms=\listofalgorithms
-  \renewcommand\listofalgorithms{%
-    \cleardoublepage
-    \ustc@save@listofalgorithms}
+  \SetAlCapSkip{6\bp@}
+  \SetAlCapFnt{\small}
+  \SetAlCapNameFnt{\small}
+  \ifustc@graduate
+    \SetAlCapNameSty{textbf}
+  \fi
+  \SetAlgoCaptionSeparator{\unskip\hspace*{\ccwd}}
+%    \end{macrocode}
+%
+% 设置算法清单的格式
+%    \begin{macrocode}
+  \renewcommand\listofalgocfs{%
+    \ifustc@graduate
+      \cleardoublepage
+    \fi
+    \ustc@chapter{\listalgorithmcfname}%
+    \@starttoc{loa}%
+  }
+  \titlecontents{algocf}
+    [2.3em]{\normalsize}
+    {\contentslabel{2.3em}}{}
+    {\ustc@leaders\contentspage}
+  \contentsuse{algocf}{loa}
 }
 %    \end{macrocode}
 %

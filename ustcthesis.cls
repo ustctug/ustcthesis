@@ -1196,18 +1196,32 @@
   }
   \renewcommand\proofname\ustc@proofname
 }
+\PassOptionsToPackage{algochapter}{algorithm2e}
 \ustc@atendpackage{algorithm2e}{
   \ifustc@chinese
-    \renewcommand\listalgorithmcfname{算法索引}
-    \renewcommand\algorithmcfname{算法}
+    \SetAlgorithmName{算法}{算法}{算法清单}
   \else
-    \renewcommand\listalgorithmcfname{List of Algorithms}
-    \renewcommand\algorithmcfname{Algorithm}
+    \SetAlgorithmName{Algorithm}{Algorithm}{List of Algorithms}
   \fi
-  \let\ustc@save@listofalgorithms=\listofalgorithms
-  \renewcommand\listofalgorithms{%
-    \cleardoublepage
-    \ustc@save@listofalgorithms}
+  \SetAlCapSkip{6\bp@}
+  \SetAlCapFnt{\small}
+  \SetAlCapNameFnt{\small}
+  \ifustc@graduate
+    \SetAlCapNameSty{textbf}
+  \fi
+  \SetAlgoCaptionSeparator{\unskip\hspace*{\ccwd}}
+  \renewcommand\listofalgocfs{%
+    \ifustc@graduate
+      \cleardoublepage
+    \fi
+    \ustc@chapter{\listalgorithmcfname}%
+    \@starttoc{loa}%
+  }
+  \titlecontents{algocf}
+    [2.3em]{\normalsize}
+    {\contentslabel{2.3em}}{}
+    {\ustc@leaders\contentspage}
+  \contentsuse{algocf}{loa}
 }
 \ustc@atendpackage{nomencl}{
   \let\nomname\ustc@notationname
