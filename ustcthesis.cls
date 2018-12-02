@@ -557,7 +557,7 @@
   \ustc@setdefaultlanguage
 }
 \renewcommand\maketitle{%
-  \newgeometry{margin=2.54cm}
+  \newgeometry{margin=2.54cm}%
   \pagenumbering{Alph}%
   \pagestyle{empty}%
   \ustc@makezhtitle
@@ -892,6 +892,22 @@
 }{%
   \clearpage\pagestyle{plain}%
 }%
+\newcommand*\notationlabel[1]{#1\hfil}%
+\newenvironment{notationlist}[1]{%
+  \list{}{%
+    \itemsep 3pt%
+    \labelwidth #1\relax%
+    \labelsep 1em%
+    \leftmargin\labelwidth
+    \advance\leftmargin\labelsep
+    \advance\leftmargin 3em%
+    \rightmargin 3em%
+    \let\makelabel\notationlabel
+  }%
+}{%
+  \endlist
+}
+
 \setlength{\parskip}{0\p@ \@plus .2\p@}
 \let\@afterindentfalse\@afterindenttrue
 \@afterindenttrue
@@ -942,8 +958,8 @@
 \setcounter{bottomnumber}{9}
 \setcounter{totalnumber}{20}
 \setcounter{dbltopnumber}{9}
-\def\fps@figure{htbp}
-\def\fps@table{htbp}
+\def\fps@figure{htb}
+\def\fps@table{htb}
 \DeclareCaptionLabelSeparator{zhspace}{\hspace{\ccwd}}
 \captionsetup{
   format   = hang,

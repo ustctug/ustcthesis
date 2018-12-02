@@ -1475,7 +1475,7 @@ version 2005/12/01 or later.
 % 分别生成中、英文封面。
 %    \begin{macrocode}
 \renewcommand\maketitle{%
-  \newgeometry{margin=2.54cm}
+  \newgeometry{margin=2.54cm}%
   \pagenumbering{Alph}%
   \pagestyle{empty}%
   \ustc@makezhtitle
@@ -2035,6 +2035,22 @@ version 2005/12/01 or later.
 }{%
   \clearpage\pagestyle{plain}%
 }%
+\newcommand*\notationlabel[1]{#1\hfil}%
+\newenvironment{notationlist}[1]{%
+  \list{}{%
+    \itemsep 3pt%
+    \labelwidth #1\relax%
+    \labelsep 1em%
+    \leftmargin\labelwidth
+    \advance\leftmargin\labelsep
+    \advance\leftmargin 3em%
+    \rightmargin 3em%
+    \let\makelabel\notationlabel
+  }%
+}{%
+  \endlist
+}
+
 %    \end{macrocode}
 % \end{environment}
 %
@@ -2153,10 +2169,10 @@ version 2005/12/01 or later.
 \setcounter{dbltopnumber}{9}
 %    \end{macrocode}
 %
-% 修改默认的浮动体描述符为 |htbp|。
+% 修改默认的浮动体描述符为 |htb|。
 %    \begin{macrocode}
-\def\fps@figure{htbp}
-\def\fps@table{htbp}
+\def\fps@figure{htb}
+\def\fps@table{htb}
 %    \end{macrocode}
 %
 % 用 \pkg{caption} 宏包设置图、表的格式
