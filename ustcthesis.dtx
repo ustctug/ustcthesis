@@ -55,39 +55,39 @@ version 2005/12/01 or later.
 %
 %<*driver>
 \documentclass[a4paper]{ltxdoc}
-\usepackage{hypdoc}
-\hypersetup{
-  allcolors=blue,
-  bookmarksnumbered=true,
-  bookmarksopen=true,
-}
 \usepackage[UTF8]{ctex}
-\usepackage[math-style=ISO,bold-style=ISO]{unicode-math}
+\usepackage{unicode-math}
+\usepackage{caption}
+\usepackage{booktabs}
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{hypdoc}
+
+\makeatletter
+
+% 设置字体
 \IfFileExists{/System/Library/Fonts/Times.ttc}{
   \setmainfont{Times}
   \setsansfont[Scale=MatchLowercase]{Helvetica}
   \setmonofont[Scale=MatchLowercase]{Menlo}
   \xeCJKsetwidth{‘’“”}{1em}
 }{}
+\unimathsetup{
+  math-style=ISO,
+  bold-style=ISO,
+}
 \setmathfont{STIX2Math.otf}
-\usepackage{caption}
-\usepackage{booktabs}
-\usepackage{xcolor}
-\usepackage{listings}
-\lstdefinestyle{lstshell}{
-  basicstyle=\small\ttfamily,
-  backgroundcolor=\color{lightgray},
-  gobble=2,% 重要！否则会生成注释符号"%"
-  language=bash}
-\newcommand\shellcmd[1]{\colorbox{lightgray}{\lstinline[style=lstshell]|#1|}}
-\lstnewenvironment{shell}{\lstset{style=lstshell}}{}
-\lstnewenvironment{latex}{%
-  \lstset{
-    basicstyle=\small\ttfamily,
-    frame=single,
-    gobble=2,
-    language=[LaTeX]TeX}}{}
-\makeatletter
+
+% 定义一些命令用于写文档
+\newcommand\TeXLive{\TeX{} Live}
+\newcommand\unicodechar[1]{U+#1（\symbol{"#1}）}
+\DeclareRobustCommand\file{\nolinkurl}
+\DeclareRobustCommand\env{\texttt}
+\DeclareRobustCommand\pkg{\textsf}
+\DeclareRobustCommand\cls{\textsf}
+\DeclareRobustCommand\opt{\texttt}
+
+% 在 doc 的基础上增加 option 的描述
 \def\DescribeOption{\leavevmode\@bsphack\begingroup\MakePrivateLetters
   \Describe@Option}
 \def\Describe@Option#1{\endgroup
@@ -95,12 +95,8 @@ version 2005/12/01 or later.
               \SpecialEnvIndex{#1}\@esphack\ignorespaces}
 \@ifundefined{PrintDescribeOption}
    {\def\PrintDescribeOption#1{\strut \MacroFont #1\ }}{}
-% 模仿 l3doc 的定义（见 l3styleguide）
-\DeclareRobustCommand\file{\nolinkurl}
-\DeclareRobustCommand\env{\texttt}
-\DeclareRobustCommand\pkg{\textsf}
-\DeclareRobustCommand\cls{\textsf}
-\DeclareRobustCommand\opt{\texttt}
+
+% 调整列表的格式
 \setlength\partopsep{\z@}
 \def\@listi{\leftmargin\leftmargini
             \parsep \z@
@@ -108,6 +104,26 @@ version 2005/12/01 or later.
             \itemsep2\p@ \@plus\p@ \@minus\p@}
 \let\@listI\@listi
 \@listi
+
+% listings 的样式
+\lstdefinestyle{lstshell}{
+  basicstyle      = \small\ttfamily,
+  backgroundcolor = \color{lightgray},
+  gobble          = 2, % 重要！否则会生成注释符号"%"
+  language        = bash,
+}
+\newcommand\shellcmd[1]{\colorbox{lightgray}{\lstinline[style=lstshell]|#1|}}
+\lstnewenvironment{shell}{\lstset{style=lstshell}}{}
+\lstnewenvironment{latex}{%
+  \lstset{
+    basicstyle = \small\ttfamily,
+    frame      = single,
+    gobble     = 4,
+    language   = [LaTeX]TeX,
+  }%
+}{}
+
+% 调整版本历史和索引的格式
 \renewcommand\glossaryname{版本历史}
 \GlossaryPrologue{\section*{\glossaryname}}
 \def\changes@#1#2#3{%
@@ -131,9 +147,14 @@ version 2005/12/01 or later.
   \section*{\indexname}
   \textit{意大利体的数字表示描述对应索引项的页码；%
     带下划线的数字表示定义对应索引项的代码行号；%
-    罗马字体的数字表示使用对应索引项的代码行号。}}
-\newcommand\TeXLive{\TeX{} Live}
-\newcommand\unicodechar[1]{U+#1（\symbol{"#1}）}
+    罗马字体的数字表示使用对应索引项的代码行号。}%
+}
+
+\hypersetup{
+  allcolors         = blue,
+  bookmarksnumbered = true,
+  bookmarksopen     = true,
+}
 \makeatother
 
 \EnableCrossrefs
@@ -276,6 +297,7 @@ version 2005/12/01 or later.
 % \pkg{amsmath},
 % \pkg{caption},
 % \pkg{calc},
+% \pkg{color},
 % \pkg{ctex},
 % \pkg{footmisc},
 % \pkg{geometry},
@@ -313,11 +335,11 @@ version 2005/12/01 or later.
 % Linux/Mac用户，可以直接使用 GNU make 工具，这是最简单的方法。
 % 编译论文 \file{main.pdf}：
 % \begin{shell}
-% make
+%   make
 % \end{shell}
 % 编译说明文档 \file{ustcthesis.pdf}：
 % \begin{shell}
-% make doc
+%   make doc
 % \end{shell}
 % 另外还可以用 \shellcmd{make clean} 清理辅助文件。
 %
@@ -326,11 +348,11 @@ version 2005/12/01 or later.
 % 配置文件由 \file{latexmkrc} 给出，其参数设置为 |-xelatex|，用户编译论文
 % 只需使用命令：
 % \begin{shell}
-% latexmk -xelatex main.tex
+%   latexmk -xelatex main.tex
 % \end{shell}
 % 编译说明文档：
 % \begin{shell}
-% latexmk -xelatex ustcthesis.dtx
+%   latexmk -xelatex ustcthesis.dtx
 % \end{shell}
 % 清理辅助文件可以用 \shellcmd{latexmk -c}。图形界面用户应参考编辑器的使用说明。
 %
@@ -339,18 +361,18 @@ version 2005/12/01 or later.
 %
 % 编译论文 \file{main.pdf}：
 % \begin{shell}
-% xelatex main
-% bibtex main # 如果不使用 BibTeX 可以略过此步
-% xelatex main
-% xelatex main
+%   xelatex main
+%   bibtex main # 如果不使用 BibTeX 可以略过此步
+%   xelatex main
+%   xelatex main
 % \end{shell}
 % 编译说明文档 \file{ustcthesis.pdf}：
 % \begin{shell}
-% xelatex ustcthesis.dtx
-% makeindex -s gind.ist ustcthesis.idx
-% makeindex -s gglo.ist -o ustcthesis.gls ustcthesis.glo
-% xelatex ustcthesis.dtx
-% xelatex ustcthesis.dtx
+%   xelatex ustcthesis.dtx
+%   makeindex -s gind.ist ustcthesis.idx
+%   makeindex -s gglo.ist -o ustcthesis.gls ustcthesis.glo
+%   xelatex ustcthesis.dtx
+%   xelatex ustcthesis.dtx
 % \end{shell}
 % \end{enumerate}
 %
@@ -362,7 +384,7 @@ version 2005/12/01 or later.
 % \subsection{文档类参数}
 % 模板提供了若干选项，应在载入模板时设置，如：
 % \begin{latex}
-% \documentclass[doctor,english,pdf]{ustcthesis}
+%   \documentclass[doctor,english,pdf]{ustcthesis}
 % \end{latex}
 %
 % 全部的选项见表~\ref{tab:options}。
@@ -487,10 +509,10 @@ version 2005/12/01 or later.
 % 摘要的关键词应使用 \cs{keywords} 和 \cs{enkeywords} 命令，
 % 并包含在摘要环境中，比如：
 % \begin{latex}
-% \begin{abstract}
-%   这里是摘要。
-%   \keywords{论文；摘要；关键词}
-% \end{abstract}
+%   \begin{abstract}
+%     这里是摘要。
+%     \keywords{论文；摘要；关键词}
+%   \end{abstract}
 % \end{latex}
 %
 % \DescribeMacro{\tableofcontents}
@@ -564,7 +586,7 @@ version 2005/12/01 or later.
 % 《撰写手册》推荐使用角标数字式顺序编码制（默认），
 % 用户也可以在文档类参数中设置，如：
 % \begin{latex}
-% \documentclass[doctor,authoryear]{ustcthesis}
+%   \documentclass[doctor,authoryear]{ustcthesis}
 % \end{latex}
 %
 % \DescribeMacro{\cite}
@@ -578,7 +600,7 @@ version 2005/12/01 or later.
 % 在使用角标数字式时，如果文献序号作为叙述文字的一部分，
 % 需要临时将文献序号与正文平排，可以使用 \cs{inlinecite} 命令，如：
 % \begin{latex}
-% 文献~\inlinecite{knuth84} 提出了一种新的断行算法
+%   文献~\inlinecite{knuth84} 提出了一种新的断行算法
 % \end{latex}
 %
 % 若需要标出引文的页码，可以标在 \cs{cite} 的可选参数中，如
@@ -592,11 +614,11 @@ version 2005/12/01 or later.
 % \BibTeX{} 默认情况下可以自动识别文献语言，并自动处理文献类型和载体类型标识，
 % 但是在少数情况下需要用户手动指定，如：
 % \begin{latex}
-% @misc{citekey,
-%   language = {japanese},
-%   mark     = {Z},
-%   medium   = {DK},
-%   ...
+%   @misc{citekey,
+%     language = {japanese},
+%     mark     = {Z},
+%     medium   = {DK},
+%     ...
 % \end{latex}
 % 可选的语言有 english, chinese, japanese, russian。
 %
@@ -606,10 +628,10 @@ version 2005/12/01 or later.
 % 然而由于 \BibTeX{} 功能的局限性，无法自动获取著者姓名的拼音或笔画笔顺，
 % 所以\emph{必须}在 bib 数据库中的 key 域手动录入著者姓名的拼音，如：
 % \begin{latex}
-% @book{capital,
-%   author = {马克思 and 恩格斯},
-%   key    = {ma3 ke4 si1   en1 ge2 si1},
-%   ...
+%   @book{capital,
+%     author = {马克思 and 恩格斯},
+%     key    = {ma3 ke4 si1   en1 ge2 si1},
+%     ...
 % \end{latex}
 %
 % \BibTeX{} 对自定义样式的支持比较有限，
@@ -1576,7 +1598,7 @@ version 2005/12/01 or later.
 % 这里用 \LaTeX3 的 \cs{str\_count:N} 判断字数。
 % 注意，\pkg{stringstrings} 宏包会导致范数命令 \verb+\|+ 被修改。
 % \changes{v3.0}{2017/07/01}{章题为两字时中间空两字，三字时空一字，
-% 四字时空半字，四字以上不空}
+%   四字时空半字，四字以上不空}
 % \changes{v3.0.1}{2017/12/12}{更正范数命令失效的错误}
 %    \begin{macrocode}
 \newcount\ustc@titlelength
@@ -1891,12 +1913,7 @@ version 2005/12/01 or later.
 %    \end{macrocode}
 % \end{macro}
 %
-% 使用 \pkg{ctex} 的 \cs{ctex\_patch\_cmd:Nnn} 命令。
-% \changes{v3.1.01}{2018/10/06}{取消依赖 \pkg{etoolbox}}
-%    \begin{macrocode}
-\newcommand\ustc@patchcmd{\csname ctex_patch_cmd:Nnn\endcsname}
-%    \end{macrocode}
-%
+% 下面用 \pkg{titletoc} 宏包设置目录内容的格式。
 % 先定义目录线：
 %    \begin{macrocode}
 \newcommand\ustc@leaders{\titlerule*[9\bp@]{\textperiodcentered}}
@@ -2029,11 +2046,16 @@ version 2005/12/01 or later.
 % \changes{v3.0.b}{2018/05/18}{更正符号说明的字号}
 %    \begin{macrocode}
 \newenvironment{notation}{%
-  \ifustc@graduate\cleardoublepage\else\clearpage\fi
-  \pagestyle{headings}%
+  \ifustc@graduate
+    \cleardoublepage
+    \pagestyle{headings}%
+  \fi
   \ustc@chapter{\ustc@notationname}%
 }{%
-  \clearpage\pagestyle{plain}%
+  \ifustc@graduate
+    \clearpage
+    \pagestyle{plain}%
+  \fi
 }%
 \newcommand*\notationlabel[1]{#1\hfil}%
 \newenvironment{notationlist}[1]{%
@@ -2050,7 +2072,6 @@ version 2005/12/01 or later.
 }{%
   \endlist
 }
-
 %    \end{macrocode}
 % \end{environment}
 %
@@ -2062,7 +2083,7 @@ version 2005/12/01 or later.
 \setlength{\parskip}{0\p@ \@plus .2\p@}
 %    \end{macrocode}
 %
-% 首段缩进。
+% 在 \opt{scheme=plain} 时也首段缩进。
 %    \begin{macrocode}
 \let\@afterindentfalse\@afterindenttrue
 \@afterindenttrue
@@ -2346,6 +2367,12 @@ version 2005/12/01 or later.
   \fi
   \bibliographystyle{ustcthesis-bachelor}
 \fi
+%    \end{macrocode}
+%
+% 使用 \pkg{ctex} 的 \cs{ctex\_patch\_cmd:Nnn} 命令。
+% \changes{v3.1.01}{2018/10/06}{取消依赖 \pkg{etoolbox}}
+%    \begin{macrocode}
+\newcommand\ustc@patchcmd{\csname ctex_patch_cmd:Nnn\endcsname}
 %    \end{macrocode}
 %
 % \begin{macro}{\cite}
@@ -2690,8 +2717,10 @@ version 2005/12/01 or later.
 \ustc@atendpackage{nomencl}{
   \let\nomname\ustc@notationname
   \def\thenomenclature{%
-    \ifustc@graduate\cleardoublepage\else\clearpage\fi
-    \pagestyle{headings}%
+    \ifustc@graduate
+      \cleardoublepage
+      \pagestyle{headings}%
+    \fi
     \ustc@chapter{\ustc@notationname}%
     \nompreamble
     \list{}{%
@@ -2703,7 +2732,10 @@ version 2005/12/01 or later.
   \def\endthenomenclature{%
     \endlist
     \nompostamble
-    \clearpage\pagestyle{plain}%
+    \ifustc@graduate
+      \clearpage
+      \pagestyle{plain}%
+    \fi
   }
 }
 %    \end{macrocode}

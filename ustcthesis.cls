@@ -813,7 +813,6 @@
   \ustc@chapter{\contentsname}%
   \@starttoc{toc}%
 }
-\newcommand\ustc@patchcmd{\csname ctex_patch_cmd:Nnn\endcsname}
 \newcommand\ustc@leaders{\titlerule*[9\bp@]{\textperiodcentered}}
 \ifustc@graduate
   \titlecontents{chapter}
@@ -886,11 +885,16 @@
   {\contentslabel{2.3em}}{}
   {\ustc@leaders\contentspage}
 \newenvironment{notation}{%
-  \ifustc@graduate\cleardoublepage\else\clearpage\fi
-  \pagestyle{headings}%
+  \ifustc@graduate
+    \cleardoublepage
+    \pagestyle{headings}%
+  \fi
   \ustc@chapter{\ustc@notationname}%
 }{%
-  \clearpage\pagestyle{plain}%
+  \ifustc@graduate
+    \clearpage
+    \pagestyle{plain}%
+  \fi
 }%
 \newcommand*\notationlabel[1]{#1\hfil}%
 \newenvironment{notationlist}[1]{%
@@ -907,7 +911,6 @@
 }{%
   \endlist
 }
-
 \setlength{\parskip}{0\p@ \@plus .2\p@}
 \let\@afterindentfalse\@afterindenttrue
 \@afterindenttrue
@@ -1043,6 +1046,7 @@
   \fi
   \bibliographystyle{ustcthesis-bachelor}
 \fi
+\newcommand\ustc@patchcmd{\csname ctex_patch_cmd:Nnn\endcsname}
 \ustc@patchcmd{\NAT@citexnum}{%
   \@ifnum{\NAT@ctype=\z@}{%
     \if*#2*\else\NAT@cmt#2\fi
@@ -1242,8 +1246,10 @@
 \ustc@atendpackage{nomencl}{
   \let\nomname\ustc@notationname
   \def\thenomenclature{%
-    \ifustc@graduate\cleardoublepage\else\clearpage\fi
-    \pagestyle{headings}%
+    \ifustc@graduate
+      \cleardoublepage
+      \pagestyle{headings}%
+    \fi
     \ustc@chapter{\ustc@notationname}%
     \nompreamble
     \list{}{%
@@ -1255,7 +1261,10 @@
   \def\endthenomenclature{%
     \endlist
     \nompostamble
-    \clearpage\pagestyle{plain}%
+    \ifustc@graduate
+      \clearpage
+      \pagestyle{plain}%
+    \fi
   }
 }
 \ustc@atendpackage{siunitx}{
