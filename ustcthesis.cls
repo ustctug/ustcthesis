@@ -6,7 +6,7 @@
 %%
 %% ustcthesis.dtx  (with options: `class')
 %% 
-%% Copyright (C) 2015-2018 by Zeping Lee <zepinglee AT gmail.com>
+%% Copyright (C) 2015-2019 by Zeping Lee <zepinglee AT gmail.com>
 %% 
 %% This file may be distributed and/or modified under the
 %% conditions of the LaTeX Project Public License, either version 1.3c
@@ -18,7 +18,7 @@
 %% 
 \NeedsTeXFormat{LaTeX2e}[1999/12/01]
 \ProvidesClass{ustcthesis}
-  [2018/11/17 v3.1.03 USTC thesis template]
+  [2019/01/01 v3.1.03 USTC thesis template]
 \newif\ifustc@doctor
 \newif\ifustc@master
 \newif\ifustc@bachelor
