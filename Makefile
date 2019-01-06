@@ -29,10 +29,10 @@ $(NAME).pdf : $(NAME).dtx FORCE_MAKE
 	$(LATEXMK) $<
 
 test:
-	texlua test/build.lua check --halt-on-error --quiet
-	texlua test/build-toc.lua check --halt-on-error --quiet
-	texlua test/build-bib.lua check --halt-on-error --quiet
-	texlua test/build-nomencl.lua check --halt-on-error --quiet
+	texlua test/build.lua check
+	texlua test/build-toc.lua check
+	texlua test/build-bib.lua check
+	# texlua test/build-nomencl.lua check
 
 save:
 	texlua test/build.lua save --quiet titlepage
@@ -58,12 +58,12 @@ save:
 clean : FORCE_MAKE
 	$(LATEXMK) -c $(MAIN).tex
 	$(LATEXMK) -c $(NAME).dtx
-	rm -rf build
+	texlua test/build.lua clean
 
 distclean :
 	$(LATEXMK) -C $(MAIN).tex
 	$(LATEXMK) -C $(NAME).dtx
-	rm -rf build
+	texlua test/build.lua clean
 
 install : cls doc
 	mkdir -p $(TEXMF)/{doc,source,tex}/latex/$(NAME)
