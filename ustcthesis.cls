@@ -912,7 +912,9 @@
 }{%
   \endlist
 }
-\setlength{\parskip}{0\p@ \@plus .2\p@}
+\sloppy
+\raggedbottom
+\setlength{\parskip}{\z@}
 \let\@afterindentfalse\@afterindenttrue
 \@afterindenttrue
 \urlstyle{same}

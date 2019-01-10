@@ -15,9 +15,9 @@ LaTeX Font Info:    Font shape `TU/STIX2Math.otf(3)/m/n' will be
 (Font)              scaled to size 8.43121pt on input line ....
 LaTeX Font Info:    Font shape `TU/STIX2Math.otf(3)/m/n' will be
 (Font)              scaled to size 6.02232pt on input line ....
-Overfull \hbox (2.79832pt too wide) in paragraph at lines 12--14
-[]\TU/texgyretermes(0)/m/n/12.04486 Mittelbach, Goossens, Braams, and Carlisle (2004) (Mittelbach, Goossens, Braams,
-\hbox(8.22664+2.13193)x417.11752, glue set - 1.0
+Underfull \hbox (badness 2050) in paragraph at lines 12--14
+[]\TU/texgyretermes(0)/m/n/12.04486 Mittelbach, Goossens, Braams, and Carlisle (2004) (Mittelbach, Goossens,
+\hbox(8.22664+2.13193)x417.11752, glue set 2.73936
 .\hbox(0.0+0.0)x24.08972
 .\TU/texgyretermes(0)/m/n/12.04486 Mittelbach,
 .\kern -0.00021
@@ -51,10 +51,6 @@ Overfull \hbox (2.79832pt too wide) in paragraph at lines 12--14
 .\kern 0.00021
 .\glue 3.01122 plus 1.88199 minus 0.80298
 .\TU/texgyretermes(0)/m/n/12.04486 Goossens,
-.\kern -0.00021
-.\kern 0.00021
-.\glue 3.01122 plus 1.88199 minus 0.80298
-.\TU/texgyretermes(0)/m/n/12.04486 Braams,
 .\kern -0.00021
 .\kern 0.0
 .\glue(\rightskip) 0.0
@@ -92,7 +88,7 @@ Completed box being shipped out [1]
 ....\special{color pop}
 ..\glue 6.82881
 ..\glue(\lineskip) 0.0
-..\vbox(700.50723+0.0)x417.11752, glue set 472.57187fil
+..\vbox(700.50723+0.0)x417.11752, glue set 472.5214fil
 ...\write-{}
 ...\write1{\protect \providecommand {\protect \FN@pp@footnotehinttrue }{}}
 ...\write1{\protect \providecommand {\protect \FN@pp@footnote@aux }[2]{}}
@@ -108,9 +104,9 @@ Completed box being shipped out [1]
 ...\glue(\topskip) 12.0
 ...\rule(0.0+0.0)x*
 ...\penalty 10000
-...\glue 12.08972 plus -0.2
+...\glue 12.08972
 ...\glue 0.0
-...\glue(\parskip) 0.0 plus 0.2
+...\glue(\parskip) 0.0
 ...\hbox(12.36606+2.77834)x417.11752, glue set 141.14769fil
 ....\glue(\leftskip) 0.0 plus 1.0fil
 ....\hbox(0.0+0.0)x0.0
@@ -129,8 +125,8 @@ Completed box being shipped out [1]
 ....\glue(\parfillskip) 0.0
 ....\glue(\rightskip) 0.0 plus 1.0fil
 ...\penalty 10000
-...\glue 18.06729 plus -0.2
-...\glue(\parskip) 0.0 plus 0.2
+...\glue 18.06729
+...\glue(\parskip) 0.0
 ...\hbox(10.03581+2.13193)x417.11752, glue set 239.91946fil
 ....\hbox(0.0+0.0)x24.08972
 ....\TU/texgyretermes(0)/m/n/12.04486 Knuth
@@ -169,7 +165,7 @@ Completed box being shipped out [1]
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
-...\glue(\parskip) 0.0 plus 0.2
+...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 7.90703
 ...\hbox(10.03581+2.13193)x417.11752, glue set 34.97005fil
 ....\hbox(0.0+0.0)x24.08972
@@ -263,9 +259,9 @@ Completed box being shipped out [1]
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
-...\glue(\parskip) 0.0 plus 0.2
+...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 9.7162
-...\hbox(8.22664+2.13193)x417.11752, glue set - 1.0
+...\hbox(8.22664+2.13193)x417.11752, glue set 2.73936
 ....\hbox(0.0+0.0)x24.08972
 ....\TU/texgyretermes(0)/m/n/12.04486 Mittelbach,
 ....\kern -0.00021
@@ -300,15 +296,15 @@ Completed box being shipped out [1]
 ....\glue 3.01122 plus 1.88199 minus 0.80298
 ....\TU/texgyretermes(0)/m/n/12.04486 Goossens,
 ....\kern -0.00021
-....\kern 0.00021
-....\glue 3.01122 plus 1.88199 minus 0.80298
-....\TU/texgyretermes(0)/m/n/12.04486 Braams,
-....\kern -0.00021
 ....\kern 0.0
 ....\glue(\rightskip) 0.0
 ...\penalty 300
 ...\glue(\baselineskip) 9.7162
-...\hbox(8.22664+2.13193)x417.11752, glue set 325.35977fil
+...\hbox(8.22664+2.13193)x417.11752, glue set 282.54028fil
+....\TU/texgyretermes(0)/m/n/12.04486 Braams,
+....\kern -0.00021
+....\kern 0.00021
+....\glue 3.01122 plus 1.88199 minus 0.80298
 ....\TU/texgyretermes(0)/m/n/12.04486 and
 ....\kern -0.00021
 ....\kern 0.00021
@@ -329,7 +325,7 @@ Completed box being shipped out [1]
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
-...\glue(\parskip) 0.0 plus 0.2
+...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 9.70416
 ...\hbox(8.23868+2.13193)x417.11752, glue set 0.66498
 ....\hbox(0.0+0.0)x24.08972
@@ -459,7 +455,7 @@ Completed box being shipped out [1]
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
-...\glue(\parskip) 0.0 plus 0.2
+...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 9.70416
 ...\hbox(8.23868+2.13193)x417.11752, glue set 167.548fil
 ....\hbox(0.0+0.0)x24.08972
@@ -522,7 +518,7 @@ Completed box being shipped out [1]
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
-...\glue(\parskip) 0.0 plus 0.2
+...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 8.52376
 ...\hbox(9.41908+2.25238)x417.11752, glue set - 0.70758
 ....\hbox(0.0+0.0)x24.08972
@@ -644,6 +640,7 @@ Completed box being shipped out [1]
 ...\glue -2.1801
 ...\glue 0.0 plus 1.0fil
 ...\glue 0.0
+...\glue 0.0 plus 0.0001fil
 ..\glue(\baselineskip) 15.35295
 ..\hbox(7.12453+0.0)x417.11752
 ...\special{color push  Black}
@@ -699,7 +696,7 @@ Completed box being shipped out [2]
 ....\special{color pop}
 ..\glue 6.82881
 ..\glue(\lineskip) 0.0
-..\vbox(700.50723+0.0)x417.11752, glue set 293.46825fil
+..\vbox(700.50723+0.0)x417.11752, glue set 293.4369fil
 ...\write-{}
 ...\write1{\@writefile{toc}{\protect \contentsline {chapter}{参考文献}{\thepage \ET
 C.}
@@ -709,9 +706,9 @@ C.}
 ...\glue(\topskip) 12.0
 ...\rule(0.0+0.0)x*
 ...\penalty 10000
-...\glue 12.08972 plus -0.2
+...\glue 12.08972
 ...\glue 0.0
-...\glue(\parskip) 0.0 plus 0.2
+...\glue(\parskip) 0.0
 ...\hbox(12.49454+2.8747)x417.11752, glue set 164.39427fil
 ....\glue(\leftskip) 0.0 plus 1.0fil
 ....\hbox(0.0+0.0)x0.0
@@ -728,7 +725,7 @@ C.}
 ....\glue(\parfillskip) 0.0
 ....\glue(\rightskip) 0.0 plus 1.0fil
 ...\penalty 10000
-...\glue 18.06729 plus -0.2
+...\glue 18.06729
 ...\glue(\parskip) 0.0
 ...\hbox(8.24168+1.96028)x393.0278, glue set - 0.0064, shifted 24.08972
 ....\hbox(0.0+0.0)x-24.08972
@@ -1879,6 +1876,7 @@ C.}
 ...\glue -2.29755
 ...\glue 0.0 plus 1.0fil
 ...\glue 0.0
+...\glue 0.0 plus 0.0001fil
 ..\glue(\baselineskip) 15.35295
 ..\hbox(7.12453+0.0)x417.11752
 ...\special{color push  Black}

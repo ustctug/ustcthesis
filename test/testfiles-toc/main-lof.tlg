@@ -33,7 +33,7 @@ Completed box being shipped out [1]
 ....\special{color pop}
 ..\glue 6.82881
 ..\glue(\lineskip) 0.0
-..\vbox(700.50723+0.0)x417.11752, glue set 518.90178fil
+..\vbox(700.50723+0.0)x417.11752, glue set 518.84636fil
 ...\write-{}
 ...\write1{\protect \providecommand {\protect \FN@pp@footnotehinttrue }{}}
 ...\write1{\protect \providecommand {\protect \FN@pp@footnote@aux }[2]{}}
@@ -47,9 +47,9 @@ Completed box being shipped out [1]
 ...\glue(\topskip) 12.0
 ...\rule(0.0+0.0)x*
 ...\penalty 10000
-...\glue 12.08972 plus -0.2
+...\glue 12.08972
 ...\glue 0.0
-...\glue(\parskip) 0.0 plus 0.2
+...\glue(\parskip) 0.0
 ...\hbox(12.2697+2.73015)x417.11752, glue set 164.39427fil
 ....\glue(\leftskip) 0.0 plus 1.0fil
 ....\hbox(0.0+0.0)x0.0
@@ -66,10 +66,10 @@ Completed box being shipped out [1]
 ....\glue(\parfillskip) 0.0
 ....\glue(\rightskip) 0.0 plus 1.0fil
 ...\penalty 10000
-...\glue 18.06729 plus -0.2
+...\glue 18.06729
 ...\glue 0.0 plus 0.1
 ...\penalty 10000
-...\glue(\parskip) 0.0 plus 0.2
+...\glue(\parskip) 0.0
 ...\hbox(14.05226+6.02249)x417.11752, glue set 326.91328fill
 ....\glue(\leftskip) 27.70322
 ....\hbox(0.0+0.0)x0.0
@@ -117,7 +117,7 @@ Completed box being shipped out [1]
 ...\penalty 0
 ...\glue 0.0 plus 0.1
 ...\penalty 10000
-...\glue(\parskip) 0.0 plus 0.2
+...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 0.00002
 ...\hbox(14.05226+6.02249)x417.11752, glue set 75.47687fill
 ....\glue(\leftskip) 27.70322
@@ -206,7 +206,7 @@ Completed box being shipped out [1]
 ...\penalty 0
 ...\glue 0.0 plus 0.1
 ...\penalty 10000
-...\glue(\parskip) 0.0 plus 0.2
+...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 0.00002
 ...\hbox(14.05226+6.02249)x417.11752, glue set 326.91328fill
 ....\glue(\leftskip) 27.70322
@@ -259,7 +259,7 @@ Completed box being shipped out [1]
 ...\glue 10.0
 ...\glue 0.0 plus 0.1
 ...\penalty 10000
-...\glue(\parskip) 0.0 plus 0.2
+...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 0.00002
 ...\hbox(14.05226+6.02249)x417.11752, glue set 326.91328fill
 ....\glue(\leftskip) 27.70322
@@ -308,7 +308,7 @@ Completed box being shipped out [1]
 ...\penalty 0
 ...\glue 0.0 plus 0.1
 ...\penalty 10000
-...\glue(\parskip) 0.0 plus 0.2
+...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 0.00002
 ...\hbox(14.05226+6.02249)x417.11752, glue set 327.106fill
 ....\glue(\leftskip) 27.70322
@@ -357,7 +357,7 @@ Completed box being shipped out [1]
 ...\penalty 0
 ...\glue 0.0 plus 0.1
 ...\penalty 10000
-...\glue(\parskip) 0.0 plus 0.2
+...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 0.00002
 ...\hbox(14.05226+6.02249)x417.11752, glue set 326.91328fill
 ....\glue(\leftskip) 27.70322
@@ -407,6 +407,7 @@ Completed box being shipped out [1]
 ...\glue -6.0
 ...\glue 0.0 plus 1.0fil
 ...\glue 0.0
+...\glue 0.0 plus 0.0001fil
 ..\glue(\baselineskip) 15.35295
 ..\hbox(7.12453+0.0)x417.11752
 ...\special{color push  Black}
@@ -429,12 +430,13 @@ Completed box being shipped out [2]
 ....\special{color pop}
 ..\glue 6.82881
 ..\glue(\lineskip) 0.0
-..\vbox(700.50723+0.0)x0.0, glue set 688.50723fil
+..\vbox(700.50723+0.0)x0.0, glue set 688.4337fil
 ...\write-{}
 ...\glue(\topskip) 12.0
 ...\hbox(0.0+0.0)x0.0
 ...\glue 0.0 plus 1.0fil
 ...\glue 0.0
+...\glue 0.0 plus 0.0001fil
 ..\glue(\baselineskip) 22.47748
 ..\hbox(0.0+0.0)x417.11752
 ...\special{color push  Black}
@@ -474,7 +476,7 @@ Completed box being shipped out [1]
 ....\special{color pop}
 ..\glue 6.82881
 ..\glue(\lineskip) 0.0
-..\vbox(700.50723+0.0)x417.11752, glue set 494.30775fil
+..\vbox(700.50723+0.0)x417.11752, glue set 494.25496fil
 ...\write1{\protect \FN@pp@footnotehinttrue }
 ...\write-{}
 ...\write1{\@writefile{toc}{\protect \contentsline {chapter}{\protect \numberline \ETC.}
@@ -483,9 +485,9 @@ Completed box being shipped out [1]
 ...\glue(\topskip) 12.0
 ...\rule(0.0+0.0)x*
 ...\penalty 10000
-...\glue 12.08972 plus -0.2
+...\glue 12.08972
 ...\glue 0.0
-...\glue(\parskip) 0.0 plus 0.2
+...\glue(\parskip) 0.0
 ...\hbox(12.36606+2.77834)x417.11752, glue set 160.9414fil
 ....\glue(\leftskip) 0.0 plus 1.0fil
 ....\hbox(0.0+0.0)x0.0
@@ -504,7 +506,7 @@ Completed box being shipped out [1]
 ....\glue(\parfillskip) 0.0
 ....\glue(\rightskip) 0.0 plus 1.0fil
 ...\penalty 10000
-...\glue 18.06729 plus -0.2
+...\glue 18.06729
 ...\penalty 10000
 ...\glue 14.0 plus 4.0 minus 4.0
 ...\vbox(21.63269+0.0)x417.11752
@@ -555,7 +557,7 @@ Completed box being shipped out [1]
 ....\special{color pop}
 ...\penalty 0
 ...\glue 14.0 plus 4.0 minus 4.0
-...\glue 0.0 plus -0.2
+...\glue 0.0
 ...\penalty 10000
 ...\penalty 0
 ...\glue 14.0 plus 4.0 minus 4.0
@@ -647,7 +649,7 @@ Completed box being shipped out [1]
 ....\special{color pop}
 ...\penalty 0
 ...\glue 14.0 plus 4.0 minus 4.0
-...\glue 0.0 plus -0.2
+...\glue 0.0
 ...\penalty 10000
 ...\penalty 0
 ...\glue 14.0 plus 4.0 minus 4.0
@@ -699,11 +701,12 @@ Completed box being shipped out [1]
 ....\special{color pop}
 ...\penalty 0
 ...\glue 14.0 plus 4.0 minus 4.0
-...\glue 0.0 plus -0.2
+...\glue 0.0
 ...\penalty 10000
 ...\write1{\protect \FN@pp@footnotehinttrue }
 ...\glue 0.0 plus 1.0fil
 ...\glue 0.0
+...\glue 0.0 plus 0.0001fil
 ..\glue(\baselineskip) 15.35295
 ..\hbox(7.12453+0.0)x417.11752
 ...\special{color push  Black}
@@ -748,7 +751,7 @@ Completed box being shipped out [2]
 ....\special{color pop}
 ..\glue 6.82881
 ..\glue(\lineskip) 0.0
-..\vbox(700.50723+0.0)x417.11752, glue set 494.30775fil
+..\vbox(700.50723+0.0)x417.11752, glue set 494.25496fil
 ...\write-{}
 ...\write1{\@writefile{toc}{\protect \contentsline {chapter}{\protect \numberline \ETC.}
 ...\mark{{第2章\protect \hspace  {\ccwd }\protect \ustc@spacetitle  {Bar}}{}}...\write1{\@writefile{lof}{\protect \addvspace {10.0pt}}}
@@ -756,9 +759,9 @@ Completed box being shipped out [2]
 ...\glue(\topskip) 12.0
 ...\rule(0.0+0.0)x*
 ...\penalty 10000
-...\glue 12.08972 plus -0.2
+...\glue 12.08972
 ...\glue 0.0
-...\glue(\parskip) 0.0 plus 0.2
+...\glue(\parskip) 0.0
 ...\hbox(12.36606+2.77834)x417.11752, glue set 162.15393fil
 ....\glue(\leftskip) 0.0 plus 1.0fil
 ....\hbox(0.0+0.0)x0.0
@@ -777,7 +780,7 @@ Completed box being shipped out [2]
 ....\glue(\parfillskip) 0.0
 ....\glue(\rightskip) 0.0 plus 1.0fil
 ...\penalty 10000
-...\glue 18.06729 plus -0.2
+...\glue 18.06729
 ...\penalty 10000
 ...\glue 14.0 plus 4.0 minus 4.0
 ...\vbox(21.63269+0.0)x417.11752
@@ -828,7 +831,7 @@ Completed box being shipped out [2]
 ....\special{color pop}
 ...\penalty 0
 ...\glue 14.0 plus 4.0 minus 4.0
-...\glue 0.0 plus -0.2
+...\glue 0.0
 ...\penalty 10000
 ...\penalty 0
 ...\glue 14.0 plus 4.0 minus 4.0
@@ -880,7 +883,7 @@ Completed box being shipped out [2]
 ....\special{color pop}
 ...\penalty 0
 ...\glue 14.0 plus 4.0 minus 4.0
-...\glue 0.0 plus -0.2
+...\glue 0.0
 ...\penalty 10000
 ...\penalty 0
 ...\glue 14.0 plus 4.0 minus 4.0
@@ -932,11 +935,12 @@ Completed box being shipped out [2]
 ....\special{color pop}
 ...\penalty 0
 ...\glue 14.0 plus 4.0 minus 4.0
-...\glue 0.0 plus -0.2
+...\glue 0.0
 ...\penalty 10000
 ...\write1{\protect \FN@pp@footnotehinttrue }
 ...\glue 0.0 plus 1.0fil
 ...\glue 0.0
+...\glue 0.0 plus 0.0001fil
 ..\glue(\baselineskip) 15.35295
 ..\hbox(7.12453+0.0)x417.11752
 ...\special{color push  Black}

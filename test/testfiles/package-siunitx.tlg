@@ -22,7 +22,7 @@ Completed box being shipped out [1]
 ....\special{color pop}
 ..\glue 6.82881
 ..\glue(\lineskip) 0.0
-..\vbox(700.50723+0.0)x417.11752, glue set 467.68478fil
+..\vbox(700.50723+0.0)x417.11752, glue set 467.63484fil
 ...\write-{}
 ...\write1{\protect \providecommand {\protect \FN@pp@footnotehinttrue }{}}
 ...\write1{\protect \providecommand {\protect \FN@pp@footnote@aux }[2]{}}
@@ -414,6 +414,7 @@ Completed box being shipped out [1]
 ...\glue -0.16862
 ...\glue 0.0 plus 1.0fil
 ...\glue 0.0
+...\glue 0.0 plus 0.0001fil
 ..\glue(\baselineskip) 15.35295
 ..\hbox(7.12453+0.0)x417.11752
 ...\special{color push  Black}

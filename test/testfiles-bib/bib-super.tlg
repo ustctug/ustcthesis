@@ -49,7 +49,7 @@ Completed box being shipped out [1]
 ....\special{color pop}
 ..\glue 6.82881
 ..\glue(\lineskip) 0.0
-..\vbox(700.50723+0.0)x417.11752, glue set 530.79617fil
+..\vbox(700.50723+0.0)x417.11752, glue set 530.73949fil
 ...\write-{}
 ...\write1{\protect \providecommand {\protect \FN@pp@footnotehinttrue }{}}
 ...\write1{\protect \providecommand {\protect \FN@pp@footnote@aux }[2]{}}
@@ -65,9 +65,9 @@ Completed box being shipped out [1]
 ...\glue(\topskip) 12.0
 ...\rule(0.0+0.0)x*
 ...\penalty 10000
-...\glue 12.08972 plus -0.2
+...\glue 12.08972
 ...\glue 0.0
-...\glue(\parskip) 0.0 plus 0.2
+...\glue(\parskip) 0.0
 ...\hbox(12.36606+2.77834)x417.11752, glue set 141.14769fil
 ....\glue(\leftskip) 0.0 plus 1.0fil
 ....\hbox(0.0+0.0)x0.0
@@ -86,8 +86,8 @@ Completed box being shipped out [1]
 ....\glue(\parfillskip) 0.0
 ....\glue(\rightskip) 0.0 plus 1.0fil
 ...\penalty 10000
-...\glue 18.06729 plus -0.2
-...\glue(\parskip) 0.0 plus 0.2
+...\glue 18.06729
+...\glue(\parskip) 0.0
 ...\hbox(10.03581+0.12044)x417.11752, glue set 296.19904fil
 ....\hbox(0.0+0.0)x24.08972
 ....\TU/texgyretermes(0)/m/n/12.04486 Knuth
@@ -147,7 +147,7 @@ Completed box being shipped out [1]
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
 ...\kern 1.0
-...\glue(\parskip) 0.0 plus 0.2
+...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 9.91852
 ...\hbox(10.03581+0.12044)x417.11752, glue set 295.0563fil
 ....\hbox(0.0+0.0)x24.08972
@@ -209,7 +209,7 @@ Completed box being shipped out [1]
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
-...\glue(\parskip) 0.0 plus 0.2
+...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 9.91852
 ...\hbox(10.03581+1.6983)x417.11752, glue set 158.68922fil
 ....\hbox(0.0+0.0)x24.08972
@@ -267,7 +267,7 @@ Completed box being shipped out [1]
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
-...\glue(\parskip) 0.0 plus 0.2
+...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 8.34065
 ...\hbox(10.03581+1.6983)x417.11752, glue set 200.13197fil
 ....\hbox(0.0+0.0)x24.08972
@@ -394,7 +394,7 @@ Completed box being shipped out [1]
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
-...\glue(\parskip) 0.0 plus 0.2
+...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 8.34065
 ...\hbox(10.03581+0.12044)x417.11752, glue set 311.25989fil
 ....\hbox(0.0+0.0)x24.08972
@@ -481,7 +481,7 @@ Completed box being shipped out [1]
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
 ...\kern 1.0
-...\glue(\parskip) 0.0 plus 0.2
+...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 9.81735
 ...\hbox(10.13698+0.0)x417.11752, glue set 371.45787fil
 ....\hbox(0.0+0.0)x24.08972
@@ -510,6 +510,7 @@ Completed box being shipped out [1]
 ...\write1{\protect \FN@pp@footnotehinttrue }
 ...\glue 0.0 plus 1.0fil
 ...\glue 0.0
+...\glue 0.0 plus 0.0001fil
 ..\glue(\baselineskip) 15.35295
 ..\hbox(7.12453+0.0)x417.11752
 ...\special{color push  Black}
@@ -565,7 +566,7 @@ Completed box being shipped out [2]
 ....\special{color pop}
 ..\glue 6.82881
 ..\glue(\lineskip) 0.0
-..\vbox(700.50723+0.0)x417.11752, glue set 294.51163fil
+..\vbox(700.50723+0.0)x417.11752, glue set 294.48018fil
 ...\write-{}
 ...\write1{\@writefile{toc}{\protect \contentsline {chapter}{参考文献}{\thepage \ET
 C.}
@@ -575,9 +576,9 @@ C.}
 ...\glue(\topskip) 12.0
 ...\rule(0.0+0.0)x*
 ...\penalty 10000
-...\glue 12.08972 plus -0.2
+...\glue 12.08972
 ...\glue 0.0
-...\glue(\parskip) 0.0 plus 0.2
+...\glue(\parskip) 0.0
 ...\hbox(12.49454+2.8747)x417.11752, glue set 164.39427fil
 ....\glue(\leftskip) 0.0 plus 1.0fil
 ....\hbox(0.0+0.0)x0.0
@@ -594,7 +595,7 @@ C.}
 ....\glue(\parfillskip) 0.0
 ....\glue(\rightskip) 0.0 plus 1.0fil
 ...\penalty 10000
-...\glue 18.06729 plus -0.2
+...\glue 18.06729
 ...\glue(\parskip) 0.0
 ...\hbox(7.1983+2.37132)x393.55914, glue set - 0.65546, shifted 23.55838
 ....\hbox(7.12453+1.6441)x0.0
@@ -1769,6 +1770,7 @@ C.}
 ...\glue -1.86543
 ...\glue 0.0 plus 1.0fil
 ...\glue 0.0
+...\glue 0.0 plus 0.0001fil
 ..\glue(\baselineskip) 15.35295
 ..\hbox(7.12453+0.0)x417.11752
 ...\special{color push  Black}

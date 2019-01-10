@@ -2080,9 +2080,21 @@ version 2005/12/01 or later.
 %
 % \subsection{正文}
 %
+% \cs{sloppy} 可以减少“overfull boxes”。
+%    \begin{macrocode}
+\sloppy
+%    \end{macrocode}
+%
+% \changes{v3.1.04}{2019/01/10}{禁止扩大段间距。}
+% 禁止扩大段间距。（\href{https://github.com/ustctug/ustcthesis/issues/209}{
+%   ustctug/ustcthesis\#209}）
+%    \begin{macrocode}
+\raggedbottom
+%    \end{macrocode}
+%
 % 段间距 0 磅。
 %    \begin{macrocode}
-\setlength{\parskip}{0\p@ \@plus .2\p@}
+\setlength{\parskip}{\z@}
 %    \end{macrocode}
 %
 % 在 \opt{scheme=plain} 时也首段缩进。
