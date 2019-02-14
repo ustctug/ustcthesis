@@ -1365,7 +1365,7 @@ version 2005/12/01 or later.
 %    \end{macrocode}
 %
 % \begin{macro}{\ustc@pdfbookmark}
-% 添加 DFP 书签，在 \pkg{hyperref} 载入后才有效。
+% 添加 PDF 书签，在 \pkg{hyperref} 载入后才有效。
 %    \begin{macrocode}
 \newcommand\ustc@pdfbookmark{\@gobble}
 %    \end{macrocode}
@@ -2628,6 +2628,7 @@ version 2005/12/01 or later.
 %    \begin{macrocode}
   \ifustc@chinese
     \newcommand\ustc@assertionname{断言}
+    \newcommand\ustc@assumptionname{假设}
     \newcommand\ustc@axiomname{公理}
     \newcommand\ustc@corollaryname{推论}
     \newcommand\ustc@definitionname{定义}
@@ -2639,6 +2640,7 @@ version 2005/12/01 or later.
     \newcommand\ustc@theoremname{定理}
   \else
     \newcommand\ustc@assertionname{Assertion}
+    \newcommand\ustc@assumptionname{Assumption}
     \newcommand\ustc@axiomname{Axiom}
     \newcommand\ustc@corollaryname{Corollary}
     \newcommand\ustc@definitionname{Definition}
@@ -2649,15 +2651,16 @@ version 2005/12/01 or later.
     \newcommand\ustc@remarkname{Remark}
     \newcommand\ustc@theoremname{Theorem}
   \fi
-  \newtheorem{theorem}                {\ustc@theoremname}     [chapter]
-  \newtheorem{assertion}  [theorem]   {\ustc@assertionname}
-  \newtheorem{axiom}      [theorem]   {\ustc@axiomname}
-  \newtheorem{corollary}  [theorem]   {\ustc@corollaryname}
-  \newtheorem{lemma}      [theorem]   {\ustc@lemmaname}
-  \newtheorem{proposition}[theorem]   {\ustc@propositionname}
-  \newtheorem{definition}             {\ustc@definitionname}  [chapter]
-  \newtheorem{example}                {\ustc@examplename}     [chapter]
-  \newtheorem*{remark}                {\ustc@remarkname}
+  \newtheorem{theorem}             {\ustc@theoremname}    [chapter]
+  \newtheorem{assertion}  [theorem]{\ustc@assertionname}
+  \newtheorem{axiom}      [theorem]{\ustc@axiomname}
+  \newtheorem{corollary}  [theorem]{\ustc@corollaryname}
+  \newtheorem{lemma}      [theorem]{\ustc@lemmaname}
+  \newtheorem{proposition}[theorem]{\ustc@propositionname}
+  \newtheorem{assumption}          {\ustc@assumptionname} [chapter]
+  \newtheorem{definition}          {\ustc@definitionname} [chapter]
+  \newtheorem{example}             {\ustc@examplename}    [chapter]
+  \newtheorem*{remark}             {\ustc@remarkname}
 %    \end{macrocode}
 % \pkg{amsthm} 单独定义了 proof 环境，这里重新定义以满足格式要求。
 % 原本模仿 \pkg{amsthm} 写成 |\item[\hskip\labelsep\hskip2\ccwd #1\hskip\ccwd]|，

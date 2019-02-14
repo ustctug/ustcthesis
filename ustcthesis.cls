@@ -1177,6 +1177,7 @@
   \theoremstyle{ustcplain}
   \ifustc@chinese
     \newcommand\ustc@assertionname{断言}
+    \newcommand\ustc@assumptionname{假设}
     \newcommand\ustc@axiomname{公理}
     \newcommand\ustc@corollaryname{推论}
     \newcommand\ustc@definitionname{定义}
@@ -1188,6 +1189,7 @@
     \newcommand\ustc@theoremname{定理}
   \else
     \newcommand\ustc@assertionname{Assertion}
+    \newcommand\ustc@assumptionname{Assumption}
     \newcommand\ustc@axiomname{Axiom}
     \newcommand\ustc@corollaryname{Corollary}
     \newcommand\ustc@definitionname{Definition}
@@ -1198,15 +1200,16 @@
     \newcommand\ustc@remarkname{Remark}
     \newcommand\ustc@theoremname{Theorem}
   \fi
-  \newtheorem{theorem}                {\ustc@theoremname}     [chapter]
-  \newtheorem{assertion}  [theorem]   {\ustc@assertionname}
-  \newtheorem{axiom}      [theorem]   {\ustc@axiomname}
-  \newtheorem{corollary}  [theorem]   {\ustc@corollaryname}
-  \newtheorem{lemma}      [theorem]   {\ustc@lemmaname}
-  \newtheorem{proposition}[theorem]   {\ustc@propositionname}
-  \newtheorem{definition}             {\ustc@definitionname}  [chapter]
-  \newtheorem{example}                {\ustc@examplename}     [chapter]
-  \newtheorem*{remark}                {\ustc@remarkname}
+  \newtheorem{theorem}             {\ustc@theoremname}    [chapter]
+  \newtheorem{assertion}  [theorem]{\ustc@assertionname}
+  \newtheorem{axiom}      [theorem]{\ustc@axiomname}
+  \newtheorem{corollary}  [theorem]{\ustc@corollaryname}
+  \newtheorem{lemma}      [theorem]{\ustc@lemmaname}
+  \newtheorem{proposition}[theorem]{\ustc@propositionname}
+  \newtheorem{assumption}          {\ustc@assumptionname} [chapter]
+  \newtheorem{definition}          {\ustc@definitionname} [chapter]
+  \newtheorem{example}             {\ustc@examplename}    [chapter]
+  \newtheorem*{remark}             {\ustc@remarkname}
   \renewenvironment{proof}[1][\proofname]{\par
     \pushQED{\qed}%
     \normalfont \topsep6\p@\@plus6\p@\relax
