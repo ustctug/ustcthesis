@@ -1180,6 +1180,7 @@
     \newcommand\ustc@axiomname{公理}
     \newcommand\ustc@corollaryname{推论}
     \newcommand\ustc@definitionname{定义}
+    \newcommand\ustc@assumptionname{假设}
     \newcommand\ustc@examplename{例}
     \newcommand\ustc@lemmaname{引理}
     \newcommand\ustc@proofname{证明}
@@ -1191,6 +1192,7 @@
     \newcommand\ustc@axiomname{Axiom}
     \newcommand\ustc@corollaryname{Corollary}
     \newcommand\ustc@definitionname{Definition}
+    \newcommand\ustc@assumptionname{Assumption}
     \newcommand\ustc@examplename{Example}
     \newcommand\ustc@lemmaname{Lemma}
     \newcommand\ustc@proofname{Proof}
@@ -1205,6 +1207,7 @@
   \newtheorem{lemma}      [theorem]   {\ustc@lemmaname}
   \newtheorem{proposition}[theorem]   {\ustc@propositionname}
   \newtheorem{definition}             {\ustc@definitionname}  [chapter]
+  \newtheorem{assumption}             {\ustc@assumptionname}  [chapter]
   \newtheorem{example}                {\ustc@examplename}     [chapter]
   \newtheorem*{remark}                {\ustc@remarkname}
   \renewenvironment{proof}[1][\proofname]{\par
