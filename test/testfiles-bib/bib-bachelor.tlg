@@ -317,8 +317,8 @@ Completed box being shipped out [1]
 ....\penalty 1000
 ....\glue 3.01122 plus 1.5056 minus 1.00374
 ....\TU/texgyretermes(0)/m/n/12.04486 Mittelbach
-....\kern -0.0002
-....\kern 0.0002
+....\kern -0.00021
+....\kern 0.00021
 ....\glue 3.01122 plus 1.5056 minus 1.00374
 ....\TU/texgyretermes(0)/m/n/12.04486 et
 ....\kern -0.0002
@@ -621,7 +621,7 @@ C.}
 ...\penalty 10000
 ...\glue 18.06729
 ...\glue(\parskip) 0.0
-...\hbox(8.22664+2.71008)x391.05078, glue set - 0.52832, shifted 26.06674
+...\hbox(8.22664+2.71008)x391.05078, glue set 0.27663, shifted 26.06674
 ....\hbox(8.14233+1.87898)x0.0
 .....\glue 0.0
 .....\glue -20.06674
@@ -664,16 +664,11 @@ C.}
 ....\kern -0.00021
 ....\kern 0.00021
 ....\glue 4.01495 plus 3.0112 minus 0.50186
-....\TU/texgyretermes(0)/m/n/12.04486 volume
-....\kern -0.0002
-....\kern 0.0002
-....\penalty 10000
-....\glue 3.01122 plus 1.5056 minus 1.00374
 ....\TU/texgyretermes(0)/m/n/12.04486 A
 ....\kern -0.0002
 ....\kern 0.0002
 ....\glue 12.04486
-....\TU/texgyretermes(0)/m/n/12.04486 The
+....\TU/texgyretermes(0)/m/n/12.04486 the
 ....\kern -0.00021
 ....\kern 0.00021
 ....\glue 3.01122 plus 1.5056 minus 1.00374
@@ -700,15 +695,15 @@ C.}
 ....\glue 3.01122 plus 1.88199 minus 0.80298
 ....\TU/texgyretermes(0)/m/n/12.04486 MA,
 ....\kern -0.00021
+....\kern 0.00021
+....\glue 3.01122 plus 1.5056 minus 1.00374
+....\TU/texgyretermes(0)/m/n/12.04486 USA:
+....\kern -0.00021
 ....\kern 0.0
 ....\glue(\rightskip) 0.0
 ...\penalty 14000
 ...\glue(\baselineskip) 11.13348
-...\hbox(8.23868+2.62576)x391.05078, glue set 250.0175fil, shifted 26.06674
-....\TU/texgyretermes(0)/m/n/12.04486 USA:
-....\kern -0.00021
-....\kern 0.00021
-....\glue 3.01122 plus 1.5056 minus 1.00374
+...\hbox(8.23868+2.62576)x391.05078, glue set 280.04533fil, shifted 26.06674
 ....\TU/texgyretermes(0)/m/n/12.04486 Addison-Wesley,
 ....\kern -0.00021
 ....\kern 0.00021
@@ -925,7 +920,7 @@ C.}
 ...\glue 0.0 plus 0.2
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 11.22984
-...\hbox(8.22664+2.71008)x391.05078, glue set - 0.36713, shifted 26.06674
+...\hbox(8.22664+2.71008)x391.05078, glue set 0.3547, shifted 26.06674
 ....\hbox(8.14233+1.87898)x0.0
 .....\glue 0.0
 .....\glue -20.06674
@@ -968,11 +963,6 @@ C.}
 ....\kern -0.00021
 ....\kern 0.00021
 ....\glue 4.01495 plus 3.0112 minus 0.50186
-....\TU/texgyretermes(0)/m/n/12.04486 volume
-....\kern -0.0002
-....\kern 0.0002
-....\penalty 10000
-....\glue 3.01122 plus 1.5056 minus 1.00374
 ....\TU/texgyretermes(0)/m/n/12.04486 B
 ....\kern -0.0002
 ....\kern 0.0002
@@ -1004,15 +994,15 @@ C.}
 ....\glue 1.32494 plus 3.97482 minus 0.84322
 ....\TU/texgyretermes(0)/m/n/12.04486 Reading,
 ....\kern -0.00021
+....\kern 0.00021
+....\glue 3.01122 plus 1.88199 minus 0.80298
+....\TU/texgyretermes(0)/m/n/12.04486 MA,
+....\kern -0.00021
 ....\kern 0.0
 ....\glue(\rightskip) 0.0
 ...\penalty 4150
 ...\glue(\baselineskip) 11.13348
-...\hbox(8.23868+2.62576)x391.05078, glue set 224.5908fil, shifted 26.06674
-....\TU/texgyretermes(0)/m/n/12.04486 MA,
-....\kern -0.00021
-....\kern 0.00021
-....\glue 3.01122 plus 1.5056 minus 1.00374
+...\hbox(8.23868+2.62576)x391.05078, glue set 250.0175fil, shifted 26.06674
 ....\TU/texgyretermes(0)/m/n/12.04486 USA:
 ....\kern -0.00021
 ....\kern 0.00021
