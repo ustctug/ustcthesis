@@ -476,7 +476,7 @@ Completed box being shipped out [1]
 ....\special{color pop}
 ..\glue 6.82881
 ..\glue(\lineskip) 0.0
-..\vbox(700.50723+0.0)x417.11752, glue set 494.25496fil
+..\vbox(700.50723+0.0)x417.11752, glue set 518.18512fil
 ...\write1{\protect \FN@pp@footnotehinttrue }
 ...\write-{}
 ...\write1{\@writefile{toc}{\protect \contentsline {chapter}{\protect \numberline \ETC.}
@@ -508,13 +508,14 @@ Completed box being shipped out [1]
 ...\penalty 10000
 ...\glue 18.06729
 ...\penalty 10000
-...\glue 14.0 plus 4.0 minus 4.0
-...\vbox(21.63269+0.0)x417.11752
+...\glue 6.02243
+...\vbox(29.61026+0.0)x417.11752
 ....\special{color push  Black}
-....\vbox(21.63269+0.0)x417.11752
+....\vbox(29.61026+0.0)x417.11752
 .....\write1{\@writefile{lof}{\protect \contentsline {figure}{\protect \numberline \ETC.}
 .....\special{color push  Black}
-.....\glue -1.95514 plus -4.0 minus -4.0
+.....\rule(0.0+0.0)x*
+.....\glue 6.02243
 .....\glue(\parskip) 0.0
 .....\hbox(12.29573+5.26967)x417.11752
 ......\hbox(0.0+0.0)x0.0
@@ -551,22 +552,22 @@ Completed box being shipped out [1]
 ......\glue(\parfillskip) 0.0 plus 1.0fil
 ......\glue(\rightskip) 0.0
 .....\glue 6.02243
-.....\rule(0.0+0.0)x*
 .....\special{color pop}
 .....\glue 0.0
 ....\special{color pop}
 ...\penalty 0
-...\glue 14.0 plus 4.0 minus 4.0
+...\glue 6.02243
 ...\glue 0.0
 ...\penalty 10000
 ...\penalty 0
-...\glue 14.0 plus 4.0 minus 4.0
-...\vbox(21.63269+0.0)x417.11752
+...\glue 6.02243
+...\vbox(29.61026+0.0)x417.11752
 ....\special{color push  Black}
-....\vbox(21.63269+0.0)x417.11752
+....\vbox(29.61026+0.0)x417.11752
 .....\write1{\@writefile{lof}{\protect \contentsline {figure}{\protect \numberline \ETC.}
 .....\special{color push  Black}
-.....\glue -1.95514 plus -4.0 minus -4.0
+.....\rule(0.0+0.0)x*
+.....\glue 6.02243
 .....\glue(\parskip) 0.0
 .....\hbox(12.29573+5.26967)x417.11752
 ......\hbox(0.0+0.0)x0.0
@@ -643,22 +644,22 @@ Completed box being shipped out [1]
 ......\glue(\parfillskip) 0.0 plus 1.0fil
 ......\glue(\rightskip) 0.0
 .....\glue 6.02243
-.....\rule(0.0+0.0)x*
 .....\special{color pop}
 .....\glue 0.0
 ....\special{color pop}
 ...\penalty 0
-...\glue 14.0 plus 4.0 minus 4.0
+...\glue 6.02243
 ...\glue 0.0
 ...\penalty 10000
 ...\penalty 0
-...\glue 14.0 plus 4.0 minus 4.0
-...\vbox(21.63269+0.0)x417.11752
+...\glue 6.02243
+...\vbox(29.61026+0.0)x417.11752
 ....\special{color push  Black}
-....\vbox(21.63269+0.0)x417.11752
+....\vbox(29.61026+0.0)x417.11752
 .....\write1{\@writefile{lof}{\protect \contentsline {figure}{\protect \numberline \ETC.}
 .....\special{color push  Black}
-.....\glue -1.95514 plus -4.0 minus -4.0
+.....\rule(0.0+0.0)x*
+.....\glue 6.02243
 .....\glue(\parskip) 0.0
 .....\hbox(12.29573+5.26967)x417.11752
 ......\hbox(0.0+0.0)x0.0
@@ -695,12 +696,11 @@ Completed box being shipped out [1]
 ......\glue(\parfillskip) 0.0 plus 1.0fil
 ......\glue(\rightskip) 0.0
 .....\glue 6.02243
-.....\rule(0.0+0.0)x*
 .....\special{color pop}
 .....\glue 0.0
 ....\special{color pop}
 ...\penalty 0
-...\glue 14.0 plus 4.0 minus 4.0
+...\glue 6.02243
 ...\glue 0.0
 ...\penalty 10000
 ...\write1{\protect \FN@pp@footnotehinttrue }
@@ -751,7 +751,7 @@ Completed box being shipped out [2]
 ....\special{color pop}
 ..\glue 6.82881
 ..\glue(\lineskip) 0.0
-..\vbox(700.50723+0.0)x417.11752, glue set 494.25496fil
+..\vbox(700.50723+0.0)x417.11752, glue set 518.18512fil
 ...\write-{}
 ...\write1{\@writefile{toc}{\protect \contentsline {chapter}{\protect \numberline \ETC.}
 ...\mark{{第2章\protect \hspace  {\ccwd }\protect \ustc@spacetitle  {Bar}}{}}...\write1{\@writefile{lof}{\protect \addvspace {10.0pt}}}
@@ -782,13 +782,14 @@ Completed box being shipped out [2]
 ...\penalty 10000
 ...\glue 18.06729
 ...\penalty 10000
-...\glue 14.0 plus 4.0 minus 4.0
-...\vbox(21.63269+0.0)x417.11752
+...\glue 6.02243
+...\vbox(29.61026+0.0)x417.11752
 ....\special{color push  Black}
-....\vbox(21.63269+0.0)x417.11752
+....\vbox(29.61026+0.0)x417.11752
 .....\write1{\@writefile{lof}{\protect \contentsline {figure}{\protect \numberline \ETC.}
 .....\special{color push  Black}
-.....\glue -1.95514 plus -4.0 minus -4.0
+.....\rule(0.0+0.0)x*
+.....\glue 6.02243
 .....\glue(\parskip) 0.0
 .....\hbox(12.29573+5.26967)x417.11752
 ......\hbox(0.0+0.0)x0.0
@@ -825,22 +826,22 @@ Completed box being shipped out [2]
 ......\glue(\parfillskip) 0.0 plus 1.0fil
 ......\glue(\rightskip) 0.0
 .....\glue 6.02243
-.....\rule(0.0+0.0)x*
 .....\special{color pop}
 .....\glue 0.0
 ....\special{color pop}
 ...\penalty 0
-...\glue 14.0 plus 4.0 minus 4.0
+...\glue 6.02243
 ...\glue 0.0
 ...\penalty 10000
 ...\penalty 0
-...\glue 14.0 plus 4.0 minus 4.0
-...\vbox(21.63269+0.0)x417.11752
+...\glue 6.02243
+...\vbox(29.61026+0.0)x417.11752
 ....\special{color push  Black}
-....\vbox(21.63269+0.0)x417.11752
+....\vbox(29.61026+0.0)x417.11752
 .....\write1{\@writefile{lof}{\protect \contentsline {figure}{\protect \numberline \ETC.}
 .....\special{color push  Black}
-.....\glue -1.95514 plus -4.0 minus -4.0
+.....\rule(0.0+0.0)x*
+.....\glue 6.02243
 .....\glue(\parskip) 0.0
 .....\hbox(12.29573+5.26967)x417.11752
 ......\hbox(0.0+0.0)x0.0
@@ -877,22 +878,22 @@ Completed box being shipped out [2]
 ......\glue(\parfillskip) 0.0 plus 1.0fil
 ......\glue(\rightskip) 0.0
 .....\glue 6.02243
-.....\rule(0.0+0.0)x*
 .....\special{color pop}
 .....\glue 0.0
 ....\special{color pop}
 ...\penalty 0
-...\glue 14.0 plus 4.0 minus 4.0
+...\glue 6.02243
 ...\glue 0.0
 ...\penalty 10000
 ...\penalty 0
-...\glue 14.0 plus 4.0 minus 4.0
-...\vbox(21.63269+0.0)x417.11752
+...\glue 6.02243
+...\vbox(29.61026+0.0)x417.11752
 ....\special{color push  Black}
-....\vbox(21.63269+0.0)x417.11752
+....\vbox(29.61026+0.0)x417.11752
 .....\write1{\@writefile{lof}{\protect \contentsline {figure}{\protect \numberline \ETC.}
 .....\special{color push  Black}
-.....\glue -1.95514 plus -4.0 minus -4.0
+.....\rule(0.0+0.0)x*
+.....\glue 6.02243
 .....\glue(\parskip) 0.0
 .....\hbox(12.29573+5.26967)x417.11752
 ......\hbox(0.0+0.0)x0.0
@@ -929,12 +930,11 @@ Completed box being shipped out [2]
 ......\glue(\parfillskip) 0.0 plus 1.0fil
 ......\glue(\rightskip) 0.0
 .....\glue 6.02243
-.....\rule(0.0+0.0)x*
 .....\special{color pop}
 .....\glue 0.0
 ....\special{color pop}
 ...\penalty 0
-...\glue 14.0 plus 4.0 minus 4.0
+...\glue 6.02243
 ...\glue 0.0
 ...\penalty 10000
 ...\write1{\protect \FN@pp@footnotehinttrue }

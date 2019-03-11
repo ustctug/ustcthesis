@@ -966,21 +966,22 @@
 \setcounter{dbltopnumber}{9}
 \def\fps@figure{htb}
 \def\fps@table{htb}
+\setlength{\floatsep}{6\bp@}
+\setlength{\textfloatsep}{6\bp@}
+\setlength{\intextsep}{6\bp@}
 \DeclareCaptionLabelSeparator{zhspace}{\hspace{\ccwd}}
 \captionsetup{
-  format   = hang,
-  font     = small,
-  labelsep = zhspace,
+  format         = hang,
+  font           = small,
+  labelsep       = zhspace,
+  skip           = 6\bp@,
+  figureposition = bottom,
+  tableposition  = top,
 }
 \ifustc@graduate
   \captionsetup{font+=bf}
 \fi
 \captionsetup[figure]{
-  aboveskip = 6\bp@,
-  belowskip = {12\bp@-\intextsep},
-}
-\captionsetup[table]{
-  aboveskip = 6\bp@,
   belowskip = 6\bp@,
 }
 \newcommand\note[1]{%

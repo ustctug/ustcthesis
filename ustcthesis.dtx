@@ -2213,22 +2213,24 @@ version 2005/12/01 or later.
 % 用 \pkg{caption} 宏包设置图、表的格式
 % 注意计算 belowskip 必须用 \pkg{calc} 宏包修正。
 % \changes{v3.0}{2017/07/01}{图表的编号号、标题加粗}
+% \changes{v3.1.04}{2019/03/11}{修正图表标题与正文之间的距离}
 %    \begin{macrocode}
+\setlength{\floatsep}{6\bp@}
+\setlength{\textfloatsep}{6\bp@}
+\setlength{\intextsep}{6\bp@}
 \DeclareCaptionLabelSeparator{zhspace}{\hspace{\ccwd}}
 \captionsetup{
-  format   = hang,
-  font     = small,
-  labelsep = zhspace,
+  format         = hang,
+  font           = small,
+  labelsep       = zhspace,
+  skip           = 6\bp@,
+  figureposition = bottom,
+  tableposition  = top,
 }
 \ifustc@graduate
   \captionsetup{font+=bf}
 \fi
 \captionsetup[figure]{
-  aboveskip = 6\bp@,
-  belowskip = {12\bp@-\intextsep},
-}
-\captionsetup[table]{
-  aboveskip = 6\bp@,
   belowskip = 6\bp@,
 }
 %    \end{macrocode}
