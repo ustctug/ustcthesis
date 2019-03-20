@@ -680,6 +680,14 @@ version 2005/12/01 or later.
 %
 % \subsection{处理选项}
 %
+% 检查编译引擎，要求使用 XeLaTeX。
+%    \begin{macrocode}
+\RequirePackage{ifxetex}
+\ifxetex\else
+  \ClassError{ustcthesis}{XeLaTeX is required to compile the document}{}
+\fi
+%    \end{macrocode}
+%
 % \changes{v3.0.a}{2018/05/16}{更正本科生英文模板的章节格式}
 %    \begin{macrocode}
 \newif\ifustc@doctor

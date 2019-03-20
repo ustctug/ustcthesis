@@ -19,6 +19,10 @@
 \NeedsTeXFormat{LaTeX2e}[1999/12/01]
 \ProvidesClass{ustcthesis}
   [2019/01/01 v3.1.03 USTC thesis template]
+\RequirePackage{ifxetex}
+\ifxetex\else
+  \ClassError{thuthesis}{XeLaTeX is required to compile the document}{}
+\fi
 \newif\ifustc@doctor
 \newif\ifustc@master
 \newif\ifustc@bachelor
