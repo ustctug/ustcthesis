@@ -4,11 +4,11 @@
 %%
 %% The original source files were:
 %%
-%% gbt7714.dtx  (with options: `2015,numerical,nouppercase,nomark,italicjournal,noslsn')
+%% gbt7714.dtx  (with options: `ustc,2015,numerical,nouppercase,nomark,italicjournal')
 %% -------------------------------------------------------------------
 %% GB/T 7714-2015 BibTeX Style
 %% https://github.com/CTeX-org/gbt7714-bibtex-style
-%% Version: 2019/01/02 v1.1
+%% Version: 2019/03/21 v1.1.1
 %% -------------------------------------------------------------------
 %% Copyright (C) 2016-2019 by Zeping Lee <zepinglee AT gmail.com>
 %% -------------------------------------------------------------------
@@ -42,7 +42,6 @@ FUNCTION {load.config}
   #1 'uppercase.name :=
   #0 'uppercase.name :=
   #3 'max.num.authors :=
-  #0 'period.between.author.year :=
   #1 'sentence.case.title :=
   #0 'link.title :=
   #1 'show.mark :=
@@ -861,8 +860,7 @@ FUNCTION {format.series.vol.num.booktitle}
 
 FUNCTION {format.journal}
 { journal
-  italic.jounal
-  entry.lang lang.en = and
+  italic.jounal entry.lang lang.en = and
     'italicize
     'skip$
   if$

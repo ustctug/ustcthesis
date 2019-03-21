@@ -4,11 +4,11 @@
 %%
 %% The original source files were:
 %%
-%% gbt7714.dtx  (with options: `2015,authoryear,noslsn,period')
+%% gbt7714.dtx  (with options: `ustc,2015,authoryear')
 %% -------------------------------------------------------------------
 %% GB/T 7714-2015 BibTeX Style
 %% https://github.com/CTeX-org/gbt7714-bibtex-style
-%% Version: 2019/01/02 v1.1
+%% Version: 2019/03/21 v1.1.1
 %% -------------------------------------------------------------------
 %% Copyright (C) 2016-2019 by Zeping Lee <zepinglee AT gmail.com>
 %% -------------------------------------------------------------------
@@ -35,6 +35,11 @@ INTEGERS {
   show.url
   show.doi
   show.note
+  lang.zh.order
+  lang.ja.order
+  lang.en.order
+  lang.ru.order
+  lang.other.order
 }
 
 FUNCTION {load.config}
@@ -55,6 +60,11 @@ FUNCTION {load.config}
   #1 'show.url :=
   #1 'show.doi :=
   #0 'show.note :=
+  #1 'lang.zh.order :=
+  #2 'lang.ja.order :=
+  #3 'lang.en.order :=
+  #4 'lang.ru.order :=
+  #5 'lang.other.order :=
 }
 
 ENTRY
@@ -859,8 +869,7 @@ FUNCTION {format.series.vol.num.booktitle}
 
 FUNCTION {format.journal}
 { journal
-  italic.jounal
-  entry.lang lang.en = and
+  italic.jounal entry.lang lang.en = and
     'italicize
     'skip$
   if$
@@ -1764,14 +1773,14 @@ FUNCTION {calc.label}
 
 FUNCTION {sort.language.label}
 { entry.lang lang.zh =
-    { "a zh " }
+    { lang.zh.order }
     { entry.lang lang.ja =
-        { "b ja " }
+        { lang.ja.order }
         { entry.lang lang.en =
-            { "c en " }
+            { lang.en.order }
             { entry.lang lang.ru =
-                { "d ru " }
-                { "e other " }
+                { lang.ru.order }
+                { lang.other.order }
               if$
             }
           if$
@@ -1779,6 +1788,7 @@ FUNCTION {sort.language.label}
       if$
     }
   if$
+  int.to.chr$
 }
 
 FUNCTION {sort.format.names}
