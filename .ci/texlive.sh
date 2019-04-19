@@ -17,6 +17,6 @@ tlmgr install latexmk l3build \
     fontname fontspec l3kernel l3packages xetex \
     cjk ctex environ ms trimspaces ulem xecjk zhnumber \
     caption filehook footmisc titlesec notoccite unicode-math \
-    fandol stix2-otf tex-gyre xits \
+    fandol tex-gyre xits \
     booktabs listings thumbpdf xcolor zapfding \
     algorithm2e ifoddpage nomencl relsize siunitx;

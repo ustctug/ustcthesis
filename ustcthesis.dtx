@@ -76,7 +76,11 @@ version 2005/12/01 or later.
   math-style=ISO,
   bold-style=ISO,
 }
-\setmathfont{STIX2Math.otf}
+\setmathfont[
+  Extension    = .otf,
+  BoldFont     = XITSMath-Bold,
+  StylisticSet = 8,
+]{XITSMath-Regular}
 
 % 定义一些命令用于写文档
 \newcommand\TeXLive{\TeX{} Live}
@@ -900,56 +904,33 @@ version 2005/12/01 or later.
 }
 %    \end{macrocode}
 %
-% 优先使用 STIX Two Math 字体，如果找不到则使用 XITS Math。
-% 所以需要检测字体是否存在。
+% 使用 XITS Math 作为数学字体。
 %
 % 注意，\cs{IfFontExistsTF} 是 \pkg{fontspec} 2017/01/20 v2.5c 才提供的；
-% \pkg{stix2-otf} 是 2018-04-13 发布；
 % 而 XITS 字体于 2018-10-03 更改了字体的文件名。
 % \changes{v3.1.01}{2018/10/06}{同步 \pkg{xits} 字体文件名的修改}
+% \changes{v3.1.05}{2019/04/21}{使用 XITS Math 作为数学字体}
 %    \begin{macrocode}
-\newif\ifustc@stixtwo
 \newif\ifustc@xitsnew
 \@ifpackagelater{fontspec}{2017/01/20}{
-  \IfFontExistsTF{STIX2Math.otf}{
-    \ustc@stixtwotrue
-  }{}
-  \IfFontExistsTF{XITS-Regular.otf}{
+  \IfFontExistsTF{XITSMath-Regular.otf}{
     \ustc@xitsnewtrue
   }{}
 }{}
-%    \end{macrocode}
-%
-% 由于 \pkg{fontspec} 的 bug
-% \footnote{\url{https://github.com/wspr/unicode-math/issues/484}}，
-% \cs{scriptstyle} 的变体字母不能正确处理，暂时不要使用 \opt{ss02}。
-%
-% 另外目前版本的 STIX Two Math 的个别符号存在一些问题，所以替换为 XITS Math。
-%    \begin{macrocode}
-\ifustc@stixtwo
-  \setmathfont[StylisticSet=8]{STIX2Math.otf}
-  \setmathfont[range={scr,bfscr},StylisticSet=1]{STIX2Math.otf}
-  \ifustc@xitsnew
-    \setmathfont[range={\partial,\lbrace,\rbrace}]{XITSMath-Regular.otf}
-  \else
-    \setmathfont[range={\partial,\lbrace,\rbrace}]{xits-math.otf}
-  \fi
+\ifustc@xitsnew
+  \setmathfont[
+    Extension    = .otf,
+    BoldFont     = XITSMath-Bold,
+    StylisticSet = 8,
+  ]{XITSMath-Regular}
+  \setmathfont[range={cal,bfcal},StylisticSet=1]{XITSMath-Regular.otf}
 \else
-  \ifustc@xitsnew
-    \setmathfont[
-      Extension    = .otf,
-      BoldFont     = XITSMath-Bold,
-      StylisticSet = 8,
-    ]{XITSMath-Regular}
-    \setmathfont[range={cal,bfcal},StylisticSet=1]{XITSMath-Regular.otf}
-  \else
-    \setmathfont[
-      Extension    = .otf,
-      BoldFont     = *bold,
-      StylisticSet = 8,
-    ]{xits-math}
-    \setmathfont[range={cal,bfcal},StylisticSet=1]{xits-math.otf}
-  \fi
+  \setmathfont[
+    Extension    = .otf,
+    BoldFont     = *bold,
+    StylisticSet = 8,
+  ]{xits-math}
+  \setmathfont[range={cal,bfcal},StylisticSet=1]{xits-math.otf}
 \fi
 %    \end{macrocode}
 %

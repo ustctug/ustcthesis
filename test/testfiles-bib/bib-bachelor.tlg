@@ -3,17 +3,17 @@ Don't change this file in any respect.
 (citations.tex
 第一章
 LaTeX Font Info:    Calculating math sizes for size <12.04486> on input line ....
-LaTeX Font Info:    Font shape `TU/STIX2Math.otf(2)/m/n' will be
+LaTeX Font Info:    Font shape `TU/XITSMath-Regular(2)/m/n' will be
 (Font)              scaled to size 12.04504pt on input line ....
-LaTeX Font Info:    Font shape `TU/STIX2Math.otf(2)/m/n' will be
+LaTeX Font Info:    Font shape `TU/XITSMath-Regular(2)/m/n' will be
 (Font)              scaled to size 8.43147pt on input line ....
-LaTeX Font Info:    Font shape `TU/STIX2Math.otf(2)/m/n' will be
+LaTeX Font Info:    Font shape `TU/XITSMath-Regular(2)/m/n' will be
 (Font)              scaled to size 6.02252pt on input line ....
-LaTeX Font Info:    Font shape `TU/STIX2Math.otf(3)/m/n' will be
+LaTeX Font Info:    Font shape `TU/XITSMath-Regular(3)/m/n' will be
 (Font)              scaled to size 12.04466pt on input line ....
-LaTeX Font Info:    Font shape `TU/STIX2Math.otf(3)/m/n' will be
+LaTeX Font Info:    Font shape `TU/XITSMath-Regular(3)/m/n' will be
 (Font)              scaled to size 8.43121pt on input line ....
-LaTeX Font Info:    Font shape `TU/STIX2Math.otf(3)/m/n' will be
+LaTeX Font Info:    Font shape `TU/XITSMath-Regular(3)/m/n' will be
 (Font)              scaled to size 6.02232pt on input line ....
 ) (bib-bachelor.bbl
 Completed box being shipped out [1]
@@ -67,7 +67,7 @@ Completed box being shipped out [1]
 ....\special{color pop}
 ..\glue 6.82881
 ..\glue(\lineskip) 0.0
-..\vbox(700.50723+0.0)x417.11752, glue set 520.44624fil
+..\vbox(700.50723+0.0)x417.11752, glue set 519.96448fil
 ...\write-{}
 ...\write1{\protect \providecommand {\protect \FN@pp@footnotehinttrue }{}}
 ...\write1{\protect \providecommand {\protect \FN@pp@footnote@aux }[2]{}}
@@ -105,27 +105,27 @@ Completed box being shipped out [1]
 ...\penalty 10000
 ...\glue 18.06729
 ...\glue(\parskip) 0.0
-...\hbox(10.03581+0.12044)x417.11752, glue set 296.19904fil
+...\hbox(10.51762+0.12044)x417.11752, glue set 296.19904fil
 ....\hbox(0.0+0.0)x24.08972
 ....\TU/texgyretermes(0)/m/n/12.04486 Knuth
 ....\kern -0.0002
 ....\kern 0.0002
 ....\penalty 10000
 ....\mathon
-....\hbox(5.58156+1.31528)x4.30763, shifted -4.33621
+....\hbox(5.58156+1.31528)x4.30763, shifted -4.81802
 .....\kern 1.0
 .....\TU/texgyretermes(0)/m/n/8.43135 [
 ....\mathoff
 ....\penalty 10000
 ....\mathon
-....\hbox(5.6996+0.0)x4.71568, shifted -4.33621
+....\hbox(5.6996+0.0)x4.71568, shifted -4.81802
 .....\TU/texgyretermes(0)/m/n/8.43135 1
 .....\kern -0.0002
 .....\kern 0.0002
 ....\mathoff
 ....\penalty 10000
 ....\mathon
-....\hbox(5.58156+1.31528)x3.30763, shifted -4.33621
+....\hbox(5.58156+1.31528)x3.30763, shifted -4.81802
 .....\TU/texgyretermes(0)/m/n/8.43135 ]
 .....\kern -0.0002
 .....\kern 0.0002
@@ -136,26 +136,26 @@ Completed box being shipped out [1]
 ....\kern 0.0002
 ....\penalty 10000
 ....\mathon
-....\hbox(5.58156+1.31528)x4.30763, shifted -4.33621
+....\hbox(5.58156+1.31528)x4.30763, shifted -4.81802
 .....\kern 1.0
 .....\TU/texgyretermes(0)/m/n/8.43135 [
 ....\mathoff
 ....\penalty 10000
 ....\mathon
-....\hbox(5.6996+0.0)x4.71568, shifted -4.33621
+....\hbox(5.6996+0.0)x4.71568, shifted -4.81802
 .....\TU/texgyretermes(0)/m/n/8.43135 1
 .....\kern -0.0002
 .....\kern 0.0002
 ....\mathoff
 ....\penalty 10000
 ....\mathon
-....\hbox(5.58156+1.31528)x3.30763, shifted -4.33621
+....\hbox(5.58156+1.31528)x3.30763, shifted -4.81802
 .....\TU/texgyretermes(0)/m/n/8.43135 ]
 .....\kern -0.0002
 .....\kern 0.0002
 ....\mathoff
 ....\mathon
-....\hbox(5.6996+0.0)x8.93135, shifted -4.33621
+....\hbox(5.6996+0.0)x8.93135, shifted -4.81802
 .....\TU/texgyretermes(0)/m/n/8.43135 42
 .....\kern -0.0002
 .....\kern 0.0002
@@ -165,11 +165,11 @@ Completed box being shipped out [1]
 ....\glue(\rightskip) 0.0
 ...\kern 1.0
 ...\glue(\parskip) 0.0
-...\glue(\baselineskip) 11.926
-...\hbox(10.03581+0.12044)x417.11752, glue set 295.0563fil
+...\glue(\baselineskip) 11.44418
+...\hbox(10.51762+0.12044)x417.11752, glue set 295.0563fil
 ....\hbox(0.0+0.0)x24.08972
 ....\mathon
-....\hbox(5.6996+1.31528)x10.33095, shifted -4.33621
+....\hbox(5.6996+1.31528)x10.33095, shifted -4.81802
 .....\TU/texgyretermes(0)/m/n/8.43135 [
 .....\hbox(5.6996+0.0)x4.21568
 ......\TU/texgyretermes(0)/m/n/8.43135 1
@@ -181,7 +181,7 @@ Completed box being shipped out [1]
 ....\mathoff
 ....\kern 1.0
 ....\mathon
-....\hbox(5.6996+1.31528)x18.7623, shifted -4.33621
+....\hbox(5.6996+1.31528)x18.7623, shifted -4.81802
 .....\TU/texgyretermes(0)/m/n/8.43135 [
 .....\hbox(5.6996+0.0)x4.21568
 ......\TU/texgyretermes(0)/m/n/8.43135 1
@@ -197,7 +197,7 @@ Completed box being shipped out [1]
 ....\kern 0.0002
 ....\kern 1.0
 ....\mathon
-....\hbox(5.6996+1.31528)x10.33095, shifted -4.33621
+....\hbox(5.6996+1.31528)x10.33095, shifted -4.81802
 .....\TU/texgyretermes(0)/m/n/8.43135 [
 .....\hbox(5.6996+0.0)x4.21568
 ......\TU/texgyretermes(0)/m/n/8.43135 1
@@ -213,7 +213,7 @@ Completed box being shipped out [1]
 ....\kern 0.0002
 ....\kern 1.0
 ....\mathon
-....\hbox(5.6996+1.31528)x18.7623, shifted -4.33621
+....\hbox(5.6996+1.31528)x18.7623, shifted -4.81802
 .....\TU/texgyretermes(0)/m/n/8.43135 [
 .....\hbox(5.6996+0.0)x4.21568
 ......\TU/texgyretermes(0)/m/n/8.43135 1
@@ -227,8 +227,8 @@ Completed box being shipped out [1]
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
 ...\glue(\parskip) 0.0
-...\glue(\baselineskip) 11.926
-...\hbox(10.03581+1.6983)x417.11752, glue set 158.68922fil
+...\glue(\baselineskip) 11.44418
+...\hbox(10.51762+1.6983)x417.11752, glue set 158.68922fil
 ....\hbox(0.0+0.0)x24.08972
 ....\TU/texgyretermes(0)/m/n/12.04486 Mittelbach,
 ....\kern -0.00021
@@ -251,27 +251,27 @@ Completed box being shipped out [1]
 ....\kern 0.0002
 ....\penalty 10000
 ....\mathon
-....\hbox(5.58156+1.31528)x4.30763, shifted -4.33621
+....\hbox(5.58156+1.31528)x4.30763, shifted -4.81802
 .....\kern 1.0
 .....\TU/texgyretermes(0)/m/n/8.43135 [
 ....\mathoff
 ....\penalty 10000
 ....\mathon
-....\hbox(5.6996+0.0)x4.71568, shifted -4.33621
+....\hbox(5.6996+0.0)x4.71568, shifted -4.81802
 .....\TU/texgyretermes(0)/m/n/8.43135 2
 .....\kern -0.0002
 .....\kern 0.0002
 ....\mathoff
 ....\penalty 10000
 ....\mathon
-....\hbox(5.58156+1.31528)x3.30763, shifted -4.33621
+....\hbox(5.58156+1.31528)x3.30763, shifted -4.81802
 .....\TU/texgyretermes(0)/m/n/8.43135 ]
 .....\kern -0.0002
 .....\kern 0.0002
 ....\mathoff
 ....\kern 1.0
 ....\mathon
-....\hbox(5.6996+1.31528)x10.33095, shifted -4.33621
+....\hbox(5.6996+1.31528)x10.33095, shifted -4.81802
 .....\TU/texgyretermes(0)/m/n/8.43135 [
 .....\hbox(5.6996+0.0)x4.21568
 ......\TU/texgyretermes(0)/m/n/8.43135 2
@@ -285,28 +285,28 @@ Completed box being shipped out [1]
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
 ...\glue(\parskip) 0.0
-...\glue(\baselineskip) 10.34813
-...\hbox(10.03581+1.6983)x417.11752, glue set 200.13197fil
+...\glue(\baselineskip) 9.86632
+...\hbox(10.51762+1.6983)x417.11752, glue set 200.13197fil
 ....\hbox(0.0+0.0)x24.08972
 ....\TU/texgyretermes(0)/m/n/12.04486 Knuth
 ....\kern -0.0002
 ....\kern 0.0002
 ....\penalty 10000
 ....\mathon
-....\hbox(5.58156+1.31528)x4.30763, shifted -4.33621
+....\hbox(5.58156+1.31528)x4.30763, shifted -4.81802
 .....\kern 1.0
 .....\TU/texgyretermes(0)/m/n/8.43135 [
 ....\mathoff
 ....\penalty 10000
 ....\mathon
-....\hbox(5.6996+0.0)x4.71568, shifted -4.33621
+....\hbox(5.6996+0.0)x4.71568, shifted -4.81802
 .....\TU/texgyretermes(0)/m/n/8.43135 1
 .....\kern -0.0002
 .....\kern 0.0002
 ....\mathoff
 ....\penalty 10000
 ....\mathon
-....\hbox(5.58156+1.31528)x3.30763, shifted -4.33621
+....\hbox(5.58156+1.31528)x3.30763, shifted -4.81802
 .....\TU/texgyretermes(0)/m/n/8.43135 ]
 .....\kern -0.0002
 .....\kern 0.0002
@@ -330,27 +330,27 @@ Completed box being shipped out [1]
 ....\kern 0.0002
 ....\penalty 10000
 ....\mathon
-....\hbox(5.58156+1.31528)x4.30763, shifted -4.33621
+....\hbox(5.58156+1.31528)x4.30763, shifted -4.81802
 .....\kern 1.0
 .....\TU/texgyretermes(0)/m/n/8.43135 [
 ....\mathoff
 ....\penalty 10000
 ....\mathon
-....\hbox(5.6996+0.0)x4.71568, shifted -4.33621
+....\hbox(5.6996+0.0)x4.71568, shifted -4.81802
 .....\TU/texgyretermes(0)/m/n/8.43135 2
 .....\kern -0.0002
 .....\kern 0.0002
 ....\mathoff
 ....\penalty 10000
 ....\mathon
-....\hbox(5.58156+1.31528)x3.30763, shifted -4.33621
+....\hbox(5.58156+1.31528)x3.30763, shifted -4.81802
 .....\TU/texgyretermes(0)/m/n/8.43135 ]
 .....\kern -0.0002
 .....\kern 0.0002
 ....\mathoff
 ....\kern 1.0
 ....\mathon
-....\hbox(5.6996+1.31528)x17.35426, shifted -4.33621
+....\hbox(5.6996+1.31528)x17.35426, shifted -4.81802
 .....\TU/texgyretermes(0)/m/n/8.43135 [
 .....\hbox(5.6996+0.0)x4.21568
 ......\TU/texgyretermes(0)/m/n/8.43135 1
@@ -370,7 +370,7 @@ Completed box being shipped out [1]
 ....\mathoff
 ....\kern 1.0
 ....\mathon
-....\hbox(5.6996+1.31528)x16.65446, shifted -4.33621
+....\hbox(5.6996+1.31528)x16.65446, shifted -4.81802
 .....\TU/texgyretermes(0)/m/n/8.43135 [
 .....\hbox(5.6996+0.0)x4.21568
 ......\TU/texgyretermes(0)/m/n/8.43135 1
@@ -390,7 +390,7 @@ Completed box being shipped out [1]
 ....\mathoff
 ....\kern 1.0
 ....\mathon
-....\hbox(5.6996+1.31528)x16.65446, shifted -4.33621
+....\hbox(5.6996+1.31528)x16.65446, shifted -4.81802
 .....\TU/texgyretermes(0)/m/n/8.43135 [
 .....\hbox(5.6996+0.0)x4.21568
 ......\TU/texgyretermes(0)/m/n/8.43135 1
@@ -412,27 +412,27 @@ Completed box being shipped out [1]
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
 ...\glue(\parskip) 0.0
-...\glue(\baselineskip) 10.34813
-...\hbox(10.03581+0.12044)x417.11752, glue set 311.25989fil
+...\glue(\baselineskip) 9.86632
+...\hbox(10.51762+0.12044)x417.11752, glue set 311.25989fil
 ....\hbox(0.0+0.0)x24.08972
 ....\TU/texgyretermes(0)/m/n/12.04486 Knuth
 ....\kern -0.0002
 ....\kern 0.0002
 ....\penalty 10000
 ....\mathon
-....\hbox(5.58156+1.31528)x4.30763, shifted -4.33621
+....\hbox(5.58156+1.31528)x4.30763, shifted -4.81802
 .....\kern 1.0
 .....\TU/texgyretermes(0)/m/n/8.43135 [
 ....\mathoff
 ....\penalty 10000
 ....\mathon
-....\hbox(5.6996+0.0)x4.71568, shifted -4.33621
+....\hbox(5.6996+0.0)x4.71568, shifted -4.81802
 .....\TU/texgyretermes(0)/m/n/8.43135 1
 .....\kern -0.0002
 .....\kern 0.0002
 ....\mathoff
 ....\mathon
-....\hbox(0.86+1.18881)x2.60783, shifted -4.33621
+....\hbox(0.86+1.18881)x2.60783, shifted -4.81802
 .....\TU/texgyretermes(0)/m/n/8.43135 ,
 .....\kern -0.0002
 .....\kern 0.0002
@@ -440,13 +440,13 @@ Completed box being shipped out [1]
 ....\penalty 1000
 ....\penalty 10000
 ....\mathon
-....\hbox(5.6996+0.11803)x4.71568, shifted -4.33621
+....\hbox(5.6996+0.11803)x4.71568, shifted -4.81802
 .....\TU/texgyretermes(0)/m/n/8.43135 3
 .....\kern -0.0002
 .....\kern 0.0002
 ....\mathoff
 ....\mathon
-....\hbox(0.86+1.18881)x2.60783, shifted -4.33621
+....\hbox(0.86+1.18881)x2.60783, shifted -4.81802
 .....\TU/texgyretermes(0)/m/n/8.43135 ,
 .....\kern -0.0002
 .....\kern 0.0002
@@ -454,21 +454,21 @@ Completed box being shipped out [1]
 ....\penalty 1000
 ....\penalty 10000
 ....\mathon
-....\hbox(5.6996+0.0)x4.71568, shifted -4.33621
+....\hbox(5.6996+0.0)x4.71568, shifted -4.81802
 .....\TU/texgyretermes(0)/m/n/8.43135 4
 .....\kern -0.0002
 .....\kern 0.0002
 ....\mathoff
 ....\penalty 10000
 ....\mathon
-....\hbox(5.58156+1.31528)x3.30763, shifted -4.33621
+....\hbox(5.58156+1.31528)x3.30763, shifted -4.81802
 .....\TU/texgyretermes(0)/m/n/8.43135 ]
 .....\kern -0.0002
 .....\kern 0.0002
 ....\mathoff
 ....\kern 1.0
 ....\mathon
-....\hbox(5.6996+1.31528)x23.67778, shifted -4.33621
+....\hbox(5.6996+1.31528)x23.67778, shifted -4.81802
 .....\TU/texgyretermes(0)/m/n/8.43135 [
 .....\hbox(5.6996+0.0)x4.21568
 ......\TU/texgyretermes(0)/m/n/8.43135 1
@@ -499,11 +499,11 @@ Completed box being shipped out [1]
 ....\glue(\rightskip) 0.0
 ...\kern 1.0
 ...\glue(\parskip) 0.0
-...\glue(\baselineskip) 11.82483
-...\hbox(10.13698+0.0)x417.11752, glue set 371.45787fil
+...\glue(\baselineskip) 11.34302
+...\hbox(10.61879+0.0)x417.11752, glue set 371.45787fil
 ....\hbox(0.0+0.0)x24.08972
 ....\mathon
-....\hbox(5.80077+1.31528)x21.56993, shifted -4.33621
+....\hbox(5.80077+1.31528)x21.56993, shifted -4.81802
 .....\TU/texgyretermes(0)/m/n/8.43135 [
 .....\hbox(5.80077+0.11803)x4.21568
 ......\TU/texgyretermes(0)/m/n/8.43135 5

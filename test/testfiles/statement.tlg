@@ -1,17 +1,17 @@
 This is a generated file for the l3build validation system.
 Don't change this file in any respect.
 LaTeX Font Info:    Calculating math sizes for size <12.04486> on input line ....
-LaTeX Font Info:    Font shape `TU/STIX2Math.otf(2)/m/n' will be
+LaTeX Font Info:    Font shape `TU/XITSMath-Regular(2)/m/n' will be
 (Font)              scaled to size 12.04504pt on input line ....
-LaTeX Font Info:    Font shape `TU/STIX2Math.otf(2)/m/n' will be
+LaTeX Font Info:    Font shape `TU/XITSMath-Regular(2)/m/n' will be
 (Font)              scaled to size 8.43147pt on input line ....
-LaTeX Font Info:    Font shape `TU/STIX2Math.otf(2)/m/n' will be
+LaTeX Font Info:    Font shape `TU/XITSMath-Regular(2)/m/n' will be
 (Font)              scaled to size 6.02252pt on input line ....
-LaTeX Font Info:    Font shape `TU/STIX2Math.otf(3)/m/n' will be
+LaTeX Font Info:    Font shape `TU/XITSMath-Regular(3)/m/n' will be
 (Font)              scaled to size 12.04466pt on input line ....
-LaTeX Font Info:    Font shape `TU/STIX2Math.otf(3)/m/n' will be
+LaTeX Font Info:    Font shape `TU/XITSMath-Regular(3)/m/n' will be
 (Font)              scaled to size 8.43121pt on input line ....
-LaTeX Font Info:    Font shape `TU/STIX2Math.otf(3)/m/n' will be
+LaTeX Font Info:    Font shape `TU/XITSMath-Regular(3)/m/n' will be
 (Font)              scaled to size 6.02232pt on input line ....
 Completed box being shipped out [1]
 \vbox(722.98453+0.0)x435.04271
@@ -322,7 +322,7 @@ Completed box being shipped out [1]
 ...\glue 36.98866
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 8.51172
-...\hbox(9.38295+4.09515)x417.11752, glue set 13.65941fil
+...\hbox(9.38295+3.97476)x417.11752, glue set 13.65941fil
 ....\hbox(0.0+0.0)x24.08972
 ....\TU/FandolSong-Regular(0)/m/n/12.04486 作
 ....\glue 0.0 plus 0.61366
@@ -340,13 +340,13 @@ Completed box being shipped out [1]
 ....\kern 0.99649
 ....\glue 8.39526 minus 6.02243
 ....\mathon
-....\vbox(0.0+4.09515)x91.04872
+....\vbox(0.0+3.97476)x91.04872
 .....\hbox(0.0+0.0)x91.04872
 ......\hbox(0.0+0.0)x91.04872, glue set 45.52437fil
 .......\glue 0.0 plus 1.0fil minus 1.0fil
 .......\glue 0.0 plus 1.0fil minus 1.0fil
-.....\kern2.45709
-.....\rule(0.81903+0.0)x*
+.....\kern2.38486
+.....\rule(0.79495+0.0)x*
 ....\mathoff
 ....\glue 76.82234
 ....\TU/FandolSong-Regular(0)/m/n/12.04486 签
@@ -365,20 +365,20 @@ Completed box being shipped out [1]
 ....\kern 0.99649
 ....\glue 8.39526 minus 6.02243
 ....\mathon
-....\vbox(0.0+4.09515)x91.04872
+....\vbox(0.0+3.97476)x91.04872
 .....\hbox(0.0+0.0)x91.04872
 ......\hbox(0.0+0.0)x91.04872, glue set 45.52437fil
 .......\glue 0.0 plus 1.0fil minus 1.0fil
 .......\glue 0.0 plus 1.0fil minus 1.0fil
-.....\kern2.45709
-.....\rule(0.81903+0.0)x*
+.....\kern2.38486
+.....\rule(0.79495+0.0)x*
 ....\mathoff
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
 ...\glue 54.06006
 ...\glue(\parskip) 0.0
-...\glue(\baselineskip) 15.4657
+...\glue(\baselineskip) 15.58609
 ...\hbox(12.55878+2.8747)x417.11752, glue set 64.02043fil
 ....\glue(\leftskip) 0.0 plus 1.0fil
 ....\hbox(0.0+0.0)x0.0
@@ -864,18 +864,18 @@ Completed box being shipped out [1]
 ...\glue 17.07182
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 8.22264
-...\hbox(9.6359+4.09515)x417.11752, glue set 249.34564fil
+...\hbox(9.6359+3.97476)x417.11752, glue set 249.82744fil
 ....\hbox(0.0+0.0)x24.08972
-....\hbox(8.16641+1.95126)x0.0, glue set - 11.22581fil
+....\hbox(7.9737+1.90309)x0.0, glue set - 10.96083fil
 .....\mathon
-.....\TU/STIX2Math.otf(1)/m/n/12.04486 glyph#2259
+.....\TU/XITSMath-Regular(1)/m/n/12.04486 glyph#1596
 .....\mathoff
 .....\glue 0.0 plus 1.0fil minus 1.0fil
-....\hbox(7.63646+1.2406)x10.51524
-.....\hbox(8.72047+0.15659)x10.51524, shifted 1.08401
+....\hbox(7.4317+1.22855)x10.29843
+.....\hbox(8.51572+0.14453)x10.29843, shifted 1.08401
 ......\glue 1.20456
 ......\mathon
-......\TU/STIX2Math.otf(1)/m/n/12.04486 glyph#2411
+......\TU/XITSMath-Regular(1)/m/n/12.04486 glyph#1748
 ......\mathoff
 ....\glue 3.01122 plus 1.5056 minus 1.00374
 ....\TU/FandolSong-Regular(0)/m/n/12.04486 公
@@ -885,7 +885,7 @@ Completed box being shipped out [1]
 ....\kern 0.00017
 ....\glue 12.04486
 ....\mathon
-....\TU/STIX2Math.otf(1)/m/n/12.04486 glyph#2259
+....\TU/XITSMath-Regular(1)/m/n/12.04486 glyph#1596
 ....\mathoff
 ....\glue 3.01122 plus 1.5056 minus 1.00374
 ....\TU/FandolSong-Regular(0)/m/n/12.04486 保
@@ -902,13 +902,13 @@ Completed box being shipped out [1]
 ....\penalty 10000
 ....\glue 0.0
 ....\mathon
-....\vbox(0.0+4.09515)x24.18501
+....\vbox(0.0+3.97476)x24.18501
 .....\hbox(0.0+0.0)x24.18501
 ......\hbox(0.0+0.0)x24.18501, glue set 12.09251fil
 .......\glue 0.0 plus 1.0fil minus 1.0fil
 .......\glue 0.0 plus 1.0fil minus 1.0fil
-.....\kern2.45709
-.....\rule(0.81903+0.0)x*
+.....\kern2.38486
+.....\rule(0.79495+0.0)x*
 ....\mathoff
 ....\glue 3.01122 plus 1.5056 minus 1.00374
 ....\TU/FandolSong-Regular(0)/m/n/12.04486 年
@@ -924,8 +924,8 @@ Completed box being shipped out [1]
 ....\glue(\rightskip) 0.0
 ...\glue 14.22636
 ...\glue(\parskip) 0.0
-...\glue(\baselineskip) 6.59666
-...\hbox(9.38295+4.09515)x417.11752, glue set 13.65941fil
+...\glue(\baselineskip) 6.71706
+...\hbox(9.38295+3.97476)x417.11752, glue set 13.65941fil
 ....\hbox(0.0+0.0)x24.08972
 ....\TU/FandolSong-Regular(0)/m/n/12.04486 作
 ....\glue 0.0 plus 0.61366
@@ -943,13 +943,13 @@ Completed box being shipped out [1]
 ....\kern 0.99649
 ....\glue 8.39526 minus 6.02243
 ....\mathon
-....\vbox(0.0+4.09515)x91.04872
+....\vbox(0.0+3.97476)x91.04872
 .....\hbox(0.0+0.0)x91.04872
 ......\hbox(0.0+0.0)x91.04872, glue set 45.52437fil
 .......\glue 0.0 plus 1.0fil minus 1.0fil
 .......\glue 0.0 plus 1.0fil minus 1.0fil
-.....\kern2.45709
-.....\rule(0.81903+0.0)x*
+.....\kern2.38486
+.....\rule(0.79495+0.0)x*
 ....\mathoff
 ....\glue 76.82234
 ....\TU/FandolSong-Regular(0)/m/n/12.04486 导
@@ -968,21 +968,21 @@ Completed box being shipped out [1]
 ....\kern 0.99649
 ....\glue 8.39526 minus 6.02243
 ....\mathon
-....\vbox(0.0+4.09515)x91.04872
+....\vbox(0.0+3.97476)x91.04872
 .....\hbox(0.0+0.0)x91.04872
 ......\hbox(0.0+0.0)x91.04872, glue set 45.52437fil
 .......\glue 0.0 plus 1.0fil minus 1.0fil
 .......\glue 0.0 plus 1.0fil minus 1.0fil
-.....\kern2.45709
-.....\rule(0.81903+0.0)x*
+.....\kern2.38486
+.....\rule(0.79495+0.0)x*
 ....\mathoff
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
 ...\glue 14.22636
 ...\glue(\parskip) 0.0
-...\glue(\baselineskip) 6.65689
-...\hbox(9.32272+4.09515)x417.11752, glue set 13.65941fil
+...\glue(\baselineskip) 6.77728
+...\hbox(9.32272+3.97476)x417.11752, glue set 13.65941fil
 ....\hbox(0.0+0.0)x24.08972
 ....\TU/FandolSong-Regular(0)/m/n/12.04486 签
 ....\glue 0.0 plus 0.61366
@@ -1000,13 +1000,13 @@ Completed box being shipped out [1]
 ....\kern 0.99649
 ....\glue 8.39526 minus 6.02243
 ....\mathon
-....\vbox(0.0+4.09515)x91.04872
+....\vbox(0.0+3.97476)x91.04872
 .....\hbox(0.0+0.0)x91.04872
 ......\hbox(0.0+0.0)x91.04872, glue set 45.52437fil
 .......\glue 0.0 plus 1.0fil minus 1.0fil
 .......\glue 0.0 plus 1.0fil minus 1.0fil
-.....\kern2.45709
-.....\rule(0.81903+0.0)x*
+.....\kern2.38486
+.....\rule(0.79495+0.0)x*
 ....\mathoff
 ....\glue 76.82234
 ....\TU/FandolSong-Regular(0)/m/n/12.04486 签
@@ -1025,18 +1025,18 @@ Completed box being shipped out [1]
 ....\kern 0.99649
 ....\glue 8.39526 minus 6.02243
 ....\mathon
-....\vbox(0.0+4.09515)x91.04872
+....\vbox(0.0+3.97476)x91.04872
 .....\hbox(0.0+0.0)x91.04872
 ......\hbox(0.0+0.0)x91.04872, glue set 45.52437fil
 .......\glue 0.0 plus 1.0fil minus 1.0fil
 .......\glue 0.0 plus 1.0fil minus 1.0fil
-.....\kern2.45709
-.....\rule(0.81903+0.0)x*
+.....\kern2.38486
+.....\rule(0.79495+0.0)x*
 ....\mathoff
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
-...\glue -4.09515
+...\glue -3.97476
 ...\glue 0.0 plus 1.0fil
 ...\glue 0.0
 ...\glue 0.0 plus 0.0001fil

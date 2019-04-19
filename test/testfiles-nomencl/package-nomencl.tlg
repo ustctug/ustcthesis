@@ -2,17 +2,17 @@ This is a generated file for the l3build validation system.
 Don't change this file in any respect.
 (package-nomencl.nls
 LaTeX Font Info:    Calculating math sizes for size <12.04486> on input line ....
-LaTeX Font Info:    Font shape `TU/STIX2Math.otf(2)/m/n' will be
+LaTeX Font Info:    Font shape `TU/XITSMath-Regular(2)/m/n' will be
 (Font)              scaled to size 12.04504pt on input line ....
-LaTeX Font Info:    Font shape `TU/STIX2Math.otf(2)/m/n' will be
+LaTeX Font Info:    Font shape `TU/XITSMath-Regular(2)/m/n' will be
 (Font)              scaled to size 8.43147pt on input line ....
-LaTeX Font Info:    Font shape `TU/STIX2Math.otf(2)/m/n' will be
+LaTeX Font Info:    Font shape `TU/XITSMath-Regular(2)/m/n' will be
 (Font)              scaled to size 6.02252pt on input line ....
-LaTeX Font Info:    Font shape `TU/STIX2Math.otf(3)/m/n' will be
+LaTeX Font Info:    Font shape `TU/XITSMath-Regular(3)/m/n' will be
 (Font)              scaled to size 12.04466pt on input line ....
-LaTeX Font Info:    Font shape `TU/STIX2Math.otf(3)/m/n' will be
+LaTeX Font Info:    Font shape `TU/XITSMath-Regular(3)/m/n' will be
 (Font)              scaled to size 8.43121pt on input line ....
-LaTeX Font Info:    Font shape `TU/STIX2Math.otf(3)/m/n' will be
+LaTeX Font Info:    Font shape `TU/XITSMath-Regular(3)/m/n' will be
 (Font)              scaled to size 6.02232pt on input line ....
 Completed box being shipped out [1]
 \vbox(722.98453+0.0)x435.04271
@@ -83,15 +83,15 @@ Completed box being shipped out [1]
 ...\glue 18.06729
 ...\glue(\parskip) 0.0 plus 0.2
 ...\hbox(8.22664+2.62576)x382.66478, glue set 202.6664fil, shifted 34.45274
-....\hbox(5.69722+0.16862)x0.0
+....\hbox(5.1552+0.13249)x0.0
 .....\glue 0.0
 .....\glue -28.45274
 .....\glue -6.0
-.....\hbox(5.69722+0.16862)x28.45274, glue set 21.28606fil
+.....\hbox(5.1552+0.13249)x28.45274, glue set 21.3824fil
 ......\special{color push  Black}
 ......\mathon
-......\TU/STIX2Math.otf(1)/m/n/12.04486 glyph#4033
-......\kern0.30112
+......\TU/XITSMath-Regular(1)/m/n/12.04486 glyph#3176
+......\kern0.60225
 ......\mathoff
 ......\glue 0.0 plus 1.0fil
 ......\special{color pop}
@@ -136,15 +136,14 @@ Completed box being shipped out [1]
 ...\glue(\parskip) 0.0 plus 0.2
 ...\glue(\baselineskip) 9.22237
 ...\hbox(8.22664+2.61372)x382.66478, glue set 247.87074fil, shifted 34.45274
-....\hbox(7.96165+0.0)x0.0
+....\hbox(8.03392+0.0)x0.0
 .....\glue 0.0
 .....\glue -28.45274
 .....\glue -6.0
-.....\hbox(7.96165+0.0)x28.45274, glue set 19.59976fil
+.....\hbox(8.03392+0.0)x28.45274, glue set 19.81657fil
 ......\special{color push  Black}
 ......\mathon
-......\TU/STIX2Math.otf(1)/m/n/12.04486 glyph#3300
-......\kern0.12045
+......\TU/XITSMath-Regular(1)/m/n/12.04486 glyph#2472
 ......\mathoff
 ......\glue 0.0 plus 1.0fil
 ......\special{color pop}
@@ -181,15 +180,14 @@ Completed box being shipped out [1]
 ...\glue(\parskip) 0.0 plus 0.2
 ...\glue(\baselineskip) 9.2344
 ...\hbox(8.22664+2.62576)x382.66478, glue set 214.38603fil, shifted 34.45274
-....\hbox(5.76949+0.14453)x0.0
+....\hbox(5.31178+0.12045)x0.0
 .....\glue 0.0
 .....\glue -28.45274
 .....\glue -6.0
-.....\hbox(5.76949+0.14453)x28.45274, glue set 21.46674fil
+.....\hbox(5.31178+0.12045)x28.45274, glue set 22.40622fil
 ......\special{color push  Black}
 ......\mathon
-......\TU/STIX2Math.otf(1)/m/n/12.04486 glyph#3326
-......\kern0.30112
+......\TU/XITSMath-Regular(1)/m/n/12.04486 glyph#2498
 ......\mathoff
 ......\glue 0.0 plus 1.0fil
 ......\special{color pop}
@@ -230,15 +228,14 @@ Completed box being shipped out [1]
 ...\glue(\parskip) 0.0 plus 0.2
 ...\glue(\baselineskip) 9.22237
 ...\hbox(8.22664+2.62576)x382.66478, glue set 274.58624fil, shifted 34.45274
-....\hbox(5.76949+0.12045)x0.0
+....\hbox(5.31178+0.09636)x0.0
 .....\glue 0.0
 .....\glue -28.45274
 .....\glue -6.0
-.....\hbox(5.76949+0.12045)x28.45274, glue set 18.21461fil
+.....\hbox(5.31178+0.09636)x28.45274, glue set 19.9009fil
 ......\special{color push  Black}
 ......\mathon
-......\TU/STIX2Math.otf(1)/m/n/12.04486 glyph#3340
-......\kern0.24089
+......\TU/XITSMath-Regular(1)/m/n/12.04486 glyph#2509
 ......\mathoff
 ......\glue 0.0 plus 1.0fil
 ......\special{color pop}
@@ -271,15 +268,15 @@ Completed box being shipped out [1]
 ...\glue(\parskip) 0.0 plus 0.2
 ...\glue(\baselineskip) 9.22237
 ...\hbox(8.22664+2.62576)x382.66478, glue set 196.9812fil, shifted 34.45274
-....\hbox(7.91347+0.09636)x0.0
+....\hbox(7.8653+0.0)x0.0
 .....\glue 0.0
 .....\glue -28.45274
 .....\glue -6.0
-.....\hbox(7.91347+0.09636)x28.45274, glue set 18.62413fil
+.....\hbox(7.8653+0.0)x28.45274, glue set 17.11853fil
 ......\special{color push  Black}
 ......\mathon
-......\TU/STIX2Math.otf(1)/m/n/12.04486 glyph#3313
-......\kern0.54202
+......\TU/XITSMath-Regular(1)/m/n/12.04486 glyph#2485
+......\kern1.08403
 ......\mathoff
 ......\glue 0.0 plus 1.0fil
 ......\special{color pop}
