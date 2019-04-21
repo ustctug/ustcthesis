@@ -50,7 +50,7 @@ version 2005/12/01 or later.
 %<class>\NeedsTeXFormat{LaTeX2e}[1999/12/01]
 %<class>\ProvidesClass{ustcthesis}
 %<*class>
-  [2019/03/21 v3.1.04 USTC thesis template]
+  [2019/04/21 v3.1.05 USTC thesis template]
 %</class>
 %
 %<*driver>
@@ -303,6 +303,7 @@ version 2005/12/01 or later.
 % \pkg{calc},
 % \pkg{color},
 % \pkg{ctex},
+% \pkg{fancyhdr},
 % \pkg{footmisc},
 % \pkg{geometry},
 % \pkg{graphicx},
@@ -766,6 +767,7 @@ version 2005/12/01 or later.
 \RequirePackage{unicode-math}
 \RequirePackage{geometry}
 \RequirePackage{graphicx}
+\RequirePackage{fancyhdr}
 \RequirePackage{color}
 \RequirePackage{titletoc}
 \RequirePackage{caption}
@@ -1132,95 +1134,63 @@ version 2005/12/01 or later.
   paper      = a4paper,
   vmargin    = 2.54cm,
   hmargin    = 3.17cm,
-  headheight = 0.8cm,
-  headsep    = 0.24cm,
+  headheight = 0.75cm,
+  headsep    = 0.29cm,
   footskip   = 0.79cm,
 }
 %    \end{macrocode}
 %
+% 使用 \pkg{fancy} 需要先调用 |\pagestyle{fancy}| 再修改 \cs{chaptermark} 和
+% \cs{sectionmark}。
+%    \begin{macrocode}
+\pagestyle{fancy}
+\let\sectionmark\@gobble
+\renewcommand\headrulewidth{0.4\p@}
+%    \end{macrocode}
+%
+% 使用 \pkg{ctex} 的 \cs{ctex\_patch\_cmd:Nnn} 命令。
+% \changes{v3.1.01}{2018/10/06}{取消依赖 \pkg{etoolbox}}
+%    \begin{macrocode}
+\newcommand\ustc@patchcmd{\csname ctex_patch_cmd:Nnn\endcsname}
+%    \end{macrocode}
+%
 % 页眉与该部分的章标题相同，宋体 10.5 磅（五号）居中。
-% \changes{v3.1.02}{2018/10/30}{取消依赖 \pkg{fancyhdr}}
+% 页码：宋体 10.5 磅、页面下脚居中。
+% \changes{v3.0}{2017/07/01}{页码居中}
+% \changes{v3.0.7}{2018/04/18}{更正页眉英文大写的错误}
 %    \begin{macrocode}
 \ifustc@graduate
-  \newcommand\ustc@header@font{\fontsize{10.5\bp@}{12\bp@}\selectfont}
+  \newcommand\ustc@hf@font{\fontsize{10.5\bp@}{12\bp@}\selectfont}
   \newcommand\ustc@header{\leftmark}
+  \ustc@patchcmd\chaptermark{\MakeUppercase}{}
+  \ustc@patchcmd\chaptermark{#1}{\ustc@spacetitle{#1}}
 %    \end{macrocode}
 %
 % 本科生要求除封面、扉页外，每面上部加页眉，
 % 用小 5 号字（9 bp）标注“中国科学技术大学本科毕业论文”，居中；
 % 从目录页开始在每面底部居中用小五宋体（9 bp）连续编页码。
-%    \begin{macrocode}
-\else
-  \newcommand\ustc@header@font{\fontsize{9\bp@}{12\bp@}\selectfont}
-  \newcommand\ustc@header{\ustc@universityname{}本科毕业论文}
-\fi
-\newcommand\ustc@head{%
-  \vbox to\headheight{%
-    \hfil\ustc@header@font\ustc@header\strut\hfil
-    \hrule\@height 0.4\p@\@width\textwidth
-    \vfil
-  }%
-}
-%    \end{macrocode}
-%
-% 页码：宋体 10.5 磅、页面下脚居中。
-% \changes{v3.0}{2017/07/01}{页码居中}
 % \changes{v3.0.2}{2018/03/16}{更正本科生的页码}
 %    \begin{macrocode}
-\newcommand\ustc@foot{\hfil\ustc@header@font\thepage\hfil}
+\else
+  \newcommand\ustc@hf@font{\fontsize{9\bp@}{12\bp@}\selectfont}
+  \newcommand\ustc@header{\ustc@universityname{}本科毕业论文}
+  \let\chaptermark\@gobble
+\fi
 %    \end{macrocode}
 %
 % 重定义默认的 |plain| page style，会显示页眉和页脚。
 %    \begin{macrocode}
-\def\ps@plain{%
-  \def\@oddhead{\ustc@head}%
-  \def\@oddfoot{\ustc@foot}%
-  \let\@evenhead\@oddhead
-  \let\@evenfoot\@oddfoot
-  \let\@mkboth\markboth
+\fancypagestyle{plain}{%
+  \fancyhf{}%
+  \fancyhead[C]{\ustc@hf@font\ustc@header}%
+  \fancyfoot[C]{\ustc@hf@font\thepage}%
 }
-%    \end{macrocode}
-% \pkg{ctex} v2.4.4 （2016/09/21）引入了 \cs{CTEXifname}。
-% \changes{v3.0.7}{2018/04/18}{更正页眉英文大写的错误}
-%    \begin{macrocode}
-\ifustc@graduate
-  \@ifclasslater{ctexbook}{2016/09/21}{
-    \def\chaptermark#1{%
-      \markboth{%
-        \CTEXifname{\CTEXthechapter\CTEX@chapter@aftername}{}%
-        \ustc@spacetitle{#1}%
-      }{}%
-    }
-  }{
-    \def\chaptermark#1{%
-      \markboth{%
-        \ifnum \c@secnumdepth >\m@ne
-          \if@mainmatter
-            \ifodd\CTEX@chapter@numbering
-              \CTEXthechapter\CTEX@chapter@aftername
-            \fi
-          \fi
-        \fi
-        \ustc@spacetitle{#1}%
-      }{}%
-    }
-  }
-\else
-  \let\chaptermark\@gobble
-\fi
-\let\sectionmark\@gobble
 \pagestyle{plain}
 %    \end{macrocode}
 %
 % |headings| 只有页眉，没有页脚，用于研究生的符号说明和本科生的 front matter。
 %    \begin{macrocode}
-\def\ps@headings{%
-  \def\@oddhead{\ustc@head}%
-  \let\@evenhead\@oddhead
-  \let\@oddfoot\@empty
-  \let\@evenfoot\@empty
-  \let\@mkboth\markboth
-}
+\fancypagestyle{headings}{\fancyfoot{}}
 %    \end{macrocode}
 %
 % 每章第一页默认会设置特殊的 page style，我们希望它不改变页眉页脚，
@@ -2372,12 +2342,6 @@ version 2005/12/01 or later.
   \fi
   \bibliographystyle{ustcthesis-bachelor}
 \fi
-%    \end{macrocode}
-%
-% 使用 \pkg{ctex} 的 \cs{ctex\_patch\_cmd:Nnn} 命令。
-% \changes{v3.1.01}{2018/10/06}{取消依赖 \pkg{etoolbox}}
-%    \begin{macrocode}
-\newcommand\ustc@patchcmd{\csname ctex_patch_cmd:Nnn\endcsname}
 %    \end{macrocode}
 %
 % \begin{macro}{\cite}

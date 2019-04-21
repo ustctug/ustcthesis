@@ -3,35 +3,58 @@ Don't change this file in any respect.
 (main-lof.lof)
 \tf@lof=\write...
 Completed box being shipped out [1]
-\vbox(722.98453+0.0)x435.04271
-.\glue -29.59128
-.\vbox(752.5758+0.0)x417.11752, shifted 17.92519
-..\vbox(22.76228+0.0)x417.11752
+\vbox(722.98453+3.6135)x435.04271
+.\glue -29.59084
+.\vbox(752.57536+3.6135)x417.11752, shifted 17.92519
+..\vbox(21.33955+0.0)x417.11752, glue set 9.29471fil
 ...\glue 0.0 plus 1.0fil
-...\hbox(22.76228+0.0)x417.11752
+...\hbox(12.04485+0.0)x417.11752
 ....\special{color push  Black}
-....\hbox(22.76228+0.0)x417.11752
-.....\vbox(22.76228+0.0)x417.11752, glue set 10.31744fil
-......\hbox(8.43135+3.6135)x417.11752, glue set 179.57584fil
-.......\hbox(0.0+0.0)x0.0
-.......\glue 0.0 plus 1.0fil
-.......\TU/FandolSong-Regular(0)/m/n/10.53925 插
-.......\glue 5.26962 plus 0.45427 minus 0.17125
-.......\TU/FandolSong-Regular(0)/m/n/10.53925 图
-.......\glue 5.26962 plus 0.45427 minus 0.17125
-.......\TU/FandolSong-Regular(0)/m/n/10.53925 清
-.......\glue 5.26962 plus 0.45427 minus 0.17125
-.......\TU/FandolSong-Regular(0)/m/n/10.53925 单
-.......\kern -0.00017
-.......\kern 0.00017
-.......\rule(8.43135+3.6135)x0.0
-.......\penalty 10000
-.......\glue(\parfillskip) 0.0 plus 1.0fil
-.......\glue(\rightskip) 0.0
-......\rule(0.4+0.0)x417.11752
-......\glue 0.0 plus 1.0fil
+....\hbox(12.04485+0.0)x417.11752
+.....\hbox(12.04485+0.0)x417.11752
+......\vbox(12.04485+0.0)x417.11752
+.......\hbox(8.43135+3.6135)x417.11752
+........\hbox(0.0+0.0)x0.0, glue set - 417.11752fil
+.........\vbox(0.0+0.0)x417.11752
+..........\hbox(0.0+0.0)x417.11752, glue set 208.55876fil
+...........\hbox(0.0+0.0)x0.0
+...........\penalty 10000
+...........\glue(\parfillskip) 0.0 plus 1.0fil
+...........\glue(\rightskip) 0.0 plus 1.0fil
+.........\glue 0.0 plus 1.0fil minus 1.0fil
+........\glue 0.0 plus 1.0fill
+........\vbox(8.43135+3.6135)x417.11752
+.........\hbox(8.43135+3.6135)x417.11752, glue set 179.57584fil
+..........\glue(\leftskip) 0.0 plus 1.0fil
+..........\hbox(0.0+0.0)x0.0
+..........\TU/FandolSong-Regular(0)/m/n/10.53925 插
+..........\glue 5.26962 plus 0.45427 minus 0.17125
+..........\TU/FandolSong-Regular(0)/m/n/10.53925 图
+..........\glue 5.26962 plus 0.45427 minus 0.17125
+..........\TU/FandolSong-Regular(0)/m/n/10.53925 清
+..........\glue 5.26962 plus 0.45427 minus 0.17125
+..........\TU/FandolSong-Regular(0)/m/n/10.53925 单
+..........\kern -0.00017
+..........\kern 0.00017
+..........\rule(8.43135+3.6135)x0.0
+..........\penalty 10000
+..........\glue(\parfillskip) 0.0
+..........\glue(\rightskip) 0.0 plus 1.0fil
+........\glue 0.0 plus 1.0fill
+........\hbox(0.0+0.0)x0.0, glue set - 417.11752fil
+.........\glue 0.0 plus 1.0fil minus 1.0fil
+.........\vbox(0.0+0.0)x417.11752
+..........\hbox(0.0+0.0)x417.11752, glue set 417.11752fil
+...........\glue(\leftskip) 0.0 plus 1.0fil
+...........\hbox(0.0+0.0)x0.0
+...........\penalty 10000
+...........\glue(\parfillskip) 0.0
+...........\glue(\rightskip) 0.0
+.......\rule(0.4+0.0)x417.11752
+.......\glue -0.4
+.....\glue 0.0 plus 1.0fil minus 1.0fil
 ....\special{color pop}
-..\glue 6.82881
+..\glue 8.2511
 ..\glue(\lineskip) 0.0
 ..\vbox(700.50723+0.0)x417.11752, glue set 518.84636fil
 ...\write-{}
@@ -41,7 +64,7 @@ Completed box being shipped out [1]
 ...\write-{}
 ...\write1{\protect \FN@pp@footnotehinttrue }
 ...\write-{}
-...\mark{{\protect \ustc@spacetitle  {插图清单}}{}}
+...\mark{{{\protect \ustc@spacetitle  {插图清单}}}{}}
 ...\write1{\protect \FN@pp@footnotehinttrue }
 ...\write-{}
 ...\glue(\topskip) 12.0
@@ -408,27 +431,58 @@ Completed box being shipped out [1]
 ...\glue 0.0 plus 1.0fil
 ...\glue 0.0
 ...\glue 0.0 plus 0.0001fil
-..\glue(\baselineskip) 15.35295
-..\hbox(7.12453+0.0)x417.11752
+..\glue(\baselineskip) 8.02364
+..\hbox(14.45384+3.6135)x417.11752
 ...\special{color push  Black}
-...\hbox(7.12453+0.0)x417.11752, glue set 205.92395fil
-....\glue 0.0 plus 1.0fil
-....\TU/texgyretermes(0)/m/n/10.53925 1
-....\kern -0.0002
-....\kern 0.0002
-....\glue 0.0 plus 1.0fil
+...\hbox(14.45384+3.6135)x417.11752
+....\hbox(14.45384+3.6135)x417.11752
+.....\vbox(14.45384+3.6135)x417.11752
+......\rule(0.0+0.0)x417.11752
+......\glue 6.02249
+......\hbox(8.43135+3.6135)x417.11752
+.......\hbox(0.0+0.0)x0.0, glue set - 417.11752fil
+........\vbox(0.0+0.0)x417.11752
+.........\hbox(0.0+0.0)x417.11752, glue set 208.55876fil
+..........\hbox(0.0+0.0)x0.0
+..........\penalty 10000
+..........\glue(\parfillskip) 0.0 plus 1.0fil
+..........\glue(\rightskip) 0.0 plus 1.0fil
+........\glue 0.0 plus 1.0fil minus 1.0fil
+.......\glue 0.0 plus 1.0fill
+.......\vbox(8.43135+3.6135)x417.11752
+........\hbox(8.43135+3.6135)x417.11752, glue set 205.92395fil
+.........\glue(\leftskip) 0.0 plus 1.0fil
+.........\hbox(0.0+0.0)x0.0
+.........\TU/texgyretermes(0)/m/n/10.53925 1
+.........\kern -0.0002
+.........\kern 0.0002
+.........\rule(8.43135+3.6135)x0.0
+.........\penalty 10000
+.........\glue(\parfillskip) 0.0
+.........\glue(\rightskip) 0.0 plus 1.0fil
+.......\glue 0.0 plus 1.0fill
+.......\hbox(0.0+0.0)x0.0, glue set - 417.11752fil
+........\glue 0.0 plus 1.0fil minus 1.0fil
+........\vbox(0.0+0.0)x417.11752
+.........\hbox(0.0+0.0)x417.11752, glue set 417.11752fil
+..........\glue(\leftskip) 0.0 plus 1.0fil
+..........\hbox(0.0+0.0)x0.0
+..........\penalty 10000
+..........\glue(\parfillskip) 0.0
+..........\glue(\rightskip) 0.0
+....\glue 0.0 plus 1.0fil minus 1.0fil
 ...\special{color pop}
 Completed box being shipped out [2]
 \vbox(722.98453+0.0)x435.04271
-.\glue -29.59128
-.\vbox(752.5758+0.0)x417.11752, shifted 17.92519
-..\vbox(22.76228+0.0)x417.11752, glue set 22.76228fil
+.\glue -29.59084
+.\vbox(752.57536+0.0)x417.11752, shifted 17.92519
+..\vbox(21.33955+0.0)x417.11752, glue set 21.33955fil
 ...\glue 0.0 plus 1.0fil
 ...\hbox(0.0+0.0)x417.11752
 ....\special{color push  Black}
 ....\hbox(0.0+0.0)x417.11752
 ....\special{color pop}
-..\glue 6.82881
+..\glue 8.2511
 ..\glue(\lineskip) 0.0
 ..\vbox(700.50723+0.0)x0.0, glue set 688.4337fil
 ...\write-{}
@@ -444,43 +498,67 @@ Completed box being shipped out [2]
 ...\special{color pop}
 第1章
 Completed box being shipped out [1]
-\vbox(722.98453+0.0)x435.04271
-.\glue -29.59128
-.\vbox(752.5758+0.0)x417.11752, shifted 17.92519
-..\vbox(22.76228+0.0)x417.11752
+\vbox(722.98453+3.6135)x435.04271
+.\glue -29.59084
+.\vbox(752.57536+3.6135)x417.11752, shifted 17.92519
+..\vbox(21.33955+0.0)x417.11752, glue set 9.29471fil
 ...\glue 0.0 plus 1.0fil
-...\hbox(22.76228+0.0)x417.11752
+...\hbox(12.04485+0.0)x417.11752
 ....\special{color push  Black}
-....\hbox(22.76228+0.0)x417.11752
-.....\vbox(22.76228+0.0)x417.11752, glue set 10.31744fil
-......\hbox(8.43135+3.6135)x417.11752, glue set 179.38614fil
-.......\hbox(0.0+0.0)x0.0
-.......\glue 0.0 plus 1.0fil
-.......\TU/FandolSong-Regular(0)/m/n/10.53925 第
-.......\glue 2.63481 plus 1.3174 minus 0.87827
-.......\TU/texgyretermes(0)/m/n/10.53925 1
-.......\glue 2.63481 plus 1.3174 minus 0.87827
-.......\TU/FandolSong-Regular(0)/m/n/10.53925 章
-.......\kern -0.00017
-.......\kern 0.00017
-.......\glue 10.53925
-.......\TU/texgyretermes(0)/m/n/10.53925 Foo
-.......\kern -0.0002
-.......\kern 0.0002
-.......\rule(8.43135+3.6135)x0.0
-.......\penalty 10000
-.......\glue(\parfillskip) 0.0 plus 1.0fil
-.......\glue(\rightskip) 0.0
-......\rule(0.4+0.0)x417.11752
-......\glue 0.0 plus 1.0fil
+....\hbox(12.04485+0.0)x417.11752
+.....\hbox(12.04485+0.0)x417.11752
+......\vbox(12.04485+0.0)x417.11752
+.......\hbox(8.43135+3.6135)x417.11752
+........\hbox(0.0+0.0)x0.0, glue set - 417.11752fil
+.........\vbox(0.0+0.0)x417.11752
+..........\hbox(0.0+0.0)x417.11752, glue set 208.55876fil
+...........\hbox(0.0+0.0)x0.0
+...........\penalty 10000
+...........\glue(\parfillskip) 0.0 plus 1.0fil
+...........\glue(\rightskip) 0.0 plus 1.0fil
+.........\glue 0.0 plus 1.0fil minus 1.0fil
+........\glue 0.0 plus 1.0fill
+........\vbox(8.43135+3.6135)x417.11752
+.........\hbox(8.43135+3.6135)x417.11752, glue set 179.38614fil
+..........\glue(\leftskip) 0.0 plus 1.0fil
+..........\hbox(0.0+0.0)x0.0
+..........\TU/FandolSong-Regular(0)/m/n/10.53925 第
+..........\glue 2.63481 plus 1.3174 minus 0.87827
+..........\TU/texgyretermes(0)/m/n/10.53925 1
+..........\glue 2.63481 plus 1.3174 minus 0.87827
+..........\TU/FandolSong-Regular(0)/m/n/10.53925 章
+..........\kern -0.00017
+..........\kern 0.00017
+..........\glue 10.53925
+..........\TU/texgyretermes(0)/m/n/10.53925 Foo
+..........\kern -0.0002
+..........\kern 0.0002
+..........\rule(8.43135+3.6135)x0.0
+..........\penalty 10000
+..........\glue(\parfillskip) 0.0
+..........\glue(\rightskip) 0.0 plus 1.0fil
+........\glue 0.0 plus 1.0fill
+........\hbox(0.0+0.0)x0.0, glue set - 417.11752fil
+.........\glue 0.0 plus 1.0fil minus 1.0fil
+.........\vbox(0.0+0.0)x417.11752
+..........\hbox(0.0+0.0)x417.11752, glue set 417.11752fil
+...........\glue(\leftskip) 0.0 plus 1.0fil
+...........\hbox(0.0+0.0)x0.0
+...........\penalty 10000
+...........\glue(\parfillskip) 0.0
+...........\glue(\rightskip) 0.0
+.......\rule(0.4+0.0)x417.11752
+.......\glue -0.4
+.....\glue 0.0 plus 1.0fil minus 1.0fil
 ....\special{color pop}
-..\glue 6.82881
+..\glue 8.2511
 ..\glue(\lineskip) 0.0
 ..\vbox(700.50723+0.0)x417.11752, glue set 518.18512fil
 ...\write1{\protect \FN@pp@footnotehinttrue }
 ...\write-{}
 ...\write1{\@writefile{toc}{\protect \contentsline {chapter}{\protect \numberline \ETC.}
-...\mark{{第1章\protect \hspace  {\ccwd }\protect \ustc@spacetitle  {Foo}}{}}...\write1{\@writefile{lof}{\protect \addvspace {10.0pt}}}
+...\mark{{{第1章\hskip 1em\relax \protect \ustc@spacetitle  {Foo}}}{}}
+...\write1{\@writefile{lof}{\protect \addvspace {10.0pt}}}
 ...\write1{\@writefile{lot}{\protect \addvspace {10.0pt}}}
 ...\glue(\topskip) 12.0
 ...\rule(0.0+0.0)x*
@@ -707,54 +785,109 @@ Completed box being shipped out [1]
 ...\glue 0.0 plus 1.0fil
 ...\glue 0.0
 ...\glue 0.0 plus 0.0001fil
-..\glue(\baselineskip) 15.35295
-..\hbox(7.12453+0.0)x417.11752
+..\glue(\baselineskip) 8.02364
+..\hbox(14.45384+3.6135)x417.11752
 ...\special{color push  Black}
-...\hbox(7.12453+0.0)x417.11752, glue set 205.92395fil
-....\glue 0.0 plus 1.0fil
-....\TU/texgyretermes(0)/m/n/10.53925 1
-....\kern -0.0002
-....\kern 0.0002
-....\glue 0.0 plus 1.0fil
+...\hbox(14.45384+3.6135)x417.11752
+....\hbox(14.45384+3.6135)x417.11752
+.....\vbox(14.45384+3.6135)x417.11752
+......\rule(0.0+0.0)x417.11752
+......\glue 6.02249
+......\hbox(8.43135+3.6135)x417.11752
+.......\hbox(0.0+0.0)x0.0, glue set - 417.11752fil
+........\vbox(0.0+0.0)x417.11752
+.........\hbox(0.0+0.0)x417.11752, glue set 208.55876fil
+..........\hbox(0.0+0.0)x0.0
+..........\penalty 10000
+..........\glue(\parfillskip) 0.0 plus 1.0fil
+..........\glue(\rightskip) 0.0 plus 1.0fil
+........\glue 0.0 plus 1.0fil minus 1.0fil
+.......\glue 0.0 plus 1.0fill
+.......\vbox(8.43135+3.6135)x417.11752
+........\hbox(8.43135+3.6135)x417.11752, glue set 205.92395fil
+.........\glue(\leftskip) 0.0 plus 1.0fil
+.........\hbox(0.0+0.0)x0.0
+.........\TU/texgyretermes(0)/m/n/10.53925 1
+.........\kern -0.0002
+.........\kern 0.0002
+.........\rule(8.43135+3.6135)x0.0
+.........\penalty 10000
+.........\glue(\parfillskip) 0.0
+.........\glue(\rightskip) 0.0 plus 1.0fil
+.......\glue 0.0 plus 1.0fill
+.......\hbox(0.0+0.0)x0.0, glue set - 417.11752fil
+........\glue 0.0 plus 1.0fil minus 1.0fil
+........\vbox(0.0+0.0)x417.11752
+.........\hbox(0.0+0.0)x417.11752, glue set 417.11752fil
+..........\glue(\leftskip) 0.0 plus 1.0fil
+..........\hbox(0.0+0.0)x0.0
+..........\penalty 10000
+..........\glue(\parfillskip) 0.0
+..........\glue(\rightskip) 0.0
+....\glue 0.0 plus 1.0fil minus 1.0fil
 ...\special{color pop}
 第2章
 Completed box being shipped out [2]
-\vbox(722.98453+0.0)x435.04271
-.\glue -29.59128
-.\vbox(752.5758+0.0)x417.11752, shifted 17.92519
-..\vbox(22.76228+0.0)x417.11752
+\vbox(722.98453+3.6135)x435.04271
+.\glue -29.59084
+.\vbox(752.57536+3.6135)x417.11752, shifted 17.92519
+..\vbox(21.33955+0.0)x417.11752, glue set 9.29471fil
 ...\glue 0.0 plus 1.0fil
-...\hbox(22.76228+0.0)x417.11752
+...\hbox(12.04485+0.0)x417.11752
 ....\special{color push  Black}
-....\hbox(22.76228+0.0)x417.11752
-.....\vbox(22.76228+0.0)x417.11752, glue set 10.31744fil
-......\hbox(8.43135+3.6135)x417.11752, glue set 179.87094fil
-.......\hbox(0.0+0.0)x0.0
-.......\glue 0.0 plus 1.0fil
-.......\TU/FandolSong-Regular(0)/m/n/10.53925 第
-.......\glue 2.63481 plus 1.3174 minus 0.87827
-.......\TU/texgyretermes(0)/m/n/10.53925 2
-.......\glue 2.63481 plus 1.3174 minus 0.87827
-.......\TU/FandolSong-Regular(0)/m/n/10.53925 章
-.......\kern -0.00017
-.......\kern 0.00017
-.......\glue 10.53925
-.......\TU/texgyretermes(0)/m/n/10.53925 Bar
-.......\kern -0.0002
-.......\kern 0.0002
-.......\rule(8.43135+3.6135)x0.0
-.......\penalty 10000
-.......\glue(\parfillskip) 0.0 plus 1.0fil
-.......\glue(\rightskip) 0.0
-......\rule(0.4+0.0)x417.11752
-......\glue 0.0 plus 1.0fil
+....\hbox(12.04485+0.0)x417.11752
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+.....\hbox(12.04485+0.0)x417.11752
+......\vbox(12.04485+0.0)x417.11752
+.......\hbox(8.43135+3.6135)x417.11752
+........\hbox(0.0+0.0)x0.0, glue set - 417.11752fil
+.........\vbox(0.0+0.0)x417.11752
+..........\hbox(0.0+0.0)x417.11752, glue set 208.55876fil
+...........\hbox(0.0+0.0)x0.0
+...........\penalty 10000
+...........\glue(\parfillskip) 0.0 plus 1.0fil
+...........\glue(\rightskip) 0.0 plus 1.0fil
+.........\glue 0.0 plus 1.0fil minus 1.0fil
+........\glue 0.0 plus 1.0fill
+........\vbox(8.43135+3.6135)x417.11752
+.........\hbox(8.43135+3.6135)x417.11752, glue set 179.87094fil
+..........\glue(\leftskip) 0.0 plus 1.0fil
+..........\hbox(0.0+0.0)x0.0
+..........\TU/FandolSong-Regular(0)/m/n/10.53925 第
+..........\glue 2.63481 plus 1.3174 minus 0.87827
+..........\TU/texgyretermes(0)/m/n/10.53925 2
+..........\glue 2.63481 plus 1.3174 minus 0.87827
+..........\TU/FandolSong-Regular(0)/m/n/10.53925 章
+..........\kern -0.00017
+..........\kern 0.00017
+..........\glue 10.53925
+..........\TU/texgyretermes(0)/m/n/10.53925 Bar
+..........\kern -0.0002
+..........\kern 0.0002
+..........\rule(8.43135+3.6135)x0.0
+..........\penalty 10000
+..........\glue(\parfillskip) 0.0
+..........\glue(\rightskip) 0.0 plus 1.0fil
+........\glue 0.0 plus 1.0fill
+........\hbox(0.0+0.0)x0.0, glue set - 417.11752fil
+.........\glue 0.0 plus 1.0fil minus 1.0fil
+.........\vbox(0.0+0.0)x417.11752
+..........\hbox(0.0+0.0)x417.11752, glue set 417.11752fil
+...........\glue(\leftskip) 0.0 plus 1.0fil
+...........\hbox(0.0+0.0)x0.0
+...........\penalty 10000
+...........\glue(\parfillskip) 0.0
+...........\glue(\rightskip) 0.0
+.......\rule(0.4+0.0)x417.11752
+.......\glue -0.4
 ....\special{color pop}
-..\glue 6.82881
+..\glue 8.2511
 ..\glue(\lineskip) 0.0
 ..\vbox(700.50723+0.0)x417.11752, glue set 518.18512fil
 ...\write-{}
 ...\write1{\@writefile{toc}{\protect \contentsline {chapter}{\protect \numberline \ETC.}
-...\mark{{第2章\protect \hspace  {\ccwd }\protect \ustc@spacetitle  {Bar}}{}}...\write1{\@writefile{lof}{\protect \addvspace {10.0pt}}}
+...\mark{{{第2章\hskip 1em\relax \protect \ustc@spacetitle  {Bar}}}{}}
+...\write1{\@writefile{lof}{\protect \addvspace {10.0pt}}}
 ...\write1{\@writefile{lot}{\protect \addvspace {10.0pt}}}
 ...\glue(\topskip) 12.0
 ...\rule(0.0+0.0)x*
@@ -941,14 +1074,45 @@ Completed box being shipped out [2]
 ...\glue 0.0 plus 1.0fil
 ...\glue 0.0
 ...\glue 0.0 plus 0.0001fil
-..\glue(\baselineskip) 15.35295
-..\hbox(7.12453+0.0)x417.11752
+..\glue(\baselineskip) 8.02364
+..\hbox(14.45384+3.6135)x417.11752
 ...\special{color push  Black}
-...\hbox(7.12453+0.0)x417.11752, glue set 205.92395fil
-....\glue 0.0 plus 1.0fil
-....\TU/texgyretermes(0)/m/n/10.53925 2
-....\kern -0.0002
-....\kern 0.0002
-....\glue 0.0 plus 1.0fil
+...\hbox(14.45384+3.6135)x417.11752
+....\glue 0.0 plus 1.0fil minus 1.0fil
+....\hbox(14.45384+3.6135)x417.11752
+.....\vbox(14.45384+3.6135)x417.11752
+......\rule(0.0+0.0)x417.11752
+......\glue 6.02249
+......\hbox(8.43135+3.6135)x417.11752
+.......\hbox(0.0+0.0)x0.0, glue set - 417.11752fil
+........\vbox(0.0+0.0)x417.11752
+.........\hbox(0.0+0.0)x417.11752, glue set 208.55876fil
+..........\hbox(0.0+0.0)x0.0
+..........\penalty 10000
+..........\glue(\parfillskip) 0.0 plus 1.0fil
+..........\glue(\rightskip) 0.0 plus 1.0fil
+........\glue 0.0 plus 1.0fil minus 1.0fil
+.......\glue 0.0 plus 1.0fill
+.......\vbox(8.43135+3.6135)x417.11752
+........\hbox(8.43135+3.6135)x417.11752, glue set 205.92395fil
+.........\glue(\leftskip) 0.0 plus 1.0fil
+.........\hbox(0.0+0.0)x0.0
+.........\TU/texgyretermes(0)/m/n/10.53925 2
+.........\kern -0.0002
+.........\kern 0.0002
+.........\rule(8.43135+3.6135)x0.0
+.........\penalty 10000
+.........\glue(\parfillskip) 0.0
+.........\glue(\rightskip) 0.0 plus 1.0fil
+.......\glue 0.0 plus 1.0fill
+.......\hbox(0.0+0.0)x0.0, glue set - 417.11752fil
+........\glue 0.0 plus 1.0fil minus 1.0fil
+........\vbox(0.0+0.0)x417.11752
+.........\hbox(0.0+0.0)x417.11752, glue set 417.11752fil
+..........\glue(\leftskip) 0.0 plus 1.0fil
+..........\hbox(0.0+0.0)x0.0
+..........\penalty 10000
+..........\glue(\parfillskip) 0.0
+..........\glue(\rightskip) 0.0
 ...\special{color pop}
 (main-lof.aux)

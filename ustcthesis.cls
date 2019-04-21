@@ -75,6 +75,7 @@
 \RequirePackage{unicode-math}
 \RequirePackage{geometry}
 \RequirePackage{graphicx}
+\RequirePackage{fancyhdr}
 \RequirePackage{color}
 \RequirePackage{titletoc}
 \RequirePackage{caption}
@@ -304,66 +305,31 @@
   paper      = a4paper,
   vmargin    = 2.54cm,
   hmargin    = 3.17cm,
-  headheight = 0.8cm,
-  headsep    = 0.24cm,
+  headheight = 0.75cm,
+  headsep    = 0.29cm,
   footskip   = 0.79cm,
 }
+\pagestyle{fancy}
+\let\sectionmark\@gobble
+\renewcommand\headrulewidth{0.4\p@}
+\newcommand\ustc@patchcmd{\csname ctex_patch_cmd:Nnn\endcsname}
 \ifustc@graduate
-  \newcommand\ustc@header@font{\fontsize{10.5\bp@}{12\bp@}\selectfont}
+  \newcommand\ustc@hf@font{\fontsize{10.5\bp@}{12\bp@}\selectfont}
   \newcommand\ustc@header{\leftmark}
+  \ustc@patchcmd\chaptermark{\MakeUppercase}{}
+  \ustc@patchcmd\chaptermark{#1}{\ustc@spacetitle{#1}}
 \else
-  \newcommand\ustc@header@font{\fontsize{9\bp@}{12\bp@}\selectfont}
+  \newcommand\ustc@hf@font{\fontsize{9\bp@}{12\bp@}\selectfont}
   \newcommand\ustc@header{\ustc@universityname{}本科毕业论文}
-\fi
-\newcommand\ustc@head{%
-  \vbox to\headheight{%
-    \hfil\ustc@header@font\ustc@header\strut\hfil
-    \hrule\@height 0.4\p@\@width\textwidth
-    \vfil
-  }%
-}
-\newcommand\ustc@foot{\hfil\ustc@header@font\thepage\hfil}
-\def\ps@plain{%
-  \def\@oddhead{\ustc@head}%
-  \def\@oddfoot{\ustc@foot}%
-  \let\@evenhead\@oddhead
-  \let\@evenfoot\@oddfoot
-  \let\@mkboth\markboth
-}
-\ifustc@graduate
-  \@ifclasslater{ctexbook}{2016/09/21}{
-    \def\chaptermark#1{%
-      \markboth{%
-        \CTEXifname{\CTEXthechapter\CTEX@chapter@aftername}{}%
-        \ustc@spacetitle{#1}%
-      }{}%
-    }
-  }{
-    \def\chaptermark#1{%
-      \markboth{%
-        \ifnum \c@secnumdepth >\m@ne
-          \if@mainmatter
-            \ifodd\CTEX@chapter@numbering
-              \CTEXthechapter\CTEX@chapter@aftername
-            \fi
-          \fi
-        \fi
-        \ustc@spacetitle{#1}%
-      }{}%
-    }
-  }
-\else
   \let\chaptermark\@gobble
 \fi
-\let\sectionmark\@gobble
-\pagestyle{plain}
-\def\ps@headings{%
-  \def\@oddhead{\ustc@head}%
-  \let\@evenhead\@oddhead
-  \let\@oddfoot\@empty
-  \let\@evenfoot\@empty
-  \let\@mkboth\markboth
+\fancypagestyle{plain}{%
+  \fancyhf{}%
+  \fancyhead[C]{\ustc@hf@font\ustc@header}%
+  \fancyfoot[C]{\ustc@hf@font\thepage}%
 }
+\pagestyle{plain}
+\fancypagestyle{headings}{\fancyfoot{}}
 \def\ps@none{}
 \ctexset{chapter/pagestyle=none}
 \def\cleardoublepage{\clearpage\if@twoside \ifodd\c@page\else
@@ -1040,7 +1006,6 @@
   \fi
   \bibliographystyle{ustcthesis-bachelor}
 \fi
-\newcommand\ustc@patchcmd{\csname ctex_patch_cmd:Nnn\endcsname}
 \ustc@patchcmd{\NAT@citexnum}{%
   \@ifnum{\NAT@ctype=\z@}{%
     \if*#2*\else\NAT@cmt#2\fi

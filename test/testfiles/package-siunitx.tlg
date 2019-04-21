@@ -1,26 +1,49 @@
 This is a generated file for the l3build validation system.
 Don't change this file in any respect.
 Completed box being shipped out [1]
-\vbox(722.98453+0.0)x435.04271
-.\glue -29.59128
-.\vbox(752.5758+0.0)x417.11752, shifted 17.92519
-..\vbox(22.76228+0.0)x417.11752
+\vbox(722.98453+3.6135)x435.04271
+.\glue -29.59084
+.\vbox(752.57536+3.6135)x417.11752, shifted 17.92519
+..\vbox(21.33955+0.0)x417.11752, glue set 9.29471fil
 ...\glue 0.0 plus 1.0fil
-...\hbox(22.76228+0.0)x417.11752
+...\hbox(12.04485+0.0)x417.11752
 ....\special{color push  Black}
-....\hbox(22.76228+0.0)x417.11752
-.....\vbox(22.76228+0.0)x417.11752, glue set 10.31744fil
-......\hbox(8.43135+3.6135)x417.11752, glue set 208.55876fil
-.......\hbox(0.0+0.0)x0.0
-.......\glue 0.0 plus 1.0fil
-.......\rule(8.43135+3.6135)x0.0
-.......\penalty 10000
-.......\glue(\parfillskip) 0.0 plus 1.0fil
-.......\glue(\rightskip) 0.0
-......\rule(0.4+0.0)x417.11752
-......\glue 0.0 plus 1.0fil
+....\hbox(12.04485+0.0)x417.11752
+.....\hbox(12.04485+0.0)x417.11752
+......\vbox(12.04485+0.0)x417.11752
+.......\hbox(8.43135+3.6135)x417.11752
+........\hbox(0.0+0.0)x0.0, glue set - 417.11752fil
+.........\vbox(0.0+0.0)x417.11752
+..........\hbox(0.0+0.0)x417.11752, glue set 208.55876fil
+...........\hbox(0.0+0.0)x0.0
+...........\penalty 10000
+...........\glue(\parfillskip) 0.0 plus 1.0fil
+...........\glue(\rightskip) 0.0 plus 1.0fil
+.........\glue 0.0 plus 1.0fil minus 1.0fil
+........\glue 0.0 plus 1.0fill
+........\vbox(8.43135+3.6135)x417.11752
+.........\hbox(8.43135+3.6135)x417.11752, glue set 208.55876fil
+..........\glue(\leftskip) 0.0 plus 1.0fil
+..........\hbox(0.0+0.0)x0.0
+..........\rule(8.43135+3.6135)x0.0
+..........\penalty 10000
+..........\glue(\parfillskip) 0.0
+..........\glue(\rightskip) 0.0 plus 1.0fil
+........\glue 0.0 plus 1.0fill
+........\hbox(0.0+0.0)x0.0, glue set - 417.11752fil
+.........\glue 0.0 plus 1.0fil minus 1.0fil
+.........\vbox(0.0+0.0)x417.11752
+..........\hbox(0.0+0.0)x417.11752, glue set 417.11752fil
+...........\glue(\leftskip) 0.0 plus 1.0fil
+...........\hbox(0.0+0.0)x0.0
+...........\penalty 10000
+...........\glue(\parfillskip) 0.0
+...........\glue(\rightskip) 0.0
+.......\rule(0.4+0.0)x417.11752
+.......\glue -0.4
+.....\glue 0.0 plus 1.0fil minus 1.0fil
 ....\special{color pop}
-..\glue 6.82881
+..\glue 8.2511
 ..\glue(\lineskip) 0.0
 ..\vbox(700.50723+0.0)x417.11752, glue set 467.63484fil
 ...\write-{}
@@ -415,14 +438,45 @@ Completed box being shipped out [1]
 ...\glue 0.0 plus 1.0fil
 ...\glue 0.0
 ...\glue 0.0 plus 0.0001fil
-..\glue(\baselineskip) 15.35295
-..\hbox(7.12453+0.0)x417.11752
+..\glue(\baselineskip) 8.02364
+..\hbox(14.45384+3.6135)x417.11752
 ...\special{color push  Black}
-...\hbox(7.12453+0.0)x417.11752, glue set 205.92395fil
-....\glue 0.0 plus 1.0fil
-....\TU/texgyretermes(0)/m/n/10.53925 1
-....\kern -0.0002
-....\kern 0.0002
-....\glue 0.0 plus 1.0fil
+...\hbox(14.45384+3.6135)x417.11752
+....\hbox(14.45384+3.6135)x417.11752
+.....\vbox(14.45384+3.6135)x417.11752
+......\rule(0.0+0.0)x417.11752
+......\glue 6.02249
+......\hbox(8.43135+3.6135)x417.11752
+.......\hbox(0.0+0.0)x0.0, glue set - 417.11752fil
+........\vbox(0.0+0.0)x417.11752
+.........\hbox(0.0+0.0)x417.11752, glue set 208.55876fil
+..........\hbox(0.0+0.0)x0.0
+..........\penalty 10000
+..........\glue(\parfillskip) 0.0 plus 1.0fil
+..........\glue(\rightskip) 0.0 plus 1.0fil
+........\glue 0.0 plus 1.0fil minus 1.0fil
+.......\glue 0.0 plus 1.0fill
+.......\vbox(8.43135+3.6135)x417.11752
+........\hbox(8.43135+3.6135)x417.11752, glue set 205.92395fil
+.........\glue(\leftskip) 0.0 plus 1.0fil
+.........\hbox(0.0+0.0)x0.0
+.........\TU/texgyretermes(0)/m/n/10.53925 1
+.........\kern -0.0002
+.........\kern 0.0002
+.........\rule(8.43135+3.6135)x0.0
+.........\penalty 10000
+.........\glue(\parfillskip) 0.0
+.........\glue(\rightskip) 0.0 plus 1.0fil
+.......\glue 0.0 plus 1.0fill
+.......\hbox(0.0+0.0)x0.0, glue set - 417.11752fil
+........\glue 0.0 plus 1.0fil minus 1.0fil
+........\vbox(0.0+0.0)x417.11752
+.........\hbox(0.0+0.0)x417.11752, glue set 417.11752fil
+..........\glue(\leftskip) 0.0 plus 1.0fil
+..........\hbox(0.0+0.0)x0.0
+..........\penalty 10000
+..........\glue(\parfillskip) 0.0
+..........\glue(\rightskip) 0.0
+....\glue 0.0 plus 1.0fil minus 1.0fil
 ...\special{color pop}
 (package-siunitx.aux)
