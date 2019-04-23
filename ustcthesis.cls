@@ -18,7 +18,7 @@
 %% 
 \NeedsTeXFormat{LaTeX2e}[1999/12/01]
 \ProvidesClass{ustcthesis}
-  [2019/03/21 v3.1.04 USTC thesis template]
+  [2019/05/01 v3.1.06 USTC thesis template]
 \RequirePackage{ifxetex}
 \ifxetex\else
   \ClassError{ustcthesis}{XeLaTeX is required to compile the document}{}
@@ -1074,6 +1074,8 @@
     bookmarksopen      = true,
     bookmarksopenlevel = 1,
     linktoc            = all,
+    unicode            = true,
+    psdextra           = true,
   }
   \ifustc@pdf
     \hypersetup{
@@ -1105,6 +1107,9 @@
   \pdfstringdefDisableCommands{
     \let\\\@empty
     \let\hspace\@gobble
+  }
+  \@ifpackagelater{hyperref}{2019/04/27}{}{%
+    \g@addto@macro\psdmapshortnames{\let\mu\textmugreek}%
   }
   \ifustc@chinese
     \def\equationautorefname~#1\null{公式~(#1)\null}

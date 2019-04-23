@@ -50,7 +50,7 @@ version 2005/12/01 or later.
 %<class>\NeedsTeXFormat{LaTeX2e}[1999/12/01]
 %<class>\ProvidesClass{ustcthesis}
 %<*class>
-  [2019/04/21 v3.1.05 USTC thesis template]
+  [2019/05/01 v3.1.06 USTC thesis template]
 %</class>
 %
 %<*driver>
@@ -2486,6 +2486,8 @@ version 2005/12/01 or later.
 % \subsubsection{\pkg{hyperref} 宏包}
 %
 % \changes{v3.1.02}{2018/10/30}{取消依赖 \pkg{hyperref}}
+% \changes{v3.1.06}{2019/05/01}{处理 \pkg{hyperref} 与 \pkg{unicode-math}
+%   的兼容性问题}
 %    \begin{macrocode}
 \ustc@atendpackage{hyperref}{
   \hypersetup{
@@ -2493,6 +2495,8 @@ version 2005/12/01 or later.
     bookmarksopen      = true,
     bookmarksopenlevel = 1,
     linktoc            = all,
+    unicode            = true,
+    psdextra           = true,
   }
 %    \end{macrocode}
 %
@@ -2541,6 +2545,16 @@ version 2005/12/01 or later.
   \pdfstringdefDisableCommands{
     \let\\\@empty
     \let\hspace\@gobble
+  }
+%    \end{macrocode}
+%
+% \pkg{hyperref} 与 \pkg{unicode-math} 存在一些兼容性问题，见
+% \href{https://github.com/ustctug/ustcthesis/issues/223}{
+%   ustctug/ustcthesis\#223} 和
+% \href{https://github.com/ho-tex/hyperref/pull/90}{ho-tex/hyperref\#90}。
+%    \begin{macrocode}
+  \@ifpackagelater{hyperref}{2019/04/27}{}{%
+    \g@addto@macro\psdmapshortnames{\let\mu\textmugreek}%
   }
 %    \end{macrocode}
 %
