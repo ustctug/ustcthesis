@@ -20,9 +20,7 @@
 \ProvidesClass{ustcthesis}
   [2019/05/01 v3.1.06 USTC thesis template]
 \RequirePackage{ifxetex}
-\ifxetex\else
-  \ClassError{ustcthesis}{XeLaTeX is required to compile the document}{}
-\fi
+\RequireXeTeX
 \newif\ifustc@doctor
 \newif\ifustc@master
 \newif\ifustc@bachelor
