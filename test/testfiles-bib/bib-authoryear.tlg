@@ -4,17 +4,17 @@ Don't change this file in any respect.
 第1章
 LaTeX Font Info:    Calculating math sizes for size <12.04486> on input line ....
 LaTeX Font Info:    Font shape `TU/XITSMath-Regular(2)/m/n' will be
-(Font)              scaled to size 12.04504pt on input line ....
+(Font)              scaled to size 12.04614pt on input line ....
 LaTeX Font Info:    Font shape `TU/XITSMath-Regular(2)/m/n' will be
-(Font)              scaled to size 8.43147pt on input line ....
+(Font)              scaled to size 8.43225pt on input line ....
 LaTeX Font Info:    Font shape `TU/XITSMath-Regular(2)/m/n' will be
-(Font)              scaled to size 6.02252pt on input line ....
+(Font)              scaled to size 6.02307pt on input line ....
 LaTeX Font Info:    Font shape `TU/XITSMath-Regular(3)/m/n' will be
-(Font)              scaled to size 12.04466pt on input line ....
+(Font)              scaled to size 12.04356pt on input line ....
 LaTeX Font Info:    Font shape `TU/XITSMath-Regular(3)/m/n' will be
-(Font)              scaled to size 8.43121pt on input line ....
+(Font)              scaled to size 8.43044pt on input line ....
 LaTeX Font Info:    Font shape `TU/XITSMath-Regular(3)/m/n' will be
-(Font)              scaled to size 6.02232pt on input line ....
+(Font)              scaled to size 6.02177pt on input line ....
 Underfull \hbox (badness 2050) in paragraph at lines 12--14
 []\TU/texgyretermes(0)/m/n/12.04486 Mittelbach, Goossens, Braams, and Carlisle (2004) (Mittelbach, Goossens,
 \hbox(8.22664+2.13193)x417.11752, glue set 2.73936
@@ -111,7 +111,7 @@ Completed box being shipped out [1]
 ....\special{color pop}
 ..\glue 8.2511
 ..\glue(\lineskip) 0.0
-..\vbox(700.50723+0.0)x417.11752, glue set 472.03964fil
+..\vbox(700.50723+0.0)x417.11752, glue set 472.03922fil
 ...\write-{}
 ...\write1{\protect \providecommand {\protect \FN@pp@footnotehinttrue }{}}
 ...\write1{\protect \providecommand {\protect \FN@pp@footnote@aux }[2]{}}
@@ -131,7 +131,6 @@ Completed box being shipped out [1]
 ...\glue(\parskip) 0.0
 ...\hbox(12.36606+2.77834)x417.11752, glue set 141.14769fil
 ....\glue(\leftskip) 0.0 plus 1.0fil
-....\hbox(0.0+0.0)x0.0
 ....\TU/FandolHei-Regular(0)/bx/n/16.05981 第
 ....\glue 4.46463 plus 2.23232 minus 1.4882
 ....\TU/texgyreheros(0)/bx/n/16.05981 1
@@ -149,7 +148,7 @@ Completed box being shipped out [1]
 ...\penalty 10000
 ...\glue 18.06729
 ...\glue(\parskip) 0.0
-...\hbox(10.51762+2.13193)x417.11752, glue set 239.91946fil
+...\hbox(10.51805+2.13193)x417.11752, glue set 239.91946fil
 ....\hbox(0.0+0.0)x24.08972
 ....\TU/texgyretermes(0)/m/n/12.04486 Knuth
 ....\kern -0.0002
@@ -179,7 +178,7 @@ Completed box being shipped out [1]
 ....\kern -0.0002
 ....\kern 0.0002
 ....\mathon
-....\hbox(5.6996+0.0)x8.93135, shifted -4.81802
+....\hbox(5.6996+0.0)x8.93135, shifted -4.81845
 .....\TU/texgyretermes(0)/m/n/8.43135 42
 .....\kern -0.0002
 .....\kern 0.0002
@@ -188,8 +187,8 @@ Completed box being shipped out [1]
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
 ...\glue(\parskip) 0.0
-...\glue(\baselineskip) 7.42522
-...\hbox(10.51762+2.13193)x417.11752, glue set 34.97005fil
+...\glue(\baselineskip) 7.42479
+...\hbox(10.51805+2.13193)x417.11752, glue set 34.97005fil
 ....\hbox(0.0+0.0)x24.08972
 ....\TU/texgyretermes(0)/m/n/12.04486 (Knuth
 ....\kern -0.0002
@@ -225,7 +224,7 @@ Completed box being shipped out [1]
 ....\kern -0.0002
 ....\kern 0.0002
 ....\mathon
-....\hbox(5.6996+0.0)x8.93135, shifted -4.81802
+....\hbox(5.6996+0.0)x8.93135, shifted -4.81845
 .....\TU/texgyretermes(0)/m/n/8.43135 42
 .....\kern -0.0002
 .....\kern 0.0002
@@ -273,7 +272,7 @@ Completed box being shipped out [1]
 ....\kern -0.0002
 ....\kern 0.0002
 ....\mathon
-....\hbox(5.6996+0.0)x8.93135, shifted -4.81802
+....\hbox(5.6996+0.0)x8.93135, shifted -4.81845
 .....\TU/texgyretermes(0)/m/n/8.43135 42
 .....\kern -0.0002
 .....\kern 0.0002
@@ -706,17 +705,17 @@ Completed box being shipped out [1]
 ...\special{color pop}
 LaTeX Font Info:    Calculating math sizes for size <10.53925> on input line ....
 LaTeX Font Info:    Font shape `TU/XITSMath-Regular(2)/m/n' will be
-(Font)              scaled to size 10.5394pt on input line ....
+(Font)              scaled to size 10.54036pt on input line ....
 LaTeX Font Info:    Font shape `TU/XITSMath-Regular(2)/m/n' will be
-(Font)              scaled to size 7.37753pt on input line ....
+(Font)              scaled to size 7.3782pt on input line ....
 LaTeX Font Info:    Font shape `TU/XITSMath-Regular(2)/m/n' will be
-(Font)              scaled to size 5.2697pt on input line ....
+(Font)              scaled to size 5.27017pt on input line ....
 LaTeX Font Info:    Font shape `TU/XITSMath-Regular(3)/m/n' will be
-(Font)              scaled to size 10.53908pt on input line ....
+(Font)              scaled to size 10.53812pt on input line ....
 LaTeX Font Info:    Font shape `TU/XITSMath-Regular(3)/m/n' will be
-(Font)              scaled to size 7.3773pt on input line ....
+(Font)              scaled to size 7.37663pt on input line ....
 LaTeX Font Info:    Font shape `TU/XITSMath-Regular(3)/m/n' will be
-(Font)              scaled to size 5.26953pt on input line ....
+(Font)              scaled to size 5.26906pt on input line ....
 )
 Completed box being shipped out [2]
 \vbox(722.98453+3.6135)x435.04271
@@ -787,7 +786,6 @@ C.}
 ...\glue(\parskip) 0.0
 ...\hbox(12.49454+2.8747)x417.11752, glue set 164.39427fil
 ....\glue(\leftskip) 0.0 plus 1.0fil
-....\hbox(0.0+0.0)x0.0
 ....\TU/FandolHei-Regular(0)/bx/n/16.05981 参
 ....\glue 8.0299 plus 0.97638 minus 0.4981
 ....\TU/FandolHei-Regular(0)/bx/n/16.05981 考
@@ -1285,6 +1283,8 @@ C.}
 ....\glue 6.68188 minus 5.26962
 ....\rule(0.0+0.0)x-6.68188
 ....\TU/FandolSong-Regular(0)/m/n/10.53925 （
+....\penalty 10000
+....\glue 0.0
 ....\TU/texgyretermes(0)/m/n/10.53925 1999–2010
 ....\penalty 10000
 ....\TU/FandolSong-Regular(0)/m/n/10.53925 ）
@@ -1469,6 +1469,8 @@ C.}
 ....\glue 6.68188 minus 5.26962
 ....\rule(0.0+0.0)x-6.68188
 ....\TU/FandolSong-Regular(0)/m/n/10.53925 （
+....\penalty 10000
+....\glue 0.0
 ....\TU/texgyretermes(0)/m/n/10.53925 1983–1993
 ....\penalty 10000
 ....\TU/FandolSong-Regular(0)/m/n/10.53925 ）
