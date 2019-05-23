@@ -127,33 +127,6 @@ version 2005/12/01 or later.
   }%
 }{}
 
-% 调整版本历史和索引的格式
-\renewcommand\glossaryname{版本历史}
-\GlossaryPrologue{\section*{\glossaryname}}
-\def\changes@#1#2#3{%
-  \protected@edef\@tempa{%
-    \noexpand\glossary{#1 (#2)\levelchar
-    \ifx\saved@macroname\@empty
-      \space
-      \actualchar
-    \else
-      \saved@indexname
-      \actualchar
-      \string\verb\quotechar*%
-      \verbatimchar\saved@macroname
-      \verbatimchar
-      : \levelchar
-    \fi
-    #3}}%
-  \@tempa\endgroup\@esphack}
-\renewcommand\indexname{命令索引}
-\IndexPrologue{%
-  \section*{\indexname}
-  \textit{意大利体的数字表示描述对应索引项的页码；%
-    带下划线的数字表示定义对应索引项的代码行号；%
-    罗马字体的数字表示使用对应索引项的代码行号。}%
-}
-
 \hypersetup{
   allcolors         = blue,
   bookmarksnumbered = true,
@@ -162,18 +135,11 @@ version 2005/12/01 or later.
 \makeatother
 
 \EnableCrossrefs
-\CodelineIndex
-\RecordChanges
 % \OnlyDescription
 
 \begin{document}
   \DocInput{\jobname.dtx}
   \clearpage
-  \linespread{1.3}
-  \PrintChanges
-  \clearpage
-  \linespread{1}
-  \PrintIndex
 \end{document}
 %</driver>
 % \fi
@@ -691,7 +657,6 @@ version 2005/12/01 or later.
 \RequireXeTeX
 %    \end{macrocode}
 %
-% \changes{v3.0.a}{2018/05/16}{更正本科生英文模板的章节格式}
 %    \begin{macrocode}
 \newif\ifustc@doctor
 \newif\ifustc@master
@@ -745,7 +710,6 @@ version 2005/12/01 or later.
 %    \end{macrocode}
 %
 % 载入 \cls{ctexbook} 文档类，注意要求为 2.2 或更高的版本。
-% \changes{v3.0}{2017/07/01}{正文新的一章另面起}
 %    \begin{macrocode}
 \LoadClass[UTF8,a4paper,openany,zihao=-4]{ctexbook}[2016/05/16]
 %    \end{macrocode}
@@ -845,10 +809,6 @@ version 2005/12/01 or later.
 %   \item 没有粗体的字体不会开启伪粗；
 % \end{enumerate}
 % 所以需要重新配置一部分，参考 \pkg{ctex} 宏包。
-% \changes{v3.0.6}{2018/04/12}{取消使用微软雅黑}
-% \changes{v3.0.a}{2018/05/16}{调整中文字体配置}
-% \changes{v3.1.01}{2018/10/06}{调整伪粗体的粗细程度}
-% \changes{v3.1.02}{2018/10/30}{修正 macOS 的伪粗黑体}
 %    \begin{macrocode}
 \ustc@strifeq{\ustc@fontset}{mac}{
   \setCJKmainfont[
@@ -894,7 +854,6 @@ version 2005/12/01 or later.
 %    \end{macrocode}
 %
 % 使用 \pkg{unicode-math} 配置数学字体。
-% \changes{v3.1}{2018/09/01}{更正了数学符号以满足国标要求}
 %    \begin{macrocode}
 \unimathsetup{
   math-style = ISO,
@@ -908,8 +867,6 @@ version 2005/12/01 or later.
 %
 % 注意，\cs{IfFontExistsTF} 是 \pkg{fontspec} 2017/01/20 v2.5c 才提供的；
 % 而 XITS 字体于 2018-10-03 更改了字体的文件名。
-% \changes{v3.1.01}{2018/10/06}{同步 \pkg{xits} 字体文件名的修改}
-% \changes{v3.1.05}{2019/04/21}{使用 XITS Math 作为数学字体}
 %    \begin{macrocode}
 \newif\ifustc@xitsnew
 \@ifpackagelater{fontspec}{2017/01/20}{
@@ -987,7 +944,6 @@ version 2005/12/01 or later.
 %     \bottomrule
 %   \end{tabular}
 % \end{table}
-% \changes{v3.0}{2017/07/01}{优化图注、算法的行距}
 %    \begin{macrocode}
 \ifustc@graduate
   \renewcommand\normalsize{%
@@ -1078,7 +1034,6 @@ version 2005/12/01 or later.
 % 所以要根据语言设置正确的字体。
 % \footnote{\url{https://github.com/CTeX-org/ctex-kit/issues/389}}
 % 所以要根据语言设置正确的字体。
-% \changes{v3.1.03}{2019/01/01}{修正英文模式下的 Unicode 引号字体}
 %    \begin{macrocode}
 \newcommand\ustc@setchinese{%
   \xeCJKResetPunctClass
@@ -1147,15 +1102,12 @@ version 2005/12/01 or later.
 %    \end{macrocode}
 %
 % 使用 \pkg{ctex} 的 \cs{ctex\_patch\_cmd:Nnn} 命令。
-% \changes{v3.1.01}{2018/10/06}{取消依赖 \pkg{etoolbox}}
 %    \begin{macrocode}
 \newcommand\ustc@patchcmd{\csname ctex_patch_cmd:Nnn\endcsname}
 %    \end{macrocode}
 %
 % 页眉与该部分的章标题相同，宋体 10.5 磅（五号）居中。
 % 页码：宋体 10.5 磅、页面下脚居中。
-% \changes{v3.0}{2017/07/01}{页码居中}
-% \changes{v3.0.7}{2018/04/18}{更正页眉英文大写的错误}
 %    \begin{macrocode}
 \ifustc@graduate
   \newcommand\ustc@hf@font{\fontsize{10.5\bp@}{12\bp@}\selectfont}
@@ -1167,7 +1119,6 @@ version 2005/12/01 or later.
 % 本科生要求除封面、扉页外，每面上部加页眉，
 % 用小 5 号字（9 bp）标注“中国科学技术大学本科毕业论文”，居中；
 % 从目录页开始在每面底部居中用小五宋体（9 bp）连续编页码。
-% \changes{v3.0.2}{2018/03/16}{更正本科生的页码}
 %    \begin{macrocode}
 \else
   \newcommand\ustc@hf@font{\fontsize{9\bp@}{12\bp@}\selectfont}
@@ -1200,7 +1151,6 @@ version 2005/12/01 or later.
 %
 % \begin{macro}{\cleardoublepage}
 % 空白页不加页眉和页码。
-% \changes{v3.0}{2017/07/01}{空白页不加页眉}
 %    \begin{macrocode}
 \def\cleardoublepage{\clearpage\if@twoside \ifodd\c@page\else
   \hbox{}\thispagestyle{empty}\newpage\if@twocolumn\hbox{}\newpage\fi\fi\fi}
@@ -1277,8 +1227,6 @@ version 2005/12/01 or later.
 %    \end{macrocode}
 %
 % 定义一些常量。
-% \changes{v3.0.5}{2018/04/11}{更正“专业学位类型"的字体}
-% \changes{v3.0.5}{2018/04/11}{专业学位的封面更正为“专业领域”}
 %    \begin{macrocode}
 \ifustc@doctor
   \newcommand\ustc@thesisname{博士学位论文}
@@ -1352,7 +1300,6 @@ version 2005/12/01 or later.
 % 作者姓名宋体 16 磅，单倍行距；
 % 注意这里的“单倍行距”的地方开启了“对齐到网格”，所以实际行距有所偏差，
 % 所以只能使用直尺测量。
-% \changes{v3.1}{2018/09/01}{更正封面的校名}
 %    \begin{macrocode}
 \newcommand\ustc@makezhtitle{%
   \ustc@setchinese
@@ -1556,9 +1503,6 @@ version 2005/12/01 or later.
 % 研究生规定章题为两字时中间空两字，三字时空一字，四字时空半字，四字以上不空。
 % 这里用 \LaTeX3 的 \cs{str\_count:N} 判断字数。
 % 注意，\pkg{stringstrings} 宏包会导致范数命令 \verb+\|+ 被修改。
-% \changes{v3.0}{2017/07/01}{章题为两字时中间空两字，三字时空一字，
-%   四字时空半字，四字以上不空}
-% \changes{v3.0.1}{2017/12/12}{更正范数命令失效的错误}
 %    \begin{macrocode}
 \newcount\ustc@titlelength
 \DeclareRobustCommand\ustc@spacetitle[1]{%
@@ -1609,7 +1553,6 @@ version 2005/12/01 or later.
 %
 % 由于 Word 模板中使用“单倍行距”，还“对齐到网格”，这在 TeX 中不容易实现。
 % 所以目前按照默认的行距。
-% \changes{v3.1}{2018/09/01}{更正章节标题的行距}
 %    \begin{macrocode}
 \ctexset{
   chapter = {
@@ -1660,7 +1603,6 @@ version 2005/12/01 or later.
 %
 % 二级节标题：黑体 13 磅，左缩进两字，单倍行距，段前 12 磅，段后 6 磅，
 % 序号与题名间空一字。
-% \changes{v3.0.8}{2018/04/21}{更正 subsection 的格式}
 %    \begin{macrocode}
   subsection = {
     format     = \sffamily\fontsize{13\bp@}{21.67\bp@}\selectfont,
@@ -1673,11 +1615,6 @@ version 2005/12/01 or later.
 %
 % 三级及以下节标题的格式没有具体规定，按照 Word 模板的格式：
 % 使用黑体 12 磅，左缩进两字，行距 20 磅，段前段后 0 磅，序号与题名间空半字宽。
-% \changes{v3.0}{2017/07/01}{新增二级以下节标题的缩进}
-% \changes{v3.0}{2017/07/01}{二级以下节标题编号下采用“1.”、“(1)”、
-%   “\textcircled{\footnotesize{}1}”}
-% \changes{v3.0.9}{2018/05/04}{调整 subsubsection 的缩进}
-% \changes{v3.1}{2018/09/01}{更正 subsubsection 的前后距离}
 %    \begin{macrocode}
   subsubsection = {
     format     = \sffamily\fontsize{12\bp@}{20\bp@}\selectfont,
@@ -1691,7 +1628,6 @@ version 2005/12/01 or later.
 %
 % 按照 Word 模板的格式，四级节标题：宋体 12 磅，左缩进两字，行距 20 磅，
 % 段前段后 0 磅，序号使用全宽括号，与题名间空半字宽。
-% \changes{v3.0.1}{2017/12/12}{更正 paragraph 的前后距离}
 %    \begin{macrocode}
   paragraph = {
     format     = \rmfamily\fontsize{12\bp@}{20\bp@}\selectfont,
@@ -1730,7 +1666,6 @@ version 2005/12/01 or later.
 % 这通过 \cs{if@mainmatter} 区分。
 % 正文中的标题分章、节、段三级；章、节标题居中，段标题居左，
 % 分别用三号（16 bp）黑体、小三（15 bp）黑体、四号（14 bp）黑体。
-% \changes{v3.0.7}{2018/04/18}{更正本科生 subsection 的缩进}
 %    \begin{macrocode}
     chapter = {
       format = {
@@ -1807,8 +1742,6 @@ version 2005/12/01 or later.
 % \begin{environment}{abstract}
 % 中文摘要环境。
 % 判断 \cs{ustc@tocloaded} 是为了防止本科生未调整摘要位置时的目录页码缺失。
-% \changes{v3.0}{2017/07/01}{摘要关键词间隔符号改用分号}
-% \changes{v3.0}{2017/07/01}{摘要不再加入目录}
 %    \begin{macrocode}
 \newenvironment{abstract}{%
   \ustc@setchinese
@@ -1857,7 +1790,6 @@ version 2005/12/01 or later.
 % \begin{macro}{\tableofcontents}
 % 研究生规定目录另面起；
 % 本科生规定从目录开始编页码，所以必须另页起。
-% \changes{v3.0.b}{2018/05/18}{更正研究生的目录为另面起}
 %    \begin{macrocode}
 \renewcommand\tableofcontents{%
   \ifustc@bachelor
@@ -1963,7 +1895,6 @@ version 2005/12/01 or later.
 %
 % \begin{macro}{\listoffigures}
 % 研究生要求图、表的清单须另页起。
-% \changes{v3.1.03}{2019/01/01}{修正图表清单的格式}
 %    \begin{macrocode}
 \renewcommand\listoffigures{%
   \ifustc@graduate
@@ -2001,8 +1932,6 @@ version 2005/12/01 or later.
 % \begin{environment}{notation}
 % 研究生规定符号说明另页起，标题字体字号等同论文正文，
 % 《撰写手册》第 9 页 1.10(2) 还规定“符号说明不加页码”。
-% \changes{v3.0}{2017/07/01}{符号说明不加页码}
-% \changes{v3.0.b}{2018/05/18}{更正符号说明的字号}
 %    \begin{macrocode}
 \newenvironment{notation}{%
   \ifustc@graduate
@@ -2042,7 +1971,6 @@ version 2005/12/01 or later.
 \sloppy
 %    \end{macrocode}
 %
-% \changes{v3.1.04}{2019/03/21}{禁止扩大段间距}
 % 禁止扩大段间距。（\href{https://github.com/ustctug/ustcthesis/issues/209}{
 %   ustctug/ustcthesis\#209}）
 %    \begin{macrocode}
@@ -2080,7 +2008,6 @@ version 2005/12/01 or later.
 %
 % \begin{macro}{\footnote}
 % 脚注用带圈的数字：
-% \changes{v3.0}{2017/07/01}{脚注用带圈序号，缩进两字}
 %    \begin{macrocode}
 \renewcommand\thefootnote{\ustc@textcircled{footnote}}
 %    \end{macrocode}
@@ -2089,10 +2016,8 @@ version 2005/12/01 or later.
 % 简单的|\@addtoreset{footnote}{page}|并不可靠，
 % \footnote{\url{https://texfaq.org/FAQ-footnpp.html}}
 % 所以我们使用 \pkg{footmisc} 宏包。
-% \changes{v3.0.4}{2018/03/30}{脚注按页计数}
 %
 % 脚注线长为版心宽度的四分之一：
-% \changes{v3.0}{2017/07/01}{脚注线长度为版心宽度四分之一}
 %    \begin{macrocode}
 \renewcommand\footnoterule{%
   \kern-3\p@
@@ -2117,7 +2042,6 @@ version 2005/12/01 or later.
 % \begin{environment}{description}
 % \begin{environment}{itemize}
 % 调整列表中各项之间过大的间距。
-% \changes{v3.1}{2018/09/01}{修复列表中各项之间过大的间距}
 %    \begin{macrocode}
 \setlength\partopsep{\z@}
 \newcommand\ustc@nolistsep{%
@@ -2147,7 +2071,6 @@ version 2005/12/01 or later.
 %
 % \LaTeX{} 对放置浮动体的要求比较强，这里按照 UK TeX FAQ 的建议
 % \footnote{\url{https://texfaq.org/FAQ-floats}} 对其适当放宽。
-% \changes{v3.1}{2018/09/01}{优化了浮动体放置策略的参数}
 %    \begin{macrocode}
 \renewcommand\topfraction{.85}
 \renewcommand\bottomfraction{.7}
@@ -2176,8 +2099,6 @@ version 2005/12/01 or later.
 % 表号、表题置于表的上方，宋体 10.5 磅居中，单倍行距，段前 6 磅，段后 6 磅，
 % 表号与表题文字之间空一字，表号、表题加粗。
 % 表注左缩进两字，续行悬挂缩进左对齐，两端对齐。
-% \changes{v3.0}{2017/07/01}{图表的编号、标题加粗}
-% \changes{v3.1.04}{2019/03/21}{修正图表标题与正文之间的距离}
 %    \begin{macrocode}
 \setlength{\floatsep}{6\bp@}
 \setlength{\textfloatsep}{6\bp@}
@@ -2203,7 +2124,6 @@ version 2005/12/01 or later.
 % 新定义了 \cs{note} 来生成图表的附注。
 % 如果用 \cs{caption} 生成图表的附注会导致图表的序号有误；
 % 如果用 \cs{bicaption} 会导致表注无法置于表后，而且对齐方式不对。
-% \changes{v3.0.a}{2018/05/16}{更正图表的注释格式}
 %    \begin{macrocode}
 \newcommand\note[1]{%
   \begingroup
@@ -2237,7 +2157,6 @@ version 2005/12/01 or later.
 % \begin{macro}{\le}
 % \begin{macro}{\ge}
 % 小于等于号、大于等于号要使用倾斜的字形。
-% \changes{v3.0}{2017/07/01}{更正了 LaTeX 的大于等于号}
 %    \begin{macrocode}
 \protected\def\le{\leqslant}
 \protected\def\ge{\geqslant}
@@ -2316,8 +2235,6 @@ version 2005/12/01 or later.
 % \begin{macro}{\citestyle}
 % 定义接口切换引用文献的标注法，可用 \cs{citestyle} 调用 \opt{super} 、
 % \opt{authoryear} 或 \opt{numbers}。
-% \changes{v3.0}{2017/07/01}{允许文献序号作为叙述文字的一部分}
-% \changes{v3.0.2}{2018/03/16}{著者-出版年式文献引用不再排序}
 %    \begin{macrocode}
 \newcommand\bibstyle@super{\bibpunct{[}{]}{,}{s}{,}{\textsuperscript{,}}}
 \newcommand\bibstyle@numbers{\bibpunct{[}{]}{,}{n}{,}{,}}
@@ -2398,8 +2315,6 @@ version 2005/12/01 or later.
 % 在顺序编码制下，\pkg{natbib} 只有在三个以上连续文献引用才会使用连接号，
 % 这里修改为允许两个引用使用连接号。
 % \footnote{\url{https://tex.stackexchange.com/a/86991/82731}}
-% \changes{v3.0.3}{2018/03/29}{顺序编码制连续两个文献引用之间使用连接号}
-% \changes{v3.0.6}{2018/04/12}{文献引用之间的连接号改为 hyphen}
 %    \begin{macrocode}
 \ustc@patchcmd{\NAT@citexnum}{%
   \ifx\NAT@last@yr\relax
@@ -2424,7 +2339,6 @@ version 2005/12/01 or later.
 % \begin{environment}{thebibliography}
 % 参考文献列表格式：宋体 10.5 磅，行距 20 磅，续行缩进两字，左对齐。
 % 本科生依然是小四宋体。
-% \changes{v3.0.b}{2018/05/18}{更正本科生参考文献的字号}
 %    \begin{macrocode}
 \ifustc@graduate
   \renewcommand\bibfont{\fontsize{10.5\bp@}{20\bp@}\selectfont}
@@ -2444,14 +2358,7 @@ version 2005/12/01 or later.
 %    \end{macrocode}
 % \end{environment}
 %
-% \begin{environment}{BibTeX}
 % BibTeX 生成参考文献表的样式在 \file{bst} 文件中提供。
-% \changes{v3.0}{2017/07/01}{参考文献列表不出现“[S.l.]: [s.n.]”}
-% \changes{v3.0.2}{2018/03/16}{更正参考文献姓名的“others”}
-% \changes{v3.0.6}{2018/04/12}{参考文献页码的连接号改为 hyphen}
-% \changes{v3.0.7}{2018/04/18}{参考文献允许著录多个 DOI}
-% \changes{v3.0.9}{2018/05/04}{参考文献不再著录“出版地不详”等信息}
-% \end{environment}
 %
 %
 % \subsection{附录}
@@ -2490,9 +2397,6 @@ version 2005/12/01 or later.
 %
 % \subsubsection{\pkg{hyperref} 宏包}
 %
-% \changes{v3.1.02}{2018/10/30}{取消依赖 \pkg{hyperref}}
-% \changes{v3.1.06}{2019/05/01}{处理 \pkg{hyperref} 与 \pkg{unicode-math}
-%   的兼容性问题}
 %    \begin{macrocode}
 \ustc@atendpackage{hyperref}{
   \hypersetup{
@@ -2658,7 +2562,6 @@ version 2005/12/01 or later.
 % \subsubsection{\pkg{algorithm2e} 宏包}
 %
 % 按章节编号。
-% \changes{v3.1.03}{2019/01/01}{修正算法的格式}
 %    \begin{macrocode}
 \PassOptionsToPackage{algochapter}{algorithm2e}
 %    \end{macrocode}
@@ -2703,7 +2606,6 @@ version 2005/12/01 or later.
 %
 % \subsubsection{\pkg{nomencl} 宏包}
 %
-% \changes{v3.1.02}{2018/10/30}{支持 \pkg{nomencl} 宏包}
 %    \begin{macrocode}
 \ustc@atendpackage{nomencl}{
   \let\nomname\ustc@notationname
@@ -2734,7 +2636,6 @@ version 2005/12/01 or later.
 %
 % \subsubsection{\pkg{siunitx} 宏包}
 %
-% \changes{v3.1.02}{2018/10/30}{支持 \pkg{siunix} 宏包}
 %    \begin{macrocode}
 \ustc@atendpackage{siunitx}{
   \sisetup{
