@@ -683,6 +683,7 @@ version 2005/12/01 or later.
 \DeclareOption{colorlogo}{\ustc@colorlogotrue}
 \DeclareOption{bwlogo}{\ustc@colorlogofalse}
 \DeclareOption{arabic}{\ustc@arabictrue}
+\PassOptionsToClass{openany}{ctexbook}
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{ctexbook}}
 \ExecuteOptions{doctor,academic,chinese,print,colorlogo,super}
 \ProcessOptions\relax
@@ -711,7 +712,7 @@ version 2005/12/01 or later.
 %
 % 载入 \cls{ctexbook} 文档类，注意要求为 2.2 或更高的版本。
 %    \begin{macrocode}
-\LoadClass[UTF8,a4paper,openany,zihao=-4]{ctexbook}[2016/05/16]
+\LoadClass[UTF8,a4paper,zihao=-4]{ctexbook}[2016/05/16]
 %    \end{macrocode}
 %
 % 检测 ctexbook 版本，如果版本过低会报错
@@ -727,7 +728,7 @@ version 2005/12/01 or later.
 %    \begin{macrocode}
 \RequirePackage{amsmath}
 \RequirePackage{unicode-math}
-\RequirePackage{geometry}
+\RequirePackage[driver=xetex]{geometry}
 \RequirePackage{graphicx}
 \RequirePackage{fancyhdr}
 \RequirePackage{color}
@@ -1774,6 +1775,9 @@ version 2005/12/01 or later.
 }{
   \par\null\par\noindent\hangindent=5.3em\relax
   \textbf{Key Words}: \ustc@enkeywords
+  \ifustc@graduate
+    \cleardoublepage
+  \fi
   \ustc@setdefaultlanguage
 }
 %    \end{macrocode}

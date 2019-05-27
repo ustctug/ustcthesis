@@ -46,6 +46,7 @@
 \DeclareOption{colorlogo}{\ustc@colorlogotrue}
 \DeclareOption{bwlogo}{\ustc@colorlogofalse}
 \DeclareOption{arabic}{\ustc@arabictrue}
+\PassOptionsToClass{openany}{ctexbook}
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{ctexbook}}
 \ExecuteOptions{doctor,academic,chinese,print,colorlogo,super}
 \ProcessOptions\relax
@@ -64,14 +65,14 @@
   \PassOptionsToClass{oneside}{book}
 \fi
 \PassOptionsToPackage{quiet}{xeCJK}
-\LoadClass[UTF8,a4paper,openany,zihao=-4]{ctexbook}[2016/05/16]
+\LoadClass[UTF8,a4paper,zihao=-4]{ctexbook}[2016/05/16]
 \@ifclasslater{ctexbook}{2016/05/16}{}{
   \ClassError{ustcthesis}{%
     This template requires TeX Live\MessageBreak 2016 or later version}{}
 }
 \RequirePackage{amsmath}
 \RequirePackage{unicode-math}
-\RequirePackage{geometry}
+\RequirePackage[driver=xetex]{geometry}
 \RequirePackage{graphicx}
 \RequirePackage{fancyhdr}
 \RequirePackage{color}
@@ -755,6 +756,9 @@
 }{
   \par\null\par\noindent\hangindent=5.3em\relax
   \textbf{Key Words}: \ustc@enkeywords
+  \ifustc@graduate
+    \cleardoublepage
+  \fi
   \ustc@setdefaultlanguage
 }
 \newif\ifustc@tocloaded
