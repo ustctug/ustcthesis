@@ -291,12 +291,12 @@
 \ifustc@chinese
   \renewcommand\listfigurename{插图清单}
   \renewcommand\listtablename{表格清单}
-  \newcommand\ustc@acknowledgementsname{致谢}
+  \newcommand\ustc@acknowledgmentsname{致谢}
   \newcommand\ustc@publicationsname{在读期间发表的学术论文与取得的研究成果}
   \newcommand\ustc@notationname{符号说明}
 \else
   \renewcommand\figurename{Fig.}
-  \newcommand\ustc@acknowledgementsname{Acknowledgements}
+  \newcommand\ustc@acknowledgmentsname{Acknowledgments}
   \newcommand\ustc@publicationsname{Publications}
   \newcommand\ustc@notationname{Notation}
 \fi
@@ -738,7 +738,7 @@
   \else
     \chapter{中文内容摘要}%
     \ifustc@tocloaded\else
-      摘要应置于目录后。\par
+      本科生需要手动将摘要置于目录后。\par
     \fi
   \fi
 }{
@@ -1058,13 +1058,13 @@
   \chapter{\bibname}%
   \@mainmattertrue
 }
-\newenvironment{acknowledgements}{%
+\newenvironment{acknowledgments}{%
   \ifustc@graduate
-    \chapter{\ustc@acknowledgementsname}%
+    \chapter{\ustc@acknowledgmentsname}%
   \else
-    \ustc@chapter{\ustc@acknowledgementsname}%
+    \ustc@chapter{\ustc@acknowledgmentsname}%
     \ifustc@tocloaded
-      致谢应置于目录前。\par
+      本科生需要手动将致谢置于目录前。\par
     \fi
   \fi
 }{}
