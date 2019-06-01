@@ -76,11 +76,21 @@ version 2005/12/01 or later.
   math-style=ISO,
   bold-style=ISO,
 }
-\setmathfont[
-  Extension    = .otf,
-  BoldFont     = XITSMath-Bold,
-  StylisticSet = 8,
-]{XITSMath-Regular}
+\IfFontExistsTF{XITSMath-Regular.otf}{
+  \setmathfont[
+    Extension    = .otf,
+    BoldFont     = XITSMath-Bold,
+    StylisticSet = 8,
+  ]{XITSMath-Regular}
+  \setmathfont[range={cal,bfcal},StylisticSet=1]{XITSMath-Regular.otf}
+}{
+  \setmathfont[
+    Extension    = .otf,
+    BoldFont     = *bold,
+    StylisticSet = 8,
+  ]{xits-math}
+  \setmathfont[range={cal,bfcal},StylisticSet=1]{xits-math.otf}
+}
 
 % 定义一些命令用于写文档
 \newcommand\TeXLive{\TeX{} Live}
@@ -260,7 +270,7 @@ version 2005/12/01 or later.
 %
 % \subsection{依赖宏包}
 %
-% 本模板要求使用 TeX Live、MacTeX 或 MikTeX 不低于 2016 年的发行版，
+% 本模板要求使用 TeX Live、MacTeX 或 MikTeX 不低于 2017 年的发行版，
 % 推荐升级到最新的版本。
 %
 % 模板直接依赖的宏包有：
@@ -720,14 +730,14 @@ version 2005/12/01 or later.
 %
 % 载入 \cls{ctexbook} 文档类，注意要求为 2.2 或更高的版本。
 %    \begin{macrocode}
-\LoadClass[UTF8,a4paper,zihao=-4]{ctexbook}[2016/05/16]
+\LoadClass[UTF8,a4paper,zihao=-4]{ctexbook}[2017/04/01]
 %    \end{macrocode}
 %
 % 检测 ctexbook 版本，如果版本过低会报错
 %    \begin{macrocode}
-\@ifclasslater{ctexbook}{2016/05/16}{}{
+\@ifclasslater{ctexbook}{2017/04/01}{}{
   \ClassError{ustcthesis}{%
-    This template requires TeX Live\MessageBreak 2016 or later version}{}
+    This template requires TeX Live\MessageBreak 2017 or later version}{}
 }
 %    \end{macrocode}
 %
@@ -878,10 +888,8 @@ version 2005/12/01 or later.
 % 而 XITS 字体于 2018-10-03 更改了字体的文件名。
 %    \begin{macrocode}
 \newif\ifustc@xitsnew
-\@ifpackagelater{fontspec}{2017/01/20}{
-  \IfFontExistsTF{XITSMath-Regular.otf}{
-    \ustc@xitsnewtrue
-  }{}
+\IfFontExistsTF{XITSMath-Regular.otf}{
+  \ustc@xitsnewtrue
 }{}
 \ifustc@xitsnew
   \setmathfont[
@@ -1562,6 +1570,9 @@ version 2005/12/01 or later.
 %
 % 由于 Word 模板中使用“单倍行距”，还“对齐到网格”，这在 TeX 中不容易实现。
 % 所以目前按照默认的行距。
+%
+% 注意 \pkg{ctex} v2.4.3 以下版本的bug会导致章节标题前后的距离的实际值偏大。
+% 另外 \pkg{ctex} v2.2 前的beforeskip的符号有特殊意义。
 %    \begin{macrocode}
 \ctexset{
   chapter = {
@@ -1570,31 +1581,10 @@ version 2005/12/01 or later.
     titleformat = \ustc@spacetitle,
     number      = \thechapter,
     aftername   = \hspace{\ccwd},
+    beforeskip  = 24\bp@,
+    afterskip   = 18\bp@,
+    fixskip     = true,
   },
-}
-%    \end{macrocode}
-%
-% 注意 \pkg{ctex} 2.4.3 以下版本的bug会导致章节标题前后的距离的实际值偏大，
-% 临时的解决方案是手动调整，偏移值为beforeskip=-31bp, afterskip=-10bp。
-%
-% 另外 \pkg{ctex} 2.2 前的beforeskip的符号有特殊意义，
-% 所以要求 \pkg{ctex} 不低于 2.2 版本。
-%    \begin{macrocode}
-\@ifclasslater{ctexbook}{2016/09/21}{
-  \ctexset{
-    chapter = {
-      beforeskip = 24\bp@,
-      afterskip  = 18\bp@,
-      fixskip    = true,
-    },
-  }
-}{
-  \ctexset{
-    chapter = {
-      beforeskip = -7\bp@,  % 24bp - 31bp
-      afterskip  =  8\bp@,  % 18bp - 10bp
-    },
-  }
 }
 %    \end{macrocode}
 %

@@ -56,13 +56,10 @@ save:
 	texlua test/build-nomencl.lua save --quiet package-nomencl
 
 clean : FORCE_MAKE
-	$(LATEXMK) -c $(MAIN).tex
-	$(LATEXMK) -c $(NAME).dtx
-	texlua test/build.lua clean
+	$(LATEXMK) -c $(MAIN).tex $(NAME).dtx
 
 distclean :
-	$(LATEXMK) -C $(MAIN).tex
-	$(LATEXMK) -C $(NAME).dtx
+	$(LATEXMK) -C $(MAIN).tex $(NAME).dtx
 	texlua test/build.lua clean
 
 install : cls doc

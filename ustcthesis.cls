@@ -65,10 +65,10 @@
   \PassOptionsToClass{oneside}{book}
 \fi
 \PassOptionsToPackage{quiet}{xeCJK}
-\LoadClass[UTF8,a4paper,zihao=-4]{ctexbook}[2016/05/16]
-\@ifclasslater{ctexbook}{2016/05/16}{}{
+\LoadClass[UTF8,a4paper,zihao=-4]{ctexbook}[2017/04/01]
+\@ifclasslater{ctexbook}{2017/04/01}{}{
   \ClassError{ustcthesis}{%
-    This template requires TeX Live\MessageBreak 2016 or later version}{}
+    This template requires TeX Live\MessageBreak 2017 or later version}{}
 }
 \RequirePackage{amsmath}
 \RequirePackage{unicode-math}
@@ -173,10 +173,8 @@
   partial    = upright,
 }
 \newif\ifustc@xitsnew
-\@ifpackagelater{fontspec}{2017/01/20}{
-  \IfFontExistsTF{XITSMath-Regular.otf}{
-    \ustc@xitsnewtrue
-  }{}
+\IfFontExistsTF{XITSMath-Regular.otf}{
+  \ustc@xitsnewtrue
 }{}
 \ifustc@xitsnew
   \setmathfont[
@@ -616,23 +614,10 @@
     titleformat = \ustc@spacetitle,
     number      = \thechapter,
     aftername   = \hspace{\ccwd},
+    beforeskip  = 24\bp@,
+    afterskip   = 18\bp@,
+    fixskip     = true,
   },
-}
-\@ifclasslater{ctexbook}{2016/09/21}{
-  \ctexset{
-    chapter = {
-      beforeskip = 24\bp@,
-      afterskip  = 18\bp@,
-      fixskip    = true,
-    },
-  }
-}{
-  \ctexset{
-    chapter = {
-      beforeskip = -7\bp@,  % 24bp - 31bp
-      afterskip  =  8\bp@,  % 18bp - 10bp
-    },
-  }
 }
 \ctexset{
   section = {
