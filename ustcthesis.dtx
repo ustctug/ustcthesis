@@ -575,8 +575,14 @@ version 2005/12/01 or later.
 %   文献~\inlinecite{knuth84} 提出了一种新的断行算法
 % \end{latex}
 %
-% 若需要标出引文的页码，可以标在 \cs{cite} 的可选参数中，如
-% |\cite[42]{knuth84}|。
+% 若需要标出引文的页码，可以标在 \cs{cite} 的可选参数中，如 |\cite[42]{abc}|。
+%
+% \DescribeMacro{\citep}
+% \DescribeMacro{\citet}
+% 在采用著者-出版年制时，如果将著者姓氏和出版年都置于“( )”内，
+% 应使用 \cs{citep} 命令代替 \cs{cite} 来引用；
+% 如果将著者姓氏作为正文的一部分，在其后的“( )”内只著录出版年，
+% 则应使用 \cs{citet} 命令。
 %
 % \DescribeMacro{\bibliography}
 % 参考文献表可以使用 \BibTeX{} 生成，并在文中使用 \cs{bibliography} 命令调用。
@@ -591,6 +597,7 @@ version 2005/12/01 or later.
 %     mark     = {Z},
 %     medium   = {DK},
 %     ...
+%   }
 % \end{latex}
 % 可选的语言有 english, chinese, japanese, russian。
 %
@@ -604,6 +611,7 @@ version 2005/12/01 or later.
 %     author = {马克思 and 恩格斯},
 %     key    = {ma3 ke4 si1   en1 ge2 si1},
 %     ...
+%   }
 % \end{latex}
 %
 % \BibTeX{} 对自定义样式的支持比较有限，
