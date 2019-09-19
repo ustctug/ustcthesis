@@ -29,38 +29,16 @@ $(NAME).pdf : $(NAME).dtx FORCE_MAKE
 	$(LATEXMK) $<
 
 test:
-	texlua test/build.lua check
-	texlua test/build-toc.lua check
-	texlua test/build-bib.lua check
-	# texlua test/build-nomencl.lua check
+	l3build check
 
 save:
-	texlua test/build.lua save --quiet titlepage
-	texlua test/build.lua save --quiet titlepage-master
-	texlua test/build.lua save --quiet titlepage-secret
-	texlua test/build.lua save --quiet titlepage-bachelor
-	texlua test/build.lua save --quiet statement
-	texlua test/build.lua save --quiet statement-secret
-	texlua test/build.lua save --quiet package-siunitx
-	texlua test/build-toc.lua save --quiet main
-	texlua test/build-toc.lua save --quiet main-english
-	texlua test/build-toc.lua save --quiet main-bachelor
-	texlua test/build-toc.lua save --quiet main-bachelor-arabic
-	texlua test/build-toc.lua save --quiet main-bachelor-english
-	texlua test/build-toc.lua save --quiet main-lof
-	texlua test/build-toc.lua save --quiet main-lot
-	texlua test/build-bib.lua save --quiet bib-super
-	texlua test/build-bib.lua save --quiet bib-numbers
-	texlua test/build-bib.lua save --quiet bib-authoryear
-	texlua test/build-bib.lua save --quiet bib-bachelor
-	texlua test/build-nomencl.lua save --quiet package-nomencl
+	bash test/save.sh
 
 clean : FORCE_MAKE
 	$(LATEXMK) -c $(MAIN).tex $(NAME).dtx
 
-distclean :
+cleanall :
 	$(LATEXMK) -C $(MAIN).tex $(NAME).dtx
-	texlua test/build.lua clean
 
 install : cls doc
 	mkdir -p $(TEXMF)/{doc,source,tex}/latex/$(NAME)
