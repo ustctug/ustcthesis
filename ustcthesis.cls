@@ -172,11 +172,12 @@
   nabla      = upright,
   partial    = upright,
 }
-\newif\ifustc@xitsnew
-\IfFontExistsTF{XITSMath-Regular.otf}{
-  \ustc@xitsnewtrue
+\newif\ifustc@xits@new
+\ustc@xits@newtrue
+\IfFontExistsTF{xits-math.otf}{
+  \ustc@xits@newfalse
 }{}
-\ifustc@xitsnew
+\ifustc@xits@new
   \setmathfont[
     Extension    = .otf,
     BoldFont     = XITSMath-Bold,
@@ -197,7 +198,7 @@
   \ustc@strifeq{\ustc@fontset}{windows}{
     \newfontfamily\ustc@circlefont{SimSun}
   }{
-    \ifustc@xitsnew
+    \ifustc@xits@new
       \newfontfamily\ustc@circlefont{XITS-Regular.otf}
     \else
       \newfontfamily\ustc@circlefont{xits-regular.otf}

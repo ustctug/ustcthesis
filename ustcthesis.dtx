@@ -76,20 +76,20 @@ version 2005/12/01 or later.
   math-style=ISO,
   bold-style=ISO,
 }
-\IfFontExistsTF{XITSMath-Regular.otf}{
-  \setmathfont[
-    Extension    = .otf,
-    BoldFont     = XITSMath-Bold,
-    StylisticSet = 8,
-  ]{XITSMath-Regular}
-  \setmathfont[range={cal,bfcal},StylisticSet=1]{XITSMath-Regular.otf}
-}{
+\IfFontExistsTF{xits-math.otf}{
   \setmathfont[
     Extension    = .otf,
     BoldFont     = *bold,
     StylisticSet = 8,
   ]{xits-math}
   \setmathfont[range={cal,bfcal},StylisticSet=1]{xits-math.otf}
+}{
+  \setmathfont[
+    Extension    = .otf,
+    BoldFont     = XITSMath-Bold,
+    StylisticSet = 8,
+  ]{XITSMath-Regular}
+  \setmathfont[range={cal,bfcal},StylisticSet=1]{XITSMath-Regular.otf}
 }
 
 % 定义一些命令用于写文档
@@ -883,15 +883,16 @@ version 2005/12/01 or later.
 %    \end{macrocode}
 %
 % 使用 XITS Math 作为数学字体。
-%
-% 注意，\cs{IfFontExistsTF} 是 \pkg{fontspec} 2017/01/20 v2.5c 才提供的；
-% 而 XITS 字体于 2018-10-03 更改了字体的文件名。
+% 注意 XITS 字体于 2018-10-03 更改了字体的文件名，所以需要判断。
+% 原文件名为 \file{xits-regular.otf}、\file{xits-math.otf} 等，
+% 后改为 \file{XITS-Regular.otf}、\file{XITSMath-Regular.otf} 等。
 %    \begin{macrocode}
-\newif\ifustc@xitsnew
-\IfFontExistsTF{XITSMath-Regular.otf}{
-  \ustc@xitsnewtrue
+\newif\ifustc@xits@new
+\ustc@xits@newtrue
+\IfFontExistsTF{xits-math.otf}{
+  \ustc@xits@newfalse
 }{}
-\ifustc@xitsnew
+\ifustc@xits@new
   \setmathfont[
     Extension    = .otf,
     BoldFont     = XITSMath-Bold,
@@ -919,7 +920,7 @@ version 2005/12/01 or later.
   \ustc@strifeq{\ustc@fontset}{windows}{
     \newfontfamily\ustc@circlefont{SimSun}
   }{
-    \ifustc@xitsnew
+    \ifustc@xits@new
       \newfontfamily\ustc@circlefont{XITS-Regular.otf}
     \else
       \newfontfamily\ustc@circlefont{xits-regular.otf}
