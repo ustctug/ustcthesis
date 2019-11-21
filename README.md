@@ -1,9 +1,8 @@
 # 中国科学技术大学学位论文 LaTeX 模板
 
-[![Travis build](https://travis-ci.org/ustctug/ustcthesis.svg?branch=master)](https://travis-ci.org/ustctug/ustcthesis)
-[![Github downloads](https://img.shields.io/github/downloads/ustctug/ustcthesis/total.svg)](https://github.com/ustctug/ustcthesis/releases)
 [![GitHub release](https://img.shields.io/github/release/ustctug/ustcthesis/all.svg)](https://github.com/ustctug/ustcthesis/releases/latest)
 [![GitHub commits](https://img.shields.io/github/commits-since/ustctug/ustcthesis/latest.svg)](https://github.com/ustctug/ustcthesis/commits/master)
+[![Build](https://github.com/ustctug/ustcthesis/workflows/build/badge.svg)](https://github.com/ustctug/ustcthesis/actions)
 
 本项目是中国科学技术大学的学位论文 LaTeX 模板 ustcthesis，按照最新版的
 《[研究生学位论文撰写手册](http://gradschool.ustc.edu.cn/ylb/material/xw/wdxz/32.pdf)》
