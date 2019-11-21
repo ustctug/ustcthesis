@@ -8,7 +8,7 @@
 《[研究生学位论文撰写手册](http://gradschool.ustc.edu.cn/ylb/material/xw/wdxz/32.pdf)》
 和
 《[关于本科毕业论文（设计）格式和统一封面的通知](http://www.teach.ustc.edu.cn/document/doc-administration/4032.html)》
-的要求编写，兼容最新版的 TeX Live、MacTeX 、MikTeX 发行版，支持跨平台使用。
+的要求编写，兼容最新版的 TeX Live、MacTeX 、MiKTeX 发行版，支持跨平台使用。
 
 注意：
 
@@ -16,7 +16,7 @@
 [ustcthesis.pdf](https://github.com/ustctug/ustcthesis/releases/download/v3.0/ustcthesis.pdf)
 在发布版中附带，用户也可自行编译；**使用模板前应仔细阅读**。
 
-2. 本模板要求 TeX Live、MacTeX、MikTeX 不低于 2017 年的发行版，
+2. 本模板要求 TeX Live、MacTeX、MiKTeX 不低于 2017 年的发行版，
 并且尽可能升级到最新。安装和升级方法见
 [新手指南](https://github.com/ustctug/ustcthesis/wiki/新手指南)。
 
@@ -67,7 +67,7 @@
 中搜索该问题的关键词；
 5. 在 [GitHub Issues](https://github.com/ustctug/ustcthesis/issues)
 中提出新 issue，并回答以下问题：
-    - 使用了什么版本的 TeX Live / MacTeX / MikTeX ？
+    - 使用了什么版本的 TeX Live / MacTeX / MiKTeX ？
     - 具体的问题是什么？
     - 正确的结果应该是什么样的？
     - 是否应该附上相关源码或者截图？

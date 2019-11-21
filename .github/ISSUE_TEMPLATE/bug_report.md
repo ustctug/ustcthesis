@@ -12,7 +12,7 @@ about: 报告模板中的 bug，帮助我们改进
 
 ## 编译环境
 - 编译的系统：macOS 10.14 / Windows 10 / Ubuntu 18.04 / Overleaf
-- TeX 发行版：TeX Live 2019 / MacTeX 2019 / MikTeX 2.9.6753
+- TeX 发行版：TeX Live 2019 / MacTeX 2019 / MiKTeX 2.9.6753
 - 模板类型：doctor / master / bachelor
 
 ## 描述问题
