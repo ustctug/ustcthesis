@@ -174,9 +174,9 @@
 }
 \newif\ifustc@xits@new
 \ustc@xits@newtrue
-\IfFontExistsTF{xits-math.otf}{
+\IfFontExistsTF{XITS-Regular.otf}{}{
   \ustc@xits@newfalse
-}{}
+}
 \ifustc@xits@new
   \setmathfont[
     Extension    = .otf,
