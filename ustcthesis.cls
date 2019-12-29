@@ -11,41 +11,157 @@
 \ifXeTeX\else
   \ustc@error{XeLaTeX is required to compile this document}
 \fi
-\newif\ifustc@degree@doctor
-\newif\ifustc@degree@master
-\newif\ifustc@degree@bachelor
-\newif\ifustc@degree@type@academic
-\newif\ifustc@language@chinese
-\newif\ifustc@bib@style@numerical
-\newif\ifustc@cite@style@super
-\newif\ifustc@output@electronic
-\newif\ifustc@badge@color@blue
-\newif\ifustc@section@style@arabic
-\DeclareOption{doctor}{\ustc@degree@doctortrue\ustc@degree@masterfalse\ustc@degree@bachelorfalse}
-\DeclareOption{master}{\ustc@degree@doctorfalse\ustc@degree@mastertrue\ustc@degree@bachelorfalse}
-\DeclareOption{bachelor}{\ustc@degree@doctorfalse\ustc@degree@masterfalse\ustc@degree@bachelortrue}
-\DeclareOption{academic}{\ustc@degree@type@academictrue}
-\DeclareOption{professional}{\ustc@degree@type@academicfalse}
-\DeclareOption{chinese}{\ustc@language@chinesetrue}
-\DeclareOption{english}{\ustc@language@chinesefalse\ustc@section@style@arabictrue}
-\DeclareOption{print}{\ustc@output@electronicfalse}
-\DeclareOption{pdf}{\ustc@output@electronictrue}
-\DeclareOption{super}{\ustc@bib@style@numericaltrue\ustc@cite@style@supertrue}
-\DeclareOption{numbers}{\ustc@bib@style@numericaltrue\ustc@cite@style@superfalse}
-\DeclareOption{authoryear}{\ustc@bib@style@numericalfalse}
-\DeclareOption{colorlogo}{\ustc@badge@color@bluetrue}
-\DeclareOption{bwlogo}{\ustc@badge@color@bluefalse}
-\DeclareOption{arabic}{\ustc@section@style@arabictrue}
-\PassOptionsToClass{openany}{ctexbook}
-\DeclareOption*{\PassOptionsToClass{\CurrentOption}{ctexbook}}
-\ExecuteOptions{doctor,academic,chinese,print,colorlogo,super}
-\ProcessOptions\relax
+\RequirePackage{kvdefinekeys}
+\RequirePackage{kvsetkeys}
+\RequirePackage{kvoptions}
+\newcommand\ustcsetup{%
+  \kvsetkeys{ustc}%
+}
+\newcommand\ustc@define@key[1]{%
+  \kvsetkeys{ustc@key}{#1}%
+}
+\kv@set@family@handler{ustc@key}{%
+  \@namedef{ustc@#1@@name}{#1}%
+  \def\ustc@@default{}%
+  \def\ustc@@choices{}%
+  \kv@define@key{ustc@value}{name}{%
+    \@namedef{ustc@#1@@name}{##1}%
+  }%
+  \kv@define@key{ustc@value}{code}{%
+    \@namedef{ustc@#1@@code}{##1}%
+  }%
+  \@namedef{ustc@#1@@check}{}%
+  \@namedef{ustc@#1@@code}{}%
+  \@namedef{ustc@#1@@hook}{%
+    \@nameuse{ustc@#1@@code}%
+  }%
+  \kv@define@key{ustc@value}{choices}{%
+    \def\ustc@@choices{##1}%
+    \@namedef{ustc@#1@@reset}{}%
+    \@namedef{ustc@#1@@check}{%
+      \@ifundefined{%
+        ifustc@\@nameuse{ustc@#1@@name}@\@nameuse{ustc@\@nameuse{ustc@#1@@name}}%
+      }{%
+        \ustc@error{Invalid value "#1 = \@nameuse{ustc@\@nameuse{ustc@#1@@name}}"}%
+      }%
+      \@nameuse{ustc@#1@@reset}%
+      \@nameuse{ustc@\@nameuse{ustc@#1@@name}@\@nameuse{ustc@\@nameuse{ustc@#1@@name}}true}%
+    }%
+  }%
+  \kv@define@key{ustc@value}{default}{%
+    \def\ustc@@default{##1}%
+  }%
+  \kvsetkeys{ustc@value}{#2}%
+  \@namedef{ustc@\@nameuse{ustc@#1@@name}}{}%
+  \kv@set@family@handler{ustc@choice}{%
+    \ifx\ustc@@default\@empty
+      \def\ustc@@default{##1}%
+    \fi
+    \expandafter\newif\csname ifustc@\@nameuse{ustc@#1@@name}@##1\endcsname
+    \expandafter\g@addto@macro\csname ustc@#1@@reset\endcsname{%
+      \@nameuse{ustc@\@nameuse{ustc@#1@@name}@##1false}%
+    }%
+  }%
+  \kvsetkeys@expandafter{ustc@choice}{\ustc@@choices}%
+  \expandafter\let\csname ustc@\@nameuse{ustc@#1@@name}\endcsname\ustc@@default
+  \expandafter\ifx\csname ustc@\@nameuse{ustc@#1@@name}\endcsname\@empty\else
+    \@nameuse{ustc@#1@@check}%
+    \@nameuse{ustc@#1@@hook}%
+  \fi
+  \kv@define@key{ustc}{#1}{%
+    \@namedef{ustc@\@nameuse{ustc@#1@@name}}{##1}%
+    \@nameuse{ustc@#1@@check}%
+    \@nameuse{ustc@#1@@hook}%
+  }%
+}
+\newcommand\ustc@addto[2]{%
+  \expandafter\g@addto@macro\csname ustc@#1@@code\endcsname{#2}%
+}
 \newif\ifustc@degree@graduate
+\newcommand\ustc@set@graduate{%
+  \ifustc@degree@bachelor
+    \ustc@degree@graduatefalse
+  \else
+    \ustc@degree@graduatetrue
+  \fi
+}
+\ustc@define@key{
+  degree = {
+    choices = {
+      doctor,
+      master,
+      bachelor,
+    },
+    default = doctor,
+    code    = {\ustc@set@graduate},
+  },
+  degree-type = {
+    name = degree@type,
+    choices = {
+      academic,
+      professional,
+    },
+    default = academic,
+  },
+  language = {
+    choices = {
+      chinese,
+      english,
+    },
+    default = chinese,
+  },
+  cite-style = {
+    name = cite@style,
+    choices = {
+      super,
+      inline,
+      authoryear,
+    },
+  },
+  output = {
+    choices = {
+      print,
+      electronic,
+    },
+    default = print,
+  },
+  section-style = {
+    name = section@style,
+    choices = {
+      chinese,
+      arabic,
+    },
+    default = chinese,
+  },
+  badge-color = {
+    name = badge@color,
+    choices = {
+      blue,
+      black,
+    },
+    default = blue,
+  },
+}
 \ifustc@degree@bachelor
-  \ustc@degree@graduatefalse
-\else
-  \ustc@degree@graduatetrue
+  \ifustc@language@english
+    \ustcsetup{section-style = arabic}
+  \fi
 \fi
+\ustc@addto{language}{%
+  \ifustc@degree@bachelor
+    \ifustc@language@english
+      \ustcsetup{section-style = arabic}%
+    \fi
+  \fi
+}
+\SetupKeyvalOptions{
+  family  = ustc,
+  prefix  = ustc@,
+  setkeys = \kvsetkeys,
+}
+\PassOptionsToClass{openany}{ctexbook}
+\DeclareDefaultOption{\PassOptionsToClass{\CurrentOption}{ctexbook}}
+\ProcessKeyvalOptions*
 \ifustc@language@chinese
   \PassOptionsToClass{scheme=chinese}{ctexbook}
 \else
@@ -71,9 +187,6 @@
 \RequirePackage[perpage]{footmisc}
 \RequirePackage{url}
 \RequirePackage{calc}
-\ifustc@bib@style@numerical
-  \PassOptionsToPackage{sort&compress}{natbib}
-\fi
 \RequirePackage{natbib}
 \RequirePackage{notoccite}
 \newcommand\ustc@strifeq{\csname str_if_eq_x:nnTF\endcsname}
@@ -334,31 +447,94 @@
   \fi
   \pagestyle{plain}%
   \@mainmattertrue}
-\def\ustc@define@term#1#2#3{%
-  \expandafter\gdef\csname #2\endcsname##1{%
-    \expandafter\gdef\csname ustc@#1\endcsname{##1}%
-  }%
-  \csname #2\endcsname{#3}%
+\ustc@define@key{
+  title = {
+    default = {论文题目},
+  },
+  title* = {
+    default = {Title},
+    name    = title@en,
+  },
+  author = {
+    default = {作者姓名},
+  },
+  author* = {
+    default = {Author Name},
+    name    = author@en,
+  },
+  speciality = {
+    default = {专业},
+  },
+  speciality* = {
+    default = {Speciality},
+    name    = speciality@en,
+  },
+  supervisor = {
+    default = {导师姓名},
+  },
+  supervisor* = {
+    default = {Supervisor Name},
+    name    = supervisor@en,
+  },
+  date = {
+    default = {\the\year-\two@digits{\month}-\two@digits{\day}},
+  },
+  professional-type = {
+    name = professional@type,
+  },
+  professional-type* = {
+    name = professional@type@en,
+  },
+  secret-level = {
+    name    = secret@level,
+  },
+  secret-level* = {
+    name    = secret@level@en,
+  },
+  secret-year = {
+    name    = secret@year,
+  },
+  keywords,
+  keywords* = {
+    name    = keywords@en,
+  },
 }
-\ustc@define@term{title}{title}{论文题目}
-\ustc@define@term{author}{author}{XXX}
-\ustc@define@term{speciality}{major}{XXX}
-\ustc@define@term{supervisor}{supervisor}{XXX\quad 教授}
-\ustc@define@term{cosupervisor}{cosupervisor}{}
-\ustc@define@term{date@zh}{date}{\zhnumsetup{time=Chinese}\zhtoday}
-\ustc@define@term{professional@type}{professionaltype}{专业学位类型}
-\ustc@define@term{secret@level}{secretlevel}{}
-\ustc@define@term{secret@year}{secretyear}{}
-\ustc@define@term{title@en}{entitle}{Title}
-\ustc@define@term{author@en}{enauthor}{XXX}
-\ustc@define@term{speciality@en}{enmajor}{XXX}
-\ustc@define@term{supervisor@en}{ensupervisor}{Prof. XXX}
-\ustc@define@term{cosupervisor@en}{encosupervisor}{}
-\ustc@define@term{date@en}{endate}{\CTEX@todayold}
-\ustc@define@term{professional@type@en}{enprofessionaltype}{Professional degree type}
-\ustc@define@term{secret@level@en}{ensecretlevel}{}
-\ustc@define@term{keywords}{keywords}{}
-\ustc@define@term{keywords@en}{enkeywords}{}
+\newcommand\ustc@clist@count[1]{%
+  \csname clist_count:N\endcsname{#1}%
+}
+\newcommand\ustc@clist@use[2]{%
+  \csname clist_use:Nn\endcsname{#1}{#2}%
+}
+\newcommand\ustc@supervisor@names{%
+  \ustc@clist@use{\ustc@supervisor}{\quad}
+}
+\newcounter{ustc@count}
+\newcommand\ustc@supervisor@en@line{%
+  \setcounter{ustc@count}{\ustc@clist@count{\ustc@supervisor@en}}%
+  \ifnum\c@ustc@count>1\relax
+    Supervisors:%
+  \else
+    Supervisor:%
+  \fi
+  \space\ustc@clist@use{\ustc@supervisor@en}{, }%
+}
+\newcommand\ustc@format@date[2]{%
+  \edef\ustc@@date{#2}%
+  \def\ustc@@process@date##1-##2-##3\@nil{%
+    #1{##1}{##2}{##3}%
+  }%
+  \expandafter\ustc@@process@date\ustc@@date\@nil
+}
+\newcommand\ustc@date@format@zh[3]{\zhdigits{#1}年\zhnumber{#2}月\zhnumber{#3}日}
+\newcommand\ustc@date@month[1]{%
+  \ifcase\number#1\or
+    January\or February\or March\or April\or May\or June\or
+    July\or August\or September\or October\or November\or December%
+  \fi
+}
+\newcommand\ustc@date@format@en[3]{\ustc@date@month{#2} \number#3, #1}
+\newcommand\ustc@date@zh{\ustc@format@date{\ustc@date@format@zh}{\ustc@date}}
+\newcommand\ustc@date@en{\ustc@format@date{\ustc@date@format@en}{\ustc@date}}
 \ifustc@degree@doctor
   \newcommand\ustc@thesis@name{博士学位论文}
   \newcommand\ustc@thesis@name@en{A dissertation for doctor's degree}
@@ -439,18 +615,11 @@
       \begin{tabular}{@{}l@{\hspace{\ccwd}}l@{}}%
         \textsf{作者姓名：} & \ustc@author \\
         \textsf{\ustc@speciality@name：} & \ustc@speciality \\
-        \textsf{导师姓名：} & \ustc@supervisor\quad\ustc@cosupervisor \\
+        \textsf{导师姓名：} & \ustc@supervisor@names \\
         \textsf{完成时间：} & \ustc@date@zh
       \end{tabular}\par}%
   \end{titlepage}%
   \ustc@setdefaultlanguage
-}
-\newcommand\ustc@supervisorline{%
-  \ifx\ustc@cosupervisor@en\@empty
-    Supervisor: \ustc@supervisor@en
-  \else
-    Supervisors: \ustc@supervisor@en, \ustc@cosupervisor@en
-  \fi
 }
 \newcommand\ustc@makeentitle{%
   \ustc@setenglish
@@ -485,7 +654,7 @@
       \begin{tabular}{@{}l@{}}%
         Author:        \ustc@author@en \\
         Speciality:    \ustc@speciality@en \\
-        \ustc@supervisorline \\
+        \ustc@supervisor@en@line \\
         Finished time: \ustc@date@en
       \end{tabular}\par}%
   \end{titlepage}%
@@ -518,7 +687,7 @@
   \makebox[\z@][l]{$\square$}%
   \raisebox{-0.2ex}{\hspace{0.1em}$\checkmark$}%
 }
-\newcommand\makestatement{%
+\newcommand\copyrightpage{%
   \begin{titlepage}%
     \ustc@pdfbookmark{原创性和授权使用声明}%
     \null
@@ -552,7 +721,7 @@
   \end{titlepage}%
 }
 \ifustc@degree@bachelor
-  \renewcommand\makestatement{}
+  \let\copyrightpage\relax
 \fi
 \setcounter{secnumdepth}{5}
 \newcount\ustc@titlelength
@@ -697,6 +866,12 @@
     \chaptermark{#2}%
   }%
   \chapter*{#2}}
+\newcommand\ustc@keywords@text{%
+  \ustc@clist@use{\ustc@keywords}{；}%
+}
+\newcommand\ustc@keywords@en@text{%
+  \ustc@clist@use{\ustc@keywords@en}{; }%
+}
 \newenvironment{abstract}{%
   \ustc@setchinese
   \ifustc@degree@graduate
@@ -709,7 +884,7 @@
   \fi
 }{
   \par\null\par\noindent\hangindent=4\ccwd\relax
-  \textbf{关键词}：\ustc@keywords
+  \textbf{关键词}：\ustc@keywords@text\par
   \ustc@setdefaultlanguage
 }
 \newenvironment{enabstract}{%
@@ -721,7 +896,7 @@
   \fi
 }{
   \par\null\par\noindent\hangindent=5.3em\relax
-  \textbf{Key Words}: \ustc@keywords@en
+  \textbf{Key Words}: \ustc@keywords@en@text\par
   \ifustc@degree@graduate
     \cleardoublepage
   \fi
@@ -949,29 +1124,29 @@
 \newcommand\upe{\symup{e}}
 \newcommand\upi{\symup{i}}
 \newcommand\dif{\mathop{}\!\mathrm{d}}
-\newcommand\bibstyle@super{\bibpunct{[}{]}{,}{s}{,}{\textsuperscript{,}}}
-\newcommand\bibstyle@numbers{\bibpunct{[}{]}{,}{n}{,}{,}}
-\newcommand\bibstyle@authoryear{\bibpunct{(}{)}{;}{a}{,}{,}}
-\ifustc@degree@graduate
-  \ifustc@bib@style@numerical
-    \ifustc@cite@style@super
-      \citestyle{super}
-    \else
-      \citestyle{numbers}
-    \fi
-    \bibliographystyle{ustcthesis-numerical}
-  \else
-    \citestyle{authoryear}
-    \bibliographystyle{ustcthesis-authoryear}
-  \fi
-\else
-  \ifustc@cite@style@super
-    \citestyle{super}
-  \else
-    \citestyle{numbers}
-  \fi
-  \bibliographystyle{ustcthesis-bachelor}
-\fi
+\newcommand\bibstyle@super{%
+  \bibpunct{[}{]}{,}{s}{,}{\textsuperscript{,}}%
+  \gdef\NAT@sort{\@ne}%
+  \gdef\NAT@cmprs{\@ne}%
+}
+\newcommand\bibstyle@inline{%
+  \bibpunct{[}{]}{,}{n}{,}{,}%
+  \gdef\NAT@sort{\@ne}%
+  \gdef\NAT@cmprs{\@ne}%
+}
+\newcommand\bibstyle@authoryear{%
+  \bibpunct{(}{)}{;}{a}{,}{,}%
+  \gdef\NAT@sort{\z@}%
+  \gdef\NAT@cmprs{\z@}%
+}
+\ustc@addto{cite-style}{%
+  \citestyle{\ustc@cite@style}%
+}
+\@namedef{bibstyle@ustcthesis-numerical}{\bibstyle@super}
+\@namedef{bibstyle@ustcthesis-authoryear}{\bibstyle@authoryear}
+\@namedef{bibstyle@ustcthesis-bachelor}{\bibstyle@super}
+\DeclareRobustCommand\inlinecite{\@inlinecite}
+\def\@inlinecite#1{\begingroup\let\@cite\NAT@citenum\citep{#1}\endgroup}
 \ustc@patchcmd{\NAT@citexnum}{%
   \@ifnum{\NAT@ctype=\z@}{%
     \if*#2*\else\NAT@cmt#2\fi
@@ -1009,8 +1184,6 @@
 }{%
   \def@NAT@last@yr{-\NAT@penalty}%
 }
-\DeclareRobustCommand\inlinecite{\@inlinecite}
-\def\@inlinecite#1{\begingroup\let\@cite\NAT@citenum\citep{#1}\endgroup}
 \ifustc@degree@graduate
   \renewcommand\bibfont{\fontsize{10.5\bp@}{20\bp@}\selectfont}
 \fi
@@ -1020,7 +1193,6 @@
 \renewcommand\bibsection{%
   \@mainmatterfalse
   \chapter{\bibname}%
-  \@mainmattertrue
 }
 \newenvironment{acknowledgements}{%
   \ifustc@degree@graduate

@@ -1,11 +1,19 @@
 \input{regression-test.tex}
-\documentclass[doctor,numbers,fontset=fandol]{ustcthesis}
+\documentclass[degree=doctor,fontset=fandol]{ustcthesis}
 
 \begin{document}
 \START
 \showoutput
 
+\ustcsetup{
+  cite-style = inline,
+}
+
 \input{citations.tex}
+
+\backmatter
+\bibliographystyle{ustcthesis-numerical}
+\bibliography{refs}
 
 \clearpage
 \end{document}

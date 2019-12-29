@@ -7,12 +7,12 @@
 
 \begin{abstract}
   摘要内容。
-  \keywords{关键词}
+  \ustcsetup{keywords = {关键词}}
 \end{abstract}
 
 \begin{enabstract}
   Abstract contents.
-  \enkeywords{keywords}
+  \ustcsetup{keywords* = {keywords}}
 \end{enabstract}
 
 \mainmatter
@@ -31,6 +31,7 @@ Paragraph text.
 Subparagraph text.
 
 \chapter{浮动体}
+\ustcsetup{cite-style=super}
 \cite{knuth86a}
 
 \begin{thebibliography}{1}

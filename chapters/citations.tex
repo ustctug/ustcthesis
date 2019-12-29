@@ -11,7 +11,9 @@
 
 \subsection{角标数字标注法}
 
-\citestyle{super}
+\ustcsetup{
+  cite-style = super,
+}
 \noindent
 \begin{tabular}{l@{\quad$\Rightarrow$\quad}l}
   \verb|\cite{knuth86a}|         & \cite{knuth86a}         \\
@@ -24,7 +26,9 @@
 
 \subsection{数字标注法}
 
-\citestyle{numbers}
+\ustcsetup{
+  cite-style = inline,
+}
 \noindent
 \begin{tabular}{l@{\quad$\Rightarrow$\quad}l}
   \verb|\cite{knuth86a}|         & \cite{knuth86a}         \\
@@ -38,7 +42,9 @@
 
 \section{著者-出版年制标注法}
 
-\citestyle{authoryear}
+\ustcsetup{
+  cite-style = authoryear,
+}
 \noindent
 \begin{tabular}{l@{\quad$\Rightarrow$\quad}l}
   \verb|\cite{knuth86a}|         & \cite{knuth86a}         \\
@@ -49,6 +55,9 @@
   \verb|\cite{knuth86a,knuth84}| & \cite{knuth86a,knuth84} \\
 \end{tabular}
 
-\vskip 2ex \citestyle{super}
+\vskip 2ex
+\ustcsetup{
+  cite-style = super,
+}
 注意，参考文献列表中的每条文献在正文中都要被引用
 \cite{slg,lyc,ljs,cgw,cjb,kqy,yhs,yx,dwx,jxz,wjk,syw,wf,xd,twh,huston}。

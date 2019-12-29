@@ -214,13 +214,13 @@ Completed box being shipped out [1]
 ...\glue 17.07182
 ...\glue(\parskip) 0.0
 ...\glue(\lineskip) 1.0
-...\hbox(66.24713+58.21637)x452.96826, glue set 99.35463fil
+...\hbox(66.24713+58.21637)x452.96826, glue set 97.34715fil
 ....\glue(\leftskip) 0.0 plus 1.0fil
 ....\hbox(0.0+0.0)x0.0
-....\hbox(66.24713+58.21637)x254.259
+....\hbox(66.24713+58.21637)x258.27396
 .....\mathon
-.....\vbox(66.24713+58.21637)x254.259
-......\hbox(21.78102+9.33485)x254.259
+.....\vbox(66.24713+58.21637)x258.27396
+......\hbox(21.78102+9.33485)x258.27396
 .......\glue(\tabskip) 0.0
 .......\hbox(21.78102+9.33485)x96.3589
 ........\rule(21.78102+9.33485)x0.0
@@ -243,7 +243,7 @@ Completed box being shipped out [1]
 ........\glue 0.0 plus 1.0fil
 ........\glue 16.05981
 .......\glue(\tabskip) 0.0
-.......\hbox(21.78102+9.33485)x157.9001, glue set 109.72064fil
+.......\hbox(21.78102+9.33485)x161.91505, glue set 113.7356fil
 ........\glue 0.00002
 ........\TU/FandolSong-Regular(0)/m/n/16.05981 李
 ........\glue 0.0 plus 0.74435
@@ -255,7 +255,7 @@ Completed box being shipped out [1]
 ........\glue 0.0 plus 1.0fil
 .......\glue(\tabskip) 0.0
 ......\glue(\lineskip) 0.0
-......\hbox(21.78102+9.33485)x254.259
+......\hbox(21.78102+9.33485)x258.27396
 .......\glue(\tabskip) 0.0
 .......\hbox(21.78102+9.33485)x96.3589
 ........\rule(21.78102+9.33485)x0.0
@@ -278,7 +278,7 @@ Completed box being shipped out [1]
 ........\glue 0.0 plus 1.0fil
 ........\glue 16.05981
 .......\glue(\tabskip) 0.0
-.......\hbox(21.78102+9.33485)x157.9001, glue set 45.48138fil
+.......\hbox(21.78102+9.33485)x161.91505, glue set 49.49634fil
 ........\glue 0.00002
 ........\TU/FandolSong-Regular(0)/m/n/16.05981 数
 ........\glue 0.0 plus 0.74435
@@ -298,7 +298,7 @@ Completed box being shipped out [1]
 ........\glue 0.0 plus 1.0fil
 .......\glue(\tabskip) 0.0
 ......\glue(\lineskip) 0.0
-......\hbox(21.78102+9.33485)x254.259
+......\hbox(21.78102+9.33485)x258.27396
 .......\glue(\tabskip) 0.0
 .......\hbox(21.78102+9.33485)x96.3589
 ........\rule(21.78102+9.33485)x0.0
@@ -321,7 +321,7 @@ Completed box being shipped out [1]
 ........\glue 0.0 plus 1.0fil
 ........\glue 16.05981
 .......\glue(\tabskip) 0.0
-.......\hbox(21.78102+9.33485)x157.9001
+.......\hbox(21.78102+9.33485)x161.91505
 ........\glue 0.00002
 ........\TU/texgyretermes(0)/m/n/16.05981 XXX
 ........\kern -0.0002
@@ -334,6 +334,7 @@ Completed box being shipped out [1]
 ........\kern -0.00017
 ........\kern 0.00017
 ........\glue 16.05981
+........\glue 4.01495 plus 2.00748 minus 1.33832
 ........\TU/texgyretermes(0)/m/n/16.05981 XXX
 ........\kern -0.0002
 ........\kern 0.0002
@@ -342,12 +343,12 @@ Completed box being shipped out [1]
 ........\TU/FandolSong-Regular(0)/m/n/16.05981 教
 ........\glue 0.0 plus 0.74435
 ........\TU/FandolSong-Regular(0)/m/n/16.05981 授
-........\kern -0.00017
-........\kern 0.00017
+........\kern -0.00018
+........\kern 0.00018
 ........\glue 0.0 plus 1.0fil
 .......\glue(\tabskip) 0.0
 ......\glue(\lineskip) 0.0
-......\hbox(21.78102+9.33485)x254.259
+......\hbox(21.78102+9.33485)x258.27396
 .......\glue(\tabskip) 0.0
 .......\hbox(21.78102+9.33485)x96.3589
 ........\rule(21.78102+9.33485)x0.0
@@ -370,7 +371,7 @@ Completed box being shipped out [1]
 ........\glue 0.0 plus 1.0fil
 ........\glue 16.05981
 .......\glue(\tabskip) 0.0
-.......\hbox(21.78102+9.33485)x157.9001, glue set 13.36176fil
+.......\hbox(21.78102+9.33485)x161.91505, glue set 17.37671fil
 ........\glue 0.00002
 ........\TU/FandolSong-Regular(0)/m/n/16.05981 二
 ........\glue 0.0 plus 0.74435
@@ -677,7 +678,7 @@ Completed box being shipped out [3]
 ......\glue(\lineskip) 0.0
 ......\hbox(21.0784+9.03374)x326.56563
 .......\glue(\tabskip) 0.0
-.......\hbox(21.0784+9.03374)x326.56563, glue set 91.62125fil
+.......\hbox(21.0784+9.03374)x326.56563, glue set 87.6063fil
 ........\rule(21.0784+9.03374)x0.0
 ........\glue 0.00002
 ........\TU/texgyretermes(0)/m/n/16.05981 Supervisors:
@@ -692,6 +693,7 @@ Completed box being shipped out [3]
 ........\TU/texgyretermes(0)/m/n/16.05981 XXX,
 ........\kern -0.00021
 ........\kern 0.00021
+........\glue 4.01495 plus 2.00748 minus 1.33832
 ........\glue 4.01495 plus 2.00748 minus 1.33832
 ........\TU/texgyretermes(0)/m/n/16.05981 Prof.
 ........\kern -0.0002

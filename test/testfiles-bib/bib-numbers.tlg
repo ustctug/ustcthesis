@@ -15,7 +15,7 @@ LaTeX Font Info:    Font shape `TU/XITSMath-Regular(3)/m/n' will be
 (Font)              scaled to size 8.43044pt on input line ....
 LaTeX Font Info:    Font shape `TU/XITSMath-Regular(3)/m/n' will be
 (Font)              scaled to size 6.02177pt on input line ....
-(bib-numbers.bbl
+)
 Completed box being shipped out [1]
 \vbox(722.98453+3.6135)x435.04271
 .\glue -29.59084
@@ -427,7 +427,7 @@ Completed box being shipped out [1]
 ....\glue(\rightskip) 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 9.90892
-...\hbox(8.28687+1.87898)x417.11752, glue set 362.92769fil
+...\hbox(8.28687+1.87898)x417.11752, glue set 359.91647fil
 ....\hbox(0.0+0.0)x24.08972
 ....\TU/texgyretermes(0)/m/n/12.04486 [
 ....\hbox(8.28687+0.16861)x6.02243
@@ -446,6 +446,7 @@ Completed box being shipped out [1]
 ....\TU/texgyretermes(0)/m/n/12.04486 ]
 ....\kern -0.0002
 ....\kern 0.0002
+....\glue 3.01122 plus 1.5056 minus 1.00374
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
@@ -495,6 +496,7 @@ Completed box being shipped out [1]
 ..........\glue(\rightskip) 0.0
 ....\glue 0.0 plus 1.0fil minus 1.0fil
 ...\special{color pop}
+(bib-numbers.bbl
 LaTeX Font Info:    Calculating math sizes for size <10.53925> on input line ....
 LaTeX Font Info:    Font shape `TU/XITSMath-Regular(2)/m/n' will be
 (Font)              scaled to size 10.54036pt on input line ....
@@ -508,7 +510,7 @@ LaTeX Font Info:    Font shape `TU/XITSMath-Regular(3)/m/n' will be
 (Font)              scaled to size 7.37663pt on input line ....
 LaTeX Font Info:    Font shape `TU/XITSMath-Regular(3)/m/n' will be
 (Font)              scaled to size 5.26906pt on input line ....
-))
+)
 Completed box being shipped out [2]
 \vbox(722.98453+3.6135)x435.04271
 .\glue -29.59084
@@ -564,6 +566,8 @@ Completed box being shipped out [2]
 ..\glue 8.2511
 ..\glue(\lineskip) 0.0
 ..\vbox(700.50723+0.0)x417.11752, glue set 294.48018fil
+...\write-{}
+...\write1{\protect \FN@pp@footnotehinttrue }
 ...\write-{}
 ...\write1{\@writefile{toc}{\protect \contentsline {chapter}{参考文献}{\thepage \ET
 C.}

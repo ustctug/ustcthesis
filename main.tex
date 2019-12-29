@@ -2,48 +2,12 @@
 % !TeX program = xelatex
 % !TeX spellcheck = en_US
 
-\documentclass[doctor]{ustcthesis}
-% doctor|master|bachelor [academic|professional] [chinese|english] [print|pdf]
-% [super|numebers|authoryear]
+\documentclass[degree=doctor]{ustcthesis}
+% degree    = doctor|master|bachelor
+% language  = chinese|english
 
-\title{中国科学技术大学\\学位论文模板示例文档}
-\author{李泽平}
-\major{数学与应用数学}
-\supervisor{XXX~教授}
-\cosupervisor{XXX~教授}
-% \date{二〇一七年五月一日} % 注释掉则为今日
-% \professionaltype{专业学位类型}
-% \secretlevel{秘密}        % 绝密|机密|秘密，注释本行则不保密
-% \secretyear{20}           % 保密年限
-
-\entitle{An example of thesis template for University of Science and Technology
-  of China}
-\enauthor{Li Zeping}
-\enmajor{Mathematics and Applied Mathematics}
-\ensupervisor{Prof.~XXX}
-\encosupervisor{Prof.~XXX}
-% \endate{May 1, 2017}      % Today if commented
-% \enprofessionaltype{Professional degree type}
-% \ensecretlevel{Secret}    % Top secret|Highly secret|Secret
-
-
-% 加载宏包和配置
-\usepackage{graphicx}
-\graphicspath{{figures/}}
-\usepackage{booktabs}
-\usepackage{longtable}
-\usepackage[ruled,linesnumbered]{algorithm2e}
-\usepackage{siunitx}
-\usepackage{amsthm}
-\usepackage{hyperref}
-
-\DeclareRobustCommand\cs[1]{\texttt{\char`\\#1}}
-\DeclareRobustCommand\pkg{\textsf}
-\DeclareRobustCommand\file{\nolinkurl}
-
-\input{math-commands.tex}
-
-
+% 加载宏包、全部的配置
+\input{ustcsetup.tex}
 
 
 \begin{document}
@@ -62,27 +26,31 @@
 %   appendix: 附录
 
 \maketitle
-\makestatement
+\copyrightpage
 
 \frontmatter
-\input{chapters/abstract}
+\input{chapters/abstract.tex}
 \tableofcontents
 % \listoffigures
 % \listoftables
-\input{chapters/notation}
+\input{chapters/notation.tex}
 
 \mainmatter
-\input{chapters/intro}
-\input{chapters/floats}
-\input{chapters/math}
-\input{chapters/citations}
+\input{chapters/intro.tex}
+\input{chapters/floats.tex}
+\input{chapters/math.tex}
+\input{chapters/citations.tex}
+
+\backmatter
+\bibliographystyle{ustcthesis-numerical}  % 顺序编码制
+% \bibliography{ustcthesis-authoryear} % 著者出版年制
+% \bibliography{ustcthesis-bachelor}   % 本科生参考文献的格式
 \bibliography{bib/ustc}
 
 \appendix
-\input{chapters/complementary}
+\input{chapters/complementary.tex}
 
-\backmatter
-\input{chapters/acknowledgements}
-\input{chapters/publications}
+\input{chapters/acknowledgements.tex}
+\input{chapters/publications.tex}
 
 \end{document}

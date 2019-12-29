@@ -282,10 +282,10 @@ Completed box being shipped out [2]
 ....\TU/texgyretermes(0)/m/n/12.04486 keywords
 ....\kern -0.0002
 ....\kern 0.0002
-....\write1{\protect \FN@pp@footnotehinttrue }
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
+...\write1{\protect \FN@pp@footnotehinttrue }
 ...\glue -2.62576
 ...\glue 0.0 plus 1.0fil
 ...\glue 0.0

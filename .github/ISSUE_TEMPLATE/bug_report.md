@@ -23,7 +23,7 @@ about: 报告模板中的 bug，帮助我们改进
 
 复现上述问题的代码：
 ```TeX
-\documentclass[doctor]{ustcthesis}
+\documentclass[degree=doctor]{ustcthesis}
 \begin{document}
 abc
 \end{document}

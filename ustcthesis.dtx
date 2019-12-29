@@ -676,41 +676,243 @@
 % \subsection{处理选项}
 %
 %    \begin{macrocode}
-\newif\ifustc@degree@doctor
-\newif\ifustc@degree@master
-\newif\ifustc@degree@bachelor
-\newif\ifustc@degree@type@academic
-\newif\ifustc@language@chinese
-\newif\ifustc@bib@style@numerical
-\newif\ifustc@cite@style@super
-\newif\ifustc@output@electronic
-\newif\ifustc@badge@color@blue
-\newif\ifustc@section@style@arabic
-\DeclareOption{doctor}{\ustc@degree@doctortrue\ustc@degree@masterfalse\ustc@degree@bachelorfalse}
-\DeclareOption{master}{\ustc@degree@doctorfalse\ustc@degree@mastertrue\ustc@degree@bachelorfalse}
-\DeclareOption{bachelor}{\ustc@degree@doctorfalse\ustc@degree@masterfalse\ustc@degree@bachelortrue}
-\DeclareOption{academic}{\ustc@degree@type@academictrue}
-\DeclareOption{professional}{\ustc@degree@type@academicfalse}
-\DeclareOption{chinese}{\ustc@language@chinesetrue}
-\DeclareOption{english}{\ustc@language@chinesefalse\ustc@section@style@arabictrue}
-\DeclareOption{print}{\ustc@output@electronicfalse}
-\DeclareOption{pdf}{\ustc@output@electronictrue}
-\DeclareOption{super}{\ustc@bib@style@numericaltrue\ustc@cite@style@supertrue}
-\DeclareOption{numbers}{\ustc@bib@style@numericaltrue\ustc@cite@style@superfalse}
-\DeclareOption{authoryear}{\ustc@bib@style@numericalfalse}
-\DeclareOption{colorlogo}{\ustc@badge@color@bluetrue}
-\DeclareOption{bwlogo}{\ustc@badge@color@bluefalse}
-\DeclareOption{arabic}{\ustc@section@style@arabictrue}
-\PassOptionsToClass{openany}{ctexbook}
-\DeclareOption*{\PassOptionsToClass{\CurrentOption}{ctexbook}}
-\ExecuteOptions{doctor,academic,chinese,print,colorlogo,super}
-\ProcessOptions\relax
+\RequirePackage{kvdefinekeys}
+\RequirePackage{kvsetkeys}
+\RequirePackage{kvoptions}
+%    \end{macrocode}
+%
+% \begin{macro}{\ustcsetup}
+% 提供一个 \cs{ustcsetup} 命令支持 \emph{key-value} 的方式来设置。
+%    \begin{macrocode}
+\newcommand\ustcsetup{%
+  \kvsetkeys{ustc}%
+}
+%    \end{macrocode}
+% \end{macro}
+%
+% 同时用 \emph{key-value} 的方式来定义这些接口：
+% \begin{latex}
+%   \ustc@define@key{
+%     <key> = {
+%       name = <name>,
+%       choices = {
+%         <choice1>,
+%         <choice2>,
+%       },
+%       default = <default>,
+%       code = <code>,
+%     },
+%   }
+% \end{latex}
+%
+% 其中 |choices| 设置允许使用的值，默认为第一个（或者 \meta{default}）；
+% \meta{code} 是相应的内容被设置时执行的代码。
+%
+%    \begin{macrocode}
+\newcommand\ustc@define@key[1]{%
+  \kvsetkeys{ustc@key}{#1}%
+}
+\kv@set@family@handler{ustc@key}{%
+%    \end{macrocode}
+%
+% \cs{ustcsetup} 会将 \meta{value} 存到 \cs{ustc@\meta{key}}，
+% 但是宏的名字包含 “-” 这样的特殊字符时不方便直接调用，比如 |key = math-style|，
+% 这时可以用 |name| 设置 \meta{key} 的别称，比如 |key = math@style|，
+% 这样就可以通过 \cs{ustc@math@style} 来引用。
+% |default| 是定义该 \meta{key} 时默认的值，缺省为空。
+%
+%    \begin{macrocode}
+  \@namedef{ustc@#1@@name}{#1}%
+  \def\ustc@@default{}%
+  \def\ustc@@choices{}%
+  \kv@define@key{ustc@value}{name}{%
+    \@namedef{ustc@#1@@name}{##1}%
+  }%
+  \kv@define@key{ustc@value}{code}{%
+    \@namedef{ustc@#1@@code}{##1}%
+  }%
+%    \end{macrocode}
+%
+% 由于在定义接口时，\cs{ustc@\meta{key}@@code} 不一定有定义，
+% 而且在文档类/宏包中还有可能对该 |key| 的 |code| 进行添加。
+% 所以 \cs{ustc@\meta{key}@@code} 会检查如果在定义文档类/宏包时则推迟执行，否则立即执行。
+%
+%    \begin{macrocode}
+  \@namedef{ustc@#1@@check}{}%
+  \@namedef{ustc@#1@@code}{}%
+  \@namedef{ustc@#1@@hook}{%
+    \@nameuse{ustc@#1@@code}%
+  }%
+%    \end{macrocode}
+%
+% 保存下 |choices = {}| 定义的内容，在定义 \cs{ustc@\meta{name}} 后再执行。
+%
+%    \begin{macrocode}
+  \kv@define@key{ustc@value}{choices}{%
+    \def\ustc@@choices{##1}%
+    \@namedef{ustc@#1@@reset}{}%
+%    \end{macrocode}
+%
+% \cs{ustc@\meta{key}@check} 检查 |value| 是否有效，
+% 并设置 \cs{ifustc@\meta{name}@\meta{value}}。
+%
+%    \begin{macrocode}
+    \@namedef{ustc@#1@@check}{%
+      \@ifundefined{%
+        ifustc@\@nameuse{ustc@#1@@name}@\@nameuse{ustc@\@nameuse{ustc@#1@@name}}%
+      }{%
+        \ustc@error{Invalid value "#1 = \@nameuse{ustc@\@nameuse{ustc@#1@@name}}"}%
+      }%
+      \@nameuse{ustc@#1@@reset}%
+      \@nameuse{ustc@\@nameuse{ustc@#1@@name}@\@nameuse{ustc@\@nameuse{ustc@#1@@name}}true}%
+    }%
+  }%
+  \kv@define@key{ustc@value}{default}{%
+    \def\ustc@@default{##1}%
+  }%
+  \kvsetkeys{ustc@value}{#2}%
+  \@namedef{ustc@\@nameuse{ustc@#1@@name}}{}%
+%    \end{macrocode}
+%
+% 第一个 \meta{choice} 设为 \meta{default}，
+% 并且对每个 \meta{choice} 定义 \cs{ifustc@\meta{name}@\meta{choice}}。
+%
+%    \begin{macrocode}
+  \kv@set@family@handler{ustc@choice}{%
+    \ifx\ustc@@default\@empty
+      \def\ustc@@default{##1}%
+    \fi
+    \expandafter\newif\csname ifustc@\@nameuse{ustc@#1@@name}@##1\endcsname
+    \expandafter\g@addto@macro\csname ustc@#1@@reset\endcsname{%
+      \@nameuse{ustc@\@nameuse{ustc@#1@@name}@##1false}%
+    }%
+  }%
+  \kvsetkeys@expandafter{ustc@choice}{\ustc@@choices}%
+%    \end{macrocode}
+%
+% 将 \meta{default} 赋值到 \cs{ustc@\meta{name}}，如果非空则执行相应的代码。
+%
+%    \begin{macrocode}
+  \expandafter\let\csname ustc@\@nameuse{ustc@#1@@name}\endcsname\ustc@@default
+  \expandafter\ifx\csname ustc@\@nameuse{ustc@#1@@name}\endcsname\@empty\else
+    \@nameuse{ustc@#1@@check}%
+    \@nameuse{ustc@#1@@hook}%
+  \fi
+%    \end{macrocode}
+%
+% 定义 \cs{ustcsetup} 接口。
+%
+%    \begin{macrocode}
+  \kv@define@key{ustc}{#1}{%
+    \@namedef{ustc@\@nameuse{ustc@#1@@name}}{##1}%
+    \@nameuse{ustc@#1@@check}%
+    \@nameuse{ustc@#1@@hook}%
+  }%
+}
+%    \end{macrocode}
+%
+% 定义接口向 |key| 添加 |code|：
+%
+%    \begin{macrocode}
+\newcommand\ustc@addto[2]{%
+  \expandafter\g@addto@macro\csname ustc@#1@@code\endcsname{#2}%
+}
+%    \end{macrocode}
+%
+%    \begin{macrocode}
 \newif\ifustc@degree@graduate
+\newcommand\ustc@set@graduate{%
+  \ifustc@degree@bachelor
+    \ustc@degree@graduatefalse
+  \else
+    \ustc@degree@graduatetrue
+  \fi
+}
+\ustc@define@key{
+  degree = {
+    choices = {
+      doctor,
+      master,
+      bachelor,
+    },
+    default = doctor,
+    code    = {\ustc@set@graduate},
+  },
+  degree-type = {
+    name = degree@type,
+    choices = {
+      academic,
+      professional,
+    },
+    default = academic,
+  },
+  language = {
+    choices = {
+      chinese,
+      english,
+    },
+    default = chinese,
+  },
+  cite-style = {
+    name = cite@style,
+    choices = {
+      super,
+      inline,
+      authoryear,
+    },
+  },
+  output = {
+    choices = {
+      print,
+      electronic,
+    },
+    default = print,
+  },
+  section-style = {
+    name = section@style,
+    choices = {
+      chinese,
+      arabic,
+    },
+    default = chinese,
+  },
+  badge-color = {
+    name = badge@color,
+    choices = {
+      blue,
+      black,
+    },
+    default = blue,
+  },
+}
 \ifustc@degree@bachelor
-  \ustc@degree@graduatefalse
-\else
-  \ustc@degree@graduatetrue
+  \ifustc@language@english
+    \ustcsetup{section-style = arabic}
+  \fi
 \fi
+\ustc@addto{language}{%
+  \ifustc@degree@bachelor
+    \ifustc@language@english
+      \ustcsetup{section-style = arabic}%
+    \fi
+  \fi
+}
+%    \end{macrocode}
+%
+% 使用 \pkg{kvoptions} 提供的 key-value 接口，
+%    \begin{macrocode}
+\SetupKeyvalOptions{
+  family  = ustc,
+  prefix  = ustc@,
+  setkeys = \kvsetkeys,
+}
+%    \end{macrocode}
+%
+% 载入 \cls{ctexbook}。
+%    \begin{macrocode}
+\PassOptionsToClass{openany}{ctexbook}
+\DeclareDefaultOption{\PassOptionsToClass{\CurrentOption}{ctexbook}}
+\ProcessKeyvalOptions*
 %    \end{macrocode}
 %
 %
@@ -755,9 +957,6 @@
 \RequirePackage[perpage]{footmisc}
 \RequirePackage{url}
 \RequirePackage{calc}
-\ifustc@bib@style@numerical
-  \PassOptionsToPackage{sort&compress}{natbib}
-\fi
 \RequirePackage{natbib}
 \RequirePackage{notoccite}
 %    \end{macrocode}
@@ -1207,37 +1406,111 @@
 % \subsection{封面}
 %
 % \begin{macro}{\maketitle}
-% 定义命令用于录入信息。
-%    \begin{macrocode}
-\def\ustc@define@term#1#2#3{%
-  \expandafter\gdef\csname #2\endcsname##1{%
-    \expandafter\gdef\csname ustc@#1\endcsname{##1}%
-  }%
-  \csname #2\endcsname{#3}%
-}
-%    \end{macrocode}
 %
 % 定义用户接口：
 %    \begin{macrocode}
-\ustc@define@term{title}{title}{论文题目}
-\ustc@define@term{author}{author}{XXX}
-\ustc@define@term{speciality}{major}{XXX}
-\ustc@define@term{supervisor}{supervisor}{XXX\quad 教授}
-\ustc@define@term{cosupervisor}{cosupervisor}{}
-\ustc@define@term{date@zh}{date}{\zhnumsetup{time=Chinese}\zhtoday}
-\ustc@define@term{professional@type}{professionaltype}{专业学位类型}
-\ustc@define@term{secret@level}{secretlevel}{}
-\ustc@define@term{secret@year}{secretyear}{}
-\ustc@define@term{title@en}{entitle}{Title}
-\ustc@define@term{author@en}{enauthor}{XXX}
-\ustc@define@term{speciality@en}{enmajor}{XXX}
-\ustc@define@term{supervisor@en}{ensupervisor}{Prof. XXX}
-\ustc@define@term{cosupervisor@en}{encosupervisor}{}
-\ustc@define@term{date@en}{endate}{\CTEX@todayold}
-\ustc@define@term{professional@type@en}{enprofessionaltype}{Professional degree type}
-\ustc@define@term{secret@level@en}{ensecretlevel}{}
-\ustc@define@term{keywords}{keywords}{}
-\ustc@define@term{keywords@en}{enkeywords}{}
+\ustc@define@key{
+  title = {
+    default = {论文题目},
+  },
+  title* = {
+    default = {Title},
+    name    = title@en,
+  },
+  author = {
+    default = {作者姓名},
+  },
+  author* = {
+    default = {Author Name},
+    name    = author@en,
+  },
+  speciality = {
+    default = {专业},
+  },
+  speciality* = {
+    default = {Speciality},
+    name    = speciality@en,
+  },
+  supervisor = {
+    default = {导师姓名},
+  },
+  supervisor* = {
+    default = {Supervisor Name},
+    name    = supervisor@en,
+  },
+  date = {
+    default = {\the\year-\two@digits{\month}-\two@digits{\day}},
+  },
+  professional-type = {
+    name = professional@type,
+  },
+  professional-type* = {
+    name = professional@type@en,
+  },
+  secret-level = {
+    name    = secret@level,
+  },
+  secret-level* = {
+    name    = secret@level@en,
+  },
+  secret-year = {
+    name    = secret@year,
+  },
+  keywords,
+  keywords* = {
+    name    = keywords@en,
+  },
+}
+%    \end{macrocode}
+%
+% \begin{macro}{\ustc@clist@use}
+% 导师一栏可能有多个姓名，所以用 \opt{supervisor} 进行收集，
+% 然后使用本命令来输出要求的格式，
+% 类似于 \LaTeX3 的 \cs{clist\_use:Nn}。
+%    \begin{macrocode}
+\newcommand\ustc@clist@count[1]{%
+  \csname clist_count:N\endcsname{#1}%
+}
+\newcommand\ustc@clist@use[2]{%
+  \csname clist_use:Nn\endcsname{#1}{#2}%
+}
+\newcommand\ustc@supervisor@names{%
+  \ustc@clist@use{\ustc@supervisor}{\quad}
+}
+\newcounter{ustc@count}
+\newcommand\ustc@supervisor@en@line{%
+  \setcounter{ustc@count}{\ustc@clist@count{\ustc@supervisor@en}}%
+  \ifnum\c@ustc@count>1\relax
+    Supervisors:%
+  \else
+    Supervisor:%
+  \fi
+  \space\ustc@clist@use{\ustc@supervisor@en}{, }%
+}
+%    \end{macrocode}
+% \end{macro}
+%
+% 输出日期的给定格式：\cs{ustc@format@date}\marg{format}\marg{date}，
+% 其中格式 \meta{format} 接受三个参数分别对应年、月、日，
+% \meta{date} 是 ISO 格式的日期（yyyy-mm-dd）。
+%    \begin{macrocode}
+\newcommand\ustc@format@date[2]{%
+  \edef\ustc@@date{#2}%
+  \def\ustc@@process@date##1-##2-##3\@nil{%
+    #1{##1}{##2}{##3}%
+  }%
+  \expandafter\ustc@@process@date\ustc@@date\@nil
+}
+\newcommand\ustc@date@format@zh[3]{\zhdigits{#1}年\zhnumber{#2}月\zhnumber{#3}日}
+\newcommand\ustc@date@month[1]{%
+  \ifcase\number#1\or
+    January\or February\or March\or April\or May\or June\or
+    July\or August\or September\or October\or November\or December%
+  \fi
+}
+\newcommand\ustc@date@format@en[3]{\ustc@date@month{#2} \number#3, #1}
+\newcommand\ustc@date@zh{\ustc@format@date{\ustc@date@format@zh}{\ustc@date}}
+\newcommand\ustc@date@en{\ustc@format@date{\ustc@date@format@en}{\ustc@date}}
 %    \end{macrocode}
 %
 % 定义一些常量。
@@ -1348,22 +1621,11 @@
       \begin{tabular}{@{}l@{\hspace{\ccwd}}l@{}}%
         \textsf{作者姓名：} & \ustc@author \\
         \textsf{\ustc@speciality@name：} & \ustc@speciality \\
-        \textsf{导师姓名：} & \ustc@supervisor\quad\ustc@cosupervisor \\
+        \textsf{导师姓名：} & \ustc@supervisor@names \\
         \textsf{完成时间：} & \ustc@date@zh
       \end{tabular}\par}%
   \end{titlepage}%
   \ustc@setdefaultlanguage
-}
-%    \end{macrocode}
-%
-% 英文封面的 supervisor 一栏需要判断单复数
-%    \begin{macrocode}
-\newcommand\ustc@supervisorline{%
-  \ifx\ustc@cosupervisor@en\@empty
-    Supervisor: \ustc@supervisor@en
-  \else
-    Supervisors: \ustc@supervisor@en, \ustc@cosupervisor@en
-  \fi
 }
 %    \end{macrocode}
 %
@@ -1402,7 +1664,7 @@
       \begin{tabular}{@{}l@{}}%
         Author:        \ustc@author@en \\
         Speciality:    \ustc@speciality@en \\
-        \ustc@supervisorline \\
+        \ustc@supervisor@en@line \\
         Finished time: \ustc@date@en
       \end{tabular}\par}%
   \end{titlepage}%
@@ -1461,9 +1723,9 @@
 %    \end{macrocode}
 % \end{macro}
 %
-% \begin{macro}{\makestatement}
+% \begin{macro}{\copyrightpage}
 %    \begin{macrocode}
-\newcommand\makestatement{%
+\newcommand\copyrightpage{%
   \begin{titlepage}%
     \ustc@pdfbookmark{原创性和授权使用声明}%
     \null
@@ -1497,7 +1759,7 @@
   \end{titlepage}%
 }
 \ifustc@degree@bachelor
-  \renewcommand\makestatement{}
+  \let\copyrightpage\relax
 \fi
 %    \end{macrocode}
 % \end{macro}
@@ -1736,6 +1998,12 @@
 % 中文摘要环境。
 % 判断 \cs{ustc@tocloaded} 是为了防止本科生未调整摘要位置时的目录页码缺失。
 %    \begin{macrocode}
+\newcommand\ustc@keywords@text{%
+  \ustc@clist@use{\ustc@keywords}{；}%
+}
+\newcommand\ustc@keywords@en@text{%
+  \ustc@clist@use{\ustc@keywords@en}{; }%
+}
 \newenvironment{abstract}{%
   \ustc@setchinese
   \ifustc@degree@graduate
@@ -1748,7 +2016,7 @@
   \fi
 }{
   \par\null\par\noindent\hangindent=4\ccwd\relax
-  \textbf{关键词}：\ustc@keywords
+  \textbf{关键词}：\ustc@keywords@text\par
   \ustc@setdefaultlanguage
 }
 %    \end{macrocode}
@@ -1766,7 +2034,7 @@
   \fi
 }{
   \par\null\par\noindent\hangindent=5.3em\relax
-  \textbf{Key Words}: \ustc@keywords@en
+  \textbf{Key Words}: \ustc@keywords@en@text\par
   \ifustc@degree@graduate
     \cleardoublepage
   \fi
@@ -2226,39 +2494,48 @@
 %
 % \subsection{参考文献}
 %
-% \begin{macro}{\citestyle}
-% 定义接口切换引用文献的标注法，可用 \cs{citestyle} 调用 \opt{super} 、
-% \opt{authoryear} 或 \opt{numbers}。
+% 定义几种引用文献的标注法。
 %    \begin{macrocode}
-\newcommand\bibstyle@super{\bibpunct{[}{]}{,}{s}{,}{\textsuperscript{,}}}
-\newcommand\bibstyle@numbers{\bibpunct{[}{]}{,}{n}{,}{,}}
-\newcommand\bibstyle@authoryear{\bibpunct{(}{)}{;}{a}{,}{,}}
+\newcommand\bibstyle@super{%
+  \bibpunct{[}{]}{,}{s}{,}{\textsuperscript{,}}%
+  \gdef\NAT@sort{\@ne}%
+  \gdef\NAT@cmprs{\@ne}%
+}
+\newcommand\bibstyle@inline{%
+  \bibpunct{[}{]}{,}{n}{,}{,}%
+  \gdef\NAT@sort{\@ne}%
+  \gdef\NAT@cmprs{\@ne}%
+}
+\newcommand\bibstyle@authoryear{%
+  \bibpunct{(}{)}{;}{a}{,}{,}%
+  \gdef\NAT@sort{\z@}%
+  \gdef\NAT@cmprs{\z@}%
+}
+%    \end{macrocode}
+%
+% 避免在 cite-style 接口的地方定义代码，
+% 因为在导言区执行 \cs{citestyle} 会妨碍 \pkg{natbib} 的 \cs{bibstyle}
+% 自动设置 \cs{citestyle}。
+%    \begin{macrocode}
+\ustc@addto{cite-style}{%
+  \citestyle{\ustc@cite@style}%
+}
+%    \end{macrocode}
+%
+% 使用 \cs{bibliographystyle} 命令时自动切换为对应的引用风格。
+%    \begin{macrocode}
+\@namedef{bibstyle@ustcthesis-numerical}{\bibstyle@super}
+\@namedef{bibstyle@ustcthesis-authoryear}{\bibstyle@authoryear}
+\@namedef{bibstyle@ustcthesis-bachelor}{\bibstyle@super}
+%    \end{macrocode}
+%
+% \begin{macro}{\inlinecite}
+% 如果文献序号作为叙述文字的一部分，需要临时将文献序号与正文平排
+%    \begin{macrocode}
+\DeclareRobustCommand\inlinecite{\@inlinecite}
+\def\@inlinecite#1{\begingroup\let\@cite\NAT@citenum\citep{#1}\endgroup}
 %    \end{macrocode}
 % \end{macro}
-%
-% 处理宏包选项。
-%    \begin{macrocode}
-\ifustc@degree@graduate
-  \ifustc@bib@style@numerical
-    \ifustc@cite@style@super
-      \citestyle{super}
-    \else
-      \citestyle{numbers}
-    \fi
-    \bibliographystyle{ustcthesis-numerical}
-  \else
-    \citestyle{authoryear}
-    \bibliographystyle{ustcthesis-authoryear}
-  \fi
-\else
-  \ifustc@cite@style@super
-    \citestyle{super}
-  \else
-    \citestyle{numbers}
-  \fi
-  \bibliographystyle{ustcthesis-bachelor}
-\fi
-%    \end{macrocode}
 %
 % \begin{macro}{\cite}
 % 下面修改引用标注的格式，主要是将页码写在上标位置。
@@ -2322,14 +2599,6 @@
 %    \end{macrocode}
 % \end{macro}
 %
-% \begin{macro}{\inlinecite}
-% 如果文献序号作为叙述文字的一部分，需要临时将文献序号与 正文平排
-%    \begin{macrocode}
-\DeclareRobustCommand\inlinecite{\@inlinecite}
-\def\@inlinecite#1{\begingroup\let\@cite\NAT@citenum\citep{#1}\endgroup}
-%    \end{macrocode}
-% \end{macro}
-%
 % \begin{environment}{thebibliography}
 % 参考文献列表格式：宋体 10.5 磅，行距 20 磅，续行缩进两字，左对齐。
 % 本科生依然是小四宋体。
@@ -2347,7 +2616,6 @@
 \renewcommand\bibsection{%
   \@mainmatterfalse
   \chapter{\bibname}%
-  \@mainmattertrue
 }
 %    \end{macrocode}
 % \end{environment}

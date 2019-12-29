@@ -15,7 +15,7 @@ LaTeX Font Info:    Font shape `TU/XITSMath-Regular(3)/m/n' will be
 (Font)              scaled to size 8.43044pt on input line ....
 LaTeX Font Info:    Font shape `TU/XITSMath-Regular(3)/m/n' will be
 (Font)              scaled to size 6.02177pt on input line ....
-(bib-bachelor.bbl
+)
 Completed box being shipped out [1]
 \vbox(722.98453+3.6135)x435.04271
 .\glue -29.59084
@@ -523,7 +523,7 @@ Completed box being shipped out [1]
 ...\kern 1.0
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 11.34259
-...\hbox(10.61922+0.0)x417.11752, glue set 371.45787fil
+...\hbox(10.61922+0.0)x417.11752, glue set 368.44666fil
 ....\hbox(0.0+0.0)x24.08972
 ....\mathon
 ....\hbox(5.80077+1.31528)x21.56993, shifted -4.81845
@@ -544,6 +544,7 @@ Completed box being shipped out [1]
 .....\kern -0.0002
 .....\kern 0.0002
 ....\mathoff
+....\glue 3.01122 plus 1.5056 minus 1.00374
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
@@ -592,7 +593,7 @@ Completed box being shipped out [1]
 ..........\glue(\rightskip) 0.0
 ....\glue 0.0 plus 1.0fil minus 1.0fil
 ...\special{color pop}
-))
+(bib-bachelor.bbl)
 Completed box being shipped out [2]
 \vbox(722.98453+3.6135)x435.04271
 .\glue -29.59084
@@ -669,7 +670,8 @@ Completed box being shipped out [2]
 ..\glue(\lineskip) 0.0
 ..\vbox(700.50723+0.0)x417.11752, glue set 257.11848fil
 ...\write-{}
-...\write1{\@writefile{toc}{\protect \addvspace {12\bp@ }}}
+...\write1{\protect \FN@pp@footnotehinttrue }
+...\write-{}
 ...\write1{\@writefile{toc}{\protect \contentsline {chapter}{参考文献}{\thepage \ET
 C.}
 ...\write1{\@writefile{lof}{\protect \addvspace {10.0pt}}}
