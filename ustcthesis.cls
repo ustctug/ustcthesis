@@ -11,47 +11,47 @@
 \ifXeTeX\else
   \ustc@error{XeLaTeX is required to compile this document}
 \fi
-\newif\ifustc@doctor
-\newif\ifustc@master
-\newif\ifustc@bachelor
-\newif\ifustc@academic
-\newif\ifustc@chinese
-\newif\ifustc@numerical
-\newif\ifustc@super
-\newif\ifustc@pdf
-\newif\ifustc@colorlogo
-\newif\ifustc@arabic
-\DeclareOption{doctor}{\ustc@doctortrue\ustc@masterfalse\ustc@bachelorfalse}
-\DeclareOption{master}{\ustc@doctorfalse\ustc@mastertrue\ustc@bachelorfalse}
-\DeclareOption{bachelor}{\ustc@doctorfalse\ustc@masterfalse\ustc@bachelortrue}
-\DeclareOption{academic}{\ustc@academictrue}
-\DeclareOption{professional}{\ustc@academicfalse}
-\DeclareOption{chinese}{\ustc@chinesetrue}
-\DeclareOption{english}{\ustc@chinesefalse\ustc@arabictrue}
-\DeclareOption{print}{\ustc@pdffalse}
-\DeclareOption{pdf}{\ustc@pdftrue}
-\DeclareOption{super}{\ustc@numericaltrue\ustc@supertrue}
-\DeclareOption{numbers}{\ustc@numericaltrue\ustc@superfalse}
-\DeclareOption{authoryear}{\ustc@numericalfalse}
-\DeclareOption{colorlogo}{\ustc@colorlogotrue}
-\DeclareOption{bwlogo}{\ustc@colorlogofalse}
-\DeclareOption{arabic}{\ustc@arabictrue}
+\newif\ifustc@degree@doctor
+\newif\ifustc@degree@master
+\newif\ifustc@degree@bachelor
+\newif\ifustc@degree@type@academic
+\newif\ifustc@language@chinese
+\newif\ifustc@bib@style@numerical
+\newif\ifustc@cite@style@super
+\newif\ifustc@output@electronic
+\newif\ifustc@badge@color@blue
+\newif\ifustc@section@style@arabic
+\DeclareOption{doctor}{\ustc@degree@doctortrue\ustc@degree@masterfalse\ustc@degree@bachelorfalse}
+\DeclareOption{master}{\ustc@degree@doctorfalse\ustc@degree@mastertrue\ustc@degree@bachelorfalse}
+\DeclareOption{bachelor}{\ustc@degree@doctorfalse\ustc@degree@masterfalse\ustc@degree@bachelortrue}
+\DeclareOption{academic}{\ustc@degree@type@academictrue}
+\DeclareOption{professional}{\ustc@degree@type@academicfalse}
+\DeclareOption{chinese}{\ustc@language@chinesetrue}
+\DeclareOption{english}{\ustc@language@chinesefalse\ustc@section@style@arabictrue}
+\DeclareOption{print}{\ustc@output@electronicfalse}
+\DeclareOption{pdf}{\ustc@output@electronictrue}
+\DeclareOption{super}{\ustc@bib@style@numericaltrue\ustc@cite@style@supertrue}
+\DeclareOption{numbers}{\ustc@bib@style@numericaltrue\ustc@cite@style@superfalse}
+\DeclareOption{authoryear}{\ustc@bib@style@numericalfalse}
+\DeclareOption{colorlogo}{\ustc@badge@color@bluetrue}
+\DeclareOption{bwlogo}{\ustc@badge@color@bluefalse}
+\DeclareOption{arabic}{\ustc@section@style@arabictrue}
 \PassOptionsToClass{openany}{ctexbook}
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{ctexbook}}
 \ExecuteOptions{doctor,academic,chinese,print,colorlogo,super}
 \ProcessOptions\relax
-\newif\ifustc@graduate
-\ifustc@bachelor
-  \ustc@graduatefalse
+\newif\ifustc@degree@graduate
+\ifustc@degree@bachelor
+  \ustc@degree@graduatefalse
 \else
-  \ustc@graduatetrue
+  \ustc@degree@graduatetrue
 \fi
-\ifustc@chinese
+\ifustc@language@chinese
   \PassOptionsToClass{scheme=chinese}{ctexbook}
 \else
   \PassOptionsToClass{scheme=plain}{ctexbook}
 \fi
-\ifustc@pdf
+\ifustc@output@electronic
   \PassOptionsToClass{oneside}{book}
 \fi
 \PassOptionsToPackage{quiet}{xeCJK}
@@ -71,7 +71,7 @@
 \RequirePackage[perpage]{footmisc}
 \RequirePackage{url}
 \RequirePackage{calc}
-\ifustc@numerical
+\ifustc@bib@style@numerical
   \PassOptionsToPackage{sort&compress}{natbib}
 \fi
 \RequirePackage{natbib}
@@ -192,7 +192,7 @@
 }
 \newdimen\bp@
 \bp@=1bp
-\ifustc@graduate
+\ifustc@degree@graduate
   \renewcommand\normalsize{%
     \@setfontsize\normalsize{12\bp@}{20\bp@}%
     \abovedisplayskip 12\bp@ \@plus3\bp@ \@minus7\bp@
@@ -264,25 +264,23 @@
   }%
 }
 \newcommand\ustc@setdefaultlanguage{%
-  \ifustc@chinese
+  \ifustc@language@chinese
     \ustc@setchinese
   \else
     \ustc@setenglish
   \fi
 }
-\newcommand\ustc@universityname{中国科学技术大学}
-\newcommand\ustc@enuniversityname{University of Science and Technology of China}
-\ifustc@chinese
+\ifustc@language@chinese
   \renewcommand\listfigurename{插图清单}
   \renewcommand\listtablename{表格清单}
-  \newcommand\ustc@acknowledgementsname{致谢}
-  \newcommand\ustc@publicationsname{在读期间发表的学术论文与取得的研究成果}
-  \newcommand\ustc@notationname{符号说明}
+  \newcommand\ustc@acknowledgements@name{致谢}
+  \newcommand\ustc@publication@name{在读期间发表的学术论文与取得的研究成果}
+  \newcommand\ustc@notation@name{符号说明}
 \else
   \renewcommand\figurename{Fig.}
-  \newcommand\ustc@acknowledgementsname{Acknowledgements}
-  \newcommand\ustc@publicationsname{Publications}
-  \newcommand\ustc@notationname{Notation}
+  \newcommand\ustc@acknowledgements@name{Acknowledgements}
+  \newcommand\ustc@publication@name{Publications}
+  \newcommand\ustc@notation@name{Notation}
 \fi
 \geometry{
   paper      = a4paper,
@@ -296,14 +294,14 @@
 \let\sectionmark\@gobble
 \renewcommand\headrulewidth{0.4\p@}
 \newcommand\ustc@patchcmd{\csname ctex_patch_cmd:Nnn\endcsname}
-\ifustc@graduate
+\ifustc@degree@graduate
   \newcommand\ustc@hf@font{\fontsize{10.5\bp@}{12\bp@}\selectfont}
   \newcommand\ustc@header{\leftmark}
   \ustc@patchcmd\chaptermark{\MakeUppercase}{}
   \ustc@patchcmd\chaptermark{#1}{\ustc@spacetitle{#1}}
 \else
   \newcommand\ustc@hf@font{\fontsize{9\bp@}{12\bp@}\selectfont}
-  \newcommand\ustc@header{\ustc@universityname{}本科毕业论文}
+  \newcommand\ustc@header{中国科学技术大学本科毕业论文}
   \let\chaptermark\@gobble
 \fi
 \fancypagestyle{plain}{%
@@ -321,14 +319,14 @@
   \cleardoublepage
   \@mainmatterfalse
   \pagenumbering{Roman}%
-  \ifustc@graduate
+  \ifustc@degree@graduate
     \pagestyle{plain}%
   \else
     \pagestyle{headings}%
   \fi
 }
 \renewcommand\mainmatter{%
-  \ifustc@graduate
+  \ifustc@degree@graduate
     \cleardoublepage
     \pagenumbering{arabic}%
   \else
@@ -336,50 +334,50 @@
   \fi
   \pagestyle{plain}%
   \@mainmattertrue}
-\def\ustc@define@term#1#2{%
-  \expandafter\gdef\csname #1\endcsname##1{%
+\def\ustc@define@term#1#2#3{%
+  \expandafter\gdef\csname #2\endcsname##1{%
     \expandafter\gdef\csname ustc@#1\endcsname{##1}%
   }%
-  \csname #1\endcsname{#2}%
+  \csname #2\endcsname{#3}%
 }
-\ustc@define@term{title}{论文题目}
-\ustc@define@term{author}{XXX}
-\ustc@define@term{major}{XXX}
-\ustc@define@term{supervisor}{XXX\quad 教授}
-\ustc@define@term{cosupervisor}{}
-\ustc@define@term{date}{\zhnumsetup{time=Chinese}\zhtoday}
-\ustc@define@term{professionaltype}{专业学位类型}
-\ustc@define@term{secretlevel}{}
-\ustc@define@term{secretyear}{}
-\ustc@define@term{entitle}{Title}
-\ustc@define@term{enauthor}{XXX}
-\ustc@define@term{enmajor}{XXX}
-\ustc@define@term{ensupervisor}{Prof. XXX}
-\ustc@define@term{encosupervisor}{}
-\ustc@define@term{endate}{\CTEX@todayold}
-\ustc@define@term{enprofessionaltype}{Professional degree type}
-\ustc@define@term{ensecretlevel}{}
-\ustc@define@term{keywords}{}
-\ustc@define@term{enkeywords}{}
-\ifustc@doctor
-  \newcommand\ustc@thesisname{博士学位论文}
-  \newcommand\ustc@enthesisname{A dissertation for doctor's degree}
+\ustc@define@term{title}{title}{论文题目}
+\ustc@define@term{author}{author}{XXX}
+\ustc@define@term{speciality}{major}{XXX}
+\ustc@define@term{supervisor}{supervisor}{XXX\quad 教授}
+\ustc@define@term{cosupervisor}{cosupervisor}{}
+\ustc@define@term{date@zh}{date}{\zhnumsetup{time=Chinese}\zhtoday}
+\ustc@define@term{professional@type}{professionaltype}{专业学位类型}
+\ustc@define@term{secret@level}{secretlevel}{}
+\ustc@define@term{secret@year}{secretyear}{}
+\ustc@define@term{title@en}{entitle}{Title}
+\ustc@define@term{author@en}{enauthor}{XXX}
+\ustc@define@term{speciality@en}{enmajor}{XXX}
+\ustc@define@term{supervisor@en}{ensupervisor}{Prof. XXX}
+\ustc@define@term{cosupervisor@en}{encosupervisor}{}
+\ustc@define@term{date@en}{endate}{\CTEX@todayold}
+\ustc@define@term{professional@type@en}{enprofessionaltype}{Professional degree type}
+\ustc@define@term{secret@level@en}{ensecretlevel}{}
+\ustc@define@term{keywords}{keywords}{}
+\ustc@define@term{keywords@en}{enkeywords}{}
+\ifustc@degree@doctor
+  \newcommand\ustc@thesis@name{博士学位论文}
+  \newcommand\ustc@thesis@name@en{A dissertation for doctor's degree}
 \else
-  \ifustc@master
-    \newcommand\ustc@thesisname{硕士学位论文}
-    \newcommand\ustc@enthesisname{A dissertation for master's degree}
+  \ifustc@degree@master
+    \newcommand\ustc@thesis@name{硕士学位论文}
+    \newcommand\ustc@thesis@name@en{A dissertation for master's degree}
   \else
-    \newcommand\ustc@thesisname{学士学位论文}
-    \newcommand\ustc@enthesisname{A dissertation for bachelor's degree}
+    \newcommand\ustc@thesis@name{学士学位论文}
+    \newcommand\ustc@thesis@name@en{A dissertation for bachelor's degree}
   \fi
 \fi
-\ifustc@academic
-  \newcommand\ustc@specialityname{学科专业}
+\ifustc@degree@type@academic
+  \newcommand\ustc@speciality@name{学科专业}
 \else
-  \ifustc@doctor
-    \renewcommand\ustc@thesisname{专业博士学位论文}
+  \ifustc@degree@doctor
+    \renewcommand\ustc@thesis@name{专业博士学位论文}
   \else
-    \renewcommand\ustc@thesisname{专业硕士学位论文}
+    \renewcommand\ustc@thesis@name{专业硕士学位论文}
   \fi
   \ustc@strifeq{\ustc@fontset}{mac}{
     \setCJKfamilyfont{zhli}{Baoli SC}
@@ -390,7 +388,7 @@
     \fi
     \providecommand\lishu{\sffamily}
   }
-  \newcommand\ustc@specialityname{专业领域}
+  \newcommand\ustc@speciality@name{专业领域}
 \fi
 \definecolor{ustcblue}{cmyk}{1,0.8,0,0}
 \newcommand\ustc@pdfbookmark{\@gobble}
@@ -412,21 +410,21 @@
     \centering
     \parbox[t][0.6cm][t]{\textwidth}{%
       \raggedleft\fangsong\fontsize{14\bp@}{14\bp@}\selectfont
-      \null\ustc@secretlevel\par}\par
+      \null\ustc@secret@level\par}\par
     \vskip 0.5cm%
     \includegraphics[height=1.3cm]{figures/ustc-name.pdf}\par
     \vskip 0.6cm%
     {\sffamily\fontsize{56\bp@}{56\bp@}\selectfont
-      \ustc@thesisname\par}%
-    \ifustc@academic
+      \ustc@thesis@name\par}%
+    \ifustc@degree@type@academic
       \vskip 2.0cm%
     \else
       \vskip 0.8cm%
       {\lishu\fontsize{26\bp@}{26\bp@}\selectfont
-        （\ustc@professionaltype）\par}%
+        （\ustc@professional@type）\par}%
       \vskip 1.0cm%
     \fi
-    \ifustc@colorlogo
+    \ifustc@badge@color@blue
       \textcolor{ustcblue}{%
         \includegraphics[height=4.1cm]{figures/ustc-badge.pdf}}%
     \else
@@ -440,18 +438,18 @@
     {\fontsize{16\bp@}{31\bp@}\selectfont
       \begin{tabular}{@{}l@{\hspace{\ccwd}}l@{}}%
         \textsf{作者姓名：} & \ustc@author \\
-        \textsf{\ustc@specialityname：} & \ustc@major \\
+        \textsf{\ustc@speciality@name：} & \ustc@speciality \\
         \textsf{导师姓名：} & \ustc@supervisor\quad\ustc@cosupervisor \\
-        \textsf{完成时间：} & \ustc@date
+        \textsf{完成时间：} & \ustc@date@zh
       \end{tabular}\par}%
   \end{titlepage}%
   \ustc@setdefaultlanguage
 }
 \newcommand\ustc@supervisorline{%
-  \ifx\ustc@encosupervisor\@empty
-    Supervisor: \ustc@ensupervisor
+  \ifx\ustc@cosupervisor@en\@empty
+    Supervisor: \ustc@supervisor@en
   \else
-    Supervisors: \ustc@ensupervisor, \ustc@encosupervisor
+    Supervisors: \ustc@supervisor@en, \ustc@cosupervisor@en
   \fi
 }
 \newcommand\ustc@makeentitle{%
@@ -461,18 +459,18 @@
     \centering
     \parbox[t][0.4cm][t]{\textwidth}{%
       \raggedleft\fontsize{14\bp@}{14\bp@}\selectfont
-      \null\ustc@ensecretlevel\par}\par
+      \null\ustc@secret@level@en\par}\par
     \vskip 0.5cm%
     {\sffamily\fontsize{20\bp@}{30\bp@}\selectfont
-      \ustc@enuniversityname\par}%
+      University of Science and Technology of China\par}%
     {\sffamily\fontsize{26\bp@}{30\bp@}\selectfont
-      \ustc@enthesisname\par}%
-    \ifustc@academic\else
+      \ustc@thesis@name@en\par}%
+    \ifustc@degree@type@academic\else
       {\fontsize{16\bp@}{32\bp@}\selectfont
-        (\ustc@enprofessionaltype)\par}%
+        (\ustc@professional@type@en)\par}%
     \fi
     \vskip 2.5cm%
-    \ifustc@colorlogo
+    \ifustc@badge@color@blue
       \textcolor{ustcblue}{%
         \includegraphics[height=4.5cm]{figures/ustc-badge.pdf}}%
     \else
@@ -481,14 +479,14 @@
     \vskip 0.5cm%
     \parbox[t][4.5cm][c]{\textwidth}{%
       \centering\sffamily\bfseries\fontsize{26\bp@}{30\bp@}\selectfont
-      \ustc@entitle\par}\par
+      \ustc@title@en\par}\par
     \vskip 1.6cm%
     {\fontsize{16\bp@}{30\bp@}\selectfont
       \begin{tabular}{@{}l@{}}%
-        Author:        \ustc@enauthor \\
-        Speciality:    \ustc@enmajor \\
+        Author:        \ustc@author@en \\
+        Speciality:    \ustc@speciality@en \\
         \ustc@supervisorline \\
-        Finished time: \ustc@endate
+        Finished time: \ustc@date@en
       \end{tabular}\par}%
   \end{titlepage}%
   \ustc@setdefaultlanguage
@@ -508,7 +506,7 @@
   研究成果。%
   与我一同工作的同志对本研究所做的贡献均已在论文中作了明确的说明。}
 \newcommand\ustc@authorization{%
-  作为申请学位的条件之一，学位论文著作权拥有者授权\ustc@universityname{}拥有%
+  作为申请学位的条件之一，学位论文著作权拥有者授权中国科学技术大学拥有%
   学位论文的部分使用权，%
   即：学校有权按有关规定向国家有关部门或机构送交论文的复印件和电子版，%
   允许论文被查阅和借阅，可以将学位论文编入《中国学位论文全文数据库》等%
@@ -526,7 +524,7 @@
     \null
     \vskip 0.3cm%
     {\centering\sffamily\fontsize{16\bp@}{32\bp@}\selectfont
-      \ustc@universityname{}学位论文原创性声明\par}%
+      中国科学技术大学学位论文原创性声明\par}%
     \vskip 0.7cm%
     \ustc@originality\par
     \vskip 1.3cm%
@@ -534,16 +532,16 @@
     签字日期：\ustc@underline{}\par
     \vskip 1.9cm%
     {\centering\sffamily\fontsize{16\bp@}{32\bp@}\selectfont
-      \ustc@universityname{}学位论文授权使用声明\par}%
+      中国科学技术大学学位论文授权使用声明\par}%
     \vskip 0.7cm%
     \ustc@authorization\par
     \vskip 0.6cm%
-    \ifx\ustc@secretlevel\@empty
+    \ifx\ustc@secret@level\@empty
       \ustc@checkbox{} 公开\quad
       $\square$ 保密（\ustc@underline[0.85cm]{}年）\par
     \else
       $\square$ 公开\quad
-      \ustc@checkbox{} 保密（\ustc@underline[0.8cm]{\ustc@secretyear}年）\par
+      \ustc@checkbox{} 保密（\ustc@underline[0.8cm]{\ustc@secret@year}年）\par
     \fi
     \vskip 0.5cm%
     作者签名：\ustc@underline{}\hspace{2.7cm}%
@@ -553,7 +551,7 @@
     签字日期：\ustc@underline{}\par
   \end{titlepage}%
 }
-\ifustc@bachelor
+\ifustc@degree@bachelor
   \renewcommand\makestatement{}
 \fi
 \setcounter{secnumdepth}{5}
@@ -561,7 +559,7 @@
 \DeclareRobustCommand\ustc@spacetitle[1]{%
   \ustc@titlelength=\csname str_count:N\endcsname{#1}%
   \begingroup
-    \ifustc@graduate
+    \ifustc@degree@graduate
       \ifcase\ustc@titlelength
       \or\or
         \ziju{2}%
@@ -643,7 +641,7 @@
     runin      = false,
   },
 }
-\ifustc@bachelor
+\ifustc@degree@bachelor
   \setcounter{secnumdepth}{4}
   \ctexset{
     chapter = {
@@ -673,7 +671,7 @@
       indent    = \ccwd,
     },
   }
-  \ifustc@arabic\else
+  \ifustc@section@style@arabic\else
     \ctexset{
       chapter = {
         number = \chinese{chapter},
@@ -701,7 +699,7 @@
   \chapter*{#2}}
 \newenvironment{abstract}{%
   \ustc@setchinese
-  \ifustc@graduate
+  \ifustc@degree@graduate
     \ustc@chapter{摘要}%
   \else
     \chapter{中文内容摘要}%
@@ -716,22 +714,22 @@
 }
 \newenvironment{enabstract}{%
   \ustc@setenglish
-  \ifustc@graduate
+  \ifustc@degree@graduate
     \ustc@chapter[Abstract]{ABSTRACT}%
   \else
     \chapter[英文内容摘要]{Abstract}%
   \fi
 }{
   \par\null\par\noindent\hangindent=5.3em\relax
-  \textbf{Key Words}: \ustc@enkeywords
-  \ifustc@graduate
+  \textbf{Key Words}: \ustc@keywords@en
+  \ifustc@degree@graduate
     \cleardoublepage
   \fi
   \ustc@setdefaultlanguage
 }
 \newif\ifustc@tocloaded
 \renewcommand\tableofcontents{%
-  \ifustc@bachelor
+  \ifustc@degree@bachelor
     \cleardoublepage
     \pagenumbering{arabic}%
     \pagestyle{plain}%
@@ -741,7 +739,7 @@
   \@starttoc{toc}%
 }
 \newcommand\ustc@leaders{\titlerule*[9\bp@]{\textperiodcentered}}
-\ifustc@graduate
+\ifustc@degree@graduate
   \titlecontents{chapter}
     [\z@]{\addvspace{6\bp@}\fontsize{14\bp@}{20\bp@}\selectfont}
     {\contentspush{\thecontentslabel\unskip\hspace{\ccwd}}}{}
@@ -766,11 +764,11 @@
   \titlecontents{subsection}
     [2\ccwd]{\normalsize}
     {\contentspush{\thecontentslabel
-      \ifustc@arabic\hspace{\ccwd}\else 、\fi}}{}
+      \ifustc@section@style@arabic\hspace{\ccwd}\else 、\fi}}{}
     {\ustc@leaders\contentspage}
 \fi
 \newif\ifustc@addtocspace
-\ifustc@bachelor
+\ifustc@degree@bachelor
   \ustc@addtocspacetrue
   \g@addto@macro\frontmatter{\ustc@addtocspacefalse}%
   \g@addto@macro\mainmatter{\ustc@addtocspacetrue}%
@@ -782,7 +780,7 @@
   \thispagestyle{\CTEX@chapter@pagestyle}%
   \global\@topnum\z@
   \@afterindenttrue
-  \ifustc@bachelor
+  \ifustc@degree@bachelor
     \ifustc@addtocspace
       \addtocontents{toc}{\protect\addvspace{12\bp@}}%
     \fi
@@ -790,7 +788,7 @@
   \secdef\@chapter\@schapter
 }
 \renewcommand\listoffigures{%
-  \ifustc@graduate
+  \ifustc@degree@graduate
     \cleardoublepage
   \fi
   \ustc@chapter{\listfigurename}%
@@ -801,7 +799,7 @@
   {\contentslabel{2.3em}}{}
   {\ustc@leaders\contentspage}
 \renewcommand\listoftables{%
-  \ifustc@graduate
+  \ifustc@degree@graduate
     \cleardoublepage
   \fi
   \ustc@chapter{\listtablename}%
@@ -812,13 +810,13 @@
   {\contentslabel{2.3em}}{}
   {\ustc@leaders\contentspage}
 \newenvironment{notation}{%
-  \ifustc@graduate
+  \ifustc@degree@graduate
     \cleardoublepage
     \pagestyle{headings}%
   \fi
-  \ustc@chapter{\ustc@notationname}%
+  \ustc@chapter{\ustc@notation@name}%
 }{%
-  \ifustc@graduate
+  \ifustc@degree@graduate
     \clearpage
     \pagestyle{plain}%
   \fi
@@ -904,7 +902,7 @@
   figureposition = bottom,
   tableposition  = top,
 }
-\ifustc@graduate
+\ifustc@degree@graduate
   \captionsetup{font+=bf}
 \fi
 \captionsetup[figure]{
@@ -922,7 +920,7 @@
   \caption*{#1}%
   \endgroup
 }
-\ifustc@chinese
+\ifustc@language@chinese
   \def\mathellipsis{\cdots}
 \fi
 \protected\def\le{\leqslant}
@@ -954,9 +952,9 @@
 \newcommand\bibstyle@super{\bibpunct{[}{]}{,}{s}{,}{\textsuperscript{,}}}
 \newcommand\bibstyle@numbers{\bibpunct{[}{]}{,}{n}{,}{,}}
 \newcommand\bibstyle@authoryear{\bibpunct{(}{)}{;}{a}{,}{,}}
-\ifustc@graduate
-  \ifustc@numerical
-    \ifustc@super
+\ifustc@degree@graduate
+  \ifustc@bib@style@numerical
+    \ifustc@cite@style@super
       \citestyle{super}
     \else
       \citestyle{numbers}
@@ -967,7 +965,7 @@
     \bibliographystyle{ustcthesis-authoryear}
   \fi
 \else
-  \ifustc@super
+  \ifustc@cite@style@super
     \citestyle{super}
   \else
     \citestyle{numbers}
@@ -1013,7 +1011,7 @@
 }
 \DeclareRobustCommand\inlinecite{\@inlinecite}
 \def\@inlinecite#1{\begingroup\let\@cite\NAT@citenum\citep{#1}\endgroup}
-\ifustc@graduate
+\ifustc@degree@graduate
   \renewcommand\bibfont{\fontsize{10.5\bp@}{20\bp@}\selectfont}
 \fi
 \setlength{\bibsep}{0\p@ \@plus.2\p@}
@@ -1025,16 +1023,16 @@
   \@mainmattertrue
 }
 \newenvironment{acknowledgements}{%
-  \ifustc@graduate
-    \chapter{\ustc@acknowledgementsname}%
+  \ifustc@degree@graduate
+    \chapter{\ustc@acknowledgements@name}%
   \else
-    \ustc@chapter{\ustc@acknowledgementsname}%
+    \ustc@chapter{\ustc@acknowledgements@name}%
     \ifustc@tocloaded
       本科生需要手动将致谢置于目录前。\par
     \fi
   \fi
 }{}
-\newenvironment{publications}{\chapter{\ustc@publicationsname}}{}
+\newenvironment{publications}{\chapter{\ustc@publication@name}}{}
 \newcommand\ustc@atendpackage{\csname ctex_at_end_package:nn\endcsname}
 \ustc@atendpackage{hyperref}{
   \hypersetup{
@@ -1045,7 +1043,7 @@
     unicode            = true,
     psdextra           = true,
   }
-  \ifustc@pdf
+  \ifustc@output@electronic
     \hypersetup{
       colorlinks = true,
       allcolors  = blue,
@@ -1054,15 +1052,15 @@
     \hypersetup{hidelinks}
   \fi
   \AtBeginDocument{%
-    \ifustc@chinese
+    \ifustc@language@chinese
       \hypersetup{
         pdftitle  = \ustc@title,
         pdfauthor = \ustc@author,
       }%
     \else
       \hypersetup{
-        pdftitle  = \ustc@entitle,
-        pdfauthor = \ustc@enauthor,
+        pdftitle  = \ustc@title@en,
+        pdfauthor = \ustc@author@en,
       }%
     \fi
   }
@@ -1079,7 +1077,7 @@
   \@ifpackagelater{hyperref}{2019/04/27}{}{%
     \g@addto@macro\psdmapshortnames{\let\mu\textmu}%
   }
-  \ifustc@chinese
+  \ifustc@language@chinese
     \def\equationautorefname~#1\null{公式~(#1)\null}
     \def\footnoteautorefname{脚注}
     \def\itemautorefname~#1\null{第~#1~项\null}
@@ -1104,42 +1102,42 @@
     {\bfseries}{}
     {\ccwd}{}
   \theoremstyle{ustcplain}
-  \ifustc@chinese
-    \newcommand\ustc@assertionname{断言}
-    \newcommand\ustc@assumptionname{假设}
-    \newcommand\ustc@axiomname{公理}
-    \newcommand\ustc@corollaryname{推论}
-    \newcommand\ustc@definitionname{定义}
-    \newcommand\ustc@examplename{例}
-    \newcommand\ustc@lemmaname{引理}
-    \newcommand\ustc@proofname{证明}
-    \newcommand\ustc@propositionname{命题}
-    \newcommand\ustc@remarkname{注}
-    \newcommand\ustc@theoremname{定理}
+  \ifustc@language@chinese
+    \newcommand\ustc@assertion@name{断言}
+    \newcommand\ustc@assumption@name{假设}
+    \newcommand\ustc@axiom@name{公理}
+    \newcommand\ustc@corollary@name{推论}
+    \newcommand\ustc@definition@name{定义}
+    \newcommand\ustc@example@name{例}
+    \newcommand\ustc@lemma@name{引理}
+    \newcommand\ustc@proof@name{证明}
+    \newcommand\ustc@proposition@name{命题}
+    \newcommand\ustc@remark@name{注}
+    \newcommand\ustc@theorem@name{定理}
   \else
-    \newcommand\ustc@assertionname{Assertion}
-    \newcommand\ustc@assumptionname{Assumption}
-    \newcommand\ustc@axiomname{Axiom}
-    \newcommand\ustc@corollaryname{Corollary}
-    \newcommand\ustc@definitionname{Definition}
-    \newcommand\ustc@examplename{Example}
-    \newcommand\ustc@lemmaname{Lemma}
-    \newcommand\ustc@proofname{Proof}
-    \newcommand\ustc@propositionname{Proposition}
-    \newcommand\ustc@remarkname{Remark}
-    \newcommand\ustc@theoremname{Theorem}
+    \newcommand\ustc@assertion@name{Assertion}
+    \newcommand\ustc@assumption@name{Assumption}
+    \newcommand\ustc@axiom@name{Axiom}
+    \newcommand\ustc@corollary@name{Corollary}
+    \newcommand\ustc@definition@name{Definition}
+    \newcommand\ustc@example@name{Example}
+    \newcommand\ustc@lemma@name{Lemma}
+    \newcommand\ustc@proof@name{Proof}
+    \newcommand\ustc@proposition@name{Proposition}
+    \newcommand\ustc@remark@name{Remark}
+    \newcommand\ustc@theorem@name{Theorem}
   \fi
-  \newtheorem{theorem}             {\ustc@theoremname}    [chapter]
-  \newtheorem{assertion}  [theorem]{\ustc@assertionname}
-  \newtheorem{axiom}      [theorem]{\ustc@axiomname}
-  \newtheorem{corollary}  [theorem]{\ustc@corollaryname}
-  \newtheorem{lemma}      [theorem]{\ustc@lemmaname}
-  \newtheorem{proposition}[theorem]{\ustc@propositionname}
-  \newtheorem{assumption}          {\ustc@assumptionname} [chapter]
-  \newtheorem{definition}          {\ustc@definitionname} [chapter]
-  \newtheorem{example}             {\ustc@examplename}    [chapter]
-  \newtheorem*{remark}             {\ustc@remarkname}
-  \renewenvironment{proof}[1][\proofname]{\par
+  \newtheorem{theorem}             {\ustc@theorem@name}    [chapter]
+  \newtheorem{assertion}  [theorem]{\ustc@assertion@name}
+  \newtheorem{axiom}      [theorem]{\ustc@axiom@name}
+  \newtheorem{corollary}  [theorem]{\ustc@corollary@name}
+  \newtheorem{lemma}      [theorem]{\ustc@lemma@name}
+  \newtheorem{proposition}[theorem]{\ustc@proposition@name}
+  \newtheorem{assumption}          {\ustc@assumption@name} [chapter]
+  \newtheorem{definition}          {\ustc@definition@name} [chapter]
+  \newtheorem{example}             {\ustc@example@name}    [chapter]
+  \newtheorem*{remark}             {\ustc@remark@name}
+  \renewenvironment{proof}[1][\ustc@proof@name]{\par
     \pushQED{\qed}%
     \normalfont \topsep6\p@\@plus6\p@\relax
     \trivlist
@@ -1149,11 +1147,10 @@
     }{%
     \popQED\endtrivlist\@endpefalse
   }
-  \renewcommand\proofname\ustc@proofname
 }
 \PassOptionsToPackage{algochapter}{algorithm2e}
 \ustc@atendpackage{algorithm2e}{
-  \ifustc@chinese
+  \ifustc@language@chinese
     \SetAlgorithmName{算法}{算法}{算法清单}
   \else
     \SetAlgorithmName{Algorithm}{Algorithm}{List of Algorithms}
@@ -1161,12 +1158,12 @@
   \SetAlCapSkip{6\bp@}
   \SetAlCapFnt{\small}
   \SetAlCapNameFnt{\small}
-  \ifustc@graduate
+  \ifustc@degree@graduate
     \SetAlCapNameSty{textbf}
   \fi
   \SetAlgoCaptionSeparator{\unskip\hspace*{\ccwd}}
   \renewcommand\listofalgocfs{%
-    \ifustc@graduate
+    \ifustc@degree@graduate
       \cleardoublepage
     \fi
     \ustc@chapter{\listalgorithmcfname}%
@@ -1179,13 +1176,13 @@
   \contentsuse{algocf}{loa}
 }
 \ustc@atendpackage{nomencl}{
-  \let\nomname\ustc@notationname
+  \let\nomname\ustc@notation@name
   \def\thenomenclature{%
-    \ifustc@graduate
+    \ifustc@degree@graduate
       \cleardoublepage
       \pagestyle{headings}%
     \fi
-    \ustc@chapter{\ustc@notationname}%
+    \ustc@chapter{\ustc@notation@name}%
     \nompreamble
     \list{}{%
       \labelwidth\nom@tempdim
@@ -1196,7 +1193,7 @@
   \def\endthenomenclature{%
     \endlist
     \nompostamble
-    \ifustc@graduate
+    \ifustc@degree@graduate
       \clearpage
       \pagestyle{plain}%
     \fi
@@ -1208,7 +1205,7 @@
     separate-uncertainty = true,
     inter-unit-product   = \ensuremath{{}\cdot{}},
   }
-  \ifustc@chinese
+  \ifustc@language@chinese
     \sisetup{
       list-final-separator = { 和 },
       list-pair-separator  = { 和 },
