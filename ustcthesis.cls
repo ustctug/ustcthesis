@@ -1,26 +1,16 @@
-%%
-%% This is file `ustcthesis.cls',
-%% generated with the docstrip utility.
-%%
-%% The original source files were:
-%%
-%% ustcthesis.dtx  (with options: `class')
-%% 
-%% Copyright (C) 2015-2019 by Zeping Lee <zepinglee AT gmail.com>
-%% 
-%% This file may be distributed and/or modified under the
-%% conditions of the LaTeX Project Public License, either version 1.3c
-%% of this license or (at your option) any later version.
-%% The latest version of this license is in
-%%    https://www.latex-project.org/lppl.txt
-%% and version 1.3c or later is part of all distributions of LaTeX
-%% version 2005/12/01 or later.
-%% 
-\NeedsTeXFormat{LaTeX2e}[1999/12/01]
+\NeedsTeXFormat{LaTeX2e}[2017/04/15]
 \ProvidesClass{ustcthesis}
   [2019/05/01 v3.1.06 USTC thesis template]
-\RequirePackage{ifxetex}
-\RequireXeTeX
+\newcommand\ustc@error[1]{%
+  \ClassError{ustcthesis}{#1}{}%
+}
+\newcommand\ustc@warning[1]{%
+  \ClassWaring{ustcthesis}{#1}%
+}
+\RequirePackage{iftex}
+\ifXeTeX\else
+  \ustc@error{XeLaTeX is required to compile this document}
+\fi
 \newif\ifustc@doctor
 \newif\ifustc@master
 \newif\ifustc@bachelor
@@ -67,10 +57,10 @@
 \PassOptionsToPackage{quiet}{xeCJK}
 \LoadClass[UTF8,a4paper,zihao=-4]{ctexbook}[2017/04/01]
 \@ifclasslater{ctexbook}{2017/04/01}{}{
-  \ClassError{ustcthesis}{%
-    This template requires TeX Live\MessageBreak 2017 or later version}{}
+  \ustc@error{TeX Live 2017 or later version is required}
 }
 \RequirePackage{amsmath}
+\RequirePackage{fontspec}[2017/03/31]
 \RequirePackage{unicode-math}
 \RequirePackage[driver=xetex]{geometry}
 \RequirePackage{graphicx}
@@ -111,11 +101,6 @@
     BoldItalicFont = *-bolditalic,
     Scale          = MatchLowercase,
   ]{texgyrecursor}
-  \ClassWarningNoLine{ustcthesis}{%
-    You are using Fandol font family.\MessageBreak
-    Some glyphs may be missing.\MessageBreak
-    Please switch to a high-quality font set
-  }
 }{
   \setmainfont{Times New Roman}
   \setsansfont{Arial}
@@ -401,10 +386,7 @@
     \providecommand\lishu{\CJKfamily{zhli}}
   }{
     \ifx\lishu\relax
-      \ClassWarningNoLine{ustcthesis}{%
-        The lishu font is required.\MessageBreak
-        Please configure it manually
-      }
+      \ustc@warning{LiSu font is required}
     \fi
     \providecommand\lishu{\sffamily}
   }
@@ -605,7 +587,7 @@
   \ifnum\value{#1}<21\relax
     {\ustc@circlefont\symbol{\numexpr\value{#1} + "245F\relax}}%
   \else
-    \ClassError{ustcthesis}{Cannot display more than 10 footnotes}{}%
+    \ustc@error{Cannot display more than 10 footnotes}%
   \fi
 }
 \ctexset{
