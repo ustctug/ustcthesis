@@ -1,6 +1,6 @@
 % \iffalse meta-comment
 %
-% Copyright (C) 2015-2019 by Zeping Lee <zepinglee AT gmail.com>
+% Copyright (C) 2015-2020 by Zeping Lee <zepinglee AT gmail.com>
 %
 % This file may be distributed and/or modified under the
 % conditions of the LaTeX Project Public License, either version 1.3c
@@ -111,11 +111,10 @@
 \lstdefinestyle{lstshell}{
   basicstyle      = \small\ttfamily,
   backgroundcolor = \color{lightgray},
-  gobble          = 2, % 重要！否则会生成注释符号"%"
   language        = bash,
 }
 \newcommand\shellcmd[1]{\colorbox{lightgray}{\lstinline[style=lstshell]|#1|}}
-\lstnewenvironment{shell}{\lstset{style=lstshell}}{}
+\lstnewenvironment{shell}{\lstset{style=lstshell, gobble=4}}{}
 \lstnewenvironment{latex}{%
   \lstset{
     basicstyle = \small\ttfamily,
@@ -332,7 +331,7 @@
 % 编译论文 \file{main.pdf}：
 % \begin{shell}
 %   xelatex main
-%   bibtex main # 如果不使用 BibTeX 可以略过此步
+%   bibtex main
 %   xelatex main
 %   xelatex main
 % \end{shell}
@@ -352,54 +351,84 @@
 %
 %
 % \subsection{文档类参数}
-% 模板提供了若干选项，应在载入模板时设置，如：
+% \DescribeOption{degree}
+% 选择学位，支持 \opt{bachelor}，\opt{master}，\opt{doctor}（默认）。
 % \begin{latex}
-%   \documentclass[doctor,english,pdf]{ustcthesis}
+%   \documentclass[degree=doctor]{ustcthesis}
 % \end{latex}
 %
-% 全部的选项见表~\ref{tab:options}。
-% \begin{table}[htb]
-%   \centering\small
-%   \caption{文档类参数}
-%   \label{tab:options}
-%   \begin{tabular}{ll}
-%     \toprule
-%     文档类参数         & 说明 \\
-%     \midrule
-%     \opt{doctor}*      & 博士论文 \\
-%     \opt{master}       & 硕士论文 \\
-%     \opt{bachelor}     & 本科论文 \\
-%     \opt{academic}*    & 学术型学位 \\
-%     \opt{professional} & 专业型学位（限研究生） \\
-%     \opt{chinese}*     & 中文 \\
-%     \opt{english}      & English \\
-%     \opt{print}*       & 用于双面打印纸质论文 \\
-%     \opt{pdf}          & 单面打印，并保留超链接颜色 \\
-%     \opt{super}*       & 角标数字式文献引用标注 \\
-%     \opt{numbers}      & 数字式文献引用标注 \\
-%     \opt{authoryear}   & 著者-出版年制文献引用标注 \\
-%     \opt{arabic}       & 阿拉伯数字式章节标题（限本科生）\\
-%     \bottomrule
-%   \end{tabular}
-%   \caption*{\small 注：带 * 号的是默认参数}
-% \end{table}
+% \DescribeOption{degree-type}
+% 学位类型。可选：学术型 \opt{academic}（默认），专业型 \opt{professional}。
+% \begin{latex}
+%   \documentclass[degree-type=professional]{ustcthesis}
+% \end{latex}
+%
+% \DescribeOption{language}
+% 论文全文的主要语言。可选：\opt{chinese}（默认），\opt{english}。
+% \begin{latex}
+%   \documentclass[language=english]{ustcthesis}
+% \end{latex}
+%
+% \DescribeOption{output}
+% 输出 PDF 的类型：
+% \begin{itemize}
+%   \item \opt{print}（默认）：用于双面打印纸质论文
+%   \item \opt{electronic}：单面，并保留超链接颜色
+% \end{itemize}
+% \begin{latex}
+%   \documentclass[output=electronic]{ustcthesis}
+% \end{latex}
+%
+% \DescribeOption{section-style}
+% 本科生专用，章节标题的样式。可选：\opt{chinese}（默认），\opt{english}。
+% \begin{itemize}
+%   \item \opt{chinese}（默认）：汉字序号（例 1）
+%   \item \opt{arabic}：数字序号（例 2）
+% \end{itemize}
+% \begin{latex}
+%   \documentclass[section-style=arabic]{ustcthesis}
+% \end{latex}
 %
 %
 % \subsection{字体设置}
-% 本模板是以 \pkg{XeTeX} + \pkg{fontspec} + \pkg{xeCJK}
-% 的方式来配置字体的，
-% 所以用户必须使用 UTF-8 编码保存源文件，并且用 |xelatex| 命令进行编译。
+% 模板默认可以自动检测操作系统，并配置改平台上合适的字体，
+% 具体的配置策略如表~\ref{tab:font}。
+% \begin{table}[htb]
+%   \centering
+%   \caption{自动配置字体策略}
+%   \label{tab:font}
+%   \begin{tabular}{ccc}
+%     \toprule
+%     Windows         & macOS           & 其他            \\
+%     \midrule
+%     Times New Roman & Times New Roman & TeX Gyre Termes \\
+%     Arial           & Arial           & TeX Gyre Heros  \\
+%     Courier         & Menlo           & TeX Gyre Cursor \\
+%     中易宋体        & 华文宋体        & Fandol 宋体     \\
+%     中易黑体        & 华文黑体        & Fandol 黑体     \\
+%     \bottomrule
+%   \end{tabular}
+% \end{table}
 %
-% \DescribeOption{fontset=\meta{font}}
-% 默认情况下，本模板可以自动检测操作系统，并配置合适的字体。
-% 用户可以在调用文档类时加入选项
-% \opt{fontset=mac/windows/adobe} 指定加载的字库，
-% 也可以使用 \opt{fontset=none}，然后自行配置，
+% 然而自动配置的字体只能保证编译通过，但是还存在一些问题：
+% \begin{enumerate}
+%   \item 在其他平台上配置的 TeX Gyre 系列字体，虽然在风格上比较接近 Times 和 Arial，
+%     但是毕竟跟《撰写手册》要求的字体不完全一致；
+%   \item Fandol 字库的字形较少，常常出现缺字的情况；
+%   \item 华文字库和 Fandol 字库虽然不违反《撰写手册》的要求，
+%     但是其字形跟中易字库有所差别，这导致封面、标题的视觉效果与学校的 Word 示例不一致，
+%     可能被审查老师认为格式不符合要求。
+% \end{enumerate}
+%
+% 所以建议在提交最终版前使用 Windows 平台的字体进行编译。
+%
+% 用户也可以在调用模板时手动指定使用的字库，如：
+% \begin{latex}
+%   \documentclass[fontset=windows]{thuthesis}
+% \end{latex}
+% 该选项会传递给 \pkg{ctex} 宏包进行处理，
+% 允许的值包括 \opt{windows}、\opt{mac}、\opt{fandol}，
 % 详见 \pkg{ctex}、\pkg{xeCJK}、\pkg{fontspec} 等宏包的使用说明。
-%
-% 注意，Linux 系统下可能缺失 Times New Roman 等西文字体，
-% 而且默认的中文字库 Fandol 也容易出现缺字的情况。
-% 我们建议 Linux 用户自行配置合适的字体。
 %
 %
 %
@@ -433,30 +462,42 @@
 % 开始。
 %
 % \DescribeMacro{\maketitle}
-% \DescribeMacro{\makestatement}
-% 封面和声明页分别由 \cs{maketitle} 和 \cs{makestatement} 命令生成，
-% 其中的各项信息使用 \cs{\meta{item}\marg{info}} 的方式填写，
-% 本模板提供的命令如表~\ref{tab:covercmds}，
-% 其中带 |en| 前缀的命令是 设置英文封面的命令：
+% \DescribeMacro{\copyrightpage}
+% 封面和声明页分别由 \cs{maketitle} 和 \cs{copyrightpage} 命令生成，
+% 其中的各项信息使用 \cs{ustcsetup} 命令的方式填写，如：
+% \begin{latex}
+%   \thusetup{
+%     title  = {论文中文题目},
+%     title* = {Thesis English Title},
+%   }
+% \end{latex}
+% 模板提供的选项见表~\ref{tab:covercmds}，
 % \begin{table}[htb]
 %   \centering\small
 %   \caption{录入封面信息的命令}
 %   \label{tab:covercmds}
 %   \begin{tabular}{lll}
 %     \toprule
-%     命令              & 命令（英文）        & 说明                   \\
+%     命令                & 命令（英文）         & 说明       \\
 %     \midrule
-%     \cs{title}        & \cs{entitle}        & 论文标题               \\
-%     \cs{author}       & \cs{enauthor}       & 作者姓名               \\
-%     \cs{major}        & \cs{enmajor}        & 学科专业               \\
-%     \cs{supervisor}   & \cs{ensupervisor}   & 导师姓名               \\
-%     \cs{cosupervisor} & \cs{encosupervisor} & 副导师姓名             \\
-%     \cs{date}         & \cs{endate}         & 完成时间（默认为今天） \\
-%     \cs{secretlevel}  & \cs{ensecretlevel}  & 密级（默认不保密）     \\
-%     \cs{secretyear}   & -                   & 保密年限               \\
+%     \opt{title}         & \opt{title*}         & 论文标题   \\
+%     \opt{author}        & \opt{author*}        & 作者姓名   \\
+%     \opt{major}         & \opt{major*}         & 学科专业   \\
+%     \opt{supervisor}    & \opt{supervisor*}    & 导师姓名   \\
+%     \opt{date}          & -                    & 完成时间   \\
+%     \opt{secret-level}  & \opt{secret-level*}  & 密级       \\
+%     \opt{secret-year}   & -                    & 保密年限   \\
 %     \bottomrule
 %   \end{tabular}
 % \end{table}
+%
+% 有几点说明：
+% \begin{itemize}
+%   \item \cs{ustcsetup} 使用 \pkg{kvsetkeys} 机制，配置项之间不能有空行，否则会报错。
+%   \item 导师姓名 \opt{supervisor} 允许多个姓名，使用“,”（西文逗号 U+002C）隔开。
+%   \item 完成时间 \opt{date} 应使用 ISO 格式，默认为当前日期。
+%   \item 其中带 |*| 后缀的选项用于设置英文封面。
+% \end{itemize}
 %
 %
 % \subsection{摘要和章节}
@@ -474,14 +515,14 @@
 %   \item 发表成果：\env{publications}
 % \end{itemize}
 %
-% \DescribeMacro{\keywords}
-% \DescribeMacro{\enkeywords}
-% 摘要的关键词应使用 \cs{keywords} 和 \cs{enkeywords} 命令，
-% 并包含在摘要环境中，比如：
+% \DescribeOption{keywords}
+% \DescribeOption{keywords*}
+% 摘要的关键词应使用 \cs{ustcsetup} 的接口进行设置，
+% 只要在摘要结束前即可，比如：
 % \begin{latex}
 %   \begin{abstract}
 %     这里是摘要。
-%     \keywords{论文；摘要；关键词}
+%     \ustcsetup{keywords = {论文；摘要；关键词}}
 %   \end{abstract}
 % \end{latex}
 %
@@ -545,18 +586,14 @@
 %
 % \subsection{参考文献}
 %
-% \DescribeOption{authoryear}
-% \DescribeOption{super}
-% \DescribeOption{numbers}
+% \DescribeMacro{\bibliographystyle}
 % 按照《撰写手册》和 《GB/T 7714-2015》 的规定，
 % 参考文献的标注体系分为“顺序编码制”和“著者-出版年制”（authoryear），
-% 其中顺序编码制根据引用标注样式的不同分为角标数字式（super）
-% 和与正文平排的数字式（numbers）。
-%
-% 《撰写手册》推荐使用角标数字式顺序编码制（默认），
-% 用户也可以在文档类参数中设置，如：
+% 《撰写手册》推荐使用顺序编码制。
+% 用户可以使用 \cs{bibliographystyle} 命令切换不同的参考文献表样式，
+% 这也会自动设置相应的引用标注样式，如：
 % \begin{latex}
-%   \documentclass[doctor,authoryear]{ustcthesis}
+%   \bibliographystyle{ustcthesis-authoryear}
 % \end{latex}
 %
 % \DescribeMacro{\cite}
@@ -567,10 +604,18 @@
 % 更多的引用标注方法可以参考 \pkg{natbib} 宏包的使用说明。
 %
 % \DescribeMacro{\inlinecite}
+% \DescribeOption{cite-style}
 % 在使用角标数字式时，如果文献序号作为叙述文字的一部分，
-% 需要临时将文献序号与正文平排，可以使用 \cs{inlinecite} 命令，如：
+% 需要临时将文献序号与正文平排，
+% 可以使用 \cs{inlinecite} 命令临时使用正文模式的引用标注，如：
 % \begin{latex}
 %   文献~\inlinecite{knuth84} 提出了一种新的断行算法
+% \end{latex}
+% 也可以在正文开始处统一切换全文的引用标注样式：
+% \begin{latex}
+%   \ustcsetup{}
+%     cite-style = inline,
+%   }
 % \end{latex}
 %
 % 若需要标出引文的页码，可以标在 \cs{cite} 的可选参数中，如 |\cite[42]{abc}|。
@@ -584,9 +629,6 @@
 %
 % \DescribeMacro{\bibliography}
 % 参考文献表可以使用 \BibTeX{} 生成，并在文中使用 \cs{bibliography} 命令调用。
-% 注意文献列表的样式已经在模板中根据选项设置，
-% 用户\emph{不再}需要使用 \cs{bibliographystyle} 命令。
-%
 % \BibTeX{} 默认情况下可以自动识别文献语言，并自动处理文献类型和载体类型标识，
 % 但是在少数情况下需要用户手动指定，如：
 % \begin{latex}
@@ -603,7 +645,7 @@
 % 然后按著者字顺和出版年排列；
 % 中文文献可以按著者汉语拼音字顺排列，也可以按著者的笔画笔顺排列。
 % 然而由于 \BibTeX{} 功能的局限性，无法自动获取著者姓名的拼音或笔画笔顺，
-% 所以\emph{必须}在 bib 数据库中的 key 域手动录入著者姓名的拼音，如：
+% 所以\emph{必须}在 bib 数据库中的 |key| 域手动录入著者姓名的拼音，如：
 % \begin{latex}
 %   @book{capital,
 %     author = {马克思 and 恩格斯},

@@ -5,6 +5,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 ### Changed
+- 使用 `\ustcsetup` 进行设置
 - 目录开启于奇数页
 
 ### Added
