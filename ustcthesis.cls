@@ -414,7 +414,7 @@
       \raggedleft\fangsong\fontsize{14\bp@}{14\bp@}\selectfont
       \null\ustc@secretlevel\par}\par
     \vskip 0.5cm%
-    \includegraphics[height=1.3cm]{figures/ustc_logo_text.pdf}\par
+    \includegraphics[height=1.3cm]{figures/ustc-name.pdf}\par
     \vskip 0.6cm%
     {\sffamily\fontsize{56\bp@}{56\bp@}\selectfont
       \ustc@thesisname\par}%
@@ -428,9 +428,9 @@
     \fi
     \ifustc@colorlogo
       \textcolor{ustcblue}{%
-        \includegraphics[height=4.1cm]{figures/ustc_logo_fig.pdf}}%
+        \includegraphics[height=4.1cm]{figures/ustc-badge.pdf}}%
     \else
-      \includegraphics[height=4.1cm]{figures/ustc_logo_fig.pdf}%
+      \includegraphics[height=4.1cm]{figures/ustc-badge.pdf}%
     \fi\par
     \vskip 0.9cm%
     \parbox[t][3.5cm][c]{\textwidth}{%
@@ -474,9 +474,9 @@
     \vskip 2.5cm%
     \ifustc@colorlogo
       \textcolor{ustcblue}{%
-        \includegraphics[height=4.5cm]{figures/ustc_logo_fig.pdf}}%
+        \includegraphics[height=4.5cm]{figures/ustc-badge.pdf}}%
     \else
-      \includegraphics[height=4.5cm]{figures/ustc_logo_fig.pdf}%
+      \includegraphics[height=4.5cm]{figures/ustc-badge.pdf}%
     \fi\par
     \vskip 0.5cm%
     \parbox[t][4.5cm][c]{\textwidth}{%

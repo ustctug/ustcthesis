@@ -31,10 +31,10 @@ Don't change this file in any respect.
 * \@mparswitchtrue
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
-File: figures/ustc_logo_text.pdf Graphic file (type pdf)
-<use figures/ustc_logo_text.pdf>
-File: figures/ustc_logo_fig.pdf Graphic file (type pdf)
-<use figures/ustc_logo_fig.pdf>
+File: figures/ustc-name.pdf Graphic file (type pdf)
+<use figures/ustc-name.pdf>
+File: figures/ustc-badge.pdf Graphic file (type pdf)
+<use figures/ustc-badge.pdf>
 LaTeX Font Info:    Calculating math sizes for size <16.05981> on input line ....
 LaTeX Font Info:    Font shape `TU/XITSMath-Regular(2)/m/n' will be
 (Font)              scaled to size 16.06152pt on input line ....
@@ -92,7 +92,7 @@ Completed box being shipped out [1]
 ........\special{x:scale 0.75204 0.75204}
 ........\hbox(49.18375+0.0)x0.0, glue set - 379.41751fil
 .........\hbox(49.18375+0.0)x379.41751
-..........\XeTeXpdffile ".../ustc_logo_text.pdf"
+..........\XeTeXpdffile ".../ustc-name.pdf"
 .........\glue 0.0 plus 1.0fil minus 1.0fil
 ........\special{pdf:etrans}
 .......\kern 285.33891
@@ -169,7 +169,7 @@ Completed box being shipped out [1]
 ........\special{x:scale 0.292 0.292}
 ........\hbox(399.4925+0.0)x0.0, glue set - 399.4925fil
 .........\hbox(399.4925+0.0)x399.4925
-..........\XeTeXpdffile ".../ustc_logo_fig.pdf"
+..........\XeTeXpdffile ".../ustc-badge.pdf"
 .........\glue 0.0 plus 1.0fil minus 1.0fil
 ........\special{pdf:etrans}
 .......\kern 116.65477
@@ -463,8 +463,8 @@ Completed box being shipped out [2]
 ...\special{color push  Black}
 ...\hbox(0.0+0.0)x452.96826
 ...\special{color pop}
-File: figures/ustc_logo_fig.pdf Graphic file (type pdf)
-<use figures/ustc_logo_fig.pdf>
+File: figures/ustc-badge.pdf Graphic file (type pdf)
+<use figures/ustc-badge.pdf>
 Completed box being shipped out [3]
 \vbox(722.98453+0.0)x452.96808
 .\glue -29.59084
@@ -585,7 +585,7 @@ Completed box being shipped out [3]
 ........\special{x:scale 0.3205 0.3205}
 ........\hbox(399.4925+0.0)x0.0, glue set - 399.4925fil
 .........\hbox(399.4925+0.0)x399.4925
-..........\XeTeXpdffile ".../ustc_logo_fig.pdf"
+..........\XeTeXpdffile ".../ustc-badge.pdf"
 .........\glue 0.0 plus 1.0fil minus 1.0fil
 ........\special{pdf:etrans}
 .......\kern 128.03558
