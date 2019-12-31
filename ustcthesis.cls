@@ -290,12 +290,12 @@
 \ifustc@chinese
   \renewcommand\listfigurename{插图清单}
   \renewcommand\listtablename{表格清单}
-  \newcommand\ustc@acknowledgmentsname{致谢}
+  \newcommand\ustc@acknowledgementsname{致谢}
   \newcommand\ustc@publicationsname{在读期间发表的学术论文与取得的研究成果}
   \newcommand\ustc@notationname{符号说明}
 \else
   \renewcommand\figurename{Fig.}
-  \newcommand\ustc@acknowledgmentsname{Acknowledgments}
+  \newcommand\ustc@acknowledgementsname{Acknowledgements}
   \newcommand\ustc@publicationsname{Publications}
   \newcommand\ustc@notationname{Notation}
 \fi
@@ -1044,11 +1044,11 @@
   \chapter{\bibname}%
   \@mainmattertrue
 }
-\newenvironment{acknowledgments}{%
+\newenvironment{acknowledgements}{%
   \ifustc@graduate
-    \chapter{\ustc@acknowledgmentsname}%
+    \chapter{\ustc@acknowledgementsname}%
   \else
-    \ustc@chapter{\ustc@acknowledgmentsname}%
+    \ustc@chapter{\ustc@acknowledgementsname}%
     \ifustc@tocloaded
       本科生需要手动将致谢置于目录前。\par
     \fi
