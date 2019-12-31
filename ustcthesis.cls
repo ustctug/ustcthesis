@@ -1095,7 +1095,7 @@
     \let\hspace\@gobble
   }
   \@ifpackagelater{hyperref}{2019/04/27}{}{%
-    \g@addto@macro\psdmapshortnames{\let\mu\textmugreek}%
+    \g@addto@macro\psdmapshortnames{\let\mu\textmu}%
   }
   \ifustc@chinese
     \def\equationautorefname~#1\null{公式~(#1)\null}
