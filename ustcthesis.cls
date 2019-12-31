@@ -159,6 +159,22 @@
   prefix  = ustc@,
   setkeys = \kvsetkeys,
 }
+\DeclareVoidOption{doctor}{\ustcsetup{degree=doctor}}
+\DeclareVoidOption{master}{\ustcsetup{degree=master}}
+\DeclareVoidOption{bachelor}{\ustcsetup{degree=bachelor}}
+\DeclareVoidOption{chinese}{\ustcsetup{language=chinese}}
+\DeclareVoidOption{english}{\ustcsetup{language=english}}
+\DeclareVoidOption{academic}{\ustcsetup{degree-type=academic}}
+\DeclareVoidOption{professional}{\ustcsetup{degree-type=professional}}
+\DeclareVoidOption{print}{\ustcsetup{output=print}}
+\DeclareVoidOption{pdf}{\ustcsetup{pdf=electronic}}
+\newif\ifustc@legacy@cite@style
+\DeclareVoidOption{super}{\ustcsetup{cite-style=super}\ustc@legacy@cite@styletrue}
+\DeclareVoidOption{numbers}{\ustcsetup{cite-style=inline}\ustc@legacy@cite@styletrue}
+\DeclareVoidOption{authoryear}{\ustcsetup{cite-style=authoryear}\ustc@legacy@cite@styletrue}
+\DeclareVoidOption{arabic}{\ustcsetup{section-style=arabic}}
+\DeclareVoidOption{colorlogo}{\ustcsetup{badge-color=blue}}
+\DeclareVoidOption{bwlogo}{\ustcsetup{badge-color=black}}
 \PassOptionsToClass{openany}{ctexbook}
 \DeclareDefaultOption{\PassOptionsToClass{\CurrentOption}{ctexbook}}
 \ProcessKeyvalOptions*
@@ -535,6 +551,34 @@
 \newcommand\ustc@date@format@en[3]{\ustc@date@month{#2} \number#3, #1}
 \newcommand\ustc@date@zh{\ustc@format@date{\ustc@date@format@zh}{\ustc@date}}
 \newcommand\ustc@date@en{\ustc@format@date{\ustc@date@format@en}{\ustc@date}}
+\def\ustc@define@term#1#2{%
+  \expandafter\gdef\csname #1\endcsname##1{%
+    \ustcsetup{#2 = {##1}}%
+  }%
+}
+\ustc@define@term{title}{title}
+\ustc@define@term{entitle}{title*}
+\ustc@define@term{author}{author}
+\ustc@define@term{enauthor}{author*}
+\ustc@define@term{major}{speciality}
+\ustc@define@term{enmajor}{speciality*}
+\ustc@define@term{supervisor}{supervisor}
+\ustc@define@term{ensupervisor}{supervisor*}
+\gdef\cosupervisor#1{%
+  \g@addto@macro\ustc@supervisor{, #1}%
+}
+\gdef\encosupervisor#1{%
+  \g@addto@macro\ustc@supervisor@en{, #1}%
+}
+\gdef\date#1{\renewcommand\ustc@date@zh{#1}}
+\gdef\endate#1{\renewcommand\ustc@date@en{#1}}
+\ustc@define@term{professionaltype}{professional-type}
+\ustc@define@term{enprofessionaltype}{professional-type*}
+\ustc@define@term{secretlevel}{secret-level}
+\ustc@define@term{ensecretlevel}{secret-level*}
+\ustc@define@term{secretyear}{secret-year}
+\gdef\keywords#1{\renewcommand\ustc@keywords@text{#1}}
+\gdef\enkeywords#1{\renewcommand\ustc@keywords@en@text{#1}}
 \ifustc@degree@doctor
   \newcommand\ustc@thesis@name{博士学位论文}
   \newcommand\ustc@thesis@name@en{A dissertation for doctor's degree}
@@ -723,6 +767,7 @@
 \ifustc@degree@bachelor
   \let\copyrightpage\relax
 \fi
+\let\makestatement\copyrightpage
 \setcounter{secnumdepth}{5}
 \newcount\ustc@titlelength
 \DeclareRobustCommand\ustc@spacetitle[1]{%
@@ -1147,6 +1192,50 @@
 \@namedef{bibstyle@ustcthesis-bachelor}{\bibstyle@super}
 \DeclareRobustCommand\inlinecite{\@inlinecite}
 \def\@inlinecite#1{\begingroup\let\@cite\NAT@citenum\citep{#1}\endgroup}
+\let\bibstyle@numbers\bibstyle@inline
+\newif\ifustc@bib@style@written
+\def\bibliography#1{%
+  \ifustc@bib@style@written\else
+    \ifustc@degree@bachelor
+      \bibliographystyle{ustcthesis-bachelor}%
+    \else
+      \bibliographystyle{ustcthesis-numerical}%
+    \fi
+  \fi
+  \if@filesw
+    \immediate\write\@auxout{\string\bibdata{\zap@space#1 \@empty}}%
+  \fi
+  \@input@{\jobname.bbl}}
+\def\bibliographystyle#1{%
+  \ustc@bib@style@writtentrue
+  \ifx\@begindocumenthook\@undefined\else
+    \expandafter\AtBeginDocument
+  \fi
+    {\if@filesw
+       \immediate\write\@auxout{\string\bibstyle{#1}}%
+     \fi}}
+\ifustc@legacy@cite@style
+  \ifustc@degree@graduate
+    \ifustc@cite@style@authoryear
+      \citestyle{authoryear}
+      \bibliographystyle{ustcthesis-authoryear}
+    \else
+      \ifustc@cite@style@super
+        \citestyle{super}
+      \else
+        \citestyle{inline}
+      \fi
+      \bibliographystyle{ustcthesis-numerical}
+    \fi
+  \else
+    \ifustc@cite@style@super
+      \citestyle{super}
+    \else
+      \citestyle{numbers}
+    \fi
+    \bibliographystyle{ustcthesis-bachelor}
+  \fi
+\fi
 \ustc@patchcmd{\NAT@citexnum}{%
   \@ifnum{\NAT@ctype=\z@}{%
     \if*#2*\else\NAT@cmt#2\fi
@@ -1204,6 +1293,11 @@
     \fi
   \fi
 }{}
+\newenvironment{acknowledgments}{%
+  \begin{acknowledgements}%
+}{%
+  \end{acknowledgements}%
+}
 \newenvironment{publications}{\chapter{\ustc@publication@name}}{}
 \newcommand\ustc@atendpackage{\csname ctex_at_end_package:nn\endcsname}
 \ustc@atendpackage{hyperref}{

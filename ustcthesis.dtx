@@ -908,6 +908,27 @@
 }
 %    \end{macrocode}
 %
+% 兼容旧版本的文档类选项。
+%    \begin{macrocode}
+% Reserved for compatibility until 2020-07-01.
+\DeclareVoidOption{doctor}{\ustcsetup{degree=doctor}}
+\DeclareVoidOption{master}{\ustcsetup{degree=master}}
+\DeclareVoidOption{bachelor}{\ustcsetup{degree=bachelor}}
+\DeclareVoidOption{chinese}{\ustcsetup{language=chinese}}
+\DeclareVoidOption{english}{\ustcsetup{language=english}}
+\DeclareVoidOption{academic}{\ustcsetup{degree-type=academic}}
+\DeclareVoidOption{professional}{\ustcsetup{degree-type=professional}}
+\DeclareVoidOption{print}{\ustcsetup{output=print}}
+\DeclareVoidOption{pdf}{\ustcsetup{pdf=electronic}}
+\newif\ifustc@legacy@cite@style
+\DeclareVoidOption{super}{\ustcsetup{cite-style=super}\ustc@legacy@cite@styletrue}
+\DeclareVoidOption{numbers}{\ustcsetup{cite-style=inline}\ustc@legacy@cite@styletrue}
+\DeclareVoidOption{authoryear}{\ustcsetup{cite-style=authoryear}\ustc@legacy@cite@styletrue}
+\DeclareVoidOption{arabic}{\ustcsetup{section-style=arabic}}
+\DeclareVoidOption{colorlogo}{\ustcsetup{badge-color=blue}}
+\DeclareVoidOption{bwlogo}{\ustcsetup{badge-color=black}}
+%    \end{macrocode}
+%
 % 载入 \cls{ctexbook}。
 %    \begin{macrocode}
 \PassOptionsToClass{openany}{ctexbook}
@@ -1513,6 +1534,40 @@
 \newcommand\ustc@date@en{\ustc@format@date{\ustc@date@format@en}{\ustc@date}}
 %    \end{macrocode}
 %
+% 版本 v3.2 开始使用 \cs{ustcsetup} 设置接口，
+% 兼容旧版本的命令式设置。
+%    \begin{macrocode}
+% Reserved for compatibility until 2020-07-01.
+\def\ustc@define@term#1#2{%
+  \expandafter\gdef\csname #1\endcsname##1{%
+    \ustcsetup{#2 = {##1}}%
+  }%
+}
+\ustc@define@term{title}{title}
+\ustc@define@term{entitle}{title*}
+\ustc@define@term{author}{author}
+\ustc@define@term{enauthor}{author*}
+\ustc@define@term{major}{speciality}
+\ustc@define@term{enmajor}{speciality*}
+\ustc@define@term{supervisor}{supervisor}
+\ustc@define@term{ensupervisor}{supervisor*}
+\gdef\cosupervisor#1{%
+  \g@addto@macro\ustc@supervisor{, #1}%
+}
+\gdef\encosupervisor#1{%
+  \g@addto@macro\ustc@supervisor@en{, #1}%
+}
+\gdef\date#1{\renewcommand\ustc@date@zh{#1}}
+\gdef\endate#1{\renewcommand\ustc@date@en{#1}}
+\ustc@define@term{professionaltype}{professional-type}
+\ustc@define@term{enprofessionaltype}{professional-type*}
+\ustc@define@term{secretlevel}{secret-level}
+\ustc@define@term{ensecretlevel}{secret-level*}
+\ustc@define@term{secretyear}{secret-year}
+\gdef\keywords#1{\renewcommand\ustc@keywords@text{#1}}
+\gdef\enkeywords#1{\renewcommand\ustc@keywords@en@text{#1}}
+%    \end{macrocode}
+%
 % 定义一些常量。
 %    \begin{macrocode}
 \ifustc@degree@doctor
@@ -1761,6 +1816,8 @@
 \ifustc@degree@bachelor
   \let\copyrightpage\relax
 \fi
+% Reserved for compatibility until 2020-07-01.
+\let\makestatement\copyrightpage
 %    \end{macrocode}
 % \end{macro}
 %
@@ -2537,6 +2594,58 @@
 %    \end{macrocode}
 % \end{macro}
 %
+% 版本 v3.2 改为按照标准方式调用 \cs{bibliographystyle}
+% 版本 v3.1.* 前要求用户不使用 \cs{bibliographystyle} 命令，
+% 这与标准文档类不一致。
+% 为了兼容版本进行一些修改：
+%    \begin{macrocode}
+% Reserved for compatibility until 2020-07-01.
+\let\bibstyle@numbers\bibstyle@inline
+\newif\ifustc@bib@style@written
+\def\bibliography#1{%
+  \ifustc@bib@style@written\else
+    \ifustc@degree@bachelor
+      \bibliographystyle{ustcthesis-bachelor}%
+    \else
+      \bibliographystyle{ustcthesis-numerical}%
+    \fi
+  \fi
+  \if@filesw
+    \immediate\write\@auxout{\string\bibdata{\zap@space#1 \@empty}}%
+  \fi
+  \@input@{\jobname.bbl}}
+\def\bibliographystyle#1{%
+  \ustc@bib@style@writtentrue
+  \ifx\@begindocumenthook\@undefined\else
+    \expandafter\AtBeginDocument
+  \fi
+    {\if@filesw
+       \immediate\write\@auxout{\string\bibstyle{#1}}%
+     \fi}}
+\ifustc@legacy@cite@style
+  \ifustc@degree@graduate
+    \ifustc@cite@style@authoryear
+      \citestyle{authoryear}
+      \bibliographystyle{ustcthesis-authoryear}
+    \else
+      \ifustc@cite@style@super
+        \citestyle{super}
+      \else
+        \citestyle{inline}
+      \fi
+      \bibliographystyle{ustcthesis-numerical}
+    \fi
+  \else
+    \ifustc@cite@style@super
+      \citestyle{super}
+    \else
+      \citestyle{numbers}
+    \fi
+    \bibliographystyle{ustcthesis-bachelor}
+  \fi
+\fi
+%    \end{macrocode}
+%
 % \begin{macro}{\cite}
 % 下面修改引用标注的格式，主要是将页码写在上标位置。
 % Numerical 模式的 \cs{citet} 的页码：
@@ -2638,6 +2747,17 @@
     \fi
   \fi
 }{}
+%
+%    \end{macrocode}
+%
+% 兼容旧版本中“acknowledgments”的拼法。
+%    \begin{macrocode}
+% Reserved for compatibility until 2020-07-01.
+\newenvironment{acknowledgments}{%
+  \begin{acknowledgements}%
+}{%
+  \end{acknowledgements}%
+}
 %    \end{macrocode}
 % \end{environment}
 %
