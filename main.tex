@@ -38,12 +38,10 @@
 \usepackage{hyperref}
 
 \DeclareRobustCommand\cs[1]{\texttt{\char`\\#1}}
-\newcommand\pkg{\textsf}
+\DeclareRobustCommand\pkg{\textsf}
+\DeclareRobustCommand\file{\nolinkurl}
 
-\renewcommand\vec{\symbf}
-\newcommand\mat{\symbf}
-\newcommand\ts{\symbfsf}
-\newcommand\real{\mathbf{R}}
+\input{math-commands.tex}
 
 
 

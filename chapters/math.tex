@@ -51,8 +51,6 @@
   \item 常数 $\upe$：\verb|\upe|
   \item 虚数单位 $\upi$：\verb|\upi|
   \item 圆周率 $\uppi$：\verb|\uppi|
-  \item $\argmax$：\verb|\argmax|
-  \item $\argmin$：\verb|\argmin|
 \end{itemize}
 
 关于数学符号更多的用法，参见 \pkg{unicode-math} 宏包的使用说明和符号列表
@@ -61,12 +59,8 @@
 在编辑数学公式时，最好避免直接使用字体命令，
 而应该定义一些语义命令取代字体命令，
 这样输入更简单，也让 \LaTeX{} 代码更有可读性，
-而且还方便根据需要统一修改改格式，比如：
-\begin{itemize}
-  \item 向量 $\vec{x}$：\verb|\renewcommand\vec{\symbf}|
-  \item 矩阵 $\mat{A}$：\verb|\newcommand\mat{\symbf}|
-  \item 张量 $\ts{T}$： \verb|\newcommand\ts{\symbfsf}|
-\end{itemize}
+而且还方便根据需要统一修改改格式。
+参考示例文档中的 \file{math-commands.tex}
 
 更多的例子：
 \begin{equation}
@@ -79,7 +73,7 @@
   \argmin_x f(x)
 \end{equation}
 \begin{equation}
-  \mat{A} \vec{x} = \lambda \vec{x}
+  \mA \vx = \lambda \vx
 \end{equation}
 
 

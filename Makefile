@@ -51,7 +51,7 @@ install : cls doc
 zip : main doc
 	ln -sf . $(NAME)
 	zip -r ../$(NAME)-$(VERSION).zip $(NAME)/{README.md,LICENSE,\
-	$(NAME).dtx,$(NAME).pdf,$(NAME).cls,$(NAME)-*.bst,figures,\
-	$(MAIN).tex,chapters,bib,$(MAIN).pdf,\
+	$(NAME).dtx,$(NAME).pdf,$(NAME).cls,*.bst,figures,\
+	$(MAIN).tex,math-commands.tex,chapters,bib,$(MAIN).pdf,\
 	latexmkrc,Makefile}
 	rm $(NAME)

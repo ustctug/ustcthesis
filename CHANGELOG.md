@@ -7,6 +7,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ### Changed
 - 目录开启于奇数页
 
+### Added
+- 导入 goodfeli/dlbook_notation 的 `math-commands.tex`
+
 ## [3.1.06] - 2019-05-01
 ### Fixed
 - 处理 `hyperref` 与 `unicode-math` 的兼容性问题 - [#223](https://github.com/ustctug/ustcthesis/issues/223)

@@ -969,8 +969,6 @@
 \newcommand\upe{\symup{e}}
 \newcommand\upi{\symup{i}}
 \newcommand\dif{\mathop{}\!\mathrm{d}}
-\DeclareMathOperator*{\argmax}{arg\,max}
-\DeclareMathOperator*{\argmin}{arg\,min}
 \newcommand\bibstyle@super{\bibpunct{[}{]}{,}{s}{,}{\textsuperscript{,}}}
 \newcommand\bibstyle@numbers{\bibpunct{[}{]}{,}{n}{,}{,}}
 \newcommand\bibstyle@authoryear{\bibpunct{(}{)}{;}{a}{,}{,}}
