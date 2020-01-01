@@ -4,6 +4,8 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
+
+## [3.2] - 2020-01-01
 ### Changed
 - 使用 `\ustcsetup` 进行设置
 - 目录开启于奇数页
@@ -144,7 +146,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - 优化图注、算法的行距
 - 二级以下节标题编号下采用“1.”、“(1)”、“①”
 
-[Unreleased]: https://github.com/ustctug/ustcthesis/compare/v3.1.06...HEAD
+[Unreleased]: https://github.com/ustctug/ustcthesis/compare/v3.2...HEAD
+[3.1.06]: https://github.com/ustctug/ustcthesis/compare/v3.2...v3.1.06
 [3.1.06]: https://github.com/ustctug/ustcthesis/compare/v3.1.05...v3.1.06
 [3.1.05]: https://github.com/ustctug/ustcthesis/compare/v3.1.04...v3.1.05
 [3.1.04]: https://github.com/ustctug/ustcthesis/compare/v3.1.03...v3.1.04

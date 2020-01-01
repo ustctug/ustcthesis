@@ -1,6 +1,6 @@
 \NeedsTeXFormat{LaTeX2e}[2017/04/15]
 \ProvidesClass{ustcthesis}
-  [2019/05/01 v3.1.06 USTC thesis template]
+  [2020/01/01 v3.2 USTC thesis template]
 \newcommand\ustc@error[1]{%
   \ClassError{ustcthesis}{#1}{}%
 }

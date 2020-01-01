@@ -50,7 +50,7 @@ install : cls doc
 
 zip : main doc
 	ln -sf . $(NAME)
-	zip -r ../$(NAME)-$(VERSION).zip $(NAME)/{README.md,LICENSE,\
+	zip -r ../$(NAME)-$(VERSION).zip $(NAME)/{*.md,LICENSE,\
 	$(NAME).dtx,$(NAME).pdf,$(NAME).cls,*.bst,figures,\
 	$(MAIN).tex,ustcsetup.tex,math-commands.tex,chapters,bib,$(MAIN).pdf,\
 	latexmkrc,Makefile}
