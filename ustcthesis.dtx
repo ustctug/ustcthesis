@@ -1030,7 +1030,15 @@
 % \begin{macro}{\ustc@strifeq}
 % 使用 \LaTeX3 的功能判断字符串是否相等。这里也可以使用 \pkg{xstring} 宏包。
 %    \begin{macrocode}
-\newcommand\ustc@strifeq{\csname str_if_eq_x:nnTF\endcsname}
+\newcommand\ustc@strifeq[4]{%
+  \edef\ustc@tmp@a{#1}%
+  \edef\ustc@tmp@b{#2}%
+  \ifx\ustc@tmp@a\ustc@tmp@b
+    #3%
+  \else
+    #4%
+  \fi
+}
 %    \end{macrocode}
 % \end{macro}
 %
