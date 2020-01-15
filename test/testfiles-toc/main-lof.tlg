@@ -1,5 +1,11 @@
 This is a generated file for the l3build validation system.
 Don't change this file in any respect.
+LaTeX Font Info:    Font shape `TU/texgyreheros(0)/m/n' will be
+(Font)              scaled to size 10.34387pt on input line ....
+LaTeX Font Info:    Font shape `TU/texgyreheros(0)/b/n' will be
+(Font)              scaled to size 10.03731pt on input line ....
+LaTeX Font Info:    Font shape `TU/texgyreheros(0)/b/n' will be
+(Font)              scaled to size 13.38309pt on input line ....
 (main-lof.lof)
 \tf@lof=\write...
 Completed box being shipped out [1]
@@ -27,13 +33,13 @@ Completed box being shipped out [1]
 .........\hbox(8.43135+3.6135)x417.11752, glue set 179.57584fil
 ..........\glue(\leftskip) 0.0 plus 1.0fil
 ..........\hbox(0.0+0.0)x0.0
-..........\TU/FandolSong-Regular(0)/m/n/10.53925 插
+..........\TU/FandolSong(0)/m/n/10.53925 插
 ..........\glue 5.26962 plus 0.45427 minus 0.17125
-..........\TU/FandolSong-Regular(0)/m/n/10.53925 图
+..........\TU/FandolSong(0)/m/n/10.53925 图
 ..........\glue 5.26962 plus 0.45427 minus 0.17125
-..........\TU/FandolSong-Regular(0)/m/n/10.53925 清
+..........\TU/FandolSong(0)/m/n/10.53925 清
 ..........\glue 5.26962 plus 0.45427 minus 0.17125
-..........\TU/FandolSong-Regular(0)/m/n/10.53925 单
+..........\TU/FandolSong(0)/m/n/10.53925 单
 ..........\kern -0.00017
 ..........\kern 0.00017
 ..........\rule(8.43135+3.6135)x0.0
@@ -76,13 +82,13 @@ Completed box being shipped out [1]
 ...\hbox(12.2697+2.73015)x417.11752, glue set 164.39427fil
 ....\glue(\leftskip) 0.0 plus 1.0fil
 ....\hbox(0.0+0.0)x0.0
-....\TU/FandolHei-Regular(0)/b/n/16.05981 插
+....\TU/FandolHei(0)/b/n/16.05981 插
 ....\glue 8.0299 plus 0.97638 minus 0.4981
-....\TU/FandolHei-Regular(0)/b/n/16.05981 图
+....\TU/FandolHei(0)/b/n/16.05981 图
 ....\glue 8.0299 plus 0.97638 minus 0.4981
-....\TU/FandolHei-Regular(0)/b/n/16.05981 清
+....\TU/FandolHei(0)/b/n/16.05981 清
 ....\glue 8.0299 plus 0.97638 minus 0.4981
-....\TU/FandolHei-Regular(0)/b/n/16.05981 单
+....\TU/FandolHei(0)/b/n/16.05981 单
 ....\kern -0.00017
 ....\kern 0.00017
 ....\penalty 10000
@@ -522,11 +528,11 @@ Completed box being shipped out [1]
 .........\hbox(8.43135+3.6135)x417.11752, glue set 179.38614fil
 ..........\glue(\leftskip) 0.0 plus 1.0fil
 ..........\hbox(0.0+0.0)x0.0
-..........\TU/FandolSong-Regular(0)/m/n/10.53925 第
+..........\TU/FandolSong(0)/m/n/10.53925 第
 ..........\glue 2.63481 plus 1.3174 minus 0.87827
 ..........\TU/texgyretermes(0)/m/n/10.53925 1
 ..........\glue 2.63481 plus 1.3174 minus 0.87827
-..........\TU/FandolSong-Regular(0)/m/n/10.53925 章
+..........\TU/FandolSong(0)/m/n/10.53925 章
 ..........\kern -0.00017
 ..........\kern 0.00017
 ..........\glue 10.53925
@@ -566,14 +572,14 @@ Completed box being shipped out [1]
 ...\glue 12.08972
 ...\glue 0.0
 ...\glue(\parskip) 0.0
-...\hbox(12.36606+2.77834)x417.11752, glue set 160.9414fil
+...\hbox(12.36606+2.77834)x417.11752, glue set 164.86281fil
 ....\glue(\leftskip) 0.0 plus 1.0fil
 ....\hbox(0.0+0.0)x0.0
-....\TU/FandolHei-Regular(0)/b/n/16.05981 第
-....\glue 4.46463 plus 2.23232 minus 1.4882
+....\TU/FandolHei(0)/b/n/16.05981 第
+....\glue 3.7205 plus 1.86024 minus 1.24016
 ....\TU/texgyreheros(0)/b/n/16.05981 1
-....\glue 4.46463 plus 2.23232 minus 1.4882
-....\TU/FandolHei-Regular(0)/b/n/16.05981 章
+....\glue 3.7205 plus 1.86024 minus 1.24016
+....\TU/FandolHei(0)/b/n/16.05981 章
 ....\kern -0.00017
 ....\kern 0.00017
 ....\glue 16.05981
@@ -602,7 +608,7 @@ Completed box being shipped out [1]
 .......\hbox(12.29573+5.26967)x417.11752, glue set 167.05522fil
 ........\glue(\leftskip) 0.0 plus 1.0fil
 ........\hbox(0.0+0.0)x0.0
-........\TU/FandolSong-Regular(0)/b/n/10.53925 图
+........\TU/FandolSong(0)/b/n/10.53925 图
 ........\kern -0.00017
 ........\kern 0.00017
 ........\penalty 10000
@@ -654,7 +660,7 @@ Completed box being shipped out [1]
 .......\hbox(12.29573+5.26967)x417.11752, glue set 53.3262fil
 ........\glue(\leftskip) 0.0 plus 1.0fil
 ........\hbox(0.0+0.0)x0.0
-........\TU/FandolSong-Regular(0)/b/n/10.53925 图
+........\TU/FandolSong(0)/b/n/10.53925 图
 ........\kern -0.00017
 ........\kern 0.00017
 ........\penalty 10000
@@ -746,7 +752,7 @@ Completed box being shipped out [1]
 .......\hbox(12.29573+5.26967)x417.11752, glue set 167.05522fil
 ........\glue(\leftskip) 0.0 plus 1.0fil
 ........\hbox(0.0+0.0)x0.0
-........\TU/FandolSong-Regular(0)/b/n/10.53925 图
+........\TU/FandolSong(0)/b/n/10.53925 图
 ........\kern -0.00017
 ........\kern 0.00017
 ........\penalty 10000
@@ -853,11 +859,11 @@ Completed box being shipped out [2]
 .........\hbox(8.43135+3.6135)x417.11752, glue set 179.87094fil
 ..........\glue(\leftskip) 0.0 plus 1.0fil
 ..........\hbox(0.0+0.0)x0.0
-..........\TU/FandolSong-Regular(0)/m/n/10.53925 第
+..........\TU/FandolSong(0)/m/n/10.53925 第
 ..........\glue 2.63481 plus 1.3174 minus 0.87827
 ..........\TU/texgyretermes(0)/m/n/10.53925 2
 ..........\glue 2.63481 plus 1.3174 minus 0.87827
-..........\TU/FandolSong-Regular(0)/m/n/10.53925 章
+..........\TU/FandolSong(0)/m/n/10.53925 章
 ..........\kern -0.00017
 ..........\kern 0.00017
 ..........\glue 10.53925
@@ -895,14 +901,14 @@ Completed box being shipped out [2]
 ...\glue 12.08972
 ...\glue 0.0
 ...\glue(\parskip) 0.0
-...\hbox(12.36606+2.77834)x417.11752, glue set 162.15393fil
+...\hbox(12.36606+2.77834)x417.11752, glue set 165.87325fil
 ....\glue(\leftskip) 0.0 plus 1.0fil
 ....\hbox(0.0+0.0)x0.0
-....\TU/FandolHei-Regular(0)/b/n/16.05981 第
-....\glue 4.46463 plus 2.23232 minus 1.4882
+....\TU/FandolHei(0)/b/n/16.05981 第
+....\glue 3.7205 plus 1.86024 minus 1.24016
 ....\TU/texgyreheros(0)/b/n/16.05981 2
-....\glue 4.46463 plus 2.23232 minus 1.4882
-....\TU/FandolHei-Regular(0)/b/n/16.05981 章
+....\glue 3.7205 plus 1.86024 minus 1.24016
+....\TU/FandolHei(0)/b/n/16.05981 章
 ....\kern -0.00017
 ....\kern 0.00017
 ....\glue 16.05981
@@ -931,7 +937,7 @@ Completed box being shipped out [2]
 .......\hbox(12.29573+5.26967)x417.11752, glue set 167.05522fil
 ........\glue(\leftskip) 0.0 plus 1.0fil
 ........\hbox(0.0+0.0)x0.0
-........\TU/FandolSong-Regular(0)/b/n/10.53925 图
+........\TU/FandolSong(0)/b/n/10.53925 图
 ........\kern -0.00017
 ........\kern 0.00017
 ........\penalty 10000
@@ -983,7 +989,7 @@ Completed box being shipped out [2]
 .......\hbox(12.29573+5.26967)x417.11752, glue set 166.0171fil
 ........\glue(\leftskip) 0.0 plus 1.0fil
 ........\hbox(0.0+0.0)x0.0
-........\TU/FandolSong-Regular(0)/b/n/10.53925 图
+........\TU/FandolSong(0)/b/n/10.53925 图
 ........\kern -0.00017
 ........\kern 0.00017
 ........\penalty 10000
@@ -1035,7 +1041,7 @@ Completed box being shipped out [2]
 .......\hbox(12.29573+5.26967)x417.11752, glue set 167.05522fil
 ........\glue(\leftskip) 0.0 plus 1.0fil
 ........\hbox(0.0+0.0)x0.0
-........\TU/FandolSong-Regular(0)/b/n/10.53925 图
+........\TU/FandolSong(0)/b/n/10.53925 图
 ........\kern -0.00017
 ........\kern 0.00017
 ........\penalty 10000

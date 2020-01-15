@@ -110,6 +110,60 @@
     },
     default = chinese,
   },
+  fontset = {
+    choices = {
+      windows,
+      mac,
+      ubuntu,
+      fandol,
+      none,
+    },
+    default = none,
+  },
+  system = {
+    choices = {
+      mac,
+      unix,
+      windows,
+      auto,
+    },
+    default = auto,
+  },
+  font = {
+    choices = {
+      times,
+      texgyre,
+      xits,
+      libertinus,
+      latin-modern,
+      auto,
+      none,
+    },
+    default = auto,
+  },
+  cjk-font = {
+    name = cjk@font,
+    choices = {
+      windows,
+      mac,
+      noto,
+      fandol,
+      auto,
+      none,
+    },
+    default = auto,
+  },
+  math-font = {
+    name = math@font,
+    choices = {
+      xits,
+      stix,
+      libertinus,
+      latin-modern,
+      none,
+    },
+    default = xits,
+  },
   cite-style = {
     name = cite@style,
     choices = {
@@ -187,7 +241,7 @@
   \PassOptionsToClass{oneside}{book}
 \fi
 \PassOptionsToPackage{quiet}{xeCJK}
-\LoadClass[UTF8,a4paper,zihao=-4]{ctexbook}[2017/04/01]
+\LoadClass[UTF8,a4paper,zihao=-4,fontset=none]{ctexbook}[2017/04/01]
 \@ifclasslater{ctexbook}{2017/04/01}{}{
   \ustc@error{TeX Live 2017 or later version is required}
 }
@@ -205,128 +259,385 @@
 \RequirePackage{calc}
 \RequirePackage{natbib}
 \RequirePackage{notoccite}
-\newcommand\ustc@strifeq[4]{%
-  \edef\ustc@tmp@a{#1}%
-  \edef\ustc@tmp@b{#2}%
-  \ifx\ustc@tmp@a\ustc@tmp@b
-    #3%
+\ifustc@fontset@mac
+  \ustcsetup{
+    font     = times,
+    cjk-font = mac,
+  }
+\else
+  \ifustc@fontset@windows
+    \ustcsetup{
+      font     = times,
+      cjk-font = windows,
+    }
   \else
-    #4%
+    \ifustc@fontset@fandol
+      \ustcsetup{
+        font     = texgyre,
+        cjk-font = fandol,
+      }
+    \else
+      \ifustc@fontset@ubuntu
+        \ustcsetup{
+          font     = texgyre,
+          cjk-font = noto,
+        }
+      \fi
+    \fi
+  \fi
+\fi
+\ifustc@system@auto
+  \IfFileExists{/System/Library/Fonts/Menlo.ttc}{
+    \ustcsetup{system = mac}
+  }{
+    \IfFileExists{/dev/null}{
+      \IfFileExists{null:}{
+        \ustcsetup{system = windows}
+      }{
+        \ustcsetup{system = unix}
+      }
+    }{
+      \ustcsetup{system = windows}
+    }
+  }
+\fi
+\let\ustc@font@family@xits\@empty
+\newcommand\ustc@set@xits@names{%
+  \ifx\ustc@font@family@xits\@empty
+    \IfFontExistsTF{XITSMath-Regular.otf}{%
+      \gdef\ustc@font@family@xits{XITS}%
+      \gdef\ustc@font@style@xits@rm{Regular}%
+      \gdef\ustc@font@style@xits@bf{Bold}%
+      \gdef\ustc@font@style@xits@it{Italic}%
+      \gdef\ustc@font@style@xits@bfit{BoldItalic}%
+      \gdef\ustc@font@name@xits@math@rm{XITSMath-Regular}%
+      \gdef\ustc@font@name@xits@math@bf{XITSMath-Bold}%
+    }{%
+      \gdef\ustc@font@family@xits{xits}%
+      \gdef\ustc@font@style@xits@rm{regular}%
+      \gdef\ustc@font@style@xits@bf{bold}%
+      \gdef\ustc@font@style@xits@it{italic}%
+      \gdef\ustc@font@style@xits@bfit{bolditalic}%
+      \gdef\ustc@font@name@xits@math@rm{xits-math}%
+      \gdef\ustc@font@name@xits@math@bf{xits-mathbold}%
+    }%
   \fi
 }
-\newcommand\ustc@fontset{\csname g__ctex_fontset_tl\endcsname}
-\ustc@strifeq{\ustc@fontset}{fandol}{
-  \setmainfont[
+\let\ustc@font@family@libertinus\@empty
+\newcommand\ustc@set@libertinus@names{%
+  \ifx\ustc@font@family@libertinus\@empty
+    \IfFontExistsTF{LibertinusSerif-Regular.otf}{%
+      \gdef\ustc@font@family@libertinus@serif{LibertinusSerif}%
+      \gdef\ustc@font@family@libertinus@sans{LibertinusSans}%
+      \gdef\ustc@font@name@libertinus@math{LibertinusMath-Regular}%
+      \gdef\ustc@font@style@libertinus@rm{Regular}%
+      \gdef\ustc@font@style@libertinus@bf{Bold}%
+      \gdef\ustc@font@style@libertinus@it{Italic}%
+      \gdef\ustc@font@style@libertinus@bfit{BoldItalic}%
+    }{%
+      \gdef\ustc@font@family@libertinus@serif{libertinusserif}%
+      \gdef\ustc@font@family@libertinus@sans{libertinussans}%
+      \gdef\ustc@font@name@libertinus@math{libertinusmath-regular}%
+      \gdef\ustc@font@style@libertinus@rm{regular}%
+      \gdef\ustc@font@style@libertinus@bf{bold}%
+      \gdef\ustc@font@style@libertinus@it{italic}%
+      \gdef\ustc@font@style@libertinus@bfit{bolditalic}%
+    }%
+  \fi
+}
+\ifustc@font@auto
+  \ifustc@system@unix
+    \ustcsetup{font=xits}
+  \else
+    \ustcsetup{font=times}
+  \fi
+\fi
+\newcommand\ustc@load@font@times{%
+  \setmainfont{Times New Roman}%
+  \setsansfont{Arial}%
+  \ifustc@system@mac
+    \setmonofont{Menlo}[Scale = MatchLowercase]%
+  \else
+    \setmonofont{Courier New}[Scale = MatchLowercase]%
+  \fi
+}
+\newcommand\ustc@load@font@texgyre{%
+  \setmainfont{texgyretermes}[
     Extension      = .otf,
     UprightFont    = *-regular,
     BoldFont       = *-bold,
     ItalicFont     = *-italic,
     BoldItalicFont = *-bolditalic,
-  ]{texgyretermes}
-  \setsansfont[
-    Extension      = .otf,
-    UprightFont    = *-regular,
-    BoldFont       = *-bold,
-    ItalicFont     = *-italic,
-    BoldItalicFont = *-bolditalic,
-  ]{texgyreheros}
-  \setmonofont[
+  ]%
+  \ustc@load@texgyre@sans@mono
+}
+\newcommand\ustc@load@texgyre@sans@mono{%
+  \setsansfont{texgyreheros}[
     Extension      = .otf,
     UprightFont    = *-regular,
     BoldFont       = *-bold,
     ItalicFont     = *-italic,
     BoldItalicFont = *-bolditalic,
     Scale          = MatchLowercase,
-  ]{texgyrecursor}
-}{
-  \setmainfont{Times New Roman}
-  \setsansfont{Arial}
-  \ustc@strifeq{\ustc@fontset}{mac}{
-    \setmonofont[Scale=MatchLowercase]{Menlo}
-  }{
-    \setmonofont[Scale=MatchLowercase]{Courier New}
-  }
+  ]%
+  \setmonofont{texgyrecursor}[
+    Extension      = .otf,
+    UprightFont    = *-regular,
+    BoldFont       = *-bold,
+    ItalicFont     = *-italic,
+    BoldItalicFont = *-bolditalic,
+    Scale          = MatchLowercase,
+  ]%
 }
-\ustc@strifeq{\ustc@fontset}{mac}{
-  \setCJKmainfont[
-       UprightFont = * Light,
-          BoldFont = * Bold,
-        ItalicFont = Kaiti SC,
-    BoldItalicFont = Kaiti SC Bold,
-  ]{Songti SC}
-  \setCJKsansfont[BoldFont=* Medium]{Heiti SC}
-  \setCJKfamilyfont{zhsong}[
-       UprightFont = * Light,
-          BoldFont = * Bold,
-  ]{Songti SC}
-  \setCJKfamilyfont{zhhei}[BoldFont=* Medium]{Heiti SC}
-  \setCJKfamilyfont{zhkai}[BoldFont=* Bold]{Kaiti SC}
-  \xeCJKsetwidth{‘’“”}{1em}
-}{
+\newcommand\ustc@load@font@xits{%
+  \ustc@set@xits@names
+  \setmainfont{\ustc@font@family@xits}[
+    Extension      = .otf,
+    UprightFont    = *-\ustc@font@style@xits@rm,
+    BoldFont       = *-\ustc@font@style@xits@bf,
+    ItalicFont     = *-\ustc@font@style@xits@it,
+    BoldItalicFont = *-\ustc@font@style@xits@bfit,
+  ]%
+  \ustc@load@texgyre@sans@mono
+}
+\newcommand\ustc@load@font@libertinus{%
+  \ustc@set@libertinus@names
+  \setmainfont{\ustc@font@family@libertinus@serif}[
+    Extension      = .otf,
+    UprightFont    = *-\ustc@font@style@libertinus@rm,
+    BoldFont       = *-\ustc@font@style@libertinus@bf,
+    ItalicFont     = *-\ustc@font@style@libertinus@it,
+    BoldItalicFont = *-\ustc@font@style@libertinus@bfit,
+  ]%
+  \setsansfont{\ustc@font@family@libertinus@sans}[
+    Extension      = .otf,
+    UprightFont    = *-\ustc@font@style@libertinus@rm,
+    BoldFont       = *-\ustc@font@style@libertinus@bf,
+    ItalicFont     = *-\ustc@font@style@libertinus@it,
+  ]%
+  \setmonofont{lmmonolt10}[
+    Extension      = .otf,
+    UprightFont    = *-regular,
+    BoldFont       = *-bold,
+    ItalicFont     = *-oblique,
+    BoldItalicFont = *-boldoblique,
+  ]%
+}
+\@namedef{ustc@load@font@latin-modern}{%
+  \setmainfont{lmroman10}[
+    Extension      = .otf,
+    UprightFont    = *-regular,
+    BoldFont       = *-bold,
+    ItalicFont     = *-italic,
+    BoldItalicFont = *-bolditalic,
+  ]%
+  \setsansfont{lmsans10}[
+    Extension      = .otf,
+    UprightFont    = *-regular,
+    BoldFont       = *-bold,
+    ItalicFont     = *-oblique,
+    BoldItalicFont = *-boldoblique,
+  ]%
+  \setmonofont{lmmonolt10}[
+    Extension      = .otf,
+    UprightFont    = *-regular,
+    BoldFont       = *-bold,
+    ItalicFont     = *-oblique,
+    BoldItalicFont = *-boldoblique,
+  ]%
+}
+\newcommand\ustc@load@font{%
+  \@nameuse{ustc@load@font@\ustc@font}%
+}
+\ustc@load@font
+\ustc@option@hook{font}{\ustc@load@font}
+\ifustc@cjk@font@auto
+  \ifustc@system@mac
+    \ustcsetup{cjk-font = mac}
+  \else
+    \ifustc@system@windows
+      \ustcsetup{cjk-font = windows}
+    \else
+      \IfFontExistsTF{Noto Serif CJK SC}{
+        \ustcsetup{cjk-font = noto}
+      }{
+        \ustcsetup{cjk-font = fandol}
+      }
+    \fi
+  \fi
+\fi
+\newcommand\ustc@load@cjk@font@windows{%
   \xeCJKsetup{EmboldenFactor=2}
-  \ustc@strifeq{\ustc@fontset}{windows}{
-    \IfFileExists{C:/bootfont.bin}{
-      \setCJKmainfont[AutoFakeBold,ItalicFont=KaiTi_GB2312]{SimSun}
-      \setCJKfamilyfont{zhkai}[AutoFakeBold]{KaiTi_GB2312}
-    }{
-      \setCJKmainfont[AutoFakeBold,ItalicFont=KaiTi]{SimSun}
-      \setCJKfamilyfont{zhkai}[AutoFakeBold]{KaiTi}
-    }
-    \setCJKsansfont[AutoFakeBold]{SimHei}
-    \setCJKfamilyfont{zhsong}[AutoFakeBold]{SimSun}
-    \setCJKfamilyfont{zhhei}[AutoFakeBold]{SimHei}
-  }{
-    \ustc@strifeq{\ustc@fontset}{adobe}{
-      \setCJKmainfont[
-        AutoFakeBold = true,
-        ItalicFont   = AdobeKaitiStd-Regular,
-      ]{AdobeSongStd-Light}
-      \setCJKsansfont[AutoFakeBold]{AdobeHeitiStd-Regular}
-      \setCJKfamilyfont{zhsong}[AutoFakeBold]{AdobeSongStd-Light}
-      \setCJKfamilyfont{zhhei}[AutoFakeBold]{AdobeHeitiStd-Regular}
-      \setCJKfamilyfont{zhkai}[AutoFakeBold]{AdobeKaitiStd-Regular}
-    }{}
-  }
+  \setCJKmainfont{SimSun}[
+    AutoFakeBold = true,
+    ItalicFont   = KaiTi,
+  ]%
+  \setCJKsansfont{SimHei}[AutoFakeBold]%
+  \setCJKmonofont{FangSong}%
+  \setCJKfamilyfont{zhsong}{SimSun}[AutoFakeBold]%
+  \setCJKfamilyfont{zhhei}{SimHei}[AutoFakeBold]%
+  \setCJKfamilyfont{zhkai}{KaiTi}%
+  \setCJKfamilyfont{zhfs}{FangSong}%
 }
+\newcommand\ustc@load@cjk@font@mac{%
+  \setCJKmainfont{Songti SC}[
+    UprightFont    = * Light,
+    BoldFont       = * Bold,
+    ItalicFont     = Kaiti SC,
+    BoldItalicFont = Kaiti SC Bold,
+  ]%
+  \setCJKsansfont{Heiti SC}[BoldFont=* Medium]%
+  \setCJKmonofont{STFangsong}
+  \setCJKfamilyfont{zhsong}{Songti SC}[
+    UprightFont = * Light,
+      BoldFont  = * Bold,
+  ]%
+  \setCJKfamilyfont{zhhei}{Heiti SC}[
+    UprightFont = * Light,
+    BoldFont    = * Medium,
+  ]%
+  \setCJKfamilyfont{zhfs}{STFangsong}%
+  \setCJKfamilyfont{zhkai}{Kaiti SC}[BoldFont = * Bold]%
+  \setCJKfamilyfont{zhli}{Baoli SC}%
+  \setCJKfamilyfont{zhyuan}{Yuanyi SC}[
+    UprightFont = * Light,
+    BoldFont    = * Bold,
+  ]%
+  \xeCJKsetwidth{‘’“”}{1em}%
+}
+\newcommand\ustc@load@cjk@font@noto{%
+  \setCJKmainfont{Noto Serif CJK SC}[
+    UprightFont = * Light,
+    BoldFont    = * Bold,
+    ItalicFont  = FandolKai,
+  ]%
+  \setCJKsansfont{Noto Sans CJK SC}[
+    UprightFont = * Regular,
+    BoldFont    = * Medium,
+  ]%
+  \setCJKmonofont{Noto Serif CJK SC}[
+    UprightFont = * Light,
+    UprightFont = * Bold,
+  ]%
+  \setCJKfamilyfont{zhsong}{Noto Serif CJK SC}[
+    UprightFont = * Light,
+    UprightFont = * Bold,
+  ]%
+  \setCJKfamilyfont{zhhei}{Noto Sans CJK SC}[
+    UprightFont = * Regular,
+    BoldFont    = * Medium,
+  ]%
+  \setCJKfamilyfont{zhfs}{FandolFang}[
+    Extension   = .otf,
+    UprightFont = *-Regular,
+  ]%
+  \setCJKfamilyfont{zhkai}{FandolKai}[
+    Extension   = .otf,
+    UprightFont = *-Regular,
+  ]%
+}
+\newcommand\ustc@load@cjk@font@fandol{%
+  \setCJKmainfont{FandolSong}[
+    Extension   = .otf,
+    UprightFont = *-Regular,
+    BoldFont    = *-Bold,
+    ItalicFont  = FandolKai-Regular,
+  ]%
+  \setCJKsansfont{FandolHei}[
+    Extension   = .otf,
+    UprightFont = *-Regular,
+    BoldFont    = *-Bold,
+  ]%
+  \setCJKmonofont{FandolFang}[
+    Extension   = .otf,
+    UprightFont = *-Regular,
+  ]%
+  \setCJKfamilyfont{zhsong}{FandolSong}[
+    Extension   = .otf,
+    UprightFont = *-Regular,
+    BoldFont    = *-Bold,
+  ]%
+  \setCJKfamilyfont{zhhei}{FandolHei}[
+    Extension   = .otf,
+    UprightFont = *-Regular,
+    BoldFont    = *-Bold,
+  ]%
+  \setCJKfamilyfont{zhfs}{FandolFang}[
+    Extension   = .otf,
+    UprightFont = *-Regular,
+  ]%
+  \setCJKfamilyfont{zhkai}{FandolKai}[
+    Extension   = .otf,
+    UprightFont = *-Regular,
+  ]%
+}
+\ifustc@cjk@font@none\else
+  \providecommand\songti{\CJKfamily{zhsong}}
+  \providecommand\heiti{\CJKfamily{zhhei}}
+  \providecommand\fangsong{\CJKfamily{zhfs}}
+  \providecommand\kaishu{\CJKfamily{zhkai}}
+\fi
+\newcommand\ustc@load@cjk@font{%
+  \@nameuse{ustc@load@cjk@font@\ustc@cjk@font}%
+}
+\ustc@load@cjk@font
+\ustc@option@hook{cjk-font}{\ustc@load@cjk@font}
 \unimathsetup{
   math-style = ISO,
   bold-style = ISO,
   nabla      = upright,
   partial    = upright,
 }
-\newif\ifustc@xits@new
-\ustc@xits@newtrue
-\IfFontExistsTF{XITS-Regular.otf}{}{
-  \ustc@xits@newfalse
+\newcommand\ustc@load@math@font@xits{%
+  \ustc@set@xits@names
+  \setmathfont{\ustc@font@name@xits@math@rm}[
+    Extension    = .otf,
+    BoldFont     = \ustc@font@name@xits@math@bf,
+    StylisticSet = 8,
+  ]%
+  \setmathfont{\ustc@font@name@xits@math@rm}[
+    Extension    = .otf,
+    StylisticSet = 1,
+    range        = {cal,bfcal},
+  ]%
 }
-\ifustc@xits@new
-  \setmathfont[
+\newcommand\ustc@load@math@font@stix{%
+  \setmathfont{STIX2Math}[
     Extension    = .otf,
-    BoldFont     = XITSMath-Bold,
     StylisticSet = 8,
-  ]{XITSMath-Regular}
-  \setmathfont[range={cal,bfcal},StylisticSet=1]{XITSMath-Regular.otf}
-\else
-  \setmathfont[
+  ]%
+  \setmathfont{STIX2Math}[
     Extension    = .otf,
-    BoldFont     = *bold,
-    StylisticSet = 8,
-  ]{xits-math}
-  \setmathfont[range={cal,bfcal},StylisticSet=1]{xits-math.otf}
-\fi
-\ustc@strifeq{\ustc@fontset}{mac}{
-  \newfontfamily\ustc@circlefont{Songti SC Light}
-}{
-  \ustc@strifeq{\ustc@fontset}{windows}{
-    \newfontfamily\ustc@circlefont{SimSun}
-  }{
-    \ifustc@xits@new
-      \newfontfamily\ustc@circlefont{XITS-Regular.otf}
-    \else
-      \newfontfamily\ustc@circlefont{xits-regular.otf}
+    StylisticSet = 1,
+    range        = {cal,bfcal},
+  ]%
+}
+\newcommand\ustc@load@math@font@libertinus{%
+  \ustc@set@libertinus@names
+  \setmathfont{\ustc@font@name@libertinus@math .otf}%
+}
+\@namedef{ustc@load@math@font@latin-modern}{%
+  \setmathfont{latinmodern-math.otf}%
+}
+\newcommand\ustc@load@math@font{%
+  \csname ustc@load@math@font@\ustc@math@font\endcsname
+}
+\ustc@load@math@font
+\ustc@option@hook{math-font}{\ustc@load@math@font}
+\ifustc@font@times
+  \ifustc@cjk@font@mac
+    \newfontfamily\ustc@circlefont{Songti SC Light}
+  \else
+    \ifustc@cjk@font@windows
+      \newfontfamily\ustc@circlefont{SimSun}
     \fi
+  \fi
+\else
+  \ustc@set@xits@names
+  \newfontfamily\ustc@circlefont{%
+    \ustc@font@family@xits-\ustc@font@style@xits@rm.otf%
   }
-}
+\fi
 \newdimen\bp@
 \bp@=1bp
 \ifustc@degree@graduate
@@ -607,15 +918,17 @@
   \else
     \renewcommand\ustc@thesis@name{专业硕士学位论文}
   \fi
-  \ustc@strifeq{\ustc@fontset}{mac}{
-    \setCJKfamilyfont{zhli}{Baoli SC}
+  \ifustc@cjk@font@mac
     \providecommand\lishu{\CJKfamily{zhli}}
-  }{
-    \ifx\lishu\relax
-      \ustc@warning{LiSu font is required}
+  \else
+    \ifustc@cjk@font@windows
+      \setCJKfamilyfont{zhli}{LiSu}
+      \providecommand\lishu{\CJKfamily{zhli}}
+    \else
+      \ustc@warning{LiShu font is required}
+      \providecommand\lishu{\sffamily}
     \fi
-    \providecommand\lishu{\sffamily}
-  }
+  \fi
   \newcommand\ustc@speciality@name{专业领域}
 \fi
 \definecolor{ustcblue}{cmyk}{1,0.8,0,0}

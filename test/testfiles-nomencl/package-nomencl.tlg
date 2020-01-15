@@ -1,6 +1,12 @@
 This is a generated file for the l3build validation system.
 Don't change this file in any respect.
 (package-nomencl.nls
+LaTeX Font Info:    Font shape `TU/texgyreheros(0)/m/n' will be
+(Font)              scaled to size 10.34387pt on input line ....
+LaTeX Font Info:    Font shape `TU/texgyreheros(0)/b/n' will be
+(Font)              scaled to size 10.03731pt on input line ....
+LaTeX Font Info:    Font shape `TU/texgyreheros(0)/b/n' will be
+(Font)              scaled to size 13.38309pt on input line ....
 LaTeX Font Info:    Calculating math sizes for size <12.04486> on input line ....
 LaTeX Font Info:    Font shape `TU/XITSMath-Regular(2)/m/n' will be
 (Font)              scaled to size 12.04614pt on input line ....
@@ -39,13 +45,13 @@ Completed box being shipped out [1]
 .........\hbox(8.43135+3.6135)x417.11752, glue set 179.57584fil
 ..........\glue(\leftskip) 0.0 plus 1.0fil
 ..........\hbox(0.0+0.0)x0.0
-..........\TU/FandolSong-Regular(0)/m/n/10.53925 符
+..........\TU/FandolSong(0)/m/n/10.53925 符
 ..........\glue 5.26962 plus 0.45427 minus 0.17125
-..........\TU/FandolSong-Regular(0)/m/n/10.53925 号
+..........\TU/FandolSong(0)/m/n/10.53925 号
 ..........\glue 5.26962 plus 0.45427 minus 0.17125
-..........\TU/FandolSong-Regular(0)/m/n/10.53925 说
+..........\TU/FandolSong(0)/m/n/10.53925 说
 ..........\glue 5.26962 plus 0.45427 minus 0.17125
-..........\TU/FandolSong-Regular(0)/m/n/10.53925 明
+..........\TU/FandolSong(0)/m/n/10.53925 明
 ..........\kern -0.00017
 ..........\kern 0.00017
 ..........\rule(8.43135+3.6135)x0.0
@@ -90,13 +96,13 @@ Completed box being shipped out [1]
 ...\hbox(12.4303+2.81046)x417.11752, glue set 164.39427fil
 ....\glue(\leftskip) 0.0 plus 1.0fil
 ....\hbox(0.0+0.0)x0.0
-....\TU/FandolHei-Regular(0)/b/n/16.05981 符
+....\TU/FandolHei(0)/b/n/16.05981 符
 ....\glue 8.0299 plus 0.97638 minus 0.4981
-....\TU/FandolHei-Regular(0)/b/n/16.05981 号
+....\TU/FandolHei(0)/b/n/16.05981 号
 ....\glue 8.0299 plus 0.97638 minus 0.4981
-....\TU/FandolHei-Regular(0)/b/n/16.05981 说
+....\TU/FandolHei(0)/b/n/16.05981 说
 ....\glue 8.0299 plus 0.97638 minus 0.4981
-....\TU/FandolHei-Regular(0)/b/n/16.05981 明
+....\TU/FandolHei(0)/b/n/16.05981 明
 ....\kern -0.00017
 ....\kern 0.00017
 ....\penalty 10000
@@ -432,11 +438,11 @@ Completed box being shipped out [1]
 .........\hbox(8.43135+3.6135)x417.11752, glue set 161.5748fil
 ..........\glue(\leftskip) 0.0 plus 1.0fil
 ..........\hbox(0.0+0.0)x0.0
-..........\TU/FandolSong-Regular(0)/m/n/10.53925 第
+..........\TU/FandolSong(0)/m/n/10.53925 第
 ..........\glue 2.63481 plus 1.3174 minus 0.87827
 ..........\TU/texgyretermes(0)/m/n/10.53925 1
 ..........\glue 2.63481 plus 1.3174 minus 0.87827
-..........\TU/FandolSong-Regular(0)/m/n/10.53925 章
+..........\TU/FandolSong(0)/m/n/10.53925 章
 ..........\kern -0.00017
 ..........\kern 0.00017
 ..........\glue 10.53925
@@ -481,21 +487,21 @@ Completed box being shipped out [1]
 ...\glue 12.08972
 ...\glue 0.0
 ...\glue(\parskip) 0.0
-...\hbox(12.36606+2.77834)x417.11752, glue set 130.5161fil
+...\hbox(12.36606+2.77834)x417.11752, glue set 139.50854fil
 ....\glue(\leftskip) 0.0 plus 1.0fil
 ....\hbox(0.0+0.0)x0.0
-....\TU/FandolHei-Regular(0)/b/n/16.05981 第
-....\glue 4.46463 plus 2.23232 minus 1.4882
+....\TU/FandolHei(0)/b/n/16.05981 第
+....\glue 3.7205 plus 1.86024 minus 1.24016
 ....\TU/texgyreheros(0)/b/n/16.05981 1
-....\glue 4.46463 plus 2.23232 minus 1.4882
-....\TU/FandolHei-Regular(0)/b/n/16.05981 章
+....\glue 3.7205 plus 1.86024 minus 1.24016
+....\TU/FandolHei(0)/b/n/16.05981 章
 ....\kern -0.00017
 ....\kern 0.00017
 ....\glue 16.05981
 ....\TU/texgyreheros(0)/b/n/16.05981 Main
 ....\kern -0.00021
 ....\kern 0.00021
-....\glue 4.46463 plus 2.23232 minus 1.4882
+....\glue 3.7205 plus 1.86024 minus 1.24016
 ....\TU/texgyreheros(0)/b/n/16.05981 matter
 ....\kern -0.0002
 ....\kern 0.0002
