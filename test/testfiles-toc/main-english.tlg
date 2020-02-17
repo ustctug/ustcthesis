@@ -71,9 +71,9 @@ Completed box being shipped out [1]
 ...\hbox(12.5909+2.90681)x417.11752, glue set 176.43913fil
 ....\glue(\leftskip) 0.0 plus 1.0fil
 ....\hbox(0.0+0.0)x0.0
-....\TU/FandolHei-Regular(0)/bx/n/16.05981 摘
+....\TU/FandolHei-Regular(0)/b/n/16.05981 摘
 ....\glue 32.11963 plus 1.95277 minus 3.61748
-....\TU/FandolHei-Regular(0)/bx/n/16.05981 要
+....\TU/FandolHei-Regular(0)/b/n/16.05981 要
 ....\kern -0.00017
 ....\kern 0.00017
 ....\penalty 10000
@@ -108,11 +108,11 @@ Completed box being shipped out [1]
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 10.80023
 ...\hbox(9.27454+2.21623)x417.11752, glue set 332.8035fil
-....\TU/FandolSong-Regular(0)/bx/n/12.04486 关
+....\TU/FandolSong-Regular(0)/b/n/12.04486 关
 ....\glue 0.0 plus 0.61366
-....\TU/FandolSong-Regular(0)/bx/n/12.04486 键
+....\TU/FandolSong-Regular(0)/b/n/12.04486 键
 ....\glue 0.0 plus 0.61366
-....\TU/FandolSong-Regular(0)/bx/n/12.04486 词
+....\TU/FandolSong-Regular(0)/b/n/12.04486 词
 ....\kern 0.0
 ....\kern -0.00017
 ....\kern 0.00017
@@ -239,7 +239,7 @@ Completed box being shipped out [2]
 ...\hbox(11.90033+0.1927)x417.11752, glue set 164.7235fil
 ....\glue(\leftskip) 0.0 plus 1.0fil
 ....\hbox(0.0+0.0)x0.0
-....\TU/texgyreheros(0)/bx/n/16.05981 ABSTRACT
+....\TU/texgyreheros(0)/b/n/16.05981 ABSTRACT
 ....\kern -0.0002
 ....\kern 0.0002
 ....\penalty 10000
@@ -267,11 +267,11 @@ Completed box being shipped out [2]
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 11.84813
 ...\hbox(8.22664+2.62576)x417.11752, glue set 307.02348fil
-....\TU/texgyretermes(0)/bx/n/12.04486 Key
+....\TU/texgyretermes(0)/b/n/12.04486 Key
 ....\kern -0.00021
 ....\kern 0.00021
 ....\glue 3.01122 plus 1.5056 minus 1.00374
-....\TU/texgyretermes(0)/bx/n/12.04486 Words
+....\TU/texgyretermes(0)/b/n/12.04486 Words
 ....\kern 0.0
 ....\kern -0.0002
 ....\kern 0.0002
@@ -397,7 +397,7 @@ Completed box being shipped out [3]
 ...\hbox(11.90033+0.1927)x417.11752, glue set 173.80533fil
 ....\glue(\leftskip) 0.0 plus 1.0fil
 ....\hbox(0.0+0.0)x0.0
-....\TU/texgyreheros(0)/bx/n/16.05981 Contents
+....\TU/texgyreheros(0)/b/n/16.05981 Contents
 ....\kern -0.0002
 ....\kern 0.0002
 ....\penalty 10000
@@ -913,7 +913,7 @@ Completed box being shipped out [5]
 ...\hbox(11.96457+0.14452)x417.11752, glue set 175.95734fil
 ....\glue(\leftskip) 0.0 plus 1.0fil
 ....\hbox(0.0+0.0)x0.0
-....\TU/texgyreheros(0)/bx/n/16.05981 Notation
+....\TU/texgyreheros(0)/b/n/16.05981 Notation
 ....\kern -0.0002
 ....\kern 0.0002
 ....\penalty 10000
@@ -1074,17 +1074,17 @@ Completed box being shipped out [1]
 ...\hbox(12.39818+3.50102)x417.11752, glue set 131.4556fil
 ....\glue(\leftskip) 0.0 plus 1.0fil
 ....\hbox(0.0+0.0)x0.0
-....\TU/texgyreheros(0)/bx/n/16.05981 Chapter
+....\TU/texgyreheros(0)/b/n/16.05981 Chapter
 ....\kern -0.00021
 ....\kern 0.00021
 ....\glue 4.46463 plus 2.23232 minus 1.4882
-....\TU/texgyreheros(0)/bx/n/16.05981 1
+....\TU/texgyreheros(0)/b/n/16.05981 1
 ....\kern -0.0002
 ....\kern 0.0002
 ....\glue 16.05981
-....\TU/FandolHei-Regular(0)/bx/n/16.05981 简
+....\TU/FandolHei-Regular(0)/b/n/16.05981 简
 ....\glue 32.11963 plus 1.95277 minus 3.61748
-....\TU/FandolHei-Regular(0)/bx/n/16.05981 介
+....\TU/FandolHei-Regular(0)/b/n/16.05981 介
 ....\kern -0.00017
 ....\kern 0.00017
 ....\penalty 10000
@@ -1558,19 +1558,19 @@ Completed box being shipped out [2]
 ...\hbox(12.25363+3.50102)x417.11752, glue set 123.42569fil
 ....\glue(\leftskip) 0.0 plus 1.0fil
 ....\hbox(0.0+0.0)x0.0
-....\TU/texgyreheros(0)/bx/n/16.05981 Chapter
+....\TU/texgyreheros(0)/b/n/16.05981 Chapter
 ....\kern -0.00021
 ....\kern 0.00021
 ....\glue 4.46463 plus 2.23232 minus 1.4882
-....\TU/texgyreheros(0)/bx/n/16.05981 2
+....\TU/texgyreheros(0)/b/n/16.05981 2
 ....\kern -0.0002
 ....\kern 0.0002
 ....\glue 16.05981
-....\TU/FandolHei-Regular(0)/bx/n/16.05981 浮
+....\TU/FandolHei-Regular(0)/b/n/16.05981 浮
 ....\glue 16.05981 plus 1.30185 minus 1.26904
-....\TU/FandolHei-Regular(0)/bx/n/16.05981 动
+....\TU/FandolHei-Regular(0)/b/n/16.05981 动
 ....\glue 16.05981 plus 1.30185 minus 1.26904
-....\TU/FandolHei-Regular(0)/bx/n/16.05981 体
+....\TU/FandolHei-Regular(0)/b/n/16.05981 体
 ....\kern -0.00017
 ....\kern 0.00017
 ....\penalty 10000
@@ -1703,7 +1703,7 @@ Completed box being shipped out [3]
 ...\hbox(11.96457+3.51709)x417.11752, glue set 159.60042fil
 ....\glue(\leftskip) 0.0 plus 1.0fil
 ....\hbox(0.0+0.0)x0.0
-....\TU/texgyreheros(0)/bx/n/16.05981 Bibliography
+....\TU/texgyreheros(0)/b/n/16.05981 Bibliography
 ....\kern -0.0002
 ....\kern 0.0002
 ....\penalty 10000
@@ -1941,21 +1941,21 @@ Completed box being shipped out [4]
 ...\hbox(12.34999+3.50102)x417.11752, glue set 111.7502fil
 ....\glue(\leftskip) 0.0 plus 1.0fil
 ....\hbox(0.0+0.0)x0.0
-....\TU/texgyreheros(0)/bx/n/16.05981 Appendix
+....\TU/texgyreheros(0)/b/n/16.05981 Appendix
 ....\kern -0.00021
 ....\kern 0.00021
 ....\glue 4.46463 plus 2.23232 minus 1.4882
-....\TU/texgyreheros(0)/bx/n/16.05981 A
+....\TU/texgyreheros(0)/b/n/16.05981 A
 ....\kern -0.0002
 ....\kern 0.0002
 ....\glue 16.05981
-....\TU/FandolHei-Regular(0)/bx/n/16.05981 附
+....\TU/FandolHei-Regular(0)/b/n/16.05981 附
 ....\glue 8.0299 plus 0.97638 minus 0.4981
-....\TU/FandolHei-Regular(0)/bx/n/16.05981 录
+....\TU/FandolHei-Regular(0)/b/n/16.05981 录
 ....\glue 8.0299 plus 0.97638 minus 0.4981
-....\TU/FandolHei-Regular(0)/bx/n/16.05981 章
+....\TU/FandolHei-Regular(0)/b/n/16.05981 章
 ....\glue 8.0299 plus 0.97638 minus 0.4981
-....\TU/FandolHei-Regular(0)/bx/n/16.05981 节
+....\TU/FandolHei-Regular(0)/b/n/16.05981 节
 ....\kern -0.00017
 ....\kern 0.00017
 ....\penalty 10000
@@ -2094,7 +2094,7 @@ Completed box being shipped out [5]
 ...\hbox(11.70761+3.50102)x417.11752, glue set 133.23021fil
 ....\glue(\leftskip) 0.0 plus 1.0fil
 ....\hbox(0.0+0.0)x0.0
-....\TU/texgyreheros(0)/bx/n/16.05981 Acknowledgements
+....\TU/texgyreheros(0)/b/n/16.05981 Acknowledgements
 ....\kern -0.0002
 ....\kern 0.0002
 ....\penalty 10000
@@ -2233,7 +2233,7 @@ Completed box being shipped out [6]
 ...\hbox(11.96457+0.14452)x417.11752, glue set 160.81294fil
 ....\glue(\leftskip) 0.0 plus 1.0fil
 ....\hbox(0.0+0.0)x0.0
-....\TU/texgyreheros(0)/bx/n/16.05981 Publications
+....\TU/texgyreheros(0)/b/n/16.05981 Publications
 ....\kern -0.0002
 ....\kern 0.0002
 ....\penalty 10000
