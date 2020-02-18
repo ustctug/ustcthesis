@@ -686,6 +686,14 @@
 % \end{tabular}
 % \end{table}
 %
+% 如果需要每章生成独立的参考文献表，可以使用 \pkg{chapterbib} 宏包，
+% 但是需要注意：
+% \begin{enumerate}
+%   \item 在 \file{main.tex} 中调用每章的子文件时必须使用 \cs{include} 命令；
+%   \item 每章需要使用 \cs{bibliographystyle} 和 \cs{bibliography} 命令；
+%   \item 如果手动调用 BibTeX，需要对每章生成的 \file{.aux} 文件编译，
+%     （如果使用 \pkg{latexmk} 则可以自动处理）。
+% \end{enumerate}
 %
 % \StopEventually
 % \clearpage
@@ -3083,6 +3091,18 @@
       range-phrase         = {～},
     }
   \fi
+}
+%    \end{macrocode}
+%
+% \subsubsection{\pkg{chapterbib} 宏包}
+%
+%    \begin{macrocode}
+\ustc@atendpackage{chapterbib}{
+  \renewcommand\bibsection{%
+    \ctexset{section/numbering=false}%
+    \section{\bibname}%
+    \ctexset{section/numbering=true}%
+  }
 }
 %    \end{macrocode}
 %

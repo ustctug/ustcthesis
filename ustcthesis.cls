@@ -1487,3 +1487,10 @@
     }
   \fi
 }
+\ustc@atendpackage{chapterbib}{
+  \renewcommand\bibsection{%
+    \ctexset{section/numbering=false}%
+    \section{\bibname}%
+    \ctexset{section/numbering=true}%
+  }
+}

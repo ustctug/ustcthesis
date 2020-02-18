@@ -5,6 +5,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
+### Added
+
+- 添加对 `chapterbib` 宏包的支持
+
 ### Fixed
 
 - 修正 LaTeX3 的 `\str_if_eq_x` 已过时的报错 - [#241](https://github.com/ustctug/ustcthesis/issues/241)
