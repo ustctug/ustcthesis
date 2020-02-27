@@ -197,20 +197,28 @@ Completed box being shipped out [1]
 ....\penalty -10000
 ....\glue(\rightskip) 0.0
 ...\glue(\baselineskip) 11.90836
-...\hbox(5.54063+2.62578)x417.11752, glue set 383.31966fil
-....\hbox(5.54063+2.62578)x15.39333
+...\hbox(5.54063+2.62576)x417.11752, glue set 383.31966fil
+....\hbox(5.54063+2.62576)x15.39333
 .....\mathon
-.....\hbox(5.54063+2.62578)x15.39333
-......\TU/texgyretermes(1)/m/n/12.04486 glyph#422
+.....\hbox(5.54063+2.62576)x15.39333
+......\hbox(5.42018+2.62576)x6.02243
+.......\hbox(5.42018+2.62576)x6.02243
+........\TU/texgyretermes(0)/m/n/12.04486 ^^b5
+........\kern -0.0002
+........\kern 0.0002
 ......\TU/texgyretermes(1)/m/n/12.04486 glyph#76
 .....\mathoff
 ....\glue 3.01122 plus 1.5056 minus 1.00374
 ....\mathon
-....\hbox(5.54063+2.62578)x15.39333
-.....\hbox(5.54063+2.62578)x15.39333
+....\hbox(5.54063+2.62576)x15.39333
+.....\hbox(5.54063+2.62576)x15.39333
 ......\mathon
-......\hbox(5.54063+2.62578)x15.39333
-.......\TU/texgyretermes(1)/m/n/12.04486 glyph#422
+......\hbox(5.54063+2.62576)x15.39333
+.......\hbox(5.42018+2.62576)x6.02243
+........\hbox(5.42018+2.62576)x6.02243
+.........\TU/texgyretermes(0)/m/n/12.04486 ^^b5
+.........\kern -0.0002
+.........\kern 0.0002
 .......\TU/texgyretermes(1)/m/n/12.04486 glyph#76
 ......\mathoff
 ....\mathoff
@@ -218,7 +226,7 @@ Completed box being shipped out [1]
 ....\glue 0.0 plus 1.0fil
 ....\penalty -10000
 ....\glue(\rightskip) 0.0
-...\glue(\baselineskip) 9.29462
+...\glue(\baselineskip) 9.29463
 ...\hbox(8.15437+0.0)x417.11752, glue set 395.65358fil
 ....\hbox(8.15437+0.0)x9.22636
 .....\mathon
@@ -385,7 +393,7 @@ Completed box being shipped out [1]
 ....\glue(\rightskip) 0.0
 ...\penalty 150
 ...\glue(\baselineskip) 11.76381
-...\hbox(8.14233+0.16862)x417.11752, glue set 354.99733fil
+...\hbox(8.14233+0.16862)x417.11752, glue set 351.26338fil
 ....\hbox(8.14233+0.16862)x12.04486
 .....\mathon
 .....\hbox(8.14233+0.16862)x12.04486
@@ -394,13 +402,14 @@ Completed box being shipped out [1]
 .....\mathoff
 ....\penalty 10000
 ....\kern 2.0079
-....\hbox(8.14233+0.16862)x10.9849
+....\hbox(8.14233+0.16862)x12.85187
 .....\mathon
-.....\hbox(8.14233+0.16862)x10.9849
-......\hbox(0.0+0.0)x0.0
-......\hbox(3.26294+0.0)x3.45097, shifted -4.81845
-.......\TU/XITSMath-Regular(1)/m/n/8.43135 glyph#1161
-......\kern -0.5
+.....\hbox(8.14233+0.16862)x12.85187
+......\hbox(8.14233+0.0)x4.81795
+.......\hbox(8.14233+0.0)x4.81795
+........\TU/texgyretermes(0)/m/n/12.04486 ^^b0
+........\kern -0.0002
+........\kern 0.0002
 ......\TU/texgyretermes(1)/m/n/12.04486 glyph#43
 .....\mathoff
 ....\penalty 10000
@@ -421,13 +430,14 @@ Completed box being shipped out [1]
 .....\mathoff
 ....\penalty 10000
 ....\kern 2.0079
-....\hbox(8.14233+0.16862)x10.9849
+....\hbox(8.14233+0.16862)x12.85187
 .....\mathon
-.....\hbox(8.14233+0.16862)x10.9849
-......\hbox(0.0+0.0)x0.0
-......\hbox(3.26294+0.0)x3.45097, shifted -4.81845
-.......\TU/XITSMath-Regular(1)/m/n/8.43135 glyph#1161
-......\kern -0.5
+.....\hbox(8.14233+0.16862)x12.85187
+......\hbox(8.14233+0.0)x4.81795
+.......\hbox(8.14233+0.0)x4.81795
+........\TU/texgyretermes(0)/m/n/12.04486 ^^b0
+........\kern -0.0002
+........\kern 0.0002
 ......\TU/texgyretermes(1)/m/n/12.04486 glyph#43
 .....\mathoff
 ....\penalty 10000
