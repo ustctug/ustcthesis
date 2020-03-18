@@ -4,7 +4,8 @@ INSTALL="/tmp/install-texlive";
 mkdir -p "$INSTALL";
 curl -sSL "$REMOTE/install-tl-unx.tar.gz" | tar -xz -C "$INSTALL" \
     --strip-components=1;
-"$INSTALL/install-tl" -profile .github/workflows/texlive.profile;
+"$INSTALL/install-tl" -no-gui -repository $REMOTE \
+    -profile .github/workflows/texlive.profile;
 
 export PATH="/tmp/texlive/bin/x86_64-linux:$PATH";
 
