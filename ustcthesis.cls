@@ -74,7 +74,7 @@
     \@nameuse{ustc@#1@@hook}%
   }%
 }
-\newcommand\ustc@addto[2]{%
+\newcommand\ustc@option@hook[2]{%
   \expandafter\g@addto@macro\csname ustc@#1@@code\endcsname{#2}%
 }
 \newif\ifustc@degree@graduate
@@ -147,7 +147,7 @@
     \ustcsetup{section-style = arabic}
   \fi
 \fi
-\ustc@addto{language}{%
+\ustc@option@hook{language}{%
   \ifustc@degree@bachelor
     \ifustc@language@english
       \ustcsetup{section-style = arabic}%
@@ -1192,7 +1192,7 @@
   \gdef\NAT@sort{\z@}%
   \gdef\NAT@cmprs{\z@}%
 }
-\ustc@addto{cite-style}{%
+\ustc@option@hook{cite-style}{%
   \citestyle{\ustc@cite@style}%
 }
 \@namedef{bibstyle@ustcthesis-numerical}{\bibstyle@super}

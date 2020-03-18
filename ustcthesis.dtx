@@ -864,7 +864,7 @@
 % 定义接口向 |key| 添加 |code|：
 %
 %    \begin{macrocode}
-\newcommand\ustc@addto[2]{%
+\newcommand\ustc@option@hook[2]{%
   \expandafter\g@addto@macro\csname ustc@#1@@code\endcsname{#2}%
 }
 %    \end{macrocode}
@@ -940,7 +940,7 @@
     \ustcsetup{section-style = arabic}
   \fi
 \fi
-\ustc@addto{language}{%
+\ustc@option@hook{language}{%
   \ifustc@degree@bachelor
     \ifustc@language@english
       \ustcsetup{section-style = arabic}%
@@ -2632,7 +2632,7 @@
 % 因为在导言区执行 \cs{citestyle} 会妨碍 \pkg{natbib} 的 \cs{bibstyle}
 % 自动设置 \cs{citestyle}。
 %    \begin{macrocode}
-\ustc@addto{cite-style}{%
+\ustc@option@hook{cite-style}{%
   \citestyle{\ustc@cite@style}%
 }
 %    \end{macrocode}
