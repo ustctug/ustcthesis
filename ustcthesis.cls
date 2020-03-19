@@ -259,6 +259,25 @@
 \RequirePackage{calc}
 \RequirePackage{natbib}
 \RequirePackage{notoccite}
+\RequirePackage{filehook}
+\newcommand\ustc@package@conlict[2]{%
+  \AtBeginOfPackageFile*{#2}{%
+    \ustc@error{%
+      The "#2" package is incompatible with "#1"
+      which is required by ustcthesis%
+    }%
+  }%
+}
+\ustc@package@conlict{unicode-math}{amscd}
+\ustc@package@conlict{unicode-math}{amsfonts}
+\ustc@package@conlict{unicode-math}{amssymb}
+\ustc@package@conlict{unicode-math}{bbm}
+\ustc@package@conlict{unicode-math}{bm}
+\ustc@package@conlict{unicode-math}{eucal}
+\ustc@package@conlict{unicode-math}{eufrak}
+\ustc@package@conlict{unicode-math}{mathrsfs}
+\ustc@package@conlict{unicode-math}{savesym}
+\ustc@package@conlict{unicode-math}{textcomp}
 \ifustc@fontset@mac
   \ustcsetup{
     font     = times,
@@ -1484,8 +1503,8 @@
 \AtBeginDocument{%
   \renewcommand\nabla{\mbfnabla}%
 }
-\newcommand\bm{\symbf}
-\renewcommand\boldsymbol{\symbf}
+\DeclareRobustCommand\bm[1]{{\symbf{#1}}}
+\DeclareRobustCommand\boldsymbol[1]{{\symbf{#1}}}
 \newcommand\square{\mdlgwhtsquare}
 \newcommand\upe{\symup{e}}
 \newcommand\upi{\symup{i}}
@@ -1620,8 +1639,7 @@
   \end{acknowledgements}%
 }
 \newenvironment{publications}{\chapter{\ustc@publication@name}}{}
-\newcommand\ustc@atendpackage{\csname ctex_at_end_package:nn\endcsname}
-\ustc@atendpackage{hyperref}{
+\AtEndOfPackageFile*{hyperref}{
   \hypersetup{
     bookmarksnumbered  = true,
     bookmarksopen      = true,
@@ -1682,7 +1700,7 @@
     \def\HyRef@autopageref#1{\hyperref[{#1}]{第~\pageref*{#1} 页}}
   \fi
 }
-\ustc@atendpackage{amsthm}{
+\AtEndOfPackageFile*{amsthm}{
   \newtheoremstyle{ustcplain}
     {}{}
     {}{2\ccwd}
@@ -1736,7 +1754,7 @@
   }
 }
 \PassOptionsToPackage{algochapter}{algorithm2e}
-\ustc@atendpackage{algorithm2e}{
+\AtEndOfPackageFile*{algorithm2e}{
   \ifustc@language@chinese
     \SetAlgorithmName{算法}{算法}{算法清单}
   \else
@@ -1762,7 +1780,7 @@
     {\ustc@leaders\contentspage}
   \contentsuse{algocf}{loa}
 }
-\ustc@atendpackage{nomencl}{
+\AtEndOfPackageFile*{nomencl}{
   \let\nomname\ustc@notation@name
   \def\thenomenclature{%
     \ifustc@degree@graduate
@@ -1786,7 +1804,7 @@
     \fi
   }
 }
-\ustc@atendpackage{siunitx}{
+\AtEndOfPackageFile*{siunitx}{
   \sisetup{
     group-minimum-digits = 4,
     separate-uncertainty = true,
@@ -1800,7 +1818,7 @@
     }
   \fi
 }
-\ustc@atendpackage{chapterbib}{
+\AtEndOfPackageFile*{chapterbib}{
   \renewcommand\bibsection{%
     \ctexset{section/numbering=false}%
     \section{\bibname}%

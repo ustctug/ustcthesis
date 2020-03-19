@@ -557,13 +557,14 @@
 % \subsection{数学}
 %
 % \LaTeX{} 默认按照美国的习惯排版数学公式和符号，
-% 但是《撰写手册》要求数学符号依据《GB 3102.11--1993》执行，
+% 但是《撰写手册》要求数学符号依据 GB/T 3102.11-1993 《物理科学和技术中使用的数学符号》
+% \footnote{原 GB/T 3102.11-1993}执行，
 % 与 \LaTeX{} 的习惯有所差异。
 % 本模板基于 \pkg{unicode-math} 宏包配置数学符号，以遵循国标的规定。
 %
 % 注意，\pkg{unicode-math} 宏包与 \pkg{amsfonts}, \pkg{amssymb}, \pkg{bm},
 % \pkg{mathrsfs}, \pkg{upgreek} 等宏包\emph{不}兼容。
-% 本模板作了处理，用户可以直接使用这些宏包的命令，如 \cs{bm}, \cs{mathscr},
+% 本模板作了处理，用户可以直接使用 \cs{bm}, \cs{mathscr},
 % \cs{upGamma}。
 %
 % \DescribeMacro{\symup}
@@ -575,7 +576,7 @@
 %     应使用 \pkg{unicode-math} 宏包提供的 \cs{symup} 命令转为正体，
 %     如 |\symup{\pi}|。
 %   \item 向量、矩阵和张量要求粗斜体，应使用 \cs{symbf} 命令，
-%     如 |\symbf{A}|、|\symbf{u}|。
+%     如 |\symbf{A}|、|\symbf{\alpha}|。
 %   \item 有限增量符号 $\increment$ （U+2206）应使用 \cs{increment} 命令。
 %   \item 微分符号 $\mathrm{d}$ 使用正体，本模板提供了 \cs{dif} 命令。
 % \end{itemize}
@@ -1084,6 +1085,29 @@
 \RequirePackage{calc}
 \RequirePackage{natbib}
 \RequirePackage{notoccite}
+%    \end{macrocode}
+%
+% 对冲突的宏包报错。
+%    \begin{macrocode}
+\RequirePackage{filehook}
+\newcommand\ustc@package@conlict[2]{%
+  \AtBeginOfPackageFile*{#2}{%
+    \ustc@error{%
+      The "#2" package is incompatible with "#1"
+      which is required by ustcthesis%
+    }%
+  }%
+}
+\ustc@package@conlict{unicode-math}{amscd}
+\ustc@package@conlict{unicode-math}{amsfonts}
+\ustc@package@conlict{unicode-math}{amssymb}
+\ustc@package@conlict{unicode-math}{bbm}
+\ustc@package@conlict{unicode-math}{bm}
+\ustc@package@conlict{unicode-math}{eucal}
+\ustc@package@conlict{unicode-math}{eufrak}
+\ustc@package@conlict{unicode-math}{mathrsfs}
+\ustc@package@conlict{unicode-math}{savesym}
+\ustc@package@conlict{unicode-math}{textcomp}
 %    \end{macrocode}
 %
 %
@@ -2891,8 +2915,8 @@
 % \begin{macro}{\boldsymbol}
 % 兼容旧的粗体命令：\pkg{bm} 的 \cs{bm} 和 \pkg{amsmath} 的 \cs{boldsymbol}。
 %    \begin{macrocode}
-\newcommand\bm{\symbf}
-\renewcommand\boldsymbol{\symbf}
+\DeclareRobustCommand\bm[1]{{\symbf{#1}}}
+\DeclareRobustCommand\boldsymbol[1]{{\symbf{#1}}}
 %    \end{macrocode}
 % \end{macro}
 % \end{macro}
@@ -3135,15 +3159,12 @@
 % \subsection{其他宏包的设置}
 %
 % 这些宏包并非格式要求，但是为了方便同学们使用，在这里进行简单设置。
-%    \begin{macrocode}
-\newcommand\ustc@atendpackage{\csname ctex_at_end_package:nn\endcsname}
-%    \end{macrocode}
 %
 %
 % \subsubsection{\pkg{hyperref} 宏包}
 %
 %    \begin{macrocode}
-\ustc@atendpackage{hyperref}{
+\AtEndOfPackageFile*{hyperref}{
   \hypersetup{
     bookmarksnumbered  = true,
     bookmarksopen      = true,
@@ -3241,7 +3262,7 @@
 % \subsubsection{\pkg{amsthm} 宏包}
 %
 %    \begin{macrocode}
-\ustc@atendpackage{amsthm}{
+\AtEndOfPackageFile*{amsthm}{
   \newtheoremstyle{ustcplain}
     {}{}
     {}{2\ccwd}
@@ -3313,7 +3334,7 @@
 %    \end{macrocode}
 %
 %    \begin{macrocode}
-\ustc@atendpackage{algorithm2e}{
+\AtEndOfPackageFile*{algorithm2e}{
   \ifustc@language@chinese
     \SetAlgorithmName{算法}{算法}{算法清单}
   \else
@@ -3353,7 +3374,7 @@
 % \subsubsection{\pkg{nomencl} 宏包}
 %
 %    \begin{macrocode}
-\ustc@atendpackage{nomencl}{
+\AtEndOfPackageFile*{nomencl}{
   \let\nomname\ustc@notation@name
   \def\thenomenclature{%
     \ifustc@degree@graduate
@@ -3383,7 +3404,7 @@
 % \subsubsection{\pkg{siunitx} 宏包}
 %
 %    \begin{macrocode}
-\ustc@atendpackage{siunitx}{
+\AtEndOfPackageFile*{siunitx}{
   \sisetup{
     group-minimum-digits = 4,
     separate-uncertainty = true,
@@ -3402,7 +3423,7 @@
 % \subsubsection{\pkg{chapterbib} 宏包}
 %
 %    \begin{macrocode}
-\ustc@atendpackage{chapterbib}{
+\AtEndOfPackageFile*{chapterbib}{
   \renewcommand\bibsection{%
     \ctexset{section/numbering=false}%
     \section{\bibname}%
