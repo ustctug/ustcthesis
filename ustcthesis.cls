@@ -5,7 +5,7 @@
   \ClassError{ustcthesis}{#1}{}%
 }
 \newcommand\ustc@warning[1]{%
-  \ClassWaring{ustcthesis}{#1}%
+  \ClassWarning{ustcthesis}{#1}%
 }
 \RequirePackage{iftex}
 \ifXeTeX\else
