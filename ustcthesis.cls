@@ -7,6 +7,11 @@
 \newcommand\ustc@warning[1]{%
   \ClassWarning{ustcthesis}{#1}%
 }
+\@ifl@t@r\fmtversion{2017/04/15}{}{
+  \ustc@error{%
+    TeX Live 2017 or later version is required to compile this document%
+  }
+}
 \RequirePackage{iftex}
 \ifXeTeX\else
   \ustc@error{XeLaTeX is required to compile this document}
@@ -242,9 +247,6 @@
 \fi
 \PassOptionsToPackage{quiet}{xeCJK}
 \LoadClass[UTF8,a4paper,zihao=-4,fontset=none]{ctexbook}[2017/04/01]
-\@ifclasslater{ctexbook}{2017/04/01}{}{
-  \ustc@error{TeX Live 2017 or later version is required}
-}
 \RequirePackage{amsmath}
 \RequirePackage{fontspec}[2017/03/31]
 \RequirePackage{unicode-math}
@@ -260,24 +262,19 @@
 \RequirePackage{natbib}
 \RequirePackage{notoccite}
 \RequirePackage{filehook}
-\newcommand\ustc@package@conlict[2]{%
-  \AtBeginOfPackageFile*{#2}{%
-    \ustc@error{%
-      The "#2" package is incompatible with "#1"
-      which is required by ustcthesis%
-    }%
-  }%
+\newcommand\ustc@package@conflict[2]{
+  \AtBeginOfPackageFile*{#2}{
+    \ustc@error{The "#2" package is incompatible with required "#1"}
+  }
 }
-\ustc@package@conlict{unicode-math}{amscd}
-\ustc@package@conlict{unicode-math}{amsfonts}
-\ustc@package@conlict{unicode-math}{amssymb}
-\ustc@package@conlict{unicode-math}{bbm}
-\ustc@package@conlict{unicode-math}{bm}
-\ustc@package@conlict{unicode-math}{eucal}
-\ustc@package@conlict{unicode-math}{eufrak}
-\ustc@package@conlict{unicode-math}{mathrsfs}
-\ustc@package@conlict{unicode-math}{savesym}
-\ustc@package@conlict{unicode-math}{textcomp}
+\ustc@package@conflict{unicode-math}{amscd}
+\ustc@package@conflict{unicode-math}{amsfonts}
+\ustc@package@conflict{unicode-math}{amssymb}
+\ustc@package@conflict{unicode-math}{bbm}
+\ustc@package@conflict{unicode-math}{bm}
+\ustc@package@conflict{unicode-math}{eucal}
+\ustc@package@conflict{unicode-math}{eufrak}
+\ustc@package@conflict{unicode-math}{mathrsfs}
 \ifustc@fontset@mac
   \ustcsetup{
     font     = times,
