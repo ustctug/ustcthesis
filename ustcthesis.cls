@@ -137,10 +137,10 @@
   font = {
     choices = {
       times,
-      texgyre,
+      termes,
       xits,
       libertinus,
-      latin-modern,
+      lm,
       auto,
       none,
     },
@@ -164,7 +164,7 @@
       xits,
       stix,
       libertinus,
-      latin-modern,
+      lm,
       none,
     },
     default = xits,
@@ -289,13 +289,13 @@
   \else
     \ifustc@fontset@fandol
       \ustcsetup{
-        font     = texgyre,
+        font     = termes,
         cjk-font = fandol,
       }
     \else
       \ifustc@fontset@ubuntu
         \ustcsetup{
-          font     = texgyre,
+          font     = termes,
           cjk-font = noto,
         }
       \fi
@@ -377,7 +377,7 @@
     \setmonofont{Courier New}[Scale = MatchLowercase]%
   \fi
 }
-\newcommand\ustc@load@font@texgyre{%
+\newcommand\ustc@load@font@termes{%
   \setmainfont{texgyretermes}[
     Extension      = .otf,
     UprightFont    = *-regular,
@@ -439,7 +439,7 @@
     BoldItalicFont = *-boldoblique,
   ]%
 }
-\@namedef{ustc@load@font@latin-modern}{%
+\newcommand\ustc@load@font@lm{%
   \setmainfont{lmroman10}[
     Extension      = .otf,
     UprightFont    = *-regular,
@@ -523,24 +523,20 @@
 }
 \newcommand\ustc@load@cjk@font@noto{%
   \setCJKmainfont{Noto Serif CJK SC}[
-    UprightFont = * Light,
-    BoldFont    = * Bold,
-    ItalicFont  = FandolKai,
+    UprightFont    = * Light,
+    BoldFont       = * Bold,
+    ItalicFont     = FandolKai-Regular,
+    ItalicFeatures = {Extension = .otf},
   ]%
   \setCJKsansfont{Noto Sans CJK SC}[
-    UprightFont = * Regular,
     BoldFont    = * Medium,
   ]%
-  \setCJKmonofont{Noto Serif CJK SC}[
-    UprightFont = * Light,
-    UprightFont = * Bold,
-  ]%
+  \setCJKmonofont{Noto Sans Mono CJK SC}%
   \setCJKfamilyfont{zhsong}{Noto Serif CJK SC}[
     UprightFont = * Light,
     UprightFont = * Bold,
   ]%
   \setCJKfamilyfont{zhhei}{Noto Sans CJK SC}[
-    UprightFont = * Regular,
     BoldFont    = * Medium,
   ]%
   \setCJKfamilyfont{zhfs}{FandolFang}[
@@ -632,7 +628,7 @@
   \ustc@set@libertinus@names
   \setmathfont{\ustc@font@name@libertinus@math .otf}%
 }
-\@namedef{ustc@load@math@font@latin-modern}{%
+\newcommand\ustc@load@math@font@lm{%
   \setmathfont{latinmodern-math.otf}%
 }
 \newcommand\ustc@load@math@font{%
