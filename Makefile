@@ -5,7 +5,7 @@ BSTFILES = $(NAME)-numerical.bst $(NAME)-authoryear.bst $(NAME)-bachelor.bst
 
 SHELL = bash
 LATEXMK = latexmk -xelatex
-VERSION = $(shell cat $(NAME).dtx | egrep -o "\[\d\d\d\d/\d\d\/\d\d v.+\]" \
+VERSION = $(shell cat $(NAME).cls | egrep -o "\[\d\d\d\d/\d\d\/\d\d v.+\]" \
 	  | egrep -o "v\S+")
 TEXMF = $(shell kpsewhich --var-value TEXMFHOME)
 
@@ -17,15 +17,12 @@ all : main doc
 
 cls : $(CLSFILES) $(BSTFILES)
 
-doc : $(NAME).pdf
+doc : $(NAME)-doc.pdf
 
 $(MAIN).pdf : $(MAIN).tex $(CLSFILES) $(BSTFILES) FORCE_MAKE
 	$(LATEXMK) $<
 
-$(NAME).cls : $(NAME).dtx
-	xetex $<
-
-$(NAME).pdf : $(NAME).dtx FORCE_MAKE
+$(NAME)-doc.pdf : $(NAME)-doc.tex FORCE_MAKE
 	$(LATEXMK) $<
 
 test:
@@ -35,23 +32,22 @@ save:
 	bash test/save.sh
 
 clean : FORCE_MAKE
-	$(LATEXMK) -c $(MAIN).tex $(NAME).dtx
+	$(LATEXMK) -c $(MAIN).tex $(NAME)-doc.tex
 
 cleanall :
-	$(LATEXMK) -C $(MAIN).tex $(NAME).dtx
+	$(LATEXMK) -C $(MAIN).tex $(NAME)-doc.tex
 
 install : cls doc
 	mkdir -p $(TEXMF)/{doc,source,tex}/latex/$(NAME)
 	mkdir -p $(TEXMF)/bibtex/bst/$(NAME)
 	cp $(BSTFILES) $(TEXMF)/bibtex/bst/$(NAME)
 	cp $(NAME).pdf $(TEXMF)/doc/latex/$(NAME)
-	cp $(NAME).dtx $(TEXMF)/source/latex/$(NAME)
 	cp $(CLSFILES) $(TEXMF)/tex/latex/$(NAME)
 
 zip : main doc
 	ln -sf . $(NAME)
 	zip -r ../$(NAME)-$(VERSION).zip $(NAME)/{*.md,LICENSE,\
-	$(NAME).dtx,$(NAME).pdf,$(NAME).cls,*.bst,figures,\
+	$(NAME)-doc.tex,$(NAME)-doc.pdf,$(NAME).cls,*.bst,figures,\
 	$(MAIN).tex,ustcsetup.tex,math-commands.tex,chapters,bib,$(MAIN).pdf,\
 	latexmkrc,Makefile}
 	rm $(NAME)

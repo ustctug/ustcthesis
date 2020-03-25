@@ -2,57 +2,29 @@
 
 \chapter{数学}
 
-\section{数字和单位}
-
-宏包 \pkg{siunitx} 提供了更好的数字和单位支持：
-\begin{itemize}
-  \item \num{12345.67890}
-  \item \num{1+-2i}
-  \item \num{.3e45}
-  \item \num{1.654 x 2.34 x 3.430}
-  \item \si{kg.m.s^{-1}}
-  \item \si{\micro\meter} $\si{\micro\meter}$
-  \item \si{\ohm} $\si{\ohm}$
-  \item \numlist{10;20}
-  \item \numlist{10;20;30}
-  \item \SIlist{0.13;0.67;0.80}{\milli\metre}
-  \item \numrange{10}{20}
-  \item \SIrange{10}{20}{\degreeCelsius}
-\end{itemize}
-
-
-
 \section{数学符号和公式}
 
-\LaTeX{} 默认按照美国的习惯排版数学公式和符号，
-但是《撰写手册》要求数学符号依据《GB 3102.11--1993》执行，
-与 \LaTeX{} 的习惯有所差异。
-本模板基于 \pkg{unicode-math} 配置数学符号，以遵循国标的规定。
-
-注意，\pkg{unicode-math} 宏包与 \pkg{amsfonts}, \pkg{amssymb}, \pkg{bm},
-\pkg{mathrsfs}, \pkg{upgreek} 等宏包\emph{不}兼容。
-本模板作了处理，用户可以直接使用这些宏包的命令，如 \cs{bm}, \cs{mathscr},
-\cs{upGamma}。
-
-本模板中数学符号的用法与 \LaTeX{} 传统有些区别：
-\begin{itemize}
+《撰写手册》要求数学符号要根据 GB/T 3102.11-1993《物理科学和技术中使用的数学符号》
+\footnote{原 GB 3102.11-1993，根据2017年第7号公告和强制性标准整合精简结论，自2017年3月23日起,该标准转化为推荐性标准。}
+使用，
+这与 \LaTeX{} 默认的英美国家的数学符号习惯有所差异。
+本模板基于 \pkg{unicode-math} 宏包配置数学符号，以遵循国标的规定：
+\begin{enumerate}
+  \item 大写希腊字母默认为斜体，如 \cs{Delta}：$\Delta$。
+  \item 有限增量符号 $\increment$（U+2206）应使用 \cs{increment} 命令。
+  \item 向量、矩阵和张量要求粗斜体，应使用 \cs{symbf} 命令，
+    如 \verb|\symbf{A}|、\verb|\symbf{\alpha}|。
   \item 数学常数和特殊函数使用正体，
     如圆周率 $\symup{\pi}$、$\symup{\Gamma}$ 函数。
     应使用 \pkg{unicode-math} 宏包提供的 \cs{symup} 命令转为正体，
     如 \verb|\symup{\pi}|。
-  \item 向量和矩阵粗斜体，应使用 \cs{symbf} 命令，
-    如 \verb|\symbf{u}|、\verb|\symbf{A}|。
-  \item 有限增量符号 $\increment$ （U+2206）应使用 \cs{increment} 命令。
-  \item 微分符号 $\dif$ 使用正体，本模板提供了 \cs{dif} 命令。
-\end{itemize}
+  \item 微分符号 $\mathrm{d}$ 使用正体，本模板提供了 \cs{dif} 命令。
+\end{enumerate}
 
-除此之外，模板还提供了一些命令方便使用：
-\begin{itemize}
-  \item 常数 $\upe$：\verb|\upe|
-  \item 虚数单位 $\upi$：\verb|\upi|
-  \item 圆周率 $\uppi$：\verb|\uppi|
-\end{itemize}
-
+注意，\pkg{unicode-math} 宏包与 \pkg{amsfonts}, \pkg{amssymb}, \pkg{bm},
+\pkg{mathrsfs}, \pkg{upgreek} 等宏包\emph{不}兼容。
+本模板作了处理，用户可以直接使用 \cs{bm}, \cs{mathscr},
+\cs{upGamma}。
 关于数学符号更多的用法，参见 \pkg{unicode-math} 宏包的使用说明和符号列表
 \pkg{unimath-symbols}。
 
@@ -75,6 +47,26 @@
 \begin{equation}
   \mA \vx = \lambda \vx
 \end{equation}
+
+
+
+\section{量和单位}
+
+宏包 \pkg{siunitx} 提供了更好的数字和单位支持：
+\begin{itemize}
+  \item \num{12345.67890}
+  \item \num{1+-2i}
+  \item \num{.3e45}
+  \item \num{1.654 x 2.34 x 3.430}
+  \item \si{kg.m.s^{-1}}
+  \item \si{\micro\meter} $\si{\micro\meter}$
+  \item \si{\ohm} $\si{\ohm}$
+  \item \numlist{10;20}
+  \item \numlist{10;20;30}
+  \item \SIlist{0.13;0.67;0.80}{\milli\metre}
+  \item \numrange{10}{20}
+  \item \SIrange{10}{20}{\degreeCelsius}
+\end{itemize}
 
 
 

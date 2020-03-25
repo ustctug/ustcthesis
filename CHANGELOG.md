@@ -13,6 +13,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 - 修正 LaTeX3 的 `\str_if_eq_x` 已过时的报错 - [#241](https://github.com/ustctug/ustcthesis/issues/241)
 
+### Removed
+
+移除 `.dtx` 文件
+
 ## [3.2] - 2020-01-01
 
 ### Changed

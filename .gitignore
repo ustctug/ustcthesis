@@ -1,7 +1,7 @@
 main.pdf
-ustcthesis.pdf
+ustcthesis-doc.pdf
 *.hd
-build
+build/
 
 ## Core latex/pdflatex auxiliary files:
 *.aux
