@@ -294,7 +294,7 @@
 \DeclareVoidOption{academic}{\ustcsetup{degree-type=academic}}
 \DeclareVoidOption{professional}{\ustcsetup{degree-type=professional}}
 \DeclareVoidOption{print}{\ustcsetup{output=print}}
-\DeclareVoidOption{pdf}{\ustcsetup{pdf=electronic}}
+\DeclareVoidOption{pdf}{\ustcsetup{output=electronic}}
 \newif\ifustc@legacy@cite@style
 \DeclareVoidOption{super}{\ustcsetup{cite-style=super}\ustc@legacy@cite@styletrue}
 \DeclareVoidOption{numbers}{\ustcsetup{cite-style=inline}\ustc@legacy@cite@styletrue}
