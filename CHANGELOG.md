@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
+## [v3.2.1] - 2020-04-03
+
 ### Added
 
 - 添加对 `chapterbib` 宏包的支持
@@ -206,7 +208,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - 优化图注、算法的行距
 - 二级以下节标题编号下采用“1.”、“(1)”、“①”
 
-[Unreleased]: https://github.com/ustctug/ustcthesis/compare/v3.2...HEAD
+[Unreleased]: https://github.com/ustctug/ustcthesis/compare/v3.2.1...HEAD
+[v3.2.1]: https://github.com/ustctug/ustcthesis/compare/v3.2...v3.2.1
 [3.1.06]: https://github.com/ustctug/ustcthesis/compare/v3.2...v3.1.06
 [3.1.06]: https://github.com/ustctug/ustcthesis/compare/v3.1.05...v3.1.06
 [3.1.05]: https://github.com/ustctug/ustcthesis/compare/v3.1.04...v3.1.05
