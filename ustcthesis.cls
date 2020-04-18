@@ -995,13 +995,16 @@
     \clearpage
   \fi
   \pagestyle{plain}%
-  \@mainmattertrue}
-  %
-  %
-  % \subsection{封面}
-  %
-  %
-  % 定义用户接口：
+  \@mainmattertrue
+}
+
+\g@addto@macro\appendix{\@mainmattertrue}%
+
+
+% \subsection{封面}
+
+
+% 定义用户接口：
 \ustc@define@key{
   title = {
     default = {论文题目},
@@ -2090,6 +2093,7 @@
 
 % 定义了一个满足要求的致谢环境：
 \newenvironment{acknowledgements}{%
+  \@mainmatterfalse
   \ifustc@degree@graduate
     \chapter{\ustc@acknowledgements@name}%
   \else
@@ -2110,7 +2114,10 @@
 }
 
 % 发表成果环境：
-\newenvironment{publications}{\chapter{\ustc@publication@name}}{}
+\newenvironment{publications}{%
+  \@mainmatterfalse
+  \chapter{\ustc@publication@name}%
+}{}
 
 
 % \subsection{其他宏包的设置}
