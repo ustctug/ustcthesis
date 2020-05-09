@@ -87,8 +87,8 @@ Completed box being shipped out [1]
 ...\penalty 10000
 ...\glue 18.06729
 ...\glue(\parskip) 0.0
-...\hbox(9.3709+2.2042)x417.11752, glue set 335.882fil
-....\hbox(0.0+0.0)x18.0
+...\hbox(9.3709+2.2042)x417.11752, glue set 329.79228fil
+....\hbox(0.0+0.0)x24.08972
 ....\TU/FandolSong(0)/m/n/12.04486 摘
 ....\glue 0.0 plus 0.61366
 ....\TU/FandolSong(0)/m/n/12.04486 要
@@ -252,8 +252,8 @@ Completed box being shipped out [2]
 ...\penalty 10000
 ...\glue 18.06729
 ...\glue(\parskip) 0.0
-...\hbox(8.22664+0.13248)x417.11752, glue set 304.53325fil
-....\hbox(0.0+0.0)x18.0
+...\hbox(8.22664+0.13248)x417.11752, glue set 298.44353fil
+....\hbox(0.0+0.0)x24.08972
 ....\TU/texgyretermes(0)/m/n/12.04486 Abstract
 ....\kern -0.00021
 ....\kern 0.00021
@@ -924,8 +924,8 @@ Completed box being shipped out [5]
 ...\penalty 10000
 ...\glue 18.06729
 ...\glue(\parskip) 0.0
-...\hbox(7.9737+0.13248)x417.11752, glue set 345.48979fil
-....\hbox(0.0+0.0)x18.0
+...\hbox(7.9737+0.13248)x417.11752, glue set 339.40007fil
+....\hbox(0.0+0.0)x24.08972
 ....\TU/texgyretermes(0)/m/n/12.04486 Notations.
 ....\kern -0.00021
 ....\kern 0.00021
@@ -1098,8 +1098,8 @@ Completed box being shipped out [1]
 ...\penalty 10000
 ...\glue 18.06729
 ...\glue(\parskip) 0.0
-...\hbox(8.22664+2.61372)x417.11752, glue set 337.31534fil
-....\hbox(0.0+0.0)x18.0
+...\hbox(8.22664+2.61372)x417.11752, glue set 331.22562fil
+....\hbox(0.0+0.0)x24.08972
 ....\TU/texgyretermes(0)/m/n/12.04486 Chapter
 ....\kern -0.00021
 ....\kern 0.00021
@@ -1112,8 +1112,8 @@ Completed box being shipped out [1]
 ....\glue(\rightskip) 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 9.2344
-...\hbox(8.22664+2.62576)x417.11752, glue set 305.34828fil
-....\hbox(0.0+0.0)x18.0
+...\hbox(8.22664+2.62576)x417.11752, glue set 299.25856fil
+....\hbox(0.0+0.0)x24.08972
 ....\TU/texgyretermes(0)/m/n/12.04486 Another
 ....\kern -0.00021
 ....\kern 0.00021
@@ -1153,8 +1153,8 @@ Completed box being shipped out [1]
 ...\glue 6.02243
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 9.4733
-...\hbox(8.14233+0.16861)x417.11752, glue set 339.31479fil
-....\hbox(0.0+0.0)x18.0
+...\hbox(8.14233+0.16861)x417.11752, glue set 333.22507fil
+....\hbox(0.0+0.0)x24.08972
 ....\TU/texgyretermes(0)/m/n/12.04486 Section
 ....\kern -0.00021
 ....\kern 0.00021
@@ -1195,8 +1195,8 @@ Completed box being shipped out [1]
 ...\glue 6.02243
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 9.56464
-...\hbox(8.22664+0.16861)x417.11752, glue set 322.58447fil
-....\hbox(0.0+0.0)x18.0
+...\hbox(8.22664+0.16861)x417.11752, glue set 316.49475fil
+....\hbox(0.0+0.0)x24.08972
 ....\TU/texgyretermes(0)/m/n/12.04486 Subsection
 ....\kern -0.00021
 ....\kern 0.00021
@@ -1240,8 +1240,8 @@ Completed box being shipped out [1]
 ...\glue 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 9.7403
-...\hbox(8.22664+0.16861)x417.11752, glue set 305.85417fil
-....\hbox(0.0+0.0)x18.0
+...\hbox(8.22664+0.16861)x417.11752, glue set 299.76445fil
+....\hbox(0.0+0.0)x24.08972
 ....\TU/texgyretermes(0)/m/n/12.04486 Subsubsection
 ....\kern -0.00021
 ....\kern 0.00021
@@ -1292,8 +1292,8 @@ Completed box being shipped out [1]
 ...\glue 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 9.43918
-...\hbox(8.22664+2.62576)x417.11752, glue set 326.73994fil
-....\hbox(0.0+0.0)x18.0
+...\hbox(8.22664+2.62576)x417.11752, glue set 320.65022fil
+....\hbox(0.0+0.0)x24.08972
 ....\TU/texgyretermes(0)/m/n/12.04486 Paragraph
 ....\kern -0.00021
 ....\kern 0.00021
@@ -1334,8 +1334,8 @@ Completed box being shipped out [1]
 ...\glue 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 9.70416
-...\hbox(8.22664+2.62576)x417.11752, glue set 308.43176fil
-....\hbox(0.0+0.0)x18.0
+...\hbox(8.22664+2.62576)x417.11752, glue set 302.34204fil
+....\hbox(0.0+0.0)x24.08972
 ....\TU/texgyretermes(0)/m/n/12.04486 Subparagraph
 ....\kern -0.00021
 ....\kern 0.00021
@@ -1348,8 +1348,8 @@ Completed box being shipped out [1]
 ....\glue(\rightskip) 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 8.24673
-...\hbox(9.20227+2.0476)x417.11752, glue set 268.35852fil
-....\hbox(0.0+0.0)x18.0
+...\hbox(9.20227+2.0476)x417.11752, glue set 262.2688fil
+....\hbox(0.0+0.0)x24.08972
 ....\TU/FandolSong(0)/m/n/12.04486 测
 ....\glue 0.0 plus 0.61366
 ....\glue 8.31096 minus 6.02243
@@ -1386,8 +1386,8 @@ Completed box being shipped out [1]
 ....\glue(\rightskip) 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 9.66803
-...\hbox(8.35913+2.61372)x417.11752, glue set 218.10736fil
-....\hbox(0.0+0.0)x18.0
+...\hbox(8.35913+2.61372)x417.11752, glue set 212.01764fil
+....\hbox(0.0+0.0)x24.08972
 ....\TU/texgyretermes(0)/m/n/12.04486 Test
 ....\kern -0.00021
 ....\kern 0.00021
@@ -1581,8 +1581,8 @@ Completed box being shipped out [2]
 ...\penalty 10000
 ...\kern 1.0
 ...\glue(\parskip) 0.0
-...\hbox(10.51805+0.0)x417.11752, glue set 388.78658fil
-....\hbox(0.0+0.0)x18.0
+...\hbox(10.51805+0.0)x417.11752, glue set 382.69685fil
+....\hbox(0.0+0.0)x24.08972
 ....\mathon
 ....\hbox(5.6996+1.31528)x10.33095, shifted -4.81845
 .....\TU/texgyretermes(0)/m/n/8.43135 [
@@ -1966,8 +1966,8 @@ Completed box being shipped out [4]
 ...\penalty 10000
 ...\glue 18.06729
 ...\glue(\parskip) 0.0
-...\hbox(9.31068+2.2042)x417.11752, glue set 346.65012fil
-....\hbox(0.0+0.0)x18.0
+...\hbox(9.31068+2.2042)x417.11752, glue set 340.5604fil
+....\hbox(0.0+0.0)x24.08972
 ....\TU/FandolSong(0)/m/n/12.04486 附
 ....\glue 0.0 plus 0.61366
 ....\TU/FandolSong(0)/m/n/12.04486 录
@@ -2102,8 +2102,8 @@ Completed box being shipped out [5]
 ...\penalty 10000
 ...\glue 18.06729
 ...\glue(\parskip) 0.0
-...\hbox(9.32272+2.2042)x417.11752, glue set 338.89322fil
-....\hbox(0.0+0.0)x18.0
+...\hbox(9.32272+2.2042)x417.11752, glue set 332.8035fil
+....\hbox(0.0+0.0)x24.08972
 ....\TU/FandolSong(0)/m/n/12.04486 致
 ....\glue 0.0 plus 0.61366
 ....\TU/FandolSong(0)/m/n/12.04486 谢
@@ -2240,8 +2240,8 @@ Completed box being shipped out [6]
 ...\penalty 10000
 ...\glue 18.06729
 ...\glue(\parskip) 0.0
-...\hbox(9.35886+2.21623)x417.11752, glue set 335.882fil
-....\hbox(0.0+0.0)x18.0
+...\hbox(9.35886+2.21623)x417.11752, glue set 329.79228fil
+....\hbox(0.0+0.0)x24.08972
 ....\TU/FandolSong(0)/m/n/12.04486 发
 ....\glue 0.0 plus 0.61366
 ....\TU/FandolSong(0)/m/n/12.04486 表

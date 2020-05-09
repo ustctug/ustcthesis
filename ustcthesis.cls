@@ -311,18 +311,13 @@
 
 % \subsection{加载文档类和宏包}
 
-\ifustc@language@chinese
-  \PassOptionsToClass{scheme=chinese}{ctexbook}
-\else
-  \PassOptionsToClass{scheme=plain}{ctexbook}
-\fi
 \ifustc@output@electronic
   \PassOptionsToClass{oneside}{book}
 \fi
 \PassOptionsToPackage{quiet}{xeCJK}
 
 % 载入 \cls{ctexbook} 文档类，注意要求为 2.4.9 或更高的版本。
-\LoadClass[UTF8,a4paper,zihao=-4,fontset=none]{ctexbook}[2017/04/01]
+\LoadClass[UTF8,a4paper,scheme=plain,zihao=-4,fontset=none]{ctexbook}[2017/04/01]
 
 % 建议在模板开始处载入全部宏包，不要轻易改变加载顺序。
 % \pkg{hyperref} 一般在最后加载。
@@ -895,13 +890,30 @@
 % 由于《撰写手册》中的“speciality”一词使用的是英式拼法，
 % 所以“acknowledgements”也保持一致。
 \ifustc@language@chinese
+  \renewcommand\contentsname{目录}
   \renewcommand\listfigurename{插图清单}
   \renewcommand\listtablename{表格清单}
+  \ctexset{
+    chapter/name   = {第,章},
+  }
+  \renewcommand\figurename{图}
+  \renewcommand\tablename{表}
+  \renewcommand\bibname{参考文献}
+  \renewcommand\appendixname{附录}
   \newcommand\ustc@acknowledgements@name{致谢}
   \newcommand\ustc@publication@name{在读期间发表的学术论文与取得的研究成果}
   \newcommand\ustc@notation@name{符号说明}
 \else
+  \renewcommand\contentsname{Contents}
+  \renewcommand\listfigurename{List of Figures}
+  \renewcommand\listtablename{List of Tables}
+  \ctexset{
+    chapter/name   = {\chaptername\space},
+  }
   \renewcommand\figurename{Fig.}
+  \renewcommand\tablename{Table}
+  \renewcommand\bibname{Bibliography}
+  \renewcommand\appendixname{Appendix}
   \newcommand\ustc@acknowledgements@name{Acknowledgements}
   \newcommand\ustc@publication@name{Publications}
   \newcommand\ustc@notation@name{Notation}
@@ -1624,12 +1636,10 @@
 % 各章目录要求宋体 14 磅，单倍行距，段前 6 磅，段后 0 磅，两端对齐，
 % 页码右对齐，章序号与章名间空一字。
 % 但是 Word 模板中实际是行距 20 磅。
-
-% 另外 \pkg{ctex} 在章目录的序号后加 |\hspace{.3em}|，所以用 \cs{unskip} 修正。
 \ifustc@degree@graduate
   \titlecontents{chapter}
     [\z@]{\addvspace{6\bp@}\fontsize{14\bp@}{20\bp@}\selectfont}
-    {\contentspush{\thecontentslabel\unskip\hspace{\ccwd}}}{}
+    {\contentspush{\thecontentslabel\hspace{\ccwd}}}{}
     {\fontsize{12\bp@}{20\bp@}\selectfont\ustc@leaders\contentspage}
     %
     % 一级节标题目录要求宋体 12 磅，单倍行距，左缩进一字，段前 6 磅，段后 0 磅，
@@ -1761,7 +1771,10 @@
 % 段间距 0 磅。
 \setlength{\parskip}{\z@}
 
-% 在 \opt{scheme=plain} 时也首段缩进。
+% 首段缩进。
+\ctexset{autoindent=2}
+
+% 首段缩进。
 \let\@afterindentfalse\@afterindenttrue
 \@afterindenttrue
 
