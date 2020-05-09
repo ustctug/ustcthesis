@@ -1033,7 +1033,7 @@ Completed box being shipped out [3]
 ....\special{color pop}
 ..\glue 8.2511
 ..\glue(\lineskip) 0.0
-..\vbox(700.50723+0.0)x417.11752, glue set 594.35185fil
+..\vbox(700.50723+0.0)x417.11752, glue set 594.76613fil
 ...\write-{}
 ...\write1{\@writefile{toc}{\protect \contentsline {chapter}{英文内容摘要}\ETC.}
 ...\write1{\@writefile{lof}{\protect \addvspace {10.0pt}}}
@@ -1044,10 +1044,9 @@ Completed box being shipped out [3]
 ...\glue 12.08972
 ...\glue 0.0
 ...\glue(\parskip) 0.0
-...\hbox(11.31104+0.23273)x417.11752, glue set 178.63593fil
+...\hbox(10.96886+0.16058)x417.11752, glue set 181.63449fil
 ....\glue(\leftskip) 0.0 plus 1.0fil
-....\glue 3.01122 plus 1.5056 minus 1.00374
-....\TU/texgyreheros(0)/m/n/18.06729 Abstract
+....\TU/texgyretermes(0)/m/n/16.05981 Abstract
 ....\kern -0.0002
 ....\kern 0.0002
 ....\penalty 10000

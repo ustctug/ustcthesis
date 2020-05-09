@@ -1584,7 +1584,10 @@
   \ifustc@degree@graduate
     \ustc@chapter[Abstract]{ABSTRACT}%
   \else
-    \chapter[英文内容摘要]{Abstract}%
+    \begingroup
+      \ctexset{chapter/format=\centering\fontsize{16\bp@}{29.33\bp@}\selectfont}%
+      \chapter[英文内容摘要]{Abstract}%
+    \endgroup
   \fi
 }{
   \par\null\par\noindent\hangindent=5.3em\relax
