@@ -1591,7 +1591,7 @@
 }
 
 % 英文摘要环境
-\newenvironment{enabstract}{%
+\newenvironment{abstract*}{%
   \ustc@setenglish
   \ifustc@degree@graduate
     \ustc@chapter[Abstract]{ABSTRACT}%
@@ -1608,6 +1608,13 @@
     \cleardoublepage
   \fi
   \ustc@setdefaultlanguage
+}
+
+% Reserved for compatibility until 2020-07-01.
+\newenvironment{enabstract}{%
+  \begin{abstract*}%
+}{%
+  \end{abstract*}%
 }
 
 
