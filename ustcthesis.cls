@@ -323,7 +323,7 @@
 \ifustc@output@electronic
   \PassOptionsToClass{oneside}{book}
 \fi
-\PassOptionsToPackage{quiet}{xeCJK}
+\PassOptionsToPackage{quiet}{fontspec}
 
 % 载入 \cls{ctexbook} 文档类，注意要求为 2.4.9 或更高的版本。
 \LoadClass[UTF8,a4paper,scheme=plain,zihao=-4,fontset=none]{ctexbook}[2017/04/01]
