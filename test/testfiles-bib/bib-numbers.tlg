@@ -833,7 +833,7 @@ C.}
 ...\glue 0.0 plus 0.2
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 10.57892
-...\hbox(7.1983+2.29755)x393.55914, glue set 47.86133fil, shifted 23.55838
+...\hbox(7.1983+2.29755)x393.55914, glue set 44.34825fil, shifted 23.55838
 ....\hbox(7.12453+1.6441)x0.0
 .....\glue 0.0
 .....\glue -17.55838
@@ -894,9 +894,9 @@ C.}
 ....\kern 0.00021
 ....\glue 2.63481 plus 1.64674 minus 0.7026
 ....\TU/texgyretermes(0)/m/n/10.53925 27:
-....\kern -0.0002
-....\kern 0.0002
-....\penalty 0
+....\kern -0.00021
+....\kern 0.00021
+....\glue 3.51308 plus 2.6348 minus 0.43913
 ....\TU/texgyretermes(0)/m/n/10.53925 97-111.
 ....\kern -0.00021
 ....\kern 0.00021
@@ -1379,7 +1379,7 @@ C.}
 ....\glue(\rightskip) 0.0
 ...\penalty 4150
 ...\glue(\baselineskip) 9.9044
-...\hbox(8.22061+1.86543)x393.55914, glue set 240.45552fil, shifted 23.55838
+...\hbox(8.22061+1.86543)x393.55914, glue set 236.94244fil, shifted 23.55838
 ....\TU/FandolSong(0)/m/n/10.53925 期
 ....\glue 0.0 plus 0.44936
 ....\TU/FandolSong(0)/m/n/10.53925 刊
@@ -1400,9 +1400,9 @@ C.}
 ....\kern 0.0002
 ....\penalty 0
 ....\TU/texgyretermes(0)/m/n/10.53925 (10):
-....\kern -0.0002
-....\kern 0.0002
-....\penalty 0
+....\kern -0.00021
+....\kern 0.00021
+....\glue 3.51308 plus 2.6348 minus 0.43913
 ....\TU/texgyretermes(0)/m/n/10.53925 1100-1103.
 ....\kern -0.00021
 ....\kern 0.00021

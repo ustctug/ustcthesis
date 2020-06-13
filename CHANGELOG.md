@@ -12,6 +12,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ### Fixed
 
 - 修正附录章节的编号
+- 修正参考文献中期刊的页码前的空格（#264）
 
 
 ## [v3.2.1] - 2020-04-03
