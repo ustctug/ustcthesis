@@ -28,6 +28,7 @@ INTEGERS {
   link.title
   title.in.journal
   show.mark
+  space.before.mark
   show.medium.type
   slash.for.extraction
   in.booktitle
@@ -36,6 +37,7 @@ INTEGERS {
   bold.journal.volume
   show.missing.address.publisher
   only.start.page
+  show.urldate
   show.url
   show.doi
   show.preprint
@@ -51,6 +53,7 @@ FUNCTION {load.config}
   #0 'link.title :=
   #1 'title.in.journal :=
   #0 'show.mark :=
+  #1 'space.before.mark :=
   #1 'show.medium.type :=
   #1 'slash.for.extraction :=
   #0 'in.booktitle :=
@@ -59,6 +62,7 @@ FUNCTION {load.config}
   #0 'bold.journal.volume :=
   #0 'show.missing.address.publisher :=
   #0 'only.start.page :=
+  #1 'show.urldate :=
   #1 'show.url :=
   #1 'show.doi :=
   #0 'show.preprint :=
@@ -98,7 +102,7 @@ ENTRY
     volume
     year
   }
-  { entry.lang entry.is.electronic entry.numbered }
+  { entry.lang entry.is.electronic is.pure.electronic entry.numbered }
   { label extra.label sort.label short.list entry.mark entry.url }
 
 INTEGERS { output.state before.all mid.sentence after.sentence after.block after.slash }
@@ -947,7 +951,10 @@ FUNCTION {format.mark}
         'skip$
       if$
       'entry.mark :=
-      "\allowbreak[" entry.mark * "]" *
+      space.before.mark
+        { " [" entry.mark * "]" * }
+        { "\allowbreak[" entry.mark * "]" * }
+      if$
     }
     { "" }
   if$
@@ -1129,7 +1136,9 @@ FUNCTION {format.editdate}
 }
 
 FUNCTION {format.urldate}
-{ urldate empty$ not entry.is.electronic and
+{ urldate empty$ not
+  show.urldate show.url and is.pure.electronic or and
+  url empty$ not and
     { "\allowbreak[" urldate * "]" * }
     { "" }
   if$
@@ -1567,6 +1576,7 @@ FUNCTION {patent}
 FUNCTION {electronic}
 { #1 #1 check.electronic
   #1 'entry.is.electronic :=
+  #1 'is.pure.electronic :=
   output.bibitem
   output.translation
   format.authors output
@@ -1932,6 +1942,7 @@ FUNCTION {presort}
 { set.entry.lang
   set.entry.numbered
   show.url show.doi check.electronic
+  #0 'is.pure.electronic :=
   calc.label
   label sortify
   "    "
