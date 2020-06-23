@@ -173,6 +173,13 @@ FUNCTION {bbl.wide.space} { "\quad " }
 
 FUNCTION {bbl.slash} { "//\allowbreak " }
 
+FUNCTION {space.mark.fun}
+{ entry.lang lang.zh =
+	{ "\allowbreak[" entry.mark * "]" * }
+	{ " [" entry.mark * "]" * }
+if$
+}
+
 FUNCTION {bbl.sine.loco}
 { entry.lang lang.zh =
     { "[出版地不详]" }
@@ -963,7 +970,7 @@ FUNCTION {format.mark}
       if$
       'entry.mark :=
       space.before.mark
-        { " [" entry.mark * "]" * }
+        { space.mark.fun }
         { "\allowbreak[" entry.mark * "]" * }
       if$
     }
