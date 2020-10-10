@@ -2158,8 +2158,8 @@ Completed box being shipped out [5]
 ..\glue(\lineskip) 0.0
 ..\vbox(700.50723+0.0)x417.11752, glue set 633.78331fil
 ...\write-{}
-...\write1{\@writefile{toc}{\protect \contentsline {chapter}{致谢}{\thepage }\pro
-tected@file@percent \ETC.}
+...\write1{\@writefile{toc}{\protect \contentsline {chapter}{致谢}{\thepage }{\ET
+C.}
 ...\mark{{{\protect \ustc@spacetitle  {致谢}}}{}}
 ...\write1{\@writefile{lof}{\protect \addvspace {10.0pt}}}
 ...\write1{\@writefile{lot}{\protect \addvspace {10.0pt}}}

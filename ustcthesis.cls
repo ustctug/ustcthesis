@@ -1717,6 +1717,21 @@
 }
 
 % 研究生要求图、表的清单须另页起。
+\newlength{\ustc@lof@label@width}
+\newcommand\ustc@set@lof@format{%
+  \settowidth{\ustc@lof@label@width}{\figurename~1.1}%
+  \addtolength{\ustc@lof@label@width}{1.5em}%
+  \titlecontents{figure}%
+    [\ustc@lof@label@width]{\normalsize}%
+    {\contentslabel[\figurename~\thecontentslabel]{\ustc@lof@label@width}}{}%
+    {\ustc@leaders\contentspage}%
+  \titlecontents{table}%
+    [\ustc@lof@label@width]{\normalsize}%
+    {\contentslabel[\tablename~\thecontentslabel]{\ustc@lof@label@width}}{}%
+    {\ustc@leaders\contentspage}%
+}
+\ustc@set@lof@format
+\ustc@option@hook{main-language}{\ustc@set@lof@format}
 \renewcommand\listoffigures{%
   \ifustc@degree@graduate
     \cleardoublepage
@@ -1724,11 +1739,6 @@
   \ustc@chapter{\listfigurename}%
   \@starttoc{lof}%
 }
-\titlecontents{figure}
-  [2.3em]{\normalsize}
-  {\contentslabel{2.3em}}{}
-  {\ustc@leaders\contentspage}
-  %
 \renewcommand\listoftables{%
   \ifustc@degree@graduate
     \cleardoublepage
@@ -1736,16 +1746,12 @@
   \ustc@chapter{\listtablename}%
   \@starttoc{lot}%
 }
-\titlecontents{table}
-  [2.3em]{\normalsize}
-  {\contentslabel{2.3em}}{}
-  {\ustc@leaders\contentspage}
-  %
-  %
-  % \subsection{符号说明}
-  %
-  % 研究生规定符号说明另页起，标题字体字号等同论文正文，
-  % 《撰写手册》第 9 页 1.10(2) 还规定“符号说明不加页码”。
+
+
+% \subsection{符号说明}
+
+% 研究生规定符号说明另页起，标题字体字号等同论文正文，
+% 《撰写手册》第 9 页 1.10(2) 还规定“符号说明不加页码”。
 \newenvironment{notation}{%
   \ifustc@degree@graduate
     \cleardoublepage

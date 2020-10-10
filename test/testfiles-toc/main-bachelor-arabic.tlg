@@ -2091,7 +2091,7 @@ Completed box being shipped out [7]
 ...\penalty 10000
 ...\glue 18.06729
 ...\glue(\parskip) 0.0
-...\hbox(9.31068+2.2042)x417.11752, glue set 340.5604fil
+...\hbox(9.31068+2.2042)x417.11752, glue set 332.8035fil
 ....\hbox(0.0+0.0)x24.08972
 ....\TU/FandolSong(0)/m/n/12.04486 附
 ....\glue 0.0 plus 0.61366
@@ -2107,6 +2107,7 @@ Completed box being shipped out [7]
 ....\kern -0.00047
 ....\kern -0.18753
 ....\kern 0.18753
+....\glue 7.7569 minus 6.02243
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
