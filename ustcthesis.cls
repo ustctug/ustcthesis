@@ -1719,8 +1719,8 @@
 % 研究生要求图、表的清单须另页起。
 \newlength{\ustc@lof@label@width}
 \newcommand\ustc@set@lof@format{%
-  \settowidth{\ustc@lof@label@width}{\figurename~1.1}%
-  \addtolength{\ustc@lof@label@width}{1.5em}%
+  \settowidth{\ustc@lof@label@width}{\figurename~9.99}%
+  \addtolength{\ustc@lof@label@width}{1em}%
   \titlecontents{figure}%
     [\ustc@lof@label@width]{\normalsize}%
     {\contentslabel[\figurename~\thecontentslabel]{\ustc@lof@label@width}}{}%
