@@ -1055,6 +1055,13 @@
     default = {Supervisor Name},
     name    = supervisor@en,
   },
+  advisor = {
+    default = {},
+  },
+  advisor* = {
+    default = {},
+    name    = advisor@en,
+  },
   date = {
     default = {\the\year-\two@digits{\month}-\two@digits{\day}},
   },
@@ -1091,6 +1098,9 @@
 \newcommand\ustc@supervisor@names{%
   \ustc@clist@use{\ustc@supervisor}{\quad}
 }
+\newcommand\ustc@advisor@names{%
+  \ustc@clist@use{\ustc@advisor}{\quad}
+}
 \newcounter{ustc@count}
 \newcommand\ustc@supervisor@en@line{%
   \setcounter{ustc@count}{\ustc@clist@count{\ustc@supervisor@en}}%
@@ -1100,6 +1110,15 @@
     Supervisor:%
   \fi
   \space\ustc@clist@use{\ustc@supervisor@en}{, }%
+}
+\newcommand\ustc@advisor@en@line{%
+  \setcounter{ustc@count}{\ustc@clist@count{\ustc@advisor@en}}%
+  \ifnum\c@ustc@count>1\relax
+    Advisor:%
+  \else
+    Advisor:%
+  \fi
+  \space\ustc@clist@use{\ustc@advisor@en}{, }%
 }
 
 % 输出日期的给定格式：\cs{ustc@format@date}\marg{format}\marg{date}，
@@ -1216,6 +1235,7 @@
 % 作者姓名宋体 16 磅，单倍行距；
 % 注意这里的“单倍行距”的地方开启了“对齐到网格”，所以实际行距有所偏差，
 % 所以只能使用直尺测量。
+\newcommand\ustc@speciality@sse{软件工程}
 \newcommand\ustc@makezhtitle{%
   \ustc@setchinese
   \begin{titlepage}%
@@ -1252,7 +1272,12 @@
       \begin{tabular}{@{}l@{\hspace{\ccwd}}l@{}}%
         \textsf{作者姓名：} & \ustc@author \\
         \textsf{\ustc@speciality@name：} & \ustc@speciality \\
-        \textsf{导师姓名：} & \ustc@supervisor@names \\
+        \ifx\ustc@advisor\@empty
+          \textsf{导师姓名：} & \ustc@supervisor@names \\
+        \else
+          \textsf{校内导师：} & \ustc@supervisor@names \\
+          \textsf{企业导师：} & \ustc@advisor@names \\
+        \fi
         \textsf{完成时间：} & \ustc@date@zh
       \end{tabular}\par}%
   \end{titlepage}%
@@ -1294,6 +1319,10 @@
         Author:        \ustc@author@en \\
         Speciality:    \ustc@speciality@en \\
         \ustc@supervisor@en@line \\
+        \ifx\ustc@advisor\@empty
+        \else
+          \ustc@advisor@en@line \\
+        \fi
         Finished time: \ustc@date@en
       \end{tabular}\par}%
   \end{titlepage}%

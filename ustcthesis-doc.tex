@@ -401,7 +401,7 @@ Windows 用户可能无法使用GNU make，使用 |latexmk| 也是一个比较�
     \midrule
     \opt{title}         & \opt{title*}         & 论文标题   \\
     \opt{author}        & \opt{author*}        & 作者姓名   \\
-    \opt{major}         & \opt{major*}         & 学科专业   \\
+    \opt{speciality}    & \opt{speciality*}    & 学科专业   \\
     \opt{supervisor}    & \opt{supervisor*}    & 导师姓名   \\
     \opt{date}          & -                    & 完成时间   \\
     \opt{secret-level}  & \opt{secret-level*}  & 密级       \\
@@ -413,9 +413,10 @@ Windows 用户可能无法使用GNU make，使用 |latexmk| 也是一个比较�
 有几点说明：
 \begin{itemize}
   \item \cs{ustcsetup} 使用 \pkg{kvsetkeys} 机制，配置项之间不能有空行，否则会报错。
-  \item 导师姓名 \opt{supervisor} 允许多个姓名，使用“,”（西文逗号 U+002C）隔开。
-  \item 完成时间 \opt{date} 应使用 ISO 格式，默认为当前日期。
   \item 其中带 |*| 后缀的选项用于设置英文封面。
+  \item 导师姓名 \opt{supervisor} 允许多个姓名，使用“,”（西文逗号 U+002C）隔开。
+  \item 软件工程专业使用 \opt{advisor} 和 \opt{advisor*} 设置企业导师的姓名。
+  \item 完成时间 \opt{date} 应使用 ISO 格式，默认为当前日期。
 \end{itemize}
 
 
