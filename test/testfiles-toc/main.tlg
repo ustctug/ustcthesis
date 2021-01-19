@@ -51,6 +51,7 @@ Completed box being shipped out [1]
 ...........\penalty 10000
 ...........\glue(\parfillskip) 0.0
 ...........\glue(\rightskip) 0.0
+.......\glue 0.0
 .......\rule(0.4+0.0)x417.11752
 .......\glue -0.4
 .....\glue 0.0 plus 1.0fil minus 1.0fil
@@ -65,7 +66,7 @@ Completed box being shipped out [1]
 ...\write-{}
 ...\write1{\protect \FN@pp@footnotehinttrue }
 ...\write-{}
-...\mark{{{\protect \ustc@spacetitle  {摘要}}}{}}
+...\mark{{\protect \ustc@spacetitle  {摘要}}{}}
 ...\write1{\protect \FN@pp@footnotehinttrue }
 ...\write-{}
 ...\glue(\topskip) 12.0
@@ -225,6 +226,7 @@ Completed box being shipped out [2]
 ...........\penalty 10000
 ...........\glue(\parfillskip) 0.0
 ...........\glue(\rightskip) 0.0
+.......\glue 0.0
 .......\rule(0.4+0.0)x417.11752
 .......\glue -0.4
 ....\special{color pop}
@@ -232,7 +234,7 @@ Completed box being shipped out [2]
 ..\glue(\lineskip) 0.0
 ..\vbox(700.50723+0.0)x417.11752, glue set 599.83252fil
 ...\write-{}
-...\mark{{{\protect \ustc@spacetitle  {Abstract}}}{}}
+...\mark{{\protect \ustc@spacetitle  {Abstract}}{}}
 ...\write1{\protect \FN@pp@footnotehinttrue }
 ...\write-{}
 ...\glue(\topskip) 12.0
@@ -381,6 +383,7 @@ Completed box being shipped out [3]
 ...........\penalty 10000
 ...........\glue(\parfillskip) 0.0
 ...........\glue(\rightskip) 0.0
+.......\glue 0.0
 .......\rule(0.4+0.0)x417.11752
 .......\glue -0.4
 .....\glue 0.0 plus 1.0fil minus 1.0fil
@@ -391,7 +394,7 @@ Completed box being shipped out [3]
 ...\write-{}
 ...\write1{\protect \FN@pp@footnotehinttrue }
 ...\write-{}
-...\mark{{{\protect \ustc@spacetitle  {目录}}}{}}
+...\mark{{\protect \ustc@spacetitle  {目录}}{}}
 ...\write1{\protect \FN@pp@footnotehinttrue }
 ...\write-{}
 ...\glue(\topskip) 12.0
@@ -949,6 +952,7 @@ Completed box being shipped out [5]
 ...........\penalty 10000
 ...........\glue(\parfillskip) 0.0
 ...........\glue(\rightskip) 0.0
+.......\glue 0.0
 .......\rule(0.4+0.0)x417.11752
 .......\glue -0.4
 .....\glue 0.0 plus 1.0fil minus 1.0fil
@@ -958,7 +962,7 @@ Completed box being shipped out [5]
 ..\vbox(700.50723+0.0)x417.11752, glue set 635.06795fil
 ...\write1{\protect \FN@pp@footnotehinttrue }
 ...\write-{}
-...\mark{{{\protect \ustc@spacetitle  {符号说明}}}{}}
+...\mark{{\protect \ustc@spacetitle  {符号说明}}{}}
 ...\write1{\protect \FN@pp@footnotehinttrue }
 ...\write-{}
 ...\glue(\topskip) 12.0
@@ -1118,6 +1122,7 @@ Completed box being shipped out [1]
 ...........\penalty 10000
 ...........\glue(\parfillskip) 0.0
 ...........\glue(\rightskip) 0.0
+.......\glue 0.0
 .......\rule(0.4+0.0)x417.11752
 .......\glue -0.4
 .....\glue 0.0 plus 1.0fil minus 1.0fil
@@ -1128,7 +1133,7 @@ Completed box being shipped out [1]
 ...\write1{\protect \FN@pp@footnotehinttrue }
 ...\write-{}
 ...\write1{\@writefile{toc}{\protect \contentsline {chapter}{\protect \numberline \ETC.}
-...\mark{{{第1章\hskip 1em\relax \protect \ustc@spacetitle  {简介}}}{}}
+...\mark{{第1章\hskip 1em\relax \protect \ustc@spacetitle  {简介}}{}}
 ...\write1{\@writefile{lof}{\protect \addvspace {10.0pt}}}
 ...\write1{\@writefile{lot}{\protect \addvspace {10.0pt}}}
 ...\glue(\topskip) 12.0
@@ -1601,6 +1606,7 @@ Completed box being shipped out [2]
 ...........\penalty 10000
 ...........\glue(\parfillskip) 0.0
 ...........\glue(\rightskip) 0.0
+.......\glue 0.0
 .......\rule(0.4+0.0)x417.11752
 .......\glue -0.4
 ....\special{color pop}
@@ -1609,7 +1615,7 @@ Completed box being shipped out [2]
 ..\vbox(700.50723+0.0)x417.11752, glue set 649.68567fil
 ...\write-{}
 ...\write1{\@writefile{toc}{\protect \contentsline {chapter}{\protect \numberline \ETC.}
-...\mark{{{第2章\hskip 1em\relax \protect \ustc@spacetitle  {浮动体}}}{}}
+...\mark{{第2章\hskip 1em\relax \protect \ustc@spacetitle  {浮动体}}{}}
 ...\write1{\@writefile{lof}{\protect \addvspace {10.0pt}}}
 ...\write1{\@writefile{lot}{\protect \addvspace {10.0pt}}}
 ...\glue(\topskip) 12.0
@@ -1750,6 +1756,7 @@ Completed box being shipped out [3]
 ...........\penalty 10000
 ...........\glue(\parfillskip) 0.0
 ...........\glue(\rightskip) 0.0
+.......\glue 0.0
 .......\rule(0.4+0.0)x417.11752
 .......\glue -0.4
 .....\glue 0.0 plus 1.0fil minus 1.0fil
@@ -1762,7 +1769,7 @@ Completed box being shipped out [3]
 ...\write-{}
 ...\write1{\@writefile{toc}{\protect \contentsline {chapter}{参考文献}{\thepage \ET
 C.}
-...\mark{{{\protect \ustc@spacetitle  {参考文献}}}{}}
+...\mark{{\protect \ustc@spacetitle  {参考文献}}{}}
 ...\write1{\@writefile{lof}{\protect \addvspace {10.0pt}}}
 ...\write1{\@writefile{lot}{\protect \addvspace {10.0pt}}}
 ...\glue(\topskip) 12.0
@@ -1997,6 +2004,7 @@ Completed box being shipped out [4]
 ...........\penalty 10000
 ...........\glue(\parfillskip) 0.0
 ...........\glue(\rightskip) 0.0
+.......\glue 0.0
 .......\rule(0.4+0.0)x417.11752
 .......\glue -0.4
 ....\special{color pop}
@@ -2005,7 +2013,7 @@ Completed box being shipped out [4]
 ..\vbox(700.50723+0.0)x417.11752, glue set 633.8435fil
 ...\write-{}
 ...\write1{\@writefile{toc}{\protect \contentsline {chapter}{\protect \numberline \ETC.}
-...\mark{{{附录 A\hskip 1em\relax \protect \ustc@spacetitle  {附录章节}}\ETC.}
+...\mark{{附录 A\hskip 1em\relax \protect \ustc@spacetitle  {附录章节}}{\ETC.}
 ...\write1{\@writefile{lof}{\protect \addvspace {10.0pt}}}
 ...\write1{\@writefile{lot}{\protect \addvspace {10.0pt}}}
 ...\glue(\topskip) 12.0
@@ -2150,6 +2158,7 @@ Completed box being shipped out [5]
 ...........\penalty 10000
 ...........\glue(\parfillskip) 0.0
 ...........\glue(\rightskip) 0.0
+.......\glue 0.0
 .......\rule(0.4+0.0)x417.11752
 .......\glue -0.4
 .....\glue 0.0 plus 1.0fil minus 1.0fil
@@ -2160,7 +2169,7 @@ Completed box being shipped out [5]
 ...\write-{}
 ...\write1{\@writefile{toc}{\protect \contentsline {chapter}{致谢}{\thepage }{\ET
 C.}
-...\mark{{{\protect \ustc@spacetitle  {致谢}}}{}}
+...\mark{{\protect \ustc@spacetitle  {致谢}}{}}
 ...\write1{\@writefile{lof}{\protect \addvspace {10.0pt}}}
 ...\write1{\@writefile{lot}{\protect \addvspace {10.0pt}}}
 ...\glue(\topskip) 12.0
@@ -2328,6 +2337,7 @@ Completed box being shipped out [6]
 ...........\penalty 10000
 ...........\glue(\parfillskip) 0.0
 ...........\glue(\rightskip) 0.0
+.......\glue 0.0
 .......\rule(0.4+0.0)x417.11752
 .......\glue -0.4
 ....\special{color pop}
@@ -2336,7 +2346,7 @@ Completed box being shipped out [6]
 ..\vbox(700.50723+0.0)x417.11752, glue set 633.44206fil
 ...\write-{}
 ...\write1{\@writefile{toc}{\protect \contentsline {chapter}{在读期间发表的\ETC.}
-...\mark{{{\protect \ustc@spacetitle  {在读期间发表的学术论文与取\ETC.}
+...\mark{{\protect \ustc@spacetitle  {在读期间发表的学术论文与取得\ETC.}
 ...\write1{\@writefile{lof}{\protect \addvspace {10.0pt}}}
 ...\write1{\@writefile{lot}{\protect \addvspace {10.0pt}}}
 ...\glue(\topskip) 12.0

@@ -73,6 +73,7 @@ Completed box being shipped out [1]
 ...........\penalty 10000
 ...........\glue(\parfillskip) 0.0
 ...........\glue(\rightskip) 0.0
+.......\glue 0.0
 .......\rule(0.4+0.0)x417.11752
 .......\glue -0.4
 .....\glue 0.0 plus 1.0fil minus 1.0fil
@@ -265,6 +266,7 @@ Completed box being shipped out [1]
 ...........\penalty 10000
 ...........\glue(\parfillskip) 0.0
 ...........\glue(\rightskip) 0.0
+.......\glue 0.0
 .......\rule(0.4+0.0)x417.11752
 .......\glue -0.4
 .....\glue 0.0 plus 1.0fil minus 1.0fil
@@ -817,6 +819,7 @@ Completed box being shipped out [2]
 ...........\penalty 10000
 ...........\glue(\parfillskip) 0.0
 ...........\glue(\rightskip) 0.0
+.......\glue 0.0
 .......\rule(0.4+0.0)x417.11752
 .......\glue -0.4
 ....\special{color pop}
@@ -1018,6 +1021,7 @@ Completed box being shipped out [3]
 ...........\penalty 10000
 ...........\glue(\parfillskip) 0.0
 ...........\glue(\rightskip) 0.0
+.......\glue 0.0
 .......\rule(0.4+0.0)x417.11752
 .......\glue -0.4
 .....\glue 0.0 plus 1.0fil minus 1.0fil
@@ -1205,6 +1209,7 @@ Completed box being shipped out [4]
 ...........\penalty 10000
 ...........\glue(\parfillskip) 0.0
 ...........\glue(\rightskip) 0.0
+.......\glue 0.0
 .......\rule(0.4+0.0)x417.11752
 .......\glue -0.4
 ....\special{color pop}
@@ -1617,6 +1622,7 @@ Completed box being shipped out [5]
 ...........\penalty 10000
 ...........\glue(\parfillskip) 0.0
 ...........\glue(\rightskip) 0.0
+.......\glue 0.0
 .......\rule(0.4+0.0)x417.11752
 .......\glue -0.4
 .....\glue 0.0 plus 1.0fil minus 1.0fil
@@ -1789,6 +1795,7 @@ Completed box being shipped out [6]
 ...........\penalty 10000
 ...........\glue(\parfillskip) 0.0
 ...........\glue(\rightskip) 0.0
+.......\glue 0.0
 .......\rule(0.4+0.0)x417.11752
 .......\glue -0.4
 ....\special{color pop}
@@ -2046,6 +2053,7 @@ Completed box being shipped out [7]
 ...........\penalty 10000
 ...........\glue(\parfillskip) 0.0
 ...........\glue(\rightskip) 0.0
+.......\glue 0.0
 .......\rule(0.4+0.0)x417.11752
 .......\glue -0.4
 .....\glue 0.0 plus 1.0fil minus 1.0fil

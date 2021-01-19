@@ -957,38 +957,42 @@
 % 使用 \pkg{ctex} 的 \cs{ctex\_patch\_cmd:Nnn} 命令。
 \newcommand\ustc@patchcmd{\csname ctex_patch_cmd:Nnn\endcsname}
 
-% 页眉与该部分的章标题相同，宋体 10.5 磅（五号）居中。
-% 页码：宋体 10.5 磅、页面下脚居中。
-\ifustc@degree@graduate
-  \newcommand\ustc@hf@font{\fontsize{10.5\bp@}{12\bp@}\selectfont}
-  \newcommand\ustc@header{\leftmark}
-  \ustc@patchcmd\chaptermark{\MakeUppercase}{}
-  \ustc@patchcmd\chaptermark{#1}{\ustc@spacetitle{#1}}
-  %
-  % 本科生要求除封面、扉页外，每面上部加页眉，
-  % 用小 5 号字（9 bp）标注“中国科学技术大学本科毕业论文”，居中；
-  % 从目录页开始在每面底部居中用小五宋体（9 bp）连续编页码。
-\else
-  \newcommand\ustc@hf@font{\fontsize{9\bp@}{12\bp@}\selectfont}
-  \newcommand\ustc@header{中国科学技术大学本科毕业论文}
-  \let\chaptermark\@gobble
-\fi
-
 % 重定义默认的 |plain| page style，会显示页眉和页脚。
 \fancypagestyle{plain}{%
   \fancyhf{}%
-  \fancyhead[C]{\ustc@hf@font\ustc@header}%
-  \fancyfoot[C]{\ustc@hf@font\thepage}%
+  %
+  % 页眉与该部分的章标题相同，宋体 10.5 磅（五号）居中。
+  % 页码：宋体 10.5 磅、页面下脚居中。
+  \ifustc@degree@graduate
+    \def\ustc@hf@font{\fontsize{10.5\bp@}{12\bp@}\selectfont}
+    \fancyhead[C]{\ustc@hf@font\leftmark}%
+    \fancyfoot[C]{\ustc@hf@font\thepage}%
+    \let\@mkboth\markboth
+    \def\chaptermark##1{%
+      \markboth{\CTEXifname{\CTEXthechapter\quad}{}\ustc@spacetitle{##1}}{}%
+    }%
+    \let\sectionmark\@gobble
+  \else
+    %
+    % 本科生要求除封面、扉页外，每面上部加页眉，
+    % 用小 5 号字（9 bp）标注“中国科学技术大学本科毕业论文”，居中；
+    % 从目录页开始在每面底部居中用小五宋体（9 bp）连续编页码。
+    \def\ustc@hf@font{\fontsize{9\bp@}{12\bp@}\selectfont}
+    \fancyhead[C]{\ustc@hf@font 中国科学技术大学本科毕业论文}%
+    \fancyfoot[C]{\ustc@hf@font\thepage}%
+    \let\@mkboth\@gobbletwo
+    \let\chaptermark\@gobble
+    \let\sectionmark\@gobble
+  \fi
 }
 \pagestyle{plain}
 
 % |headings| 只有页眉，没有页脚，用于研究生的符号说明和本科生的 front matter。
 \fancypagestyle{headings}{\fancyfoot{}}
 
-% 每章第一页默认会设置特殊的 page style，我们希望它不改变页眉页脚，
-% 所以定义一个 |none|。
-\def\ps@none{}
-\ctexset{chapter/pagestyle=none}
+% 设置特殊的 page style 不改变任何内容，用于每章首页。
+\def\ps@chapter{}
+\ctexset{chapter/pagestyle=chapter}
 
 % 空白页不加页眉和页码。
 \def\cleardoublepage{\clearpage\if@twoside \ifodd\c@page\else
