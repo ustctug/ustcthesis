@@ -1,3 +1,15 @@
+%
+% Copyright (C) 2015-2021 by USTC TeX Users Group <https://github.com/ustctug>
+%
+% This file may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either version 1.3c
+% of this license or (at your option) any later version.
+% The latest version of this license is in
+%    https://www.latex-project.org/lppl.txt
+% and version 1.3c or later is part of all distributions of LaTeX
+% version 2008 or later.
+%
+
 \NeedsTeXFormat{LaTeX2e}[2017/04/15]
 \ProvidesClass{ustcthesis}[2020/04/03 v3.2.1 USTC thesis template]
 
@@ -330,6 +342,7 @@
 
 % 建议在模板开始处载入全部宏包，不要轻易改变加载顺序。
 % \pkg{hyperref} 一般在最后加载。
+\RequirePackage{etoolbox}
 \RequirePackage{amsmath}
 \RequirePackage{fontspec}[2017/03/31]
 \RequirePackage{unicode-math}
@@ -342,8 +355,14 @@
 \RequirePackage[perpage]{footmisc}
 \RequirePackage{url}
 \RequirePackage{calc}
-\RequirePackage{natbib}
 \RequirePackage{notoccite}
+
+% 如果用户在导言区未调用 \pkg{biblatex}，则自动调用 \pkg{natbib}。
+\AtEndPreamble{
+  \@ifpackageloaded{biblatex}{}{
+    \RequirePackage{natbib}
+  }
+}
 
 % 对冲突的宏包报错。
 \RequirePackage{filehook}
@@ -953,9 +972,6 @@
 \pagestyle{fancy}
 \let\sectionmark\@gobble
 \renewcommand\headrulewidth{0.4\p@}
-
-% 使用 \pkg{ctex} 的 \cs{ctex\_patch\_cmd:Nnn} 命令。
-\newcommand\ustc@patchcmd{\csname ctex_patch_cmd:Nnn\endcsname}
 
 % 重定义默认的 |plain| page style，会显示页眉和页脚。
 \fancypagestyle{plain}{%
@@ -2009,156 +2025,284 @@
 
 % \subsection{参考文献}
 
-% 定义几种引用文献的标注法。
-\newcommand\bibstyle@super{%
-  \bibpunct{[}{]}{,}{s}{,}{\textsuperscript{,}}%
-  \gdef\NAT@sort{\@ne}%
-  \gdef\NAT@cmprs{\@ne}%
-}
-\newcommand\bibstyle@inline{%
-  \bibpunct{[}{]}{,}{n}{,}{,}%
-  \gdef\NAT@sort{\@ne}%
-  \gdef\NAT@cmprs{\@ne}%
-}
-\newcommand\bibstyle@authoryear{%
-  \bibpunct{(}{)}{;}{a}{,}{,}%
-  \gdef\NAT@sort{\z@}%
-  \gdef\NAT@cmprs{\z@}%
-}
+\PassOptionsToPackage{compress}{natbib}
 
-% 避免在 cite-style 接口的地方定义代码，
-% 因为在导言区执行 \cs{citestyle} 会妨碍 \pkg{natbib} 的 \cs{bibstyle}
-% 自动设置 \cs{citestyle}。
-\ustc@option@hook{cite-style}{%
-  \citestyle{\ustc@cite@style}%
-}
-
-% 使用 \cs{bibliographystyle} 命令时自动切换为对应的引用风格。
-\@namedef{bibstyle@ustcthesis-numerical}{\bibstyle@super}
-\@namedef{bibstyle@ustcthesis-authoryear}{\bibstyle@authoryear}
-\@namedef{bibstyle@ustcthesis-bachelor}{\bibstyle@super}
-
-% 如果文献序号作为叙述文字的一部分，需要临时将文献序号与正文平排
-\DeclareRobustCommand\inlinecite{\@inlinecite}
-\def\@inlinecite#1{\begingroup\let\@cite\NAT@citenum\citep{#1}\endgroup}
-
-% 版本 v3.2 改为按照标准方式调用 \cs{bibliographystyle}
-% 版本 v3.1.* 前要求用户不使用 \cs{bibliographystyle} 命令，
-% 这与标准文档类不一致。
-% 为了兼容版本进行一些修改：
-% Reserved for compatibility until 2020-07-01.
-\let\bibstyle@numbers\bibstyle@inline
-\newif\ifustc@bib@style@written
-\def\bibliography#1{%
-  \ifustc@bib@style@written\else
-    \ifustc@degree@bachelor
-      \bibliographystyle{ustcthesis-bachelor}%
-    \else
-      \bibliographystyle{ustcthesis-numerical}%
-    \fi
-  \fi
-  \if@filesw
-    \immediate\write\@auxout{\string\bibdata{\zap@space#1 \@empty}}%
-  \fi
-  \@input@{\jobname.bbl}}
-\def\bibliographystyle#1{%
-  \ustc@bib@style@writtentrue
-  \ifx\@begindocumenthook\@undefined\else
-    \expandafter\AtBeginDocument
-  \fi
-    {\if@filesw
-       \immediate\write\@auxout{\string\bibstyle{#1}}%
-     \fi}}
-\ifustc@legacy@cite@style
-  \ifustc@degree@graduate
-    \ifustc@cite@style@authoryear
-      \citestyle{authoryear}
-      \bibliographystyle{ustcthesis-authoryear}
-    \else
-      \ifustc@cite@style@super
-        \citestyle{super}
+\AtEndOfPackageFile*{natbib}{
+  % 定义几种引用文献的标注样式。
+  \newcommand\bibstyle@super{\bibpunct{[}{]}{,}{s}{,}{\textsuperscript{,}}}
+  \newcommand\bibstyle@inline{\bibpunct{[}{]}{,}{n}{,}{,}}
+  \newcommand\bibstyle@authoryear{\bibpunct{(}{)}{;}{a}{,}{,}}
+  \@namedef{bibstyle@author-year}{\bibstyle@authoryear}
+  %
+  % 几种种引用样式，与 \file{bst} 文件名保持一致，
+  % 这样在使用 \cs{bibliographystyle} 选择参考文献表的样式时也会设置对应的引用样式。
+  \@namedef{bibstyle@ustcthesis-numerical}{\bibstyle@super}
+  \@namedef{bibstyle@ustcthesis-authoryear}{\bibstyle@authoryear}
+  \@namedef{bibstyle@ustcthesis-bachelor}{\bibstyle@super}
+  %
+  % 定义接口 cite-style 切换引用样式。
+  \ustc@option@hook{cite-style}{%
+    \citestyle{\ustc@cite@style}%
+  }
+  %
+  % 如果文献序号作为叙述文字的一部分，需要临时将文献序号与正文平排
+  \DeclareRobustCommand\inlinecite{\@inlinecite}
+  \def\@inlinecite#1{\begingroup\let\@cite\NAT@citenum\citep{#1}\endgroup}
+  %
+  % 修改引用的样式。
+  % 这里在 filehook 中无法使用 \cs{patchcmd}，所以只能手动重定义。
+  %
+  % 将 super 式 \cs{citep} 引用的页码置于括号外。
+  \renewcommand\NAT@citesuper[3]{\ifNAT@swa
+    \if*#2*\else#2\NAT@spacechar\fi
+    % \unskip\kern\p@\textsuperscript{\NAT@@open#1\NAT@@close}%
+    %  \if*#3*\else\NAT@spacechar#3\fi\else #1\fi\endgroup}
+    \unskip\kern\p@\textsuperscript{\NAT@@open#1\NAT@@close\if*#3*\else#3\fi}%
+    \else #1\fi\endgroup}
+  %
+  % 将 numbers 式 \cs{citep} 引用的页码置于括号外并改为上标。
+  \renewcommand\NAT@citenum%
+      [3]{\ifNAT@swa\NAT@@open\if*#2*\else#2\NAT@spacechar\fi
+          % #1\if*#3*\else\NAT@cmt#3\fi\NAT@@close\else#1\fi\endgroup}
+          #1\NAT@@close\textsuperscript{\if*#3*\else#3\fi}\else#1\fi\endgroup}
+  %
+  % 在 filehook 中无法使用 \cs{patchcmd}，所以只能手动重定义。
+  \def\NAT@citexnum[#1][#2]#3{%
+    \NAT@reset@parser
+    \NAT@sort@cites{#3}%
+    \NAT@reset@citea
+    \@cite{\def\NAT@num{-1}\let\NAT@last@yr\relax\let\NAT@nm\@empty
+      \@for\@citeb:=\NAT@cite@list\do
+      {\@safe@activestrue
+      \edef\@citeb{\expandafter\@firstofone\@citeb\@empty}%
+      \@safe@activesfalse
+      \@ifundefined{b@\@citeb\@extra@b@citeb}{%
+        {\reset@font\bfseries?}
+          \NAT@citeundefined\PackageWarning{natbib}%
+        {Citation `\@citeb' on page \thepage \space undefined}}%
+      {\let\NAT@last@num\NAT@num\let\NAT@last@nm\NAT@nm
+        \NAT@parse{\@citeb}%
+        \ifNAT@longnames\@ifundefined{bv@\@citeb\@extra@b@citeb}{%
+          \let\NAT@name=\NAT@all@names
+          \global\@namedef{bv@\@citeb\@extra@b@citeb}{}}{}%
+        \fi
+        \ifNAT@full\let\NAT@nm\NAT@all@names\else
+          \let\NAT@nm\NAT@name\fi
+        \ifNAT@swa
+        \@ifnum{\NAT@ctype>\@ne}{%
+          \@citea
+          \NAT@hyper@{\@ifnum{\NAT@ctype=\tw@}{\NAT@test{\NAT@ctype}}{\NAT@alias}}%
+        }{%
+          \@ifnum{\NAT@cmprs>\z@}{%
+          \NAT@ifcat@num\NAT@num
+            {\let\NAT@nm=\NAT@num}%
+            {\def\NAT@nm{-2}}%
+          \NAT@ifcat@num\NAT@last@num
+            {\@tempcnta=\NAT@last@num\relax}%
+            {\@tempcnta\m@ne}%
+          \@ifnum{\NAT@nm=\@tempcnta}{%
+            \@ifnum{\NAT@merge>\@ne}{}{\NAT@last@yr@mbox}%
+          }{%
+            \advance\@tempcnta by\@ne
+            \@ifnum{\NAT@nm=\@tempcnta}{%
+              % 在顺序编码制下，\pkg{natbib} 只有在三个以上连续文献引用才会使用连接号，
+              % 这里修改为允许两个引用使用连接号。
+              % 参考 https://tex.stackexchange.com/a/86991/82731 。
+              %
+              % \ifx\NAT@last@yr\relax
+              %   \def@NAT@last@yr{\@citea}%
+              % \else
+              %   \def@NAT@last@yr{--\NAT@penalty}%
+              % \fi
+              \def@NAT@last@yr{-\NAT@penalty}%
+            }{%
+              \NAT@last@yr@mbox
+            }%
+          }%
+          }{%
+          \@tempswatrue
+          \@ifnum{\NAT@merge>\@ne}{\@ifnum{\NAT@last@num=\NAT@num\relax}{\@tempswafalse}{}}{}%
+          \if@tempswa\NAT@citea@mbox\fi
+          }%
+        }%
+        \NAT@def@citea
+        \else
+          \ifcase\NAT@ctype
+            \ifx\NAT@last@nm\NAT@nm \NAT@yrsep\NAT@penalty\NAT@space\else
+              \@citea \NAT@test{\@ne}\NAT@spacechar\NAT@mbox{\NAT@super@kern\NAT@@open}%
+            \fi
+            \if*#1*\else#1\NAT@spacechar\fi
+            \NAT@mbox{\NAT@hyper@{{\citenumfont{\NAT@num}}}}%
+            \NAT@def@citea@box
+          \or
+            \NAT@hyper@citea@space{\NAT@test{\NAT@ctype}}%
+          \or
+            \NAT@hyper@citea@space{\NAT@test{\NAT@ctype}}%
+          \or
+            \NAT@hyper@citea@space\NAT@alias
+          \fi
+        \fi
+      }%
+      }%
+        \@ifnum{\NAT@cmprs>\z@}{\NAT@last@yr}{}%
+        \ifNAT@swa\else
+          % 将 numerical 式 \cs{citet} 引用的页码置于括号外并改为上标。
+          %
+          % \@ifnum{\NAT@ctype=\z@}{%
+          %   \if*#2*\else\NAT@cmt#2\fi
+          % }{}%
+          \NAT@mbox{\NAT@@close}%
+          \@ifnum{\NAT@ctype=\z@}{%
+            \if*#2*\else\textsuperscript{#2}\fi
+          }{}%
+        \fi
+    }{#1}{#2}%
+  }%
+  %
+  % 将 author-year 式 \cs{citep} 引用的页码置于括号外并改为上标：
+  \renewcommand\NAT@cite%
+      [3]{\ifNAT@swa\NAT@@open\if*#2*\else#2\NAT@spacechar\fi
+          % #1\if*#3*\else\NAT@cmt#3\fi\NAT@@close\else#1\fi\endgroup}
+          #1\NAT@@close\if*#3*\else\textsuperscript{#3}\fi\else#1\fi\endgroup}
+  %
+  % 调整 author-year 式 \cs{citet} 引用的页码。
+  \def\NAT@citex%
+    [#1][#2]#3{%
+    \NAT@reset@parser
+    \NAT@sort@cites{#3}%
+    \NAT@reset@citea
+    \@cite{\let\NAT@nm\@empty\let\NAT@year\@empty
+      \@for\@citeb:=\NAT@cite@list\do
+      {\@safe@activestrue
+      \edef\@citeb{\expandafter\@firstofone\@citeb\@empty}%
+      \@safe@activesfalse
+      \@ifundefined{b@\@citeb\@extra@b@citeb}{\@citea%
+        {\reset@font\bfseries ?}\NAT@citeundefined
+                  \PackageWarning{natbib}%
+        {Citation `\@citeb' on page \thepage \space undefined}\def\NAT@date{}}%
+      {\let\NAT@last@nm=\NAT@nm\let\NAT@last@yr=\NAT@year
+        \NAT@parse{\@citeb}%
+        \ifNAT@longnames\@ifundefined{bv@\@citeb\@extra@b@citeb}{%
+          \let\NAT@name=\NAT@all@names
+          \global\@namedef{bv@\@citeb\@extra@b@citeb}{}}{}%
+        \fi
+      \ifNAT@full\let\NAT@nm\NAT@all@names\else
+        \let\NAT@nm\NAT@name\fi
+      \ifNAT@swa\ifcase\NAT@ctype
+        \if\relax\NAT@date\relax
+          \@citea\NAT@hyper@{\NAT@nmfmt{\NAT@nm}\NAT@date}%
+        \else
+          \ifx\NAT@last@nm\NAT@nm\NAT@yrsep
+              \ifx\NAT@last@yr\NAT@year
+                \def\NAT@temp{{?}}%
+                \ifx\NAT@temp\NAT@exlab\PackageWarningNoLine{natbib}%
+                {Multiple citation on page \thepage: same authors and
+                year\MessageBreak without distinguishing extra
+                letter,\MessageBreak appears as question mark}\fi
+                \NAT@hyper@{\NAT@exlab}%
+              \else\unskip\NAT@spacechar
+                \NAT@hyper@{\NAT@date}%
+              \fi
+          \else
+            \@citea\NAT@hyper@{%
+              \NAT@nmfmt{\NAT@nm}%
+              \hyper@natlinkbreak{%
+                \NAT@aysep\NAT@spacechar}{\@citeb\@extra@b@citeb
+              }%
+              \NAT@date
+            }%
+          \fi
+        \fi
+      \or\@citea\NAT@hyper@{\NAT@nmfmt{\NAT@nm}}%
+      \or\@citea\NAT@hyper@{\NAT@date}%
+      \or\@citea\NAT@hyper@{\NAT@alias}%
+      \fi \NAT@def@citea
       \else
-        \citestyle{inline}
+        \ifcase\NAT@ctype
+          \if\relax\NAT@date\relax
+            \@citea\NAT@hyper@{\NAT@nmfmt{\NAT@nm}}%
+          \else
+          \ifx\NAT@last@nm\NAT@nm\NAT@yrsep
+              \ifx\NAT@last@yr\NAT@year
+                \def\NAT@temp{{?}}%
+                \ifx\NAT@temp\NAT@exlab\PackageWarningNoLine{natbib}%
+                {Multiple citation on page \thepage: same authors and
+                year\MessageBreak without distinguishing extra
+                letter,\MessageBreak appears as question mark}\fi
+                \NAT@hyper@{\NAT@exlab}%
+              \else
+                \unskip\NAT@spacechar
+                \NAT@hyper@{\NAT@date}%
+              \fi
+          \else
+            \@citea\NAT@hyper@{%
+              \NAT@nmfmt{\NAT@nm}%
+              \hyper@natlinkbreak{\NAT@spacechar\NAT@@open\if*#1*\else#1\NAT@spacechar\fi}%
+                {\@citeb\@extra@b@citeb}%
+              \NAT@date
+            }%
+          \fi
+          \fi
+        \or\@citea\NAT@hyper@{\NAT@nmfmt{\NAT@nm}}%
+        \or\@citea\NAT@hyper@{\NAT@date}%
+        \or\@citea\NAT@hyper@{\NAT@alias}%
+        \fi
+        \if\relax\NAT@date\relax
+          \NAT@def@citea
+        \else
+          \NAT@def@citea@close
+        \fi
       \fi
-      \bibliographystyle{ustcthesis-numerical}
-    \fi
-  \else
-    \ifustc@cite@style@super
-      \citestyle{super}
+      }}\ifNAT@swa\else
+        % 将 author-year 式 \cs{citet} 引用的页码置于括号外并改为上标。
+        %
+        % \if*#2*\else\NAT@cmt#2\fi
+        \if\relax\NAT@date\relax\else\NAT@@close\fi
+        \if*#2*\else\textsuperscript{#2}\fi
+      \fi}{#1}{#2}}
+  %
+  % 为了将参考文献加入目录和 pdf 书签，重新定义 \pkg{natbib} 的 \cmd{bibsection}
+  \renewcommand\bibsection{%
+    \@mainmatterfalse
+    \chapter{\bibname}%
+  }
+  %
+  % 参考文献列表格式：宋体 10.5 磅，行距 20 磅，续行缩进两字，左对齐。
+  % 本科生依然是小四宋体。
+  \renewcommand\bibfont{%
+    \ifustc@degree@graduate
+      \fontsize{10.5\bp@}{20\bp@}\selectfont
     \else
-      \citestyle{numbers}
+      \normalsize
     \fi
-    \bibliographystyle{ustcthesis-bachelor}
-  \fi
-\fi
-
-% 下面修改引用标注的格式，主要是将页码写在上标位置。
-% Numerical 模式的 \cs{citet} 的页码：
-\ustc@patchcmd{\NAT@citexnum}{%
-  \@ifnum{\NAT@ctype=\z@}{%
-    \if*#2*\else\NAT@cmt#2\fi
-  }{}%
-  \NAT@mbox{\NAT@@close}%
-}{%
-  \NAT@mbox{\NAT@@close}%
-  \@ifnum{\NAT@ctype=\z@}{%
-    \if*#2*\else\textsuperscript{#2}\fi
-  }{}%
+  }
+  \setlength{\bibsep}{0\p@ \@plus.2\p@}
+  \renewcommand\@biblabel[1]{[#1]\hfill}
+  \setlength{\bibhang}{2\ccwd}
 }
 
-% Numerical 模式的 \cs{citep} 的页码：
-\renewcommand\NAT@citesuper[3]{\ifNAT@swa
-\if*#2*\else#2\NAT@spacechar\fi
-\unskip\kern\p@\textsuperscript{\NAT@@open#1\NAT@@close\if*#3*\else#3\fi}%
-   \else #1\fi\endgroup}
-\renewcommand\NAT@citenum%
-    [3]{\ifNAT@swa\NAT@@open\if*#2*\else#2\NAT@spacechar\fi
-        #1\NAT@@close\if*#3*\else\textsuperscript{#3}\fi\else#1\fi\endgroup}
-        %
-        % Author-year 模式的 \cs{citet} 的页码：
-\ustc@patchcmd{\NAT@citex}{%
-  \if*#2*\else\NAT@cmt#2\fi
-  \if\relax\NAT@date\relax\else\NAT@@close\fi
-}{%
-  \if\relax\NAT@date\relax\else\NAT@@close\fi
-  \if*#2*\else\textsuperscript{#2}\fi
+
+% biblatex 宏包的配置
+
+\AtEndOfPackageFile*{biblatex}{
+  \AtBeginDocument{
+    \ifthenelse{\equal{\blx@bbxfile}{apa}}{\def\bibname{REFERENCES}}{}
+    \ifthenelse{\equal{\blx@bbxfile}{apa6}}{\def\bibname{REFERENCES}}{}
+    \ifthenelse{\equal{\blx@bbxfile}{mla}}{\def\bibname{WORKS CITED}}{}
+    \ifthenelse{\equal{\blx@bbxfile}{mla-new}}{\def\bibname{WORKS CITED}}{}
+  }
+  \DeclareRobustCommand\inlinecite{\parencite}
+  \defbibheading{bibliography}[\bibname]{\@mainmatterfalse\chapter*{\bibname}}
+  \renewcommand\bibfont{%
+    \ifustc@degree@graduate
+      \fontsize{10.5\bp@}{20\bp@}\selectfont
+    \else
+      \normalsize
+    \fi
+  }
+  \setlength{\bibitemsep}{0\p@ \@plus.2\p@}
+  \setlength{\bibhang}{2\ccwd}
 }
-
-% Author-year 模式的 \cs{citep} 的页码：
-\renewcommand\NAT@cite%
-    [3]{\ifNAT@swa\NAT@@open\if*#2*\else#2\NAT@spacechar\fi
-        #1\NAT@@close\if*#3*\else\textsuperscript{#3}\fi\else#1\fi\endgroup}
-        %
-        % 在顺序编码制下，\pkg{natbib} 只有在三个以上连续文献引用才会使用连接号，
-        % 这里修改为允许两个引用使用连接号。
-        % \footnote{\url{https://tex.stackexchange.com/a/86991/82731}}
-\ustc@patchcmd{\NAT@citexnum}{%
-  \ifx\NAT@last@yr\relax
-    \def@NAT@last@yr{\@citea}%
-  \else
-    \def@NAT@last@yr{--\NAT@penalty}%
-  \fi
-}{%
-  \def@NAT@last@yr{-\NAT@penalty}%
-}
-
-% 参考文献列表格式：宋体 10.5 磅，行距 20 磅，续行缩进两字，左对齐。
-% 本科生依然是小四宋体。
-\ifustc@degree@graduate
-  \renewcommand\bibfont{\fontsize{10.5\bp@}{20\bp@}\selectfont}
-\fi
-\setlength{\bibsep}{0\p@ \@plus.2\p@}
-\setlength{\bibhang}{2\ccwd}
-\renewcommand\@biblabel[1]{[#1]\hfill}
-
-% 为了将参考文献加入目录和 pdf 书签，重新定义 \pkg{natbib} 的 \cmd{bibsection}
-\renewcommand\bibsection{%
-  \@mainmatterfalse
-  \chapter{\bibname}%
-}
-
-% BibTeX 生成参考文献表的样式在 \file{bst} 文件中提供。
-
 
 % \subsection{附录}
 

@@ -8,6 +8,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ### Added
 
 - 添加软件工程专业的封面的格式的支持
+- 新增 biblatex 的支持（#282）。
 
 ### Changed
 

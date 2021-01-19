@@ -2,6 +2,18 @@
 % !TeX program = xelatex
 % !TeX spellcheck = en_US
 
+%
+% Copyright (C) 2015-2021 by USTC TeX Users Group <https://github.com/ustctug>
+%
+% This file may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either version 1.3c
+% of this license or (at your option) any later version.
+% The latest version of this license is in
+%    https://www.latex-project.org/lppl.txt
+% and version 1.3c or later is part of all distributions of LaTeX
+% version 2008 or later.
+%
+
 \documentclass[a4paper]{ltxdoc}
 
 \usepackage[UTF8]{ctex}
@@ -150,7 +162,9 @@
     类别     & 文件                      & 说明                         \\
     \midrule
     模板文件 & \file{ustcthesis.cls}     & 模板文件                     \\
-             & \file{ustcthesis-*.bst}   & 参考文献表格式               \\
+             & \file{ustcthesis-*.bst}   & \BibTeX{} 参考文献表格式     \\
+             & \file{ustcthesis-*.bbx}   & BibLaTeX 参考文献表格式      \\
+             & \file{ustcthesis-*.cbx}   & BibLaTeX 参考文献表格式      \\
              & \file{figures/ustc-*.pdf} & 校名和校徽图片               \\
     \midrule
     使用说明 & \file{ustcthesis-doc.tex} & 模板使用说明的源代码         \\
@@ -192,7 +206,6 @@
 \pkg{footmisc},
 \pkg{geometry},
 \pkg{graphicx},
-\pkg{natbib},
 \pkg{notoccite},
 \pkg{titletoc},
 \pkg{url},
@@ -201,6 +214,8 @@
 另外，模板还对其他宏包提供了支持，包括：
 \pkg{amsthm},
 \pkg{algorithm2e},
+\pkg{natbib},
+\pkg{biblatex},
 \pkg{hyperref},
 \pkg{nomencl},
 \pkg{siunitx}。
@@ -210,7 +225,6 @@
 注意，本模板\emph{不}兼容的宏包有：
 \pkg{amsfonts},
 \pkg{amssymb},
-\pkg{biblatex},
 \pkg{bm},
 \pkg{cite},
 \pkg{mathrsfs},
@@ -343,7 +357,7 @@ Windows 用户可能无法使用GNU make，使用 |latexmk| 也是一个比较�
 
 用户也可以在调用模板时手动指定使用的字库，如：
 \begin{latex}
-  \documentclass[fontset=windows]{thuthesis}
+  \documentclass[fontset=windows]{ustcthesis}
 \end{latex}
 该选项会传递给 \pkg{ctex} 宏包进行处理，
 允许的值包括 \opt{windows}、\opt{mac}、\opt{fandol}，
@@ -508,114 +522,90 @@ Windows 用户可能无法使用GNU make，使用 |latexmk| 也是一个比较�
 
 \subsection{参考文献}
 
-\DescribeMacro{\bibliographystyle}
-按照《撰写手册》和 GB/T 7714-2015《信息与文献\ 参考文献著录规则》 的规定，
-参考文献的标注体系分为“顺序编码制”和“著者-出版年制”（authoryear），
-《撰写手册》推荐使用顺序编码制。
-用户可以使用 \cs{bibliographystyle} 命令切换不同的参考文献表样式，
-这也会自动设置相应的引用标注样式，如：
+参考文献支持使用 \BibTeX{} 或 BibLaTeX 生成。
+用户可以根据需求选择合适的方式。
+
+
+\subsubsection{\BibTeX}
+
+\BibTeX{} 是 \LaTeX{} 处理参考文献的传统的方式。
+在本模板中需要载入 \pkg{natbib} 宏包，
+然后选择“顺序编码制”或“著者-出版年制”两种格式之一：
 \begin{latex}
+  % 顺序编码制
+  \usepackage[sort]{natbib}
+  \bibliographystyle{ustcthesis-numeric}
+\end{latex}
+或者
+\begin{latex}
+  % 著者-出版年制
+  \usepackage{natbib}
   \bibliographystyle{ustcthesis-authoryear}
 \end{latex}
+并且在生成参考文献表的位置使用 \cs{bibliography} 设置 \file{.bib} 数据库的路径。
+然后使用 \file{bibtex} 编译生成 \file{.bbl} 文件。
+这里使用参考文献样式（\file{.bst} 文件）是在
+\href{https://ctan.org/pkg/gbt7714}{\pkg{gbt7714}}
+的基础上进行了少量修改。
 
-\DescribeMacro{\cite}
-在正文中引用文献时应使用 \cs{cite} 命令。
-同一处引用多篇文献时，需要将各篇文献的 key 一同写在参数中，
-如 |\cite{knuth84,lamport94,mittelbach04}|。
-它可以自动排序并用处理连续编号。
-更多的引用标注方法可以参考 \pkg{natbib} 宏包的使用说明。
+顺序编码制的文内引用标注分为两种样式：
+\begin{enumerate}
+  \item 上标样式（\opt{super}）， 如“张教授\textsuperscript{[2-3]}认为……
+    形成了多种物理模型\textsuperscript{[7,9,11-13]}”。
+  \item 与正文平排（\opt{inline}），文献序号作为叙述文字的一部分，
+    如“张教授\textsuperscript{[4]}认为……根据文献[4]\textsuperscript{101-105}”。
+\end{enumerate}
 
-\DescribeMacro{\inlinecite}
-\DescribeOption{cite-style}
-在使用角标数字式时，如果文献序号作为叙述文字的一部分，
-需要临时将文献序号与正文平排，
-可以使用 \cs{inlinecite} 命令临时使用正文模式的引用标注，如：
+模板默认为上标样式，也可以将引用标注统一设为 \opt{inline} 样式。
 \begin{latex}
-  文献~\inlinecite{knuth84} 提出了一种新的断行算法
-\end{latex}
-也可以在正文开始处统一切换全文的引用标注样式：
-\begin{latex}
-  \ustcsetup{}
+  \ustcsetup{
     cite-style = inline,
   }
 \end{latex}
+或者使用 \cs{inlinecite} 在局部与正文平排。
 
-若需要标出引文的页码，可以标在 \cs{cite} 的可选参数中，如 |\cite[42]{abc}|。
+著者-出版年制的文献引用标注也有两种主要模式：
+\begin{enumerate}
+  \item \cs{citet}：著者姓名作为正文的一部分，比如“Zhang (2008)”，
+    同默认的 \cs{cite} 命令一样。
+  \item \cs{citep}：著者与年份均在括号中，比如“(Zhang, 2008)”。
+\end{enumerate}
 
-\DescribeMacro{\citep}
-\DescribeMacro{\citet}
-在采用著者-出版年制时，如果将著者姓氏和出版年都置于“( )”内，
-应使用 \cs{citep} 命令代替 \cs{cite} 来引用；
-如果将著者姓氏作为正文的一部分，在其后的“( )”内只著录出版年，
-则应使用 \cs{citet} 命令。
-
-\DescribeMacro{\bibliography}
-参考文献表可以使用 \BibTeX{} 生成，并在文中使用 \cs{bibliography} 命令调用。
-\BibTeX{} 默认情况下可以自动识别文献语言，并自动处理文献类型和载体类型标识，
-但是在少数情况下需要用户手动指定，如：
-\begin{latex}
-  @misc{citekey,
-    language = {japanese},
-    mark     = {Z},
-    medium   = {DK},
-    ...
-  }
-\end{latex}
-可选的语言有 english, chinese, japanese, russian。
-
-注意，国标规定参考文献表采用著者-出版年制组织时，各篇文献首先按文种集中，
-然后按著者字顺和出版年排列；
+参考文献表采用著者-出版年制组织时，各篇文献首先按文种集中， 然后按著者字顺和出版年排列；
 中文文献可以按著者汉语拼音字顺排列，也可以按著者的笔画笔顺排列。
-然而由于 \BibTeX{} 功能的局限性，无法自动获取著者姓名的拼音或笔画笔顺，
-所以\emph{必须}在 bib 数据库中的 |key| 域手动录入著者姓名的拼音，如：
+但由于 \BibTeX{} 功能的局限性，无法自动获取著者姓名的拼音或笔画笔顺进行正确排序。
+一种解决方法是在 \file{.bib} 数据库的中文文献的 |key| 域手动录入著者姓名的拼音：
 \begin{latex}
   @book{capital,
     author = {马克思 and 恩格斯},
-    key    = {ma3 ke4 si1   en1 ge2 si1},
+    key    = {ma3 ke4 si1 & en1 ge2 si1},
     ...
   }
 \end{latex}
+如果中文文献数量较多，推荐使用 BibLaTeX 处理参考文献。
 
-\BibTeX{} 对自定义样式的支持比较有限，
-所以用户只能通过修改 \file{bst} 文件来修改文献列表的格式。
-本宏包提供了一些接口供用户更方便地修改。
 
-在 \file{bst} 文件开始处的 |load.config| 函数中，
-有一组配置参数用来控制样式，表~\ref{tab:config} 列出了每一项的默认值和功能。
-若变量被设为 |#1| 则表示该项被启用，设为 |#0| 则不启用。
-默认的值是严格遵循《撰写手册》的配置。
+\subsubsection{BibLaTeX}
 
-\begin{table}[htb]
-\centering\small
-\caption{参考文献表样式的配置参数}
-\label{tab:config}
-\begin{tabular}{lcl}
-  \toprule
-  参数值                         & 默认值 & 功能                           \\
-  \midrule
-  uppercase.name                 & |#1|   & 将著者姓名转为大写             \\
-  max.num.authors                & |#3|   & 输出著者的最多数量             \\
-  period.between.author.year     & |#0|   & 著者和年份之间使用句点连接     \\
-  sentence.case.title            & |#1|   & 将西文的题名转为 sentence case \\
-  link.title                     & |#0|   & 在题名上添加 url 的超链接      \\
-  show.mark                      & |#1|   & 显示文献类型标识               \\
-  italic.journal                  & |#0|   & 西文期刊名使用斜体             \\
-  show.missing.address.publisher & |#1|   & 出版项缺失时显示“出版者不详”   \\
-  show.url                       & |#1|   & 显示 url                       \\
-  show.doi                       & |#1|   & 显示 doi                       \\
-  show.note                      & |#0|   & 显示 note 域的信息             \\
-  \bottomrule
-\end{tabular}
-\end{table}
+BibLaTeX 是较新的参考文献处理方案。
+需要在载入宏包时通过选择样式（\opt{style}），
+并且在导言区使用 \cs{addbibresource} 设置数据库的路径，
+最后在参考文献表的位置使用 \cs{printbibliography} 输出。
+\begin{latex}
+  \usepackage[style=ustcthesis-author-year]{biblatex}
+  \addbibresource{bib/ustc.bib}
+\end{latex}
+使用 BibLaTeX 必须用 \file{biber} 编译生成参考文献表。
+这里的样式是在 \href{https://ctan.org/pkg/biblatex-gb7714-2015}{biblatex-gb7714-2015}
+的基础上进行了少量修改。
+一些额外用法可以参考该宏包的文档。
 
-如果需要每章生成独立的参考文献表，可以使用 \pkg{chapterbib} 宏包，
-但是需要注意：
-\begin{enumerate}
-  \item 在 \file{main.tex} 中调用每章的子文件时必须使用 \cs{include} 命令；
-  \item 每章需要使用 \cs{bibliographystyle} 和 \cs{bibliography} 命令；
-  \item 如果手动调用 BibTeX，需要对每章生成的 \file{.aux} 文件编译，
-    （如果使用 \pkg{latexmk} 则可以自动处理）。
-\end{enumerate}
+对于顺序编码制，文献引用标注默认为上标样式。
+如果要切换为与正文平排，一种方法是使用 \cs{parencite}，
+另一种是载入 \pkg{biblatex} 时统一设置。
+\begin{latex}
+  \usepackage[bibstyle=ustcthesis-numeric,citestyle=ustcthesis-inline]{biblatex}
+\end{latex}
 
 
 

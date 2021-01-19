@@ -441,7 +441,7 @@ Completed box being shipped out [1]
 ....\glue(\rightskip) 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 9.86589
-...\hbox(10.51805+0.12044)x417.11752, glue set 311.25989fil
+...\hbox(10.51805+0.12044)x417.11752, glue set 311.95969fil
 ....\hbox(0.0+0.0)x24.08972
 ....\TU/texgyretermes(0)/m/n/12.04486 Knuth
 ....\kern -0.0002
@@ -452,6 +452,20 @@ Completed box being shipped out [1]
 .....\kern 1.0
 .....\TU/texgyretermes(0)/m/n/8.43135 [
 ....\mathoff
+....\penalty 10000
+....\mathon
+....\hbox(5.6996+0.0)x4.71568, shifted -4.81845
+.....\TU/texgyretermes(0)/m/n/8.43135 4
+.....\kern -0.0002
+.....\kern 0.0002
+....\mathoff
+....\mathon
+....\hbox(0.86+1.18881)x2.60783, shifted -4.81845
+.....\TU/texgyretermes(0)/m/n/8.43135 ,
+.....\kern -0.0002
+.....\kern 0.0002
+....\mathoff
+....\penalty 1000
 ....\penalty 10000
 ....\mathon
 ....\hbox(5.6996+0.0)x4.71568, shifted -4.81845
@@ -473,20 +487,6 @@ Completed box being shipped out [1]
 .....\kern -0.0002
 .....\kern 0.0002
 ....\mathoff
-....\mathon
-....\hbox(0.86+1.18881)x2.60783, shifted -4.81845
-.....\TU/texgyretermes(0)/m/n/8.43135 ,
-.....\kern -0.0002
-.....\kern 0.0002
-....\mathoff
-....\penalty 1000
-....\penalty 10000
-....\mathon
-....\hbox(5.6996+0.0)x4.71568, shifted -4.81845
-.....\TU/texgyretermes(0)/m/n/8.43135 4
-.....\kern -0.0002
-.....\kern 0.0002
-....\mathoff
 ....\penalty 10000
 ....\mathon
 ....\hbox(5.58156+1.31528)x3.30763, shifted -4.81845
@@ -496,8 +496,16 @@ Completed box being shipped out [1]
 ....\mathoff
 ....\kern 1.0
 ....\mathon
-....\hbox(5.6996+1.31528)x23.67778, shifted -4.81845
+....\hbox(5.6996+1.31528)x22.97798, shifted -4.81845
 .....\TU/texgyretermes(0)/m/n/8.43135 [
+.....\hbox(5.6996+0.0)x4.21568
+......\TU/texgyretermes(0)/m/n/8.43135 4
+......\kern -0.0002
+......\kern 0.0002
+.....\TU/texgyretermes(0)/m/n/8.43135 ,
+.....\kern -0.0002
+.....\kern 0.0002
+.....\penalty 1000
 .....\hbox(5.6996+0.0)x4.21568
 ......\TU/texgyretermes(0)/m/n/8.43135 1
 ......\kern -0.0002
@@ -508,14 +516,6 @@ Completed box being shipped out [1]
 .....\penalty 1000
 .....\hbox(5.6996+0.11803)x4.21568
 ......\TU/texgyretermes(0)/m/n/8.43135 3
-......\kern -0.0002
-......\kern 0.0002
-.....\TU/texgyretermes(0)/m/n/8.43135 -
-.....\kern -0.00024
-.....\kern 0.00024
-.....\penalty 1000
-.....\hbox(5.6996+0.0)x4.21568
-......\TU/texgyretermes(0)/m/n/8.43135 4
 ......\kern -0.0002
 ......\kern 0.0002
 .....\TU/texgyretermes(0)/m/n/8.43135 ]

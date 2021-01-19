@@ -1,0 +1,19 @@
+\ProvidesFile{ustcthesis-bachelor.bbx}[2021/01/19 v1.0 USTCThesis biblatex
+  bibliography style]
+
+\RequireBibliographyStyle{gb7714-2015}
+
+\ExecuteBibliographyOptions{
+  gbnamefmt = lowercase,
+  gbtype    = false,
+  gbpub     = false,
+  gbalign   = left,
+}
+
+\DeclareFieldFormat{journaltitle}{%
+  \iffieldequalstr{userd}{english}{%
+    \mkbibemph{#1}%
+  }{%
+    #1\isdot
+  }%
+}
