@@ -1,13 +1,16 @@
 {
+    "latex-workshop.intellisense.package.enabled": true,
+    "latex-workshop.intellisense.unimathsymbols.enabled": true,
+    "latex-workshop.latex.build.forceRecipeUsage": true,
     "latex-workshop.latex.recipes": [
         {
-            "name": "latexmk with xelatex",
-            "tools": ["latexmk-xelatex"]
+            "name": "latexmk -xelatex",
+            "tools": ["latexmk -xelatex"]
         }
     ],
     "latex-workshop.latex.tools": [
         {
-            "name": "latexmk-xelatex",
+            "name": "latexmk -xelatex",
             "command": "latexmk",
             "args": [
                 "-xelatex",
@@ -15,6 +18,8 @@
                 "-halt-on-error",
                 "-interaction=nonstopmode",
                 "-synctex=1",
+                "-pv-",
+                "-pvc-",
                 "-outdir=%OUTDIR%",
                 "%DOC%"
             ],
