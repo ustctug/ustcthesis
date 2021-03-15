@@ -183,6 +183,14 @@
     },
     default = academic,
   },
+  main-language = {
+    name = main@language,
+    choices = {
+      chinese,
+      english,
+    },
+    default = chinese,
+  },
   language = {
     choices = {
       chinese,
@@ -276,18 +284,6 @@
     default = blue,
   },
 }
-\ifustc@degree@bachelor
-  \ifustc@language@english
-    \ustcsetup{section-style = arabic}
-  \fi
-\fi
-\ustc@option@hook{language}{%
-  \ifustc@degree@bachelor
-    \ifustc@language@english
-      \ustcsetup{section-style = arabic}%
-    \fi
-  \fi
-}
 
 % 使用 \pkg{kvoptions} 提供的 key-value 接口，
 \SetupKeyvalOptions{
@@ -322,6 +318,22 @@
 % 载入 \cls{ctexbook}。
 \DeclareDefaultOption{\PassOptionsToClass{\CurrentOption}{ctexbook}}
 \ProcessKeyvalOptions*
+
+\ustcsetup{main-language=\ustc@language}%
+\let\ustc@main@language\ustc@language
+
+\ifustc@degree@bachelor
+  \ifustc@main@language@english
+    \ustcsetup{section-style = arabic}
+  \fi
+\fi
+\ustc@option@hook{language}{%
+  \ifustc@degree@bachelor
+    \ifustc@main@language@english
+      \ustcsetup{section-style = arabic}%
+    \fi
+  \fi
+}
 
 
 % \subsection{加载文档类和宏包}
@@ -380,6 +392,92 @@
 \ustc@package@conflict{unicode-math}{eufrak}
 \ustc@package@conflict{unicode-math}{mathrsfs}
 
+
+% \subsection{处理语言}
+
+% 定义 \cs{ustc@main@language}，当在导言区修改 \option{language} 时，
+% 保存为论文的主要语言；
+% \cs{ustc@reset@main@language} 则用于正文中恢复为主要语言。
+%    \begin{macrocode}
+\ustc@option@hook{language}{%
+  \ifx\@begindocumenthook\@undefined\else
+    \ustcsetup{main-language=\ustc@language}%
+    \let\ustc@main@language\ustc@language
+  \fi
+}
+\newcommand\ustc@reset@main@language{%
+  \ustcsetup{language = \ustc@main@language}%
+  \let\ustc@language\ustc@main@language
+}
+
+% 由于 Unicode 的一些标点符号是中西文混用的：
+% U+00B7、U+2013、U+2014、U+2018、U+2019、
+% U+201C、U+201D、U+2025、U+2026、U+2E3A，
+% 所以要根据语言设置正确的字体。
+% https://github.com/CTeX-org/ctex-kit/issues/389
+\newcommand\ustc@set@punctuations{%
+  \ifustc@language@chinese
+    \xeCJKDeclareCharClass{FullLeft}{"2018, "201C}%
+    \xeCJKDeclareCharClass{FullRight}{
+      "00B7, "2019, "201D, "2013, "2014, "2025, "2026, "2E3A,
+    }%
+  \else
+    \xeCJKDeclareCharClass{HalfLeft}{"2018, "201C}%
+    \xeCJKDeclareCharClass{HalfRight}{
+      "00B7, "2019, "201D, "2013, "2014, "2025, "2026, "2E3A,
+    }%
+  \fi
+}
+\ustc@set@punctuations
+\ustc@option@hook{language}{\ustc@set@punctuations}
+
+% 根据语言设置各章节的名称，只有在导言区设置 \option{language} 时会修改，
+% 而在正文局部切换语言时则不变。
+
+% 由于《撰写手册》中的“speciality”一词使用的是英式拼法，
+% 所以“acknowledgements”也保持一致。
+\newcommand\ustc@set@chapter@names{%
+  \ifustc@main@language@chinese
+    \def\contentsname{目录}%
+    \def\listfigurename{插图清单}%
+    \def\listtablename{表格清单}%
+    \ctexset{
+      chapter/name   = {第,章},
+    }%
+    \def\bibname{参考文献}%
+    \def\appendixname{附录}%
+    \def\ustc@acknowledgements@name{致谢}%
+    \def\ustc@publication@name{在读期间发表的学术论文与取得的研究成果}%
+    \newcommand\ustc@notation@name{符号说明}%
+  \else
+    \def\contentsname{Contents}%
+    \def\listfigurename{List of Figures}%
+    \def\listtablename{List of Tables}%
+    \ctexset{
+      chapter/name   = {\chaptername\space},
+    }%
+    \def\bibname{Bibliography}%
+    \def\appendixname{Appendix}%
+    \def\ustc@acknowledgements@name{Acknowledgements}%
+    \def\ustc@publication@name{Publications}%
+    \def\ustc@notation@name{Notation}%
+  \fi
+}
+\ustc@set@chapter@names
+\ustc@option@hook{main-language}{\ustc@set@chapter@names}
+
+% 这部分名称在正文中局部地修改语言时会发生变化。
+\newcommand\ustc@set@names{%
+  \ifustc@language@chinese
+    \def\figurename{图}%
+    \def\tablename{表}%
+  \else
+    \def\figurename{Figure}%
+    \def\tablename{Table}%
+  \fi
+}
+\ustc@set@names
+\ustc@option@hook{language}{\ustc@set@names}
 
 % \subsection{字体}
 
@@ -727,6 +825,7 @@
   nabla      = upright,
   partial    = upright,
 }
+
 \newcommand\ustc@load@math@font@xits{%
   \ustc@set@xits@names
   \setmathfont{\ustc@font@name@xits@math@rm}[
@@ -879,73 +978,6 @@
 % 设置行距的倍数为 1。
 \linespread{1}\selectfont
 
-
-% \subsection{处理语言}
-
-% 由于 Unicode 的一些标点符号是中西文混用的：
-% \unicodechar{00B7}、
-% \unicodechar{2013}、
-% \unicodechar{2014}、
-% \unicodechar{2018}、
-% \unicodechar{2019}、
-% \unicodechar{201C}、
-% \unicodechar{201D}、
-% \unicodechar{2025}、
-% \unicodechar{2026}、
-% \unicodechar{2E3A}，
-% 所以要根据语言设置正确的字体。
-% \footnote{\url{https://github.com/CTeX-org/ctex-kit/issues/389}}
-% 所以要根据语言设置正确的字体。
-\newcommand\ustc@setchinese{%
-  \xeCJKResetPunctClass
-}
-\newcommand\ustc@setenglish{%
-  \xeCJKDeclareCharClass{HalfLeft}{"2018, "201C}%
-  \xeCJKDeclareCharClass{HalfRight}{%
-    "00B7, "2019, "201D, "2013, "2014, "2025, "2026, "2E3A%
-  }%
-}
-\newcommand\ustc@setdefaultlanguage{%
-  \ifustc@language@chinese
-    \ustc@setchinese
-  \else
-    \ustc@setenglish
-  \fi
-}
-
-% 这里设置了中英文的各种名字。
-
-% 由于《撰写手册》中的“speciality”一词使用的是英式拼法，
-% 所以“acknowledgements”也保持一致。
-\ifustc@language@chinese
-  \renewcommand\contentsname{目录}
-  \renewcommand\listfigurename{插图清单}
-  \renewcommand\listtablename{表格清单}
-  \ctexset{
-    chapter/name   = {第,章},
-  }
-  \renewcommand\figurename{图}
-  \renewcommand\tablename{表}
-  \renewcommand\bibname{参考文献}
-  \renewcommand\appendixname{附录}
-  \newcommand\ustc@acknowledgements@name{致谢}
-  \newcommand\ustc@publication@name{在读期间发表的学术论文与取得的研究成果}
-  \newcommand\ustc@notation@name{符号说明}
-\else
-  \renewcommand\contentsname{Contents}
-  \renewcommand\listfigurename{List of Figures}
-  \renewcommand\listtablename{List of Tables}
-  \ctexset{
-    chapter/name   = {\chaptername\space},
-  }
-  \renewcommand\figurename{Fig.}
-  \renewcommand\tablename{Table}
-  \renewcommand\bibname{Bibliography}
-  \renewcommand\appendixname{Appendix}
-  \newcommand\ustc@acknowledgements@name{Acknowledgements}
-  \newcommand\ustc@publication@name{Publications}
-  \newcommand\ustc@notation@name{Notation}
-\fi
 
 
 % \subsection{纸张和页面}
@@ -1257,7 +1289,7 @@
 % 所以只能使用直尺测量。
 \newcommand\ustc@speciality@sse{软件工程}
 \newcommand\ustc@makezhtitle{%
-  \ustc@setchinese
+  \ustcsetup{language=chinese}%
   \begin{titlepage}%
     \ustc@pdfbookmark{封面}%
     \centering
@@ -1301,12 +1333,12 @@
         \textsf{完成时间：} & \ustc@date@zh
       \end{tabular}\par}%
   \end{titlepage}%
-  \ustc@setdefaultlanguage
+  \ustc@reset@main@language
 }
 
 % 英文封面
 \newcommand\ustc@makeentitle{%
-  \ustc@setenglish
+  \ustcsetup{language=english}%
   \begin{titlepage}%
     \ustc@pdfbookmark{Title page}%
     \centering
@@ -1346,7 +1378,7 @@
         Finished time: \ustc@date@en
       \end{tabular}\par}%
   \end{titlepage}%
-  \ustc@setdefaultlanguage
+  \ustc@reset@main@language
 }
 
 % 重新定义 \cs{maketitle}，调用 \cs{ustc@makezhtitle}, \cs{ustc@makeentitle}
@@ -1633,7 +1665,7 @@
   \ustc@clist@use{\ustc@keywords@en}{; }%
 }
 \newenvironment{abstract}{%
-  \ustc@setchinese
+  \ustcsetup{language=chinese}%
   \ifustc@degree@graduate
     \ustc@chapter{摘要}%
   \else
@@ -1645,12 +1677,12 @@
 }{
   \par\null\par\noindent\hangindent=4\ccwd\relax
   \textbf{关键词}：\ustc@keywords@text\par
-  \ustc@setdefaultlanguage
+  \ustc@reset@main@language
 }
 
 % 英文摘要环境
 \newenvironment{abstract*}{%
-  \ustc@setenglish
+  \ustcsetup{language=english}%
   \ifustc@degree@graduate
     \ustc@chapter[Abstract]{ABSTRACT}%
   \else
@@ -1665,7 +1697,7 @@
   \ifustc@degree@graduate
     \cleardoublepage
   \fi
-  \ustc@setdefaultlanguage
+  \ustc@reset@main@language
 }
 
 % Reserved for compatibility until 2020-07-01.
@@ -2016,6 +2048,9 @@
 
 % 兼容 \pkg{amssymb} 中的命令。
 \newcommand\square{\mdlgwhtsquare}
+\AtBeginDocument{%
+  \renewcommand\checkmark{\ensuremath{✓}}%
+}
 
 
 % \subsection{参考文献}
@@ -2359,7 +2394,7 @@
   %
   % 填写 PDF 元信息。
   \AtBeginDocument{%
-    \ifustc@language@chinese
+    \ifustc@main@language@chinese
       \hypersetup{
         pdftitle  = \ustc@title,
         pdfauthor = \ustc@author,
@@ -2553,13 +2588,23 @@
     separate-uncertainty = true,
     inter-unit-product   = \ensuremath{{}\cdot{}},
   }
+  \newcommand\ustc@set@siunitx@language{%
   \ifustc@language@chinese
     \sisetup{
       list-final-separator = { 和 },
       list-pair-separator  = { 和 },
       range-phrase         = {～},
-    }
+        }%
+      \else
+        \sisetup{
+          list-final-separator = {, and },
+          list-pair-separator  = { and },
+          range-phrase         = { to },
+        }%
   \fi
+  }
+  \ustc@set@siunitx@language
+  \ustc@option@hook{language}{\ustc@set@siunitx@language}
 }
 
 % \subsubsection{\pkg{chapterbib} 宏包}
