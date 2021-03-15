@@ -9,6 +9,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 - 添加软件工程专业的封面的格式的支持
 - 新增 biblatex 的支持（#282）。
+- 新增数学符号风格选项 `math-style`。
+- 新增选项控制数学字体风格的细节：`uppercase-greek`、`less-than-or-equal`、`integral`、`integral-limits`、`partial`、`math-ellipsis` 和 `real-part`。
 
 ### Changed
 

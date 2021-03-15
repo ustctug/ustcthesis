@@ -66,8 +66,6 @@
 示例文件中使用 \pkg{amsthm} 宏包配置了定理、引理和证明等环境。
 用户也可以使用 \pkg{ntheorem} 宏包。
 
-\newcommand\real{{\mathbf{R}}}
-
 \begin{definition}
   If the integral of function $f$ is measurable and non-negative, we define
   its (extended) \textbf{Lebesgue integral} by
@@ -84,7 +82,7 @@ The communication graph is strongly connected.
 \end{assumption}
 
 \begin{example}
-  Simple examples of functions on $\real^d$ that are integrable
+  Simple examples of functions on $\mathbb{R}^d$ that are integrable
   (or non-integrable) are given by
   \begin{equation}
     f_a(x) =
@@ -94,7 +92,7 @@ The communication graph is strongly connected.
     \end{cases}
   \end{equation}
   \begin{equation}
-    F_a(x) = \frac{1}{1 + |x|^a}, \qquad \text{all } x \in \real^d.
+    F_a(x) = \frac{1}{1 + |x|^a}, \qquad \text{all } x \in \mathbb{R}^d.
   \end{equation}
   Then $f_a$ is integrable exactly when $a < d$, while $F_a$ is integrable
   exactly when $a > d$.
@@ -123,7 +121,7 @@ The communication graph is strongly connected.
 \end{corollary}
 
 \begin{proposition}
-  Suppose $f$ is integrable on $\real^d$. Then for every $\epsilon > 0$:
+  Suppose $f$ is integrable on $\mathbb{R}^d$. Then for every $\epsilon > 0$:
   \begin{enumerate}
     \renewcommand{\theenumi}{\roman{enumi}}
     \item There exists a set of finite measure $B$ (a ball, for example) such

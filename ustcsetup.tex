@@ -16,20 +16,36 @@
   % secret-level       = {秘密},     % 绝密|机密|秘密，注释本行则不保密
   % secret-level*      = {Secret},  % Top secret|Highly secret|Secret
   % secret-year        = {10},      % 保密年限
+  %
+  % 数学字体
+  % math-style         = GB,  % 可选：GB, TeX, ISO
+  math-font          = xits,  % 可选：stix, xits, libertinus
 }
 
 
 % 加载宏包
-\usepackage{graphicx}
-\usepackage{booktabs}
-\usepackage{longtable}
-\usepackage[ruled,linesnumbered]{algorithm2e}
-\usepackage{siunitx}
+
+% 定理类环境宏包
 \usepackage{amsthm}
+
+% 插图
+\usepackage{graphicx}
+
+% 三线表
+\usepackage{booktabs}
+
+% 跨页表格
+\usepackage{longtable}
+
+% 算法
+\usepackage[ruled,linesnumbered]{algorithm2e}
+
+% SI 量和单位
+\usepackage{siunitx}
 
 % 参考文献使用 BibTeX + natbib 宏包
 % 顺序编码制
-% \usepackage[sort]{natbib}
+\usepackage[sort]{natbib}
 \bibliographystyle{ustcthesis-numerical}
 
 % 著者-出版年制
@@ -52,7 +68,15 @@
 \graphicspath{{figures/}}
 
 % 数学命令
-\newcommand\dif{\mathop{}\!\mathrm{d}}  % 微分符号
+\makeatletter
+\newcommand\dif{%  % 微分符号
+  \mathop{}\!%
+  \ifustc@math@style@TeX
+    d%
+  \else
+    \mathrm{d}%
+  \fi
+}
 \makeatother
 \newcommand\eu{{\symup{e}}}
 \newcommand\iu{{\symup{i}}}

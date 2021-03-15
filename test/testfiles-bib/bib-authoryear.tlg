@@ -21,19 +21,18 @@ LaTeX Font Info:    Font shape `TU/texgyreheros(0)/b/n' will be
 (Font)              scaled to size 10.03731pt on input line ....
 LaTeX Font Info:    Font shape `TU/texgyreheros(0)/b/n' will be
 (Font)              scaled to size 13.38309pt on input line ....
-LaTeX Font Info:    Calculating math sizes for size <12.04486> on input line ....
 LaTeX Font Info:    Font shape `TU/XITSMath-Regular(2)/m/n' will be
 (Font)              scaled to size 12.04614pt on input line ....
 LaTeX Font Info:    Font shape `TU/XITSMath-Regular(2)/m/n' will be
-(Font)              scaled to size 8.43225pt on input line ....
+(Font)              scaled to size 9.0346pt on input line ....
 LaTeX Font Info:    Font shape `TU/XITSMath-Regular(2)/m/n' will be
-(Font)              scaled to size 6.02307pt on input line ....
+(Font)              scaled to size 7.22768pt on input line ....
 LaTeX Font Info:    Font shape `TU/XITSMath-Regular(3)/m/n' will be
 (Font)              scaled to size 12.04356pt on input line ....
 LaTeX Font Info:    Font shape `TU/XITSMath-Regular(3)/m/n' will be
-(Font)              scaled to size 8.43044pt on input line ....
+(Font)              scaled to size 9.03267pt on input line ....
 LaTeX Font Info:    Font shape `TU/XITSMath-Regular(3)/m/n' will be
-(Font)              scaled to size 6.02177pt on input line ....
+(Font)              scaled to size 7.22614pt on input line ....
 Underfull \hbox (badness 2050) in paragraph at lines 12--14
 []\TU/texgyretermes(0)/m/n/12.04486 Mittelbach, Goossens, Braams, and Carlisle (2004) (Mittelbach, Goossens,
 \hbox(8.22664+2.13193)x417.11752, glue set 2.73936
@@ -131,7 +130,7 @@ Completed box being shipped out [1]
 ....\special{color pop}
 ..\glue 8.2511
 ..\glue(\lineskip) 0.0
-..\vbox(700.50723+0.0)x417.11752, glue set 472.03922fil
+..\vbox(700.50723+0.0)x417.11752, glue set 471.63211fil
 ...\write-{}
 ...\write1{\protect \providecommand {\protect \FN@pp@footnotehinttrue }{}}
 ...\write1{\protect \providecommand {\protect \FN@pp@footnote@aux }[2]{}}
@@ -168,7 +167,7 @@ Completed box being shipped out [1]
 ...\penalty 10000
 ...\glue 18.06729
 ...\glue(\parskip) 0.0
-...\hbox(10.51805+2.13193)x417.11752, glue set 239.91946fil
+...\hbox(10.9252+2.13193)x417.11752, glue set 239.31717fil
 ....\hbox(0.0+0.0)x24.08972
 ....\TU/texgyretermes(0)/m/n/12.04486 Knuth
 ....\kern -0.0002
@@ -198,8 +197,8 @@ Completed box being shipped out [1]
 ....\kern -0.0002
 ....\kern 0.0002
 ....\mathon
-....\hbox(5.6996+0.0)x8.93135, shifted -4.81845
-.....\TU/texgyretermes(0)/m/n/8.43135 42
+....\hbox(6.10675+0.0)x9.53365, shifted -4.81845
+.....\TU/texgyretermes(0)/m/n/9.03365 42
 .....\kern -0.0002
 .....\kern 0.0002
 ....\mathoff
@@ -207,8 +206,8 @@ Completed box being shipped out [1]
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
 ...\glue(\parskip) 0.0
-...\glue(\baselineskip) 7.42479
-...\hbox(10.51805+2.13193)x417.11752, glue set 34.97005fil
+...\glue(\baselineskip) 7.01764
+...\hbox(10.9252+2.13193)x417.11752, glue set 33.76546fil
 ....\hbox(0.0+0.0)x24.08972
 ....\TU/texgyretermes(0)/m/n/12.04486 (Knuth
 ....\kern -0.0002
@@ -244,8 +243,8 @@ Completed box being shipped out [1]
 ....\kern -0.0002
 ....\kern 0.0002
 ....\mathon
-....\hbox(5.6996+0.0)x8.93135, shifted -4.81845
-.....\TU/texgyretermes(0)/m/n/8.43135 42
+....\hbox(6.10675+0.0)x9.53365, shifted -4.81845
+.....\TU/texgyretermes(0)/m/n/9.03365 42
 .....\kern -0.0002
 .....\kern 0.0002
 ....\mathoff
@@ -292,8 +291,8 @@ Completed box being shipped out [1]
 ....\kern -0.0002
 ....\kern 0.0002
 ....\mathon
-....\hbox(5.6996+0.0)x8.93135, shifted -4.81845
-.....\TU/texgyretermes(0)/m/n/8.43135 42
+....\hbox(6.10675+0.0)x9.53365, shifted -4.81845
+.....\TU/texgyretermes(0)/m/n/9.03365 42
 .....\kern -0.0002
 .....\kern 0.0002
 ....\mathoff

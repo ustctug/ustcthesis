@@ -1574,19 +1574,18 @@ Completed box being shipped out [4]
 ..........\glue(\rightskip) 0.0
 ...\special{color pop}
 第二章
-LaTeX Font Info:    Calculating math sizes for size <12.04486> on input line ....
 LaTeX Font Info:    Font shape `TU/XITSMath-Regular(2)/m/n' will be
 (Font)              scaled to size 12.04614pt on input line ....
 LaTeX Font Info:    Font shape `TU/XITSMath-Regular(2)/m/n' will be
-(Font)              scaled to size 8.43225pt on input line ....
+(Font)              scaled to size 9.0346pt on input line ....
 LaTeX Font Info:    Font shape `TU/XITSMath-Regular(2)/m/n' will be
-(Font)              scaled to size 6.02307pt on input line ....
+(Font)              scaled to size 7.22768pt on input line ....
 LaTeX Font Info:    Font shape `TU/XITSMath-Regular(3)/m/n' will be
 (Font)              scaled to size 12.04356pt on input line ....
 LaTeX Font Info:    Font shape `TU/XITSMath-Regular(3)/m/n' will be
-(Font)              scaled to size 8.43044pt on input line ....
+(Font)              scaled to size 9.03267pt on input line ....
 LaTeX Font Info:    Font shape `TU/XITSMath-Regular(3)/m/n' will be
-(Font)              scaled to size 6.02177pt on input line ....
+(Font)              scaled to size 7.22614pt on input line ....
 Completed box being shipped out [5]
 \vbox(722.98453+3.6135)x435.04271
 .\glue -29.59084
@@ -1662,7 +1661,7 @@ Completed box being shipped out [5]
 ....\special{color pop}
 ..\glue 8.2511
 ..\glue(\lineskip) 0.0
-..\vbox(700.50723+0.0)x417.11752, glue set 649.41269fil
+..\vbox(700.50723+0.0)x417.11752, glue set 649.00558fil
 ...\write-{}
 ...\write1{\@writefile{toc}{\protect \addvspace {12\bp@ }}}
 ...\write1{\@writefile{toc}{\protect \contentsline {chapter}{\protect \numberline \ETC.}
@@ -1698,16 +1697,16 @@ Completed box being shipped out [5]
 ...\penalty 10000
 ...\kern 1.0
 ...\glue(\parskip) 0.0
-...\hbox(10.51805+0.0)x417.11752, glue set 382.69685fil
+...\hbox(10.9252+0.0)x417.11752, glue set 381.99455fil
 ....\hbox(0.0+0.0)x24.08972
 ....\mathon
-....\hbox(5.6996+1.31528)x10.33095, shifted -4.81845
-.....\TU/texgyretermes(0)/m/n/8.43135 [
-.....\hbox(5.6996+0.0)x4.21568
-......\TU/texgyretermes(0)/m/n/8.43135 1
+....\hbox(6.10675+1.40924)x11.03325, shifted -4.81845
+.....\TU/texgyretermes(0)/m/n/9.03365 [
+.....\hbox(6.10675+0.0)x4.51683
+......\TU/texgyretermes(0)/m/n/9.03365 1
 ......\kern -0.0002
 ......\kern 0.0002
-.....\TU/texgyretermes(0)/m/n/8.43135 ]
+.....\TU/texgyretermes(0)/m/n/9.03365 ]
 .....\kern -0.0002
 .....\kern 0.0002
 ....\mathoff

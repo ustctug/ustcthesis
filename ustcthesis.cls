@@ -214,6 +214,7 @@
       libertinus,
       newcm,
       lm,
+      newtx,
       none,
     },
     default = auto,
@@ -233,14 +234,72 @@
   math-font = {
     name = math@font,
     choices = {
+      auto,
       xits,
       stix,
       libertinus,
       newcm,
       lm,
+      newtx,
       none,
     },
-    default = xits,
+    default = auto,
+  },
+  math-style = {
+    name = math@style,
+    choices = {
+      GB,
+      ISO,
+      TeX,
+    },
+  },
+  uppercase-greek = {
+    name = uppercase@greek,
+    choices = {
+      italic,
+      upright,
+    },
+  },
+  less-than-or-equal = {
+    name = leq,
+    choices = {
+      slanted,
+      horizontal,
+    },
+  },
+  integral = {
+    choices = {
+      upright,
+      slanted,
+    },
+  },
+  integral-limits = {
+    name = integral@limits,
+    choices = {
+      true,
+      false,
+    },
+  },
+  partial = {
+    choices = {
+      upright,
+      italic,
+    },
+  },
+  math-ellipsis = {
+    name = math@ellipsis,
+    choices = {
+      centered,
+      lower,
+      AMS,
+    },
+  },
+  real-part = {
+    name = real@part,
+    choices = {
+      roman,
+      fraktur,
+    },
   },
   cite-style = {
     name = cite@style,
@@ -344,7 +403,6 @@
 \RequirePackage{etoolbox}
 \RequirePackage{amsmath}
 \RequirePackage{fontspec}[2017/03/31]
-\RequirePackage{unicode-math}
 \RequirePackage[driver=xetex]{geometry}
 \RequirePackage{graphicx}
 \RequirePackage{fancyhdr}
@@ -366,10 +424,23 @@
 % 对冲突的宏包报错。
 \RequirePackage{filehook}
 \newcommand\ustc@package@conflict[2]{
-  \AtBeginOfPackageFile*{#2}{
-    \ustc@error{The "#2" package is incompatible with required "#1"}
-  }
+  \AtEndOfPackageFile*{#1}{%
+    \AtBeginOfPackageFile*{#2}{%
+      \ustc@error{The "#2" package is incompatible with "#1"}%
+    }%
+  }%
 }
+
+\ustc@package@conflict{biblatex}{bibunits}
+\ustc@package@conflict{biblatex}{chapterbib}
+\ustc@package@conflict{biblatex}{cite}
+\ustc@package@conflict{biblatex}{multibib}
+\ustc@package@conflict{biblatex}{natbib}
+
+\ustc@package@conflict{bibunits}{biblatex}
+\ustc@package@conflict{bibunits}{chapterbib}
+\ustc@package@conflict{bibunits}{multibib}
+
 \ustc@package@conflict{unicode-math}{amscd}
 \ustc@package@conflict{unicode-math}{amsfonts}
 \ustc@package@conflict{unicode-math}{amssymb}
@@ -378,6 +449,16 @@
 \ustc@package@conflict{unicode-math}{eucal}
 \ustc@package@conflict{unicode-math}{eufrak}
 \ustc@package@conflict{unicode-math}{mathrsfs}
+\ustc@package@conflict{unicode-math}{newtxmath}
+\ustc@package@conflict{unicode-math}{upgreek}
+
+\ustc@package@conflict{natbib}{biblatex}
+\ustc@package@conflict{natbib}{cite}
+
+\ustc@package@conflict{newtxmath}{amsfonts}
+\ustc@package@conflict{newtxmath}{amssymb}
+\ustc@package@conflict{newtxmath}{unicode-math}
+\ustc@package@conflict{newtxmath}{upgreek}
 
 
 % \subsection{处理语言}
@@ -726,6 +807,10 @@
   ]%
 }
 
+\newcommand\ustc@set@font@newtx{%
+  \RequirePackage{newtxtext}%
+}
+
 \newcommand\ustc@set@font{%
   \@nameuse{ustc@set@font@\ustc@font}%
 }
@@ -888,19 +973,197 @@
 
 % 数学字体
 
-\unimathsetup{
-  math-style = ISO,
-  bold-style = ISO,
-  nabla      = upright,
-  partial    = upright,
+% 设置数学符号风格。
+\newcommand\ustc@set@math@style{%
+  \ifustc@math@style@TeX
+    \ustcsetup{
+      uppercase-greek    = upright,
+      less-than-or-equal = horizontal,
+      integral           = slanted,
+      integral-limits    = false,
+      partial            = italic,
+      math-ellipsis      = AMS,
+      real-part          = fraktur,
+    }%
+  \else
+    \ustcsetup{
+      uppercase-greek = italic,
+      integral        = upright,
+      integral-limits = true,
+      partial         = upright,
+      real-part       = roman,
+    }%
+    \ifustc@math@style@ISO
+      \ustcsetup{
+        less-than-or-equal = horizontal,
+        math-ellipsis      = lower,
+      }%
+    \else
+      \ifustc@math@style@GB
+        \ustcsetup{
+          less-than-or-equal = slanted,
+          math-ellipsis      = centered,
+        }%
+      \fi
+    \fi
+  \fi
+}
+
+\ifustc@main@language@chinese
+  \ustcsetup{math-style = GB}%
+\else
+  \ustcsetup{math-style = TeX}%
+\fi
+
+\ustc@set@math@style
+\ustc@option@hook{math-style}{\ustc@set@math@style}
+\ustc@option@hook{main-language}{%
+  \ifustc@main@language@chinese
+    \ustcsetup{math-style = GB}%
+  \else
+    \ustcsetup{math-style = TeX}%
+  \fi
+}
+
+% 针对 \pkg{unicode-math} 逐项配置数学符号。
+
+\newcommand\ustc@set@unimath@leq{%
+  \ifustc@leq@horizontal
+    \ifx\@begindocumenthook\@undefined
+      \let\le\ustc@save@leq
+      \let\ge\ustc@save@geq
+      \let\leq\ustc@save@leq
+      \let\geq\ustc@save@geq
+    \else
+      \AtBeginDocument{%
+        \let\le\ustc@save@leq
+        \let\ge\ustc@save@geq
+        \let\leq\ustc@save@leq
+        \let\geq\ustc@save@geq
+      }%
+    \fi
+  \else
+    \ifustc@leq@slanted
+      \ifx\@begindocumenthook\@undefined
+        \let\le\leqslant
+        \let\ge\geqslant
+        \let\leq\leqslant
+        \let\geq\geqslant
+      \else
+        \AtBeginDocument{%
+          \let\le\leqslant
+          \let\ge\geqslant
+          \let\leq\leqslant
+          \let\geq\geqslant
+        }%
+      \fi
+    \fi
+  \fi
+}
+\newcommand\ustc@set@unimath@integral@limits{%
+  \ifustc@integral@limits@true
+    \removenolimits{%
+      \int\iint\iiint\iiiint\oint\oiint\oiiint
+      \intclockwise\varointclockwise\ointctrclockwise\sumint
+      \intbar\intBar\fint\cirfnint\awint\rppolint
+      \scpolint\npolint\pointint\sqint\intlarhk\intx
+      \intcap\intcup\upint\lowint
+    }%
+  \else
+    \addnolimits{%
+      \int\iint\iiint\iiiint\oint\oiint\oiiint
+      \intclockwise\varointclockwise\ointctrclockwise\sumint
+      \intbar\intBar\fint\cirfnint\awint\rppolint
+      \scpolint\npolint\pointint\sqint\intlarhk\intx
+      \intcap\intcup\upint\lowint
+    }%
+  \fi
+}
+\newcommand\ustc@set@unimath@ellipsis{%
+  \ifustc@math@ellipsis@centered
+    \DeclareRobustCommand\mathellipsis{\mathinner{\unicodecdots}}%
+  \else
+    \DeclareRobustCommand\mathellipsis{\mathinner{\unicodeellipsis}}%
+  \fi
+}
+\newcommand\ustc@set@unimath@real@part{%
+  \ifustc@real@part@roman
+    \AtBeginDocument{%
+      \def\Re{\operatorname{Re}}%
+      \def\Im{\operatorname{Im}}%
+    }%
+  \else
+    \AtBeginDocument{%
+      \let\Re\ustc@save@Re
+      \let\Im\ustc@save@Im
+    }%
+  \fi
+}
+
+\newcommand\ustc@set@unimath@style{%
+  \ifustc@uppercase@greek@upright
+    \unimathsetup{math-style = TeX}%
+  \else
+    \ifustc@uppercase@greek@italic
+      \unimathsetup{math-style = ISO}%
+    \fi
+  \fi
+  \ifustc@math@style@TeX
+    \unimathsetup{bold-style = TeX}%
+  \else
+    \unimathsetup{bold-style = ISO}%
+  \fi
+  \ustc@set@unimath@leq
+  \ustc@set@unimath@integral@limits
+  \ifustc@partial@upright
+    \unimathsetup{partial = upright}%
+  \else
+    \ifustc@partial@italic
+      \unimathsetup{partial = italic}%
+    \fi
+  \fi
+  \ustc@set@unimath@ellipsis
+  \ustc@set@unimath@real@part
+}
+
+\newcommand\ustc@qed{\rule{1ex}{1ex}}
+\newcommand\ustc@load@unimath{%
+  \@ifpackageloaded{unicode-math}{}{%
+    \RequirePackage{unicode-math}%
+    \AtBeginDocument{%
+      \let\ustc@save@leq\leq
+      \let\ustc@save@geq\geq
+      \let\ustc@save@Re\Re
+      \let\ustc@save@Im\Im
+    }%
+    %
+    % 兼容旧的粗体命令：\pkg{bm} 的 \cs{bm} 和 \pkg{amsmath} 的 \cs{boldsymbol}。
+    \DeclareRobustCommand\bm[1]{{\symbfit{##1}}}%
+    \DeclareRobustCommand\boldsymbol[1]{{\symbfit{##1}}}%
+    %
+    % 兼容 \pkg{amsfonts} 和 \pkg{amssymb} 中的一些命令。
+    \newcommand\square{\mdlgwhtsquare}%
+    \newcommand\blacksquare{\mdlgblksquare}%
+    \AtBeginDocument{%
+      \renewcommand\checkmark{\ensuremath{✓}}%
+    }%
+    %
+    % 兼容 \pkg{amsthm} 的 \cs{qedsymbol}。
+    \renewcommand\ustc@qed{\ensuremath{\QED}}%
+  }%
 }
 
 % XITS Math
+\newcommand\ustc@xits@integral@stylistic@set{%
+  \ifustc@integral@upright
+    8%
+  \fi
+}
 \newcommand\ustc@set@math@font@xits{%
   \ustc@set@xits@names
   \setmathfont{\ustc@font@name@xits@math}[
     Extension    = .otf,
-    StylisticSet = 8,
+    StylisticSet = \ustc@xits@integral@stylistic@set,
   ]%
   \setmathfont{\ustc@font@name@xits@math}[
     Extension    = .otf,
@@ -914,7 +1177,7 @@
   \ustc@set@stix@names
   \setmathfont{\ustc@font@name@stix@math}[
     Extension    = .otf,
-    StylisticSet = 8,
+    StylisticSet = \ustc@xits@integral@stylistic@set,
   ]%
   \setmathfont{\ustc@font@name@stix@math}[
     Extension    = .otf,
@@ -924,12 +1187,17 @@
 }
 
 % Libertinus Math
+\newcommand\ustc@libertinus@integral@stylistic@set{%
+  \ifustc@integral@slanted
+    8%
+  \fi
+}
 \newcommand\ustc@set@math@font@libertinus{%
   \ustc@set@libertinus@names
   \ustc@set@xits@names
   \setmathfont{\ustc@font@name@libertinus@math}[
     Extension    = .otf,
-    StylisticSet = 8,
+    StylisticSet = \ustc@libertinus@integral@stylistic@set,
   ]%
   \setmathfont{\ustc@font@name@xits@math}[
     Extension    = .otf,
@@ -1002,11 +1270,84 @@
   ]%
 }
 
-\newcommand\ustc@set@math@font{%
-  \csname ustc@set@math@font@\ustc@math@font\endcsname
+% NewTX Math
+% 注意 NewTX Math 是 Type 1 字体，如果正文西文使用了 OpenType 字体时需要小心处理。
+\newcommand\ustc@set@math@font@newtx{%
+  \ifustc@font@newtx\else
+    \let\ustc@save@encodingdefault\encodingdefault
+    \let\ustc@save@rmdefault\rmdefault
+    \let\ustc@save@sfdefault\sfdefault
+    \let\ustc@save@ttdefault\ttdefault
+    \RequirePackage[T1]{fontenc}%
+    \renewcommand{\rmdefault}{ntxtlf}%
+    \renewcommand{\sfdefault}{qhv}%
+    \renewcommand{\ttdefault}{ntxtt}%
+  \fi
+  \ifustc@uppercase@greek@italic
+    \PassOptionsToPackage{slantedGreek}{newtxmath}%
+  \fi
+  \ifustc@integral@upright
+    \PassOptionsToPackage{upint}{newtxmath}%
+  \fi
+  \RequirePackage{newtxmath}
+  \let\ustc@save@leq\leq
+  \let\ustc@save@geq\geq
+  \ifustc@leq@slanted
+    \let\le\leqslant
+    \let\ge\geqslant
+    \let\leq\leqslant
+    \let\geq\geqslant
+  \fi
+  \ifustc@integral@limits@true
+    \let\ilimits@\displaylimits
+  \fi
+  \let\ustc@save@partial\partial
+  \ifustc@partial@upright
+    \let\partial\uppartial
+  \fi
+  \ifustc@math@ellipsis@centered
+    \DeclareRobustCommand\mathellipsis{\mathinner{\cdotp\cdotp\cdotp}}%
+  \else
+    \DeclareRobustCommand\mathellipsis{\mathinner{\ldotp\ldotp\ldotp}}%
+  \fi
+  \let\ustc@save@Re\Re
+  \let\ustc@save@Im\Im
+  \ifustc@real@part@roman
+    \def\Re{\operatorname{Re}}%
+    \def\Im{\operatorname{Im}}%
+  \fi
+  \RequirePackage{bm}%
+  \ifustc@font@newtx\else
+    \let\encodingdefault\ustc@save@encodingdefault
+    \let\rmdefault\ustc@save@rmdefault
+    \let\sfdefault\ustc@save@sfdefault
+    \let\ttdefault\ustc@save@ttdefault
+  \fi
+  \DeclareRobustCommand\symup[1]{{\mathrm{##1}}}%
+  \DeclareRobustCommand\symbf[1]{{\bm{##1}}}%
+  \let\increment\upDelta%
+  \renewcommand\ustc@qed{\openbox}%
 }
-\ustc@set@math@font
-\ustc@option@hook{math-font}{\ustc@set@math@font}
+
+\newcommand\ustc@set@math@font{%
+  \ifustc@math@font@none\else
+    \ifustc@math@font@newtx
+      \ustc@set@math@font@newtx
+    \else
+      \ustc@load@unimath
+      \ustc@set@unimath@style
+      \@nameuse{ustc@set@math@font@\ustc@math@font}%
+    \fi
+  \fi
+}
+\ustc@option@hook{math-font}{\g@addto@macro\ustc@setup@hook{\ustc@set@math@font}}
+\newcommand\ustc@set@math@font@auto{%
+  \ifustc@math@font@auto
+    \ustcsetup{math-font=xits}%
+  \fi
+}
+\AtBeginOfPackageFile*{siunitx}{\ustc@set@math@font@auto}
+\AtEndPreamble{\ustc@set@math@font@auto}
 
 % 研究生的五级节标题和脚注需要使用带圈数字，
 % 但 Times New Roman 没有这些符号的字形，而华文宋体和中易宋体提供了这些字形，
@@ -2162,55 +2503,6 @@
 }
 
 
-% \subsection{数学符号}
-
-% 根据中文的数学排印习惯进行设置：
-
-% 省略号一律居中，所以 \cs{ldots} 不再居于底部。
-\ifustc@language@chinese
-  \def\mathellipsis{\cdots}
-\fi
-
-% 小于等于号、大于等于号要使用倾斜的字形。
-\protected\def\le{\leqslant}
-\protected\def\ge{\geqslant}
-\AtBeginDocument{%
-  \renewcommand\leq{\leqslant}%
-  \renewcommand\geq{\geqslant}%
-}
-
-% 积分号的上下限默认置于上下两侧。
-\removenolimits{%
-  \int\iint\iiint\iiiint\oint\oiint\oiiint
-  \intclockwise\varointclockwise\ointctrclockwise\sumint
-  \intbar\intBar\fint\cirfnint\awint\rppolint
-  \scpolint\npolint\pointint\sqint\intlarhk\intx
-  \intcap\intcup\upint\lowint
-}
-
-% 实部、虚部操作符使用罗马体 $\mathrm{Re}$、$\mathrm{Im}$ 而不是 fraktur 体
-% $\Re$、$\Im$。
-\AtBeginDocument{%
-  \renewcommand\Re{\operatorname{Re}}%
-  \renewcommand\Im{\operatorname{Im}}%
-}
-
-% \cs{nabla} 使用粗正体。
-\AtBeginDocument{%
-  \renewcommand\nabla{\mbfnabla}%
-}
-
-% 兼容旧的粗体命令：\pkg{bm} 的 \cs{bm} 和 \pkg{amsmath} 的 \cs{boldsymbol}。
-\DeclareRobustCommand\bm[1]{{\symbf{#1}}}
-\DeclareRobustCommand\boldsymbol[1]{{\symbf{#1}}}
-
-% 兼容 \pkg{amssymb} 中的命令。
-\newcommand\square{\mdlgwhtsquare}
-\AtBeginDocument{%
-  \renewcommand\checkmark{\ensuremath{✓}}%
-}
-
-
 % \subsection{参考文献}
 
 \PassOptionsToPackage{compress}{natbib}
@@ -2670,6 +2962,7 @@
     }{%
     \popQED\endtrivlist\@endpefalse
   }
+  \renewcommand\qedsymbol{\ustc@qed}
 }
 
 
