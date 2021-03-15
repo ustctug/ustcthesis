@@ -2017,11 +2017,6 @@
 % 兼容 \pkg{amssymb} 中的命令。
 \newcommand\square{\mdlgwhtsquare}
 
-% 提供一些方便的命令：
-\newcommand\upe{\symup{e}}
-\newcommand\upi{\symup{i}}
-\newcommand\dif{\mathop{}\!\mathrm{d}}
-
 
 % \subsection{参考文献}
 

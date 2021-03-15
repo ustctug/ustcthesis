@@ -18,7 +18,7 @@
     如圆周率 $\symup{\pi}$、$\symup{\Gamma}$ 函数。
     应使用 \pkg{unicode-math} 宏包提供的 \cs{symup} 命令转为正体，
     如 \verb|\symup{\pi}|。
-  \item 微分符号 $\mathrm{d}$ 使用正体，本模板提供了 \cs{dif} 命令。
+  \item 微分符号 $\dif$ 使用正体，本模板提供了 \cs{dif} 命令。
 \end{enumerate}
 
 注意，\pkg{unicode-math} 宏包与 \pkg{amsfonts}, \pkg{amssymb}, \pkg{bm},
@@ -32,20 +32,11 @@
 而应该定义一些语义命令取代字体命令，
 这样输入更简单，也让 \LaTeX{} 代码更有可读性，
 而且还方便根据需要统一修改改格式。
-参考示例文档中的 \file{math-commands.tex}
 
 更多的例子：
 \begin{equation}
-  \upe^{\upi\uppi} + 1 = 0
-\end{equation}
-\begin{equation}
-  \frac{\dif^2 u}{\dif t^2} = \int f(x) \dif x
-\end{equation}
-\begin{equation}
-  \argmin_x f(x)
-\end{equation}
-\begin{equation}
-  \mA \vx = \lambda \vx
+  \frac{1}{2 \uppi \iu} \int_\gamma f = \sum_{k=1}^m n(\gamma; a_k) \mathscr{R}(f; a_k)
+  \label{eq:example}
 \end{equation}
 
 
