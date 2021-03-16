@@ -42,8 +42,11 @@
 \RequirePackage{kvoptions}
 
 % 提供一个 \cs{ustcsetup} 命令支持 \emph{key-value} 的方式来设置。
-\newcommand\ustcsetup{%
-  \kvsetkeys{ustc}%
+\let\ustc@setup@hook\@empty
+\newcommand\ustcsetup[1]{%
+  \let\ustc@setup@hook\@empty
+  \kvsetkeys{ustc}{#1}%
+  \ustc@setup@hook
 }
 
 % 同时用 \emph{key-value} 的方式来定义这些接口：
@@ -81,9 +84,6 @@
   \kv@define@key{ustc@value}{name}{%
     \@namedef{ustc@#1@@name}{##1}%
   }%
-  \kv@define@key{ustc@value}{code}{%
-    \@namedef{ustc@#1@@code}{##1}%
-  }%
   %
   % 由于在定义接口时，\cs{ustc@\meta{key}@@code} 不一定有定义，
   % 而且在文档类/宏包中还有可能对该 |key| 的 |code| 进行添加。
@@ -91,9 +91,6 @@
   %
   \@namedef{ustc@#1@@check}{}%
   \@namedef{ustc@#1@@code}{}%
-  \@namedef{ustc@#1@@hook}{%
-    \@nameuse{ustc@#1@@code}%
-  }%
   %
   % 保存下 |choices = {}| 定义的内容，在定义 \cs{ustc@\meta{name}} 后再执行。
   %
@@ -139,7 +136,6 @@
   \expandafter\let\csname ustc@\@nameuse{ustc@#1@@name}\endcsname\ustc@@default
   \expandafter\ifx\csname ustc@\@nameuse{ustc@#1@@name}\endcsname\@empty\else
     \@nameuse{ustc@#1@@check}%
-    \@nameuse{ustc@#1@@hook}%
   \fi
   %
   % 定义 \cs{ustcsetup} 接口。
@@ -147,7 +143,7 @@
   \kv@define@key{ustc}{#1}{%
     \@namedef{ustc@\@nameuse{ustc@#1@@name}}{##1}%
     \@nameuse{ustc@#1@@check}%
-    \@nameuse{ustc@#1@@hook}%
+    \@nameuse{ustc@#1@@code}%
   }%
 }
 
@@ -157,14 +153,6 @@
   \expandafter\g@addto@macro\csname ustc@#1@@code\endcsname{#2}%
 }
 
-\newif\ifustc@degree@graduate
-\newcommand\ustc@set@graduate{%
-  \ifustc@degree@bachelor
-    \ustc@degree@graduatefalse
-  \else
-    \ustc@degree@graduatetrue
-  \fi
-}
 \ustc@define@key{
   degree = {
     choices = {
@@ -173,7 +161,6 @@
       bachelor,
     },
     default = doctor,
-    code    = {\ustc@set@graduate},
   },
   degree-type = {
     name = degree@type,
@@ -200,31 +187,33 @@
   },
   fontset = {
     choices = {
+      auto,
       windows,
       mac,
       ubuntu,
       fandol,
       none,
     },
-    default = none,
+    default = auto,
   },
   system = {
     choices = {
+      auto,
       mac,
       unix,
       windows,
-      auto,
     },
     default = auto,
   },
   font = {
     choices = {
+      auto,
       times,
       termes,
       xits,
       libertinus,
+      newcm,
       lm,
-      auto,
       none,
     },
     default = auto,
@@ -232,11 +221,11 @@
   cjk-font = {
     name = cjk@font,
     choices = {
+      auto,
       windows,
       mac,
       noto,
       fandol,
-      auto,
       none,
     },
     default = auto,
@@ -247,6 +236,7 @@
       xits,
       stix,
       libertinus,
+      newcm,
       lm,
       none,
     },
@@ -285,6 +275,19 @@
   },
 }
 
+\newif\ifustc@degree@graduate
+\newcommand\ustc@set@graduate{%
+  \ifustc@degree@bachelor
+    \ustc@degree@graduatefalse
+  \else
+    \ustc@degree@graduatetrue
+  \fi
+}
+\ustc@set@graduate
+\ustc@option@hook{degree}{%
+  \ustc@set@graduate
+}
+
 % 使用 \pkg{kvoptions} 提供的 key-value 接口，
 \SetupKeyvalOptions{
   family  = ustc,
@@ -319,22 +322,6 @@
 \DeclareDefaultOption{\PassOptionsToClass{\CurrentOption}{ctexbook}}
 \ProcessKeyvalOptions*
 
-\ustcsetup{main-language=\ustc@language}%
-\let\ustc@main@language\ustc@language
-
-\ifustc@degree@bachelor
-  \ifustc@main@language@english
-    \ustcsetup{section-style = arabic}
-  \fi
-\fi
-\ustc@option@hook{language}{%
-  \ifustc@degree@bachelor
-    \ifustc@main@language@english
-      \ustcsetup{section-style = arabic}%
-    \fi
-  \fi
-}
-
 
 % \subsection{加载文档类和宏包}
 
@@ -347,7 +334,7 @@
 \ifustc@output@electronic
   \PassOptionsToClass{oneside}{book}
 \fi
-\PassOptionsToPackage{quiet}{fontspec}
+\PassOptionsToPackage{no-math}{fontspec}
 
 % 载入 \cls{ctexbook} 文档类，注意要求为 2.4.9 或更高的版本。
 \LoadClass[UTF8,a4paper,scheme=plain,zihao=-4,fontset=none]{ctexbook}[2017/04/01]
@@ -399,6 +386,9 @@
 % 保存为论文的主要语言；
 % \cs{ustc@reset@main@language} 则用于正文中恢复为主要语言。
 %    \begin{macrocode}
+\ustcsetup{main-language=\ustc@language}%
+\let\ustc@main@language\ustc@language
+
 \ustc@option@hook{language}{%
   \ifx\@begindocumenthook\@undefined\else
     \ustcsetup{main-language=\ustc@language}%
@@ -479,36 +469,8 @@
 \ustc@set@names
 \ustc@option@hook{language}{\ustc@set@names}
 
-% \subsection{字体}
 
-% 处理 \opt{fontset}
-\ifustc@fontset@mac
-  \ustcsetup{
-    font     = times,
-    cjk-font = mac,
-  }
-\else
-  \ifustc@fontset@windows
-    \ustcsetup{
-      font     = times,
-      cjk-font = windows,
-    }
-  \else
-    \ifustc@fontset@fandol
-      \ustcsetup{
-        font     = termes,
-        cjk-font = fandol,
-      }
-    \else
-      \ifustc@fontset@ubuntu
-        \ustcsetup{
-          font     = termes,
-          cjk-font = noto,
-        }
-      \fi
-    \fi
-  \fi
-\fi
+% \subsection{字体}
 
 % 检测系统
 \ifustc@system@auto
@@ -527,9 +489,111 @@
   }
 \fi
 
-% XITS 字体于 2018-10-03 更改了字体的文件名，所以需要判断。
-% 原文件名为 \file{xits-regular.otf}、\file{xits-math.otf} 等，
-% 后改为 \file{XITS-Regular.otf}、\file{XITSMath-Regular.otf} 等。
+% 处理 \opt{fontset}
+\ifustc@fontset@auto
+  \ifustc@system@windows
+    \ustcsetup{fontset = windows}
+  \else
+    \ifustc@system@mac
+      \ustcsetup{fontset = mac}
+    \else
+      \IfFontExistsTF{Noto Serif CJK SC}{
+        \ustcsetup{fontset = ubuntu}
+      }{
+        \ustcsetup{fontset = fandol}
+      }
+    \fi
+  \fi
+\fi
+
+% 《撰写手册》要求西文字体使用 Times New Roman 和 Arial，
+% 但是在 Linux 下没有这两个字体，所以使用它们的克隆版 TeX Gyre Termes 和
+% TeX Gyre Heros。
+\ifustc@font@auto
+  \ifustc@fontset@windows
+    \ustcsetup{font=times}
+  \else
+    \ifustc@fontset@mac
+      \ustcsetup{font=times}
+    \else
+      \ustcsetup{font=termes}
+    \fi
+  \fi
+\fi
+
+% Times New Roman + Arial
+\newcommand\ustc@set@font@times{%
+  \setmainfont{Times New Roman}%
+  \setsansfont{Arial}%
+  \ifustc@system@mac
+    \setmonofont{Menlo}[Scale = MatchLowercase]%
+  \else
+    \setmonofont{Courier New}[Scale = MatchLowercase]%
+  \fi
+}
+
+% TeX Gyre Termes
+\newcommand\ustc@set@font@termes{%
+  \setmainfont{texgyretermes}[
+    Extension      = .otf,
+    UprightFont    = *-regular,
+    BoldFont       = *-bold,
+    ItalicFont     = *-italic,
+    BoldItalicFont = *-bolditalic,
+  ]%
+  \ustc@set@texgyre@sans@mono
+}
+
+\newcommand\ustc@set@texgyre@sans@mono{%
+  \setsansfont{texgyreheros}[
+    Extension      = .otf,
+    UprightFont    = *-regular,
+    BoldFont       = *-bold,
+    ItalicFont     = *-italic,
+    BoldItalicFont = *-bolditalic,
+    Scale          = MatchLowercase,
+  ]%
+  \setmonofont{texgyrecursor}[
+    Extension      = .otf,
+    UprightFont    = *-regular,
+    BoldFont       = *-bold,
+    ItalicFont     = *-italic,
+    BoldItalicFont = *-bolditalic,
+    Scale          = MatchLowercase,
+  ]%
+}
+
+% STIX 字体的文件名在 v2.10 2020-12-19 从
+% \file{STIX2Text-Regular.otf}、\file{STIX2Math.otf} 分别改为
+% \file{STIXTwoText-Regular.otf}、\file{STIXTwoMath-Regular.otf}。
+\let\ustc@font@family@stix\@empty
+\newcommand\ustc@set@stix@names{%
+  \ifx\ustc@font@family@stix\@empty
+    \IfFontExistsTF{STIXTwoText-Regular.otf}{%
+      \gdef\ustc@font@family@stix{STIXTwoText}%
+      \gdef\ustc@font@name@stix@math{STIXTwoMath-Regular}%
+    }{%
+      \gdef\ustc@font@family@stix{STIX2Text}%
+      \gdef\ustc@font@name@stix@math{STIX2Math}%
+    }%
+  \fi
+}
+
+\newcommand\ustc@set@font@stix{%
+  \ustc@set@stix@names
+  \setmainfont{\ustc@font@family@stix}[
+    Extension      = .otf,
+    UprightFont    = *-Regular,
+    BoldFont       = *-Bold,
+    ItalicFont     = *-Italic,
+    BoldItalicFont = *-BoldItalic,
+  ]%
+  \ustc@set@texgyre@sans@mono
+}
+
+% XITS 字体的文件名在 v1.109 2018-09-30
+% 从 \file{xits-regular.otf}、\file{xits-math.otf} 分别改为
+% \file{XITS-Regular.otf}、\file{XITSMath-Regular.otf}。
 \let\ustc@font@family@xits\@empty
 \newcommand\ustc@set@xits@names{%
   \ifx\ustc@font@family@xits\@empty
@@ -539,21 +603,32 @@
       \gdef\ustc@font@style@xits@bf{Bold}%
       \gdef\ustc@font@style@xits@it{Italic}%
       \gdef\ustc@font@style@xits@bfit{BoldItalic}%
-      \gdef\ustc@font@name@xits@math@rm{XITSMath-Regular}%
-      \gdef\ustc@font@name@xits@math@bf{XITSMath-Bold}%
+      \gdef\ustc@font@name@xits@math{XITSMath-Regular}%
     }{%
       \gdef\ustc@font@family@xits{xits}%
       \gdef\ustc@font@style@xits@rm{regular}%
       \gdef\ustc@font@style@xits@bf{bold}%
       \gdef\ustc@font@style@xits@it{italic}%
       \gdef\ustc@font@style@xits@bfit{bolditalic}%
-      \gdef\ustc@font@name@xits@math@rm{xits-math}%
-      \gdef\ustc@font@name@xits@math@bf{xits-mathbold}%
+      \gdef\ustc@font@name@xits@math{xits-math}%
     }%
   \fi
 }
 
-% Libertinus 字体同样。
+\newcommand\ustc@set@font@xits{%
+  \ustc@set@xits@names
+  \setmainfont{\ustc@font@family@xits}[
+    Extension      = .otf,
+    UprightFont    = *-\ustc@font@style@xits@rm,
+    BoldFont       = *-\ustc@font@style@xits@bf,
+    ItalicFont     = *-\ustc@font@style@xits@it,
+    BoldItalicFont = *-\ustc@font@style@xits@bfit,
+  ]%
+  \ustc@set@texgyre@sans@mono
+}
+
+% Libertinus 的文件名在 v6.7 2019-04-03 从小写改为驼峰式，
+% 在大小写敏感的平台上需要进行判断。
 \let\ustc@font@family@libertinus\@empty
 \newcommand\ustc@set@libertinus@names{%
   \ifx\ustc@font@family@libertinus\@empty
@@ -577,65 +652,7 @@
   \fi
 }
 
-% 《撰写手册》要求西文字体使用 Times New Roman 和 Arial，
-% 但是在 Linux 下没有这两个字体，所以使用它们的克隆版 TeX Gyre Termes 和
-% TeX Gyre Heros。
-\ifustc@font@auto
-  \ifustc@system@unix
-    \ustcsetup{font=xits}
-  \else
-    \ustcsetup{font=times}
-  \fi
-\fi
-\newcommand\ustc@load@font@times{%
-  \setmainfont{Times New Roman}%
-  \setsansfont{Arial}%
-  \ifustc@system@mac
-    \setmonofont{Menlo}[Scale = MatchLowercase]%
-  \else
-    \setmonofont{Courier New}[Scale = MatchLowercase]%
-  \fi
-}
-\newcommand\ustc@load@font@termes{%
-  \setmainfont{texgyretermes}[
-    Extension      = .otf,
-    UprightFont    = *-regular,
-    BoldFont       = *-bold,
-    ItalicFont     = *-italic,
-    BoldItalicFont = *-bolditalic,
-  ]%
-  \ustc@load@texgyre@sans@mono
-}
-\newcommand\ustc@load@texgyre@sans@mono{%
-  \setsansfont{texgyreheros}[
-    Extension      = .otf,
-    UprightFont    = *-regular,
-    BoldFont       = *-bold,
-    ItalicFont     = *-italic,
-    BoldItalicFont = *-bolditalic,
-    Scale          = MatchLowercase,
-  ]%
-  \setmonofont{texgyrecursor}[
-    Extension      = .otf,
-    UprightFont    = *-regular,
-    BoldFont       = *-bold,
-    ItalicFont     = *-italic,
-    BoldItalicFont = *-bolditalic,
-    Scale          = MatchLowercase,
-  ]%
-}
-\newcommand\ustc@load@font@xits{%
-  \ustc@set@xits@names
-  \setmainfont{\ustc@font@family@xits}[
-    Extension      = .otf,
-    UprightFont    = *-\ustc@font@style@xits@rm,
-    BoldFont       = *-\ustc@font@style@xits@bf,
-    ItalicFont     = *-\ustc@font@style@xits@it,
-    BoldItalicFont = *-\ustc@font@style@xits@bfit,
-  ]%
-  \ustc@load@texgyre@sans@mono
-}
-\newcommand\ustc@load@font@libertinus{%
+\newcommand\ustc@set@font@libertinus{%
   \ustc@set@libertinus@names
   \setmainfont{\ustc@font@family@libertinus@serif}[
     Extension      = .otf,
@@ -658,7 +675,34 @@
     BoldItalicFont = *-boldoblique,
   ]%
 }
-\newcommand\ustc@load@font@lm{%
+
+% New Computer Modern
+\newcommand\ustc@set@font@newcm{%
+  \setmainfont{NewCM10}[
+    Extension      = .otf,
+    UprightFont    = *-Book,
+    BoldFont       = *-Bold,
+    ItalicFont     = *-BookItalic,
+    BoldItalicFont = *-BoldItalic,
+  ]%
+  \setsansfont{NewCMSans10}[
+    Extension         = .otf,
+    UprightFont       = *-Book,
+    BoldFont          = *-Bold,
+    ItalicFont        = *-BookOblique,
+    BoldItalicFont    = *-BoldOblique,
+  ]%
+  \setmonofont{NewCMMono10}[
+    Extension           = .otf,
+    UprightFont         = *-Book,
+    ItalicFont          = *-BookItalic,
+    BoldFont            = *-Bold,
+    BoldItalicFont      = *-BoldOblique,
+  ]%
+}
+
+% Latin Modern
+\newcommand\ustc@set@font@lm{%
   \setmainfont{lmroman10}[
     Extension      = .otf,
     UprightFont    = *-regular,
@@ -681,29 +725,32 @@
     BoldItalicFont = *-boldoblique,
   ]%
 }
-\newcommand\ustc@load@font{%
-  \@nameuse{ustc@load@font@\ustc@font}%
+
+\newcommand\ustc@set@font{%
+  \@nameuse{ustc@set@font@\ustc@font}%
 }
-\ustc@load@font
-\ustc@option@hook{font}{\ustc@load@font}
+\ustc@set@font
+\ustc@option@hook{font}{\ustc@set@font}
 
 % 中文字体
 \ifustc@cjk@font@auto
-  \ifustc@system@mac
+  \ifustc@fontset@mac
     \ustcsetup{cjk-font = mac}
   \else
-    \ifustc@system@windows
+    \ifustc@fontset@windows
       \ustcsetup{cjk-font = windows}
     \else
-      \IfFontExistsTF{Noto Serif CJK SC}{
+      \ifustc@fontset@ubuntu
         \ustcsetup{cjk-font = noto}
-      }{
+      \else
         \ustcsetup{cjk-font = fandol}
-      }
+      \fi
     \fi
   \fi
 \fi
-\newcommand\ustc@load@cjk@font@windows{%
+
+% 中易
+\newcommand\ustc@set@cjk@font@windows{%
   \xeCJKsetup{EmboldenFactor=2}
   \setCJKmainfont{SimSun}[
     AutoFakeBold = true,
@@ -716,67 +763,86 @@
   \setCJKfamilyfont{zhkai}{KaiTi}%
   \setCJKfamilyfont{zhfs}{FangSong}%
 }
-\newcommand\ustc@load@cjk@font@mac{%
+
+% 华文
+\newcommand\ustc@set@cjk@font@mac{%
+  \defaultCJKfontfeatures{}%
   \setCJKmainfont{Songti SC}[
     UprightFont    = * Light,
     BoldFont       = * Bold,
-    ItalicFont     = Kaiti SC,
+    ItalicFont     = Kaiti SC Regular,
     BoldItalicFont = Kaiti SC Bold,
   ]%
-  \setCJKsansfont{Heiti SC}[BoldFont=* Medium]%
+  \setCJKsansfont{Heiti SC}[
+    UprightFont    = * Light,
+    BoldFont       = * Medium,
+  ]%
   \setCJKmonofont{STFangsong}
   \setCJKfamilyfont{zhsong}{Songti SC}[
-    UprightFont = * Light,
-      BoldFont  = * Bold,
+    UprightFont    = * Light,
+    BoldFont       = * Bold,
   ]%
   \setCJKfamilyfont{zhhei}{Heiti SC}[
-    UprightFont = * Light,
-    BoldFont    = * Medium,
+    UprightFont    = * Light,
+    BoldFont       = * Medium,
   ]%
   \setCJKfamilyfont{zhfs}{STFangsong}%
-  \setCJKfamilyfont{zhkai}{Kaiti SC}[BoldFont = * Bold]%
+  \setCJKfamilyfont{zhkai}{Kaiti SC}[
+    UprightFont    = * Regular,
+    BoldFont       = * Bold,
+  ]%
   \setCJKfamilyfont{zhli}{Baoli SC}%
   \setCJKfamilyfont{zhyuan}{Yuanyi SC}[
-    UprightFont = * Light,
-    BoldFont    = * Bold,
+    UprightFont    = * Light,
+    BoldFont       = * Bold,
   ]%
-  \xeCJKsetwidth{‘’“”}{1em}%
 }
 
-% 注意 Noto CJK 的 regular 字重名字不带“Regular”。
-\newcommand\ustc@load@cjk@font@noto{%
+% 思源
+\newcommand\ustc@set@cjk@font@noto{%
+  \defaultCJKfontfeatures{}%
   \setCJKmainfont{Noto Serif CJK SC}[
     UprightFont    = * Light,
     BoldFont       = * Bold,
     ItalicFont     = FandolKai-Regular,
     ItalicFeatures = {Extension = .otf},
+    Script         = CJK,
   ]%
   \setCJKsansfont{Noto Sans CJK SC}[
-    BoldFont    = * Medium,
+    BoldFont       = * Medium,
+    Script         = CJK,
   ]%
-  \setCJKmonofont{Noto Sans Mono CJK SC}%
+  \setCJKmonofont{Noto Sans Mono CJK SC}[
+    Script         = CJK,
+  ]%
   \setCJKfamilyfont{zhsong}{Noto Serif CJK SC}[
-    UprightFont = * Light,
-    UprightFont = * Bold,
+    UprightFont    = * Light,
+    UprightFont    = * Bold,
+    Script         = CJK,
   ]%
   \setCJKfamilyfont{zhhei}{Noto Sans CJK SC}[
-    BoldFont    = * Medium,
+    BoldFont       = * Medium,
+    Script         = CJK,
   ]%
   \setCJKfamilyfont{zhfs}{FandolFang}[
-    Extension   = .otf,
-    UprightFont = *-Regular,
+    Extension      = .otf,
+    UprightFont    = *-Regular,
   ]%
   \setCJKfamilyfont{zhkai}{FandolKai}[
-    Extension   = .otf,
-    UprightFont = *-Regular,
+    Extension      = .otf,
+    UprightFont    = *-Regular,
   ]%
 }
-\newcommand\ustc@load@cjk@font@fandol{%
+
+% Fandol
+\newcommand\ustc@set@cjk@font@fandol{%
+  \defaultCJKfontfeatures{}%
   \setCJKmainfont{FandolSong}[
     Extension   = .otf,
     UprightFont = *-Regular,
     BoldFont    = *-Bold,
     ItalicFont  = FandolKai-Regular,
+    ItalicFeatures = {Extension = .otf},
   ]%
   \setCJKsansfont{FandolHei}[
     Extension   = .otf,
@@ -806,19 +872,22 @@
     UprightFont = *-Regular,
   ]%
 }
+
 \ifustc@cjk@font@none\else
   \providecommand\songti{\CJKfamily{zhsong}}
   \providecommand\heiti{\CJKfamily{zhhei}}
   \providecommand\fangsong{\CJKfamily{zhfs}}
   \providecommand\kaishu{\CJKfamily{zhkai}}
 \fi
-\newcommand\ustc@load@cjk@font{%
-  \@nameuse{ustc@load@cjk@font@\ustc@cjk@font}%
-}
-\ustc@load@cjk@font
-\ustc@option@hook{cjk-font}{\ustc@load@cjk@font}
 
-% 使用 \pkg{unicode-math} 配置数学字体。
+\newcommand\ustc@set@cjk@font{%
+  \@nameuse{ustc@set@cjk@font@\ustc@cjk@font}%
+}
+\ustc@set@cjk@font
+\ustc@option@hook{cjk-font}{\ustc@set@cjk@font}
+
+% 数学字体
+
 \unimathsetup{
   math-style = ISO,
   bold-style = ISO,
@@ -826,42 +895,118 @@
   partial    = upright,
 }
 
-\newcommand\ustc@load@math@font@xits{%
+% XITS Math
+\newcommand\ustc@set@math@font@xits{%
   \ustc@set@xits@names
-  \setmathfont{\ustc@font@name@xits@math@rm}[
+  \setmathfont{\ustc@font@name@xits@math}[
     Extension    = .otf,
-    BoldFont     = \ustc@font@name@xits@math@bf,
     StylisticSet = 8,
   ]%
-  \setmathfont{\ustc@font@name@xits@math@rm}[
+  \setmathfont{\ustc@font@name@xits@math}[
     Extension    = .otf,
     StylisticSet = 1,
     range        = {cal,bfcal},
   ]%
 }
-\newcommand\ustc@load@math@font@stix{%
-  \setmathfont{STIX2Math}[
+
+% STIX Two Math
+\newcommand\ustc@set@math@font@stix{%
+  \ustc@set@stix@names
+  \setmathfont{\ustc@font@name@stix@math}[
     Extension    = .otf,
     StylisticSet = 8,
   ]%
-  \setmathfont{STIX2Math}[
+  \setmathfont{\ustc@font@name@stix@math}[
     Extension    = .otf,
     StylisticSet = 1,
-    range        = {cal,bfcal},
+    range        = {scr,bfscr},
   ]%
 }
-\newcommand\ustc@load@math@font@libertinus{%
+
+% Libertinus Math
+\newcommand\ustc@set@math@font@libertinus{%
   \ustc@set@libertinus@names
-  \setmathfont{\ustc@font@name@libertinus@math .otf}%
+  \ustc@set@xits@names
+  \setmathfont{\ustc@font@name@libertinus@math}[
+    Extension    = .otf,
+    StylisticSet = 8,
+  ]%
+  \setmathfont{\ustc@font@name@xits@math}[
+    Extension    = .otf,
+    range        = {\checkmark},
+  ]%
 }
-\newcommand\ustc@load@math@font@lm{%
-  \setmathfont{latinmodern-math.otf}%
+
+% New Computer Modern Math
+\newcommand\ustc@newcm@integral@stylistic@set{%
+  \ifustc@integral@upright
+    2%
+  \fi
 }
-\newcommand\ustc@load@math@font{%
-  \csname ustc@load@math@font@\ustc@math@font\endcsname
+\newcommand\ustc@set@math@font@newcm{%
+  \setmathfont{NewCMMath-Book}[
+    Extension    = .otf,
+    StylisticSet = \ustc@newcm@integral@stylistic@set,
+  ]%
+  \setmathfont{NewCMMath-Book}[
+    Extension    = .otf,
+    StylisticSet = 1,
+    range        = {scr,bfscr},
+  ]%
+  \setmathrm{NewCM10}[
+    Extension      = .otf,
+    UprightFont    = *-Book,
+    BoldFont       = *-Bold,
+    ItalicFont     = *-BookItalic,
+    BoldItalicFont = *-BoldItalic,
+  ]%
+  \setmathsf{NewCMSans10}[
+    Extension         = .otf,
+    UprightFont       = *-Book,
+    BoldFont          = *-Bold,
+    ItalicFont        = *-BookOblique,
+    BoldItalicFont    = *-BoldOblique,
+  ]%
+  \setmathtt{NewCMMono10}[
+    Extension           = .otf,
+    UprightFont         = *-Book,
+    ItalicFont          = *-BookItalic,
+    BoldFont            = *-Bold,
+    BoldItalicFont      = *-BoldOblique,
+  ]%
 }
-\ustc@load@math@font
-\ustc@option@hook{math-font}{\ustc@load@math@font}
+
+% Latin Modern Math
+\newcommand\ustc@set@math@font@lm{%
+  \setmathfont{latinmodern-math}[Extension=.otf]%
+  \setmathrm{lmroman10}[
+    Extension      = .otf,
+    UprightFont    = *-regular,
+    BoldFont       = *-bold,
+    ItalicFont     = *-italic,
+    BoldItalicFont = *-bolditalic,
+  ]%
+  \setmathsf{lmsans10}[
+    Extension      = .otf,
+    UprightFont    = *-regular,
+    BoldFont       = *-bold,
+    ItalicFont     = *-oblique,
+    BoldItalicFont = *-boldoblique,
+  ]%
+  \setmathtt{lmmonolt10}[
+    Extension      = .otf,
+    UprightFont    = *-regular,
+    BoldFont       = *-bold,
+    ItalicFont     = *-oblique,
+    BoldItalicFont = *-boldoblique,
+  ]%
+}
+
+\newcommand\ustc@set@math@font{%
+  \csname ustc@set@math@font@\ustc@math@font\endcsname
+}
+\ustc@set@math@font
+\ustc@option@hook{math-font}{\ustc@set@math@font}
 
 % 研究生的五级节标题和脚注需要使用带圈数字，
 % 但 Times New Roman 没有这些符号的字形，而华文宋体和中易宋体提供了这些字形，
@@ -1580,6 +1725,19 @@
     afterskip  = \z@,
     runin      = false,
   },
+}
+
+\ifustc@degree@bachelor
+  \ifustc@main@language@english
+    \ustcsetup{section-style = arabic}
+  \fi
+\fi
+\ustc@option@hook{main-language}{%
+  \ifustc@degree@bachelor
+    \ifustc@main@language@english
+      \ustcsetup{section-style = arabic}%
+    \fi
+  \fi
 }
 
 % 在研究生格式的基础上再设置本科生的章节标题格式。
