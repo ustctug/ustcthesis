@@ -553,6 +553,111 @@
 
 % \subsection{字体}
 
+% 字号
+
+% 正文字号12bp，研究生行距20bp，本科生行距22bp；
+% 其他命令的行距按照相同的的比例设置，如表~\ref{tab:fontsize}。
+% \begin{table}[htb]
+%   \centering
+%   \caption{标准字体命令与字号、行距的对应}
+%   \label{tab:fontsize}
+%   \begin{tabular}{lllll}
+%     \toprule
+%     字体命令          & 字号 & bp   & 研究生行距 & 本科生行距 \\
+%     \midrule
+%     \cs{tiny}         & 小六 & 6.5  & 10.83      & 11.92      \\
+%     \cs{scriptsize}   & 六号 & 7.5  & 12.5       & 13.75      \\
+%     \cs{footnotesize} & 小五 & 9    & 15         & 16.5       \\
+%     \cs{small}        & 五号 & 10.5 & 17.5       & 19.25      \\
+%     \cs{normalsize}   & 小四 & 12   & 20         & 22         \\
+%     \cs{large}        & 小三 & 15   & 25         & 27.5       \\
+%     \cs{Large}        & 小二 & 18   & 30         & 33         \\
+%     \cs{LARGE}        & 二号 & 22   & 36.67      & 40.33      \\
+%     \cs{huge}         & 小一 & 24   & 40         & 44         \\
+%     \cs{Huge}         & 一号 & 26   & 43.33      & 47.67      \\
+%     \bottomrule
+%   \end{tabular}
+% \end{table}
+%
+% 注意重定义 \normalsize 应在 \pkg{unicode-math} 的 \cs{setmathfont} 前。
+\newcommand\ustc@set@font@size{%
+  \ifustc@degree@graduate
+    \renewcommand\normalsize{%
+      \@setfontsize\normalsize{12bp}{20bp}%
+      \abovedisplayskip 12bp \@plus3bp \@minus7bp%
+      \abovedisplayshortskip \z@ \@plus3bp%
+      \belowdisplayshortskip 6.5bp \@plus3.5bp \@minus3bp%
+      \belowdisplayskip \abovedisplayskip
+      \let\@listi\@listI}%
+    \normalsize
+    \ifx\MakeRobust\@undefined \else
+        \MakeRobust\normalsize
+    \fi
+    %
+    % 注意第~\ref{sec:list} 节去掉了列表的间距，所以不再修改 \cs{@listi}。
+    \renewcommand\small{%
+      \@setfontsize\small{10.5bp}{17.5bp}%
+      \abovedisplayskip 10.5bp \@plus3bp \@minus6bp%
+      \abovedisplayshortskip \z@ \@plus3bp%
+      \belowdisplayshortskip 6.5bp \@plus3.5bp \@minus3bp%
+      \belowdisplayskip \abovedisplayskip
+    }%
+    \renewcommand\footnotesize{%
+      \@setfontsize\footnotesize{9bp}{15bp}%
+      \abovedisplayskip 9bp \@plus2bp \@minus5bp%
+      \abovedisplayshortskip \z@ \@plus3bp%
+      \belowdisplayshortskip 6bp \@plus3bp \@minus3bp%
+      \belowdisplayskip \abovedisplayskip
+    }%
+    \renewcommand\scriptsize{\@setfontsize\scriptsize{7.5bp}{12.5bp}}%
+    \renewcommand\tiny{\@setfontsize\tiny{6.5bp}{10.83bp}}%
+    \renewcommand\large{\@setfontsize\large{15bp}{25bp}}%
+    \renewcommand\Large{\@setfontsize\Large{18bp}{30bp}}%
+    \renewcommand\LARGE{\@setfontsize\LARGE{22bp}{36.67bp}}%
+    \renewcommand\huge{\@setfontsize\huge{24bp}{40bp}}%
+    \renewcommand\Huge{\@setfontsize\Huge{26bp}{43.33bp}}%
+  \else
+    \renewcommand\normalsize{%
+      \@setfontsize\normalsize{12bp}{22bp}%
+      \abovedisplayskip 12bp \@plus3bp \@minus7bp%
+      \abovedisplayshortskip \z@ \@plus3bp%
+      \belowdisplayshortskip 6.5bp \@plus3.5bp \@minus3bp%
+      \belowdisplayskip \abovedisplayskip
+      \let\@listi\@listI}%
+    \normalsize
+    \ifx\MakeRobust\@undefined \else
+        \MakeRobust\normalsize
+    \fi
+    \renewcommand\small{%
+      \@setfontsize\small{10.5bp}{19.25bp}%
+      \abovedisplayskip 10.5bp \@plus3bp \@minus6bp%
+      \abovedisplayshortskip \z@ \@plus3bp%
+      \belowdisplayshortskip 6.5bp \@plus3.5bp \@minus3bp%
+      \belowdisplayskip \abovedisplayskip
+    }%
+    \renewcommand\footnotesize{%
+      \@setfontsize\footnotesize{9bp}{16.5bp}%
+      \abovedisplayskip 9bp \@plus2bp \@minus5bp%
+      \abovedisplayshortskip \z@ \@plus3bp%
+      \belowdisplayshortskip 6bp \@plus3bp \@minus3bp%
+      \belowdisplayskip \abovedisplayskip
+    }%
+    \renewcommand\scriptsize{\@setfontsize\scriptsize{7.5bp}{13.75bp}}%
+    \renewcommand\tiny{\@setfontsize\tiny{6.5bp}{11.92bp}}%
+    \renewcommand\large{\@setfontsize\large{15bp}{27.5bp}}%
+    \renewcommand\Large{\@setfontsize\Large{18bp}{33bp}}%
+    \renewcommand\LARGE{\@setfontsize\LARGE{22bp}{40.33bp}}%
+    \renewcommand\huge{\@setfontsize\huge{24bp}{44bp}}%
+    \renewcommand\Huge{\@setfontsize\Huge{26bp}{47.67bp}}%
+  \fi
+}
+\ustc@set@font@size
+\ustc@option@hook{degree}{\ustc@set@font@size}
+
+% 设置行距的倍数为 1。
+\linespread{1}\selectfont
+
+
 % 检测系统
 \ifustc@system@auto
   \IfFileExists{/System/Library/Fonts/Menlo.ttc}{
@@ -1366,96 +1471,6 @@
     \ustc@font@family@xits-\ustc@font@style@xits@rm.otf%
   }
 \fi
-
-% 下面设置字号。正文字号12bp，研究生行距20bp，本科生行距22bp；
-% 其他命令的行距按照相同的的比例设置，如表~\ref{tab:fontsize}。
-% \begin{table}[htb]
-%   \centering
-%   \caption{标准字体命令与字号、行距的对应}
-%   \label{tab:fontsize}
-%   \begin{tabular}{lllll}
-%     \toprule
-%     字体命令          & 字号 & bp   & 研究生行距 & 本科生行距 \\
-%     \midrule
-%     \cs{tiny}         & 小六 & 6.5  & 10.83      & 11.92      \\
-%     \cs{scriptsize}   & 六号 & 7.5  & 12.5       & 13.75      \\
-%     \cs{footnotesize} & 小五 & 9    & 15         & 16.5       \\
-%     \cs{small}        & 五号 & 10.5 & 17.5       & 19.25      \\
-%     \cs{normalsize}   & 小四 & 12   & 20         & 22         \\
-%     \cs{large}        & 小三 & 15   & 25         & 27.5       \\
-%     \cs{Large}        & 小二 & 18   & 30         & 33         \\
-%     \cs{LARGE}        & 二号 & 22   & 36.67      & 40.33      \\
-%     \cs{huge}         & 小一 & 24   & 40         & 44         \\
-%     \cs{Huge}         & 一号 & 26   & 43.33      & 47.67      \\
-%     \bottomrule
-%   \end{tabular}
-% \end{table}
-\ifustc@degree@graduate
-  \renewcommand\normalsize{%
-    \@setfontsize\normalsize{12bp}{20bp}%
-    \abovedisplayskip 12bp \@plus3bp \@minus7bp%
-    \abovedisplayshortskip \z@ \@plus3bp%
-    \belowdisplayshortskip 6.5bp \@plus3.5bp \@minus3bp%
-    \belowdisplayskip \abovedisplayskip
-    \let\@listi\@listI}
-  \normalsize
-  %
-  % 注意第~\ref{sec:list} 节去掉了列表的间距，所以不再修改 \cs{@listi}。
-  \renewcommand\small{%
-    \@setfontsize\small{10.5bp}{17.5bp}%
-    \abovedisplayskip 10.5bp \@plus3bp \@minus6bp%
-    \abovedisplayshortskip \z@ \@plus3bp%
-    \belowdisplayshortskip 6.5bp \@plus3.5bp \@minus3bp%
-    \belowdisplayskip \abovedisplayskip
-  }
-  \renewcommand\footnotesize{%
-    \@setfontsize\footnotesize{9bp}{15bp}%
-    \abovedisplayskip 9bp \@plus2bp \@minus5bp%
-    \abovedisplayshortskip \z@ \@plus3bp%
-    \belowdisplayshortskip 6bp \@plus3bp \@minus3bp%
-    \belowdisplayskip \abovedisplayskip
-  }
-  \renewcommand\scriptsize{\@setfontsize\scriptsize{7.5bp}{12.5bp}}
-  \renewcommand\tiny{\@setfontsize\tiny{6.5bp}{10.83bp}}
-  \renewcommand\large{\@setfontsize\large{15bp}{25bp}}
-  \renewcommand\Large{\@setfontsize\Large{18bp}{30bp}}
-  \renewcommand\LARGE{\@setfontsize\LARGE{22bp}{36.67bp}}
-  \renewcommand\huge{\@setfontsize\huge{24bp}{40bp}}
-  \renewcommand\Huge{\@setfontsize\Huge{26bp}{43.33bp}}
-\else
-  \renewcommand\normalsize{%
-    \@setfontsize\normalsize{12bp}{22bp}%
-    \abovedisplayskip 12bp \@plus3bp \@minus7bp%
-    \abovedisplayshortskip \z@ \@plus3bp%
-    \belowdisplayshortskip 6.5bp \@plus3.5bp \@minus3bp%
-    \belowdisplayskip \abovedisplayskip
-    \let\@listi\@listI}
-  \normalsize
-  \renewcommand\small{%
-    \@setfontsize\small{10.5bp}{19.25bp}%
-    \abovedisplayskip 10.5bp \@plus3bp \@minus6bp%
-    \abovedisplayshortskip \z@ \@plus3bp%
-    \belowdisplayshortskip 6.5bp \@plus3.5bp \@minus3bp%
-    \belowdisplayskip \abovedisplayskip
-  }
-  \renewcommand\footnotesize{%
-    \@setfontsize\footnotesize{9bp}{16.5bp}%
-    \abovedisplayskip 9bp \@plus2bp \@minus5bp%
-    \abovedisplayshortskip \z@ \@plus3bp%
-    \belowdisplayshortskip 6bp \@plus3bp \@minus3bp%
-    \belowdisplayskip \abovedisplayskip
-  }
-  \renewcommand\scriptsize{\@setfontsize\scriptsize{7.5bp}{13.75bp}}
-  \renewcommand\tiny{\@setfontsize\tiny{6.5bp}{11.92bp}}
-  \renewcommand\large{\@setfontsize\large{15bp}{27.5bp}}
-  \renewcommand\Large{\@setfontsize\Large{18bp}{33bp}}
-  \renewcommand\LARGE{\@setfontsize\LARGE{22bp}{40.33bp}}
-  \renewcommand\huge{\@setfontsize\huge{24bp}{44bp}}
-  \renewcommand\Huge{\@setfontsize\Huge{26bp}{47.67bp}}
-\fi
-
-% 设置行距的倍数为 1。
-\linespread{1}\selectfont
 
 
 
