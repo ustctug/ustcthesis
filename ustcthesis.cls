@@ -460,6 +460,19 @@
 \ustc@package@conflict{newtxmath}{unicode-math}
 \ustc@package@conflict{newtxmath}{upgreek}
 
+\AtBeginOfPackageFile*{mathtools}{
+  \@ifpackageloaded{unicode-math}{
+    \ustc@error{The "mathtools" package should be loaded before setting "math-font"}
+  }{}
+}%
+
+\AtBeginOfPackageFile*{amsthm}{
+  \@ifpackageloaded{newtxmath}{
+    \ustc@error{The "amsthm" package should be loaded before setting "newtxmath"}
+  }{}
+}%
+
+
 
 % \subsection{处理语言}
 
