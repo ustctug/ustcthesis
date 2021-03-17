@@ -44,7 +44,7 @@ Package fontspec Info: Font family 'FandolFang(0)' created for font
 File: figures/ustc-name.pdf Graphic file (type pdf)
 <use figures/ustc-name.pdf>
 LaTeX Font Info:    Font shape `TU/texgyreheros(0)/m/n' will be
-(Font)              scaled to size 10.34387pt on input line ....
+(Font)              scaled to size 10.344pt on input line ....
 Package fontspec Info: Font family 'FandolHei(0)' created for font 'FandolHei'
 (fontspec)             with options
 (fontspec)             [Extension={.otf},UprightFont={*-Regular},BoldFont={*-Bold}].
@@ -59,28 +59,27 @@ Package fontspec Info: Font family 'FandolHei(0)' created for font 'FandolHei'
 (fontspec)             <->"[FandolHei-Bold.otf]/OT:language=dflt;"
 (fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.: 
 LaTeX Font Info:    Font shape `TU/texgyreheros(0)/m/n' will be
-(Font)              scaled to size 48.27145pt on input line ....
+(Font)              scaled to size 48.272pt on input line ....
 File: figures/ustc-badge.pdf Graphic file (type pdf)
 <use figures/ustc-badge.pdf>
 LaTeX Font Info:    Font shape `TU/texgyreheros(0)/b/n' will be
-(Font)              scaled to size 10.03731pt on input line ....
+(Font)              scaled to size 10.03743pt on input line ....
 LaTeX Font Info:    Font shape `TU/texgyreheros(0)/b/n' will be
-(Font)              scaled to size 21.74753pt on input line ....
-LaTeX Font Info:    Calculating math sizes for size <16.05981> on input line ....
+(Font)              scaled to size 21.74777pt on input line ....
 LaTeX Font Info:    Font shape `TU/XITSMath-Regular(2)/m/n' will be
-(Font)              scaled to size 16.06152pt on input line ....
+(Font)              scaled to size 16.0617pt on input line ....
 LaTeX Font Info:    Font shape `TU/XITSMath-Regular(2)/m/n' will be
-(Font)              scaled to size 11.243pt on input line ....
+(Font)              scaled to size 14.05399pt on input line ....
 LaTeX Font Info:    Font shape `TU/XITSMath-Regular(2)/m/n' will be
-(Font)              scaled to size 8.03076pt on input line ....
+(Font)              scaled to size 10.54048pt on input line ....
 LaTeX Font Info:    Font shape `TU/XITSMath-Regular(3)/m/n' will be
-(Font)              scaled to size 16.05809pt on input line ....
+(Font)              scaled to size 16.05827pt on input line ....
 LaTeX Font Info:    Font shape `TU/XITSMath-Regular(3)/m/n' will be
-(Font)              scaled to size 11.2406pt on input line ....
+(Font)              scaled to size 14.05098pt on input line ....
 LaTeX Font Info:    Font shape `TU/XITSMath-Regular(3)/m/n' will be
-(Font)              scaled to size 8.02904pt on input line ....
+(Font)              scaled to size 10.53824pt on input line ....
 LaTeX Font Info:    Font shape `TU/texgyreheros(0)/m/n' will be
-(Font)              scaled to size 13.79184pt on input line ....
+(Font)              scaled to size 13.79199pt on input line ....
 Completed box being shipped out [1]
 \vbox(722.98453+0.0)x452.96808
 .\glue -29.59084
@@ -93,7 +92,7 @@ Completed box being shipped out [1]
 ....\special{color pop}
 ..\glue 8.2511
 ..\glue(\lineskip) 0.0
-..\vbox(700.50723+0.0)x452.96826, glue set 79.61768fil
+..\vbox(700.50723+0.0)x452.96826, glue set 79.61528fil
 ...\write-{}
 ...\write1{\protect \providecommand {\protect \FN@pp@footnotehinttrue }{}}
 ...\write1{\protect \providecommand {\protect \FN@pp@footnote@aux }[2]{}}
@@ -135,21 +134,21 @@ Completed box being shipped out [1]
 ....\glue(\rightskip) 0.0 plus 1.0fil
 ...\glue 17.07182
 ...\glue(\parskip) 0.0
-...\glue(\baselineskip) 12.25363
-...\hbox(43.95572+9.94904)x452.96826, glue set 57.85608fil
+...\glue(\baselineskip) 12.25377
+...\hbox(43.95622+9.94916)x452.96826, glue set 57.85416fil
 ....\glue(\leftskip) 0.0 plus 1.0fil
 ....\hbox(0.0+0.0)x0.0
-....\TU/FandolHei(0)/m/n/56.20935 博
-....\glue 0.0 plus 9.91713
-....\TU/FandolHei(0)/m/n/56.20935 士
-....\glue 0.0 plus 9.91713
-....\TU/FandolHei(0)/m/n/56.20935 学
-....\glue 0.0 plus 9.91713
-....\TU/FandolHei(0)/m/n/56.20935 位
-....\glue 0.0 plus 9.91713
-....\TU/FandolHei(0)/m/n/56.20935 论
-....\glue 0.0 plus 9.91713
-....\TU/FandolHei(0)/m/n/56.20935 文
+....\TU/FandolHei(0)/m/n/56.20999 博
+....\glue 0.0 plus 9.91638
+....\TU/FandolHei(0)/m/n/56.20999 士
+....\glue 0.0 plus 9.91638
+....\TU/FandolHei(0)/m/n/56.20999 学
+....\glue 0.0 plus 9.91638
+....\TU/FandolHei(0)/m/n/56.20999 位
+....\glue 0.0 plus 9.91638
+....\TU/FandolHei(0)/m/n/56.20999 论
+....\glue 0.0 plus 9.91638
+....\TU/FandolHei(0)/m/n/56.20999 文
 ....\kern -0.00017
 ....\kern 0.00017
 ....\penalty 10000
@@ -181,30 +180,30 @@ Completed box being shipped out [1]
 ....\glue(\rightskip) 0.0 plus 1.0fil
 ...\glue 25.6073
 ...\glue(\parskip) 0.0
-...\glue(\baselineskip) 20.07477
+...\glue(\baselineskip) 20.075
 ...\hbox(0.0+99.58464)x452.96826
 ....\glue(\leftskip) 0.0 plus 1.0fil
 ....\hbox(0.0+0.0)x0.0
-....\vbox(0.0+99.58464)x452.96826, glue set 12.22441fil
+....\vbox(0.0+99.58464)x452.96826, glue set 12.22398fil
 .....\glue 0.0 plus 1.0fil minus 1.0fil
-.....\hbox(20.4863+4.4626)x452.96826, glue set 122.09534fil
+.....\hbox(20.48653+4.46266)x452.96826, glue set 122.09418fil
 ......\glue(\leftskip) 0.0 plus 1.0fil
 ......\hbox(0.0+0.0)x0.0
-......\TU/FandolHei(0)/b/n/26.0972 中
-......\glue 0.0 plus 2.36087
-......\TU/FandolHei(0)/b/n/26.0972 国
-......\glue 0.0 plus 2.36087
-......\TU/FandolHei(0)/b/n/26.0972 科
-......\glue 0.0 plus 2.36087
-......\TU/FandolHei(0)/b/n/26.0972 学
-......\glue 0.0 plus 2.36087
-......\TU/FandolHei(0)/b/n/26.0972 技
-......\glue 0.0 plus 2.36087
-......\TU/FandolHei(0)/b/n/26.0972 术
-......\glue 0.0 plus 2.36087
-......\TU/FandolHei(0)/b/n/26.0972 大
-......\glue 0.0 plus 2.36087
-......\TU/FandolHei(0)/b/n/26.0972 学
+......\TU/FandolHei(0)/b/n/26.09749 中
+......\glue 0.0 plus 2.36057
+......\TU/FandolHei(0)/b/n/26.09749 国
+......\glue 0.0 plus 2.36057
+......\TU/FandolHei(0)/b/n/26.09749 科
+......\glue 0.0 plus 2.36057
+......\TU/FandolHei(0)/b/n/26.09749 学
+......\glue 0.0 plus 2.36057
+......\TU/FandolHei(0)/b/n/26.09749 技
+......\glue 0.0 plus 2.36057
+......\TU/FandolHei(0)/b/n/26.09749 术
+......\glue 0.0 plus 2.36057
+......\TU/FandolHei(0)/b/n/26.09749 大
+......\glue 0.0 plus 2.36057
+......\TU/FandolHei(0)/b/n/26.09749 学
 ......\kern -0.00017
 ......\kern 0.00017
 ......\penalty 10000
@@ -212,29 +211,29 @@ Completed box being shipped out [1]
 ......\glue(\rightskip) 0.0 plus 1.0fil
 .....\glue 0.0
 .....\glue(\parskip) 0.0
-.....\glue(\baselineskip) 25.23802
-.....\hbox(20.4863+4.4626)x452.96826, glue set 95.99814fil
+.....\glue(\baselineskip) 25.23831
+.....\hbox(20.48653+4.46266)x452.96826, glue set 95.99669fil
 ......\glue(\leftskip) 0.0 plus 1.0fil
 ......\hbox(0.0+0.0)x0.0
-......\TU/FandolHei(0)/b/n/26.0972 学
-......\glue 0.0 plus 2.36087
-......\TU/FandolHei(0)/b/n/26.0972 位
-......\glue 0.0 plus 2.36087
-......\TU/FandolHei(0)/b/n/26.0972 论
-......\glue 0.0 plus 2.36087
-......\TU/FandolHei(0)/b/n/26.0972 文
-......\glue 0.0 plus 2.36087
-......\TU/FandolHei(0)/b/n/26.0972 模
-......\glue 0.0 plus 2.36087
-......\TU/FandolHei(0)/b/n/26.0972 板
-......\glue 0.0 plus 2.36087
-......\TU/FandolHei(0)/b/n/26.0972 示
-......\glue 0.0 plus 2.36087
-......\TU/FandolHei(0)/b/n/26.0972 例
-......\glue 0.0 plus 2.36087
-......\TU/FandolHei(0)/b/n/26.0972 文
-......\glue 0.0 plus 2.36087
-......\TU/FandolHei(0)/b/n/26.0972 档
+......\TU/FandolHei(0)/b/n/26.09749 学
+......\glue 0.0 plus 2.36057
+......\TU/FandolHei(0)/b/n/26.09749 位
+......\glue 0.0 plus 2.36057
+......\TU/FandolHei(0)/b/n/26.09749 论
+......\glue 0.0 plus 2.36057
+......\TU/FandolHei(0)/b/n/26.09749 文
+......\glue 0.0 plus 2.36057
+......\TU/FandolHei(0)/b/n/26.09749 模
+......\glue 0.0 plus 2.36057
+......\TU/FandolHei(0)/b/n/26.09749 板
+......\glue 0.0 plus 2.36057
+......\TU/FandolHei(0)/b/n/26.09749 示
+......\glue 0.0 plus 2.36057
+......\TU/FandolHei(0)/b/n/26.09749 例
+......\glue 0.0 plus 2.36057
+......\TU/FandolHei(0)/b/n/26.09749 文
+......\glue 0.0 plus 2.36057
+......\TU/FandolHei(0)/b/n/26.09749 档
 ......\kern -0.00017
 ......\kern 0.00017
 ......\penalty 10000
@@ -247,182 +246,182 @@ Completed box being shipped out [1]
 ...\glue 17.07182
 ...\glue(\parskip) 0.0
 ...\glue(\lineskip) 1.0
-...\hbox(66.24713+58.21637)x452.96826, glue set 97.34715fil
+...\hbox(66.24788+58.21703)x452.96826, glue set 97.34569fil
 ....\glue(\leftskip) 0.0 plus 1.0fil
 ....\hbox(0.0+0.0)x0.0
-....\hbox(66.24713+58.21637)x258.27396
+....\hbox(66.24788+58.21703)x258.2769
 .....\mathon
-.....\vbox(66.24713+58.21637)x258.27396
-......\hbox(21.78102+9.33485)x258.27396
+.....\vbox(66.24788+58.21703)x258.2769
+......\hbox(21.78127+9.33496)x258.2769
 .......\glue(\tabskip) 0.0
-.......\hbox(21.78102+9.33485)x96.3589
-........\rule(21.78102+9.33485)x0.0
+.......\hbox(21.78127+9.33496)x96.36
+........\rule(21.78127+9.33496)x0.0
 ........\glue 0.00002
-........\TU/FandolHei(0)/m/n/16.05981 作
-........\glue 0.0 plus 0.74435
-........\TU/FandolHei(0)/m/n/16.05981 者
-........\glue 0.0 plus 0.74435
-........\TU/FandolHei(0)/m/n/16.05981 姓
-........\glue 0.0 plus 0.74435
-........\TU/FandolHei(0)/m/n/16.05981 名
+........\TU/FandolHei(0)/m/n/16.06 作
+........\glue 0.0 plus 0.74417
+........\TU/FandolHei(0)/m/n/16.06 者
+........\glue 0.0 plus 0.74417
+........\TU/FandolHei(0)/m/n/16.06 姓
+........\glue 0.0 plus 0.74417
+........\TU/FandolHei(0)/m/n/16.06 名
 ........\penalty 10000
-........\TU/FandolHei(0)/m/n/16.05981 ：
-........\rule(0.0+0.0)x-11.37035
+........\TU/FandolHei(0)/m/n/16.06 ：
+........\rule(0.0+0.0)x-11.37048
 ........\kern 0.00069
 ........\kern -0.00069
 ........\kern -0.99649
 ........\kern 0.99649
-........\glue 11.37035 minus 8.0299
+........\glue 11.37048 minus 8.03
 ........\glue 0.0 plus 1.0fil
-........\glue 16.05981
+........\glue 16.06
 .......\glue(\tabskip) 0.0
-.......\hbox(21.78102+9.33485)x161.91505, glue set 113.7356fil
+.......\hbox(21.78127+9.33496)x161.9169, glue set 113.7369fil
 ........\glue 0.00002
-........\TU/FandolSong(0)/m/n/16.05981 李
-........\glue 0.0 plus 0.74435
-........\TU/FandolSong(0)/m/n/16.05981 泽
-........\glue 0.0 plus 0.74435
-........\TU/FandolSong(0)/m/n/16.05981 平
+........\TU/FandolSong(0)/m/n/16.06 李
+........\glue 0.0 plus 0.74417
+........\TU/FandolSong(0)/m/n/16.06 泽
+........\glue 0.0 plus 0.74417
+........\TU/FandolSong(0)/m/n/16.06 平
 ........\kern -0.00017
 ........\kern 0.00017
 ........\glue 0.0 plus 1.0fil
 .......\glue(\tabskip) 0.0
 ......\glue(\lineskip) 0.0
-......\hbox(21.78102+9.33485)x258.27396
+......\hbox(21.78127+9.33496)x258.2769
 .......\glue(\tabskip) 0.0
-.......\hbox(21.78102+9.33485)x96.3589
-........\rule(21.78102+9.33485)x0.0
+.......\hbox(21.78127+9.33496)x96.36
+........\rule(21.78127+9.33496)x0.0
 ........\glue 0.00002
-........\TU/FandolHei(0)/m/n/16.05981 学
-........\glue 0.0 plus 0.74435
-........\TU/FandolHei(0)/m/n/16.05981 科
-........\glue 0.0 plus 0.74435
-........\TU/FandolHei(0)/m/n/16.05981 专
-........\glue 0.0 plus 0.74435
-........\TU/FandolHei(0)/m/n/16.05981 业
+........\TU/FandolHei(0)/m/n/16.06 学
+........\glue 0.0 plus 0.74417
+........\TU/FandolHei(0)/m/n/16.06 科
+........\glue 0.0 plus 0.74417
+........\TU/FandolHei(0)/m/n/16.06 专
+........\glue 0.0 plus 0.74417
+........\TU/FandolHei(0)/m/n/16.06 业
 ........\penalty 10000
-........\TU/FandolHei(0)/m/n/16.05981 ：
-........\rule(0.0+0.0)x-11.37035
+........\TU/FandolHei(0)/m/n/16.06 ：
+........\rule(0.0+0.0)x-11.37048
 ........\kern 0.00069
 ........\kern -0.00069
 ........\kern -0.99649
 ........\kern 0.99649
-........\glue 11.37035 minus 8.0299
+........\glue 11.37048 minus 8.03
 ........\glue 0.0 plus 1.0fil
-........\glue 16.05981
+........\glue 16.06
 .......\glue(\tabskip) 0.0
-.......\hbox(21.78102+9.33485)x161.91505, glue set 49.49634fil
+.......\hbox(21.78127+9.33496)x161.9169, glue set 49.4969fil
 ........\glue 0.00002
-........\TU/FandolSong(0)/m/n/16.05981 数
-........\glue 0.0 plus 0.74435
-........\TU/FandolSong(0)/m/n/16.05981 学
-........\glue 0.0 plus 0.74435
-........\TU/FandolSong(0)/m/n/16.05981 与
-........\glue 0.0 plus 0.74435
-........\TU/FandolSong(0)/m/n/16.05981 应
-........\glue 0.0 plus 0.74435
-........\TU/FandolSong(0)/m/n/16.05981 用
-........\glue 0.0 plus 0.74435
-........\TU/FandolSong(0)/m/n/16.05981 数
-........\glue 0.0 plus 0.74435
-........\TU/FandolSong(0)/m/n/16.05981 学
+........\TU/FandolSong(0)/m/n/16.06 数
+........\glue 0.0 plus 0.74417
+........\TU/FandolSong(0)/m/n/16.06 学
+........\glue 0.0 plus 0.74417
+........\TU/FandolSong(0)/m/n/16.06 与
+........\glue 0.0 plus 0.74417
+........\TU/FandolSong(0)/m/n/16.06 应
+........\glue 0.0 plus 0.74417
+........\TU/FandolSong(0)/m/n/16.06 用
+........\glue 0.0 plus 0.74417
+........\TU/FandolSong(0)/m/n/16.06 数
+........\glue 0.0 plus 0.74417
+........\TU/FandolSong(0)/m/n/16.06 学
 ........\kern -0.00017
 ........\kern 0.00017
 ........\glue 0.0 plus 1.0fil
 .......\glue(\tabskip) 0.0
 ......\glue(\lineskip) 0.0
-......\hbox(21.78102+9.33485)x258.27396
+......\hbox(21.78127+9.33496)x258.2769
 .......\glue(\tabskip) 0.0
-.......\hbox(21.78102+9.33485)x96.3589
-........\rule(21.78102+9.33485)x0.0
+.......\hbox(21.78127+9.33496)x96.36
+........\rule(21.78127+9.33496)x0.0
 ........\glue 0.00002
-........\TU/FandolHei(0)/m/n/16.05981 导
-........\glue 0.0 plus 0.74435
-........\TU/FandolHei(0)/m/n/16.05981 师
-........\glue 0.0 plus 0.74435
-........\TU/FandolHei(0)/m/n/16.05981 姓
-........\glue 0.0 plus 0.74435
-........\TU/FandolHei(0)/m/n/16.05981 名
+........\TU/FandolHei(0)/m/n/16.06 导
+........\glue 0.0 plus 0.74417
+........\TU/FandolHei(0)/m/n/16.06 师
+........\glue 0.0 plus 0.74417
+........\TU/FandolHei(0)/m/n/16.06 姓
+........\glue 0.0 plus 0.74417
+........\TU/FandolHei(0)/m/n/16.06 名
 ........\penalty 10000
-........\TU/FandolHei(0)/m/n/16.05981 ：
-........\rule(0.0+0.0)x-11.37035
+........\TU/FandolHei(0)/m/n/16.06 ：
+........\rule(0.0+0.0)x-11.37048
 ........\kern 0.00069
 ........\kern -0.00069
 ........\kern -0.99649
 ........\kern 0.99649
-........\glue 11.37035 minus 8.0299
+........\glue 11.37048 minus 8.03
 ........\glue 0.0 plus 1.0fil
-........\glue 16.05981
+........\glue 16.06
 .......\glue(\tabskip) 0.0
-.......\hbox(21.78102+9.33485)x161.91505
+.......\hbox(21.78127+9.33496)x161.9169
 ........\glue 0.00002
-........\TU/texgyretermes(0)/m/n/16.05981 XXX
+........\TU/texgyretermes(0)/m/n/16.06 XXX
 ........\kern -0.0002
 ........\kern 0.0002
 ........\penalty 10000
-........\glue 4.01495 plus 2.00748 minus 1.33832
-........\TU/FandolSong(0)/m/n/16.05981 教
-........\glue 0.0 plus 0.74435
-........\TU/FandolSong(0)/m/n/16.05981 授
+........\glue 4.015 plus 2.00749 minus 1.33833
+........\TU/FandolSong(0)/m/n/16.06 教
+........\glue 0.0 plus 0.74417
+........\TU/FandolSong(0)/m/n/16.06 授
 ........\kern -0.00017
 ........\kern 0.00017
-........\glue 16.05981
-........\glue 4.01495 plus 2.00748 minus 1.33832
-........\TU/texgyretermes(0)/m/n/16.05981 XXX
+........\glue 16.06
+........\glue 4.015 plus 2.00749 minus 1.33833
+........\TU/texgyretermes(0)/m/n/16.06 XXX
 ........\kern -0.0002
 ........\kern 0.0002
 ........\penalty 10000
-........\glue 4.01495 plus 2.00748 minus 1.33832
-........\TU/FandolSong(0)/m/n/16.05981 教
-........\glue 0.0 plus 0.74435
-........\TU/FandolSong(0)/m/n/16.05981 授
+........\glue 4.015 plus 2.00749 minus 1.33833
+........\TU/FandolSong(0)/m/n/16.06 教
+........\glue 0.0 plus 0.74417
+........\TU/FandolSong(0)/m/n/16.06 授
 ........\kern -0.00018
 ........\kern 0.00018
 ........\glue 0.0 plus 1.0fil
 .......\glue(\tabskip) 0.0
 ......\glue(\lineskip) 0.0
-......\hbox(21.78102+9.33485)x258.27396
+......\hbox(21.78127+9.33496)x258.2769
 .......\glue(\tabskip) 0.0
-.......\hbox(21.78102+9.33485)x96.3589
-........\rule(21.78102+9.33485)x0.0
+.......\hbox(21.78127+9.33496)x96.36
+........\rule(21.78127+9.33496)x0.0
 ........\glue 0.00002
-........\TU/FandolHei(0)/m/n/16.05981 完
-........\glue 0.0 plus 0.74435
-........\TU/FandolHei(0)/m/n/16.05981 成
-........\glue 0.0 plus 0.74435
-........\TU/FandolHei(0)/m/n/16.05981 时
-........\glue 0.0 plus 0.74435
-........\TU/FandolHei(0)/m/n/16.05981 间
+........\TU/FandolHei(0)/m/n/16.06 完
+........\glue 0.0 plus 0.74417
+........\TU/FandolHei(0)/m/n/16.06 成
+........\glue 0.0 plus 0.74417
+........\TU/FandolHei(0)/m/n/16.06 时
+........\glue 0.0 plus 0.74417
+........\TU/FandolHei(0)/m/n/16.06 间
 ........\penalty 10000
-........\TU/FandolHei(0)/m/n/16.05981 ：
-........\rule(0.0+0.0)x-11.37035
+........\TU/FandolHei(0)/m/n/16.06 ：
+........\rule(0.0+0.0)x-11.37048
 ........\kern 0.00069
 ........\kern -0.00069
 ........\kern -0.99649
 ........\kern 0.99649
-........\glue 11.37035 minus 8.0299
+........\glue 11.37048 minus 8.03
 ........\glue 0.0 plus 1.0fil
-........\glue 16.05981
+........\glue 16.06
 .......\glue(\tabskip) 0.0
-.......\hbox(21.78102+9.33485)x161.91505, glue set 17.37671fil
+.......\hbox(21.78127+9.33496)x161.9169, glue set 17.3769fil
 ........\glue 0.00002
-........\TU/FandolSong(0)/m/n/16.05981 二
-........\glue 0.0 plus 0.74435
-........\TU/FandolSong(0)/m/n/16.05981 〇
-........\glue 0.0 plus 0.74435
-........\TU/FandolSong(0)/m/n/16.05981 一
-........\glue 0.0 plus 0.74435
-........\TU/FandolSong(0)/m/n/16.05981 七
-........\glue 0.0 plus 0.74435
-........\TU/FandolSong(0)/m/n/16.05981 年
-........\glue 0.0 plus 0.74435
-........\TU/FandolSong(0)/m/n/16.05981 五
-........\glue 0.0 plus 0.74435
-........\TU/FandolSong(0)/m/n/16.05981 月
-........\glue 0.0 plus 0.74435
-........\TU/FandolSong(0)/m/n/16.05981 一
-........\glue 0.0 plus 0.74435
-........\TU/FandolSong(0)/m/n/16.05981 日
+........\TU/FandolSong(0)/m/n/16.06 二
+........\glue 0.0 plus 0.74417
+........\TU/FandolSong(0)/m/n/16.06 〇
+........\glue 0.0 plus 0.74417
+........\TU/FandolSong(0)/m/n/16.06 一
+........\glue 0.0 plus 0.74417
+........\TU/FandolSong(0)/m/n/16.06 七
+........\glue 0.0 plus 0.74417
+........\TU/FandolSong(0)/m/n/16.06 年
+........\glue 0.0 plus 0.74417
+........\TU/FandolSong(0)/m/n/16.06 五
+........\glue 0.0 plus 0.74417
+........\TU/FandolSong(0)/m/n/16.06 月
+........\glue 0.0 plus 0.74417
+........\TU/FandolSong(0)/m/n/16.06 一
+........\glue 0.0 plus 0.74417
+........\TU/FandolSong(0)/m/n/16.06 日
 ........\kern -0.00017
 ........\kern 0.00017
 ........\glue 0.0 plus 1.0fil
@@ -466,9 +465,9 @@ Completed box being shipped out [2]
 ...\hbox(0.0+0.0)x452.96826
 ...\special{color pop}
 LaTeX Font Info:    Font shape `TU/texgyreheros(0)/m/n' will be
-(Font)              scaled to size 17.2398pt on input line ....
+(Font)              scaled to size 17.23999pt on input line ....
 LaTeX Font Info:    Font shape `TU/texgyreheros(0)/m/n' will be
-(Font)              scaled to size 22.41174pt on input line ....
+(Font)              scaled to size 22.41199pt on input line ....
 File: figures/ustc-badge.pdf Graphic file (type pdf)
 <use figures/ustc-badge.pdf>
 Completed box being shipped out [3]
@@ -483,7 +482,7 @@ Completed box being shipped out [3]
 ....\special{color pop}
 ..\glue 8.2511
 ..\glue(\lineskip) 0.0
-..\vbox(700.50723+0.0)x452.96826, glue set 85.68073fil
+..\vbox(700.50723+0.0)x452.96826, glue set 85.67842fil
 ...\glue(\topskip) 12.0
 ...\hbox(0.0+11.38092)x452.96826, glue set 226.48413fil
 ....\glue(\leftskip) 0.0 plus 1.0fil
@@ -496,62 +495,62 @@ Completed box being shipped out [3]
 ....\glue(\rightskip) 0.0 plus 1.0fil
 ...\glue 14.22636
 ...\glue(\parskip) 0.0
-...\glue(\baselineskip) 5.85309
-...\hbox(12.87814+3.75827)x452.96826, glue set 48.7762fil
+...\glue(\baselineskip) 5.8533
+...\hbox(12.87827+3.7583)x452.96826, glue set 48.77429fil
 ....\glue(\leftskip) 0.0 plus 1.0fil
 ....\hbox(0.0+0.0)x0.0
-....\TU/texgyreheros(0)/m/n/20.07477 University
+....\TU/texgyreheros(0)/m/n/20.075 University
 ....\kern -0.00021
 ....\kern 0.00021
-....\glue 4.79266 plus 2.39633 minus 1.59755
-....\TU/texgyreheros(0)/m/n/20.07477 of
+....\glue 4.79272 plus 2.39636 minus 1.59756
+....\TU/texgyreheros(0)/m/n/20.075 of
 ....\kern -0.00021
 ....\kern 0.00021
-....\glue 4.79266 plus 2.39633 minus 1.59755
-....\TU/texgyreheros(0)/m/n/20.07477 Science
+....\glue 4.79272 plus 2.39636 minus 1.59756
+....\TU/texgyreheros(0)/m/n/20.075 Science
 ....\kern -0.00021
 ....\kern 0.00021
-....\glue 4.79266 plus 2.39633 minus 1.59755
-....\TU/texgyreheros(0)/m/n/20.07477 and
+....\glue 4.79272 plus 2.39636 minus 1.59756
+....\TU/texgyreheros(0)/m/n/20.075 and
 ....\kern -0.00021
 ....\kern 0.00021
-....\glue 4.79266 plus 2.39633 minus 1.59755
-....\TU/texgyreheros(0)/m/n/20.07477 Technology
+....\glue 4.79272 plus 2.39636 minus 1.59756
+....\TU/texgyreheros(0)/m/n/20.075 Technology
 ....\kern -0.00021
 ....\kern 0.00021
-....\glue 4.79266 plus 2.39633 minus 1.59755
-....\TU/texgyreheros(0)/m/n/20.07477 of
+....\glue 4.79272 plus 2.39636 minus 1.59756
+....\TU/texgyreheros(0)/m/n/20.075 of
 ....\kern -0.00021
 ....\kern 0.00021
-....\glue 4.79266 plus 2.39633 minus 1.59755
-....\TU/texgyreheros(0)/m/n/20.07477 China
+....\glue 4.79272 plus 2.39636 minus 1.59756
+....\TU/texgyreheros(0)/m/n/20.075 China
 ....\kern -0.0002
 ....\kern 0.0002
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0
 ....\glue(\rightskip) 0.0 plus 1.0fil
 ...\glue(\parskip) 0.0
-...\glue(\baselineskip) 9.94849
-...\hbox(16.4054+4.88574)x452.96826, glue set 62.28448fil
+...\glue(\baselineskip) 9.94861
+...\hbox(16.40558+4.8858)x452.96826, glue set 62.28271fil
 ....\glue(\leftskip) 0.0 plus 1.0fil
 ....\hbox(0.0+0.0)x0.0
-....\TU/texgyreheros(0)/m/n/26.0972 A
+....\TU/texgyreheros(0)/m/n/26.09749 A
 ....\kern -0.00021
 ....\kern 0.00021
-....\glue 6.23047 plus 3.1121 minus 2.07889
-....\TU/texgyreheros(0)/m/n/26.0972 dissertation
+....\glue 6.23053 plus 3.11214 minus 2.07892
+....\TU/texgyreheros(0)/m/n/26.09749 dissertation
 ....\kern -0.00021
 ....\kern 0.00021
-....\glue 6.23047 plus 3.11523 minus 2.07681
-....\TU/texgyreheros(0)/m/n/26.0972 for
+....\glue 6.23053 plus 3.11526 minus 2.07684
+....\TU/texgyreheros(0)/m/n/26.09749 for
 ....\kern -0.00021
 ....\kern 0.00021
-....\glue 6.23047 plus 3.11523 minus 2.07681
-....\TU/texgyreheros(0)/m/n/26.0972 doctor’s
+....\glue 6.23053 plus 3.11526 minus 2.07684
+....\TU/texgyreheros(0)/m/n/26.09749 doctor’s
 ....\kern -0.00021
 ....\kern 0.00021
-....\glue 6.23047 plus 3.11523 minus 2.07681
-....\TU/texgyreheros(0)/m/n/26.0972 degree
+....\glue 6.23053 plus 3.11526 minus 2.07684
+....\TU/texgyreheros(0)/m/n/26.09749 degree
 ....\kern -0.0002
 ....\kern 0.0002
 ....\penalty 10000
@@ -583,72 +582,72 @@ Completed box being shipped out [3]
 ....\glue(\rightskip) 0.0 plus 1.0fil
 ...\glue 14.22636
 ...\glue(\parskip) 0.0
-...\glue(\baselineskip) 20.07477
+...\glue(\baselineskip) 20.075
 ...\hbox(0.0+128.0374)x452.96826
 ....\glue(\leftskip) 0.0 plus 1.0fil
 ....\hbox(0.0+0.0)x0.0
-....\vbox(0.0+128.0374)x452.96826, glue set 25.67513fil
+....\vbox(0.0+128.0374)x452.96826, glue set 25.6747fil
 .....\glue 0.0 plus 1.0fil minus 1.0fil
-.....\hbox(16.2019+4.74095)x452.96826, glue set 52.89548fil
+.....\hbox(16.20209+4.741)x452.96826, glue set 52.89352fil
 ......\glue(\leftskip) 0.0 plus 1.0fil
 ......\hbox(0.0+0.0)x0.0
-......\TU/texgyreheros(0)/b/n/26.0972 An
+......\TU/texgyreheros(0)/b/n/26.09749 An
 ......\kern -0.00021
 ......\kern 0.00021
-......\glue 6.0458 plus 3.0229 minus 2.01526
-......\TU/texgyreheros(0)/b/n/26.0972 example
+......\glue 6.04588 plus 3.02293 minus 2.01529
+......\TU/texgyreheros(0)/b/n/26.09749 example
 ......\kern -0.00021
 ......\kern 0.00021
-......\glue 6.0458 plus 3.0229 minus 2.01526
-......\TU/texgyreheros(0)/b/n/26.0972 of
+......\glue 6.04588 plus 3.02293 minus 2.01529
+......\TU/texgyreheros(0)/b/n/26.09749 of
 ......\kern -0.00021
 ......\kern 0.00021
-......\glue 6.0458 plus 3.0229 minus 2.01526
-......\TU/texgyreheros(0)/b/n/26.0972 thesis
+......\glue 6.04588 plus 3.02293 minus 2.01529
+......\TU/texgyreheros(0)/b/n/26.09749 thesis
 ......\kern -0.00021
 ......\kern 0.00021
-......\glue 6.0458 plus 3.0229 minus 2.01526
-......\TU/texgyreheros(0)/b/n/26.0972 template
+......\glue 6.04588 plus 3.02293 minus 2.01529
+......\TU/texgyreheros(0)/b/n/26.09749 template
 ......\kern -0.00021
 ......\kern 0.00021
-......\glue 6.0458 plus 3.0229 minus 2.01526
-......\TU/texgyreheros(0)/b/n/26.0972 for
+......\glue 6.04588 plus 3.02293 minus 2.01529
+......\TU/texgyreheros(0)/b/n/26.09749 for
 ......\kern -0.00021
 ......\kern 0.0
 ......\glue(\rightskip) 0.0 plus 1.0fil
 .....\penalty 150
-.....\glue(\baselineskip) 9.1693
-.....\hbox(16.2019+4.7627)x452.96826, glue set 17.62099fil
+.....\glue(\baselineskip) 9.1694
+.....\hbox(16.20209+4.76274)x452.96826, glue set 17.61862fil
 ......\glue(\leftskip) 0.0 plus 1.0fil
-......\TU/texgyreheros(0)/b/n/26.0972 University
+......\TU/texgyreheros(0)/b/n/26.09749 University
 ......\kern -0.00021
 ......\kern 0.00021
-......\glue 6.0458 plus 3.0229 minus 2.01526
-......\TU/texgyreheros(0)/b/n/26.0972 of
+......\glue 6.04588 plus 3.02293 minus 2.01529
+......\TU/texgyreheros(0)/b/n/26.09749 of
 ......\kern -0.00021
 ......\kern 0.00021
-......\glue 6.0458 plus 3.0229 minus 2.01526
-......\TU/texgyreheros(0)/b/n/26.0972 Science
+......\glue 6.04588 plus 3.02293 minus 2.01529
+......\TU/texgyreheros(0)/b/n/26.09749 Science
 ......\kern -0.00021
 ......\kern 0.00021
-......\glue 6.0458 plus 3.0229 minus 2.01526
-......\TU/texgyreheros(0)/b/n/26.0972 and
+......\glue 6.04588 plus 3.02293 minus 2.01529
+......\TU/texgyreheros(0)/b/n/26.09749 and
 ......\kern -0.00021
 ......\kern 0.00021
-......\glue 6.0458 plus 3.0229 minus 2.01526
-......\TU/texgyreheros(0)/b/n/26.0972 Technology
+......\glue 6.04588 plus 3.02293 minus 2.01529
+......\TU/texgyreheros(0)/b/n/26.09749 Technology
 ......\kern -0.00021
 ......\kern 0.00021
-......\glue 6.0458 plus 3.0229 minus 2.01526
-......\TU/texgyreheros(0)/b/n/26.0972 of
+......\glue 6.04588 plus 3.02293 minus 2.01529
+......\TU/texgyreheros(0)/b/n/26.09749 of
 ......\kern -0.00021
 ......\kern 0.0
 ......\glue(\rightskip) 0.0 plus 1.0fil
 .....\penalty 150
-.....\glue(\baselineskip) 9.14755
-.....\hbox(16.2019+0.26096)x452.96826, glue set 196.27681fil
+.....\glue(\baselineskip) 9.14766
+.....\hbox(16.20209+0.26096)x452.96826, glue set 196.27647fil
 ......\glue(\leftskip) 0.0 plus 1.0fil
-......\TU/texgyreheros(0)/b/n/26.0972 China
+......\TU/texgyreheros(0)/b/n/26.09749 China
 ......\kern -0.0002
 ......\kern 0.0002
 ......\penalty 10000
@@ -661,110 +660,110 @@ Completed box being shipped out [3]
 ...\glue 45.52458
 ...\glue(\parskip) 0.0
 ...\glue(\lineskip) 1.0
-...\hbox(64.23965+56.2089)x452.96826, glue set 63.20132fil
+...\hbox(64.24037+56.20952)x452.96826, glue set 63.19945fil
 ....\glue(\leftskip) 0.0 plus 1.0fil
 ....\hbox(0.0+0.0)x0.0
-....\hbox(64.23965+56.2089)x326.56563
+....\hbox(64.24037+56.20952)x326.56937
 .....\mathon
-.....\vbox(64.23965+56.2089)x326.56563
-......\hbox(21.0784+9.03374)x326.56563
+.....\vbox(64.24037+56.20952)x326.56937
+......\hbox(21.07864+9.03383)x326.56937
 .......\glue(\tabskip) 0.0
-.......\hbox(21.0784+9.03374)x326.56563, glue set 207.94247fil
-........\rule(21.0784+9.03374)x0.0
+.......\hbox(21.07864+9.03383)x326.56937, glue set 207.94485fil
+........\rule(21.07864+9.03383)x0.0
 ........\glue 0.00002
-........\TU/texgyretermes(0)/m/n/16.05981 Author:
+........\TU/texgyretermes(0)/m/n/16.06 Author:
 ........\kern -0.00021
 ........\kern 0.00021
-........\glue 5.35327 plus 4.01495 minus 0.66916
-........\TU/texgyretermes(0)/m/n/16.05981 Li
+........\glue 5.35333 plus 4.01498 minus 0.66916
+........\TU/texgyretermes(0)/m/n/16.06 Li
 ........\kern -0.00021
 ........\kern 0.00021
-........\glue 4.01495 plus 2.00748 minus 1.33832
-........\TU/texgyretermes(0)/m/n/16.05981 Zeping
+........\glue 4.015 plus 2.00749 minus 1.33833
+........\TU/texgyretermes(0)/m/n/16.06 Zeping
 ........\kern -0.0002
 ........\kern 0.0002
 ........\glue 0.0 plus 1.0fil
 .......\glue(\tabskip) 0.0
 ......\glue(\lineskip) 0.0
-......\hbox(21.0784+9.03374)x326.56563
+......\hbox(21.07864+9.03383)x326.56937
 .......\glue(\tabskip) 0.0
-.......\hbox(21.0784+9.03374)x326.56563
-........\rule(21.0784+9.03374)x0.0
+.......\hbox(21.07864+9.03383)x326.56937
+........\rule(21.07864+9.03383)x0.0
 ........\glue 0.00002
-........\TU/texgyretermes(0)/m/n/16.05981 Speciality:
+........\TU/texgyretermes(0)/m/n/16.06 Speciality:
 ........\kern -0.00021
 ........\kern 0.00021
-........\glue 5.35327 plus 4.01495 minus 0.66916
-........\TU/texgyretermes(0)/m/n/16.05981 Mathematics
+........\glue 5.35333 plus 4.01498 minus 0.66916
+........\TU/texgyretermes(0)/m/n/16.06 Mathematics
 ........\kern -0.00021
 ........\kern 0.00021
-........\glue 4.01495 plus 2.00748 minus 1.33832
-........\TU/texgyretermes(0)/m/n/16.05981 and
+........\glue 4.015 plus 2.00749 minus 1.33833
+........\TU/texgyretermes(0)/m/n/16.06 and
 ........\kern -0.00021
 ........\kern 0.00021
-........\glue 4.01495 plus 2.00748 minus 1.33832
-........\TU/texgyretermes(0)/m/n/16.05981 Applied
+........\glue 4.015 plus 2.00749 minus 1.33833
+........\TU/texgyretermes(0)/m/n/16.06 Applied
 ........\kern -0.00021
 ........\kern 0.00021
-........\glue 4.01495 plus 2.00748 minus 1.33832
-........\TU/texgyretermes(0)/m/n/16.05981 Mathematics
+........\glue 4.015 plus 2.00749 minus 1.33833
+........\TU/texgyretermes(0)/m/n/16.06 Mathematics
 ........\kern -0.0002
 ........\kern 0.0002
 ........\glue 0.0 plus 1.0fil
 .......\glue(\tabskip) 0.0
 ......\glue(\lineskip) 0.0
-......\hbox(21.0784+9.03374)x326.56563
+......\hbox(21.07864+9.03383)x326.56937
 .......\glue(\tabskip) 0.0
-.......\hbox(21.0784+9.03374)x326.56563, glue set 87.6063fil
-........\rule(21.0784+9.03374)x0.0
+.......\hbox(21.07864+9.03383)x326.56937, glue set 87.6073fil
+........\rule(21.07864+9.03383)x0.0
 ........\glue 0.00002
-........\TU/texgyretermes(0)/m/n/16.05981 Supervisors:
+........\TU/texgyretermes(0)/m/n/16.06 Supervisors:
 ........\kern -0.00021
 ........\kern 0.00021
-........\glue 5.35327 plus 4.01495 minus 0.66916
-........\TU/texgyretermes(0)/m/n/16.05981 Prof.
+........\glue 5.35333 plus 4.01498 minus 0.66916
+........\TU/texgyretermes(0)/m/n/16.06 Prof.
 ........\kern -0.0002
 ........\kern 0.0002
 ........\penalty 10000
-........\glue 4.01495 plus 2.00748 minus 1.33832
-........\TU/texgyretermes(0)/m/n/16.05981 XXX,
+........\glue 4.015 plus 2.00749 minus 1.33833
+........\TU/texgyretermes(0)/m/n/16.06 XXX,
 ........\kern -0.00021
 ........\kern 0.00021
-........\glue 4.01495 plus 2.00748 minus 1.33832
-........\glue 4.01495 plus 2.00748 minus 1.33832
-........\TU/texgyretermes(0)/m/n/16.05981 Prof.
+........\glue 4.015 plus 2.00749 minus 1.33833
+........\glue 4.015 plus 2.00749 minus 1.33833
+........\TU/texgyretermes(0)/m/n/16.06 Prof.
 ........\kern -0.0002
 ........\kern 0.0002
 ........\penalty 10000
-........\glue 4.01495 plus 2.00748 minus 1.33832
-........\TU/texgyretermes(0)/m/n/16.05981 XXX
+........\glue 4.015 plus 2.00749 minus 1.33833
+........\TU/texgyretermes(0)/m/n/16.06 XXX
 ........\kern -0.0002
 ........\kern 0.0002
 ........\glue 0.0 plus 1.0fil
 .......\glue(\tabskip) 0.0
 ......\glue(\lineskip) 0.0
-......\hbox(21.0784+9.03374)x326.56563
+......\hbox(21.07864+9.03383)x326.56937
 .......\glue(\tabskip) 0.0
-.......\hbox(21.0784+9.03374)x326.56563, glue set 147.94301fil
-........\rule(21.0784+9.03374)x0.0
+.......\hbox(21.07864+9.03383)x326.56937, glue set 147.94469fil
+........\rule(21.07864+9.03383)x0.0
 ........\glue 0.00002
-........\TU/texgyretermes(0)/m/n/16.05981 Finished
+........\TU/texgyretermes(0)/m/n/16.06 Finished
 ........\kern -0.00021
 ........\kern 0.00021
-........\glue 4.01495 plus 2.00748 minus 1.33832
-........\TU/texgyretermes(0)/m/n/16.05981 time:
+........\glue 4.015 plus 2.00749 minus 1.33833
+........\TU/texgyretermes(0)/m/n/16.06 time:
 ........\kern -0.00021
 ........\kern 0.00021
-........\glue 5.35327 plus 4.01495 minus 0.66916
-........\TU/texgyretermes(0)/m/n/16.05981 May
+........\glue 5.35333 plus 4.01498 minus 0.66916
+........\TU/texgyretermes(0)/m/n/16.06 May
 ........\kern -0.00021
 ........\kern 0.00021
-........\glue 4.01495 plus 2.00748 minus 1.33832
-........\TU/texgyretermes(0)/m/n/16.05981 1,
+........\glue 4.015 plus 2.00749 minus 1.33833
+........\TU/texgyretermes(0)/m/n/16.06 1,
 ........\kern -0.00021
 ........\kern 0.00021
-........\glue 4.01495 plus 2.50934 minus 1.07065
-........\TU/texgyretermes(0)/m/n/16.05981 2017
+........\glue 4.015 plus 2.50935 minus 1.07066
+........\TU/texgyretermes(0)/m/n/16.06 2017
 ........\kern -0.0002
 ........\kern 0.0002
 ........\glue 0.0 plus 1.0fil

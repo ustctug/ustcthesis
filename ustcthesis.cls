@@ -1367,13 +1367,6 @@
   }
 \fi
 
-% 目前最广泛使用的印刷的长度单位点（磅）通常指 PostScript point
-% \footnote{\url{https://en.wikipedia.org/wiki/Point_(typography)}}，
-% 在 \LaTeX{} 中是 bp，比默认的 pt 略大。
-% 这里保存起来可以节约编译时间。
-\newdimen\bp@
-\bp@=1bp
-
 % 下面设置字号。正文字号12bp，研究生行距20bp，本科生行距22bp；
 % 其他命令的行距按照相同的的比例设置，如表~\ref{tab:fontsize}。
 % \begin{table}[htb]
@@ -1399,66 +1392,66 @@
 % \end{table}
 \ifustc@degree@graduate
   \renewcommand\normalsize{%
-    \@setfontsize\normalsize{12\bp@}{20\bp@}%
-    \abovedisplayskip 12\bp@ \@plus3\bp@ \@minus7\bp@
-    \abovedisplayshortskip \z@ \@plus3\bp@
-    \belowdisplayshortskip 6.5\bp@ \@plus3.5\bp@ \@minus3\bp@
+    \@setfontsize\normalsize{12bp}{20bp}%
+    \abovedisplayskip 12bp \@plus3bp \@minus7bp%
+    \abovedisplayshortskip \z@ \@plus3bp%
+    \belowdisplayshortskip 6.5bp \@plus3.5bp \@minus3bp%
     \belowdisplayskip \abovedisplayskip
     \let\@listi\@listI}
   \normalsize
   %
   % 注意第~\ref{sec:list} 节去掉了列表的间距，所以不再修改 \cs{@listi}。
   \renewcommand\small{%
-    \@setfontsize\small{10.5\bp@}{17.5\bp@}%
-    \abovedisplayskip 10.5\bp@ \@plus3\bp@ \@minus6\bp@
-    \abovedisplayshortskip \z@ \@plus3\bp@
-    \belowdisplayshortskip 6.5\bp@ \@plus3.5\bp@ \@minus3\bp@
+    \@setfontsize\small{10.5bp}{17.5bp}%
+    \abovedisplayskip 10.5bp \@plus3bp \@minus6bp%
+    \abovedisplayshortskip \z@ \@plus3bp%
+    \belowdisplayshortskip 6.5bp \@plus3.5bp \@minus3bp%
     \belowdisplayskip \abovedisplayskip
   }
   \renewcommand\footnotesize{%
-    \@setfontsize\footnotesize{9\bp@}{15\bp@}%
-    \abovedisplayskip 9\bp@ \@plus2\bp@ \@minus5\bp@
-    \abovedisplayshortskip \z@ \@plus3\bp@
-    \belowdisplayshortskip 6\bp@ \@plus3\bp@ \@minus3\bp@
+    \@setfontsize\footnotesize{9bp}{15bp}%
+    \abovedisplayskip 9bp \@plus2bp \@minus5bp%
+    \abovedisplayshortskip \z@ \@plus3bp%
+    \belowdisplayshortskip 6bp \@plus3bp \@minus3bp%
     \belowdisplayskip \abovedisplayskip
   }
-  \renewcommand\scriptsize{\@setfontsize\scriptsize{7.5\bp@}{12.5\bp@}}
-  \renewcommand\tiny{\@setfontsize\tiny{6.5\bp@}{10.83\bp@}}
-  \renewcommand\large{\@setfontsize\large{15\bp@}{25\bp@}}
-  \renewcommand\Large{\@setfontsize\Large{18\bp@}{30\bp@}}
-  \renewcommand\LARGE{\@setfontsize\LARGE{22\bp@}{36.67\bp@}}
-  \renewcommand\huge{\@setfontsize\huge{24\bp@}{40\bp@}}
-  \renewcommand\Huge{\@setfontsize\Huge{26\bp@}{43.33\bp@}}
+  \renewcommand\scriptsize{\@setfontsize\scriptsize{7.5bp}{12.5bp}}
+  \renewcommand\tiny{\@setfontsize\tiny{6.5bp}{10.83bp}}
+  \renewcommand\large{\@setfontsize\large{15bp}{25bp}}
+  \renewcommand\Large{\@setfontsize\Large{18bp}{30bp}}
+  \renewcommand\LARGE{\@setfontsize\LARGE{22bp}{36.67bp}}
+  \renewcommand\huge{\@setfontsize\huge{24bp}{40bp}}
+  \renewcommand\Huge{\@setfontsize\Huge{26bp}{43.33bp}}
 \else
   \renewcommand\normalsize{%
-    \@setfontsize\normalsize{12\bp@}{22\bp@}%
-    \abovedisplayskip 12\bp@ \@plus3\bp@ \@minus7\bp@
-    \abovedisplayshortskip \z@ \@plus3\bp@
-    \belowdisplayshortskip 6.5\bp@ \@plus3.5\bp@ \@minus3\bp@
+    \@setfontsize\normalsize{12bp}{22bp}%
+    \abovedisplayskip 12bp \@plus3bp \@minus7bp%
+    \abovedisplayshortskip \z@ \@plus3bp%
+    \belowdisplayshortskip 6.5bp \@plus3.5bp \@minus3bp%
     \belowdisplayskip \abovedisplayskip
     \let\@listi\@listI}
   \normalsize
   \renewcommand\small{%
-    \@setfontsize\small{10.5\bp@}{19.25\bp@}%
-    \abovedisplayskip 10.5\bp@ \@plus3\bp@ \@minus6\bp@
-    \abovedisplayshortskip \z@ \@plus3\bp@
-    \belowdisplayshortskip 6.5\bp@ \@plus3.5\bp@ \@minus3\bp@
+    \@setfontsize\small{10.5bp}{19.25bp}%
+    \abovedisplayskip 10.5bp \@plus3bp \@minus6bp%
+    \abovedisplayshortskip \z@ \@plus3bp%
+    \belowdisplayshortskip 6.5bp \@plus3.5bp \@minus3bp%
     \belowdisplayskip \abovedisplayskip
   }
   \renewcommand\footnotesize{%
-    \@setfontsize\footnotesize{9\bp@}{16.5\bp@}%
-    \abovedisplayskip 9\bp@ \@plus2\bp@ \@minus5\bp@
-    \abovedisplayshortskip \z@ \@plus3\bp@
-    \belowdisplayshortskip 6\bp@ \@plus3\bp@ \@minus3\bp@
+    \@setfontsize\footnotesize{9bp}{16.5bp}%
+    \abovedisplayskip 9bp \@plus2bp \@minus5bp%
+    \abovedisplayshortskip \z@ \@plus3bp%
+    \belowdisplayshortskip 6bp \@plus3bp \@minus3bp%
     \belowdisplayskip \abovedisplayskip
   }
-  \renewcommand\scriptsize{\@setfontsize\scriptsize{7.5\bp@}{13.75\bp@}}
-  \renewcommand\tiny{\@setfontsize\tiny{6.5\bp@}{11.92\bp@}}
-  \renewcommand\large{\@setfontsize\large{15\bp@}{27.5\bp@}}
-  \renewcommand\Large{\@setfontsize\Large{18\bp@}{33\bp@}}
-  \renewcommand\LARGE{\@setfontsize\LARGE{22\bp@}{40.33\bp@}}
-  \renewcommand\huge{\@setfontsize\huge{24\bp@}{44\bp@}}
-  \renewcommand\Huge{\@setfontsize\Huge{26\bp@}{47.67\bp@}}
+  \renewcommand\scriptsize{\@setfontsize\scriptsize{7.5bp}{13.75bp}}
+  \renewcommand\tiny{\@setfontsize\tiny{6.5bp}{11.92bp}}
+  \renewcommand\large{\@setfontsize\large{15bp}{27.5bp}}
+  \renewcommand\Large{\@setfontsize\Large{18bp}{33bp}}
+  \renewcommand\LARGE{\@setfontsize\LARGE{22bp}{40.33bp}}
+  \renewcommand\huge{\@setfontsize\huge{24bp}{44bp}}
+  \renewcommand\Huge{\@setfontsize\Huge{26bp}{47.67bp}}
 \fi
 
 % 设置行距的倍数为 1。
@@ -1498,7 +1491,7 @@
   % 页眉与该部分的章标题相同，宋体 10.5 磅（五号）居中。
   % 页码：宋体 10.5 磅、页面下脚居中。
   \ifustc@degree@graduate
-    \def\ustc@hf@font{\fontsize{10.5\bp@}{12\bp@}\selectfont}
+    \def\ustc@hf@font{\fontsize{10.5bp}{12bp}\selectfont}
     \fancyhead[C]{\ustc@hf@font\leftmark}%
     \fancyfoot[C]{\ustc@hf@font\thepage}%
     \let\@mkboth\markboth
@@ -1511,7 +1504,7 @@
     % 本科生要求除封面、扉页外，每面上部加页眉，
     % 用小 5 号字（9 bp）标注“中国科学技术大学本科毕业论文”，居中；
     % 从目录页开始在每面底部居中用小五宋体（9 bp）连续编页码。
-    \def\ustc@hf@font{\fontsize{9\bp@}{12\bp@}\selectfont}
+    \def\ustc@hf@font{\fontsize{9bp}{12bp}\selectfont}
     \fancyhead[C]{\ustc@hf@font 中国科学技术大学本科毕业论文}%
     \fancyfoot[C]{\ustc@hf@font\thepage}%
     \let\@mkboth\@gobbletwo
@@ -1780,18 +1773,18 @@
     \ustc@pdfbookmark{封面}%
     \centering
     \parbox[t][0.6cm][t]{\textwidth}{%
-      \raggedleft\fangsong\fontsize{14\bp@}{14\bp@}\selectfont
+      \raggedleft\fangsong\fontsize{14bp}{14bp}\selectfont
       \null\ustc@secret@level\par}\par
     \vskip 0.5cm%
     \includegraphics[height=1.3cm]{figures/ustc-name.pdf}\par
     \vskip 0.6cm%
-    {\sffamily\fontsize{56\bp@}{56\bp@}\selectfont
+    {\sffamily\fontsize{56bp}{56bp}\selectfont
       \ustc@thesis@name\par}%
     \ifustc@degree@type@academic
       \vskip 2.0cm%
     \else
       \vskip 0.8cm%
-      {\lishu\fontsize{26\bp@}{26\bp@}\selectfont
+      {\lishu\fontsize{26bp}{26bp}\selectfont
         （\ustc@professional@type）\par}%
       \vskip 1.0cm%
     \fi
@@ -1803,10 +1796,10 @@
     \fi\par
     \vskip 0.9cm%
     \parbox[t][3.5cm][c]{\textwidth}{%
-      \centering\sffamily\bfseries\fontsize{26\bp@}{50\bp@}\selectfont
+      \centering\sffamily\bfseries\fontsize{26bp}{50bp}\selectfont
       \ustc@title\par}\par
     \vskip 0.6cm%
-    {\fontsize{16\bp@}{31\bp@}\selectfont
+    {\fontsize{16bp}{31bp}\selectfont
       \begin{tabular}{@{}l@{\hspace{\ccwd}}l@{}}%
         \textsf{作者姓名：} & \ustc@author \\
         \textsf{\ustc@speciality@name：} & \ustc@speciality \\
@@ -1829,15 +1822,15 @@
     \ustc@pdfbookmark{Title page}%
     \centering
     \parbox[t][0.4cm][t]{\textwidth}{%
-      \raggedleft\fontsize{14\bp@}{14\bp@}\selectfont
+      \raggedleft\fontsize{14bp}{14bp}\selectfont
       \null\ustc@secret@level@en\par}\par
     \vskip 0.5cm%
-    {\sffamily\fontsize{20\bp@}{30\bp@}\selectfont
+    {\sffamily\fontsize{20bp}{30bp}\selectfont
       University of Science and Technology of China\par}%
-    {\sffamily\fontsize{26\bp@}{30\bp@}\selectfont
+    {\sffamily\fontsize{26bp}{30bp}\selectfont
       \ustc@thesis@name@en\par}%
     \ifustc@degree@type@academic\else
-      {\fontsize{16\bp@}{32\bp@}\selectfont
+      {\fontsize{16bp}{32bp}\selectfont
         (\ustc@professional@type@en)\par}%
     \fi
     \vskip 2.5cm%
@@ -1849,10 +1842,10 @@
     \fi\par
     \vskip 0.5cm%
     \parbox[t][4.5cm][c]{\textwidth}{%
-      \centering\sffamily\bfseries\fontsize{26\bp@}{30\bp@}\selectfont
+      \centering\sffamily\bfseries\fontsize{26bp}{30bp}\selectfont
       \ustc@title@en\par}\par
     \vskip 1.6cm%
-    {\fontsize{16\bp@}{30\bp@}\selectfont
+    {\fontsize{16bp}{30bp}\selectfont
       \begin{tabular}{@{}l@{}}%
         Author:        \ustc@author@en \\
         Speciality:    \ustc@speciality@en \\
@@ -1910,7 +1903,7 @@
     \ustc@pdfbookmark{原创性和授权使用声明}%
     \null
     \vskip 0.3cm%
-    {\centering\sffamily\fontsize{16\bp@}{32\bp@}\selectfont
+    {\centering\sffamily\fontsize{16bp}{32bp}\selectfont
       中国科学技术大学学位论文原创性声明\par}%
     \vskip 0.7cm%
     \ustc@originality\par
@@ -1918,7 +1911,7 @@
     作者签名：\ustc@underline{}\hspace{2.7cm}%
     签字日期：\ustc@underline{}\par
     \vskip 1.9cm%
-    {\centering\sffamily\fontsize{16\bp@}{32\bp@}\selectfont
+    {\centering\sffamily\fontsize{16bp}{32bp}\selectfont
       中国科学技术大学学位论文授权使用声明\par}%
     \vskip 0.7cm%
     \ustc@authorization\par
@@ -2001,13 +1994,13 @@
 % 另外 \pkg{ctex} v2.2 前的beforeskip的符号有特殊意义。
 \ctexset{
   chapter = {
-    format      = \centering\sffamily\bfseries\fontsize{16\bp@}{26.67\bp@}\selectfont,
+    format      = \centering\sffamily\bfseries\fontsize{16bp}{26.67bp}\selectfont,
     nameformat  = {},
     titleformat = \ustc@spacetitle,
     number      = \thechapter,
     aftername   = \hspace{\ccwd},
-    beforeskip  = 24\bp@,
-    afterskip   = 18\bp@,
+    beforeskip  = 24bp,
+    afterskip   = 18bp,
     fixskip     = true,
   },
 }
@@ -2016,26 +2009,26 @@
 % 序号与题名间空一字。
 \ctexset{
   section = {
-    format     = \sffamily\fontsize{14\bp@}{23.33\bp@}\selectfont,
+    format     = \sffamily\fontsize{14bp}{23.33bp}\selectfont,
     aftername  = \hspace{\ccwd},
-    beforeskip = 24\bp@,
-    afterskip  = 6\bp@,
+    beforeskip = 24bp,
+    afterskip  = 6bp,
   },
   %
   % 二级节标题：黑体 13 磅，左缩进两字，单倍行距，段前 12 磅，段后 6 磅，
   % 序号与题名间空一字。
   subsection = {
-    format     = \sffamily\fontsize{13\bp@}{21.67\bp@}\selectfont,
+    format     = \sffamily\fontsize{13bp}{21.67bp}\selectfont,
     aftername  = \hspace{\ccwd},
     indent     = 2\ccwd,
-    beforeskip = 12\bp@,
-    afterskip  = 6\bp@,
+    beforeskip = 12bp,
+    afterskip  = 6bp,
   },
   %
   % 三级及以下节标题的格式没有具体规定，按照 Word 模板的格式：
   % 使用黑体 12 磅，左缩进两字，行距 20 磅，段前段后 0 磅，序号与题名间空半字宽。
   subsubsection = {
-    format     = \sffamily\fontsize{12\bp@}{20\bp@}\selectfont,
+    format     = \sffamily\fontsize{12bp}{20bp}\selectfont,
     number     = \arabic{subsubsection},
     aftername  = .\hspace{0.5\ccwd},
     indent     = 2\ccwd,
@@ -2046,7 +2039,7 @@
   % 按照 Word 模板的格式，四级节标题：宋体 12 磅，左缩进两字，行距 20 磅，
   % 段前段后 0 磅，序号使用全宽括号，与题名间空半字宽。
   paragraph = {
-    format     = \rmfamily\fontsize{12\bp@}{20\bp@}\selectfont,
+    format     = \rmfamily\fontsize{12bp}{20bp}\selectfont,
     number     = （\arabic{paragraph}）,
     aftername  = \hspace{0.5\ccwd},
     indent     = 2\ccwd,
@@ -2058,7 +2051,7 @@
   % 按照 Word 模板的格式，五级节标题：宋体 12 磅，左缩进两字，行距 20 磅，
   % 段前段后 0 磅，序号使用全宽括号，与题名间空半字宽。
   subparagraph = {
-    format     = \rmfamily\fontsize{12\bp@}{20\bp@}\selectfont,
+    format     = \rmfamily\fontsize{12bp}{20bp}\selectfont,
     number     = \ustc@textcircled{subparagraph},
     aftername  = \hspace{0.5\ccwd},
     indent     = 2\ccwd,
@@ -2094,25 +2087,25 @@
       format = {
         \centering\sffamily
         \if@mainmatter
-          \fontsize{16\bp@}{29.33\bp@}\selectfont
+          \fontsize{16bp}{29.33bp}\selectfont
         \else
-          \fontsize{18\bp@}{33\bp@}\selectfont
+          \fontsize{18bp}{33bp}\selectfont
         \fi
       },
     },
     section = {
-      format = \centering\sffamily\fontsize{15\bp@}{27.5\bp@}\selectfont,
+      format = \centering\sffamily\fontsize{15bp}{27.5bp}\selectfont,
     },
     subsection = {
-      format    = \sffamily\fontsize{14\bp@}{25.67\bp@}\selectfont,
+      format    = \sffamily\fontsize{14bp}{25.67bp}\selectfont,
       indent    = \z@,
     },
     subsubsection = {
-      format    = \rmfamily\fontsize{12\bp@}{22\bp@}\selectfont,
+      format    = \rmfamily\fontsize{12bp}{22bp}\selectfont,
       indent    = \ccwd,
     },
     paragraph = {
-      format    = \rmfamily\fontsize{12\bp@}{22\bp@}\selectfont,
+      format    = \rmfamily\fontsize{12bp}{22bp}\selectfont,
       aftername = {},
       indent    = \ccwd,
     },
@@ -2186,7 +2179,7 @@
     \ustc@chapter[Abstract]{ABSTRACT}%
   \else
     \begingroup
-      \ctexset{chapter/format=\centering\fontsize{16\bp@}{29.33\bp@}\selectfont}%
+      \ctexset{chapter/format=\centering\fontsize{16bp}{29.33bp}\selectfont}%
       \chapter[英文内容摘要]{Abstract}%
     \endgroup
   \fi
@@ -2227,32 +2220,32 @@
 
 % 下面用 \pkg{titletoc} 宏包设置目录内容的格式。
 % 先定义目录线：
-\newcommand\ustc@leaders{\titlerule*[9\bp@]{\textperiodcentered}}
+\newcommand\ustc@leaders{\titlerule*[9bp]{\textperiodcentered}}
 
 % 各章目录要求宋体 14 磅，单倍行距，段前 6 磅，段后 0 磅，两端对齐，
 % 页码右对齐，章序号与章名间空一字。
 % 但是 Word 模板中实际是行距 20 磅。
 \ifustc@degree@graduate
   \titlecontents{chapter}
-    [\z@]{\addvspace{6\bp@}\fontsize{14\bp@}{20\bp@}\selectfont}
+    [\z@]{\addvspace{6bp}\fontsize{14bp}{20bp}\selectfont}
     {\contentspush{\thecontentslabel\hspace{\ccwd}}}{}
-    {\fontsize{12\bp@}{20\bp@}\selectfont\ustc@leaders\contentspage}
+    {\fontsize{12bp}{20bp}\selectfont\ustc@leaders\contentspage}
     %
     % 一级节标题目录要求宋体 12 磅，单倍行距，左缩进一字，段前 6 磅，段后 0 磅，
     % 两端对齐，页码右对齐，序号与题名间空一字。
     % Word 模板中实际是行距 20 磅，段前 0 磅。
   \titlecontents{section}
-    [\ccwd]{\fontsize{12\bp@}{20\bp@}\selectfont}
+    [\ccwd]{\fontsize{12bp}{20bp}\selectfont}
     {\contentspush{\thecontentslabel\hspace{\ccwd}}}{}
-    {\fontsize{12\bp@}{20\bp@}\selectfont\ustc@leaders\contentspage}
+    {\fontsize{12bp}{20bp}\selectfont\ustc@leaders\contentspage}
     %
     % 二级节标题目录要求宋体 10.5 磅，单倍行距，左缩进两字，段前 6 磅，段后 0 磅，
     % 两端对齐，页码右对齐，序号与题名间空一字。
     % Word 模板中实际是行距 20 磅，段前 0 磅。
   \titlecontents{subsection}
-    [2\ccwd]{\fontsize{10.5\bp@}{20\bp@}\selectfont}
+    [2\ccwd]{\fontsize{10.5bp}{20bp}\selectfont}
     {\contentspush{\thecontentslabel\hspace{\ccwd}}}{}
-    {\fontsize{12\bp@}{20\bp@}\selectfont\ustc@leaders\contentspage}
+    {\fontsize{12bp}{20bp}\selectfont\ustc@leaders\contentspage}
     %
     % 本科生的目录使用小四宋体（同正文字体），其他同研究生的格式相近。
 \else
@@ -2290,7 +2283,7 @@
   \@afterindenttrue
   \ifustc@degree@bachelor
     \ifustc@addtocspace
-      \addtocontents{toc}{\protect\addvspace{12\bp@}}%
+      \addtocontents{toc}{\protect\addvspace{12bp}}%
     \fi
   \fi
   \secdef\@chapter\@schapter
@@ -2347,7 +2340,7 @@
 \newcommand*\notationlabel[1]{#1\hfil}%
 \newenvironment{notationlist}[1]{%
   \list{}{%
-    \itemsep 3pt%
+    \itemsep 3bp%
     \labelwidth #1\relax%
     \labelsep 1em%
     \leftmargin\labelwidth
@@ -2467,15 +2460,15 @@
 % 表号、表题置于表的上方，宋体 10.5 磅居中，单倍行距，段前 6 磅，段后 6 磅，
 % 表号与表题文字之间空一字，表号、表题加粗。
 % 表注左缩进两字，续行悬挂缩进左对齐，两端对齐。
-\setlength{\floatsep}{6\bp@}
-\setlength{\textfloatsep}{6\bp@}
-\setlength{\intextsep}{6\bp@}
+\setlength{\floatsep}{6bp}
+\setlength{\textfloatsep}{6bp}
+\setlength{\intextsep}{6bp}
 \DeclareCaptionLabelSeparator{zhspace}{\hspace{\ccwd}}
 \captionsetup{
   format         = hang,
   font           = small,
   labelsep       = zhspace,
-  skip           = 6\bp@,
+  skip           = 6bp,
   figureposition = bottom,
   tableposition  = top,
 }
@@ -2483,7 +2476,7 @@
   \captionsetup{font+=bf}
 \fi
 \captionsetup[figure]{
-  belowskip = 6\bp@,
+  belowskip = 6bp,
 }
 
 % 新定义了 \cs{note} 来生成图表的附注。
@@ -2751,7 +2744,7 @@
   % 本科生依然是小四宋体。
   \renewcommand\bibfont{%
     \ifustc@degree@graduate
-      \fontsize{10.5\bp@}{20\bp@}\selectfont
+      \fontsize{10.5bp}{20bp}\selectfont
     \else
       \normalsize
     \fi
@@ -2775,7 +2768,7 @@
   \defbibheading{bibliography}[\bibname]{\@mainmatterfalse\chapter*{\bibname}}
   \renewcommand\bibfont{%
     \ifustc@degree@graduate
-      \fontsize{10.5\bp@}{20\bp@}\selectfont
+      \fontsize{10.5bp}{20bp}\selectfont
     \else
       \normalsize
     \fi
@@ -2979,7 +2972,7 @@
   \fi
   %
   % 设置算法环境的格式。
-  \SetAlCapSkip{6\bp@}
+  \SetAlCapSkip{6bp}
   \SetAlCapFnt{\small}
   \SetAlCapNameFnt{\small}
   \ifustc@degree@graduate
