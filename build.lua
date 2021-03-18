@@ -31,9 +31,14 @@ function update_tag(file, content, tagname, tagdate)
   local url = "https://github.com/ustctug/ustcthesis"
   local date = string.gsub(tagdate, "%-", "/")
   if string.match(file, "%.cls$") then
+    if string.match(content, "\\newcommand\\ustcthesisversion{v[0-9.]+}") then
+      content = string.gsub(content, "\\newcommand\\ustcthesisversion{v[0-9.]+",
+      "\\newcommand\\ustcthesisversion{" .. tagname)
+    end
+
     if string.match(content, "\\ProvidesClass{ustcthesis}%[%d%d%d%d/%d%d/%d%d v[0-9.]+") then
-      content = string.gsub(content, "%d%d%d%d/%d%d/%d%d v[0-9.]+",
-        date .. " " .. tagname)
+      content = string.gsub(content, "%d%d%d%d/%d%d/%d%d",
+        date)
     end
 
   elseif string.match(file, "%-doc.tex") then
