@@ -27,6 +27,8 @@
 
 - 校内镜像：https://git.lug.ustc.edu.cn/ustctug/ustcthesis
 
+- Overleaf 模板 https://www.overleaf.com/latex/templates/latex-template-for-ustc-thesis/jvtdfkqsrycm
+
 - 研究生院网站（版本较旧，不推荐）：https://gradschool.ustc.edu.cn/column/65
 
 

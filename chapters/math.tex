@@ -4,40 +4,56 @@
 
 \section{数学符号和公式}
 
-《撰写手册》要求数学符号要根据 GB/T 3102.11-1993《物理科学和技术中使用的数学符号》
-\footnote{原 GB 3102.11-1993，根据2017年第7号公告和强制性标准整合精简结论，自2017年3月23日起,该标准转化为推荐性标准。}
-使用，
-这与 \LaTeX{} 默认的英美国家的数学符号习惯有所差异。
-本模板基于 \pkg{unicode-math} 宏包配置数学符号，以遵循国标的规定：
+《撰写手册》要求数学符号遵循 GB/T 3102.11—1993《物理科学和技术中使用的数学符号》
+\footnote{原 GB 3102.11—1993，自 2017 年 3 月 23 日起，该标准转为推荐性标准。}。
+该标准参照采纳 ISO 31-11:1992 \footnote{目前已更新为 ISO 80000-2:2019。}，
+但是与 \TeX{} 默认的美国数学学会（AMS）的符号习惯有所区别。
+具体地来说主要有以下差异：
 \begin{enumerate}
-  \item 大写希腊字母默认为斜体，如 \cs{Delta}：$\Delta$。
-  \item 有限增量符号 $\increment$（U+2206）应使用 \cs{increment} 命令。
-  \item 向量、矩阵和张量要求粗斜体，应使用 \cs{symbf} 命令，
-    如 \verb|\symbf{A}|、\verb|\symbf{\alpha}|。
-  \item 数学常数和特殊函数使用正体，
-    如圆周率 $\symup{\pi}$、$\symup{\Gamma}$ 函数。
-    应使用 \pkg{unicode-math} 宏包提供的 \cs{symup} 命令转为正体，
-    如 \verb|\symup{\pi}|。
-  \item 微分符号 $\dif$ 使用正体，本模板提供了 \cs{dif} 命令。
+  \item 大写希腊字母默认为斜体，如
+    \begin{equation*}
+      \Gamma \Delta \Theta \Lambda \Xi \Pi \Sigma \Upsilon \Phi \Psi \Omega.
+    \end{equation*}
+    注意有限增量符号 $\increment$ 固定使用正体，模板提供了 \cs{increment} 命令。
+  \item 小于等于号和大于等于号使用倾斜的字形 $\le$、$\ge$。
+  \item 积分号使用正体，比如 $\int$、$\oint$。
+  \item 行间公式积分号的上下限位于积分号的上下两端，比如
+    \begin{equation*}
+      \int_a^b f(x) \dif x.
+    \end{equation*}
+    行内公式为了版面的美观，统一居右侧，如 $\int_a^b f(x) \dif x$ 。
+  \item
+    偏微分符号 $\partial$ 使用正体。
+  \item
+    省略号 \cs{dots} 按照中文的习惯固定居中，比如
+    \begin{equation*}
+      1, 2, \dots, n \quad 1 + 2 + \dots + n.
+    \end{equation*}
+  \item
+    实部 $\Re$ 和虚部 $\Im$ 的字体使用罗马体。
 \end{enumerate}
 
-注意，\pkg{unicode-math} 宏包与 \pkg{amsfonts}, \pkg{amssymb}, \pkg{bm},
-\pkg{mathrsfs}, \pkg{upgreek} 等宏包\emph{不}兼容。
+以上数学符号样式的差异可以在模板中统一设置。
+但是还有一些需要用户在写作时进行处理：
+\begin{enumerate}
+  \item 数学常数和特殊函数名用正体，如
+    \begin{equation*}
+      \uppi = 3.14\dots; \quad
+      \symup{i}^2 = -1; \quad
+      \symup{e} = \lim_{n \to \infty} \left( 1 + \frac{1}{n} \right)^n.
+    \end{equation*}
+  \item 微分号使用正体，比如 $\dif y / \dif x$。
+  \item 向量、矩阵和张量用粗斜体（\cs{symbf}），如 $\symbf{x}$、$\symbf{\Sigma}$、$\symbfsf{T}$。
+  \item 自然对数用 $\ln x$ 不用 $\log x$。
+\end{enumerate}
+
+模板中使用 \pkg{unicode-math} 宏包配置数学字体。
+该宏包与传统的 \pkg{amsfonts}、\pkg{amssymb}、\pkg{bm}、
+\pkg{mathrsfs}、\pkg{upgreek} 等宏包\emph{不}兼容。
 本模板作了处理，用户可以直接使用 \cs{bm}, \cs{mathscr},
-\cs{upGamma}。
+\cs{upGamma} 等命令。
 关于数学符号更多的用法，参见 \pkg{unicode-math} 宏包的使用说明和符号列表
 \pkg{unimath-symbols}。
-
-在编辑数学公式时，最好避免直接使用字体命令，
-而应该定义一些语义命令取代字体命令，
-这样输入更简单，也让 \LaTeX{} 代码更有可读性，
-而且还方便根据需要统一修改改格式。
-
-更多的例子：
-\begin{equation}
-  \frac{1}{2 \uppi \iu} \int_\gamma f = \sum_{k=1}^m n(\gamma; a_k) \mathscr{R}(f; a_k)
-  \label{eq:example}
-\end{equation}
 
 
 

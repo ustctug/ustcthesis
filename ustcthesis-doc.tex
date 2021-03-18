@@ -323,21 +323,29 @@ Windows 用户可能无法使用GNU make，使用 |latexmk| 也是一个比较�
 
 
 \subsection{字体设置}
-模板默认可以自动检测操作系统，并配置改平台上合适的字体，
-具体的配置策略如表~\ref{tab:font}。
+模板默认会自动根据操作系统配置合适的字体，
+\DescribeOption{fontset}
+用户也可以通过 \opt{fontset} 时指定使用预设的字库，如：
+\begin{latex}
+  \documentclass[fontset=windows]{ustcthesis}
+\end{latex}
+允许的选项有 \opt{windows}、\opt{mac}、\opt{ubuntu} 和 \opt{fandol}，
+具体使用的字体见表~\ref{tab:fontset}。
+用户也可以设置为 \opt{none} 并自行配置字体。
+
 \begin{table}[htb]
   \centering
-  \caption{自动配置字体策略}
-  \label{tab:font}
-  \begin{tabular}{ccc}
+  \caption{模板预设的字体}
+  \label{tab:fontset}
+  \begin{tabular}{cccc}
     \toprule
-    Windows         & macOS           & 其他            \\
+    \opt{windows} & \opt{mac}    & \opt{ubuntu} & \opt{fandol} \\
     \midrule
-    Times New Roman & Times New Roman & TeX Gyre Termes \\
-    Arial           & Arial           & TeX Gyre Heros  \\
-    Courier         & Menlo           & TeX Gyre Cursor \\
-    中易宋体        & 华文宋体        & Fandol 宋体     \\
-    中易黑体        & 华文黑体        & Fandol 黑体     \\
+    Times New Roman  & Times New Roman & TeX Gyre Termes & TeX Gyre Termes \\
+    Arial            & Arial           & TeX Gyre Heros  & TeX Gyre Heros  \\
+    Courier          & Menlo           & TeX Gyre Cursor & TeX Gyre Cursor \\
+    中易宋体         & 华文宋体        & 思源宋体        & Fandol 宋体     \\
+    中易黑体         & 华文黑体        & 思源黑体        & Fandol 黑体     \\
     \bottomrule
   \end{tabular}
 \end{table}
@@ -348,19 +356,10 @@ Windows 用户可能无法使用GNU make，使用 |latexmk| 也是一个比较�
     但是毕竟跟《撰写手册》要求的字体不完全一致；
   \item Fandol 字库的字形较少，常常出现缺字的情况；
   \item 华文字库和 Fandol 字库虽然不违反《撰写手册》的要求，
-    但是其字形跟中易字库有所差别，这导致封面、标题的视觉效果与学校的 Word 示例不一致，
-    可能被审查老师认为格式不符合要求。
+    但是其字形跟中易字库有所差别，可能被审查老师认为格式不符合要求。
 \end{enumerate}
 
 所以建议在提交最终版前使用 Windows 平台的字体进行编译。
-
-用户也可以在调用模板时手动指定使用的字库，如：
-\begin{latex}
-  \documentclass[fontset=windows]{ustcthesis}
-\end{latex}
-该选项会传递给 \pkg{ctex} 宏包进行处理，
-允许的值包括 \opt{windows}、\opt{mac}、\opt{fandol}，
-详见 \pkg{ctex}、\pkg{xeCJK}、\pkg{fontspec} 等宏包的使用说明。
 
 
 
@@ -489,35 +488,99 @@ Windows 用户可能无法使用GNU make，使用 |latexmk| 也是一个比较�
 
 \subsection{数学}
 
-\DescribeMacro{\symup}
-\DescribeMacro{\symbf}
-《撰写手册》要求数学符号要根据 GB/T 3102.11-1993《物理科学和技术中使用的数学符号》
-\footnote{原 GB 3102.11-1993，根据2017年第7号公告和强制性标准整合精简结论，自2017年3月23日起,该标准转化为推荐性标准。}
-使用，
-这与 \LaTeX{} 默认的英美国家的数学符号习惯有所差异。
-本模板基于 \pkg{unicode-math} 宏包配置数学符号，以遵循国标的规定：
+《撰写手册》要求数学符号遵循 GB/T 3102.11—1993《物理科学和技术中使用的数学符号》
+\footnote{原 GB 3102.11—1993，自 2017 年 3 月 23 日起，该标准转为推荐性标准。}。
+该标准参照采纳 ISO 31-11:1992 \footnote{目前已更新为 ISO 80000-2:2019。}，
+但是与 \TeX{} 默认的美国数学学会（AMS）的习惯有许多差异。
+这将在下文详细论述。
+
+\DescribeOption{math-style}
+用户可以通过设置 \opt{math-style} 选择数学符号样式（可选：
+\opt{GB}（中文默认），\opt{TeX}（英文默认）和 \opt{ISO}），比如：
+\begin{latex}
+  \ustcsetup{
+    math-style = ISO,
+  }
+\end{latex}
+
+用户也可以逐项修改数学样式。
+\newcommand\dif{\mathop{}\!\mathrm{d}}
 \begin{enumerate}
-  \item 大写希腊字母默认为斜体，如 \cs{Delta}：$\Delta$。
-  \item 有限增量符号 $\increment$（U+2206）应使用 \cs{increment} 命令。
-  \item 向量、矩阵和张量要求粗斜体，应使用 \cs{symbf} 命令，
-    如 |\symbf{A}|、|\symbf{\alpha}|。
-  \item 数学常数和特殊函数使用正体，
-    如圆周率 $\symup{\pi}$、$\symup{\Gamma}$ 函数。
-    应使用 \pkg{unicode-math} 宏包提供的 \cs{symup} 命令转为正体，
-    如 |\symup{\pi}|。
-  \item 微分符号 $\symup{d}$ 使用正体，本模板提供了 \cs{dif} 命令。
+  \item \DescribeOption{uppercase-greek}
+    大写希腊字母的正/斜体，可选：\opt{italic}、\opt{upright}。
+    有限增量符号 $\increment x$ 固定使用正体，推荐使用 \cs{increment} 表示。
+  \item \DescribeOption{less-than-or-equal}
+    小于等于号和大于等于号的字形，可选：\opt{slanted}、\opt{horizontal}。
+    这将控制 \cs{le}、\cs{ge}、\cs{leq} 和 \cs{geq} 的符号
+    是“$\leqslant$、$\geqslant$”还是“$\leq$、$\geq$”。
+  \item \DescribeOption{integral}
+    积分号的正/斜体，可选：\opt{upright}、\opt{slanted}。
+    该选项需要字体的支持，目前仅限 \opt{xits}、\opt{stix}、
+    \opt{libertinus} 和 \opt{newcm}。参考下文关于数学字体的选择。
+  \item \DescribeOption{integral-limits}
+    积分号上下限的位置，可选：\opt{true}（在上下）、\opt{false}（在右侧）。
+    这个设置只影响行间公式，行内公式统一居右侧，不受影响。
+  \item \DescribeOption{partial}
+    偏微分符号的正/斜体，可选：\opt{upright}、\opt{slanted}。
+  \item \DescribeOption{math-ellipsis}
+    省略号 \cs{dots} 的样式，可选：\opt{centered}（按照中文的习惯固定居中）、
+    \opt{lower} 和 \opt{AMS}（取决于前后符号的位置）。
+    其他的省略号命令如 \cs{lots}、\cs{cdots} 则不受影响。
+  \item \DescribeOption{real-part}
+    实部 \cs{Re} 和虚部 \cs{Im} 的字体，可选：\opt{roman} 和 \opt{fraktur}。
 \end{enumerate}
 
-注意，\pkg{unicode-math} 宏包与 \pkg{amsfonts}, \pkg{amssymb}, \pkg{bm},
-\pkg{mathrsfs}, \pkg{upgreek} 等宏包\emph{不}兼容。
-本模板作了处理，用户可以直接使用 \cs{bm}, \cs{mathscr},
-\cs{upGamma}。
+如果数学符号选择国标样式 |math-style = GB|，相当于设置了
+\begin{latex}
+  \ustcsetup{
+    uppercase-greek    = italic,
+    less-than-or-equal = slanted,
+    integral           = upright,
+    integral-limits    = true,
+    partial            = upright,
+    math-ellipsis      = centered,
+    real-part          = roman,
+  }
+\end{latex}
 
-关于数学符号更多的用法，参见
+另外，国标的数学样式与 AMS 还有些差异，但无法在模板中统一设置。用户需要在写作时进行处理。
+\begin{enumerate}
+  \item 数学常数和特殊函数名用正体，如 $\uppi = 3.14\dots$；$\symup{i}^2 = -1$；
+    $\symup{e} = \lim_{n \to \infty} \left( 1 + \frac{1}{n} \right)^n$。
+  \item 微分号使用正体，比如 $\dif y / \dif x$。
+  \item 向量、矩阵和张量用粗斜体（\cs{symbf}），如 $\symbf{x}$、$\symbf{\Sigma}$、$\symbfsf{T}$。
+  \item 自然对数用 $\ln x$ 不用 $\log x$。
+\end{enumerate}
+
+需要注意，上述关于数学符号风格的设置在设置数学字体（\opt{math-font}）时才会生效。
+
+\DescribeOption{math-font}
+模板使用默认使用 XITS Math 作为数学字体。
+用户也可以使用 \opt{math-font} 选项切换其他数学字体，可选：
+\opt{stix}（STIX Two Math）、
+\opt{libertinus}（Libertinus Math）、
+\opt{newcm}（New Computer Modern Math）、
+\opt{lm}（Latin Modern Math）。
+
+其中 \opt{lm} 和 \opt{newcm} 的字形比较搭配 TeX 原生的 Computer Modern 字体，
+但与《指南》要求的西文字体 Times New Roman 并不搭配。
+可能会造成正文和公式中的数字字体不一致，需要谨慎使用。
+
+以上字体都是 OpenType 格式的字体，需要配合
 \href{http://mirrors.ctan.org/macros/latex/contrib/unicode-math/unicode-math.pdf}{\pkg{unicode-math}}
-宏包的使用说明和符号列表
+宏包使用。
+全部数学符号的命令参考
 \href{http://mirrors.ctan.org/macros/latex/contrib/unicode-math/unimath-symbols.pdf}{\pkg{unimath-symbols}}。
+注意，\pkg{unicode-math} 宏包与 \pkg{amsfonts}、\pkg{amssymb}、\pkg{bm}、
+\pkg{mathrsfs}、\pkg{upgreek} 等宏包\emph{不}兼容。
+模板作了处理，用户可以直接使用这些宏包的命令，如 \cs{bm}、\cs{mathscr}、
+\cs{uppi}。
 
+另外，模板还为 `math-font` 提供了传统的 Type 1 字体 \opt{newtx}。
+该选项会调用 \pkg{newtxmath} 宏包。
+但是，如果西文字体已经使用了 OpenType 的 Times New Roman，
+混用 Type 1 字体可能会导致问题，尤其是使用 \pkg{siunitx} 宏包时。
+该选项还处于测试阶段，需要谨慎使用。
 
 \subsection{参考文献}
 
