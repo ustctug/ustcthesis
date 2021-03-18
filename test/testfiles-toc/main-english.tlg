@@ -1325,13 +1325,13 @@ Completed box being shipped out [1]
 ...\penalty -300
 ...\glue 0.0
 ...\glue(\parskip) 0.0
-...\glue(\baselineskip) 8.0782
-...\hbox(9.371+2.144)x417.11752, glue set 318.54126fil
-....\hbox(8.14243+0.16861)x38.35127
+...\glue(\baselineskip) 6.90984
+...\hbox(10.53937+2.144)x417.11752, glue set 314.73505fil
+....\hbox(10.53937+2.03558)x42.15749
 .....\hbox(0.0+0.0)x24.09
-.....\TU/XITS-Regular.otf(0)/m/n/12.045 ①
-.....\kern -0.0002
-.....\kern 0.0002
+.....\TU/FandolSong(0)/m/n/12.045 ①
+.....\kern -0.00017
+.....\kern 0.00017
 .....\glue 6.02249
 ....\TU/FandolSong(0)/m/n/12.045 五
 ....\glue 0.0 plus 0.61353

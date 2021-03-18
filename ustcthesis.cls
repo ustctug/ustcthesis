@@ -494,6 +494,10 @@
   \let\ustc@language\ustc@main@language
 }
 
+% 带圈数字和星号使用中文字体。
+\xeCJKDeclareCharClass{CJK}{"2460 -> "2473}
+\xeCJKDeclareCharClass{CJK}{"2605}
+
 % 由于 Unicode 的一些标点符号是中西文混用的：
 % U+00B7、U+2013、U+2014、U+2018、U+2019、
 % U+201C、U+201D、U+2025、U+2026、U+2E3A，
@@ -1467,24 +1471,6 @@
 \AtBeginOfPackageFile*{siunitx}{\ustc@set@math@font@auto}
 \AtEndPreamble{\ustc@set@math@font@auto}
 
-% 研究生的五级节标题和脚注需要使用带圈数字，
-% 但 Times New Roman 没有这些符号的字形，而华文宋体和中易宋体提供了这些字形，
-% 配置在 \cs{ustc@circlefont}。
-\ifustc@font@times
-  \ifustc@cjk@font@mac
-    \newfontfamily\ustc@circlefont{Songti SC Light}
-  \else
-    \ifustc@cjk@font@windows
-      \newfontfamily\ustc@circlefont{SimSun}
-    \fi
-  \fi
-\else
-  \ustc@set@xits@names
-  \newfontfamily\ustc@circlefont{%
-    \ustc@font@family@xits-\ustc@font@style@xits@rm.otf%
-  }
-\fi
-
 
 
 % \subsection{纸张和页面}
@@ -2004,9 +1990,9 @@
 % 五级节标题和脚注需要使用带圈的数字，这里使用 \cs{ustc@circlefont} ：
 \newcommand\ustc@textcircled[1]{%
   \ifnum\value{#1}<21\relax
-    {\ustc@circlefont\symbol{\numexpr\value{#1} + "245F\relax}}%
+    {\symbol{\numexpr\value{#1} + "245F\relax}}%
   \else
-    \ustc@error{Cannot display more than 10 footnotes}%
+    \ustc@error{Cannot display more than 20 footnotes}%
   \fi
 }
 
