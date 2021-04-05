@@ -2758,10 +2758,30 @@
       \fi}{#1}{#2}}
   %
   % 为了将参考文献加入目录和 pdf 书签，重新定义 \pkg{natbib} 的 \cmd{bibsection}
-  \renewcommand\bibsection{%
+  % 另外如果调用了 \pkg{chapterbib} 或者使用了 \opt{sectionbib} 参数，
+  % 需要使用节标题 \cs{section}。
+  \newcommand\ustc@bib@chapter{%
     \@mainmatterfalse
     \chapter{\bibname}%
-  }
+  }%
+  \newcommand\ustc@bib@section{%
+    \begingroup
+      \ctexset{section/numbering=false}%
+      \section{\bibname}%
+    \endgroup
+  }%
+  \@ifpackagewith{chapterbib}{sectionbib}{%
+    \ustc@error{The "sectionbib" option cannot be used with chaperbib if natbib loaded}%
+  }{}%
+  \@ifpackageloaded{chapterbib}{%
+    \let\bibsection\ustc@bib@section
+  }{%
+    \@ifxundefined\NAT@sectionbib{%
+      \let\bibsection\ustc@bib@chapter
+    }{%
+      \let\bibsection\ustc@bib@section
+    }%
+  }%
   %
   % 参考文献列表格式：宋体 10.5 磅，行距 20 磅，续行缩进两字，左对齐。
   % 本科生依然是小四宋体。
@@ -3077,9 +3097,15 @@
 % \subsubsection{\pkg{chapterbib} 宏包}
 
 \AtEndOfPackageFile*{chapterbib}{
-  \renewcommand\bibsection{%
-    \ctexset{section/numbering=false}%
-    \section{\bibname}%
-    \ctexset{section/numbering=true}%
-  }
+  \@ifpackageloaded{natbib}{%
+    \@ifpackagewith{chapterbib}{sectionbib}{%
+      \ustc@error{The "sectionbib" option cannot be used with chaperbib if natbib loaded}%
+    }{}%
+    \renewcommand\bibsection{%
+      \begingroup
+        \ctexset{section/numbering=false}%
+        \section{\bibname}%
+      \endgroup
+    }
+  }{}
 }

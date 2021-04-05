@@ -5,6 +5,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
+### Fixed
+
+- 修正了与 `chapterbib` 宏包的兼容性。
+
 ## [v3.3.0] - 2021-03-18
 
 ### Added

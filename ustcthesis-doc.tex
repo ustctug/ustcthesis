@@ -646,6 +646,19 @@ Windows 用户可能无法使用GNU make，使用 |latexmk| 也是一个比较�
 \end{latex}
 如果中文文献数量较多，推荐使用 BibLaTeX 处理参考文献。
 
+\paragraph{与 \pkg{chapterbib} 的兼容性}
+如果在每一章添加独立的参考文献，可以使用 \pkg{chapterbib} 宏包。
+需要注意以下几点：
+\begin{enumerate}
+  \item \pkg{chapterbib} 宏包与 \pkg{natbib} 的载入顺序不重要。
+  \item 根据 \pkg{natbib} 的文档，\opt{sectionbib} 参数（将参考文献的标题改为节标题）
+    需要传给 \pkg{natbib} 而不是 \pkg{chapterbib}。
+    模板作了设置，如载入 \pkg{chapterbib}，\pkg{natbib} 就会有 \opt{sectionbib} 的效果。
+  \item 每章的内容需要写在单独的 \file{tex} 文件，并且在主文档中使用 \cs{include}，
+    不带 \file{.tex} 后缀。
+  \item 每章都要使用 \cs{bibliographystyle} 和 \cs{bibliography} 命令。
+\end{enumerate}
+
 
 \subsubsection{BibLaTeX}
 
