@@ -186,6 +186,15 @@
     },
     default = chinese,
   },
+  system = {
+    choices = {
+      auto,
+      mac,
+      unix,
+      windows,
+    },
+    default = auto,
+  },
   fontset = {
     choices = {
       auto,
@@ -197,20 +206,12 @@
     },
     default = auto,
   },
-  system = {
-    choices = {
-      auto,
-      mac,
-      unix,
-      windows,
-    },
-    default = auto,
-  },
   font = {
     choices = {
       auto,
       times,
       termes,
+      stix,
       xits,
       libertinus,
       newcm,
@@ -236,8 +237,8 @@
     name = math@font,
     choices = {
       auto,
-      xits,
       stix,
+      xits,
       libertinus,
       newcm,
       lm,
@@ -461,12 +462,16 @@
 \ustc@package@conflict{newtxmath}{unicode-math}
 \ustc@package@conflict{newtxmath}{upgreek}
 
+
+% \pkg{mathtools} 需要在 \pkg{unicode-math} 前载入，
+% 参考 \url{https://tex.stackexchange.com/q/521394/82731}。
 \AtBeginOfPackageFile*{mathtools}{
   \@ifpackageloaded{unicode-math}{
     \ustc@error{The "mathtools" package should be loaded before setting "math-font"}
   }{}
 }%
 
+% \pkg{amsthm} 需要在 \pkg{newtx} 前载入，参考 \pkg{newtx} 的文档。
 \AtBeginOfPackageFile*{amsthm}{
   \@ifpackageloaded{newtxmath}{
     \ustc@error{The "amsthm" package should be loaded before setting "newtxmath"}
@@ -613,29 +618,29 @@
     \fi
     %
     % 注意第~\ref{sec:list} 节去掉了列表的间距，所以不再修改 \cs{@listi}。
-    \renewcommand\small{%
+    \DeclareRobustCommand\small{%
       \@setfontsize\small{10.5bp}{17.5bp}%
       \abovedisplayskip 10.5bp \@plus3bp \@minus6bp%
       \abovedisplayshortskip \z@ \@plus3bp%
       \belowdisplayshortskip 6.5bp \@plus3.5bp \@minus3bp%
       \belowdisplayskip \abovedisplayskip
     }%
-    \renewcommand\footnotesize{%
+    \DeclareRobustCommand\footnotesize{%
       \@setfontsize\footnotesize{9bp}{15bp}%
       \abovedisplayskip 9bp \@plus2bp \@minus5bp%
       \abovedisplayshortskip \z@ \@plus3bp%
       \belowdisplayshortskip 6bp \@plus3bp \@minus3bp%
       \belowdisplayskip \abovedisplayskip
     }%
-    \renewcommand\scriptsize{\@setfontsize\scriptsize{7.5bp}{12.5bp}}%
-    \renewcommand\tiny{\@setfontsize\tiny{6.5bp}{10.83bp}}%
-    \renewcommand\large{\@setfontsize\large{15bp}{25bp}}%
-    \renewcommand\Large{\@setfontsize\Large{18bp}{30bp}}%
-    \renewcommand\LARGE{\@setfontsize\LARGE{22bp}{36.67bp}}%
-    \renewcommand\huge{\@setfontsize\huge{24bp}{40bp}}%
-    \renewcommand\Huge{\@setfontsize\Huge{26bp}{43.33bp}}%
+    \DeclareRobustCommand\scriptsize{\@setfontsize\scriptsize{7.5bp}{12.5bp}}%
+    \DeclareRobustCommand\tiny{\@setfontsize\tiny{6.5bp}{10.83bp}}%
+    \DeclareRobustCommand\large{\@setfontsize\large{15bp}{25bp}}%
+    \DeclareRobustCommand\Large{\@setfontsize\Large{18bp}{30bp}}%
+    \DeclareRobustCommand\LARGE{\@setfontsize\LARGE{22bp}{36.67bp}}%
+    \DeclareRobustCommand\huge{\@setfontsize\huge{24bp}{40bp}}%
+    \DeclareRobustCommand\Huge{\@setfontsize\Huge{26bp}{43.33bp}}%
   \else
-    \renewcommand\normalsize{%
+    \DeclareRobustCommand\normalsize{%
       \@setfontsize\normalsize{12bp}{22bp}%
       \abovedisplayskip 12bp \@plus3bp \@minus7bp%
       \abovedisplayshortskip \z@ \@plus3bp%
@@ -646,27 +651,27 @@
     \ifx\MakeRobust\@undefined \else
         \MakeRobust\normalsize
     \fi
-    \renewcommand\small{%
+    \DeclareRobustCommand\small{%
       \@setfontsize\small{10.5bp}{19.25bp}%
       \abovedisplayskip 10.5bp \@plus3bp \@minus6bp%
       \abovedisplayshortskip \z@ \@plus3bp%
       \belowdisplayshortskip 6.5bp \@plus3.5bp \@minus3bp%
       \belowdisplayskip \abovedisplayskip
     }%
-    \renewcommand\footnotesize{%
+    \DeclareRobustCommand\footnotesize{%
       \@setfontsize\footnotesize{9bp}{16.5bp}%
       \abovedisplayskip 9bp \@plus2bp \@minus5bp%
       \abovedisplayshortskip \z@ \@plus3bp%
       \belowdisplayshortskip 6bp \@plus3bp \@minus3bp%
       \belowdisplayskip \abovedisplayskip
     }%
-    \renewcommand\scriptsize{\@setfontsize\scriptsize{7.5bp}{13.75bp}}%
-    \renewcommand\tiny{\@setfontsize\tiny{6.5bp}{11.92bp}}%
-    \renewcommand\large{\@setfontsize\large{15bp}{27.5bp}}%
-    \renewcommand\Large{\@setfontsize\Large{18bp}{33bp}}%
-    \renewcommand\LARGE{\@setfontsize\LARGE{22bp}{40.33bp}}%
-    \renewcommand\huge{\@setfontsize\huge{24bp}{44bp}}%
-    \renewcommand\Huge{\@setfontsize\Huge{26bp}{47.67bp}}%
+    \DeclareRobustCommand\scriptsize{\@setfontsize\scriptsize{7.5bp}{13.75bp}}%
+    \DeclareRobustCommand\tiny{\@setfontsize\tiny{6.5bp}{11.92bp}}%
+    \DeclareRobustCommand\large{\@setfontsize\large{15bp}{27.5bp}}%
+    \DeclareRobustCommand\Large{\@setfontsize\Large{18bp}{33bp}}%
+    \DeclareRobustCommand\LARGE{\@setfontsize\LARGE{22bp}{40.33bp}}%
+    \DeclareRobustCommand\huge{\@setfontsize\huge{24bp}{44bp}}%
+    \DeclareRobustCommand\Huge{\@setfontsize\Huge{26bp}{47.67bp}}%
   \fi
 }
 \ustc@set@font@size
@@ -755,7 +760,6 @@
     BoldFont       = *-bold,
     ItalicFont     = *-italic,
     BoldItalicFont = *-bolditalic,
-    Scale          = MatchLowercase,
   ]%
   \setmonofont{texgyrecursor}[
     Extension      = .otf,
@@ -764,10 +768,12 @@
     ItalicFont     = *-italic,
     BoldItalicFont = *-bolditalic,
     Scale          = MatchLowercase,
+    Ligatures      = CommonOff,
   ]%
 }
 
-% STIX 字体的文件名在 v2.10 2020-12-19 从
+% STIX Two 字体。
+% STIX 文件名在 v2.10 2020-12-19 从
 % \file{STIX2Text-Regular.otf}、\file{STIX2Math.otf} 分别改为
 % \file{STIXTwoText-Regular.otf}、\file{STIXTwoMath-Regular.otf}。
 \let\ustc@font@family@stix\@empty
@@ -795,7 +801,8 @@
   \ustc@set@texgyre@sans@mono
 }
 
-% XITS 字体的文件名在 v1.109 2018-09-30
+% XITS 字体。
+% XITS 的文件名在 v1.109 2018-09-30
 % 从 \file{xits-regular.otf}、\file{xits-math.otf} 分别改为
 % \file{XITS-Regular.otf}、\file{XITSMath-Regular.otf}。
 \let\ustc@font@family@xits\@empty
@@ -957,7 +964,7 @@
   \fi
 \fi
 
-% 中易
+% Windows 的中易字体。
 \newcommand\ustc@set@cjk@font@windows{%
   \xeCJKsetup{EmboldenFactor=2}
   \setCJKmainfont{SimSun}[
@@ -972,7 +979,7 @@
   \setCJKfamilyfont{zhfs}{FangSong}%
 }
 
-% 华文
+% macOS 的华文字体。
 \newcommand\ustc@set@cjk@font@mac{%
   \defaultCJKfontfeatures{}%
   \setCJKmainfont{Songti SC}[
@@ -1006,7 +1013,8 @@
   ]%
 }
 
-% 思源
+% 思源字体。
+% 注意 Noto CJK 的 regular 字重名字不带“Regular”。
 \newcommand\ustc@set@cjk@font@noto{%
   \defaultCJKfontfeatures{}%
   \setCJKmainfont{Noto Serif CJK SC}[
@@ -1042,7 +1050,7 @@
   ]%
 }
 
-% Fandol
+% Fandol 字体。
 \newcommand\ustc@set@cjk@font@fandol{%
   \defaultCJKfontfeatures{}%
   \setCJKmainfont{FandolSong}[
@@ -1276,6 +1284,20 @@
   }%
 }
 
+% STIX Two Math
+\newcommand\ustc@set@math@font@stix{%
+  \ustc@set@stix@names
+  \setmathfont{\ustc@font@name@stix@math}[
+    Extension    = .otf,
+    StylisticSet = \ustc@xits@integral@stylistic@set,
+  ]%
+  \setmathfont{\ustc@font@name@stix@math}[
+    Extension    = .otf,
+    StylisticSet = 1,
+    range        = {scr,bfscr},
+  ]%
+}
+
 % XITS Math
 \newcommand\ustc@xits@integral@stylistic@set{%
   \ifustc@integral@upright
@@ -1292,20 +1314,6 @@
     Extension    = .otf,
     StylisticSet = 1,
     range        = {cal,bfcal},
-  ]%
-}
-
-% STIX Two Math
-\newcommand\ustc@set@math@font@stix{%
-  \ustc@set@stix@names
-  \setmathfont{\ustc@font@name@stix@math}[
-    Extension    = .otf,
-    StylisticSet = \ustc@xits@integral@stylistic@set,
-  ]%
-  \setmathfont{\ustc@font@name@stix@math}[
-    Extension    = .otf,
-    StylisticSet = 1,
-    range        = {scr,bfscr},
   ]%
 }
 
