@@ -2,6 +2,8 @@ This is a generated file for the l3build validation system.
 Don't change this file in any respect.
 Completed box being shipped out [1]
 \vbox(722.98453+3.61353)x435.04271
+.\hbox(0.0+0.0)x0.0
+..\special{pdfcolorstackinit 1 page direct (0 g 0 G)}
 .\glue -29.59084
 .\vbox(752.57536+3.61353)x417.11752, shifted 17.92519
 ..\vbox(21.33955+0.0)x417.11752, glue set 9.29457fil
@@ -490,4 +492,5 @@ Completed box being shipped out [1]
 ..........\glue(\rightskip) 0.0
 ....\glue 0.0 plus 1.0fil minus 1.0fil
 ...\special{color pop}
+.\kern 0.0
 (package-siunitx.aux)

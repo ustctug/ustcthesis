@@ -1,8 +1,6 @@
 This is a generated file for the l3build validation system.
 Don't change this file in any respect.
 (chapters.tex
-LaTeX Font Info:    Font shape `TU/texgyreheros(0)/m/n' will be
-(Font)              scaled to size 10.344pt on input line ....
 Package fontspec Info: Font family 'FandolHei(0)' created for font 'FandolHei'
 (fontspec)             with options
 (fontspec)             [Extension={.otf},UprightFont={*-Regular},BoldFont={*-Bold}].
@@ -16,12 +14,10 @@ Package fontspec Info: Font family 'FandolHei(0)' created for font 'FandolHei'
 (fontspec)             - 'bold' (b/n) with NFSS spec.:
 (fontspec)             <->"[FandolHei-Bold.otf]/OT:language=dflt;"
 (fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.: 
-LaTeX Font Info:    Font shape `TU/texgyreheros(0)/b/n' will be
-(Font)              scaled to size 10.03743pt on input line ....
-LaTeX Font Info:    Font shape `TU/texgyreheros(0)/b/n' will be
-(Font)              scaled to size 13.38324pt on input line ....
 Completed box being shipped out [1]
 \vbox(722.98453+3.61353)x435.04271
+.\hbox(0.0+0.0)x0.0
+..\special{pdfcolorstackinit 1 page direct (0 g 0 G)}
 .\glue -29.59084
 .\vbox(752.57536+3.61353)x417.11752, shifted 17.92519
 ..\vbox(21.33955+0.0)x417.11752, glue set 9.29457fil
@@ -196,6 +192,7 @@ Completed box being shipped out [1]
 ..........\glue(\rightskip) 0.0
 ....\glue 0.0 plus 1.0fil minus 1.0fil
 ...\special{color pop}
+.\kern 0.0
 Completed box being shipped out [2]
 \vbox(722.98453+3.61353)x435.04271
 .\glue -29.59084
@@ -245,7 +242,7 @@ Completed box being shipped out [2]
 ....\special{color pop}
 ..\glue 8.2511
 ..\glue(\lineskip) 0.0
-..\vbox(700.50723+0.0)x417.11752, glue set 599.83139fil
+..\vbox(700.50723+0.0)x417.11752, glue set 597.81601fil
 ...\write-{}
 ...\mark{{\protect \ustc@spacetitle  {Abstract}}{}}
 ...\write1{\protect \FN@pp@footnotehinttrue }
@@ -256,7 +253,7 @@ Completed box being shipped out [2]
 ...\glue 12.09
 ...\glue 0.0
 ...\glue(\parskip) 0.0
-...\hbox(9.91698+0.16058)x417.11752, glue set 172.0292fil
+...\hbox(11.90045+0.1927)x417.11752, glue set 164.723fil
 ....\glue(\leftskip) 0.0 plus 1.0fil
 ....\TU/texgyreheros(0)/b/n/16.06 ABSTRACT
 ....\kern -0.0002
@@ -401,7 +398,7 @@ Completed box being shipped out [3]
 ....\special{color pop}
 ..\glue 8.2511
 ..\glue(\lineskip) 0.0
-..\vbox(700.50723+0.0)x417.11752, glue set 457.48842fil
+..\vbox(700.50723+0.0)x417.11752, glue set 455.47304fil
 ...\write-{}
 ...\write1{\protect \FN@pp@footnotehinttrue }
 ...\write-{}
@@ -414,7 +411,7 @@ Completed box being shipped out [3]
 ...\glue 12.09
 ...\glue 0.0
 ...\glue(\parskip) 0.0
-...\hbox(9.91698+0.16058)x417.11752, glue set 179.59743fil
+...\hbox(11.90045+0.1927)x417.11752, glue set 173.80493fil
 ....\glue(\leftskip) 0.0 plus 1.0fil
 ....\TU/texgyreheros(0)/b/n/16.06 Contents
 ....\kern -0.0002
@@ -918,7 +915,7 @@ Completed box being shipped out [5]
 ....\special{color pop}
 ..\glue 8.2511
 ..\glue(\lineskip) 0.0
-..\vbox(700.50723+0.0)x417.11752, glue set 640.21661fil
+..\vbox(700.50723+0.0)x417.11752, glue set 638.19858fil
 ...\write1{\protect \FN@pp@footnotehinttrue }
 ...\write-{}
 ...\mark{{\protect \ustc@spacetitle  {Notation}}{}}
@@ -930,7 +927,7 @@ Completed box being shipped out [5]
 ...\glue 12.09
 ...\glue 0.0
 ...\glue(\parskip) 0.0
-...\hbox(9.97052+0.12044)x417.11752, glue set 181.3908fil
+...\hbox(11.96469+0.14453)x417.11752, glue set 175.95697fil
 ....\glue(\leftskip) 0.0 plus 1.0fil
 ....\TU/texgyreheros(0)/b/n/16.06 Notation
 ....\kern -0.0002
@@ -1019,10 +1016,6 @@ Completed box being shipped out [6]
 ...\hbox(0.0+0.0)x417.11752
 ...\special{color pop}
 Chapter 1
-LaTeX Font Info:    Font shape `TU/texgyreheros(0)/m/n' will be
-(Font)              scaled to size 12.068pt on input line ....
-LaTeX Font Info:    Font shape `TU/texgyreheros(0)/m/n' will be
-(Font)              scaled to size 11.20598pt on input line ....
 Completed box being shipped out [1]
 \vbox(722.98453+3.61353)x435.04271
 .\glue -29.59084
@@ -1082,7 +1075,7 @@ Completed box being shipped out [1]
 ....\special{color pop}
 ..\glue 8.2511
 ..\glue(\lineskip) 0.0
-..\vbox(700.50723+0.0)x417.11752, glue set 320.59926fil
+..\vbox(700.50723+0.0)x417.11752, glue set 320.01578fil
 ...\write1{\protect \FN@pp@footnotehinttrue }
 ...\write-{}
 ...\write1{\@writefile{toc}{\protect \contentsline {chapter}{\protect \numberline \ETC.}
@@ -1095,12 +1088,12 @@ Completed box being shipped out [1]
 ...\glue 12.09
 ...\glue 0.0
 ...\glue(\parskip) 0.0
-...\hbox(12.39832+2.91753)x417.11752, glue set 137.61394fil
+...\hbox(12.39832+3.50107)x417.11752, glue set 131.45473fil
 ....\glue(\leftskip) 0.0 plus 1.0fil
 ....\TU/texgyreheros(0)/b/n/16.06 Chapter
 ....\kern -0.00021
 ....\kern 0.00021
-....\glue 3.72054 plus 1.86026 minus 1.24017
+....\glue 4.46468 plus 2.23233 minus 1.48822
 ....\TU/texgyreheros(0)/b/n/16.06 1
 ....\kern -0.0002
 ....\kern 0.0002
@@ -1146,8 +1139,8 @@ Completed box being shipped out [1]
 ...\glue 24.09
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 9.80264
-...\hbox(10.98904+2.45917)x417.11752, glue set 316.02808fil
-....\hbox(8.55621+0.0)x30.827
+...\hbox(10.98904+2.45917)x417.11752, glue set 313.26962fil
+....\hbox(9.96321+0.0)x33.58545
 .....\TU/texgyreheros(0)/m/n/14.05249 1.1
 .....\kern -0.0002
 .....\kern 0.0002
@@ -1187,8 +1180,8 @@ Completed box being shipped out [1]
 ...\glue 12.045
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 11.37852
-...\hbox(10.20412+2.28351)x417.11752, glue set 287.80553fil
-....\hbox(7.94504+0.0)x64.06831
+...\hbox(10.20412+2.28351)x417.11752, glue set 283.70724fil
+....\hbox(9.25156+0.0)x68.1666
 .....\hbox(0.0+0.0)x26.09747
 .....\TU/texgyreheros(0)/m/n/13.04874 1.1.1
 .....\kern -0.0002
@@ -1229,8 +1222,8 @@ Completed box being shipped out [1]
 ...\glue 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 10.4872
-...\hbox(9.41919+2.10786)x417.11752, glue set 318.15315fil
-....\hbox(7.3339+0.0)x38.73938
+...\hbox(9.41919+2.10786)x417.11752, glue set 316.73451fil
+....\hbox(8.5399+0.0)x40.15802
 .....\hbox(0.0+0.0)x24.09
 .....\TU/texgyreheros(0)/m/n/12.045 1
 .....\kern -0.0002
@@ -1537,7 +1530,7 @@ Completed box being shipped out [2]
 ....\special{color pop}
 ..\glue 8.2511
 ..\glue(\lineskip) 0.0
-..\vbox(700.50723+0.0)x417.11752, glue set 649.25125fil
+..\vbox(700.50723+0.0)x417.11752, glue set 648.66777fil
 ...\write-{}
 ...\write1{\@writefile{toc}{\protect \contentsline {chapter}{\protect \numberline \ETC.}
 ...\mark{{Chapter 2\hskip 1em\relax \protect \ustc@spacetitle  {浮动体}}{}}
@@ -1549,12 +1542,12 @@ Completed box being shipped out [2]
 ...\glue 12.09
 ...\glue 0.0
 ...\glue(\parskip) 0.0
-...\hbox(12.25378+2.91753)x417.11752, glue set 129.58394fil
+...\hbox(12.25378+3.50107)x417.11752, glue set 123.42473fil
 ....\glue(\leftskip) 0.0 plus 1.0fil
 ....\TU/texgyreheros(0)/b/n/16.06 Chapter
 ....\kern -0.00021
 ....\kern 0.00021
-....\glue 3.72054 plus 1.86026 minus 1.24017
+....\glue 4.46468 plus 2.23233 minus 1.48822
 ....\TU/texgyreheros(0)/b/n/16.06 2
 ....\kern -0.0002
 ....\kern 0.0002
@@ -1682,7 +1675,7 @@ Completed box being shipped out [3]
 ....\special{color pop}
 ..\glue 8.2511
 ..\glue(\lineskip) 0.0
-..\vbox(700.50723+0.0)x417.11752, glue set 618.1089fil
+..\vbox(700.50723+0.0)x417.11752, glue set 615.5288fil
 ...\write-{}
 ...\write1{\protect \FN@pp@footnotehinttrue }
 ...\write-{}
@@ -1696,7 +1689,7 @@ Completed box being shipped out [3]
 ...\glue 12.09
 ...\glue 0.0
 ...\glue(\parskip) 0.0
-...\hbox(9.97052+2.93091)x417.11752, glue set 167.75996fil
+...\hbox(11.96469+3.51712)x417.11752, glue set 159.59987fil
 ....\glue(\leftskip) 0.0 plus 1.0fil
 ....\TU/texgyreheros(0)/b/n/16.06 Bibliography
 ....\kern -0.0002
@@ -1922,7 +1915,7 @@ Completed box being shipped out [4]
 ....\special{color pop}
 ..\glue 8.2511
 ..\glue(\lineskip) 0.0
-..\vbox(700.50723+0.0)x417.11752, glue set 633.7036fil
+..\vbox(700.50723+0.0)x417.11752, glue set 633.12012fil
 ...\write-{}
 ...\write1{\@writefile{toc}{\protect \contentsline {chapter}{\protect \numberline \ETC.}
 ...\mark{{Appendix A\hskip 1em\relax \protect \ustc@spacetitle  {附录章节}\ETC.}
@@ -1934,12 +1927,12 @@ Completed box being shipped out [4]
 ...\glue 12.09
 ...\glue 0.0
 ...\glue(\parskip) 0.0
-...\hbox(12.35014+2.91753)x417.11752, glue set 119.18513fil
+...\hbox(12.35014+3.50107)x417.11752, glue set 111.7491fil
 ....\glue(\leftskip) 0.0 plus 1.0fil
 ....\TU/texgyreheros(0)/b/n/16.06 Appendix
 ....\kern -0.00021
 ....\kern 0.00021
-....\glue 3.72054 plus 1.86026 minus 1.24017
+....\glue 4.46468 plus 2.23233 minus 1.48822
 ....\TU/texgyreheros(0)/b/n/16.06 A
 ....\kern -0.0002
 ....\kern 0.0002
@@ -2073,7 +2066,7 @@ Completed box being shipped out [5]
 ....\special{color pop}
 ..\glue 8.2511
 ..\glue(\lineskip) 0.0
-..\vbox(700.50723+0.0)x417.11752, glue set 636.28505fil
+..\vbox(700.50723+0.0)x417.11752, glue set 633.75043fil
 ...\write-{}
 ...\write1{\@writefile{toc}{\protect \contentsline {chapter}{Acknowledgements}{\thepage \ETC.}
 ...\mark{{\protect \ustc@spacetitle  {Acknowledgements}}{}}
@@ -2085,7 +2078,7 @@ Completed box being shipped out [5]
 ...\glue 12.09
 ...\glue 0.0
 ...\glue(\parskip) 0.0
-...\hbox(9.75638+2.91753)x417.11752, glue set 145.78468fil
+...\hbox(11.70773+3.50107)x417.11752, glue set 133.22934fil
 ....\glue(\leftskip) 0.0 plus 1.0fil
 ....\TU/texgyreheros(0)/b/n/16.06 Acknowledgements
 ....\kern -0.0002
@@ -2212,7 +2205,7 @@ Completed box being shipped out [6]
 ....\special{color pop}
 ..\glue 8.2511
 ..\glue(\lineskip) 0.0
-..\vbox(700.50723+0.0)x417.11752, glue set 638.83159fil
+..\vbox(700.50723+0.0)x417.11752, glue set 636.81354fil
 ...\write-{}
 ...\write1{\@writefile{toc}{\protect \contentsline {chapter}{Publications}{\thepage \ETC.}
 ...\mark{{\protect \ustc@spacetitle  {Publications}}{}}
@@ -2224,7 +2217,7 @@ Completed box being shipped out [6]
 ...\glue 12.09
 ...\glue 0.0
 ...\glue(\parskip) 0.0
-...\hbox(9.97052+0.12044)x417.11752, glue set 168.77039fil
+...\hbox(11.96469+0.14453)x417.11752, glue set 160.8124fil
 ....\glue(\leftskip) 0.0 plus 1.0fil
 ....\TU/texgyreheros(0)/b/n/16.06 Publications
 ....\kern -0.0002

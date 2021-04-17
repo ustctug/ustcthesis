@@ -1,8 +1,6 @@
 This is a generated file for the l3build validation system.
 Don't change this file in any respect.
 (chapters-bachelor.tex
-LaTeX Font Info:    Font shape `TU/texgyreheros(0)/m/n' will be
-(Font)              scaled to size 10.344pt on input line ....
 Package fontspec Info: Font family 'FandolHei(0)' created for font 'FandolHei'
 (fontspec)             with options
 (fontspec)             [Extension={.otf},UprightFont={*-Regular},BoldFont={*-Bold}].
@@ -16,10 +14,10 @@ Package fontspec Info: Font family 'FandolHei(0)' created for font 'FandolHei'
 (fontspec)             - 'bold' (b/n) with NFSS spec.:
 (fontspec)             <->"[FandolHei-Bold.otf]/OT:language=dflt;"
 (fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.: 
-LaTeX Font Info:    Font shape `TU/texgyreheros(0)/m/n' will be
-(Font)              scaled to size 15.51599pt on input line ....
 Completed box being shipped out [1]
 \vbox(722.98453+0.0)x435.04271
+.\hbox(0.0+0.0)x0.0
+..\special{pdfcolorstackinit 1 page direct (0 g 0 G)}
 .\glue -29.59084
 .\vbox(752.57536+0.0)x417.11752, shifted 17.92519
 ..\vbox(21.33955+0.0)x417.11752, glue set 9.29457fil
@@ -185,6 +183,7 @@ Completed box being shipped out [1]
 ..........\glue(\rightskip) 0.0
 ....\glue 0.0 plus 1.0fil minus 1.0fil
 ...\special{color pop}
+.\kern 0.0
 Completed box being shipped out [2]
 \vbox(722.98453+0.0)x435.04271
 .\glue -29.59084
@@ -1156,12 +1155,6 @@ Completed box being shipped out [3]
 ....\glue 0.0 plus 1.0fil minus 1.0fil
 ...\special{color pop}
 第一章
-LaTeX Font Info:    Font shape `TU/texgyreheros(0)/m/n' will be
-(Font)              scaled to size 13.79199pt on input line ....
-LaTeX Font Info:    Font shape `TU/texgyreheros(0)/m/n' will be
-(Font)              scaled to size 12.93pt on input line ....
-LaTeX Font Info:    Font shape `TU/texgyreheros(0)/m/n' will be
-(Font)              scaled to size 12.068pt on input line ....
 Completed box being shipped out [4]
 \vbox(722.98453+3.61353)x435.04271
 .\glue -29.59084
@@ -2103,7 +2096,7 @@ Completed box being shipped out [7]
 ...\glue 12.09
 ...\glue 0.0
 ...\glue(\parskip) 0.0
-...\hbox(12.55891+2.7623)x417.11752, glue set 144.32643fil
+...\hbox(12.55891+2.7623)x417.11752, glue set 143.2548fil
 ....\glue(\leftskip) 0.0 plus 1.0fil
 ....\glue 3.01125 plus 1.50562 minus 1.00374
 ....\TU/FandolHei(0)/m/n/16.06 附
@@ -2111,7 +2104,7 @@ Completed box being shipped out [7]
 ....\TU/FandolHei(0)/m/n/16.06 录
 ....\kern -0.00018
 ....\kern 0.00018
-....\glue 3.83417 plus 1.91708 minus 1.27805
+....\glue 4.46468 plus 2.23233 minus 1.48822
 ....\TU/texgyreheros(0)/m/n/16.06 A
 ....\kern -0.0002
 ....\kern 0.0002

@@ -43,8 +43,6 @@ Package fontspec Info: Font family 'FandolFang(0)' created for font
 (fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
 File: figures/ustc-name.pdf Graphic file (type pdf)
 <use figures/ustc-name.pdf>
-LaTeX Font Info:    Font shape `TU/texgyreheros(0)/m/n' will be
-(Font)              scaled to size 10.344pt on input line ....
 Package fontspec Info: Font family 'FandolHei(0)' created for font 'FandolHei'
 (fontspec)             with options
 (fontspec)             [Extension={.otf},UprightFont={*-Regular},BoldFont={*-Bold}].
@@ -58,14 +56,8 @@ Package fontspec Info: Font family 'FandolHei(0)' created for font 'FandolHei'
 (fontspec)             - 'bold' (b/n) with NFSS spec.:
 (fontspec)             <->"[FandolHei-Bold.otf]/OT:language=dflt;"
 (fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.: 
-LaTeX Font Info:    Font shape `TU/texgyreheros(0)/m/n' will be
-(Font)              scaled to size 48.272pt on input line ....
 File: figures/ustc-badge.pdf Graphic file (type pdf)
 <use figures/ustc-badge.pdf>
-LaTeX Font Info:    Font shape `TU/texgyreheros(0)/b/n' will be
-(Font)              scaled to size 10.03743pt on input line ....
-LaTeX Font Info:    Font shape `TU/texgyreheros(0)/b/n' will be
-(Font)              scaled to size 21.74777pt on input line ....
 LaTeX Font Info:    Font shape `TU/XITSMath-Regular(2)/m/n' will be
 (Font)              scaled to size 16.0617pt on input line ....
 LaTeX Font Info:    Font shape `TU/XITSMath-Regular(2)/m/n' will be
@@ -78,10 +70,10 @@ LaTeX Font Info:    Font shape `TU/XITSMath-Regular(3)/m/n' will be
 (Font)              scaled to size 14.05098pt on input line ....
 LaTeX Font Info:    Font shape `TU/XITSMath-Regular(3)/m/n' will be
 (Font)              scaled to size 10.53824pt on input line ....
-LaTeX Font Info:    Font shape `TU/texgyreheros(0)/m/n' will be
-(Font)              scaled to size 13.79199pt on input line ....
 Completed box being shipped out [1]
 \vbox(722.98453+0.0)x452.96808
+.\hbox(0.0+0.0)x0.0
+..\special{pdfcolorstackinit 1 page direct (0 g 0 G)}
 .\glue -29.59084
 .\vbox(752.57536+0.0)x452.96826, shifted -0.00018
 ..\vbox(21.33955+0.0)x452.96826, glue set 21.33955fil
@@ -439,6 +431,7 @@ Completed box being shipped out [1]
 ...\special{color push  Black}
 ...\hbox(0.0+0.0)x452.96826
 ...\special{color pop}
+.\kern 0.0
 Completed box being shipped out [2]
 \vbox(722.98453+0.0)x452.96808
 .\glue -29.59084
@@ -464,10 +457,6 @@ Completed box being shipped out [2]
 ...\special{color push  Black}
 ...\hbox(0.0+0.0)x452.96826
 ...\special{color pop}
-LaTeX Font Info:    Font shape `TU/texgyreheros(0)/m/n' will be
-(Font)              scaled to size 17.23999pt on input line ....
-LaTeX Font Info:    Font shape `TU/texgyreheros(0)/m/n' will be
-(Font)              scaled to size 22.41199pt on input line ....
 File: figures/ustc-badge.pdf Graphic file (type pdf)
 <use figures/ustc-badge.pdf>
 Completed box being shipped out [3]
@@ -482,7 +471,7 @@ Completed box being shipped out [3]
 ....\special{color pop}
 ..\glue 8.2511
 ..\glue(\lineskip) 0.0
-..\vbox(700.50723+0.0)x452.96826, glue set 83.67114fil
+..\vbox(700.50723+0.0)x452.96826, glue set 82.8678fil
 ...\glue(\topskip) 12.0
 ...\hbox(0.0+11.38092)x452.96826, glue set 226.48413fil
 ....\glue(\leftskip) 0.0 plus 1.0fil
@@ -495,34 +484,34 @@ Completed box being shipped out [3]
 ....\glue(\rightskip) 0.0 plus 1.0fil
 ...\glue 14.22636
 ...\glue(\parskip) 0.0
-...\glue(\baselineskip) 5.8533
-...\hbox(12.87827+3.7583)x452.96826, glue set 48.77429fil
+...\glue(\baselineskip) 3.73555
+...\hbox(14.99602+4.37633)x452.96826, glue set 19.55103fil
 ....\glue(\leftskip) 0.0 plus 1.0fil
 ....\hbox(0.0+0.0)x0.0
 ....\TU/texgyreheros(0)/m/n/20.075 University
 ....\kern -0.00021
 ....\kern 0.00021
-....\glue 4.79272 plus 2.39636 minus 1.59756
+....\glue 5.58086 plus 2.79042 minus 1.86028
 ....\TU/texgyreheros(0)/m/n/20.075 of
 ....\kern -0.00021
 ....\kern 0.00021
-....\glue 4.79272 plus 2.39636 minus 1.59756
+....\glue 5.58086 plus 2.79042 minus 1.86028
 ....\TU/texgyreheros(0)/m/n/20.075 Science
 ....\kern -0.00021
 ....\kern 0.00021
-....\glue 4.79272 plus 2.39636 minus 1.59756
+....\glue 5.58086 plus 2.79042 minus 1.86028
 ....\TU/texgyreheros(0)/m/n/20.075 and
 ....\kern -0.00021
 ....\kern 0.00021
-....\glue 4.79272 plus 2.39636 minus 1.59756
+....\glue 5.58086 plus 2.79042 minus 1.86028
 ....\TU/texgyreheros(0)/m/n/20.075 Technology
 ....\kern -0.00021
 ....\kern 0.00021
-....\glue 4.79272 plus 2.39636 minus 1.59756
+....\glue 5.58086 plus 2.79042 minus 1.86028
 ....\TU/texgyreheros(0)/m/n/20.075 of
 ....\kern -0.00021
 ....\kern 0.00021
-....\glue 4.79272 plus 2.39636 minus 1.59756
+....\glue 5.58086 plus 2.79042 minus 1.86028
 ....\TU/texgyreheros(0)/m/n/20.075 China
 ....\kern -0.0002
 ....\kern 0.0002
@@ -530,26 +519,26 @@ Completed box being shipped out [3]
 ....\glue(\parfillskip) 0.0
 ....\glue(\rightskip) 0.0 plus 1.0fil
 ...\glue(\parskip) 0.0
-...\glue(\baselineskip) 9.94861
-...\hbox(16.40558+4.8858)x452.96826, glue set 50.33711fil
+...\glue(\baselineskip) 6.6328
+...\hbox(19.10336+5.68924)x452.96826, glue set 21.37093fil
 ....\glue(\leftskip) 0.0 plus 1.0fil
 ....\hbox(0.0+0.0)x0.0
 ....\TU/texgyreheros(0)/m/n/26.09749 A
 ....\kern -0.00021
 ....\kern 0.00021
-....\glue 6.23053 plus 3.11214 minus 2.07892
+....\glue 7.2551 plus 3.62392 minus 2.42078
 ....\TU/texgyreheros(0)/m/n/26.09749 dissertation
 ....\kern -0.00021
 ....\kern 0.00021
-....\glue 6.23053 plus 3.11526 minus 2.07684
+....\glue 7.2551 plus 3.62755 minus 2.41837
 ....\TU/texgyreheros(0)/m/n/26.09749 for
 ....\kern -0.00021
 ....\kern 0.00021
-....\glue 6.23053 plus 3.11526 minus 2.07684
+....\glue 7.2551 plus 3.62755 minus 2.41837
 ....\TU/texgyreheros(0)/m/n/26.09749 bachelor’s
 ....\kern -0.00021
 ....\kern 0.00021
-....\glue 6.23053 plus 3.11526 minus 2.07684
+....\glue 7.2551 plus 3.62755 minus 2.41837
 ....\TU/texgyreheros(0)/m/n/26.09749 degree
 ....\kern -0.0002
 ....\kern 0.0002
@@ -586,67 +575,67 @@ Completed box being shipped out [3]
 ...\hbox(0.0+128.0374)x452.96826
 ....\glue(\leftskip) 0.0 plus 1.0fil
 ....\hbox(0.0+0.0)x0.0
-....\vbox(0.0+128.0374)x452.96826, glue set 25.6747fil
+....\vbox(0.0+128.0374)x452.96826, glue set 21.32724fil
 .....\glue 0.0 plus 1.0fil minus 1.0fil
-.....\hbox(16.20209+4.741)x452.96826, glue set 52.89352fil
+.....\hbox(19.44263+5.68924)x452.96826, glue set 18.17409fil
 ......\glue(\leftskip) 0.0 plus 1.0fil
 ......\hbox(0.0+0.0)x0.0
 ......\TU/texgyreheros(0)/b/n/26.09749 An
 ......\kern -0.00021
 ......\kern 0.00021
-......\glue 6.04588 plus 3.02293 minus 2.01529
+......\glue 7.2551 plus 3.62755 minus 2.41837
 ......\TU/texgyreheros(0)/b/n/26.09749 example
 ......\kern -0.00021
 ......\kern 0.00021
-......\glue 6.04588 plus 3.02293 minus 2.01529
+......\glue 7.2551 plus 3.62755 minus 2.41837
 ......\TU/texgyreheros(0)/b/n/26.09749 of
 ......\kern -0.00021
 ......\kern 0.00021
-......\glue 6.04588 plus 3.02293 minus 2.01529
+......\glue 7.2551 plus 3.62755 minus 2.41837
 ......\TU/texgyreheros(0)/b/n/26.09749 thesis
 ......\kern -0.00021
 ......\kern 0.00021
-......\glue 6.04588 plus 3.02293 minus 2.01529
+......\glue 7.2551 plus 3.62755 minus 2.41837
 ......\TU/texgyreheros(0)/b/n/26.09749 template
 ......\kern -0.00021
 ......\kern 0.00021
-......\glue 6.04588 plus 3.02293 minus 2.01529
+......\glue 7.2551 plus 3.62755 minus 2.41837
 ......\TU/texgyreheros(0)/b/n/26.09749 for
 ......\kern -0.00021
 ......\kern 0.0
 ......\glue(\rightskip) 0.0 plus 1.0fil
 .....\penalty 150
-.....\glue(\baselineskip) 9.1694
-.....\hbox(16.20209+4.76274)x452.96826, glue set 17.61862fil
+.....\glue(\baselineskip) 4.98062
+.....\hbox(19.44263+5.71533)x452.96826, glue set 67.73322fil
 ......\glue(\leftskip) 0.0 plus 1.0fil
 ......\TU/texgyreheros(0)/b/n/26.09749 University
 ......\kern -0.00021
 ......\kern 0.00021
-......\glue 6.04588 plus 3.02293 minus 2.01529
+......\glue 7.2551 plus 3.62755 minus 2.41837
 ......\TU/texgyreheros(0)/b/n/26.09749 of
 ......\kern -0.00021
 ......\kern 0.00021
-......\glue 6.04588 plus 3.02293 minus 2.01529
+......\glue 7.2551 plus 3.62755 minus 2.41837
 ......\TU/texgyreheros(0)/b/n/26.09749 Science
 ......\kern -0.00021
 ......\kern 0.00021
-......\glue 6.04588 plus 3.02293 minus 2.01529
+......\glue 7.2551 plus 3.62755 minus 2.41837
 ......\TU/texgyreheros(0)/b/n/26.09749 and
-......\kern -0.00021
-......\kern 0.00021
-......\glue 6.04588 plus 3.02293 minus 2.01529
-......\TU/texgyreheros(0)/b/n/26.09749 Technology
-......\kern -0.00021
-......\kern 0.00021
-......\glue 6.04588 plus 3.02293 minus 2.01529
-......\TU/texgyreheros(0)/b/n/26.09749 of
 ......\kern -0.00021
 ......\kern 0.0
 ......\glue(\rightskip) 0.0 plus 1.0fil
 .....\penalty 150
-.....\glue(\baselineskip) 9.14766
-.....\hbox(16.20209+0.26096)x452.96826, glue set 196.27647fil
+.....\glue(\baselineskip) 4.95453
+.....\hbox(19.44263+5.71533)x452.96826, glue set 98.34547fil
 ......\glue(\leftskip) 0.0 plus 1.0fil
+......\TU/texgyreheros(0)/b/n/26.09749 Technology
+......\kern -0.00021
+......\kern 0.00021
+......\glue 7.2551 plus 3.62755 minus 2.41837
+......\TU/texgyreheros(0)/b/n/26.09749 of
+......\kern -0.00021
+......\kern 0.00021
+......\glue 7.2551 plus 3.62755 minus 2.41837
 ......\TU/texgyreheros(0)/b/n/26.09749 China
 ......\kern -0.0002
 ......\kern 0.0002
