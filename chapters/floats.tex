@@ -5,8 +5,8 @@
 \section{三线表}
 
 三线表是《撰写手册》推荐使用的格式，如表~\ref{tab:exampletable}。
-\begin{table}[htb]
-  \centering\small
+\begin{table}[h]
+  \centering
   \caption{表号和表题在表的正上方}
   \label{tab:exampletable}
   \begin{tabular}{cl}
@@ -35,7 +35,7 @@
 事实上，这种做法已经过时。
 而且每次编译时都要要调用外部工具解析 eps，导致降低编译速度。
 所以我们推荐矢量图直接使用 pdf 格式，位图使用 jpeg 或 png 格式。
-\begin{figure}[htb]
+\begin{figure}[h]
   \centering
   \includegraphics[width=0.3\textwidth]{ustc-badge.pdf}
   \caption{图号、图题置于图的下方}
@@ -53,8 +53,7 @@
 模板中使用 \pkg{algorithm2e} 宏包实现算法环境。关于该宏包的具体用法，
 请阅读宏包的官方文档。
 
-\begin{algorithm}[htb]
-  \small
+\begin{algorithm}[h]
   \SetAlgoLined
   \KwData{this text}
   \KwResult{how to write algorithm with \LaTeX2e }

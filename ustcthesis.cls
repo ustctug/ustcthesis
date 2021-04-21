@@ -611,66 +611,20 @@
       \belowdisplayshortskip 6.5bp \@plus3.5bp \@minus3bp%
       \belowdisplayskip \abovedisplayskip
       \let\@listi\@listI}%
-    \normalsize
-    \ifx\MakeRobust\@undefined \else
-        \MakeRobust\normalsize
-    \fi
     %
     % 注意第~\ref{sec:list} 节去掉了列表的间距，所以不再修改 \cs{@listi}。
-    \DeclareRobustCommand\small{%
-      \@setfontsize\small{10.5bp}{17.5bp}%
-      \abovedisplayskip 10.5bp \@plus3bp \@minus6bp%
-      \abovedisplayshortskip \z@ \@plus3bp%
-      \belowdisplayshortskip 6.5bp \@plus3.5bp \@minus3bp%
-      \belowdisplayskip \abovedisplayskip
-    }%
-    \DeclareRobustCommand\footnotesize{%
-      \@setfontsize\footnotesize{9bp}{15bp}%
-      \abovedisplayskip 9bp \@plus2bp \@minus5bp%
-      \abovedisplayshortskip \z@ \@plus3bp%
-      \belowdisplayshortskip 6bp \@plus3bp \@minus3bp%
-      \belowdisplayskip \abovedisplayskip
-    }%
-    \DeclareRobustCommand\scriptsize{\@setfontsize\scriptsize{7.5bp}{12.5bp}}%
-    \DeclareRobustCommand\tiny{\@setfontsize\tiny{6.5bp}{10.83bp}}%
-    \DeclareRobustCommand\large{\@setfontsize\large{15bp}{25bp}}%
-    \DeclareRobustCommand\Large{\@setfontsize\Large{18bp}{30bp}}%
-    \DeclareRobustCommand\LARGE{\@setfontsize\LARGE{22bp}{36.67bp}}%
-    \DeclareRobustCommand\huge{\@setfontsize\huge{24bp}{40bp}}%
-    \DeclareRobustCommand\Huge{\@setfontsize\Huge{26bp}{43.33bp}}%
   \else
-    \DeclareRobustCommand\normalsize{%
+    \renewcommand\normalsize{%
       \@setfontsize\normalsize{12bp}{22bp}%
       \abovedisplayskip 12bp \@plus3bp \@minus7bp%
       \abovedisplayshortskip \z@ \@plus3bp%
       \belowdisplayshortskip 6.5bp \@plus3.5bp \@minus3bp%
       \belowdisplayskip \abovedisplayskip
       \let\@listi\@listI}%
-    \normalsize
-    \ifx\MakeRobust\@undefined \else
-        \MakeRobust\normalsize
-    \fi
-    \DeclareRobustCommand\small{%
-      \@setfontsize\small{10.5bp}{19.25bp}%
-      \abovedisplayskip 10.5bp \@plus3bp \@minus6bp%
-      \abovedisplayshortskip \z@ \@plus3bp%
-      \belowdisplayshortskip 6.5bp \@plus3.5bp \@minus3bp%
-      \belowdisplayskip \abovedisplayskip
-    }%
-    \DeclareRobustCommand\footnotesize{%
-      \@setfontsize\footnotesize{9bp}{16.5bp}%
-      \abovedisplayskip 9bp \@plus2bp \@minus5bp%
-      \abovedisplayshortskip \z@ \@plus3bp%
-      \belowdisplayshortskip 6bp \@plus3bp \@minus3bp%
-      \belowdisplayskip \abovedisplayskip
-    }%
-    \DeclareRobustCommand\scriptsize{\@setfontsize\scriptsize{7.5bp}{13.75bp}}%
-    \DeclareRobustCommand\tiny{\@setfontsize\tiny{6.5bp}{11.92bp}}%
-    \DeclareRobustCommand\large{\@setfontsize\large{15bp}{27.5bp}}%
-    \DeclareRobustCommand\Large{\@setfontsize\Large{18bp}{33bp}}%
-    \DeclareRobustCommand\LARGE{\@setfontsize\LARGE{22bp}{40.33bp}}%
-    \DeclareRobustCommand\huge{\@setfontsize\huge{24bp}{44bp}}%
-    \DeclareRobustCommand\Huge{\@setfontsize\Huge{26bp}{47.67bp}}%
+  \fi
+  \normalsize
+  \ifx\MakeRobust\@undefined \else
+      \MakeRobust\normalsize
   \fi
 }
 \ustc@set@font@size
@@ -2470,8 +2424,8 @@
 \setcounter{dbltopnumber}{9}
 
 % 修改默认的浮动体描述符为 |htb|。
-\def\fps@figure{htb}
-\def\fps@table{htb}
+\def\fps@figure{h}
+\def\fps@table{h}
 
 % 用 \pkg{caption} 宏包设置图、表的格式：
 
@@ -2479,42 +2433,96 @@
 % 图号与图题文字之间空一字，图号、图题加粗。
 % 图注位于图的下方，左缩进两字，续行悬挂缩进左对齐，两端对齐。
 
-% 表号、表题置于表的上方，宋体 10.5 磅居中，单倍行距，段前 6 磅，段后 6 磅，
+% 表号、表题置于表的上方，黑体 10.5 磅居中，单倍行距，段前 6 磅，段后 6 磅，
 % 表号与表题文字之间空一字，表号、表题加粗。
 % 表注左缩进两字，续行悬挂缩进左对齐，两端对齐。
 \setlength{\floatsep}{6bp}
 \setlength{\textfloatsep}{6bp}
-\setlength{\intextsep}{6bp}
-\DeclareCaptionLabelSeparator{zhspace}{\hspace{\ccwd}}
+\setlength{\intextsep}{12bp}
+
+% 由于 LaTeX2e kernel 的问题，图表等浮动体与文字前后的距离不一致，需要进行 patch。
+% 参考 \href{https://github.com/tuna/thuthesis/issues/614}{tuna/thuthesis/issues\#614}、
+% \url{https://www.zhihu.com/question/46618031} 和
+% \url{https://tex.stackexchange.com/a/40363/82731}。
+%    \begin{macrocode}
+\patchcmd{\@addtocurcol}%
+  {\vskip \intextsep}%
+  {\edef\save@first@penalty{\the\lastpenalty}\unpenalty
+   \ifnum \lastpenalty = \@M  % hopefully the OR penalty
+     \unpenalty
+   \else
+     \penalty \save@first@penalty \relax % put it back
+   \fi
+   \ifnum\outputpenalty <-\@Mii
+     \addvspace\intextsep
+     \vskip\parskip
+   \else
+     \addvspace\intextsep
+   \fi}%
+  {}{\ustc@patch@error{\@addtocurcol}}
+\patchcmd{\@addtocurcol}%
+  {\vskip\intextsep \ifnum\outputpenalty <-\@Mii \vskip -\parskip\fi}%
+  {\ifnum\outputpenalty <-\@Mii
+     \aftergroup\vskip\aftergroup\intextsep
+     \aftergroup\nointerlineskip
+   \else
+     \vskip\intextsep
+   \fi}%
+  {}{\ustc@patch@error{\@addtocurcol}}
+\patchcmd{\@getpen}{\@M}{\@Mi}
+  {}{\ustc@patch@error{\@getpen}}
+
+\DeclareCaptionFont{ustc}{%
+  \ifustc@language@chinese
+    \fontsize{10.5bp}{13.65bp}\selectfont
+  \else
+    \fontsize{10.5bp}{12.075bp}\selectfont
+  \fi
+}
+
 \captionsetup{
-  format         = hang,
-  font           = small,
-  labelsep       = zhspace,
+  font           = ustc,
+  labelsep       = quad,
   skip           = 6bp,
   figureposition = bottom,
   tableposition  = top,
 }
 \ifustc@degree@graduate
   \captionsetup{font+=bf}
+  \captionsetup[table]{font+=sf}
 \fi
-\captionsetup[figure]{
-  belowskip = 6bp,
-}
 
 % 新定义了 \cs{note} 来生成图表的附注。
 % 如果用 \cs{caption} 生成图表的附注会导致图表的序号有误；
 % 如果用 \cs{bicaption} 会导致表注无法置于表后，而且对齐方式不对。
 \newcommand\note[1]{%
   \begingroup
-  \captionsetup{
-    format        = plain,
-    font          = small,
-    justification = justified,
-    margin        = 2\ccwd,
-    position      = bottom,
-  }%
-  \caption*{#1}%
+    \captionsetup{
+      font          = ustc,
+      margin        = 2\ccwd,
+      position      = bottom,
+    }%
+    \caption*{#1}%
   \endgroup
+}
+
+% 表格默认字号略小
+\patchcmd\@floatboxreset{%
+  \normalsize
+}{%
+  \small
+}{}{\ustc@patch@error{\@floatboxreset}}
+
+% 对 \pkg{longtable} 跨页表格进行相同的设置。
+%
+% 在 Word 模板中按照正确的设置（需要去掉文档网格），
+% 中文模板每页能装下 1 行标题、1 行表头、30 行表身，
+% 英文模板每页能装下 1 行标题、1 行表头、33 行表身。
+%    \begin{macrocode}
+\AtEndOfPackageFile*{longtable}{
+  \AtBeginEnvironment{longtable}{%
+    \small
+  }
 }
 
 

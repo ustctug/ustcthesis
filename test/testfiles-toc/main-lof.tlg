@@ -600,7 +600,7 @@ Completed box being shipped out [1]
 ....\special{color pop}
 ..\glue 8.2511
 ..\glue(\lineskip) 0.0
-..\vbox(700.50723+0.0)x417.11752, glue set 518.18315fil
+..\vbox(700.50723+0.0)x417.11752, glue set 511.7096fil
 ...\write1{\protect \FN@pp@footnotehinttrue }
 ...\write-{}
 ...\write1{\@writefile{toc}{\protect \contentsline {chapter}{\protect \numberline \ETC.}
@@ -632,20 +632,21 @@ Completed box being shipped out [1]
 ...\penalty 10000
 ...\glue 18.06749
 ...\penalty 10000
-...\glue 6.02249
-...\vbox(29.61058+0.0)x417.11752
+...\glue 12.045
+...\glue 0.0
+...\vbox(19.72365+0.0)x417.11752
 ....\special{color push  Black}
-....\vbox(29.61058+0.0)x417.11752
+....\vbox(19.72365+0.0)x417.11752
 .....\write1{\@writefile{lof}{\protect \contentsline {figure}{\protect \numberline \ETC.}
 .....\special{color push  Black}
 .....\rule(0.0+0.0)x*
 .....\glue 6.02249
 .....\glue(\parskip) 0.0
-.....\hbox(12.29587+5.26973)x417.11752
+.....\hbox(9.59077+4.11038)x417.11752
 ......\hbox(0.0+0.0)x0.0
 ......\glue 0.0
-......\vbox(12.29587+5.26973)x417.11752
-.......\hbox(12.29587+5.26973)x417.11752, glue set 167.05473fil
+......\vbox(9.59077+4.11038)x417.11752
+.......\hbox(9.59077+4.11038)x417.11752, glue set 167.05473fil
 ........\glue(\leftskip) 0.0 plus 1.0fil
 ........\hbox(0.0+0.0)x0.0
 ........\TU/FandolSong(0)/b/n/10.53937 图
@@ -657,7 +658,7 @@ Completed box being shipped out [1]
 ........\kern -0.0002
 ........\kern 0.0002
 ........\glue 10.53937
-........\rule(12.29587+*)x0.0
+........\rule(9.59077+*)x0.0
 ........\penalty 10000
 ........\glue 0.0
 ........\TU/texgyretermes(0)/b/n/10.53937 Figure
@@ -668,36 +669,39 @@ Completed box being shipped out [1]
 ........\kern -0.0002
 ........\kern 0.0002
 ........\penalty 10000
-........\rule(0.0+5.26973)x0.0
+........\rule(0.0+4.11038)x0.0
 ........\penalty 10000
 ........\glue(\parfillskip) 0.0
 ........\glue(\rightskip) 0.0 plus 1.0fil
 ......\penalty 10000
 ......\glue(\parfillskip) 0.0 plus 1.0fil
 ......\glue(\rightskip) 0.0
-.....\glue 6.02249
+.....\glue 0.0
 .....\special{color pop}
 .....\glue 0.0
 ....\special{color pop}
 ...\penalty 0
-...\glue 6.02249
-...\glue 0.0
 ...\penalty 10000
+...\glue 12.045
+...\glue -12.045
 ...\penalty 0
-...\glue 6.02249
-...\vbox(29.61058+0.0)x417.11752
+...\glue 12.045
+...\penalty 0
+...\glue 12.045
+...\glue 0.0
+...\vbox(19.72365+0.0)x417.11752
 ....\special{color push  Black}
-....\vbox(29.61058+0.0)x417.11752
+....\vbox(19.72365+0.0)x417.11752
 .....\write1{\@writefile{lof}{\protect \contentsline {figure}{\protect \numberline \ETC.}
 .....\special{color push  Black}
 .....\rule(0.0+0.0)x*
 .....\glue 6.02249
 .....\glue(\parskip) 0.0
-.....\hbox(12.29587+5.26973)x417.11752
+.....\hbox(9.59077+4.11038)x417.11752
 ......\hbox(0.0+0.0)x0.0
 ......\glue 0.0
-......\vbox(12.29587+5.26973)x417.11752
-.......\hbox(12.29587+5.26973)x417.11752, glue set 53.32439fil
+......\vbox(9.59077+4.11038)x417.11752
+.......\hbox(9.59077+4.11038)x417.11752, glue set 53.32439fil
 ........\glue(\leftskip) 0.0 plus 1.0fil
 ........\hbox(0.0+0.0)x0.0
 ........\TU/FandolSong(0)/b/n/10.53937 图
@@ -709,7 +713,7 @@ Completed box being shipped out [1]
 ........\kern -0.0002
 ........\kern 0.0002
 ........\glue 10.53937
-........\rule(12.29587+*)x0.0
+........\rule(9.59077+*)x0.0
 ........\penalty 10000
 ........\glue 0.0
 ........\TU/texgyretermes(0)/b/n/10.53937 Figure
@@ -760,36 +764,39 @@ Completed box being shipped out [1]
 ........\kern -0.0002
 ........\kern 0.0002
 ........\penalty 10000
-........\rule(0.0+5.26973)x0.0
+........\rule(0.0+4.11038)x0.0
 ........\penalty 10000
 ........\glue(\parfillskip) 0.0
 ........\glue(\rightskip) 0.0 plus 1.0fil
 ......\penalty 10000
 ......\glue(\parfillskip) 0.0 plus 1.0fil
 ......\glue(\rightskip) 0.0
-.....\glue 6.02249
+.....\glue 0.0
 .....\special{color pop}
 .....\glue 0.0
 ....\special{color pop}
 ...\penalty 0
-...\glue 6.02249
-...\glue 0.0
 ...\penalty 10000
+...\glue 12.045
+...\glue -12.045
 ...\penalty 0
-...\glue 6.02249
-...\vbox(29.61058+0.0)x417.11752
+...\glue 12.045
+...\penalty 0
+...\glue 12.045
+...\glue 0.0
+...\vbox(19.72365+0.0)x417.11752
 ....\special{color push  Black}
-....\vbox(29.61058+0.0)x417.11752
+....\vbox(19.72365+0.0)x417.11752
 .....\write1{\@writefile{lof}{\protect \contentsline {figure}{\protect \numberline \ETC.}
 .....\special{color push  Black}
 .....\rule(0.0+0.0)x*
 .....\glue 6.02249
 .....\glue(\parskip) 0.0
-.....\hbox(12.29587+5.26973)x417.11752
+.....\hbox(9.59077+4.11038)x417.11752
 ......\hbox(0.0+0.0)x0.0
 ......\glue 0.0
-......\vbox(12.29587+5.26973)x417.11752
-.......\hbox(12.29587+5.26973)x417.11752, glue set 167.05473fil
+......\vbox(9.59077+4.11038)x417.11752
+.......\hbox(9.59077+4.11038)x417.11752, glue set 167.05473fil
 ........\glue(\leftskip) 0.0 plus 1.0fil
 ........\hbox(0.0+0.0)x0.0
 ........\TU/FandolSong(0)/b/n/10.53937 图
@@ -801,7 +808,7 @@ Completed box being shipped out [1]
 ........\kern -0.0002
 ........\kern 0.0002
 ........\glue 10.53937
-........\rule(12.29587+*)x0.0
+........\rule(9.59077+*)x0.0
 ........\penalty 10000
 ........\glue 0.0
 ........\TU/texgyretermes(0)/b/n/10.53937 Figure
@@ -812,21 +819,20 @@ Completed box being shipped out [1]
 ........\kern -0.0002
 ........\kern 0.0002
 ........\penalty 10000
-........\rule(0.0+5.26973)x0.0
+........\rule(0.0+4.11038)x0.0
 ........\penalty 10000
 ........\glue(\parfillskip) 0.0
 ........\glue(\rightskip) 0.0 plus 1.0fil
 ......\penalty 10000
 ......\glue(\parfillskip) 0.0 plus 1.0fil
 ......\glue(\rightskip) 0.0
-.....\glue 6.02249
+.....\glue 0.0
 .....\special{color pop}
 .....\glue 0.0
 ....\special{color pop}
 ...\penalty 0
-...\glue 6.02249
-...\glue 0.0
 ...\penalty 10000
+...\glue 12.045
 ...\write1{\protect \FN@pp@footnotehinttrue }
 ...\glue 0.0 plus 1.0fil
 ...\glue 0.0
@@ -930,7 +936,7 @@ Completed box being shipped out [2]
 ....\special{color pop}
 ..\glue 8.2511
 ..\glue(\lineskip) 0.0
-..\vbox(700.50723+0.0)x417.11752, glue set 518.18315fil
+..\vbox(700.50723+0.0)x417.11752, glue set 511.7096fil
 ...\write-{}
 ...\write1{\@writefile{toc}{\protect \contentsline {chapter}{\protect \numberline \ETC.}
 ...\mark{{第2章\hskip 1em\relax \protect \ustc@spacetitle  {Bar}}{}}
@@ -961,20 +967,21 @@ Completed box being shipped out [2]
 ...\penalty 10000
 ...\glue 18.06749
 ...\penalty 10000
-...\glue 6.02249
-...\vbox(29.61058+0.0)x417.11752
+...\glue 12.045
+...\glue 0.0
+...\vbox(19.72365+0.0)x417.11752
 ....\special{color push  Black}
-....\vbox(29.61058+0.0)x417.11752
+....\vbox(19.72365+0.0)x417.11752
 .....\write1{\@writefile{lof}{\protect \contentsline {figure}{\protect \numberline \ETC.}
 .....\special{color push  Black}
 .....\rule(0.0+0.0)x*
 .....\glue 6.02249
 .....\glue(\parskip) 0.0
-.....\hbox(12.29587+5.26973)x417.11752
+.....\hbox(9.59077+4.11038)x417.11752
 ......\hbox(0.0+0.0)x0.0
 ......\glue 0.0
-......\vbox(12.29587+5.26973)x417.11752
-.......\hbox(12.29587+5.26973)x417.11752, glue set 167.05473fil
+......\vbox(9.59077+4.11038)x417.11752
+.......\hbox(9.59077+4.11038)x417.11752, glue set 167.05473fil
 ........\glue(\leftskip) 0.0 plus 1.0fil
 ........\hbox(0.0+0.0)x0.0
 ........\TU/FandolSong(0)/b/n/10.53937 图
@@ -986,7 +993,7 @@ Completed box being shipped out [2]
 ........\kern -0.0002
 ........\kern 0.0002
 ........\glue 10.53937
-........\rule(12.29587+*)x0.0
+........\rule(9.59077+*)x0.0
 ........\penalty 10000
 ........\glue 0.0
 ........\TU/texgyretermes(0)/b/n/10.53937 Figure
@@ -997,36 +1004,39 @@ Completed box being shipped out [2]
 ........\kern -0.0002
 ........\kern 0.0002
 ........\penalty 10000
-........\rule(0.0+5.26973)x0.0
+........\rule(0.0+4.11038)x0.0
 ........\penalty 10000
 ........\glue(\parfillskip) 0.0
 ........\glue(\rightskip) 0.0 plus 1.0fil
 ......\penalty 10000
 ......\glue(\parfillskip) 0.0 plus 1.0fil
 ......\glue(\rightskip) 0.0
-.....\glue 6.02249
+.....\glue 0.0
 .....\special{color pop}
 .....\glue 0.0
 ....\special{color pop}
 ...\penalty 0
-...\glue 6.02249
-...\glue 0.0
 ...\penalty 10000
+...\glue 12.045
+...\glue -12.045
 ...\penalty 0
-...\glue 6.02249
-...\vbox(29.61058+0.0)x417.11752
+...\glue 12.045
+...\penalty 0
+...\glue 12.045
+...\glue 0.0
+...\vbox(19.72365+0.0)x417.11752
 ....\special{color push  Black}
-....\vbox(29.61058+0.0)x417.11752
+....\vbox(19.72365+0.0)x417.11752
 .....\write1{\@writefile{lof}{\protect \contentsline {figure}{\protect \numberline \ETC.}
 .....\special{color push  Black}
 .....\rule(0.0+0.0)x*
 .....\glue 6.02249
 .....\glue(\parskip) 0.0
-.....\hbox(12.29587+5.26973)x417.11752
+.....\hbox(9.59077+4.11038)x417.11752
 ......\hbox(0.0+0.0)x0.0
 ......\glue 0.0
-......\vbox(12.29587+5.26973)x417.11752
-.......\hbox(12.29587+5.26973)x417.11752, glue set 166.0166fil
+......\vbox(9.59077+4.11038)x417.11752
+.......\hbox(9.59077+4.11038)x417.11752, glue set 166.0166fil
 ........\glue(\leftskip) 0.0 plus 1.0fil
 ........\hbox(0.0+0.0)x0.0
 ........\TU/FandolSong(0)/b/n/10.53937 图
@@ -1038,7 +1048,7 @@ Completed box being shipped out [2]
 ........\kern -0.0002
 ........\kern 0.0002
 ........\glue 10.53937
-........\rule(12.29587+*)x0.0
+........\rule(9.59077+*)x0.0
 ........\penalty 10000
 ........\glue 0.0
 ........\TU/texgyretermes(0)/b/n/10.53937 Figure
@@ -1049,36 +1059,39 @@ Completed box being shipped out [2]
 ........\kern -0.0002
 ........\kern 0.0002
 ........\penalty 10000
-........\rule(0.0+5.26973)x0.0
+........\rule(0.0+4.11038)x0.0
 ........\penalty 10000
 ........\glue(\parfillskip) 0.0
 ........\glue(\rightskip) 0.0 plus 1.0fil
 ......\penalty 10000
 ......\glue(\parfillskip) 0.0 plus 1.0fil
 ......\glue(\rightskip) 0.0
-.....\glue 6.02249
+.....\glue 0.0
 .....\special{color pop}
 .....\glue 0.0
 ....\special{color pop}
 ...\penalty 0
-...\glue 6.02249
-...\glue 0.0
 ...\penalty 10000
+...\glue 12.045
+...\glue -12.045
 ...\penalty 0
-...\glue 6.02249
-...\vbox(29.61058+0.0)x417.11752
+...\glue 12.045
+...\penalty 0
+...\glue 12.045
+...\glue 0.0
+...\vbox(19.72365+0.0)x417.11752
 ....\special{color push  Black}
-....\vbox(29.61058+0.0)x417.11752
+....\vbox(19.72365+0.0)x417.11752
 .....\write1{\@writefile{lof}{\protect \contentsline {figure}{\protect \numberline \ETC.}
 .....\special{color push  Black}
 .....\rule(0.0+0.0)x*
 .....\glue 6.02249
 .....\glue(\parskip) 0.0
-.....\hbox(12.29587+5.26973)x417.11752
+.....\hbox(9.59077+4.11038)x417.11752
 ......\hbox(0.0+0.0)x0.0
 ......\glue 0.0
-......\vbox(12.29587+5.26973)x417.11752
-.......\hbox(12.29587+5.26973)x417.11752, glue set 167.05473fil
+......\vbox(9.59077+4.11038)x417.11752
+.......\hbox(9.59077+4.11038)x417.11752, glue set 167.05473fil
 ........\glue(\leftskip) 0.0 plus 1.0fil
 ........\hbox(0.0+0.0)x0.0
 ........\TU/FandolSong(0)/b/n/10.53937 图
@@ -1090,7 +1103,7 @@ Completed box being shipped out [2]
 ........\kern -0.0002
 ........\kern 0.0002
 ........\glue 10.53937
-........\rule(12.29587+*)x0.0
+........\rule(9.59077+*)x0.0
 ........\penalty 10000
 ........\glue 0.0
 ........\TU/texgyretermes(0)/b/n/10.53937 Figure
@@ -1101,21 +1114,20 @@ Completed box being shipped out [2]
 ........\kern -0.0002
 ........\kern 0.0002
 ........\penalty 10000
-........\rule(0.0+5.26973)x0.0
+........\rule(0.0+4.11038)x0.0
 ........\penalty 10000
 ........\glue(\parfillskip) 0.0
 ........\glue(\rightskip) 0.0 plus 1.0fil
 ......\penalty 10000
 ......\glue(\parfillskip) 0.0 plus 1.0fil
 ......\glue(\rightskip) 0.0
-.....\glue 6.02249
+.....\glue 0.0
 .....\special{color pop}
 .....\glue 0.0
 ....\special{color pop}
 ...\penalty 0
-...\glue 6.02249
-...\glue 0.0
 ...\penalty 10000
+...\glue 12.045
 ...\write1{\protect \FN@pp@footnotehinttrue }
 ...\glue 0.0 plus 1.0fil
 ...\glue 0.0
