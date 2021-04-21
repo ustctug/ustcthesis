@@ -12,6 +12,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ### Fixed
 
 - 修正了与 `chapterbib` 宏包的兼容性。
+- 去掉 `notoccite` 宏包，防止造成 PDF 书签中页码的错误（#293）。
 
 ## [v3.3.0] - 2021-03-18
 
