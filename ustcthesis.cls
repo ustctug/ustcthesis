@@ -1717,7 +1717,11 @@
 \fi
 
 % 定义校徽颜色
-\definecolor{ustcblue}{cmyk}{1,0.8,0,0}
+%
+% 推迟定义颜色以避免调用 \pkg{xcolor} 时的警告
+\AtBeginDocument{
+  \definecolor{ustcblue}{cmyk}{1,0.8,0,0}
+}
 
 % 添加 PDF 书签，在 \pkg{hyperref} 载入后才有效。
 \newcommand\ustc@pdfbookmark{\@gobble}
