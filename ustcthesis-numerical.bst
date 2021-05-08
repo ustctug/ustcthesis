@@ -4,13 +4,13 @@
 %%
 %% The original source files were:
 %%
-%% gbt7714.dtx  (with options: `ustc,2015,numerical')
+%% gbt7714.dtx  (with options: `2015,ustc,numerical')
 %% -------------------------------------------------------------------
 %% GB/T 7714—2015 BibTeX Style
 %% https://github.com/CTeX-org/gbt7714-bibtex-style
-%% Version: 2020/12/17 v2.1
+%% Version: 2021/04/03 v2.1.1
 %% -------------------------------------------------------------------
-%% Copyright (C) 2016-2021 by Zeping Lee <zepinglee AT gmail.com>
+%% Copyright (C) 2016—2021 by Zeping Lee <zepinglee AT gmail.com>
 %% -------------------------------------------------------------------
 %% This file may be distributed and/or modified under the
 %% conditions of the LaTeX Project Public License, either version 1.3c
@@ -18,7 +18,7 @@
 %% The latest version of this license is in
 %%    https://www.latex-project.org/lppl.txt
 %% and version 1.3c or later is part of all distributions of LaTeX
-%% version 2005/12/01 or later.
+%% version 2008 or later.
 %% -------------------------------------------------------------------
 INTEGERS {
   citation.et.al.min
@@ -238,6 +238,22 @@ FUNCTION {or}
 {   { pop$ #1 }
     'skip$
   if$
+}
+
+STRINGS { x y }
+
+FUNCTION {contains}
+{ 'y :=
+  'x :=
+  y text.length$ 'len :=
+  x text.length$ len - #1 + 'charptr :=
+    { charptr #0 >
+      x charptr len substring$ y = not
+      and
+    }
+    { charptr #1 - 'charptr := }
+  while$
+  charptr #0 >
 }
 
 STRINGS { s t }
@@ -703,17 +719,13 @@ FUNCTION {output.bibitem}
   "\bibitem[" write$
   label ")" *
   make.full.names duplicate$ short.list =
-     { pop$ }
-     { * }
-  if$
-  's :=
-  s text.length$ 'charptr :=
-    { charptr #0 > s charptr #1 substring$ "[" = not and }
-    { charptr #1 - 'charptr := }
-  while$
-  charptr #0 >
-    { "{" s * "}" * }
-    { s }
+    { pop$ }
+    { duplicate$ "]" contains
+        { "{" swap$ * "}" * }
+        'skip$
+      if$
+      *
+    }
   if$
   "]{" * write$
   cite$ write$
@@ -1176,21 +1188,6 @@ FUNCTION {extract.after.dash}
   if$
 }
 
-FUNCTION {contains.dash}
-{ duplicate$ empty$
-    { pop$ #0 }
-    { 's :=
-        { s empty$ not
-          s #1 #1 substring$ "-" = not
-          and
-        }
-        { s #2 global.max$ substring$ 's := }
-      while$
-      s empty$ not
-    }
-  if$
-}
-
 FUNCTION {extract.before.slash}
 { duplicate$ empty$
     { pop$ "" }
@@ -1235,23 +1232,6 @@ FUNCTION {extract.after.slash}
   if$
 }
 
-FUNCTION {contains.slash}
-{ duplicate$ empty$
-    { pop$ #0 }
-    { 's :=
-        { s empty$ not
-          s #1 #1 substring$ "-" = not
-          and
-          s #1 #1 substring$ "/" = not
-          and
-        }
-        { s #2 global.max$ substring$ 's := }
-      while$
-      s empty$ not
-    }
-  if$
-}
-
 FUNCTION {format.year}
 { year empty$ not
     { year extract.before.slash extra.label * }
@@ -1292,11 +1272,16 @@ FUNCTION {format.periodical.year}
 }
 
 FUNCTION {format.date}
-{ type$ "patent" = type$ "newspaper" = or
-  date empty$ not and
-    { date }
-    { year field.or.null
-      extra.label *
+{ date empty$ not
+    { type$ "patent" = type$ "newspaper" = or
+        { date }
+        { format.year }
+      if$
+    }
+    { year empty$ not
+        { format.year }
+        { "" }
+      if$
     }
   if$
 }
@@ -2212,13 +2197,20 @@ FUNCTION {calc.short.authors}
 
 FUNCTION {calc.label}
 { calc.short.authors
-  short.list
+  short.list "]" contains
+    { "{" short.list * "}" * }
+    { short.list }
+  if$
   "("
   *
   format.year duplicate$ empty$
   short.list key field.or.null = or
      { pop$ "" }
      'skip$
+  if$
+  duplicate$ "]" contains
+    { "{" swap$ * "}" * }
+    'skip$
   if$
   *
   'label :=
