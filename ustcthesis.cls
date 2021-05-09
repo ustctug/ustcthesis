@@ -2514,7 +2514,8 @@
 \patchcmd\@floatboxreset{%
   \normalsize
 }{%
-  \small
+%   \small
+    \fontsize{10.5bp}{17.5bp}\selectfont
 }{}{\ustc@patch@error{\@floatboxreset}}
 
 % 对 \pkg{longtable} 跨页表格进行相同的设置。
@@ -2525,7 +2526,8 @@
 %    \begin{macrocode}
 \AtEndOfPackageFile*{longtable}{
   \AtBeginEnvironment{longtable}{%
-    \small
+%     \small
+    \fontsize{10.5bp}{17.5bp}\selectfont
   }
 }
 
