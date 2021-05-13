@@ -2525,7 +2525,9 @@
 %    \begin{macrocode}
 \AtEndOfPackageFile*{longtable}{
   \AtBeginEnvironment{longtable}{%
-    \small
+    \ifdim\f@size pt > 12pt\relax
+      \small
+    \fi
   }
 }
 
