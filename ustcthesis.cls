@@ -1498,11 +1498,26 @@
 \ctexset{chapter/pagestyle=chapter}
 
 % 空白页不加页眉和页码。
-\def\cleardoublepage{\clearpage\if@twoside \ifodd\c@page\else
-  \hbox{}\thispagestyle{empty}\newpage\if@twocolumn\hbox{}\newpage\fi\fi\fi}
-  %
-  % 研究生要求从“中文摘要”开始页码用大写罗马数字，
-  % 而本科生的 frontmatter（只有致谢）不编页码，从目录开始页码用阿拉伯数字。
+\def\cleardoublepage{%
+  \clearpage
+  \if@twoside
+    \ifodd\c@page\else
+      \hbox{}%
+      \ifustc@degree@graduate
+        \thispagestyle{empty}%
+      \fi
+      \newpage
+      \if@twocolumn
+        \hbox{}%
+        \newpage
+      \fi
+    \fi
+  \fi
+}
+
+%
+% 研究生要求从“中文摘要”开始页码用大写罗马数字，
+% 而本科生的 frontmatter（只有致谢）不编页码，从目录开始页码用阿拉伯数字。
 \renewcommand\frontmatter{%
   \cleardoublepage
   \@mainmatterfalse
@@ -1516,11 +1531,9 @@
 
 % 研究生要求“第 1 章”要另页起，但是本科生要求另面起。
 \renewcommand\mainmatter{%
+  \cleardoublepage
   \ifustc@degree@graduate
-    \cleardoublepage
     \pagenumbering{arabic}%
-  \else
-    \clearpage
   \fi
   \pagestyle{plain}%
   \@mainmattertrue
@@ -1848,6 +1861,7 @@
   \pagestyle{empty}%
   \ustc@makezhtitle
   \ustc@makeentitle
+  \cleardoublepage
   \restoregeometry
   \pagestyle{plain}%
 }

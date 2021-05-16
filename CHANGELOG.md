@@ -8,6 +8,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ### Changed
 
 - 同步新版《撰写手册》（2016 年 12 月版，2019 年 第 3 次印刷）（#291）。
+- 本科生的第一章开启于奇数页。
 
 ### Fixed
 
