@@ -3103,19 +3103,19 @@
     inter-unit-product   = \ensuremath{{}\cdot{}},
   }
   \newcommand\ustc@set@siunitx@language{%
-  \ifustc@language@chinese
-    \sisetup{
-      list-final-separator = { 和 },
-      list-pair-separator  = { 和 },
-      range-phrase         = {～},
-        }%
-      \else
-        \sisetup{
-          list-final-separator = {, and },
-          list-pair-separator  = { and },
-          range-phrase         = { to },
-        }%
-  \fi
+    \ifustc@language@chinese
+      \sisetup{
+        list-final-separator = { 和 },
+        list-pair-separator  = { 和 },
+        range-phrase         = {～},
+      }%
+    \else
+      \sisetup{
+        list-final-separator = {, and },
+        list-pair-separator  = { and },
+        range-phrase         = { to },
+      }%
+    \fi
   }
   \ustc@set@siunitx@language
   \ustc@option@hook{language}{\ustc@set@siunitx@language}
