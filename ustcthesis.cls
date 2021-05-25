@@ -1882,7 +1882,7 @@
   允许论文被查阅和借阅，可以将学位论文编入《中国学位论文全文数据库》等%
   有关数据库进行检索，可以采用影印、缩印或扫描等复制手段保存、汇编学位论文。%
   本人提交的电子文档的内容和纸质论文的内容相一致。\par
-  保密的学位论文在解密后也遵守此规定。}
+  控阅的学位论文在解密后也遵守此规定。}
   %
   % 生成空的下划线
 \newcommand\ustc@underline[2][3.2cm]{\underline{\hb@xt@ #1{\hss#2\hss}}}
@@ -1912,10 +1912,10 @@
     \vskip 0.6cm%
     \ifx\ustc@secret@level\@empty
       \ustc@checkbox{} 公开\quad
-      $\square$ 保密（\ustc@underline[0.85cm]{}年）\par
+      $\square$ 控阅（\ustc@underline[0.85cm]{}年）\par
     \else
       $\square$ 公开\quad
-      \ustc@checkbox{} 保密（\ustc@underline[0.8cm]{\ustc@secret@year}年）\par
+      \ustc@checkbox{} 控阅（\ustc@underline[0.8cm]{\ustc@secret@year}年）\par
     \fi
     \vskip 0.5cm%
     作者签名：\ustc@underline{}\hspace{2.7cm}%
