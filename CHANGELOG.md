@@ -16,6 +16,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - 去掉 `notoccite` 宏包，防止造成 PDF 书签中页码的错误（#293）。
 - 修正了表题的字体（#295）。
 - 修正了 `article` 只有 `date` 时年份缺失的问题（#299）。
+- 修正了 biblatex 参考文献的页眉（#311）。
 
 ## [v3.3.0] - 2021-03-18
 

@@ -2828,14 +2828,11 @@
 % biblatex 宏包的配置
 
 \AtEndOfPackageFile*{biblatex}{
-  \AtBeginDocument{
-    \ifthenelse{\equal{\blx@bbxfile}{apa}}{\def\bibname{REFERENCES}}{}
-    \ifthenelse{\equal{\blx@bbxfile}{apa6}}{\def\bibname{REFERENCES}}{}
-    \ifthenelse{\equal{\blx@bbxfile}{mla}}{\def\bibname{WORKS CITED}}{}
-    \ifthenelse{\equal{\blx@bbxfile}{mla-new}}{\def\bibname{WORKS CITED}}{}
-  }
   \DeclareRobustCommand\inlinecite{\parencite}
-  \defbibheading{bibliography}[\bibname]{\@mainmatterfalse\chapter*{\bibname}}
+  \defbibheading{bibliography}[\bibname]{%
+    \@mainmatterfalse
+    \chapter{\bibname}%
+  }
   \renewcommand\bibfont{%
     \ifustc@degree@graduate
       \fontsize{10.5bp}{20bp}\selectfont
