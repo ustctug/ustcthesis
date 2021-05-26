@@ -7,3 +7,7 @@
   gbpub     = false,
   gbalign   = left,
 }
+
+\DeclareFieldFormat{titlecase}{\iftoggle{bbx:titlelink}{%
+\iffieldundef{url}{\MakeSentenceCase{#1}}{%
+\href{\thefield{url}}{#1}}}{\MakeSentenceCase{#1}}}
