@@ -11,3 +11,19 @@
 \DeclareFieldFormat{titlecase}{\iftoggle{bbx:titlelink}{%
 \iffieldundef{url}{\MakeSentenceCase{#1}}{%
 \href{\thefield{url}}{#1}}}{\MakeSentenceCase{#1}}}
+
+\DeclareFieldFormat{booktitlecase}{\MakeCapital{#1}}
+\renewbibmacro*{booktitle}{%
+  \ifboolexpr{
+    test {\iffieldundef{booktitle}}
+    and
+    test {\iffieldundef{booksubtitle}}
+  }
+    {}
+    {\printtext[booktitle]{\bibtitlefont%
+       \printfield[booktitlecase]{booktitle}%
+       \setunit{\subtitlepunct}%
+       \printfield[booktitlecase]{booksubtitle}}%
+     \newunit%标点换成下一句
+     \setunit{\subtitlepunct}}%
+  \printfield{booktitleaddon}}
