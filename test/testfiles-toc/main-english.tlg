@@ -347,7 +347,18 @@ Completed box being shipped out [2]
 ..........\glue(\parfillskip) 0.0
 ..........\glue(\rightskip) 0.0
 ...\special{color pop}
-(main-english.toc)
+(main-english.toc
+Package fontspec Info: Font family 'FandolFang(0)' created for font
+(fontspec)             'FandolFang' with options
+(fontspec)             [Extension={.otf},UprightFont={*-Regular}].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <->"[FandolFang-Regular.otf]/OT:language=dflt;"
+(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
+)
 \tf@toc=\write...
 Completed box being shipped out [3]
 \vbox(722.98453+3.61353)x435.04271
@@ -530,28 +541,28 @@ Completed box being shipped out [3]
 ...\penalty 10000
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 0.00002
-...\hbox(14.05243+6.02255)x417.11752, glue set 296.0653fill
-....\glue(\leftskip) 55.7081
+...\hbox(14.05243+6.02255)x417.11752, glue set 284.02026fill
+....\glue(\leftskip) 60.22499
 ....\hbox(0.0+0.0)x0.0
 ....\rule(14.05243+6.02255)x0.0
-....\hbox(7.12462+0.11592)x0.0, glue set - 31.6181fil
+....\hbox(8.14243+0.13248)x0.0, glue set - 36.135fil
 .....\glue 0.0 plus 1.0fil minus 1.0fil
-.....\hbox(7.12462+0.11592)x31.6181
+.....\hbox(8.14243+0.13248)x36.135
 ......\special{color push  Black}
-......\TU/texgyretermes(0)/m/n/10.53937 1.1.1
+......\TU/texgyretermes(0)/m/n/12.045 1.1.1
 ......\kern -0.0002
 ......\kern 0.0002
-......\glue 10.53937
+......\glue 12.045
 ......\special{color pop}
-....\TU/FandolSong(0)/m/n/10.53937 二
-....\glue 0.0 plus 0.44923
-....\TU/FandolSong(0)/m/n/10.53937 级
-....\glue 0.0 plus 0.44923
-....\TU/FandolSong(0)/m/n/10.53937 节
-....\glue 0.0 plus 0.44923
-....\TU/FandolSong(0)/m/n/10.53937 标
-....\glue 0.0 plus 0.44923
-....\TU/FandolSong(0)/m/n/10.53937 题
+....\TU/FandolFang(0)/m/n/12.045 二
+....\glue 0.0 plus 0.61353
+....\TU/FandolFang(0)/m/n/12.045 级
+....\glue 0.0 plus 0.61353
+....\TU/FandolFang(0)/m/n/12.045 节
+....\glue 0.0 plus 0.61353
+....\TU/FandolFang(0)/m/n/12.045 标
+....\glue 0.0 plus 0.61353
+....\TU/FandolFang(0)/m/n/12.045 题
 ....\kern -0.00017
 ....\kern 0.00017
 ....\rule(14.05243+6.02255)x0.0

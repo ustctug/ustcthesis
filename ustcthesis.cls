@@ -2231,15 +2231,15 @@
   \titlecontents{section}
     [\ccwd]{\fontsize{12bp}{20bp}\selectfont}
     {\contentspush{\thecontentslabel\hspace{\ccwd}}}{}
-    {\fontsize{12bp}{20bp}\selectfont\ustc@leaders\contentspage}
+    {\ustc@leaders\contentspage}
     %
-    % 二级节标题目录要求宋体 10.5 磅，单倍行距，左缩进两字，段前 6 磅，段后 0 磅，
+    % 二级节标题目录要求仿宋 12 磅，单倍行距，左缩进两字，段前 6 磅，段后 0 磅，
     % 两端对齐，页码右对齐，序号与题名间空一字。
     % Word 模板中实际是行距 20 磅，段前 0 磅。
   \titlecontents{subsection}
-    [2\ccwd]{\fontsize{10.5bp}{20bp}\selectfont}
+    [2\ccwd]{\fangsong\fontsize{12bp}{20bp}\selectfont}
     {\contentspush{\thecontentslabel\hspace{\ccwd}}}{}
-    {\fontsize{12bp}{20bp}\selectfont\ustc@leaders\contentspage}
+    {\ustc@leaders\contentspage}
     %
     % 本科生的目录使用小四宋体（同正文字体），其他同研究生的格式相近。
 \else
