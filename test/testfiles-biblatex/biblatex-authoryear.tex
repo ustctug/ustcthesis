@@ -1,0 +1,42 @@
+\input{regression-test.tex}
+\documentclass[degree=doctor,fontset=fandol]{ustcthesis}
+
+\usepackage[style=ustcthesis-authoryear]{biblatex}
+\addbibresource{refs-authoryear.bib}
+
+\pagestyle{empty}
+
+\begin{document}
+\START
+\showoutput
+
+Citation \cite{baker1995future} test\par
+Citation \cite{baker1995future} test\par
+Citation \cite{baker1995future} test\par
+
+引用\citet{yangzongying1996dianzi}测试\par
+引用\citet[42]{yangzongying1996dianzi}测试\par
+引用\citep{yangzongying1996dianzi}测试\par
+引用\citep[42]{yangzongying1996dianzi}测试\par
+引用\citep[见][]{yangzongying1996dianzi}测试\par
+引用\citep[见][42]{yangzongying1996dianzi}测试\par
+引用\citet*{yangzongying1996dianzi}测试\par
+引用\citep*{yangzongying1996dianzi}测试\par
+
+Citation \citet{baker1995future} test\par
+Citation \citet[42]{baker1995future} test\par
+Citation \citep{baker1995future} test\par
+Citation \citep[42]{baker1995future} test\par
+Citation \citep[see][]{baker1995future} test\par
+Citation \citep[see][42]{baker1995future} test\par
+Citation \citet*{baker1995future} test\par
+Citation \citep*{baker1995future} test\par
+
+\nocite{*}
+
+\backmatter
+\printbibliography
+
+\clearpage
+\end{document}
+\END

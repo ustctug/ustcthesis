@@ -3,19 +3,22 @@
 module = "ustcthesis"
 
 testfiledir = "./test/testfiles"
-testsuppdir = testfiledir .. "/support"
+testsuppdir = "./test/support"
 
 demofiles = {"main.tex", "bib", "chapters"}
-installfiles = {"*.cls", "*.bst", "figures"}
-sourcefiles = {"*.cls", "*.bst", "figures"}
+installfiles = {"*.cls", "*.bst", "*.bbx", "*.cbx", "figures"}
+sourcefiles = {"*.cls", "*.bst", "*.bbx", "*.cbx", "figures"}
 tagfiles = {"*.cls", "ustcthesis-doc.tex", "CHANGELOG.md", "main.tex"}
 
 checkengines = {"xetex"}
 stdengine = "xetex"
 
 checkconfigs = {
-    "build", "test/config-toc", "test/config-nomencl",
-    "test/config-bib",
+    "build",
+    "test/config-crossref",
+    "test/config-nomencl",
+    "test/config-bibtex",
+    "test/config-biblatex",
 }
 
 typesetexe = "xelatex"

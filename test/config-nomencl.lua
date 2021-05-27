@@ -1,5 +1,4 @@
 testfiledir = "./test/testfiles-nomencl"
-testsuppdir = testfiledir .. "/support"
 
 checkruns = 2
 

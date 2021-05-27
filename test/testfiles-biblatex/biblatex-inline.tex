@@ -1,0 +1,37 @@
+\input{regression-test.tex}
+\documentclass[degree=doctor,fontset=fandol]{ustcthesis}
+
+\usepackage[
+  bibstyle  = ustcthesis-numeric,
+  citestyle = ustcthesis-inline,
+]{biblatex}
+\addbibresource{refs-numerical.bib}
+
+\pagestyle{empty}
+
+\begin{document}
+\START
+\showoutput
+
+引用\cite{sunliguang2016jidi}测试\par
+引用\cite[42]{sunliguang2016jidi}测试\par
+引用\cite[见][]{liyongchi2016zhangliang}测试\par
+引用\cite[见][42]{liujingshuang2014shidi}测试\par
+
+Citation \cite{crawford1995future} test\par
+Citation \cite[42]{crawford1995future} test\par
+Citation \cite[see][]{ifla1977names} test\par
+Citation \cite[see][42]{ifla1977names} test\par
+
+引用\cite{sunliguang2016jidi}测试\par
+引用\cite{liyongchi2016zhangliang,liujingshuang2014shidi}测试\par
+引用\cite{crawford1995future,ifla1977names,chenggenwei1999hongshui}测试\par
+
+\nocite{*}
+
+\backmatter
+\printbibliography
+
+\clearpage
+\end{document}
+\END

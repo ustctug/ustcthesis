@@ -1,0 +1,56 @@
+\input{regression-test.tex}
+\documentclass[degree=doctor,fontset=fandol]{ustcthesis}
+
+\usepackage{natbib}
+\bibliographystyle{ustcthesis-authoryear}
+
+\pagestyle{empty}
+
+\begin{document}
+\START
+\showoutput
+
+Citation \cite{baker1995future} test\par
+Citation \cite{baker1995future} test\par
+Citation \cite{baker1995future} test\par
+
+引用\citet{yangzongying1996dianzi}测试\par
+引用\citet[42]{yangzongying1996dianzi}测试\par
+引用\citep{yangzongying1996dianzi}测试\par
+引用\citep[42]{yangzongying1996dianzi}测试\par
+引用\citep[见][]{yangzongying1996dianzi}测试\par
+引用\citep[见][42]{yangzongying1996dianzi}测试\par
+引用\citet*{yangzongying1996dianzi}测试\par
+引用\citep*{yangzongying1996dianzi}测试\par
+
+Citation \citet{baker1995future} test\par
+Citation \citet[42]{baker1995future} test\par
+Citation \citep{baker1995future} test\par
+Citation \citep[42]{baker1995future} test\par
+Citation \citep[see][]{baker1995future} test\par
+Citation \citep[see][42]{baker1995future} test\par
+Citation \citet*{baker1995future} test\par
+Citation \citep*{baker1995future} test\par
+
+引用\citealt{yangzongying1996dianzi}测试\par
+引用\citealt*{yangzongying1996dianzi}测试\par
+引用\citealp{yangzongying1996dianzi}测试\par
+引用\citealp*{yangzongying1996dianzi}测试\par
+引用\citealp{yangzongying1996dianzi,liubin2014lixue}测试\par
+引用\citealp[42]{yangzongying1996dianzi}测试\par
+引用\citenum{yangzongying1996dianzi}测试\par
+引用\citetext{priv.\ comm.}测试\par
+
+Citation \citeauthor{baker1995future} Test\par
+Citation \citeauthor*{baker1995future} Test\par
+Citation \citeyear{baker1995future} Test\par
+Citation \citeyearpar{baker1995future} Test\par
+
+\nocite{*}
+
+\backmatter
+\bibliography{refs-authoryear}
+
+\clearpage
+\end{document}
+\END
