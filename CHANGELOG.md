@@ -10,6 +10,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - 同步新版《撰写手册》（2016 年 12 月版，2019 年 第 3 次印刷）（#291）。
 - 本科生的第一章开启于奇数页。
 - 按照新版《手册》的要求，目录中的二级标题使用仿宋体 12 磅（#316）。
+- `biblatex` 的参考文献表中题名改为转换成 sentence case（感谢 [@hushidong](https://github.com/hushidong)）（#315）。
 
 ### Fixed
 

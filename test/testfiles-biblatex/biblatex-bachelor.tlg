@@ -889,7 +889,7 @@ Completed box being shipped out [2]
 ...\glue 0.0 plus 0.2
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 13.59079
-...\hbox(8.22673+2.6258)x378.98306, glue set 26.42677fil, shifted 38.13446
+...\hbox(8.22673+2.6258)x378.98306, glue set 32.01567fil, shifted 38.13446
 ....\hbox(8.14243+1.879)x0.0
 .....\glue 0.0
 .....\glue -14.04446
@@ -921,10 +921,7 @@ Completed box being shipped out [2]
 ....\kern -0.00021
 ....\kern 0.00021
 ....\glue 3.01125 plus 1.51465 minus 0.99774
-....\TU/texgyretermes(0)/m/n/12.045 T
-....\kern -0.0002
-....\kern 0.0002
-....\TU/texgyretermes(0)/m/n/12.045 echnology
+....\TU/texgyretermes(0)/m/n/12.045 Technology
 ....\kern -0.00021
 ....\kern 0.00021
 ....\glue 3.01125 plus 1.50562 minus 1.00374
@@ -932,11 +929,11 @@ Completed box being shipped out [2]
 ....\kern -0.00021
 ....\kern 0.00021
 ....\glue 3.01125 plus 1.50562 minus 1.00374
-....\TU/texgyretermes(0)/m/n/12.045 Economic
+....\TU/texgyretermes(0)/m/n/12.045 economic
 ....\kern -0.00021
 ....\kern 0.00021
 ....\glue 3.01125 plus 1.50562 minus 1.00374
-....\TU/texgyretermes(0)/m/n/12.045 Growth
+....\TU/texgyretermes(0)/m/n/12.045 growth
 ....\kern -0.0002
 ....\TU/texgyretermes(0)/m/n/12.045 .
 ....\kern -0.0002
@@ -960,7 +957,7 @@ Completed box being shipped out [2]
 ...\glue 0.0 plus 0.2
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 11.22997
-...\hbox(8.22673+2.61375)x378.98306, glue set - 0.439, shifted 38.13446
+...\hbox(8.22673+2.61375)x378.98306, glue set - 0.41231, shifted 38.13446
 ....\hbox(8.14243+1.879)x0.0
 .....\glue 0.0
 .....\glue -14.04446
@@ -994,10 +991,7 @@ Completed box being shipped out [2]
 ....\kern -0.00021
 ....\kern 0.00021
 ....\glue 3.01125 plus 1.51465 minus 0.99774
-....\TU/texgyretermes(0)/m/n/12.045 V
-....\kern -0.0002
-....\kern 0.0002
-....\TU/texgyretermes(0)/m/n/12.045 ibrational
+....\TU/texgyretermes(0)/m/n/12.045 Vibrational
 ....\kern -0.00021
 ....\kern 0.00021
 ....\glue 3.01125 plus 1.50562 minus 1.00374
@@ -1027,7 +1021,7 @@ Completed box being shipped out [2]
 ....\glue(\rightskip) 0.0
 ...\penalty 25000
 ...\glue(\baselineskip) 11.22995
-...\hbox(8.23878+2.6258)x378.98306, glue set 91.97945fil, shifted 38.13446
+...\hbox(8.23878+2.6258)x378.98306, glue set 96.36382fil, shifted 38.13446
 ....\TU/texgyretermes(0)/m/n/12.045 of
 ....\kern -0.00021
 ....\kern 0.00021
@@ -1042,18 +1036,15 @@ Completed box being shipped out [2]
 ....\kern -0.0002
 ....\kern 0.0002
 ....\glue 3.01125 plus 1.51465 minus 0.99774
-....\TU/texgyretermes(0)/m/it/12.045 J
-....\kern -0.0002
-....\kern 0.0002
-....\TU/texgyretermes(0)/m/it/12.045 .
+....\TU/texgyretermes(0)/m/it/12.045 J.
 ....\kern -0.00021
 ....\kern 0.00021
 ....\glue 3.01125 plus 1.51465 minus 0.99774
-....\TU/texgyretermes(0)/m/it/12.045 Phys.
+....\TU/texgyretermes(0)/m/it/12.045 phys.
 ....\kern -0.00021
 ....\kern 0.00021
 ....\glue 3.01125 plus 1.51465 minus 0.99774
-....\TU/texgyretermes(0)/m/it/12.045 Chem.
+....\TU/texgyretermes(0)/m/it/12.045 chem.
 ....\kern 0.0
 ....\kern -0.0002
 ....\kern 0.0002

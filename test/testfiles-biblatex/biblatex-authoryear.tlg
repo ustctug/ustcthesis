@@ -1205,7 +1205,7 @@ Completed box being shipped out [2]
 ...\glue 0.0 plus 0.2
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 10.87415
-...\hbox(7.25108+2.29756)x384.03879, glue set 0.24794, shifted 33.07874
+...\hbox(7.25108+2.29756)x384.03879, glue set 0.641, shifted 33.07874
 ....\hbox(7.12462+1.64412)x0.0
 .....\glue 0.0
 .....\glue -21.07874
@@ -1262,14 +1262,11 @@ Completed box being shipped out [2]
 ....\kern -0.00021
 ....\kern 0.00021
 ....\glue 2.63484 plus 1.32532 minus 0.87303
-....\TU/texgyretermes(0)/m/n/10.53937 T
-....\kern -0.0002
-....\kern 0.0002
-....\TU/texgyretermes(0)/m/n/10.53937 he
+....\TU/texgyretermes(0)/m/n/10.53937 The
 ....\kern -0.00021
 ....\kern 0.00021
 ....\glue 2.63484 plus 1.31741 minus 0.87828
-....\TU/texgyretermes(0)/m/n/10.53937 Future
+....\TU/texgyretermes(0)/m/n/10.53937 future
 ....\kern -0.00021
 ....\kern 0.00021
 ....\glue 2.63484 plus 1.31741 minus 0.87828
@@ -1277,11 +1274,11 @@ Completed box being shipped out [2]
 ....\kern -0.00021
 ....\kern 0.00021
 ....\glue 2.63484 plus 1.31741 minus 0.87828
-....\TU/texgyretermes(0)/m/n/10.53937 Resource
+....\TU/texgyretermes(0)/m/n/10.53937 resource
 ....\kern -0.00021
 ....\kern 0.00021
 ....\glue 2.63484 plus 1.31741 minus 0.87828
-....\TU/texgyretermes(0)/m/n/10.53937 Sharing
+....\TU/texgyretermes(0)/m/n/10.53937 sharing
 ....\kern -0.0002
 ....\kern 0.0002
 ....\penalty 10000
