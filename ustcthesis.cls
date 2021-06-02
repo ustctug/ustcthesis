@@ -2576,18 +2576,42 @@
   % 这里在 filehook 中无法使用 \cs{patchcmd}，所以只能手动重定义。
   %
   % 将 super 式 \cs{citep} 引用的页码置于括号外。
-  \renewcommand\NAT@citesuper[3]{\ifNAT@swa
-    \if*#2*\else#2\NAT@spacechar\fi
-    % \unskip\kern\p@\textsuperscript{\NAT@@open#1\NAT@@close}%
-    %  \if*#3*\else\NAT@spacechar#3\fi\else #1\fi\endgroup}
-    \unskip\kern\p@\textsuperscript{\NAT@@open#1\NAT@@close\if*#3*\else#3\fi}%
-    \else #1\fi\endgroup}
+  \renewcommand\NAT@citesuper[3]{%
+    \ifNAT@swa
+      \if*#2*\else
+        #2\NAT@spacechar
+      \fi
+      % \unskip\kern\p@\textsuperscript{\NAT@@open#1\NAT@@close}%
+      %  \if*#3*\else\NAT@spacechar#3\fi\else #1\fi\endgroup}
+      \unskip\kern\p@
+      \textsuperscript{%
+        \NAT@@open#1\NAT@@close
+        \if*#3*\else#3\fi
+      }%
+      \kern\p@
+    \else
+      #1%
+    \fi
+    \endgroup
+  }
   %
   % 将 numbers 式 \cs{citep} 引用的页码置于括号外并改为上标。
-  \renewcommand\NAT@citenum%
-      [3]{\ifNAT@swa\NAT@@open\if*#2*\else#2\NAT@spacechar\fi
-          % #1\if*#3*\else\NAT@cmt#3\fi\NAT@@close\else#1\fi\endgroup}
-          #1\NAT@@close\textsuperscript{\if*#3*\else#3\fi}\else#1\fi\endgroup}
+  \renewcommand\NAT@citenum[3]{%
+    \ifNAT@swa
+      \NAT@@open
+      \if*#2*\else
+        #2\NAT@spacechar
+      \fi
+      % #1\if*#3*\else\NAT@cmt#3\fi\NAT@@close
+      #1\NAT@@close
+      \if*#3*\else
+        \textsuperscript{#3}%
+      \fi
+    \else
+      #1%
+    \fi
+    \endgroup
+  }
   %
   % 在 filehook 中无法使用 \cs{patchcmd}，所以只能手动重定义。
   \def\NAT@citexnum[#1][#2]#3{%
@@ -2676,8 +2700,11 @@
           % }{}%
           \NAT@mbox{\NAT@@close}%
           \@ifnum{\NAT@ctype=\z@}{%
-            \if*#2*\else\textsuperscript{#2}\fi
+            \if*#2*\else
+              \textsuperscript{#2}%
+            \fi
           }{}%
+          \NAT@super@kern
         \fi
     }{#1}{#2}%
   }%

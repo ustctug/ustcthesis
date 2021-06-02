@@ -3,12 +3,10 @@
 
 \RequireBibliographyStyle{gb7714-2015ay}
 
-\ExecuteBibliographyOptions{
-  gbpub     = false,
-  gbalign   = left,
-}
+\ExecuteBibliographyOptions{gbpub = false}
 
-\renewcommand*{\nameyeardelim}{\addperiod\space}
+\DeclareDelimFormat{nameyeardelim}{\addperiod\space}
+\DeclareDelimFormat[bib,biblist]{nameyeardelim}{\addperiod\space}
 
 \DeclareFieldFormat{titlecase}{\iftoggle{bbx:titlelink}{%
 \iffieldundef{url}{\MakeSentenceCase{#1}}{%

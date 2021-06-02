@@ -1995,7 +1995,7 @@ Completed box being shipped out [6]
 ...\kern 1.0
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
-...\hbox(10.92532+0.0)x417.11752, glue set 381.99417fil
+...\hbox(10.92532+0.0)x417.11752, glue set 380.99417fil
 ....\hbox(0.0+0.0)x24.09
 ....\mathon
 ....\hbox(6.10681+1.40926)x11.03336, shifted -4.81851
@@ -2008,6 +2008,7 @@ Completed box being shipped out [6]
 .....\kern -0.0002
 .....\kern 0.0002
 ....\mathoff
+....\kern 1.0
 ....\kern 0.0
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil

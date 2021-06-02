@@ -4,10 +4,39 @@
 \RequireBibliographyStyle{gb7714-2015}
 
 \ExecuteBibliographyOptions{
-  gbnamefmt = lowercase,
-  gbtype    = false,
-  gbpub     = false,
-  gbalign   = left,
+  gbnamefmt   = lowercase,
+  gbtype      = false,
+  gbpub       = false,
+  gbalign     = left,
+  maxbibnames = 3, %将文献列表和引用中最大名字数量区分开
+  minbibnames = 1,
+}
+
+\renewrobustcmd*{\bibinitdelim}{}
+
+\DeclareDelimFormat[bib,biblist]{andothersdelim}{%
+  \iffieldequalstr{userd}{english}{\addcomma\addspace}{}%
+}
+
+\DeclareFieldFormat{title}{%
+  \iffieldequalstr{userd}{english}{%
+    \mkbibemph{#1}%
+  }{%
+    #1%
+  }%
+}
+\DeclareFieldFormat
+  [inbook,incollection,inproceedings,patent,thesis,unpublished]
+  {title}{#1}
+\DeclareFieldFormat[article]{title}{%
+  \iffieldequalstr{userd}{english}{}{#1}%
+}
+\DeclareFieldFormat{booktitle}{%
+  \iffieldequalstr{userd}{english}{%
+    \mkbibemph{#1}%
+  }{%
+    #1%
+  }%
 }
 
 \DeclareFieldFormat{journaltitle}{%
@@ -18,22 +47,6 @@
   }%
 }
 
-\DeclareFieldFormat{titlecase}{\iftoggle{bbx:titlelink}{%
-\iffieldundef{url}{\MakeSentenceCase{#1}}{%
-\href{\thefield{url}}{#1}}}{\MakeSentenceCase{#1}}}
+\DefineBibliographyExtras{english}{\renewcommand*{\bibrangedash}{～}}
 
-\DeclareFieldFormat{booktitlecase}{\MakeCapital{#1}}
-\renewbibmacro*{booktitle}{%
-  \ifboolexpr{
-    test {\iffieldundef{booktitle}}
-    and
-    test {\iffieldundef{booksubtitle}}
-  }
-    {}
-    {\printtext[booktitle]{\bibtitlefont%
-       \printfield[booktitlecase]{booktitle}%
-       \setunit{\subtitlepunct}%
-       \printfield[booktitlecase]{booksubtitle}}%
-     \newunit%标点换成下一句
-     \setunit{\subtitlepunct}}%
-  \printfield{booktitleaddon}}
+\renewcommand*{\finentrypunct}{}

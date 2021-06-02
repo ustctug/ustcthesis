@@ -4,7 +4,7 @@
 %%
 %% The original source files were:
 %%
-%% gbt7714.dtx  (with options: `2015,ustc,numerical,nouppercase,nomark,italicjournal')
+%% gbt7714.dtx  (with options: `2015,ustc-bachelor,numerical')
 %% -------------------------------------------------------------------
 %% GB/T 7714—2015 BibTeX Style
 %% https://github.com/CTeX-org/gbt7714-bibtex-style
@@ -29,6 +29,7 @@ INTEGERS {
   terms.in.macro
   year.after.author
   period.after.author
+  italic.book.title
   sentence.case.title
   link.title
   title.in.journal
@@ -43,12 +44,14 @@ INTEGERS {
   show.missing.address.publisher
   space.before.pages
   only.start.page
+  wave.dash.in.pages
   show.urldate
   show.url
   show.doi
   show.preprint
   show.note
   show.english.translation
+  end.with.period
 }
 
 FUNCTION {load.config}
@@ -56,12 +59,13 @@ FUNCTION {load.config}
   #2 'citation.et.al.min :=
   #1 'citation.et.al.use.first :=
   #4 'bibliography.et.al.min :=
-  #3 'bibliography.et.al.use.first :=
+  #1 'bibliography.et.al.use.first :=
   #0 'uppercase.name :=
   #0 'terms.in.macro :=
   #0 'year.after.author :=
   #1 'period.after.author :=
-  #1 'sentence.case.title :=
+  #1 'italic.book.title :=
+  #0 'sentence.case.title :=
   #0 'link.title :=
   #1 'title.in.journal :=
   #0 'show.mark :=
@@ -75,12 +79,14 @@ FUNCTION {load.config}
   #0 'show.missing.address.publisher :=
   #1 'space.before.pages :=
   #0 'only.start.page :=
+  #1 'wave.dash.in.pages :=
   #1 'show.urldate :=
   #1 'show.url :=
   #1 'show.doi :=
   #0 'show.preprint :=
   #0 'show.note :=
   #0 'show.english.translation :=
+  #0 'end.with.period :=
 }
 
 ENTRY
@@ -331,7 +337,10 @@ FUNCTION {output.check}
 }
 
 FUNCTION {fin.entry}
-{ add.period$
+{ end.with.period
+    'add.period$
+    'skip$
+  if$
   write$
   show.english.translation entry.lang lang.zh = and
     { ")"
@@ -418,10 +427,18 @@ FUNCTION {field.or.null}
   if$
 }
 
-FUNCTION {italicize}
+FUNCTION {emphasize}
 { duplicate$ empty$
     { pop$ "" }
-    { "\textit{" swap$ * "}" * }
+    { "\emph{" swap$ * "}" * }
+  if$
+}
+
+FUNCTION {format.btitle}
+{ italic.book.title
+  entry.lang lang.en = and
+    'emphasize
+    'skip$
   if$
 }
 
@@ -556,7 +573,8 @@ FUNCTION {format.name}
     { bbl.et.al }
     { t get.str.lang 'name.lang :=
       name.lang lang.en =
-        { t #1 "{vv~}{ll}{~f{~}}" format.name$
+      {
+          t #1 "{vv~}{ll}{~f{}}" format.name$
           uppercase.name
             { "u" change.case$ }
             'skip$
@@ -578,7 +596,11 @@ FUNCTION {format.names}
     { namesleft #0 > }
     { s nameptr format.name bbl.et.al =
       numnames bibliography.et.al.min #1 - > nameptr bibliography.et.al.use.first > and or
-        { ", " *
+        {
+          entry.lang lang.en =
+            { ", " * }
+            'skip$
+          if$
           bbl.et.al *
           #1 'namesleft :=
         }
@@ -907,6 +929,7 @@ FUNCTION {format.series.vol.num.title}
     }
     { format.title.vol.num }
   if$
+  format.btitle
   link.title
     'add.link
     'skip$
@@ -938,6 +961,7 @@ FUNCTION {format.series.vol.num.booktitle}
     }
     { format.booktitle.vol.num }
   if$
+  format.btitle
   in.booktitle
     { duplicate$ empty$ not entry.lang lang.en = and
         { "In: " swap$ * }
@@ -1007,7 +1031,7 @@ FUNCTION {format.journal}
   if$
   duplicate$ empty$ not
     { italic.journal entry.lang lang.en = and
-        'italicize
+        'emphasize
         'skip$
       if$
     }
@@ -1307,7 +1331,10 @@ FUNCTION {hyphenate}
   ""
     { t empty$ not }
     { t #1 #1 substring$ "-" =
-        { "-" *
+        { wave.dash.in.pages
+            { "～" * }
+            { "-" * }
+          if$
             { t #1 #1 substring$ "-" = }
             { t #2 global.max$ substring$ 't := }
           while$
@@ -1642,7 +1669,7 @@ FUNCTION {monograph}
     { format.year "year" output.check }
     'skip$
   if$
-  format.pages bbl.pages.colon output.after
+  format.pages output
   format.urldate "" output.after
   output.url
   output.doi
@@ -1741,6 +1768,10 @@ FUNCTION {article}
     'skip$
   if$
   new.block
+  entry.lang lang.en =
+    { #0 'title.in.journal := }
+    { #1 'title.in.journal := }
+  if$
   title.in.journal
     { format.title "title" output.check
       "J" set.entry.mark
