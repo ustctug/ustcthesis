@@ -413,7 +413,7 @@
 \RequirePackage{caption}
 \RequirePackage[perpage]{footmisc}
 \RequirePackage{url}
-\RequirePackage{calc}
+\RequirePackage{multirow}
 
 % 如果用户在导言区未调用 \pkg{biblatex}，则自动调用 \pkg{natbib}。
 \AtEndPreamble{
@@ -1591,6 +1591,10 @@
   professional-type* = {
     name = professional@type@en,
   },
+  department,
+  student-id = {
+    name = student@id,
+  },
   secret-level = {
     name    = secret@level,
   },
@@ -1651,7 +1655,8 @@
   }%
   \expandafter\ustc@@process@date\ustc@@date\@nil
 }
-\newcommand\ustc@date@format@zh[3]{\zhdigits{#1}年\zhnumber{#2}月\zhnumber{#3}日}
+\newcommand\ustc@date@format@zh@small[3]{\number#1 年 \number#2 月 \number#3 日}
+\newcommand\ustc@date@format@zh@big[3]{\zhdigits{#1}年\zhnumber{#2}月\zhnumber{#3}日}
 \newcommand\ustc@date@month[1]{%
   \ifcase\number#1\or
     January\or February\or March\or April\or May\or June\or
@@ -1659,7 +1664,8 @@
   \fi
 }
 \newcommand\ustc@date@format@en[3]{\ustc@date@month{#2} \number#3, #1}
-\newcommand\ustc@date@zh{\ustc@format@date{\ustc@date@format@zh}{\ustc@date}}
+\newcommand\ustc@date@zh@small{\ustc@format@date{\ustc@date@format@zh@small}{\ustc@date}}
+\newcommand\ustc@date@zh@big{\ustc@format@date{\ustc@date@format@zh@big}{\ustc@date}}
 \newcommand\ustc@date@en{\ustc@format@date{\ustc@date@format@en}{\ustc@date}}
 
 % 版本 v3.2 开始使用 \cs{ustcsetup} 设置接口，
@@ -1684,7 +1690,7 @@
 \gdef\encosupervisor#1{%
   \g@addto@macro\ustc@supervisor@en{, #1}%
 }
-\gdef\date#1{\renewcommand\ustc@date@zh{#1}}
+\gdef\date#1{\renewcommand\ustc@date@zh@big{#1}}
 \gdef\endate#1{\renewcommand\ustc@date@en{#1}}
 \ustc@define@term{professionaltype}{professional-type}
 \ustc@define@term{enprofessionaltype}{professional-type*}
@@ -1760,7 +1766,7 @@
 % 注意这里的“单倍行距”的地方开启了“对齐到网格”，所以实际行距有所偏差，
 % 所以只能使用直尺测量。
 \newcommand\ustc@speciality@sse{软件工程}
-\newcommand\ustc@makezhtitle{%
+\newcommand\ustc@title@page@graduate@zh{%
   \ustcsetup{language=chinese}%
   \begin{titlepage}%
     \ustc@pdfbookmark{封面}%
@@ -1802,14 +1808,14 @@
           \textsf{校内导师：} & \ustc@supervisor@names \\
           \textsf{企业导师：} & \ustc@advisor@names \\
         \fi
-        \textsf{完成时间：} & \ustc@date@zh
+        \textsf{完成时间：} & \ustc@date@zh@big
       \end{tabular}\par}%
   \end{titlepage}%
   \ustc@reset@main@language
 }
 
 % 英文封面
-\newcommand\ustc@makeentitle{%
+\newcommand\ustc@title@page@graduate@en{%
   \ustcsetup{language=english}%
   \begin{titlepage}%
     \ustc@pdfbookmark{Title page}%
@@ -1853,14 +1859,72 @@
   \ustc@reset@main@language
 }
 
+% 本科生的封面
+\newcommand\ustc@title@page@bachelor{%
+  \begin{titlepage}%
+    \ustc@pdfbookmark{Title page}%
+    \centering
+    \vspace*{0.8cm}%
+    \includegraphics{figures/ustc-title-page-heading.pdf}%
+    \vskip 4.3cm%
+    \begingroup
+      \bfseries\fontsize{15bp}{16bp}\selectfont
+      \setlength\tabcolsep{\z@}%
+      \setlength\arrayrulewidth{1.5pt}%
+      \begin{tabular}{lp{140bp}lp{140bp}}
+        题\quad 目 &
+          \multirow[t]{2}{325bp}{%
+            \centering\fontsize{15bp}{40bp}\selectfont
+            \ustc@title
+          } & & \\
+        \cline{2-4}
+        \noalign{\vskip 24bp}
+        & & & \\
+        \cline{2-4}
+        \noalign{\vskip 24bp}
+        英\quad 文 &
+          \multirow[t]{3}{325bp}{%
+            \centering\fontsize{15bp}{40bp}\selectfont
+            \ustc@title@en
+          } & & \\
+        \cline{2-4}
+        \noalign{\vskip 24bp}
+        题\quad 目 & & & \\
+        \cline{2-4}
+        \noalign{\vskip 24bp}
+        & & & \\
+        \cline{2-4}
+        \noalign{\vskip 24bp}
+        院\quad 系 & \multirow[t]{1}{325bp}{\centering\ustc@department} & & \\
+        \cline{2-4}
+        \noalign{\vskip 24bp}
+        姓\quad 名 & \multirow[t]{1}{140bp}{\centering\ustc@author} &
+        学\quad 号 & \multirow[t]{1}{140bp}{\centering\ustc@student@id} \\
+        \cline{2-2}
+        \cline{4-4}
+        \noalign{\vskip 24bp}
+        导\quad 师 & \multirow[t]{1}{325bp}{\centering\ustc@supervisor@names} & & \\
+        \cline{2-4}
+        \noalign{\vskip 24bp}
+        日\quad 期 & \multirow[t]{1}{325bp}{\centering\ustc@date@zh@small} & & \\
+        \cline{2-4}
+      \end{tabular}
+    \endgroup
+  \end{titlepage}%
+}
+
 % 重新定义 \cs{maketitle}，调用 \cs{ustc@makezhtitle}, \cs{ustc@makeentitle}
 % 分别生成中、英文封面。
 \renewcommand\maketitle{%
   \newgeometry{margin=2.54cm}%
   \pagenumbering{Alph}%
   \pagestyle{empty}%
-  \ustc@makezhtitle
-  \ustc@makeentitle
+  \ifustc@degree@graduate
+    \ustc@title@page@graduate@zh
+    \ustc@title@page@graduate@en
+  \else
+    \ustc@title@page@bachelor
+  \fi
   \cleardoublepage
   \restoregeometry
   \pagestyle{plain}%
