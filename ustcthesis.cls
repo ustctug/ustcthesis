@@ -413,6 +413,7 @@
 \RequirePackage{caption}
 \RequirePackage[perpage]{footmisc}
 \RequirePackage{url}
+\RequirePackage{notoccite}
 \RequirePackage{multirow}
 
 % 如果用户在导言区未调用 \pkg{biblatex}，则自动调用 \pkg{natbib}。
@@ -3052,6 +3053,18 @@
     \def\theoremautorefname{定理}
     \def\HyRef@autopageref#1{\hyperref[{#1}]{第~\pageref*{#1} 页}}
   \fi
+  %
+  % 本科生需要在 \tableofcontents 处切换 \pagenumbering，
+  % 在使用了 notoccite 后会导致 PDF 书签的页码有误（#293），
+  % 所以需要补充 https://tex.stackexchange.com/a/593839/82731 的 patch。
+  \def\HyPL@StorePageLabel#1{%
+    \begingroup
+      \edef\Hy@tempa{\the\Hy@abspage<<#1>>}%
+      \immediate\write\@mainaux{%
+        \string\HyPL@Entry{\Hy@tempa}%
+      }%
+    \endgroup
+  }
 }
 
 
