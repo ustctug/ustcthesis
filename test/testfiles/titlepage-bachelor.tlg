@@ -68,7 +68,6 @@ Overfull \vbox (31.56306pt too high) detected at line 10
 ..\TU/FandolSong(0)/b/n/15.05624 学
 ..\kern -0.00017
 ..\kern 0.00017
-..\kern 0.0
 ..\penalty 10000
 ..\glue(\parfillskip) 0.0
 ..\glue(\rightskip) 0.0 plus 1.0fil
@@ -101,7 +100,6 @@ Overfull \vbox (31.56306pt too high) detected at line 10
 ..\kern -0.00017
 ..\kern 0.00017
 ..\rule(28.10486+12.04512)x0.0
-..\kern 0.0
 ..\penalty 10000
 ..\glue(\parfillskip) 0.0
 ..\glue(\rightskip) 0.0 plus 1.0fil
@@ -134,7 +132,6 @@ Overfull \hbox (185.69376pt too wide) in paragraph at lines 10--10
 ....\TU/FandolSong(0)/b/n/15.05624 学
 ....\kern -0.00017
 ....\kern 0.00017
-....\kern 0.0
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0
 ....\glue(\rightskip) 0.0 plus 1.0fil
@@ -167,7 +164,6 @@ Overfull \hbox (185.69376pt too wide) in paragraph at lines 10--10
 ....\kern -0.00017
 ....\kern 0.00017
 ....\rule(28.10486+12.04512)x0.0
-....\kern 0.0
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0
 ....\glue(\rightskip) 0.0 plus 1.0fil
@@ -175,7 +171,6 @@ Overfull \hbox (185.69376pt too wide) in paragraph at lines 10--10
 ..\glue 0.0 plus 1.0fil minus 1.0fil
 .\penalty 10000
 .\rule(0.0+4.81804)x0.0
-.\kern 0.0
 .\penalty 10000
 .\glue(\parfillskip) 0.0 plus 1.0fil
 .\glue(\rightskip) 0.0
@@ -241,7 +236,6 @@ Overfull \vbox (15.25711pt too high) detected at line 10
 ..\kern -0.0002
 ..\kern 0.0002
 ..\rule(28.10486+12.04512)x0.0
-..\kern 0.0
 ..\penalty 10000
 ..\glue(\parfillskip) 0.0
 ..\glue(\rightskip) 0.0 plus 1.0fil
@@ -313,7 +307,6 @@ Overfull \hbox (185.69376pt too wide) in paragraph at lines 10--10
 ....\kern -0.0002
 ....\kern 0.0002
 ....\rule(28.10486+12.04512)x0.0
-....\kern 0.0
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0
 ....\glue(\rightskip) 0.0 plus 1.0fil
@@ -321,7 +314,6 @@ Overfull \hbox (185.69376pt too wide) in paragraph at lines 10--10
 ..\glue 0.0 plus 1.0fil minus 1.0fil
 .\penalty 10000
 .\rule(0.0+4.81804)x0.0
-.\kern 0.0
 .\penalty 10000
 .\glue(\parfillskip) 0.0 plus 1.0fil
 .\glue(\rightskip) 0.0
@@ -350,7 +342,6 @@ Overfull \hbox (185.69376pt too wide) in paragraph at lines 10--10
 ....\kern -0.00017
 ....\kern 0.00017
 ....\rule(11.24194+4.81804)x0.0
-....\kern 0.0
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0
 ....\glue(\rightskip) 0.0 plus 1.0fil
@@ -358,7 +349,6 @@ Overfull \hbox (185.69376pt too wide) in paragraph at lines 10--10
 ..\glue 0.0 plus 1.0fil minus 1.0fil
 .\penalty 10000
 .\rule(0.0+4.81804)x0.0
-.\kern 0.0
 .\penalty 10000
 .\glue(\parfillskip) 0.0 plus 1.0fil
 .\glue(\rightskip) 0.0
@@ -397,7 +387,6 @@ Overfull \hbox (185.69376pt too wide) in paragraph at lines 10--10
 ....\kern 0.00018
 ....\glue 3.76407 plus 1.88203 minus 1.25468
 ....\rule(11.24194+4.81804)x0.0
-....\kern 0.0
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0
 ....\glue(\rightskip) 0.0 plus 1.0fil
@@ -405,7 +394,6 @@ Overfull \hbox (185.69376pt too wide) in paragraph at lines 10--10
 ..\glue 0.0 plus 1.0fil minus 1.0fil
 .\penalty 10000
 .\rule(0.0+4.81804)x0.0
-.\kern 0.0
 .\penalty 10000
 .\glue(\parfillskip) 0.0 plus 1.0fil
 .\glue(\rightskip) 0.0
@@ -434,7 +422,6 @@ Overfull \hbox (185.69376pt too wide) in paragraph at lines 10--10
 ....\kern -0.00017
 ....\kern 0.00017
 ....\rule(11.24194+4.81804)x0.0
-....\kern 0.0
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0
 ....\glue(\rightskip) 0.0 plus 1.0fil
@@ -442,7 +429,6 @@ Overfull \hbox (185.69376pt too wide) in paragraph at lines 10--10
 ..\glue 0.0 plus 1.0fil minus 1.0fil
 .\penalty 10000
 .\rule(0.0+4.81804)x0.0
-.\kern 0.0
 .\penalty 10000
 .\glue(\parfillskip) 0.0 plus 1.0fil
 .\glue(\rightskip) 0.0
@@ -492,7 +478,6 @@ Completed box being shipped out [1]
 ........\special{pdf:etrans}
 .......\kern 347.29749
 .......\glue 0.0 plus 1.0fil minus 1.0fil
-....\kern 0.0
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0
 ....\glue(\rightskip) 0.0 plus 1.0fil
@@ -551,7 +536,6 @@ Completed box being shipped out [1]
 .............\TU/FandolSong(0)/b/n/15.05624 学
 .............\kern -0.00017
 .............\kern 0.00017
-.............\kern 0.0
 .............\penalty 10000
 .............\glue(\parfillskip) 0.0
 .............\glue(\rightskip) 0.0 plus 1.0fil
@@ -584,7 +568,6 @@ Completed box being shipped out [1]
 .............\kern -0.00017
 .............\kern 0.00017
 .............\rule(28.10486+12.04512)x0.0
-.............\kern 0.0
 .............\penalty 10000
 .............\glue(\parfillskip) 0.0
 .............\glue(\rightskip) 0.0 plus 1.0fil
@@ -592,7 +575,6 @@ Completed box being shipped out [1]
 ...........\glue 0.0 plus 1.0fil minus 1.0fil
 ..........\penalty 10000
 ..........\rule(0.0+4.81804)x0.0
-..........\kern 0.0
 ..........\penalty 10000
 ..........\glue(\parfillskip) 0.0 plus 1.0fil
 ..........\glue(\rightskip) 0.0
@@ -610,7 +592,6 @@ Completed box being shipped out [1]
 .........\hbox(0.0+4.81804)x140.525, glue set 140.525fil
 ..........\hbox(0.0+0.0)x0.0
 ..........\rule(0.0+4.81804)x0.0
-..........\kern 0.0
 ..........\penalty 10000
 ..........\glue(\parfillskip) 0.0 plus 1.0fil
 ..........\glue(\rightskip) 0.0
@@ -647,7 +628,6 @@ Completed box being shipped out [1]
 .........\hbox(0.0+4.81804)x140.525, glue set 140.525fil
 ..........\hbox(0.0+0.0)x0.0
 ..........\rule(0.0+4.81804)x0.0
-..........\kern 0.0
 ..........\penalty 10000
 ..........\glue(\parfillskip) 0.0 plus 1.0fil
 ..........\glue(\rightskip) 0.0
@@ -665,7 +645,6 @@ Completed box being shipped out [1]
 .........\hbox(0.0+4.81804)x140.525, glue set 140.525fil
 ..........\hbox(0.0+0.0)x0.0
 ..........\rule(0.0+4.81804)x0.0
-..........\kern 0.0
 ..........\penalty 10000
 ..........\glue(\parfillskip) 0.0 plus 1.0fil
 ..........\glue(\rightskip) 0.0
@@ -772,7 +751,6 @@ Completed box being shipped out [1]
 .............\kern -0.0002
 .............\kern 0.0002
 .............\rule(28.10486+12.04512)x0.0
-.............\kern 0.0
 .............\penalty 10000
 .............\glue(\parfillskip) 0.0
 .............\glue(\rightskip) 0.0 plus 1.0fil
@@ -780,7 +758,6 @@ Completed box being shipped out [1]
 ...........\glue 0.0 plus 1.0fil minus 1.0fil
 ..........\penalty 10000
 ..........\rule(0.0+4.81804)x0.0
-..........\kern 0.0
 ..........\penalty 10000
 ..........\glue(\parfillskip) 0.0 plus 1.0fil
 ..........\glue(\rightskip) 0.0
@@ -798,7 +775,6 @@ Completed box being shipped out [1]
 .........\hbox(0.0+4.81804)x140.525, glue set 140.525fil
 ..........\hbox(0.0+0.0)x0.0
 ..........\rule(0.0+4.81804)x0.0
-..........\kern 0.0
 ..........\penalty 10000
 ..........\glue(\parfillskip) 0.0 plus 1.0fil
 ..........\glue(\rightskip) 0.0
@@ -843,7 +819,6 @@ Completed box being shipped out [1]
 .........\hbox(0.0+4.81804)x140.525, glue set 140.525fil
 ..........\hbox(0.0+0.0)x0.0
 ..........\rule(0.0+4.81804)x0.0
-..........\kern 0.0
 ..........\penalty 10000
 ..........\glue(\parfillskip) 0.0 plus 1.0fil
 ..........\glue(\rightskip) 0.0
@@ -861,7 +836,6 @@ Completed box being shipped out [1]
 .........\hbox(0.0+4.81804)x140.525, glue set 140.525fil
 ..........\hbox(0.0+0.0)x0.0
 ..........\rule(0.0+4.81804)x0.0
-..........\kern 0.0
 ..........\penalty 10000
 ..........\glue(\parfillskip) 0.0 plus 1.0fil
 ..........\glue(\rightskip) 0.0
@@ -898,7 +872,6 @@ Completed box being shipped out [1]
 .........\hbox(0.0+4.81804)x140.525, glue set 140.525fil
 ..........\hbox(0.0+0.0)x0.0
 ..........\rule(0.0+4.81804)x0.0
-..........\kern 0.0
 ..........\penalty 10000
 ..........\glue(\parfillskip) 0.0 plus 1.0fil
 ..........\glue(\rightskip) 0.0
@@ -916,7 +889,6 @@ Completed box being shipped out [1]
 .........\hbox(0.0+4.81804)x140.525, glue set 140.525fil
 ..........\hbox(0.0+0.0)x0.0
 ..........\rule(0.0+4.81804)x0.0
-..........\kern 0.0
 ..........\penalty 10000
 ..........\glue(\parfillskip) 0.0 plus 1.0fil
 ..........\glue(\rightskip) 0.0
@@ -981,7 +953,6 @@ Completed box being shipped out [1]
 .............\kern -0.00017
 .............\kern 0.00017
 .............\rule(11.24194+4.81804)x0.0
-.............\kern 0.0
 .............\penalty 10000
 .............\glue(\parfillskip) 0.0
 .............\glue(\rightskip) 0.0 plus 1.0fil
@@ -989,7 +960,6 @@ Completed box being shipped out [1]
 ...........\glue 0.0 plus 1.0fil minus 1.0fil
 ..........\penalty 10000
 ..........\rule(0.0+4.81804)x0.0
-..........\kern 0.0
 ..........\penalty 10000
 ..........\glue(\parfillskip) 0.0 plus 1.0fil
 ..........\glue(\rightskip) 0.0
@@ -1007,7 +977,6 @@ Completed box being shipped out [1]
 .........\hbox(0.0+4.81804)x140.525, glue set 140.525fil
 ..........\hbox(0.0+0.0)x0.0
 ..........\rule(0.0+4.81804)x0.0
-..........\kern 0.0
 ..........\penalty 10000
 ..........\glue(\parfillskip) 0.0 plus 1.0fil
 ..........\glue(\rightskip) 0.0
@@ -1066,7 +1035,6 @@ Completed box being shipped out [1]
 .............\kern -0.00017
 .............\kern 0.00017
 .............\rule(11.24194+4.81804)x0.0
-.............\kern 0.0
 .............\penalty 10000
 .............\glue(\parfillskip) 0.0
 .............\glue(\rightskip) 0.0 plus 1.0fil
@@ -1074,7 +1042,6 @@ Completed box being shipped out [1]
 ...........\glue 0.0 plus 1.0fil minus 1.0fil
 ..........\penalty 10000
 ..........\rule(0.0+4.81804)x0.0
-..........\kern 0.0
 ..........\penalty 10000
 ..........\glue(\parfillskip) 0.0 plus 1.0fil
 ..........\glue(\rightskip) 0.0
@@ -1110,7 +1077,6 @@ Completed box being shipped out [1]
 .............\kern -0.0002
 .............\kern 0.0002
 .............\rule(11.24194+4.81804)x0.0
-.............\kern 0.0
 .............\penalty 10000
 .............\glue(\parfillskip) 0.0
 .............\glue(\rightskip) 0.0 plus 1.0fil
@@ -1118,7 +1084,6 @@ Completed box being shipped out [1]
 ...........\glue 0.0 plus 1.0fil minus 1.0fil
 ..........\penalty 10000
 ..........\rule(0.0+4.81804)x0.0
-..........\kern 0.0
 ..........\penalty 10000
 ..........\glue(\parfillskip) 0.0 plus 1.0fil
 ..........\glue(\rightskip) 0.0
@@ -1203,7 +1168,6 @@ Completed box being shipped out [1]
 .............\kern 0.00018
 .............\glue 3.76407 plus 1.88203 minus 1.25468
 .............\rule(11.24194+4.81804)x0.0
-.............\kern 0.0
 .............\penalty 10000
 .............\glue(\parfillskip) 0.0
 .............\glue(\rightskip) 0.0 plus 1.0fil
@@ -1211,7 +1175,6 @@ Completed box being shipped out [1]
 ...........\glue 0.0 plus 1.0fil minus 1.0fil
 ..........\penalty 10000
 ..........\rule(0.0+4.81804)x0.0
-..........\kern 0.0
 ..........\penalty 10000
 ..........\glue(\parfillskip) 0.0 plus 1.0fil
 ..........\glue(\rightskip) 0.0
@@ -1229,7 +1192,6 @@ Completed box being shipped out [1]
 .........\hbox(0.0+4.81804)x140.525, glue set 140.525fil
 ..........\hbox(0.0+0.0)x0.0
 ..........\rule(0.0+4.81804)x0.0
-..........\kern 0.0
 ..........\penalty 10000
 ..........\glue(\parfillskip) 0.0 plus 1.0fil
 ..........\glue(\rightskip) 0.0
@@ -1294,7 +1256,6 @@ Completed box being shipped out [1]
 .............\kern -0.00017
 .............\kern 0.00017
 .............\rule(11.24194+4.81804)x0.0
-.............\kern 0.0
 .............\penalty 10000
 .............\glue(\parfillskip) 0.0
 .............\glue(\rightskip) 0.0 plus 1.0fil
@@ -1302,7 +1263,6 @@ Completed box being shipped out [1]
 ...........\glue 0.0 plus 1.0fil minus 1.0fil
 ..........\penalty 10000
 ..........\rule(0.0+4.81804)x0.0
-..........\kern 0.0
 ..........\penalty 10000
 ..........\glue(\parfillskip) 0.0 plus 1.0fil
 ..........\glue(\rightskip) 0.0
@@ -1320,7 +1280,6 @@ Completed box being shipped out [1]
 .........\hbox(0.0+4.81804)x140.525, glue set 140.525fil
 ..........\hbox(0.0+0.0)x0.0
 ..........\rule(0.0+4.81804)x0.0
-..........\kern 0.0
 ..........\penalty 10000
 ..........\glue(\parfillskip) 0.0 plus 1.0fil
 ..........\glue(\rightskip) 0.0
@@ -1342,7 +1301,6 @@ Completed box being shipped out [1]
 .......\glue(\tabskip) 0.0
 ......\glue -1.5
 .....\mathoff
-....\kern 0.0
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0
 ....\glue(\rightskip) 0.0 plus 1.0fil

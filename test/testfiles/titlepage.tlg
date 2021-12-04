@@ -99,7 +99,6 @@ Completed box being shipped out [1]
 ....\vbox(0.0+17.07182)x0.0, glue set 17.07182fil
 .....\hbox(0.0+0.0)x0.0
 .....\glue 0.0 plus 1.0fil minus 1.0fil
-....\kern 0.0
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0
 ....\glue(\rightskip) 0.0 plus 1.0fil
@@ -123,7 +122,6 @@ Completed box being shipped out [1]
 ........\special{pdf:etrans}
 .......\kern 285.33891
 .......\glue 0.0 plus 1.0fil minus 1.0fil
-....\kern 0.0
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0
 ....\glue(\rightskip) 0.0 plus 1.0fil
@@ -147,7 +145,6 @@ Completed box being shipped out [1]
 ....\TU/FandolHei(0)/m/n/56.20999 文
 ....\kern -0.00017
 ....\kern 0.00017
-....\kern 0.0
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0
 ....\glue(\rightskip) 0.0 plus 1.0fil
@@ -173,7 +170,6 @@ Completed box being shipped out [1]
 .......\kern 116.65477
 .......\glue 0.0 plus 1.0fil minus 1.0fil
 ....\special{color pop}
-....\kern 0.0
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0
 ....\glue(\rightskip) 0.0 plus 1.0fil
@@ -206,7 +202,6 @@ Completed box being shipped out [1]
 ......\TU/FandolHei(0)/b/n/26.09749 学
 ......\kern -0.00017
 ......\kern 0.00017
-......\kern 0.0
 ......\penalty 10000
 ......\glue(\parfillskip) 0.0
 ......\glue(\rightskip) 0.0 plus 1.0fil
@@ -238,12 +233,10 @@ Completed box being shipped out [1]
 ......\TU/FandolHei(0)/b/n/26.09749 档
 ......\kern -0.00017
 ......\kern 0.00017
-......\kern 0.0
 ......\penalty 10000
 ......\glue(\parfillskip) 0.0
 ......\glue(\rightskip) 0.0 plus 1.0fil
 .....\glue 0.0 plus 1.0fil minus 1.0fil
-....\kern 0.0
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0
 ....\glue(\rightskip) 0.0 plus 1.0fil
@@ -432,7 +425,6 @@ Completed box being shipped out [1]
 ........\glue 0.0 plus 1.0fil
 .......\glue(\tabskip) 0.0
 .....\mathoff
-....\kern 0.0
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0
 ....\glue(\rightskip) 0.0 plus 1.0fil
@@ -493,7 +485,6 @@ Completed box being shipped out [3]
 ....\vbox(0.0+11.38092)x0.0, glue set 11.38092fil
 .....\hbox(0.0+0.0)x0.0
 .....\glue 0.0 plus 1.0fil minus 1.0fil
-....\kern 0.0
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0
 ....\glue(\rightskip) 0.0 plus 1.0fil
@@ -531,7 +522,6 @@ Completed box being shipped out [3]
 ....\TU/texgyreheros(0)/m/n/20.075 China
 ....\kern -0.0002
 ....\kern 0.0002
-....\kern 0.0
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0
 ....\glue(\rightskip) 0.0 plus 1.0fil
@@ -560,7 +550,6 @@ Completed box being shipped out [3]
 ....\TU/texgyreheros(0)/m/n/26.09749 degree
 ....\kern -0.0002
 ....\kern 0.0002
-....\kern 0.0
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0
 ....\glue(\rightskip) 0.0 plus 1.0fil
@@ -586,7 +575,6 @@ Completed box being shipped out [3]
 .......\kern 128.03558
 .......\glue 0.0 plus 1.0fil minus 1.0fil
 ....\special{color pop}
-....\kern 0.0
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0
 ....\glue(\rightskip) 0.0 plus 1.0fil
@@ -661,12 +649,10 @@ Completed box being shipped out [3]
 ......\TU/texgyreheros(0)/b/n/26.09749 China
 ......\kern -0.0002
 ......\kern 0.0002
-......\kern 0.0
 ......\penalty 10000
 ......\glue(\parfillskip) 0.0
 ......\glue(\rightskip) 0.0 plus 1.0fil
 .....\glue 0.0 plus 1.0fil minus 1.0fil
-....\kern 0.0
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0
 ....\glue(\rightskip) 0.0 plus 1.0fil
@@ -783,7 +769,6 @@ Completed box being shipped out [3]
 ........\glue 0.0 plus 1.0fil
 .......\glue(\tabskip) 0.0
 .....\mathoff
-....\kern 0.0
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0
 ....\glue(\rightskip) 0.0 plus 1.0fil
