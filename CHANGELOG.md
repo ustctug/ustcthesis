@@ -24,6 +24,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - 修正本科生参考文献的格式。
 - 修正了图题的段后距离（#307）。
 
+### Removed
+
+- 去掉了 `siunitx` 的 `inter-unit-product` 设置。
+
 ## [v3.3.0] - 2021-03-18
 
 ### Added

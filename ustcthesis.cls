@@ -3201,11 +3201,6 @@
 % \subsubsection{\pkg{siunitx} 宏包}
 
 \AtEndOfPackageFile*{siunitx}{
-  \sisetup{
-    group-minimum-digits = 4,
-    separate-uncertainty = true,
-    inter-unit-product   = \ensuremath{{}\cdot{}},
-  }
   \newcommand\ustc@set@siunitx@language{%
     \ifustc@language@chinese
       \sisetup{
