@@ -20,6 +20,6 @@ REQUIRED_PKGS="$XECJK_PKGS $CTEX_PKGS caption footmisc filehook notoccite \
     multirow titlesec unicode-math";
 FONT_PKGS="fandol tex-gyre xits";
 EXTRA_PKGS="$ALGORITHM2E_PKGS $BIBLATEX_PKGS $NOMENCL_PKGS siunitx";
-DOC_PKGS="booktabs listings xcolor";
+DOC_PKGS="booktabs hypdoc listings xcolor";
 
 tlmgr install $BIN_PKGS $REQUIRED_PKGS $FONT_PKGS $EXTRA_PKGS $DOC_PKGS;
