@@ -22,6 +22,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - 修正了 biblatex 参考文献的页眉（#311）。
 - 修正授权使用声明中的“保密”为“控阅”（#314）。
 - 修正本科生参考文献的格式。
+- 修正了图题的段后距离（#307）。
 
 ## [v3.3.0] - 2021-03-18
 
