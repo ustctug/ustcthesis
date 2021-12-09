@@ -12,6 +12,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - 按照新版《手册》的要求，目录中的二级标题使用仿宋体 12 磅（#316）。
 - `biblatex` 的参考文献表中题名改为转换成 sentence case（感谢 [@hushidong](https://github.com/hushidong)）（#315）。
 - 本科生的封面改为制本厂的格式（#301）。
+- 参考文献表中预印本的文献类型标识改为“A”。
 
 ### Fixed
 
@@ -23,6 +24,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - 修正授权使用声明中的“保密”为“控阅”（#314）。
 - 修正本科生参考文献的格式。
 - 修正了图题的段后距离（#307）。
+- 参考文献表中专利文献使用 `address`/`lcoation` 输出专利国别。
 
 ### Removed
 

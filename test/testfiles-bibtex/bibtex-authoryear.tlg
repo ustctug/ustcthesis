@@ -1155,7 +1155,7 @@ C.}
 ...\glue 18.06749
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
-...\hbox(8.19963+1.86545)x393.02753, glue set 264.61989fil, shifted 24.09
+...\hbox(8.19963+1.86545)x393.02753, glue set 173.27519fil, shifted 24.09
 ....\hbox(0.0+0.0)x-24.09
 .....\glue -24.09
 .....\glue -24.0
@@ -1198,7 +1198,28 @@ C.}
 ....\kern -0.00021
 ....\kern 0.00021
 ....\glue 3.51312 plus 2.63483 minus 0.43913
-....\TU/texgyretermes(0)/m/n/10.53937 24-29.
+....\TU/FandolSong(0)/m/n/10.53937 中
+....\glue 0.0 plus 0.44923
+....\TU/FandolSong(0)/m/n/10.53937 国
+....\glue 0.0 plus 0.44923
+....\TU/FandolSong(0)/m/n/10.53937 科
+....\glue 0.0 plus 0.44923
+....\TU/FandolSong(0)/m/n/10.53937 学
+....\glue 0.0 plus 0.44923
+....\TU/FandolSong(0)/m/n/10.53937 技
+....\glue 0.0 plus 0.44923
+....\TU/FandolSong(0)/m/n/10.53937 术
+....\glue 0.0 plus 0.44923
+....\TU/FandolSong(0)/m/n/10.53937 大
+....\glue 0.0 plus 0.44923
+....\TU/FandolSong(0)/m/n/10.53937 学
+....\glue 0.0 plus 0.44923
+....\TU/FandolSong(0)/m/n/10.53937 出
+....\glue 0.0 plus 0.44923
+....\TU/FandolSong(0)/m/n/10.53937 版
+....\glue 0.0 plus 0.44923
+....\TU/FandolSong(0)/m/n/10.53937 社
+....\TU/texgyretermes(0)/m/n/10.53937 .
 ....\kern -0.00021
 ....\kern 0.00021
 ....\penalty 10000
@@ -1391,7 +1412,7 @@ C.}
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 10.87415
-...\hbox(7.25108+2.29756)x393.02753, glue set 0.0939, shifted 24.09
+...\hbox(7.25108+2.29756)x393.02753, glue set 0.09392, shifted 24.09
 ....\hbox(0.0+0.0)x-24.09
 .....\glue -24.09
 .....\glue -24.0
@@ -1405,10 +1426,9 @@ C.}
 .....\glue 6.0
 ....\penalty 0
 ....\TU/texgyretermes(0)/m/n/10.53937 BAKER
-....\kern -0.0002
-....\kern 0.0002
-....\penalty 10000
-....\glue 2.63484 plus 1.31741 minus 0.87828
+....\kern -0.00021
+....\kern 0.00021
+....\glue 2.63484 plus 1.31609 minus 0.87915
 ....\TU/texgyretermes(0)/m/n/10.53937 S
 ....\kern -0.0002
 ....\kern 0.0002
@@ -1419,10 +1439,9 @@ C.}
 ....\kern 0.00021
 ....\glue 2.63484 plus 1.31741 minus 0.87828
 ....\TU/texgyretermes(0)/m/n/10.53937 JACKSON
-....\kern -0.0002
-....\kern 0.0002
-....\penalty 10000
-....\glue 2.63484 plus 1.31741 minus 0.87828
+....\kern -0.00021
+....\kern 0.00021
+....\glue 2.63484 plus 1.31609 minus 0.87915
 ....\TU/texgyretermes(0)/m/n/10.53937 M
 ....\kern -0.0002
 ....\kern 0.0002
