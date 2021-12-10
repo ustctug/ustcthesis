@@ -6,20 +6,15 @@ jobs:
   test:
 
     runs-on: ubuntu-latest
-
+    if: "!contains(github.event.head_commit.message, 'ci skip')"
+    container: tunathu/thuthesis-test-env
     steps:
-    - uses: actions/checkout@v1
-    - name: Install TeX Live
-      run: bash .github/workflows/install-texlive.sh
+    - uses: actions/checkout@v2
+    - name: Install required packages
+      run: bash .github/workflows/install-packages.sh
     - name: Test thesis
-      run: |
-        export PATH=/tmp/texlive/bin/x86_64-linux:$PATH
-        make main
+      run: make main
     - name: Test doc
-      run: |
-        export PATH=/tmp/texlive/bin/x86_64-linux:$PATH
-        make doc
+      run: make doc
     - name: l3build check
-      run: |
-        export PATH=/tmp/texlive/bin/x86_64-linux:$PATH
-        make test
+      run: make test
