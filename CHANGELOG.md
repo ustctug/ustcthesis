@@ -9,23 +9,23 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Changed
 
-- 同步新版《撰写手册》（2016 年 12 月版，2019 年 第 3 次印刷）（#291）。
+- 同步新版《撰写手册》（2016 年 12 月版，2019 年 第 3 次印刷）（[#291](https://github.com/ustctug/ustcthesis/issues/291)）。
 - 本科生的第一章开启于奇数页。
-- 按照新版《手册》的要求，目录中的二级标题使用仿宋体 12 磅（#316）。
-- `biblatex` 的参考文献表中题名改为转换成 sentence case（感谢 [@hushidong](https://github.com/hushidong)）（#315）。
-- 本科生的封面改为制本厂的格式（#301）。
+- 按照新版《手册》的要求，目录中的二级标题使用仿宋体 12 磅（[#316](https://github.com/ustctug/ustcthesis/issues/316)）。
+- `biblatex` 的参考文献表中题名改为转换成 sentence case（感谢 [@hushidong](https://github.com/hushidong)）（[#315](https://github.com/ustctug/ustcthesis/issues/315)）。
+- 本科生的封面改为制本厂的格式（[#301](https://github.com/ustctug/ustcthesis/issues/301)）。
 - 参考文献表中预印本的文献类型标识改为“A”。
 
 ### Fixed
 
 - 修正了与 `chapterbib` 宏包的兼容性。
-- 修正了本科生 PDF 书签中页码的错误（#293）。
-- 修正了表题的字体（#295）。
-- 修正了 `article` 只有 `date` 时年份缺失的问题（#299）。
-- 修正了 biblatex 参考文献的页眉（#311）。
-- 修正授权使用声明中的“保密”为“控阅”（#314）。
+- 修正了本科生 PDF 书签中页码的错误（[#293](https://github.com/ustctug/ustcthesis/issues/293)）。
+- 修正了表题的字体（[#295](https://github.com/ustctug/ustcthesis/issues/295)）。
+- 修正了 `article` 只有 `date` 时年份缺失的问题（[#299](https://github.com/ustctug/ustcthesis/issues/299)）。
+- 修正了 biblatex 参考文献的页眉（[#311](https://github.com/ustctug/ustcthesis/issues/311)）。
+- 修正授权使用声明中的“保密”为“控阅”（[#314](https://github.com/ustctug/ustcthesis/issues/314)）。
 - 修正本科生参考文献的格式。
-- 修正了图题的段后距离（#307）。
+- 修正了图题的段后距离（[#307](https://github.com/ustctug/ustcthesis/issues/307)）。
 - 参考文献表中专利文献使用 `address`/`lcoation` 输出专利国别。
 
 ### Removed
@@ -37,7 +37,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ### Added
 
 - 添加软件工程专业的封面的格式的支持。
-- 新增 biblatex 的支持（#282）。
+- 新增 biblatex 的支持（[#282](https://github.com/ustctug/ustcthesis/issues/282)）。
 - 新增数学符号风格选项 `math-style`。
 - 新增选项控制数学字体风格的细节：`uppercase-greek`、`less-than-or-equal`、`integral`、`integral-limits`、`partial`、`math-ellipsis` 和 `real-part`。
 
@@ -52,7 +52,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ### Fixed
 
 - 修正附录章节的编号。
-- 修正参考文献中期刊的页码前的空格（#264）。
+- 修正参考文献中期刊的页码前的空格（[#264](https://github.com/ustctug/ustcthesis/issues/264)）。
 
 
 ## [v3.2.1] - 2020-04-03
