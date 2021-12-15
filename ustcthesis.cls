@@ -1785,7 +1785,13 @@
     \else
       \vskip 0.8cm%
       {\lishu\fontsize{26bp}{26bp}\selectfont
-        （\ustc@professional@type）\par}%
+        （%
+        \ifx\ustc@professional@type\@empty
+          专业学位类型%
+        \else
+          \ustc@professional@type
+        \fi
+        ）\par}%
       \vskip 1.0cm%
     \fi
     \ifustc@badge@color@blue
@@ -1831,7 +1837,13 @@
       \ustc@thesis@name@en\par}%
     \ifustc@degree@type@academic\else
       {\fontsize{16bp}{32bp}\selectfont
-        (\ustc@professional@type@en)\par}%
+        (%
+        \ifx\ustc@professional@type@en\@empty
+          Professional degree type%
+        \else
+          \ustc@professional@type@en
+        \fi
+        )\par}%
     \fi
     \vskip 2.5cm%
     \ifustc@badge@color@blue
