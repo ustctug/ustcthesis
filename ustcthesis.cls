@@ -241,6 +241,7 @@
       xits,
       libertinus,
       newcm,
+      cm,
       lm,
       newtx,
       none,
@@ -1240,6 +1241,8 @@
 
 % STIX Two Math
 \newcommand\ustc@set@math@font@stix{%
+  \ustc@load@unimath
+  \ustc@set@unimath@style
   \ustc@set@stix@names
   \setmathfont{\ustc@font@name@stix@math}[
     Extension    = .otf,
@@ -1259,6 +1262,8 @@
   \fi
 }
 \newcommand\ustc@set@math@font@xits{%
+  \ustc@load@unimath
+  \ustc@set@unimath@style
   \ustc@set@xits@names
   \setmathfont{\ustc@font@name@xits@math}[
     Extension    = .otf,
@@ -1278,6 +1283,8 @@
   \fi
 }
 \newcommand\ustc@set@math@font@libertinus{%
+  \ustc@load@unimath
+  \ustc@set@unimath@style
   \ustc@set@libertinus@names
   \ustc@set@xits@names
   \setmathfont{\ustc@font@name@libertinus@math}[
@@ -1297,6 +1304,8 @@
   \fi
 }
 \newcommand\ustc@set@math@font@newcm{%
+  \ustc@load@unimath
+  \ustc@set@unimath@style
   \setmathfont{NewCMMath-Book}[
     Extension    = .otf,
     StylisticSet = \ustc@newcm@integral@stylistic@set,
@@ -1331,6 +1340,8 @@
 
 % Latin Modern Math
 \newcommand\ustc@set@math@font@lm{%
+  \ustc@load@unimath
+  \ustc@set@unimath@style
   \setmathfont{latinmodern-math}[Extension=.otf]%
   \setmathrm{lmroman10}[
     Extension      = .otf,
@@ -1410,20 +1421,60 @@
   \fi
   \DeclareRobustCommand\symup[1]{{\mathrm{##1}}}%
   \DeclareRobustCommand\symbf[1]{{\bm{##1}}}%
+  \DeclareRobustCommand\symbfsf[1]{{\bm{##1}}}%
   \let\increment\upDelta%
   \renewcommand\ustc@qed{\openbox}%
 }
 
-\newcommand\ustc@set@math@font{%
-  \ifustc@math@font@none\else
-    \ifustc@math@font@newtx
-      \ustc@set@math@font@newtx
-    \else
-      \ustc@load@unimath
-      \ustc@set@unimath@style
-      \@nameuse{ustc@set@math@font@\ustc@math@font}%
-    \fi
+% Computer Modern
+% 使用 LaTeX 默认的 cm 字体
+\newcommand\ustc@set@math@font@cm{%
+  \RequirePackage{amssymb}
+  \let\ustc@save@leq\leq
+  \let\ustc@save@geq\geq
+  \ifustc@leq@slanted
+    \let\le\leqslant
+    \let\ge\geqslant
+    \let\leq\leqslant
+    \let\geq\geqslant
   \fi
+  \ifustc@integral@limits@true
+    \let\ilimits@\displaylimits
+  \fi
+  \ifustc@math@ellipsis@centered
+    \DeclareRobustCommand\mathellipsis{\mathinner{\cdotp\cdotp\cdotp}}%
+  \else
+    \DeclareRobustCommand\mathellipsis{\mathinner{\ldotp\ldotp\ldotp}}%
+  \fi
+  \let\ustc@save@Re\Re
+  \let\ustc@save@Im\Im
+  \ifustc@real@part@roman
+    \def\Re{\operatorname{Re}}%
+    \def\Im{\operatorname{Im}}%
+  \fi
+  \RequirePackage{bm}%
+  \DeclareRobustCommand\symup[1]{{\mathrm{##1}}}%
+  \DeclareRobustCommand\symbf[1]{{\bm{##1}}}%
+  \DeclareRobustCommand\symbfsf[1]{{\bm{##1}}}%
+  \let\increment\Delta
+  \renewcommand\ustc@qed{\openbox}%
+  \let\uppi\pi
+}
+
+% 不设置数学字体，仅提供兼容支持。
+\newcommand\ustc@set@math@font@none{%
+  \RequirePackage{amssymb}
+  \RequirePackage{bm}%
+  \DeclareRobustCommand\symup[1]{{\mathrm{##1}}}%
+  \DeclareRobustCommand\symbf[1]{{\bm{##1}}}%
+  \DeclareRobustCommand\symbfsf[1]{{\bm{##1}}}%
+  \let\increment\Delta
+  \renewcommand\ustc@qed{\openbox}%
+  \let\uppi\pi
+}
+
+\newcommand\ustc@set@math@font{%
+  \@nameuse{ustc@set@math@font@\ustc@math@font}%
 }
 \ustc@option@hook{math-font}{\g@addto@macro\ustc@setup@hook{\ustc@set@math@font}}
 \newcommand\ustc@set@math@font@auto{%
@@ -1432,7 +1483,12 @@
   \fi
 }
 \AtBeginOfPackageFile*{siunitx}{\ustc@set@math@font@auto}
-\AtEndPreamble{\ustc@set@math@font@auto}
+\AtEndPreamble{%
+  \ustc@set@math@font@auto
+  \ifx\square\@undefined
+    \RequirePackage{amssymb}%
+  \fi
+}
 
 
 
