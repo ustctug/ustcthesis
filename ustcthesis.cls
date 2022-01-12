@@ -1,5 +1,5 @@
 %
-% Copyright (C) 2015-2021 by USTC TeX Users Group <https://github.com/ustctug>
+% Copyright (C) 2015-2022 by USTC TeX Users Group <https://github.com/ustctug>
 %
 % This file may be distributed and/or modified under the
 % conditions of the LaTeX Project Public License, either version 1.3c
