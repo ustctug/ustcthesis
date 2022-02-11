@@ -1,29 +1,45 @@
 {
-    "latex-workshop.intellisense.package.enabled": true,
     "latex-workshop.intellisense.unimathsymbols.enabled": true,
-    "latex-workshop.latex.build.forceRecipeUsage": true,
     "latex-workshop.latex.recipes": [
         {
-            "name": "latexmk -xelatex",
-            "tools": ["latexmk -xelatex"]
+            "name": "latexmk (xelatex)",
+            "tools": [
+                "xelatexmk"
+            ]
+        },
+        {
+            "name": "latexmk (lualatex)",
+            "tools": [
+                "lualatexmk"
+            ]
         }
     ],
     "latex-workshop.latex.tools": [
         {
-            "name": "latexmk -xelatex",
+            "name": "xelatexmk",
             "command": "latexmk",
             "args": [
-                "-xelatex",
-                "-file-line-error",
-                "-halt-on-error",
-                "-interaction=nonstopmode",
                 "-synctex=1",
-                "-pv-",
-                "-pvc-",
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "-xelatex",
                 "-outdir=%OUTDIR%",
-                "%DOCFILE%"
+                "%DOC%"
             ],
             "env": {}
-        }
+        },
+        {
+            "name": "lualatexmk",
+            "command": "latexmk",
+            "args": [
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "-lualatex",
+                "-outdir=%OUTDIR%",
+                "%DOC%"
+            ],
+            "env": {}
+        },
     ]
 }

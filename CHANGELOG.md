@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - 新增选项 `math-font = cm` (Computer Modern)（[#324](https://github.com/ustctug/ustcthesis/issues/324)）。
+- 新增 LuaLaTeX 支持（虽然很慢）。
 
 ## [v3.3.1] - 2021-12-10
 

@@ -29,10 +29,12 @@
   }
 }
 
-% 检查编译引擎，要求使用 XeLaTeX。
+% 检查编译引擎，要求使用 XeLaTeX 或 LuaLaTeX。
 \RequirePackage{iftex}
 \ifXeTeX\else
-  \ustc@error{XeLaTeX is required to compile this document}
+  \ifLuaTeX\else
+    \ustc@error{XeLaTeX or LuaLaTeX is required to compile this document}
+  \fi
 \fi
 
 
@@ -406,7 +408,7 @@
 \RequirePackage{etoolbox}
 \RequirePackage{amsmath}
 \RequirePackage{fontspec}[2017/03/31]
-\RequirePackage[driver=xetex]{geometry}
+\RequirePackage{geometry}
 \RequirePackage{graphicx}
 \RequirePackage{fancyhdr}
 \RequirePackage{color}
@@ -502,8 +504,20 @@
 }
 
 % 带圈数字和星号使用中文字体。
-\xeCJKDeclareCharClass{CJK}{"2460 -> "2473}
-\xeCJKDeclareCharClass{CJK}{"2605}
+\ifLuaTeX
+  % ctex 将带圈数字 U+2460–U+24FF 归入字符范围 3（ALchar），这里改回范围 6（JAchar）
+  \ltjdefcharrange{3}{%
+    "2000-"243F, "2500-"27BF, "2900-"29FF, "2B00-"2BFF}
+  \ltjdefcharrange{6}{%
+    "2460-"24FF, "2E80-"2EFF, "3000-"30FF, "3190-"319F, "31F0-"4DBF,
+    "4E00-"9FFF, "F900-"FAFF, "FE10-"FE1F, "FE30-"FE6F, "FF00-"FFEF,
+    "1B000-"1B16F, "1F100-"1F2FF, "20000-"3FFFF, "E0100-"E01EF}
+\else
+  \ifXeTeX
+    \xeCJKDeclareCharClass{CJK}{"2460 -> "2473}
+    \xeCJKDeclareCharClass{CJK}{"2605}
+  \fi
+\fi
 
 % 由于 Unicode 的一些标点符号是中西文混用的：
 % U+00B7、U+2013、U+2014、U+2018、U+2019、
@@ -512,15 +526,27 @@
 % https://github.com/CTeX-org/ctex-kit/issues/389
 \newcommand\ustc@set@punctuations{%
   \ifustc@language@chinese
-    \xeCJKDeclareCharClass{FullLeft}{"2018, "201C}%
-    \xeCJKDeclareCharClass{FullRight}{
-      "00B7, "2019, "201D, "2013, "2014, "2025, "2026, "2E3A,
-    }%
+    \ifLuaTeX
+      \ltjsetparameter{jacharrange={+9}}
+    \else
+      \ifXeTeX
+        \xeCJKDeclareCharClass{FullLeft}{"2018, "201C}%
+        \xeCJKDeclareCharClass{FullRight}{
+          "00B7, "2019, "201D, "2013, "2014, "2025, "2026, "2E3A,
+        }%
+      \fi
+    \fi
   \else
-    \xeCJKDeclareCharClass{HalfLeft}{"2018, "201C}%
-    \xeCJKDeclareCharClass{HalfRight}{
-      "00B7, "2019, "201D, "2013, "2014, "2025, "2026, "2E3A,
-    }%
+    \ifLuaTeX
+      \ltjsetparameter{jacharrange={-9}}
+    \else
+      \ifXeTeX
+        \xeCJKDeclareCharClass{HalfLeft}{"2018, "201C}%
+        \xeCJKDeclareCharClass{HalfRight}{
+          "00B7, "2019, "201D, "2013, "2014, "2025, "2026, "2E3A,
+        }%
+      \fi
+    \fi
   \fi
 }
 \ustc@set@punctuations
@@ -921,15 +947,14 @@
 
 % Windows 的中易字体。
 \newcommand\ustc@set@cjk@font@windows{%
-  \xeCJKsetup{EmboldenFactor=2}
   \setCJKmainfont{SimSun}[
-    AutoFakeBold = true,
+    AutoFakeBold = 2,
     ItalicFont   = KaiTi,
   ]%
-  \setCJKsansfont{SimHei}[AutoFakeBold]%
+  \setCJKsansfont{SimHei}[AutoFakeBold = 2]%
   \setCJKmonofont{FangSong}%
-  \setCJKfamilyfont{zhsong}{SimSun}[AutoFakeBold]%
-  \setCJKfamilyfont{zhhei}{SimHei}[AutoFakeBold]%
+  \setCJKfamilyfont{zhsong}{SimSun}[AutoFakeBold = 2]%
+  \setCJKfamilyfont{zhhei}{SimHei}[AutoFakeBold = 2]%
   \setCJKfamilyfont{zhkai}{KaiTi}%
   \setCJKfamilyfont{zhfs}{FangSong}%
 }
@@ -3128,14 +3153,17 @@
   % 本科生需要在 \tableofcontents 处切换 \pagenumbering，
   % 在使用了 notoccite 后会导致 PDF 书签的页码有误（#293），
   % 所以需要补充 https://tex.stackexchange.com/a/593839/82731 的 patch。
-  \def\HyPL@StorePageLabel#1{%
-    \begingroup
-      \edef\Hy@tempa{\the\Hy@abspage<<#1>>}%
-      \immediate\write\@mainaux{%
-        \string\HyPL@Entry{\Hy@tempa}%
-      }%
-    \endgroup
-  }
+  % LuaTeX 不需要这个 patch。
+  \ifXeTeX
+    \def\HyPL@StorePageLabel#1{%
+      \begingroup
+        \edef\Hy@tempa{\the\Hy@abspage<<#1>>}%
+        \immediate\write\@mainaux{%
+          \string\HyPL@Entry{\Hy@tempa}%
+        }%
+      \endgroup
+    }
+  \fi
 }
 
 
