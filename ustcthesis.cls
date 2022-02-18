@@ -466,14 +466,6 @@
 \ustc@package@conflict{newtxmath}{upgreek}
 
 
-% \pkg{mathtools} 需要在 \pkg{unicode-math} 前载入，
-% 参考 \url{https://tex.stackexchange.com/q/521394/82731}。
-\AtBeginOfPackageFile*{mathtools}{
-  \@ifpackageloaded{unicode-math}{
-    \ustc@error{The "mathtools" package should be loaded before setting "math-font"}
-  }{}
-}%
-
 % \pkg{amsthm} 需要在 \pkg{newtx} 前载入，参考 \pkg{newtx} 的文档。
 \AtBeginOfPackageFile*{amsthm}{
   \@ifpackageloaded{newtxmath}{
@@ -3267,6 +3259,18 @@
   \contentsuse{algocf}{loa}
 }
 
+
+% \subsubsection{\pkg{mathtools} 宏包}
+
+% \pkg{mathtools} 会修改 \pkg{unicode-math} 的 `\underbrace` 和 `\overbrace`，
+% 需要还原为 `\LaTeXunderbrace` 和 `\LaTeXoverbrace`，
+% 参考 \url{https://tex.stackexchange.com/q/521394/82731}。
+\AtEndOfPackageFile*{mathtools}{
+  \@ifpackageloaded{unicode-math}{
+    \let\underbrace\LaTeXunderbrace
+    \let\overbrace\LaTeXoverbrace
+  }{}
+}
 
 % \subsubsection{\pkg{nomencl} 宏包}
 
