@@ -85,16 +85,10 @@ Completed box being shipped out [1]
 ..\glue(\lineskip) 0.0
 ..\vbox(700.50723+0.0)x417.11752, glue set 554.52287fil
 ...\write-{}
-...\write1{\protect \providecommand {\protect \FN@pp@footnotehinttrue }{}}
-...\write1{\protect \providecommand {\protect \FN@pp@footnote@aux }[2]{}}
-...\write1{\protect \FN@pp@footnotehinttrue }
 ...\write-{}
-...\write1{\protect \FN@pp@footnotehinttrue }
 ...\write-{}
-...\write1{\protect \FN@pp@footnotehinttrue }
 ...\write-{}
 ...\mark{{\protect \ustc@spacetitle  {符号说明}}{}}
-...\write1{\protect \FN@pp@footnotehinttrue }
 ...\write-{}
 ...\glue(\topskip) 12.0
 ...\rule(0.0+0.0)x*
@@ -357,7 +351,6 @@ Completed box being shipped out [1]
 ....\glue(\rightskip) 0.0
 ...\penalty -51
 ...\glue 0.0 plus 0.2
-...\write1{\protect \FN@pp@footnotehinttrue }
 ...\glue -2.6258
 ...\glue 0.0 plus 1.0fil
 ...\glue 0.0
@@ -415,7 +408,6 @@ Completed box being shipped out [2]
 ..\glue(\lineskip) 0.0
 ..\vbox(700.50723+0.0)x0.0, glue set 688.4337fil
 ...\write-{}
-...\write1{\protect \FN@pp@footnotehinttrue }
 ...\write-{}
 ...\glue(\topskip) 12.0
 ...\hbox(0.0+0.0)x0.0
@@ -490,8 +482,8 @@ Completed box being shipped out [1]
 ..\glue 8.2511
 ..\glue(\lineskip) 0.0
 ..\vbox(700.50723+0.0)x417.11752, glue set 635.16356fil
-...\write1{\protect \FN@pp@footnotehinttrue }
 ...\write-{}
+...\write1{\pp@pagectr{footnote}{1}{\theabspage }{\thepage }}
 ...\write1{\@writefile{toc}{\protect \contentsline {chapter}{\protect \numberline \ETC.}
 ...\mark{{第1章\hskip 1em\relax \protect \ustc@spacetitle  {Main matter}}{}}
 ...\write1{\@writefile{lof}{\protect \addvspace {10.0pt}}}
@@ -552,7 +544,6 @@ Completed box being shipped out [1]
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
-...\write1{\protect \FN@pp@footnotehinttrue }
 ...\glue -2.61375
 ...\glue 0.0 plus 1.0fil
 ...\glue 0.0
@@ -599,3 +590,4 @@ Completed box being shipped out [1]
 ....\glue 0.0 plus 1.0fil minus 1.0fil
 ...\special{color pop}
 (package-nomencl.aux)
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.

@@ -28,8 +28,6 @@ Completed box being shipped out [1]
 ..\glue(\lineskip) 0.0
 ..\vbox(700.50723+0.0)x417.11752, glue set 266.9038fil
 ...\write-{}
-...\write1{\protect \providecommand {\protect \FN@pp@footnotehinttrue }{}}
-...\write1{\protect \providecommand {\protect \FN@pp@footnote@aux }[2]{}}
 ...\glue(\topskip) 2.629
 ...\hbox(9.371+1.95128)x417.11752, glue set 389.3779fil
 ....\TU/FandolSong(0)/m/n/12.045 中
@@ -679,7 +677,6 @@ Completed box being shipped out [1]
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
-...\write1{\protect \FN@pp@footnotehinttrue }
 ...\glue -0.16862
 ...\glue 0.0 plus 1.0fil
 ...\glue 0.0

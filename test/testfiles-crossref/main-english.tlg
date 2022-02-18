@@ -69,14 +69,9 @@ Completed box being shipped out [1]
 ..\glue(\lineskip) 0.0
 ..\vbox(700.50723+0.0)x417.11752, glue set 593.2675fil
 ...\write-{}
-...\write1{\protect \providecommand {\protect \FN@pp@footnotehinttrue }{}}
-...\write1{\protect \providecommand {\protect \FN@pp@footnote@aux }[2]{}}
-...\write1{\protect \FN@pp@footnotehinttrue }
 ...\write-{}
-...\write1{\protect \FN@pp@footnotehinttrue }
 ...\write-{}
 ...\mark{{\protect \ustc@spacetitle  {摘要}}{}}
-...\write1{\protect \FN@pp@footnotehinttrue }
 ...\write-{}
 ...\glue(\topskip) 12.0
 ...\rule(0.0+0.0)x*
@@ -149,7 +144,6 @@ Completed box being shipped out [1]
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
-...\write1{\protect \FN@pp@footnotehinttrue }
 ...\glue -2.21626
 ...\glue 0.0 plus 1.0fil
 ...\glue 0.0
@@ -248,7 +242,6 @@ Completed box being shipped out [2]
 ..\vbox(700.50723+0.0)x417.11752, glue set 597.81601fil
 ...\write-{}
 ...\mark{{\protect \ustc@spacetitle  {Abstract}}{}}
-...\write1{\protect \FN@pp@footnotehinttrue }
 ...\write-{}
 ...\glue(\topskip) 12.0
 ...\rule(0.0+0.0)x*
@@ -307,7 +300,6 @@ Completed box being shipped out [2]
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
-...\write1{\protect \FN@pp@footnotehinttrue }
 ...\glue -2.6258
 ...\glue 0.0 plus 1.0fil
 ...\glue 0.0
@@ -417,10 +409,8 @@ Completed box being shipped out [3]
 ..\glue(\lineskip) 0.0
 ..\vbox(700.50723+0.0)x417.11752, glue set 455.47304fil
 ...\write-{}
-...\write1{\protect \FN@pp@footnotehinttrue }
 ...\write-{}
 ...\mark{{\protect \ustc@spacetitle  {Contents}}{}}
-...\write1{\protect \FN@pp@footnotehinttrue }
 ...\write-{}
 ...\glue(\topskip) 12.0
 ...\rule(0.0+0.0)x*
@@ -822,7 +812,6 @@ Completed box being shipped out [3]
 ....\glue(\parfillskip) -12.045 plus 1.0fil
 ....\glue(\rightskip) 30.71477
 ...\penalty 10000
-...\write1{\protect \FN@pp@footnotehinttrue }
 ...\glue -6.0
 ...\glue 0.0 plus 1.0fil
 ...\glue 0.0
@@ -942,10 +931,8 @@ Completed box being shipped out [5]
 ..\glue 8.2511
 ..\glue(\lineskip) 0.0
 ..\vbox(700.50723+0.0)x417.11752, glue set 638.19858fil
-...\write1{\protect \FN@pp@footnotehinttrue }
 ...\write-{}
 ...\mark{{\protect \ustc@spacetitle  {Notation}}{}}
-...\write1{\protect \FN@pp@footnotehinttrue }
 ...\write-{}
 ...\glue(\topskip) 12.0
 ...\rule(0.0+0.0)x*
@@ -966,13 +953,11 @@ Completed box being shipped out [5]
 ...\glue 18.06749
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
-...\hbox(7.97379+0.13248)x417.11752, glue set 339.3992fil
+...\hbox(7.97379+0.13248)x417.11752, glue set 343.41418fil
 ....\hbox(0.0+0.0)x24.09
 ....\TU/texgyretermes(0)/m/n/12.045 Notations.
 ....\kern -0.00021
 ....\kern 0.00021
-....\glue 4.01498 plus 4.51685 minus 0.33458
-....\write1{\protect \FN@pp@footnotehinttrue }
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
@@ -1031,7 +1016,6 @@ Completed box being shipped out [6]
 ..\glue(\lineskip) 0.0
 ..\vbox(700.50723+0.0)x0.0, glue set 688.4337fil
 ...\write-{}
-...\write1{\protect \FN@pp@footnotehinttrue }
 ...\write-{}
 ...\glue(\topskip) 12.0
 ...\hbox(0.0+0.0)x0.0
@@ -1104,8 +1088,8 @@ Completed box being shipped out [1]
 ..\glue 8.2511
 ..\glue(\lineskip) 0.0
 ..\vbox(700.50723+0.0)x417.11752, glue set 320.01578fil
-...\write1{\protect \FN@pp@footnotehinttrue }
 ...\write-{}
+...\write1{\pp@pagectr{footnote}{1}{\theabspage }{\thepage }}
 ...\write1{\@writefile{toc}{\protect \contentsline {chapter}{\protect \numberline \ETC.}
 ...\mark{{Chapter 1\hskip 1em\relax \protect \ustc@spacetitle  {简介}}{}}
 ...\write1{\@writefile{lof}{\protect \addvspace {10.0pt}}}
@@ -1453,7 +1437,6 @@ Completed box being shipped out [1]
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
-...\write1{\protect \FN@pp@footnotehinttrue }
 ...\glue -2.61375
 ...\glue 0.0 plus 1.0fil
 ...\glue 0.0
@@ -1575,6 +1558,7 @@ Completed box being shipped out [2]
 ..\glue(\lineskip) 0.0
 ..\vbox(700.50723+0.0)x417.11752, glue set 648.66777fil
 ...\write-{}
+...\write1{\pp@pagectr{footnote}{2}{\theabspage }{\thepage }}
 ...\write1{\@writefile{toc}{\protect \contentsline {chapter}{\protect \numberline \ETC.}
 ...\mark{{Chapter 2\hskip 1em\relax \protect \ustc@spacetitle  {浮动体}}{}}
 ...\write1{\@writefile{lof}{\protect \addvspace {10.0pt}}}
@@ -1627,7 +1611,6 @@ Completed box being shipped out [2]
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
-...\write1{\protect \FN@pp@footnotehinttrue }
 ...\glue 0.0 plus 1.0fil
 ...\glue 0.0
 ...\glue 0.0 plus 0.0001fil
@@ -1723,7 +1706,6 @@ Completed box being shipped out [3]
 ..\glue(\lineskip) 0.0
 ..\vbox(700.50723+0.0)x417.11752, glue set 615.5288fil
 ...\write-{}
-...\write1{\protect \FN@pp@footnotehinttrue }
 ...\write-{}
 ...\write1{\@writefile{toc}{\protect \contentsline {chapter}{Bibliography}{\thepage \ETC.}
 ...\mark{{\protect \ustc@spacetitle  {Bibliography}}{}}
@@ -1853,7 +1835,6 @@ Completed box being shipped out [3]
 ...\penalty -51
 ...\glue 0.0 plus 0.2
 ...\glue 0.0 plus -0.2
-...\write1{\protect \FN@pp@footnotehinttrue }
 ...\glue -2.29756
 ...\glue 0.0 plus 1.0fil
 ...\glue 0.0
@@ -1965,6 +1946,7 @@ Completed box being shipped out [4]
 ..\glue(\lineskip) 0.0
 ..\vbox(700.50723+0.0)x417.11752, glue set 633.12012fil
 ...\write-{}
+...\write1{\pp@pagectr{footnote}{3}{\theabspage }{\thepage }}
 ...\write1{\@writefile{toc}{\protect \contentsline {chapter}{\protect \numberline \ETC.}
 ...\mark{{Appendix A\hskip 1em\relax \protect \ustc@spacetitle  {附录章节}\ETC.}
 ...\write1{\@writefile{lof}{\protect \addvspace {10.0pt}}}
@@ -2021,7 +2003,6 @@ Completed box being shipped out [4]
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
-...\write1{\protect \FN@pp@footnotehinttrue }
 ...\glue -2.20422
 ...\glue 0.0 plus 1.0fil
 ...\glue 0.0
@@ -2161,7 +2142,6 @@ Completed box being shipped out [5]
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
-...\write1{\protect \FN@pp@footnotehinttrue }
 ...\glue -2.20422
 ...\glue 0.0 plus 1.0fil
 ...\glue 0.0
@@ -2303,7 +2283,6 @@ Completed box being shipped out [6]
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
-...\write1{\protect \FN@pp@footnotehinttrue }
 ...\glue -2.21626
 ...\glue 0.0 plus 1.0fil
 ...\glue 0.0
