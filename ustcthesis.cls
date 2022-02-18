@@ -1271,10 +1271,12 @@
   \ustc@set@stix@names
   \setmathfont{\ustc@font@name@stix@math}[
     Extension    = .otf,
+    Scale        = MatchLowercase,
     StylisticSet = \ustc@xits@integral@stylistic@set,
   ]%
   \setmathfont{\ustc@font@name@stix@math}[
     Extension    = .otf,
+    Scale        = MatchLowercase,
     StylisticSet = 1,
     range        = {scr,bfscr},
   ]%
