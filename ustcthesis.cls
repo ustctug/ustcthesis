@@ -1859,14 +1859,15 @@
       \vskip 2.0cm%
     \else
       \vskip 0.8cm%
-      {\lishu\fontsize{26bp}{26bp}\selectfont
-        （%
+      \begingroup
+        \fontsize{26bp}{26bp}\selectfont
         \ifx\ustc@professional@type\@empty
-          专业学位类型%
+          \null
         \else
-          \ustc@professional@type
+          \lishu （\ustc@professional@type ）%
         \fi
-        ）\par}%
+        \par
+      \endgroup
       \vskip 1.0cm%
     \fi
     \ifustc@badge@color@blue
@@ -1911,14 +1912,15 @@
     {\sffamily\fontsize{26bp}{30bp}\selectfont
       \ustc@thesis@name@en\par}%
     \ifustc@degree@type@academic\else
-      {\fontsize{16bp}{32bp}\selectfont
-        (%
+      \begingroup
+        \fontsize{16bp}{32bp}\selectfont
         \ifx\ustc@professional@type@en\@empty
-          Professional degree type%
+          \null
         \else
-          \ustc@professional@type@en
+          (\ustc@professional@type@en)
         \fi
-        )\par}%
+        \par
+      \endgroup
     \fi
     \vskip 2.5cm%
     \ifustc@badge@color@blue

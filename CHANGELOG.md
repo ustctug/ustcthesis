@@ -12,6 +12,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - 新增选项 `math-font = cm` (Computer Modern)（[#324](https://github.com/ustctug/ustcthesis/issues/324)）。
 - 新增 LuaLaTeX 支持（虽然很慢）。
 
+# Changed
+
+- 专业学位类型 `professional-type` 为空时不再显示括号（[#325](https://github.com/ustctug/ustcthesis/issues/325)）。
+
 ## [v3.3.1] - 2021-12-10
 
 ### Changed
