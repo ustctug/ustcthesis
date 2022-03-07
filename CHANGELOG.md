@@ -16,6 +16,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - 专业学位类型 `professional-type` 为空时不再显示括号（[#325](https://github.com/ustctug/ustcthesis/issues/325)）。
 
+# Fixed
+
+- 修复了载入 `natbib` 前设置 `cite-style` 无效的问题（[#327](https://github.com/ustctug/ustcthesis/issues/327)）。
+
 ## [v3.3.1] - 2021-12-10
 
 ### Changed

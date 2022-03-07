@@ -339,6 +339,9 @@
   },
 }
 
+% 将 \ustc@cite@style 置空方便后续进行判断。
+\def\ustc@cite@style{}
+
 \newif\ifustc@degree@graduate
 \newcommand\ustc@set@graduate{%
   \ifustc@degree@bachelor
@@ -2719,6 +2722,12 @@
   \@namedef{bibstyle@ustcthesis-numerical}{\bibstyle@super}
   \@namedef{bibstyle@ustcthesis-authoryear}{\bibstyle@authoryear}
   \@namedef{bibstyle@ustcthesis-bachelor}{\bibstyle@super}
+  %
+  % 如果载入 `natbib` 前设置了 `cite-style`，这里先进行配置。
+  % https://github.com/ustctug/ustcthesis/issues/327
+  \ifx\ustc@cite@style\@empty\else
+    \citestyle{\ustc@cite@style}%
+  \fi
   %
   % 定义接口 cite-style 切换引用样式。
   \ustc@option@hook{cite-style}{%
