@@ -12,11 +12,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - 新增选项 `math-font = cm` (Computer Modern)（[#324](https://github.com/ustctug/ustcthesis/issues/324)）。
 - 新增 LuaLaTeX 支持（虽然很慢）。
 
-# Changed
+### Changed
 
 - 专业学位类型 `professional-type` 为空时不再显示括号（[#325](https://github.com/ustctug/ustcthesis/issues/325)）。
 
-# Fixed
+### Fixed
 
 - 修复了载入 `natbib` 前设置 `cite-style` 无效的问题（[#327](https://github.com/ustctug/ustcthesis/issues/327)）。
 
