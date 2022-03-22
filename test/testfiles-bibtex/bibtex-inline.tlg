@@ -3069,7 +3069,7 @@ Completed box being shipped out [3]
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 10.97954
-...\hbox(7.1984+2.29756)x393.55893, glue set 0.06499, shifted 23.5586
+...\hbox(7.1984+2.29756)x393.55893, glue set 0.11409, shifted 23.5586
 ....\hbox(7.12462+1.64412)x0.0
 .....\glue 0.0
 .....\glue -17.5586
@@ -3111,34 +3111,40 @@ Completed box being shipped out [3]
 ....\kern -0.00021
 ....\kern 0.00021
 ....\glue 2.63484 plus 1.31741 minus 0.87828
-....\TU/texgyretermes(0)/m/n/10.53937 fifth
+....\TU/texgyretermes(0)/m/n/10.53937 Fifth
 ....\kern -0.00021
 ....\kern 0.00021
 ....\glue 2.63484 plus 1.31741 minus 0.87828
-....\TU/texgyretermes(0)/m/n/10.53937 canadian
+....\TU/texgyretermes(0)/m/n/10.53937 Canadian
 ....\kern -0.00021
 ....\kern 0.00021
 ....\glue 2.63484 plus 1.31741 minus 0.87828
-....\TU/texgyretermes(0)/m/n/10.53937 mathematical
+....\TU/texgyretermes(0)/m/n/10.53937 Mathematical
 ....\kern -0.00021
 ....\kern 0.00021
 ....\glue 2.63484 plus 1.31741 minus 0.87828
-....\TU/texgyretermes(0)/m/n/10.53937 congress,
+....\TU/texgyretermes(0)/m/n/10.53937 Congress
+....\kern -0.0002
+....\kern 0.0002
+....\TU/texgyretermes(0)/m/n/10.53937 ,
 ....\kern -0.00021
 ....\kern 0.00021
 ....\glue 2.63484 plus 1.64676 minus 0.70262
-....\TU/texgyretermes(0)/m/n/10.53937 university
-....\kern -0.00021
-....\kern 0.00021
-....\glue 2.63484 plus 1.31741 minus 0.87828
-....\TU/texgyretermes(0)/m/n/10.53937 of
+....\TU/texgyretermes(0)/m/n/10.53937 University
 ....\kern -0.00021
 ....\kern 0.0
 ....\glue(\rightskip) 0.0
 ...\penalty 4150
 ...\glue(\baselineskip) 10.56851
-...\hbox(7.20892+2.29756)x393.55893, glue set 125.07555fil, shifted 23.5586
-....\TU/texgyretermes(0)/m/n/10.53937 montreal,
+...\hbox(7.20892+2.29756)x393.55893, glue set 112.49153fil, shifted 23.5586
+....\TU/texgyretermes(0)/m/n/10.53937 of
+....\kern -0.00021
+....\kern 0.00021
+....\glue 2.63484 plus 1.31741 minus 0.87828
+....\TU/texgyretermes(0)/m/n/10.53937 Montreal
+....\kern -0.0002
+....\kern 0.0002
+....\TU/texgyretermes(0)/m/n/10.53937 ,
 ....\kern -0.00021
 ....\kern 0.00021
 ....\glue 2.63484 plus 1.64676 minus 0.70262
