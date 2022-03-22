@@ -400,17 +400,9 @@ Completed box being shipped out [1]
 ...\penalty 10000
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
-...\hbox(15.45767+6.6248)x417.11752, glue set 332.20026fill
+...\hbox(15.45767+6.6248)x417.11752, glue set 380.38025fill
 ....\hbox(0.0+0.0)x0.0
 ....\rule(15.45767+6.6248)x0.0
-....\TU/FandolSong(0)/m/n/12.045 中
-....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 文
-....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 内
-....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 容
-....\glue 0.0 plus 0.61353
 ....\TU/FandolSong(0)/m/n/12.045 摘
 ....\glue 0.0 plus 0.61353
 ....\TU/FandolSong(0)/m/n/12.045 要
@@ -446,22 +438,12 @@ Completed box being shipped out [1]
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 0.00002
-...\hbox(15.45767+6.6248)x417.11752, glue set 332.20026fill
+...\hbox(15.45767+6.6248)x417.11752, glue set 342.46259fill
 ....\hbox(0.0+0.0)x0.0
 ....\rule(15.45767+6.6248)x0.0
-....\TU/FandolSong(0)/m/n/12.045 英
-....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 文
-....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 内
-....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 容
-....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 摘
-....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 要
-....\kern -0.00017
-....\kern 0.00017
+....\TU/texgyretermes(0)/m/n/12.045 ABSTRACT
+....\kern -0.0002
+....\kern 0.0002
 ....\rule(15.45767+6.6248)x0.0
 ....\kern 0.0
 ....\glue -9.03374
@@ -924,9 +906,10 @@ Completed box being shipped out [2]
 ....\special{color pop}
 ..\glue 8.2511
 ..\glue(\lineskip) 0.0
-..\vbox(700.50723+0.0)x417.11752, glue set 587.60498fil
+..\vbox(700.50723+0.0)x417.11752, glue set 587.6953fil
 ...\write-{}
-...\write1{\@writefile{toc}{\protect \contentsline {chapter}{中文内容摘要}\ETC.}
+...\write1{\@writefile{toc}{\protect \contentsline {chapter}{摘要}{\thepage }{\ET
+C.}
 ...\write1{\@writefile{lof}{\protect \addvspace {10.0pt}}}
 ...\write1{\@writefile{lot}{\protect \addvspace {10.0pt}}}
 ...\glue(\topskip) 12.0
@@ -936,19 +919,11 @@ Completed box being shipped out [2]
 ...\glue 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
-...\hbox(14.0023+3.14372)x417.11752, glue set 152.85068fil
+...\hbox(13.91197+3.14372)x417.11752, glue set 179.9519fil
 ....\glue(\leftskip) 0.0 plus 1.0fil
 ....\glue 3.01125 plus 1.50562 minus 1.00374
-....\TU/FandolHei(0)/m/n/18.06749 中
-....\glue 0.0 plus 0.93489
-....\TU/FandolHei(0)/m/n/18.06749 文
-....\glue 0.0 plus 0.93489
-....\TU/FandolHei(0)/m/n/18.06749 内
-....\glue 0.0 plus 0.93489
-....\TU/FandolHei(0)/m/n/18.06749 容
-....\glue 0.0 plus 0.93489
 ....\TU/FandolHei(0)/m/n/18.06749 摘
-....\glue 0.0 plus 0.93489
+....\glue 18.06749 plus 0.1423 minus 2.88081
 ....\TU/FandolHei(0)/m/n/18.06749 要
 ....\kern -0.00017
 ....\kern 0.00017
@@ -1129,9 +1104,9 @@ Completed box being shipped out [3]
 ....\special{color pop}
 ..\glue 8.2511
 ..\glue(\lineskip) 0.0
-..\vbox(700.50723+0.0)x417.11752, glue set 594.76495fil
+..\vbox(700.50723+0.0)x417.11752, glue set 593.4281fil
 ...\write-{}
-...\write1{\@writefile{toc}{\protect \contentsline {chapter}{英文内容摘要}\ETC.}
+...\write1{\@writefile{toc}{\protect \contentsline {chapter}{ABSTRACT}{\thepage \ETC.}
 ...\write1{\@writefile{lof}{\protect \addvspace {10.0pt}}}
 ...\write1{\@writefile{lot}{\protect \addvspace {10.0pt}}}
 ...\glue(\topskip) 12.0
@@ -1141,9 +1116,9 @@ Completed box being shipped out [3]
 ...\glue 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
-...\hbox(10.96898+0.16058)x417.11752, glue set 181.63419fil
+...\hbox(12.21362+0.25293)x417.11752, glue set 162.05304fil
 ....\glue(\leftskip) 0.0 plus 1.0fil
-....\TU/texgyretermes(0)/m/n/16.06 Abstract
+....\TU/texgyretermes(0)/m/n/18.06749 ABSTRACT
 ....\kern -0.0002
 ....\kern 0.0002
 ....\penalty 10000
