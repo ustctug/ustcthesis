@@ -16,6 +16,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - 专业学位类型 `professional-type` 为空时不再显示括号（[#325](https://github.com/ustctug/ustcthesis/issues/325)）。
 - 本科生的英文摘要标题改为小二号“ABSTRACT”（2021 年 11 月新版，[#332](https://github.com/ustctug/ustcthesis/issues/332)）。
+- 本科生的目录中去掉摘要（2021 年 11 月新版）。
 
 ### Fixed
 
