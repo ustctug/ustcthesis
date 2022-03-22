@@ -2295,12 +2295,11 @@
     \chaptermark{#2}%
   }%
   \chapter*{#2}}
-  %
-  %
-  % \subsection{摘要}
-  %
-  % 中文摘要环境。
-  % 判断 \cs{ustc@tocloaded} 是为了防止本科生未调整摘要位置时的目录页码缺失。
+
+
+% \subsection{摘要}
+
+% 中文摘要环境。
 \newcommand\ustc@keywords@text{%
   \ustc@clist@use{\ustc@keywords}{；}%
 }
@@ -2309,14 +2308,7 @@
 }
 \newenvironment{abstract}{%
   \ustcsetup{language=chinese}%
-  \ifustc@degree@graduate
-    \ustc@chapter{摘要}%
-  \else
-    \ustc@chapter{摘要}%
-    \ifustc@tocloaded\else
-      本科生需要手动将摘要置于目录后。\par
-    \fi
-  \fi
+  \ustc@chapter{摘要}%
 }{
   \par\null\par\noindent\hangindent=4\ccwd\relax
   \textbf{关键词}：\ustc@keywords@text\par
@@ -2354,9 +2346,6 @@
 
 % \subsection{目录}
 
-% 判断是否已经加载目录，用于提醒本科生更改摘要和致谢的顺序。
-\newif\ifustc@tocloaded
-
 % 研究生规定目录另面起；
 % 本科生规定从目录开始编页码，所以必须另页起。
 \renewcommand\tableofcontents{%
@@ -2364,7 +2353,6 @@
     \cleardoublepage
     \pagenumbering{arabic}%
     \pagestyle{plain}%
-    \ustc@tocloadedtrue
   \fi
   \ustc@chapter{\contentsname}%
   \@starttoc{toc}%
@@ -3047,9 +3035,6 @@
     \chapter{\ustc@acknowledgements@name}%
   \else
     \ustc@chapter{\ustc@acknowledgements@name}%
-    \ifustc@tocloaded
-      本科生需要手动将致谢置于目录前。\par
-    \fi
   \fi
 }{}
 
