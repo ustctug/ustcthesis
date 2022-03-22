@@ -3031,11 +3031,7 @@
 % 定义了一个满足要求的致谢环境：
 \newenvironment{acknowledgements}{%
   \@mainmatterfalse
-  \ifustc@degree@graduate
-    \chapter{\ustc@acknowledgements@name}%
-  \else
-    \ustc@chapter{\ustc@acknowledgements@name}%
-  \fi
+  \chapter{\ustc@acknowledgements@name}%
 }{}
 
 
