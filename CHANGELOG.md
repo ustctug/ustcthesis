@@ -19,6 +19,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - 本科生的目录中去掉摘要（2021 年 11 月新版）。
 - 调整本科生的章节顺序（2021 年 11 月新版）。
 - 本科生的目录中加入致谢（2021 年 11 月新版）。
+- 本科生致谢的末尾增加日期（2021 年 11 月新版）。
 
 ### Fixed
 

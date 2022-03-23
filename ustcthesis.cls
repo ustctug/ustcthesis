@@ -1742,9 +1742,11 @@
     July\or August\or September\or October\or November\or December%
   \fi
 }
+\newcommand\ustc@date@format@zh@short[3]{\number#1 年 \number#2 月}
 \newcommand\ustc@date@format@en[3]{\ustc@date@month{#2} \number#3, #1}
 \newcommand\ustc@date@zh@small{\ustc@format@date{\ustc@date@format@zh@small}{\ustc@date}}
 \newcommand\ustc@date@zh@big{\ustc@format@date{\ustc@date@format@zh@big}{\ustc@date}}
+\newcommand\ustc@date@zh@short{\ustc@format@date{\ustc@date@format@zh@short}{\ustc@date}}
 \newcommand\ustc@date@en{\ustc@format@date{\ustc@date@format@en}{\ustc@date}}
 
 % 版本 v3.2 开始使用 \cs{ustcsetup} 设置接口，
@@ -3032,7 +3034,16 @@
 \newenvironment{acknowledgements}{%
   \@mainmatterfalse
   \chapter{\ustc@acknowledgements@name}%
-}{}
+}{
+  \ifustc@degree@bachelor
+    \par
+    \null\par
+    \begingroup
+      \raggedleft
+      \ustc@date@zh@short\par
+    \endgroup
+  \fi
+}
 
 
 % 兼容旧版本中“acknowledgments”的拼法。
