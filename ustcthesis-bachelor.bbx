@@ -47,6 +47,10 @@
   }%
 }
 
-\DefineBibliographyExtras{english}{\renewcommand*{\bibrangedash}{～}}
+\DefineBibliographyExtras{english}{%
+  \renewcommand*{\bibrangedash}{%
+    \iffieldequalstr{userd}{chinese}{～}{--}%
+  }%
+}
 
 \renewcommand*{\finentrypunct}{}

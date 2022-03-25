@@ -1331,9 +1331,9 @@ FUNCTION {hyphenate}
   ""
     { t empty$ not }
     { t #1 #1 substring$ "-" =
-        { wave.dash.in.pages
+        { wave.dash.in.pages entry.lang lang.zh = and
             { "～" * }
-            { "-" * }
+            { "--" * }
           if$
             { t #1 #1 substring$ "-" = }
             { t #2 global.max$ substring$ 't := }

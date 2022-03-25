@@ -1742,9 +1742,11 @@
     July\or August\or September\or October\or November\or December%
   \fi
 }
+\newcommand\ustc@date@format@zh@short[3]{\number#1 年 \number#2 月}
 \newcommand\ustc@date@format@en[3]{\ustc@date@month{#2} \number#3, #1}
 \newcommand\ustc@date@zh@small{\ustc@format@date{\ustc@date@format@zh@small}{\ustc@date}}
 \newcommand\ustc@date@zh@big{\ustc@format@date{\ustc@date@format@zh@big}{\ustc@date}}
+\newcommand\ustc@date@zh@short{\ustc@format@date{\ustc@date@format@zh@short}{\ustc@date}}
 \newcommand\ustc@date@en{\ustc@format@date{\ustc@date@format@en}{\ustc@date}}
 
 % 版本 v3.2 开始使用 \cs{ustcsetup} 设置接口，
@@ -2295,12 +2297,11 @@
     \chaptermark{#2}%
   }%
   \chapter*{#2}}
-  %
-  %
-  % \subsection{摘要}
-  %
-  % 中文摘要环境。
-  % 判断 \cs{ustc@tocloaded} 是为了防止本科生未调整摘要位置时的目录页码缺失。
+
+
+% \subsection{摘要}
+
+% 中文摘要环境。
 \newcommand\ustc@keywords@text{%
   \ustc@clist@use{\ustc@keywords}{；}%
 }
@@ -2309,14 +2310,7 @@
 }
 \newenvironment{abstract}{%
   \ustcsetup{language=chinese}%
-  \ifustc@degree@graduate
-    \ustc@chapter{摘要}%
-  \else
-    \chapter{中文内容摘要}%
-    \ifustc@tocloaded\else
-      本科生需要手动将摘要置于目录后。\par
-    \fi
-  \fi
+  \ustc@chapter{摘要}%
 }{
   \par\null\par\noindent\hangindent=4\ccwd\relax
   \textbf{关键词}：\ustc@keywords@text\par
@@ -2330,8 +2324,9 @@
     \ustc@chapter[Abstract]{ABSTRACT}%
   \else
     \begingroup
-      \ctexset{chapter/format=\centering\fontsize{16bp}{29.33bp}\selectfont}%
-      \chapter[英文内容摘要]{Abstract}%
+      % 本科生的英文摘要使用小二号衬线体
+      \ctexset{chapter/format=\centering\fontsize{18bp}{33bp}\selectfont}%
+      \ustc@chapter{ABSTRACT}%
     \endgroup
   \fi
 }{
@@ -2353,9 +2348,6 @@
 
 % \subsection{目录}
 
-% 判断是否已经加载目录，用于提醒本科生更改摘要和致谢的顺序。
-\newif\ifustc@tocloaded
-
 % 研究生规定目录另面起；
 % 本科生规定从目录开始编页码，所以必须另页起。
 \renewcommand\tableofcontents{%
@@ -2363,7 +2355,6 @@
     \cleardoublepage
     \pagenumbering{arabic}%
     \pagestyle{plain}%
-    \ustc@tocloadedtrue
   \fi
   \ustc@chapter{\contentsname}%
   \@starttoc{toc}%
@@ -3042,15 +3033,17 @@
 % 定义了一个满足要求的致谢环境：
 \newenvironment{acknowledgements}{%
   \@mainmatterfalse
-  \ifustc@degree@graduate
-    \chapter{\ustc@acknowledgements@name}%
-  \else
-    \ustc@chapter{\ustc@acknowledgements@name}%
-    \ifustc@tocloaded
-      本科生需要手动将致谢置于目录前。\par
-    \fi
+  \chapter{\ustc@acknowledgements@name}%
+}{
+  \ifustc@degree@bachelor
+    \par
+    \null\par
+    \begingroup
+      \raggedleft
+      \ustc@date@zh@short\par
+    \endgroup
   \fi
-}{}
+}
 
 
 % 兼容旧版本中“acknowledgments”的拼法。
