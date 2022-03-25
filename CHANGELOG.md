@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [v3.3.2] - 2022-03-25
+
 ### Added
 
 - 新增选项 `math-font = cm` (Computer Modern)（[#324](https://github.com/ustctug/ustcthesis/issues/324)）。
@@ -46,7 +48,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - 修正授权使用声明中的“保密”为“控阅”（[#314](https://github.com/ustctug/ustcthesis/issues/314)）。
 - 修正本科生参考文献的格式。
 - 修正了图题的段后距离（[#307](https://github.com/ustctug/ustcthesis/issues/307)）。
-- 参考文献表中专利文献使用 `address`/`lcoation` 输出专利国别。
+- 参考文献表中专利文献使用 `address`/`location` 输出专利国别。
 
 ### Removed
 
@@ -278,7 +280,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - 优化图注、算法的行距。
 - 二级以下节标题编号下采用“1.”、“(1)”、“①”。
 
-[Unreleased]: https://github.com/ustctug/ustcthesis/compare/v3.3.1...HEAD
+[Unreleased]: https://github.com/ustctug/ustcthesis/compare/v3.3.2...HEAD
+[v3.3.2]: https://github.com/ustctug/ustcthesis/compare/v3.3.1...v3.3.2
 [v3.3.1]: https://github.com/ustctug/ustcthesis/compare/v3.3.0...v3.3.1
 [v3.3.0]: https://github.com/ustctug/ustcthesis/compare/v3.2.1...v3.3.0
 [v3.2.1]: https://github.com/ustctug/ustcthesis/compare/v3.2...v3.2.1

@@ -11,8 +11,8 @@
 %
 
 \NeedsTeXFormat{LaTeX2e}[2017/04/15]
-\newcommand\ustcthesisversion{v3.3.1}
-\ProvidesClass{ustcthesis}[2021/12/10 {\ustcthesisversion} USTC thesis template]
+\newcommand\ustcthesisversion{v3.3.2}
+\ProvidesClass{ustcthesis}[2022/03/25 {\ustcthesisversion} USTC thesis template]
 
 % 报错和警告
 \newcommand\ustc@error[1]{%
