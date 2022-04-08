@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+-  新增选项 `reviewer` 选择是否在声明页显示“评审专家签名”（[#334](https://github.com/ustctug/ustcthesis/issues/334）。
+
 ## [v3.3.2] - 2022-03-25
 
 ### Added

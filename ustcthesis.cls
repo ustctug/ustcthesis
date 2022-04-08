@@ -337,6 +337,13 @@
     },
     default = blue,
   },
+  reviewer = {
+    choices = {
+      true,
+      false,
+    },
+    default = false,
+  },
 }
 
 % 将 \ustc@cite@style 置空方便后续进行判断。
@@ -2082,6 +2089,12 @@
     \vskip 0.5cm%
     签字日期：\ustc@underline{}\hspace{2.7cm}%
     签字日期：\ustc@underline{}\par
+    \ifustc@reviewer@true
+      \vskip 1.5cm%
+      \hskip -1em%
+      评审专家签名：\ustc@underline{}\hspace{4.5em}%
+      评审专家签名：\ustc@underline{}\par
+    \fi
   \end{titlepage}%
 }
 \ifustc@degree@bachelor
