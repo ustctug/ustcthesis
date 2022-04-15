@@ -8,25 +8,46 @@
 \DeclareDelimFormat{nameyeardelim}{\addperiod\space}
 \DeclareDelimFormat[bib,biblist]{nameyeardelim}{\addperiod\space}
 
-\DeclareFieldFormat{titlecase}{\iftoggle{bbx:titlelink}{%
-\iffieldundef{url}{\MakeSentenceCase{#1}}{%
-\href{\thefield{url}}{#1}}}{\MakeSentenceCase{#1}}}
+\DeclareFieldFormat{sentencecase}{%
+  \iftoggle{bbx:titlelink}{%
+    \iffieldundef{url}{#1}{%
+      \href{\thefield{url}}{\MakeSentenceCase*{#1}}%
+    }%
+  }{%
+    \MakeSentenceCase{#1}%
+  }%
+}
 
-\DeclareFieldFormat{booktitlecase}{\MakeCapital{#1}}
-\renewbibmacro*{booktitle}{%
-  \ifboolexpr{
-    test {\iffieldundef{booktitle}}
+%
+%   重设title的输出
+%
+%   20180425，v1.0k，为标题增加字体控制命令，Hu Zhenzhen
+%   原理方法:将文献类型标识符输出出去，原输出来自biblatex.def文件
+%   利用toggle做标识符是否输出的判断
+\renewbibmacro*{title}{%
+  \ifboolexpr{%
+    test{\iffieldundef{title}}%
     and
-    test {\iffieldundef{booksubtitle}}
-  }
-    {}
-    {\printtext[booktitle]{\bibtitlefont%
-       \printfield[booktitlecase]{booktitle}%
-       \setunit{\subtitlepunct}%
-       \printfield[booktitlecase]{booksubtitle}}%
-     \newunit%标点换成下一句
-     \setunit{\subtitlepunct}}%
-  \printfield{booktitleaddon}}
+    test{\iffieldundef{subtitle}}%
+  }%
+    {}%
+    {\printtext[title]{\bibtitlefont%增加字体控制命令
+       \printfield[sentencecase]{title}%
+       \ifboolexpr{test {\iffieldundef{subtitle}}}%这里增加了对子标题的判断，解决不判断多一个点的问题
+       {}{\setunit{\subtitlepunct}%
+       \printfield[sentencecase]{subtitle}}%
+       \iffieldundef{titleaddon}{}%判断一下titleaddon，否则直接加可能多一个空格
+        {\setunit{\subtitlepunct}\printfield{titleaddon}}%
+        \iftoggle{bbx:gbtype}{%
+         \iffieldundef{entrysubtype}{\printfield[gbtypeflag]{usera}}%在标题后直接给出文献标识字母，判断一下，是否是报纸和标准
+        {\iffieldequalstr{entrysubtype}{standard}{\printfield[gbtypeflags]{usera}}%判断是否为标准
+                                         {\iffieldequalstr{entrysubtype}{news}{\printfield[gbtypeflagn]{usera}}%判断是否为报纸
+                                                                      {\printfield[gbtypeflag]{usera}}}%其它
+        }}{}%
+     %\iffieldundef{booktitle}{\newunit}{}%当title是析出时，不要标点
+     %\newunit
+     }%
+}}
 
 %
 %   重设专利title的输出，将文献类型标识符输出出去
@@ -39,10 +60,10 @@
   }%
     {}%
     {\printtext[title]{\bibtitlefont%
-       \printfield[titlecase]{title}%
+       \printfield[sentencecase]{title}%
        \ifboolexpr{test {\iffieldundef{subtitle}}}
        {}{\setunit{\subtitlepunct}%
-       \printfield[titlecase]{subtitle}}%
+       \printfield[sentencecase]{subtitle}}%
        \iffieldundef{titleaddon}{}
         {\setunit{\subtitlepunct}\printfield{titleaddon}}%
        % \setunit{\subtitlepunct}\printfield{number}%写专利号
