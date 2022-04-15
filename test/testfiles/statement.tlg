@@ -34,9 +34,9 @@ Completed box being shipped out [1]
 ..\vbox(21.33955+0.0)x417.11752, glue set 21.33955fil
 ...\glue 0.0 plus 1.0fil
 ...\hbox(0.0+0.0)x417.11752
-....\special{color push  Black}
+....\special{pdfcolorstack 1 push (0 g 0 G)}
 ....\hbox(0.0+0.0)x417.11752
-....\special{color pop}
+....\special{pdfcolorstack 1 pop}
 ..\glue 8.2511
 ..\glue(\lineskip) 0.0
 ..\vbox(700.50723+0.0)x417.11752, glue set 138.18468fil
@@ -1062,8 +1062,8 @@ Completed box being shipped out [1]
 ...\glue 0.0 plus 0.0001fil
 ..\glue(\baselineskip) 22.47748
 ..\hbox(0.0+0.0)x417.11752
-...\special{color push  Black}
+...\special{pdfcolorstack 1 push (0 g 0 G)}
 ...\hbox(0.0+0.0)x417.11752
-...\special{color pop}
+...\special{pdfcolorstack 1 pop}
 .\kern 0.0
 (statement.aux)

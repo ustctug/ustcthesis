@@ -21,9 +21,9 @@ Completed box being shipped out [1]
 ..\vbox(21.33955+0.0)x417.11752, glue set 21.33955fil
 ...\glue 0.0 plus 1.0fil
 ...\hbox(0.0+0.0)x417.11752
-....\special{color push  Black}
+....\special{pdfcolorstack 1 push (0 g 0 G)}
 ....\hbox(0.0+0.0)x417.11752
-....\special{color pop}
+....\special{pdfcolorstack 1 pop}
 ..\glue 8.2511
 ..\glue(\lineskip) 0.0
 ..\vbox(700.50723+0.0)x417.11752, glue set 327.12234fil
@@ -862,9 +862,9 @@ Completed box being shipped out [1]
 ...\glue 0.0 plus 0.0001fil
 ..\glue(\baselineskip) 22.47748
 ..\hbox(0.0+0.0)x417.11752
-...\special{color push  Black}
+...\special{pdfcolorstack 1 push (0 g 0 G)}
 ...\hbox(0.0+0.0)x417.11752
-...\special{color pop}
+...\special{pdfcolorstack 1 pop}
 .\kern 0.0
 Package fontspec Info: Font family 'FandolHei(0)' created for font 'FandolHei'
 (fontspec)             with options
@@ -886,9 +886,9 @@ Completed box being shipped out [2]
 ..\vbox(21.33955+0.0)x417.11752, glue set 21.33955fil
 ...\glue 0.0 plus 1.0fil
 ...\hbox(0.0+0.0)x417.11752
-....\special{color push  Black}
+....\special{pdfcolorstack 1 push (0 g 0 G)}
 ....\hbox(0.0+0.0)x417.11752
-....\special{color pop}
+....\special{pdfcolorstack 1 pop}
 ..\glue 8.2511
 ..\glue(\lineskip) 0.0
 ..\vbox(700.50723+0.0)x417.11752, glue set 554.42151fil
@@ -930,9 +930,9 @@ C.}
 .....\glue -24.0
 .....\glue -6.0
 .....\hbox(0.0+0.0)x24.0, glue set 24.0fil
-......\special{color push  Black}
+......\special{pdfcolorstack 1 push (0 g 0 G)}
 ......\glue 0.0 plus 1.0fil
-......\special{color pop}
+......\special{pdfcolorstack 1 pop}
 .....\glue 6.0
 ....\penalty 0
 ....\write1{\abx@aux@page{26}{\the \c@page }}
@@ -1016,9 +1016,9 @@ C.}
 .....\glue -24.0
 .....\glue -6.0
 .....\hbox(0.0+0.0)x24.0, glue set 24.0fil
-......\special{color push  Black}
+......\special{pdfcolorstack 1 push (0 g 0 G)}
 ......\glue 0.0 plus 1.0fil
-......\special{color pop}
+......\special{pdfcolorstack 1 pop}
 .....\glue 6.0
 ....\penalty 0
 ....\write1{\abx@aux@page{27}{\the \c@page }}
@@ -1126,9 +1126,9 @@ C.}
 .....\glue -24.0
 .....\glue -6.0
 .....\hbox(0.0+0.0)x24.0, glue set 24.0fil
-......\special{color push  Black}
+......\special{pdfcolorstack 1 push (0 g 0 G)}
 ......\glue 0.0 plus 1.0fil
-......\special{color pop}
+......\special{pdfcolorstack 1 pop}
 .....\glue 6.0
 ....\penalty 0
 ....\write1{\abx@aux@page{28}{\the \c@page }}
@@ -1230,9 +1230,9 @@ C.}
 .....\glue -24.0
 .....\glue -6.0
 .....\hbox(0.0+0.0)x24.0, glue set 24.0fil
-......\special{color push  Black}
+......\special{pdfcolorstack 1 push (0 g 0 G)}
 ......\glue 0.0 plus 1.0fil
-......\special{color pop}
+......\special{pdfcolorstack 1 pop}
 .....\glue 6.0
 ....\penalty 0
 ....\write1{\abx@aux@page{29}{\the \c@page }}
@@ -1344,8 +1344,8 @@ C.}
 ...\glue 0.0 plus 0.0001fil
 ..\glue(\baselineskip) 22.47748
 ..\hbox(0.0+0.0)x417.11752
-...\special{color push  Black}
+...\special{pdfcolorstack 1 push (0 g 0 G)}
 ...\hbox(0.0+0.0)x417.11752
-...\special{color pop}
+...\special{pdfcolorstack 1 pop}
 (biblatex-authoryear.aux)
 Package logreq Info: Writing requests to 'biblatex-authoryear.run.xml'.

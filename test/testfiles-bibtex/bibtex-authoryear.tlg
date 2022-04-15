@@ -21,9 +21,9 @@ Completed box being shipped out [1]
 ..\vbox(21.33955+0.0)x417.11752, glue set 21.33955fil
 ...\glue 0.0 plus 1.0fil
 ...\hbox(0.0+0.0)x417.11752
-....\special{color push  Black}
+....\special{pdfcolorstack 1 push (0 g 0 G)}
 ....\hbox(0.0+0.0)x417.11752
-....\special{color pop}
+....\special{pdfcolorstack 1 pop}
 ..\glue 8.2511
 ..\glue(\lineskip) 0.0
 ..\vbox(700.50723+0.0)x417.11752, glue set 86.24811fil
@@ -1087,9 +1087,9 @@ Completed box being shipped out [1]
 ...\glue 0.0 plus 0.0001fil
 ..\glue(\baselineskip) 22.47748
 ..\hbox(0.0+0.0)x417.11752
-...\special{color push  Black}
+...\special{pdfcolorstack 1 push (0 g 0 G)}
 ...\hbox(0.0+0.0)x417.11752
-...\special{color pop}
+...\special{pdfcolorstack 1 pop}
 .\kern 0.0
 (bibtex-authoryear.bbl
 Package fontspec Info: Font family 'FandolHei(0)' created for font 'FandolHei'
@@ -1113,9 +1113,9 @@ Completed box being shipped out [2]
 ..\vbox(21.33955+0.0)x417.11752, glue set 21.33955fil
 ...\glue 0.0 plus 1.0fil
 ...\hbox(0.0+0.0)x417.11752
-....\special{color push  Black}
+....\special{pdfcolorstack 1 push (0 g 0 G)}
 ....\hbox(0.0+0.0)x417.11752
-....\special{color pop}
+....\special{pdfcolorstack 1 pop}
 ..\glue 8.2511
 ..\glue(\lineskip) 0.0
 ..\vbox(700.50723+0.0)x417.11752, glue set 554.42151fil
@@ -1157,11 +1157,11 @@ C.}
 .....\glue -24.0
 .....\glue -6.0
 .....\hbox(0.0+0.0)x24.0, glue set 24.0fill
-......\special{color push  Black}
+......\special{pdfcolorstack 1 push (0 g 0 G)}
 ......\glue 0.0 plus 1.0fil
 ......\glue 0.0 plus 1.0fil
 ......\glue 0.0 plus 1.0fill
-......\special{color pop}
+......\special{pdfcolorstack 1 pop}
 .....\glue 6.0
 ....\penalty 0
 ....\TU/FandolSong(0)/m/n/10.53937 刘
@@ -1232,11 +1232,11 @@ C.}
 .....\glue -24.0
 .....\glue -6.0
 .....\hbox(0.0+0.0)x24.0, glue set 24.0fill
-......\special{color push  Black}
+......\special{pdfcolorstack 1 push (0 g 0 G)}
 ......\glue 0.0 plus 1.0fil
 ......\glue 0.0 plus 1.0fil
 ......\glue 0.0 plus 1.0fill
-......\special{color pop}
+......\special{pdfcolorstack 1 pop}
 .....\glue 6.0
 ....\penalty 0
 ....\TU/FandolSong(0)/m/n/10.53937 尼
@@ -1329,11 +1329,11 @@ C.}
 .....\glue -24.0
 .....\glue -6.0
 .....\hbox(0.0+0.0)x24.0, glue set 24.0fill
-......\special{color push  Black}
+......\special{pdfcolorstack 1 push (0 g 0 G)}
 ......\glue 0.0 plus 1.0fil
 ......\glue 0.0 plus 1.0fil
 ......\glue 0.0 plus 1.0fill
-......\special{color pop}
+......\special{pdfcolorstack 1 pop}
 .....\glue 6.0
 ....\penalty 0
 ....\TU/FandolSong(0)/m/n/10.53937 杨
@@ -1414,11 +1414,11 @@ C.}
 .....\glue -24.0
 .....\glue -6.0
 .....\hbox(0.0+0.0)x24.0, glue set 24.0fill
-......\special{color push  Black}
+......\special{pdfcolorstack 1 push (0 g 0 G)}
 ......\glue 0.0 plus 1.0fil
 ......\glue 0.0 plus 1.0fil
 ......\glue 0.0 plus 1.0fill
-......\special{color pop}
+......\special{pdfcolorstack 1 pop}
 .....\glue 6.0
 ....\penalty 0
 ....\TU/texgyretermes(0)/m/n/10.53937 BAKER
@@ -1511,7 +1511,7 @@ C.}
 ...\glue 0.0 plus 0.0001fil
 ..\glue(\baselineskip) 22.47748
 ..\hbox(0.0+0.0)x417.11752
-...\special{color push  Black}
+...\special{pdfcolorstack 1 push (0 g 0 G)}
 ...\hbox(0.0+0.0)x417.11752
-...\special{color pop}
+...\special{pdfcolorstack 1 pop}
 (bibtex-authoryear.aux)

@@ -441,9 +441,9 @@ Completed box being shipped out [1]
 ..\vbox(21.33955+0.0)x452.96826, glue set 21.33955fil
 ...\glue 0.0 plus 1.0fil
 ...\hbox(0.0+0.0)x452.96826
-....\special{color push  Black}
+....\special{pdfcolorstack 1 push (0 g 0 G)}
 ....\hbox(0.0+0.0)x452.96826
-....\special{color pop}
+....\special{pdfcolorstack 1 pop}
 ..\glue 8.2511
 ..\glue(\lineskip) 0.0
 ..\vbox(700.50723+0.0)x452.96826, glue set 24.25632fil
@@ -472,6 +472,7 @@ Completed box being shipped out [1]
 ..........\XeTeXpdffile ".../ustc-title-page-heading.pdf"
 .........\glue 0.0 plus 1.0fil minus 1.0fil
 ........\special{pdf:etrans}
+........\special{pdfcolorstack 1 current}
 .......\kern 347.29749
 .......\glue 0.0 plus 1.0fil minus 1.0fil
 ....\penalty 10000
@@ -1306,9 +1307,9 @@ Completed box being shipped out [1]
 ...\glue 0.0 plus 0.0001fil
 ..\glue(\baselineskip) 22.47748
 ..\hbox(0.0+0.0)x452.96826
-...\special{color push  Black}
+...\special{pdfcolorstack 1 push (0 g 0 G)}
 ...\hbox(0.0+0.0)x452.96826
-...\special{color pop}
+...\special{pdfcolorstack 1 pop}
 .\kern 0.0
 Completed box being shipped out [2]
 \vbox(722.98453+0.0)x452.96808
@@ -1317,9 +1318,9 @@ Completed box being shipped out [2]
 ..\vbox(21.33955+0.0)x452.96826, glue set 21.33955fil
 ...\glue 0.0 plus 1.0fil
 ...\hbox(0.0+0.0)x452.96826
-....\special{color push  Black}
+....\special{pdfcolorstack 1 push (0 g 0 G)}
 ....\hbox(0.0+0.0)x452.96826
-....\special{color pop}
+....\special{pdfcolorstack 1 pop}
 ..\glue 8.2511
 ..\glue(\lineskip) 0.0
 ..\vbox(700.50723+0.0)x0.0, glue set 688.4337fil
@@ -1331,7 +1332,7 @@ Completed box being shipped out [2]
 ...\glue 0.0 plus 0.0001fil
 ..\glue(\baselineskip) 22.47748
 ..\hbox(0.0+0.0)x452.96826
-...\special{color push  Black}
+...\special{pdfcolorstack 1 push (0 g 0 G)}
 ...\hbox(0.0+0.0)x452.96826
-...\special{color pop}
+...\special{pdfcolorstack 1 pop}
 (titlepage-bachelor.aux)

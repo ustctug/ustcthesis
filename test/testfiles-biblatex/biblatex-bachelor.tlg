@@ -21,9 +21,9 @@ Completed box being shipped out [1]
 ..\vbox(21.33955+0.0)x417.11752, glue set 21.33955fil
 ...\glue 0.0 plus 1.0fil
 ...\hbox(0.0+0.0)x417.11752
-....\special{color push  Black}
+....\special{pdfcolorstack 1 push (0 g 0 G)}
 ....\hbox(0.0+0.0)x417.11752
-....\special{color pop}
+....\special{pdfcolorstack 1 pop}
 ..\glue 8.2511
 ..\glue(\lineskip) 0.0
 ..\vbox(700.50723+0.0)x417.11752, glue set 379.31187fil
@@ -619,9 +619,9 @@ Completed box being shipped out [1]
 ...\glue 0.0 plus 0.0001fil
 ..\glue(\baselineskip) 22.47748
 ..\hbox(0.0+0.0)x417.11752
-...\special{color push  Black}
+...\special{pdfcolorstack 1 push (0 g 0 G)}
 ...\hbox(0.0+0.0)x417.11752
-...\special{color pop}
+...\special{pdfcolorstack 1 pop}
 .\kern 0.0
 Package fontspec Info: Font family 'FandolHei(0)' created for font 'FandolHei'
 (fontspec)             with options
@@ -643,9 +643,9 @@ Completed box being shipped out [2]
 ..\vbox(21.33955+0.0)x417.11752, glue set 21.33955fil
 ...\glue 0.0 plus 1.0fil
 ...\hbox(0.0+0.0)x417.11752
-....\special{color push  Black}
+....\special{pdfcolorstack 1 push (0 g 0 G)}
 ....\hbox(0.0+0.0)x417.11752
-....\special{color pop}
+....\special{pdfcolorstack 1 pop}
 ..\glue 8.2511
 ..\glue(\lineskip) 0.0
 ..\vbox(700.50723+0.0)x417.11752, glue set 542.97499fil
@@ -687,7 +687,7 @@ C.}
 .....\glue -14.04446
 .....\glue -12.0
 .....\hbox(8.14243+1.879)x14.04446
-......\special{color push  Black}
+......\special{pdfcolorstack 1 push (0 g 0 G)}
 ......\glue 0.0 plus 1.0fil minus 1.0fil
 ......\TU/texgyretermes(0)/m/n/12.045 [1
 ......\kern -0.0002
@@ -696,7 +696,7 @@ C.}
 ......\kern -0.0002
 ......\kern 0.0002
 ......\glue 0.0 plus 1.0fill
-......\special{color pop}
+......\special{pdfcolorstack 1 pop}
 .....\glue 12.0
 ....\penalty 0
 ....\TU/FandolSong(0)/m/n/12.045 刘
@@ -807,7 +807,7 @@ C.}
 .....\glue -14.04446
 .....\glue -12.0
 .....\hbox(8.14243+1.879)x14.04446
-......\special{color push  Black}
+......\special{pdfcolorstack 1 push (0 g 0 G)}
 ......\glue 0.0 plus 1.0fil minus 1.0fil
 ......\TU/texgyretermes(0)/m/n/12.045 [2
 ......\kern -0.0002
@@ -816,7 +816,7 @@ C.}
 ......\kern -0.0002
 ......\kern 0.0002
 ......\glue 0.0 plus 1.0fill
-......\special{color pop}
+......\special{pdfcolorstack 1 pop}
 .....\glue 12.0
 ....\penalty 0
 ....\TU/FandolSong(0)/m/n/12.045 肖
@@ -915,7 +915,7 @@ C.}
 .....\glue -14.04446
 .....\glue -12.0
 .....\hbox(8.14243+1.879)x14.04446
-......\special{color push  Black}
+......\special{pdfcolorstack 1 push (0 g 0 G)}
 ......\glue 0.0 plus 1.0fil minus 1.0fil
 ......\TU/texgyretermes(0)/m/n/12.045 [3
 ......\kern -0.0002
@@ -924,7 +924,7 @@ C.}
 ......\kern -0.0002
 ......\kern 0.0002
 ......\glue 0.0 plus 1.0fill
-......\special{color pop}
+......\special{pdfcolorstack 1 pop}
 .....\glue 12.0
 ....\penalty 0
 ....\TU/texgyretermes(0)/m/n/12.045 The
@@ -983,7 +983,7 @@ C.}
 .....\glue -14.04446
 .....\glue -12.0
 .....\hbox(8.14243+1.879)x14.04446
-......\special{color push  Black}
+......\special{pdfcolorstack 1 push (0 g 0 G)}
 ......\glue 0.0 plus 1.0fil minus 1.0fil
 ......\TU/texgyretermes(0)/m/n/12.045 [4
 ......\kern -0.0002
@@ -992,7 +992,7 @@ C.}
 ......\kern -0.0002
 ......\kern 0.0002
 ......\glue 0.0 plus 1.0fill
-......\special{color pop}
+......\special{pdfcolorstack 1 pop}
 .....\glue 12.0
 ....\penalty 0
 ....\TU/texgyretermes(0)/m/n/12.045 Hutson
@@ -1046,8 +1046,8 @@ C.}
 ...\glue 0.0 plus 0.0001fil
 ..\glue(\baselineskip) 22.47748
 ..\hbox(0.0+0.0)x417.11752
-...\special{color push  Black}
+...\special{pdfcolorstack 1 push (0 g 0 G)}
 ...\hbox(0.0+0.0)x417.11752
-...\special{color pop}
+...\special{pdfcolorstack 1 pop}
 (biblatex-bachelor.aux)
 Package logreq Info: Writing requests to 'biblatex-bachelor.run.xml'.

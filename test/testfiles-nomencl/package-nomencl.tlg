@@ -35,7 +35,7 @@ Completed box being shipped out [1]
 ..\vbox(21.33955+0.0)x417.11752, glue set 9.29457fil
 ...\glue 0.0 plus 1.0fil
 ...\hbox(12.04498+0.0)x417.11752
-....\special{color push  Black}
+....\special{pdfcolorstack 1 push (0 g 0 G)}
 ....\hbox(12.04498+0.0)x417.11752
 .....\hbox(12.04498+0.0)x417.11752
 ......\vbox(12.04498+0.0)x417.11752
@@ -80,7 +80,7 @@ Completed box being shipped out [1]
 .......\rule(0.4+0.0)x417.11752
 .......\glue -0.4
 .....\glue 0.0 plus 1.0fil minus 1.0fil
-....\special{color pop}
+....\special{pdfcolorstack 1 pop}
 ..\glue 8.2511
 ..\glue(\lineskip) 0.0
 ..\vbox(700.50723+0.0)x417.11752, glue set 554.52287fil
@@ -121,13 +121,13 @@ Completed box being shipped out [1]
 .....\glue -28.45274
 .....\glue -6.0
 .....\hbox(5.15526+0.13249)x28.45274, glue set 21.38232fil
-......\special{color push  Black}
+......\special{pdfcolorstack 1 push (0 g 0 G)}
 ......\mathon
 ......\TU/XITSMath-Regular(1)/m/n/12.045 glyph#3180
 ......\kern0.60225
 ......\mathoff
 ......\glue 0.0 plus 1.0fil
-......\special{color pop}
+......\special{pdfcolorstack 1 pop}
 .....\glue 6.0
 ....\penalty 0
 ....\TU/texgyretermes(0)/m/n/12.045 The
@@ -175,12 +175,12 @@ Completed box being shipped out [1]
 .....\glue -28.45274
 .....\glue -6.0
 .....\hbox(8.03401+0.0)x28.45274, glue set 19.81648fil
-......\special{color push  Black}
+......\special{pdfcolorstack 1 push (0 g 0 G)}
 ......\mathon
 ......\TU/XITSMath-Regular(1)/m/n/12.045 glyph#2476
 ......\mathoff
 ......\glue 0.0 plus 1.0fil
-......\special{color pop}
+......\special{pdfcolorstack 1 pop}
 .....\glue 6.0
 ....\penalty 0
 ....\TU/texgyretermes(0)/m/n/12.045 The
@@ -220,12 +220,12 @@ Completed box being shipped out [1]
 .....\glue -28.45274
 .....\glue -6.0
 .....\hbox(5.31184+0.12045)x28.45274, glue set 22.40616fil
-......\special{color push  Black}
+......\special{pdfcolorstack 1 push (0 g 0 G)}
 ......\mathon
 ......\TU/XITSMath-Regular(1)/m/n/12.045 glyph#2502
 ......\mathoff
 ......\glue 0.0 plus 1.0fil
-......\special{color pop}
+......\special{pdfcolorstack 1 pop}
 .....\glue 6.0
 ....\penalty 0
 ....\TU/texgyretermes(0)/m/n/12.045 The
@@ -269,12 +269,12 @@ Completed box being shipped out [1]
 .....\glue -28.45274
 .....\glue -6.0
 .....\hbox(5.31184+0.09636)x28.45274, glue set 19.90079fil
-......\special{color push  Black}
+......\special{pdfcolorstack 1 push (0 g 0 G)}
 ......\mathon
 ......\TU/XITSMath-Regular(1)/m/n/12.045 glyph#2513
 ......\mathoff
 ......\glue 0.0 plus 1.0fil
-......\special{color pop}
+......\special{pdfcolorstack 1 pop}
 .....\glue 6.0
 ....\penalty 0
 ....\TU/texgyretermes(0)/m/n/12.045 The
@@ -310,13 +310,13 @@ Completed box being shipped out [1]
 .....\glue -28.45274
 .....\glue -6.0
 .....\hbox(7.86539+0.0)x28.45274, glue set 17.11841fil
-......\special{color push  Black}
+......\special{pdfcolorstack 1 push (0 g 0 G)}
 ......\mathon
 ......\TU/XITSMath-Regular(1)/m/n/12.045 glyph#2489
 ......\kern1.08405
 ......\mathoff
 ......\glue 0.0 plus 1.0fil
-......\special{color pop}
+......\special{pdfcolorstack 1 pop}
 .....\glue 6.0
 ....\penalty 0
 ....\TU/texgyretermes(0)/m/n/12.045 The
@@ -357,7 +357,7 @@ Completed box being shipped out [1]
 ...\glue 0.0 plus 0.0001fil
 ..\glue(\baselineskip) 16.45493
 ..\hbox(6.02255+0.0)x417.11752
-...\special{color push  Black}
+...\special{pdfcolorstack 1 push (0 g 0 G)}
 ...\hbox(6.02255+0.0)x417.11752
 ....\hbox(6.02255+0.0)x417.11752
 .....\vbox(6.02255+0.0)x417.11752
@@ -391,7 +391,7 @@ Completed box being shipped out [1]
 ..........\glue(\parfillskip) 0.0
 ..........\glue(\rightskip) 0.0
 ....\glue 0.0 plus 1.0fil minus 1.0fil
-...\special{color pop}
+...\special{pdfcolorstack 1 pop}
 .\kern 0.0
 )
 Completed box being shipped out [2]
@@ -401,9 +401,9 @@ Completed box being shipped out [2]
 ..\vbox(21.33955+0.0)x417.11752, glue set 21.33955fil
 ...\glue 0.0 plus 1.0fil
 ...\hbox(0.0+0.0)x417.11752
-....\special{color push  Black}
+....\special{pdfcolorstack 1 push (0 g 0 G)}
 ....\hbox(0.0+0.0)x417.11752
-....\special{color pop}
+....\special{pdfcolorstack 1 pop}
 ..\glue 8.2511
 ..\glue(\lineskip) 0.0
 ..\vbox(700.50723+0.0)x0.0, glue set 688.4337fil
@@ -416,9 +416,9 @@ Completed box being shipped out [2]
 ...\glue 0.0 plus 0.0001fil
 ..\glue(\baselineskip) 22.47748
 ..\hbox(0.0+0.0)x417.11752
-...\special{color push  Black}
+...\special{pdfcolorstack 1 push (0 g 0 G)}
 ...\hbox(0.0+0.0)x417.11752
-...\special{color pop}
+...\special{pdfcolorstack 1 pop}
 第1章
 Completed box being shipped out [1]
 \vbox(722.98453+3.61353)x435.04271
@@ -427,7 +427,7 @@ Completed box being shipped out [1]
 ..\vbox(21.33955+0.0)x417.11752, glue set 9.29457fil
 ...\glue 0.0 plus 1.0fil
 ...\hbox(12.04498+0.0)x417.11752
-....\special{color push  Black}
+....\special{pdfcolorstack 1 push (0 g 0 G)}
 ....\hbox(12.04498+0.0)x417.11752
 .....\hbox(12.04498+0.0)x417.11752
 ......\vbox(12.04498+0.0)x417.11752
@@ -478,7 +478,7 @@ Completed box being shipped out [1]
 .......\rule(0.4+0.0)x417.11752
 .......\glue -0.4
 .....\glue 0.0 plus 1.0fil minus 1.0fil
-....\special{color pop}
+....\special{pdfcolorstack 1 pop}
 ..\glue 8.2511
 ..\glue(\lineskip) 0.0
 ..\vbox(700.50723+0.0)x417.11752, glue set 635.16356fil
@@ -550,7 +550,7 @@ Completed box being shipped out [1]
 ...\glue 0.0 plus 0.0001fil
 ..\glue(\baselineskip) 8.02347
 ..\hbox(14.45401+3.61353)x417.11752
-...\special{color push  Black}
+...\special{pdfcolorstack 1 push (0 g 0 G)}
 ...\hbox(14.45401+3.61353)x417.11752
 ....\hbox(14.45401+3.61353)x417.11752
 .....\vbox(14.45401+3.61353)x417.11752
@@ -588,6 +588,6 @@ Completed box being shipped out [1]
 ..........\glue(\parfillskip) 0.0
 ..........\glue(\rightskip) 0.0
 ....\glue 0.0 plus 1.0fil minus 1.0fil
-...\special{color pop}
+...\special{pdfcolorstack 1 pop}
 (package-nomencl.aux)
 LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
