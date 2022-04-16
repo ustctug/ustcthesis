@@ -49,6 +49,33 @@
 }%
 }}
 
+\renewbibmacro*{maintitle}{%
+  \ifboolexpr{
+    test {\iffieldundef{maintitle}}
+    and
+    test {\iffieldundef{mainsubtitle}}
+  }
+    {}
+    {\printtext[maintitle]{%
+       % 在 maintitle+title 使用 sentence case，但是在 maintitle+booktitle 使用 title case
+       \printfield[titlecase]{maintitle}%
+       \iffieldundef{booktitle}{%
+         \printfield[sentencecase]{maintitle}%
+       }{%
+         \printfield[titlecase]{maintitle}%
+       }%
+       \setunit{\subtitlepunct}%
+       % \printfield[titlecase]{mainsubtitle}%
+       \iffieldundef{booktitle}{%
+         \printfield[sentencecase]{maintitle}%
+       }{%
+         \printfield[titlecase]{maintitle}%
+       }%
+      }%
+     \newunit}%
+  \printfield{maintitleaddon}}
+
+
 %
 %   重设专利title的输出，将文献类型标识符输出出去
 %
