@@ -1961,6 +1961,8 @@
   \ustc@reset@main@language
 }
 
+\newbox\ustc@title@box
+
 % 本科生的封面
 \newcommand\ustc@title@page@bachelor{%
   \begin{titlepage}%
@@ -1973,44 +1975,60 @@
       \bfseries\fontsize{15bp}{16bp}\selectfont
       \setlength\tabcolsep{\z@}%
       \setlength\arrayrulewidth{1.5pt}%
-      \begin{tabular}{lp{140bp}lp{140bp}}
+      \begin{tabular}{lp{140bp}lp{140bp}}%
         题\quad 目 &
-          \multirow[t]{2}{325bp}{%
-            \centering\fontsize{15bp}{40bp}\selectfont
-            \ustc@title
-          } & & \\
-        \cline{2-4}
-        \noalign{\vskip 24bp}
+          \multicolumn{3}{c}{%
+            \multirow[t]{2}{325bp}{%
+              \savebox\ustc@title@box{%
+                \parbox[t]{325bp}{%
+                  \centering\fontsize{15bp}{40bp}\selectfont
+                  \ustc@title
+                }%
+              }%
+              \dp\ustc@title@box=0pt\relax
+              \usebox\ustc@title@box
+            }%
+          } \\
+        \cline{2-4}%
+        \noalign{\vskip 24bp}%
         & & & \\
-        \cline{2-4}
-        \noalign{\vskip 24bp}
+        \cline{2-4}%
+        \noalign{\vskip 24bp}%
         英\quad 文 &
-          \multirow[t]{3}{325bp}{%
-            \centering\fontsize{15bp}{40bp}\selectfont
-            \ustc@title@en
-          } & & \\
-        \cline{2-4}
-        \noalign{\vskip 24bp}
+          \multicolumn{3}{c}{%
+            \multirow[t]{3}{325bp}{%
+              \savebox\ustc@title@box{%
+                \parbox[t]{325bp}{%
+                  \centering\fontsize{15bp}{40bp}\selectfont
+                  \ustc@title@en
+                }%
+              }%
+              \dp\ustc@title@box=0pt\relax
+              \usebox\ustc@title@box
+            }%
+          } \\
+        \cline{2-4}%
+        \noalign{\vskip 24bp}%
         题\quad 目 & & & \\
-        \cline{2-4}
-        \noalign{\vskip 24bp}
+        \cline{2-4}%
+        \noalign{\vskip 24bp}%
         & & & \\
-        \cline{2-4}
-        \noalign{\vskip 24bp}
-        院\quad 系 & \multirow[t]{1}{325bp}{\centering\ustc@department} & & \\
-        \cline{2-4}
-        \noalign{\vskip 24bp}
-        姓\quad 名 & \multirow[t]{1}{140bp}{\centering\ustc@author} &
-        学\quad 号 & \multirow[t]{1}{140bp}{\centering\ustc@student@id} \\
-        \cline{2-2}
-        \cline{4-4}
-        \noalign{\vskip 24bp}
-        导\quad 师 & \multirow[t]{1}{325bp}{\centering\ustc@supervisor@names} & & \\
-        \cline{2-4}
-        \noalign{\vskip 24bp}
-        日\quad 期 & \multirow[t]{1}{325bp}{\centering\ustc@date@zh@small} & & \\
-        \cline{2-4}
-      \end{tabular}
+        \cline{2-4}%
+        \noalign{\vskip 24bp}%
+        院\quad 系 & \multicolumn{3}{c}{\ustc@department} \\
+        \cline{2-4}%
+        \noalign{\vskip 24bp}%
+        姓\quad 名 & \multicolumn{1}{c}{\ustc@author} &
+        学\quad 号 & \multicolumn{1}{c}{\ustc@student@id} \\
+        \cline{2-2}%
+        \cline{4-4}%
+        \noalign{\vskip 24bp}%
+        导\quad 师 & \multicolumn{3}{c}{\ustc@supervisor@names} \\
+        \cline{2-4}%
+        \noalign{\vskip 24bp}%
+        日\quad 期 & \multicolumn{3}{c}{\ustc@date@zh@small} \\
+        \cline{2-4}%
+      \end{tabular}%
     \endgroup
   \end{titlepage}%
 }

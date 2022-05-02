@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 
 - 修正 `biblatex` 的参考文献表中期刊名的大小写（[#338](https://github.com/ustctug/ustcthesis/issues/338)）。
+- 消除本科生封面的 overfull box 警告（[#345](https://github.com/ustctug/ustcthesis/issues/345)）。
 
 ## [v3.3.2] - 2022-03-25
 
