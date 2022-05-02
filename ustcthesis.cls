@@ -950,13 +950,13 @@
 % Windows 的中易字体。
 \newcommand\ustc@set@cjk@font@windows{%
   \setCJKmainfont{SimSun}[
-    AutoFakeBold = 2,
+    AutoFakeBold = 3,
     ItalicFont   = KaiTi,
   ]%
-  \setCJKsansfont{SimHei}[AutoFakeBold = 2]%
+  \setCJKsansfont{SimHei}[AutoFakeBold = 3]%
   \setCJKmonofont{FangSong}%
-  \setCJKfamilyfont{zhsong}{SimSun}[AutoFakeBold = 2]%
-  \setCJKfamilyfont{zhhei}{SimHei}[AutoFakeBold = 2]%
+  \setCJKfamilyfont{zhsong}{SimSun}[AutoFakeBold = 3]%
+  \setCJKfamilyfont{zhhei}{SimHei}[AutoFakeBold = 3]%
   \setCJKfamilyfont{zhkai}{KaiTi}%
   \setCJKfamilyfont{zhfs}{FangSong}%
 }
