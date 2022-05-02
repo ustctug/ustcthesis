@@ -14,16 +14,14 @@ LaTeX Font Info:    Font shape `TU/XITSMath-Regular(3)/m/n' will be
 (Font)              scaled to size 7.22623pt on input line ....
 Completed box being shipped out [1]
 \vbox(722.98453+0.0)x435.04271
-.\hbox(0.0+0.0)x0.0
-..\special{pdfcolorstackinit 1 page direct (0 g 0 G)}
 .\glue -29.59084
 .\vbox(752.57536+0.0)x417.11752, shifted 17.92519
 ..\vbox(21.33955+0.0)x417.11752, glue set 21.33955fil
 ...\glue 0.0 plus 1.0fil
 ...\hbox(0.0+0.0)x417.11752
-....\special{pdfcolorstack 1 push (0 g 0 G)}
+....\special{color push  Black}
 ....\hbox(0.0+0.0)x417.11752
-....\special{pdfcolorstack 1 pop}
+....\special{color pop}
 ..\glue 8.2511
 ..\glue(\lineskip) 0.0
 ..\vbox(700.50723+0.0)x417.11752, glue set 379.31187fil
@@ -619,10 +617,9 @@ Completed box being shipped out [1]
 ...\glue 0.0 plus 0.0001fil
 ..\glue(\baselineskip) 22.47748
 ..\hbox(0.0+0.0)x417.11752
-...\special{pdfcolorstack 1 push (0 g 0 G)}
+...\special{color push  Black}
 ...\hbox(0.0+0.0)x417.11752
-...\special{pdfcolorstack 1 pop}
-.\kern 0.0
+...\special{color pop}
 Package fontspec Info: Font family 'FandolHei(0)' created for font 'FandolHei'
 (fontspec)             with options
 (fontspec)             [Extension={.otf},UprightFont={*-Regular},BoldFont={*-Bold}].
@@ -643,12 +640,12 @@ Completed box being shipped out [2]
 ..\vbox(21.33955+0.0)x417.11752, glue set 21.33955fil
 ...\glue 0.0 plus 1.0fil
 ...\hbox(0.0+0.0)x417.11752
-....\special{pdfcolorstack 1 push (0 g 0 G)}
+....\special{color push  Black}
 ....\hbox(0.0+0.0)x417.11752
-....\special{pdfcolorstack 1 pop}
+....\special{color pop}
 ..\glue 8.2511
 ..\glue(\lineskip) 0.0
-..\vbox(700.50723+0.0)x417.11752, glue set 542.97499fil
+..\vbox(700.50723+0.0)x417.11752, glue set 565.05513fil
 ...\write-{}
 ...\write-{}
 ...\write1{\@writefile{toc}{\protect \contentsline {chapter}{参考文献}{\thepage \ET
@@ -681,13 +678,13 @@ C.}
 ...\glue 18.06749
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
-...\hbox(9.40715+2.18013)x378.98306, glue set 0.40877, shifted 38.13446
+...\hbox(9.40715+2.18013)x391.07306, glue set 4.301fil, shifted 26.04446
 ....\hbox(8.14243+1.879)x0.0
 .....\glue 0.0
 .....\glue -14.04446
 .....\glue -12.0
 .....\hbox(8.14243+1.879)x14.04446
-......\special{pdfcolorstack 1 push (0 g 0 G)}
+......\special{color push  Black}
 ......\glue 0.0 plus 1.0fil minus 1.0fil
 ......\TU/texgyretermes(0)/m/n/12.045 [1
 ......\kern -0.0002
@@ -696,7 +693,7 @@ C.}
 ......\kern -0.0002
 ......\kern 0.0002
 ......\glue 0.0 plus 1.0fill
-......\special{pdfcolorstack 1 pop}
+......\special{color pop}
 .....\glue 12.0
 ....\penalty 0
 ....\TU/FandolSong(0)/m/n/12.045 刘
@@ -786,10 +783,7 @@ C.}
 ....\rule(0.0+0.0)x-3.34851
 ....\TU/FandolSong(0)/m/n/12.045 ～
 ....\rule(0.0+0.0)x-3.34851
-....\glue(\rightskip) 0.0
-...\penalty 25000
-...\glue(\baselineskip) 11.75993
-...\hbox(8.14243+0.16861)x378.98306, glue set 366.93806fil, shifted 38.13446
+....\glue 3.34851 minus 1.67426
 ....\TU/texgyretermes(0)/m/n/12.045 40
 ....\kern -0.0002
 ....\kern 0.0002
@@ -800,14 +794,14 @@ C.}
 ...\glue 0.0 plus 0.2
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
-...\glue(\baselineskip) 12.45856
-...\hbox(9.45532+2.16809)x378.98306, glue set 11.94032fil, shifted 38.13446
+...\glue(\baselineskip) 10.44704
+...\hbox(9.45532+2.16809)x391.07306, glue set 24.03032fil, shifted 26.04446
 ....\hbox(8.14243+1.879)x0.0
 .....\glue 0.0
 .....\glue -14.04446
 .....\glue -12.0
 .....\hbox(8.14243+1.879)x14.04446
-......\special{pdfcolorstack 1 push (0 g 0 G)}
+......\special{color push  Black}
 ......\glue 0.0 plus 1.0fil minus 1.0fil
 ......\TU/texgyretermes(0)/m/n/12.045 [2
 ......\kern -0.0002
@@ -816,7 +810,7 @@ C.}
 ......\kern -0.0002
 ......\kern 0.0002
 ......\glue 0.0 plus 1.0fill
-......\special{pdfcolorstack 1 pop}
+......\special{color pop}
 .....\glue 12.0
 ....\penalty 0
 ....\TU/FandolSong(0)/m/n/12.045 肖
@@ -909,13 +903,13 @@ C.}
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 11.68767
-...\hbox(8.22673+2.6258)x378.98306, glue set 32.75021fil, shifted 38.13446
+...\hbox(8.22673+2.6258)x391.07306, glue set 44.84021fil, shifted 26.04446
 ....\hbox(8.14243+1.879)x0.0
 .....\glue 0.0
 .....\glue -14.04446
 .....\glue -12.0
 .....\hbox(8.14243+1.879)x14.04446
-......\special{pdfcolorstack 1 push (0 g 0 G)}
+......\special{color push  Black}
 ......\glue 0.0 plus 1.0fil minus 1.0fil
 ......\TU/texgyretermes(0)/m/n/12.045 [3
 ......\kern -0.0002
@@ -924,7 +918,7 @@ C.}
 ......\kern -0.0002
 ......\kern 0.0002
 ......\glue 0.0 plus 1.0fill
-......\special{pdfcolorstack 1 pop}
+......\special{color pop}
 .....\glue 12.0
 ....\penalty 0
 ....\TU/texgyretermes(0)/m/n/12.045 The
@@ -977,13 +971,13 @@ C.}
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 11.21791
-...\hbox(8.23878+2.48125)x378.98306, glue set 173.46365fil, shifted 38.13446
+...\hbox(8.23878+2.48125)x391.07306, glue set 185.55365fil, shifted 26.04446
 ....\hbox(8.14243+1.879)x0.0
 .....\glue 0.0
 .....\glue -14.04446
 .....\glue -12.0
 .....\hbox(8.14243+1.879)x14.04446
-......\special{pdfcolorstack 1 push (0 g 0 G)}
+......\special{color push  Black}
 ......\glue 0.0 plus 1.0fil minus 1.0fil
 ......\TU/texgyretermes(0)/m/n/12.045 [4
 ......\kern -0.0002
@@ -992,7 +986,7 @@ C.}
 ......\kern -0.0002
 ......\kern 0.0002
 ......\glue 0.0 plus 1.0fill
-......\special{pdfcolorstack 1 pop}
+......\special{color pop}
 .....\glue 12.0
 ....\penalty 0
 ....\TU/texgyretermes(0)/m/n/12.045 Hutson
@@ -1046,8 +1040,8 @@ C.}
 ...\glue 0.0 plus 0.0001fil
 ..\glue(\baselineskip) 22.47748
 ..\hbox(0.0+0.0)x417.11752
-...\special{pdfcolorstack 1 push (0 g 0 G)}
+...\special{color push  Black}
 ...\hbox(0.0+0.0)x417.11752
-...\special{pdfcolorstack 1 pop}
+...\special{color pop}
 (biblatex-bachelor.aux)
 Package logreq Info: Writing requests to 'biblatex-bachelor.run.xml'.

@@ -72,16 +72,14 @@ LaTeX Font Info:    Font shape `TU/XITSMath-Regular(3)/m/n' will be
 (Font)              scaled to size 10.53824pt on input line ....
 Completed box being shipped out [1]
 \vbox(722.98453+0.0)x452.96808
-.\hbox(0.0+0.0)x0.0
-..\special{pdfcolorstackinit 1 page direct (0 g 0 G)}
 .\glue -29.59084
 .\vbox(752.57536+0.0)x452.96826, shifted -0.00018
 ..\vbox(21.33955+0.0)x452.96826, glue set 21.33955fil
 ...\glue 0.0 plus 1.0fil
 ...\hbox(0.0+0.0)x452.96826
-....\special{pdfcolorstack 1 push (0 g 0 G)}
+....\special{color push  Black}
 ....\hbox(0.0+0.0)x452.96826
-....\special{pdfcolorstack 1 pop}
+....\special{color pop}
 ..\glue 8.2511
 ..\glue(\lineskip) 0.0
 ..\vbox(700.50723+0.0)x452.96826, glue set 57.81714fil
@@ -116,7 +114,6 @@ Completed box being shipped out [1]
 ..........\XeTeXpdffile ".../ustc-name.pdf"
 .........\glue 0.0 plus 1.0fil minus 1.0fil
 ........\special{pdf:etrans}
-........\special{pdfcolorstack 1 current}
 .......\kern 285.33891
 .......\glue 0.0 plus 1.0fil minus 1.0fil
 ....\penalty 10000
@@ -185,7 +182,7 @@ Completed box being shipped out [1]
 ...\hbox(116.65646+0.0)x452.96826, glue set 168.15689fil
 ....\glue(\leftskip) 0.0 plus 1.0fil
 ....\hbox(0.0+0.0)x0.0
-....\special{pdfcolorstack 1 push (1 0.8 0 0 k 1 0.8 0 0 K)}
+....\special{color push cmyk 1 0.8 0 0}
 ....\hbox(116.65646+0.0)x116.6545
 .....\hbox(116.65477+0.0)x116.65477
 ......\hbox(116.65477+0.0)x116.65477
@@ -197,10 +194,9 @@ Completed box being shipped out [1]
 ..........\XeTeXpdffile ".../ustc-badge.pdf"
 .........\glue 0.0 plus 1.0fil minus 1.0fil
 ........\special{pdf:etrans}
-........\special{pdfcolorstack 1 current}
 .......\kern 116.65477
 .......\glue 0.0 plus 1.0fil minus 1.0fil
-....\special{pdfcolorstack 1 pop}
+....\special{color pop}
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0
 ....\glue(\rightskip) 0.0 plus 1.0fil
@@ -465,10 +461,9 @@ Completed box being shipped out [1]
 ...\glue 0.0 plus 0.0001fil
 ..\glue(\baselineskip) 22.47748
 ..\hbox(0.0+0.0)x452.96826
-...\special{pdfcolorstack 1 push (0 g 0 G)}
+...\special{color push  Black}
 ...\hbox(0.0+0.0)x452.96826
-...\special{pdfcolorstack 1 pop}
-.\kern 0.0
+...\special{color pop}
 Completed box being shipped out [2]
 \vbox(722.98453+0.0)x452.96808
 .\glue -29.59084
@@ -476,9 +471,9 @@ Completed box being shipped out [2]
 ..\vbox(21.33955+0.0)x452.96826, glue set 21.33955fil
 ...\glue 0.0 plus 1.0fil
 ...\hbox(0.0+0.0)x452.96826
-....\special{pdfcolorstack 1 push (0 g 0 G)}
+....\special{color push  Black}
 ....\hbox(0.0+0.0)x452.96826
-....\special{pdfcolorstack 1 pop}
+....\special{color pop}
 ..\glue 8.2511
 ..\glue(\lineskip) 0.0
 ..\vbox(700.50723+0.0)x0.0, glue set 688.4337fil
@@ -490,9 +485,9 @@ Completed box being shipped out [2]
 ...\glue 0.0 plus 0.0001fil
 ..\glue(\baselineskip) 22.47748
 ..\hbox(0.0+0.0)x452.96826
-...\special{pdfcolorstack 1 push (0 g 0 G)}
+...\special{color push  Black}
 ...\hbox(0.0+0.0)x452.96826
-...\special{pdfcolorstack 1 pop}
+...\special{color pop}
 File: figures/ustc-badge.pdf Graphic file (type pdf)
 <use figures/ustc-badge.pdf>
 Completed box being shipped out [3]
@@ -502,9 +497,9 @@ Completed box being shipped out [3]
 ..\vbox(21.33955+0.0)x452.96826, glue set 21.33955fil
 ...\glue 0.0 plus 1.0fil
 ...\hbox(0.0+0.0)x452.96826
-....\special{pdfcolorstack 1 push (0 g 0 G)}
+....\special{color push  Black}
 ....\hbox(0.0+0.0)x452.96826
-....\special{pdfcolorstack 1 pop}
+....\special{color pop}
 ..\glue 8.2511
 ..\glue(\lineskip) 0.0
 ..\vbox(700.50723+0.0)x452.96826, glue set 54.94644fil
@@ -610,7 +605,7 @@ Completed box being shipped out [3]
 ...\hbox(128.0374+0.0)x452.96826, glue set 162.4665fil
 ....\glue(\leftskip) 0.0 plus 1.0fil
 ....\hbox(0.0+0.0)x0.0
-....\special{pdfcolorstack 1 push (1 0.8 0 0 k 1 0.8 0 0 K)}
+....\special{color push cmyk 1 0.8 0 0}
 ....\hbox(128.0374+0.0)x128.03526
 .....\hbox(128.03558+0.0)x128.03558
 ......\hbox(128.03558+0.0)x128.03558
@@ -622,10 +617,9 @@ Completed box being shipped out [3]
 ..........\XeTeXpdffile ".../ustc-badge.pdf"
 .........\glue 0.0 plus 1.0fil minus 1.0fil
 ........\special{pdf:etrans}
-........\special{pdfcolorstack 1 current}
 .......\kern 128.03558
 .......\glue 0.0 plus 1.0fil minus 1.0fil
-....\special{pdfcolorstack 1 pop}
+....\special{color pop}
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0
 ....\glue(\rightskip) 0.0 plus 1.0fil
@@ -829,9 +823,9 @@ Completed box being shipped out [3]
 ...\glue 0.0 plus 0.0001fil
 ..\glue(\baselineskip) 22.47748
 ..\hbox(0.0+0.0)x452.96826
-...\special{pdfcolorstack 1 push (0 g 0 G)}
+...\special{color push  Black}
 ...\hbox(0.0+0.0)x452.96826
-...\special{pdfcolorstack 1 pop}
+...\special{color pop}
 Completed box being shipped out [4]
 \vbox(722.98453+0.0)x452.96808
 .\glue -29.59084
@@ -839,9 +833,9 @@ Completed box being shipped out [4]
 ..\vbox(21.33955+0.0)x452.96826, glue set 21.33955fil
 ...\glue 0.0 plus 1.0fil
 ...\hbox(0.0+0.0)x452.96826
-....\special{pdfcolorstack 1 push (0 g 0 G)}
+....\special{color push  Black}
 ....\hbox(0.0+0.0)x452.96826
-....\special{pdfcolorstack 1 pop}
+....\special{color pop}
 ..\glue 8.2511
 ..\glue(\lineskip) 0.0
 ..\vbox(700.50723+0.0)x0.0, glue set 688.4337fil
@@ -853,7 +847,7 @@ Completed box being shipped out [4]
 ...\glue 0.0 plus 0.0001fil
 ..\glue(\baselineskip) 22.47748
 ..\hbox(0.0+0.0)x452.96826
-...\special{pdfcolorstack 1 push (0 g 0 G)}
+...\special{color push  Black}
 ...\hbox(0.0+0.0)x452.96826
-...\special{pdfcolorstack 1 pop}
+...\special{color pop}
 (titlepage-master.aux)
