@@ -11,6 +11,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - 新增选项 `reviewer` 选择是否在声明页显示“评审专家签名”（[#334](https://github.com/ustctug/ustcthesis/issues/334)）。
 
+### Changed
+
+- 更新 2022 年 3 月版本科生的参考文献格式（[#346](https://github.com/ustctug/ustcthesis/issues/346)）。
+
 ### Fixed
 
 - 修正 `biblatex` 的参考文献表中期刊名的大小写（[#338](https://github.com/ustctug/ustcthesis/issues/338)）。
