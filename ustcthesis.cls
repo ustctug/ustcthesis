@@ -3341,7 +3341,7 @@
   \newcommand\ustc@set@siunitx@language{%
     \ifustc@language@chinese
       \sisetup{
-        list-final-separator = { 和 },
+        list-final-separator = { 和~},
         list-pair-separator  = { 和 },
         range-phrase         = {～},
       }%
