@@ -2,7 +2,7 @@
 
 \chapter{数学}
 
-\section{数学符号和公式}
+\section{数学符号}
 
 《撰写手册》要求数学符号遵循 GB/T 3102.11—1993《物理科学和技术中使用的数学符号》
 \footnote{原 GB 3102.11—1993，自 2017 年 3 月 23 日起，该标准转为推荐性标准。}。
@@ -55,16 +55,16 @@
 \section{数学公式}
 
 数学公式可以使用 \env{equation} 和 \env{equation*} 环境。
-注意数学公式的引用应前后带括号，通常使用 \cs{eqref} 命令，比如式 \eqref{eq:example}。
+注意数学公式的引用应前后带括号，建议使用 \cs{eqref} 命令，比如式~\eqref{eq:example}。
 \begin{equation}
   \hat{f}(\xi) = \int_{-\infty}^\infty f(x) \eu^{-2 \uppi \iu x \xi} \dif x.
   \label{eq:example}
 \end{equation}
 
-多行公式尽可能在“=”处对齐，推荐使用 \env{align} 环境。
+多行公式尽可能在“=”处对齐，推荐使用 \env{align} 环境，比如式~\eqref{eq:align_2}。
 \begin{align}
-  a & = b + c + d + e \\
-    & = f + g.
+  a & = b + c + d + e \label{eq:align_1} \\
+    & = f + g. \label{eq:align_2}
 \end{align}
 
 
