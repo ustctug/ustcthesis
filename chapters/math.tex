@@ -2,7 +2,7 @@
 
 \chapter{数学}
 
-\section{数学符号和公式}
+\section{数学符号}
 
 《撰写手册》要求数学符号遵循 GB/T 3102.11—1993《物理科学和技术中使用的数学符号》
 \footnote{原 GB 3102.11—1993，自 2017 年 3 月 23 日起，该标准转为推荐性标准。}。
@@ -57,19 +57,37 @@
 
 
 
+\section{数学公式}
+
+数学公式可以使用 \env{equation} 和 \env{equation*} 环境。
+注意数学公式的引用应前后带括号，建议使用 \cs{eqref} 命令，比如式\eqref{eq:example}。
+\begin{equation}
+  \frac{1}{2 \uppi \symup{i}} \int_\gamma f = \sum_{k=1}^m n(\gamma; a_k) \mathscr{R}(f; a_k)
+  \label{eq:example}
+\end{equation}
+注意公式编号的引用应含有圆括号。
+
+多行公式尽可能在“=”处对齐，推荐使用 \env{align} 环境。
+\begin{align}
+  a & = b + c + d + e \label{eq:align_1} \\
+    & = f + g \label{eq:align_2}
+\end{align}
+引用多行公式的某行公式，比如式\eqref{eq:align_2}。
+
+
+
 \section{量和单位}
 
 宏包 \pkg{siunitx} 提供了更好的数字和单位支持：
 \begin{itemize}
-  \item \num{12345.67890}
-  \item \num{.3e45}
+  \item \num{12345.67890}; \num{.3e45}
+  \item \numlist{10;20;30}
+  \item \numrange{10}{20}
+  \item \ang{12.3}; \ang{1;2;3}; \ang{;;1}
   \item \si{kg.m.s^{-1}}
   \item \si{\micro\meter} $\si{\micro\meter}$
-  \item \si{\ohm} $\si{\ohm}$
-  \item \numlist{10;20}
-  \item \numlist{10;20;30}
+  \item \SI{6.4e6}{\um}; \SI{9}{\kg}; \SI{1}{\s}
   \item \SIlist{0.13;0.67;0.80}{\milli\metre}
-  \item \numrange{10}{20}
   \item \SIrange{10}{20}{\degreeCelsius}
 \end{itemize}
 
