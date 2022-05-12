@@ -75,7 +75,7 @@ FUNCTION {load.config}
   #0 'show.mark :=
   #0 'space.before.mark :=
   #1 'show.medium.type :=
-  "in" 'component.part.label :=
+  "period" 'component.part.label :=
   #0 'short.journal :=
   #1 'italic.journal :=
   #0 'bold.journal.volume :=
