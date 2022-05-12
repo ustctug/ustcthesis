@@ -1,10 +1,10 @@
 %%
-%% This is file `gbt7714-numerical.bst',
+%% This is file `variants/ustc/ustcthesis-numerical.bst',
 %% generated with the docstrip utility.
 %%
 %% The original source files were:
 %%
-%% gbt7714.dtx  (with options: `2015,numerical')
+%% gbt7714.dtx  (with options: `2015,ustc,numerical')
 %% -------------------------------------------------------------------
 %% GB/T 7714 BibTeX Style
 %% https://github.com/zepinglee/gbt7714-bibtex-style
@@ -963,7 +963,14 @@ FUNCTION {format.series.vol.num.title}
     }
     { format.title.vol.num }
   if$
-  format.btitle
+  type$ "book" =
+  type$ "inbook" = or
+  type$ "collection" = or
+  type$ "proceedings" = or
+  type$ "thesis" = or
+    'format.btitle
+    'skip$
+  if$
   link.title
     'add.link
     'skip$
@@ -1386,7 +1393,8 @@ FUNCTION {hyphenate}
   ""
     { t empty$ not }
     { t #1 #1 substring$ "-" =
-        { wave.dash.in.pages entry.lang lang.zh = and
+        { wave.dash.in.pages
+          entry.lang lang.zh = and
             { "～" * }
             { "-" * }
           if$
