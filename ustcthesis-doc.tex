@@ -434,12 +434,15 @@ key-value 的方式填写，如：
 
 \DescribeOption{keywords}
 \DescribeOption{keywords*}
-摘要的关键词应使用 \cs{ustcsetup} 的接口进行设置，
-只要在摘要结束前即可，比如：
+摘要的关键词应使用 \cs{ustcsetup} 的接口进行设置，在录入时使用西文逗号隔开，
+比如：
 \begin{latex}
   \begin{abstract}
     这里是摘要。
-    \ustcsetup{keywords = {论文；摘要；关键词}}
+    \ustcsetup{
+      keywords  = {学位论文, 摘要, 关键词},
+      keywords* = {dissertation, abstract, keywords},
+    }
   \end{abstract}
 \end{latex}
 

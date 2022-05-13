@@ -2335,10 +2335,14 @@
 
 % 中文摘要环境。
 \newcommand\ustc@keywords@text{%
-  \ustc@clist@use{\ustc@keywords}{；}%
+  \ifustc@degree@graduate
+    \ustc@clist@use{\ustc@keywords}{\quad}%
+  \else
+    \ustc@clist@use{\ustc@keywords}{、}%
+  \fi
 }
 \newcommand\ustc@keywords@en@text{%
-  \ustc@clist@use{\ustc@keywords@en}{; }%
+  \ustc@clist@use{\ustc@keywords@en}{, }%
 }
 \newenvironment{abstract}{%
   \ustcsetup{language=chinese}%
@@ -2348,6 +2352,9 @@
   \textbf{关键词}：\ustc@keywords@text\par
   \ustc@reset@main@language
 }
+
+\newbox\ustc@keywords@box
+\newlength\ustc@keywords@width
 
 % 英文摘要环境
 \newenvironment{abstract*}{%
@@ -2362,8 +2369,11 @@
     \endgroup
   \fi
 }{
-  \par\null\par\noindent\hangindent=5.3em\relax
-  \textbf{Key Words}: \ustc@keywords@en@text\par
+  \par\null\par\noindent
+  \savebox\ustc@keywords@box{\textbf{Key Words}: }%
+  \ustc@keywords@width=\linewidth
+  \advance\ustc@keywords@width-\wd\ustc@keywords@box
+  \textbf{Key Words}: \parbox[t]{\ustc@keywords@width}{\ustc@keywords@en@text\par}\par
   \ifustc@degree@graduate
     \cleardoublepage
   \fi

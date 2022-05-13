@@ -14,11 +14,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - 更新 2022 年 3 月版本科生的参考文献格式（[#346](https://github.com/ustctug/ustcthesis/issues/346)）。
+- 研究生的关键词分隔符为空一字和“, ”。
 
 ### Fixed
 
 - 修正 `biblatex` 的参考文献表中期刊名的大小写（[#338](https://github.com/ustctug/ustcthesis/issues/338)）。
 - 消除本科生封面的 overfull box 警告（[#345](https://github.com/ustctug/ustcthesis/issues/345)）。
+- 修正本科生的关键词分隔符为“、”和“, ”（[#354](https://github.com/ustctug/ustcthesis/issues/354)）。
 
 ## [v3.3.2] - 2022-03-25
 
