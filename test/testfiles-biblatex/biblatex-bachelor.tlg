@@ -799,7 +799,7 @@ C.}
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 10.44704
-...\hbox(9.45532+2.16809)x391.07306, glue set 0.65282, shifted 26.04446
+...\hbox(9.45532+2.16809)x391.07306, glue set 0.96643, shifted 26.04446
 ....\hbox(8.14243+1.879)x0.0
 .....\glue 0.0
 .....\glue -14.04446
@@ -838,9 +838,7 @@ C.}
 ....\TU/FandolSong(0)/m/n/12.045 张
 ....\glue 0.0 plus 0.61353
 ....\TU/FandolSong(0)/m/n/12.045 芸
-....\kern -0.00017
-....\TU/texgyretermes(0)/m/n/12.045 ,
-....\glue 3.01125 plus 1.50562 minus 1.00374
+....\glue 0.0 plus 0.61353
 ....\TU/FandolSong(0)/m/n/12.045 等
 ....\kern -0.00017
 ....\TU/texgyretermes(0)/m/n/12.045 .
@@ -978,8 +976,8 @@ C.}
 ....\TU/texgyretermes(0)/m/n/12.045 AB
 ....\kern -0.0002
 ....\TU/texgyretermes(0)/m/n/12.045 ,
-....\kern -0.0002
-....\kern 0.0002
+....\kern -0.00021
+....\kern 0.00021
 ....\glue 3.01125 plus 1.51013 minus 1.00073
 ....\TU/texgyretermes(0)/m/n/12.045 et
 ....\kern -0.0002
