@@ -1590,9 +1590,7 @@
   \if@twoside
     \ifodd\c@page\else
       \hbox{}%
-      \ifustc@degree@graduate
-        \thispagestyle{empty}%
-      \fi
+      \thispagestyle{empty}%
       \newpage
       \if@twocolumn
         \hbox{}%
@@ -1618,9 +1616,11 @@
 
 % 研究生要求“第 1 章”要另页起，但是本科生要求另面起。
 \renewcommand\mainmatter{%
-  \cleardoublepage
   \ifustc@degree@graduate
+    \cleardoublepage
     \pagenumbering{arabic}%
+  \else
+    \clearpage
   \fi
   \pagestyle{plain}%
   \@mainmattertrue
