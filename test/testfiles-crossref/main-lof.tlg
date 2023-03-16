@@ -74,6 +74,8 @@ Completed box being shipped out [1]
 ...\write-{}
 ...\write-{}
 ...\write-{}
+...\marks1{\protect \ustc@spacetitle  {插图清单}}
+...\marks2{\prg_do_nothing: }
 ...\mark{{\protect \ustc@spacetitle  {插图清单}}{}}
 ...\write-{}
 ...\glue(\topskip) 12.0
@@ -122,8 +124,6 @@ Completed box being shipped out [1]
 .....\kern 0.0002
 .....\glue 0.0 plus 1.0fil
 ....\TU/texgyretermes(0)/m/n/12.045 Figure
-....\kern -0.00021
-....\kern 0.00021
 ....\glue 3.01125 plus 1.50562 minus 1.00374
 ....\TU/texgyretermes(0)/m/n/12.045 foo
 ....\kern -0.0002
@@ -177,48 +177,26 @@ Completed box being shipped out [1]
 .....\kern 0.0002
 .....\glue 0.0 plus 1.0fil
 ....\TU/texgyretermes(0)/m/n/12.045 Figure
-....\kern -0.00021
-....\kern 0.00021
 ....\glue 3.01125 plus 1.50562 minus 1.00374
 ....\TU/texgyretermes(0)/m/n/12.045 A
-....\kern -0.00021
-....\kern 0.00021
 ....\glue 3.01125 plus 1.5041 minus 1.00473
 ....\TU/texgyretermes(0)/m/n/12.045 long
-....\kern -0.00021
-....\kern 0.00021
 ....\glue 3.01125 plus 1.50562 minus 1.00374
 ....\TU/texgyretermes(0)/m/n/12.045 long
-....\kern -0.00021
-....\kern 0.00021
 ....\glue 3.01125 plus 1.50562 minus 1.00374
 ....\TU/texgyretermes(0)/m/n/12.045 long
-....\kern -0.00021
-....\kern 0.00021
 ....\glue 3.01125 plus 1.50562 minus 1.00374
 ....\TU/texgyretermes(0)/m/n/12.045 long
-....\kern -0.00021
-....\kern 0.00021
 ....\glue 3.01125 plus 1.50562 minus 1.00374
 ....\TU/texgyretermes(0)/m/n/12.045 long
-....\kern -0.00021
-....\kern 0.00021
 ....\glue 3.01125 plus 1.50562 minus 1.00374
 ....\TU/texgyretermes(0)/m/n/12.045 long
-....\kern -0.00021
-....\kern 0.00021
 ....\glue 3.01125 plus 1.50562 minus 1.00374
 ....\TU/texgyretermes(0)/m/n/12.045 long
-....\kern -0.00021
-....\kern 0.00021
 ....\glue 3.01125 plus 1.50562 minus 1.00374
 ....\TU/texgyretermes(0)/m/n/12.045 long
-....\kern -0.00021
-....\kern 0.00021
 ....\glue 3.01125 plus 1.50562 minus 1.00374
 ....\TU/texgyretermes(0)/m/n/12.045 long
-....\kern -0.00021
-....\kern 0.00021
 ....\glue 3.01125 plus 1.50562 minus 1.00374
 ....\TU/texgyretermes(0)/m/n/12.045 caption
 ....\kern -0.0002
@@ -272,8 +250,6 @@ Completed box being shipped out [1]
 .....\kern 0.0002
 .....\glue 0.0 plus 1.0fil
 ....\TU/texgyretermes(0)/m/n/12.045 Figure
-....\kern -0.00021
-....\kern 0.00021
 ....\glue 3.01125 plus 1.50562 minus 1.00374
 ....\TU/texgyretermes(0)/m/n/12.045 foo
 ....\kern -0.0002
@@ -331,8 +307,6 @@ Completed box being shipped out [1]
 .....\kern 0.0002
 .....\glue 0.0 plus 1.0fil
 ....\TU/texgyretermes(0)/m/n/12.045 Figure
-....\kern -0.00021
-....\kern 0.00021
 ....\glue 3.01125 plus 1.50562 minus 1.00374
 ....\TU/texgyretermes(0)/m/n/12.045 foo
 ....\kern -0.0002
@@ -386,8 +360,6 @@ Completed box being shipped out [1]
 .....\kern 0.0002
 .....\glue 0.0 plus 1.0fil
 ....\TU/texgyretermes(0)/m/n/12.045 Figure
-....\kern -0.00021
-....\kern 0.00021
 ....\glue 3.01125 plus 1.50562 minus 1.00374
 ....\TU/texgyretermes(0)/m/n/12.045 bar
 ....\kern -0.0002
@@ -441,8 +413,6 @@ Completed box being shipped out [1]
 .....\kern 0.0002
 .....\glue 0.0 plus 1.0fil
 ....\TU/texgyretermes(0)/m/n/12.045 Figure
-....\kern -0.00021
-....\kern 0.00021
 ....\glue 3.01125 plus 1.50562 minus 1.00374
 ....\TU/texgyretermes(0)/m/n/12.045 foo
 ....\kern -0.0002
@@ -602,6 +572,8 @@ Completed box being shipped out [1]
 ...\write-{}
 ...\write1{\pp@pagectr{footnote}{1}{\theabspage }{\thepage }}
 ...\write1{\@writefile{toc}{\protect \contentsline {chapter}{\protect \numberline \ETC.}
+...\marks1{第1章\hskip 1em\relax \protect \ustc@spacetitle  {Foo}}
+...\marks2{\prg_do_nothing: }
 ...\mark{{第1章\hskip 1em\relax \protect \ustc@spacetitle  {Foo}}{}}
 ...\write1{\@writefile{lof}{\protect \addvspace {10.0pt}}}
 ...\write1{\@writefile{lot}{\protect \addvspace {10.0pt}}}
@@ -662,8 +634,6 @@ Completed box being shipped out [1]
 ........\penalty 10000
 ........\glue 0.0
 ........\TU/texgyretermes(0)/b/n/10.53937 Figure
-........\kern -0.00021
-........\kern 0.00021
 ........\glue 2.63484 plus 1.31741 minus 0.87828
 ........\TU/texgyretermes(0)/b/n/10.53937 foo
 ........\kern -0.0002
@@ -718,48 +688,26 @@ Completed box being shipped out [1]
 ........\penalty 10000
 ........\glue 0.0
 ........\TU/texgyretermes(0)/b/n/10.53937 Figure
-........\kern -0.00021
-........\kern 0.00021
 ........\glue 2.63484 plus 1.31741 minus 0.87828
 ........\TU/texgyretermes(0)/b/n/10.53937 A
-........\kern -0.00021
-........\kern 0.00021
 ........\glue 2.63484 plus 1.31609 minus 0.87915
 ........\TU/texgyretermes(0)/b/n/10.53937 long
-........\kern -0.00021
-........\kern 0.00021
 ........\glue 2.63484 plus 1.31741 minus 0.87828
 ........\TU/texgyretermes(0)/b/n/10.53937 long
-........\kern -0.00021
-........\kern 0.00021
 ........\glue 2.63484 plus 1.31741 minus 0.87828
 ........\TU/texgyretermes(0)/b/n/10.53937 long
-........\kern -0.00021
-........\kern 0.00021
 ........\glue 2.63484 plus 1.31741 minus 0.87828
 ........\TU/texgyretermes(0)/b/n/10.53937 long
-........\kern -0.00021
-........\kern 0.00021
 ........\glue 2.63484 plus 1.31741 minus 0.87828
 ........\TU/texgyretermes(0)/b/n/10.53937 long
-........\kern -0.00021
-........\kern 0.00021
 ........\glue 2.63484 plus 1.31741 minus 0.87828
 ........\TU/texgyretermes(0)/b/n/10.53937 long
-........\kern -0.00021
-........\kern 0.00021
 ........\glue 2.63484 plus 1.31741 minus 0.87828
 ........\TU/texgyretermes(0)/b/n/10.53937 long
-........\kern -0.00021
-........\kern 0.00021
 ........\glue 2.63484 plus 1.31741 minus 0.87828
 ........\TU/texgyretermes(0)/b/n/10.53937 long
-........\kern -0.00021
-........\kern 0.00021
 ........\glue 2.63484 plus 1.31741 minus 0.87828
 ........\TU/texgyretermes(0)/b/n/10.53937 long
-........\kern -0.00021
-........\kern 0.00021
 ........\glue 2.63484 plus 1.31741 minus 0.87828
 ........\TU/texgyretermes(0)/b/n/10.53937 caption
 ........\kern -0.0002
@@ -814,8 +762,6 @@ Completed box being shipped out [1]
 ........\penalty 10000
 ........\glue 0.0
 ........\TU/texgyretermes(0)/b/n/10.53937 Figure
-........\kern -0.00021
-........\kern 0.00021
 ........\glue 2.63484 plus 1.31741 minus 0.87828
 ........\TU/texgyretermes(0)/b/n/10.53937 foo
 ........\kern -0.0002
@@ -941,6 +887,8 @@ Completed box being shipped out [2]
 ...\write-{}
 ...\write1{\pp@pagectr{footnote}{2}{\theabspage }{\thepage }}
 ...\write1{\@writefile{toc}{\protect \contentsline {chapter}{\protect \numberline \ETC.}
+...\marks1{第2章\hskip 1em\relax \protect \ustc@spacetitle  {Bar}}
+...\marks2{\prg_do_nothing: }
 ...\mark{{第2章\hskip 1em\relax \protect \ustc@spacetitle  {Bar}}{}}
 ...\write1{\@writefile{lof}{\protect \addvspace {10.0pt}}}
 ...\write1{\@writefile{lot}{\protect \addvspace {10.0pt}}}
@@ -1001,8 +949,6 @@ Completed box being shipped out [2]
 ........\penalty 10000
 ........\glue 0.0
 ........\TU/texgyretermes(0)/b/n/10.53937 Figure
-........\kern -0.00021
-........\kern 0.00021
 ........\glue 2.63484 plus 1.31741 minus 0.87828
 ........\TU/texgyretermes(0)/b/n/10.53937 foo
 ........\kern -0.0002
@@ -1057,8 +1003,6 @@ Completed box being shipped out [2]
 ........\penalty 10000
 ........\glue 0.0
 ........\TU/texgyretermes(0)/b/n/10.53937 Figure
-........\kern -0.00021
-........\kern 0.00021
 ........\glue 2.63484 plus 1.31741 minus 0.87828
 ........\TU/texgyretermes(0)/b/n/10.53937 bar
 ........\kern -0.0002
@@ -1113,8 +1057,6 @@ Completed box being shipped out [2]
 ........\penalty 10000
 ........\glue 0.0
 ........\TU/texgyretermes(0)/b/n/10.53937 Figure
-........\kern -0.00021
-........\kern 0.00021
 ........\glue 2.63484 plus 1.31741 minus 0.87828
 ........\TU/texgyretermes(0)/b/n/10.53937 foo
 ........\kern -0.0002

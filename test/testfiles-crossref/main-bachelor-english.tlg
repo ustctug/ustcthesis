@@ -325,12 +325,8 @@ Completed box being shipped out [2]
 ...\hbox(8.22673+0.13248)x417.11752, glue set 302.45718fil
 ....\hbox(0.0+0.0)x24.09
 ....\TU/texgyretermes(0)/m/n/12.045 Abstract
-....\kern -0.00021
-....\kern 0.00021
 ....\glue 3.01125 plus 1.50562 minus 1.00374
 ....\TU/texgyretermes(0)/m/n/12.045 contents.
-....\kern -0.00021
-....\kern 0.00021
 ....\glue 4.01498 plus 4.51685 minus 0.33458
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil
@@ -342,28 +338,20 @@ Completed box being shipped out [2]
 ...\glue(\baselineskip) 13.85576
 ...\hbox(8.22673+2.6258)x417.11752
 ....\TU/texgyretermes(0)/b/n/12.045 Key
-....\kern -0.00021
-....\kern 0.00021
 ....\glue 3.01125 plus 1.50562 minus 1.00374
 ....\TU/texgyretermes(0)/b/n/12.045 Words
 ....\kern 0.0
 ....\kern -0.0002
 ....\kern 0.0002
 ....\TU/texgyretermes(0)/m/n/12.045 :
-....\kern -0.00021
-....\kern 0.00021
 ....\glue 4.01498 plus 3.01123 minus 0.50186
 ....\vbox(8.22673+2.6258)x352.82936
 .....\hbox(8.22673+2.6258)x352.82936, glue set 195.83485fil
 ......\hbox(0.0+0.0)x0.0
 ......\TU/texgyretermes(0)/m/n/12.045 dissertation,
-......\kern -0.00021
-......\kern 0.00021
 ......\glue 3.01125 plus 1.88202 minus 0.80298
 ......\glue 3.01125 plus 1.88202 minus 0.80298
 ......\TU/texgyretermes(0)/m/n/12.045 abstract,
-......\kern -0.00021
-......\kern 0.00021
 ......\glue 3.01125 plus 1.88202 minus 0.80298
 ......\glue 3.01125 plus 1.88202 minus 0.80298
 ......\TU/texgyretermes(0)/m/n/12.045 keywords
@@ -529,8 +517,6 @@ Completed box being shipped out [1]
 .....\hbox(8.22673+2.61375)x59.21321
 ......\special{color push  Black}
 ......\TU/texgyretermes(0)/m/n/12.045 Chapter
-......\kern -0.00021
-......\kern 0.00021
 ......\glue 3.01125 plus 1.50562 minus 1.00374
 ......\TU/texgyretermes(0)/m/n/12.045 1
 ......\kern -0.0002
@@ -693,8 +679,6 @@ Completed box being shipped out [1]
 .....\hbox(8.22673+2.61375)x59.21321
 ......\special{color push  Black}
 ......\TU/texgyretermes(0)/m/n/12.045 Chapter
-......\kern -0.00021
-......\kern 0.00021
 ......\glue 3.01125 plus 1.50562 minus 1.00374
 ......\TU/texgyretermes(0)/m/n/12.045 2
 ......\kern -0.0002
@@ -787,8 +771,6 @@ Completed box being shipped out [1]
 .....\hbox(8.22673+2.61375)x71.25821
 ......\special{color push  Black}
 ......\TU/texgyretermes(0)/m/n/12.045 Appendix
-......\kern -0.00021
-......\kern 0.00021
 ......\glue 3.01125 plus 1.50562 minus 1.00374
 ......\TU/texgyretermes(0)/m/n/12.045 A
 ......\kern -0.0002
@@ -1004,8 +986,6 @@ Completed box being shipped out [2]
 ....\glue(\leftskip) 0.0 plus 1.0fil
 ....\glue 3.01125 plus 1.50562 minus 1.00374
 ....\TU/texgyreheros(0)/m/n/16.06 Chapter
-....\kern -0.00021
-....\kern 0.00021
 ....\glue 4.46468 plus 2.23233 minus 1.48822
 ....\TU/texgyreheros(0)/m/n/16.06 1
 ....\kern -0.0002
@@ -1026,12 +1006,8 @@ Completed box being shipped out [2]
 ...\hbox(8.22673+2.61375)x417.11752, glue set 331.22466fil
 ....\hbox(0.0+0.0)x24.09
 ....\TU/texgyretermes(0)/m/n/12.045 Chapter
-....\kern -0.00021
-....\kern 0.00021
 ....\glue 3.01125 plus 1.50562 minus 1.00374
 ....\TU/texgyretermes(0)/m/n/12.045 text.
-....\kern -0.00021
-....\kern 0.00021
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
@@ -1041,12 +1017,8 @@ Completed box being shipped out [2]
 ...\hbox(8.22673+2.6258)x417.11752, glue set 299.25722fil
 ....\hbox(0.0+0.0)x24.09
 ....\TU/texgyretermes(0)/m/n/12.045 Another
-....\kern -0.00021
-....\kern 0.00021
 ....\glue 3.01125 plus 1.50562 minus 1.00374
 ....\TU/texgyretermes(0)/m/n/12.045 paragraph.
-....\kern -0.00021
-....\kern 0.00021
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
@@ -1085,12 +1057,8 @@ Completed box being shipped out [2]
 ...\hbox(8.14243+0.16861)x417.11752, glue set 333.22412fil
 ....\hbox(0.0+0.0)x24.09
 ....\TU/texgyretermes(0)/m/n/12.045 Section
-....\kern -0.00021
-....\kern 0.00021
 ....\glue 3.01125 plus 1.50562 minus 1.00374
 ....\TU/texgyretermes(0)/m/n/12.045 text.
-....\kern -0.00021
-....\kern 0.00021
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
@@ -1128,12 +1096,8 @@ Completed box being shipped out [2]
 ...\hbox(8.22673+0.16861)x417.11752, glue set 316.49362fil
 ....\hbox(0.0+0.0)x24.09
 ....\TU/texgyretermes(0)/m/n/12.045 Subsection
-....\kern -0.00021
-....\kern 0.00021
 ....\glue 3.01125 plus 1.50562 minus 1.00374
 ....\TU/texgyretermes(0)/m/n/12.045 text.
-....\kern -0.00021
-....\kern 0.00021
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
@@ -1175,12 +1139,8 @@ Completed box being shipped out [2]
 ...\hbox(8.22673+0.16861)x417.11752, glue set 299.7631fil
 ....\hbox(0.0+0.0)x24.09
 ....\TU/texgyretermes(0)/m/n/12.045 Subsubsection
-....\kern -0.00021
-....\kern 0.00021
 ....\glue 3.01125 plus 1.50562 minus 1.00374
 ....\TU/texgyretermes(0)/m/n/12.045 text.
-....\kern -0.00021
-....\kern 0.00021
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
@@ -1228,12 +1188,8 @@ Completed box being shipped out [2]
 ...\hbox(8.22673+2.6258)x417.11752, glue set 320.64914fil
 ....\hbox(0.0+0.0)x24.09
 ....\TU/texgyretermes(0)/m/n/12.045 Paragraph
-....\kern -0.00021
-....\kern 0.00021
 ....\glue 3.01125 plus 1.50562 minus 1.00374
 ....\TU/texgyretermes(0)/m/n/12.045 text.
-....\kern -0.00021
-....\kern 0.00021
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
@@ -1268,12 +1224,8 @@ Completed box being shipped out [2]
 ...\hbox(8.22673+2.6258)x417.11752, glue set 302.34074fil
 ....\hbox(0.0+0.0)x24.09
 ....\TU/texgyretermes(0)/m/n/12.045 Subparagraph
-....\kern -0.00021
-....\kern 0.00021
 ....\glue 3.01125 plus 1.50562 minus 1.00374
 ....\TU/texgyretermes(0)/m/n/12.045 text.
-....\kern -0.00021
-....\kern 0.00021
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
@@ -1428,8 +1380,6 @@ Completed box being shipped out [3]
 ....\glue(\leftskip) 0.0 plus 1.0fil
 ....\glue 3.01125 plus 1.50562 minus 1.00374
 ....\TU/texgyreheros(0)/m/n/16.06 Chapter
-....\kern -0.00021
-....\kern 0.00021
 ....\glue 4.46468 plus 2.23233 minus 1.48822
 ....\TU/texgyreheros(0)/m/n/16.06 2
 ....\kern -0.0002
@@ -1611,7 +1561,7 @@ Completed box being shipped out [4]
 ...\glue 18.06749
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
-...\hbox(8.22673+2.71011)x397.07306, glue set - 0.50311, shifted 20.04446
+...\hbox(8.22673+2.71011)x397.07306, glue set - 0.50313, shifted 20.04446
 ....\hbox(8.14243+1.879)x0.0
 .....\glue 0.0
 .....\glue -14.04446
@@ -1638,21 +1588,13 @@ Completed box being shipped out [4]
 ....\penalty 10000
 ....\glue 3.01125 plus 1.50562 minus 1.00374
 ....\TU/texgyretermes(0)/m/n/12.045 E.
-....\kern -0.00021
-....\kern 0.00021
 ....\glue 3.01125 plus 1.50562 minus 1.00374
 ....\glue 1.32495 plus 3.97487 minus 0.84323
 ....\TU/texgyretermes(0)/m/n/12.045 Computers
-....\kern -0.00021
-....\kern 0.00021
 ....\glue 3.01125 plus 1.50562 minus 1.00374
 ....\TU/texgyretermes(0)/m/n/12.045 and
-....\kern -0.00021
-....\kern 0.00021
 ....\glue 3.01125 plus 1.50562 minus 1.00374
 ....\TU/texgyretermes(0)/m/n/12.045 typesetting:
-....\kern -0.00021
-....\kern 0.00021
 ....\glue 4.01498 plus 3.01123 minus 0.50186
 ....\TU/texgyretermes(0)/m/n/12.045 volume
 ....\kern -0.0002
@@ -1664,8 +1606,6 @@ Completed box being shipped out [4]
 ....\kern 0.0002
 ....\glue 12.045
 ....\TU/texgyretermes(0)/m/n/12.045 The
-....\kern -0.00021
-....\kern 0.00021
 ....\glue 3.01125 plus 1.50562 minus 1.00374
 ....\TU/texgyretermes(0)/m/n/12.045 T
 ....\kern -0.0002
@@ -1684,32 +1624,20 @@ Completed box being shipped out [4]
 ....\kern 0.0002
 ....\penalty 0
 ....\TU/texgyretermes(0)/m/n/12.045 [M].
-....\kern -0.00021
-....\kern 0.00021
 ....\glue 3.01125 plus 1.50562 minus 1.00374
 ....\glue 1.32495 plus 3.97487 minus 0.84323
 ....\TU/texgyretermes(0)/m/n/12.045 Reading,
-....\kern -0.00021
-....\kern 0.0
 ....\glue(\rightskip) 0.0
 ...\penalty 14000
 ...\glue(\baselineskip) 11.13359
 ...\hbox(8.23878+2.6258)x397.07306, glue set 230.61119fil, shifted 20.04446
 ....\TU/texgyretermes(0)/m/n/12.045 MA,
-....\kern -0.00021
-....\kern 0.00021
 ....\glue 3.01125 plus 1.50562 minus 1.00374
 ....\TU/texgyretermes(0)/m/n/12.045 USA:
-....\kern -0.00021
-....\kern 0.00021
 ....\glue 3.01125 plus 1.50562 minus 1.00374
 ....\TU/texgyretermes(0)/m/n/12.045 Addison-Wesley,
-....\kern -0.00021
-....\kern 0.00021
 ....\glue 3.01125 plus 1.88202 minus 0.80298
 ....\TU/texgyretermes(0)/m/n/12.045 1986.
-....\kern -0.00021
-....\kern 0.00021
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
@@ -1854,8 +1782,6 @@ Completed box being shipped out [5]
 ....\glue(\leftskip) 0.0 plus 1.0fil
 ....\glue 3.01125 plus 1.50562 minus 1.00374
 ....\TU/texgyreheros(0)/m/n/16.06 Appendix
-....\kern -0.00021
-....\kern 0.00021
 ....\glue 4.46468 plus 2.23233 minus 1.48822
 ....\TU/texgyreheros(0)/m/n/16.06 A
 ....\kern -0.0002

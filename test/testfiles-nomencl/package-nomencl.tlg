@@ -86,6 +86,8 @@ Completed box being shipped out [1]
 ...\write-{}
 ...\write-{}
 ...\write-{}
+...\marks1{\protect \ustc@spacetitle  {符号说明}}
+...\marks2{\prg_do_nothing: }
 ...\mark{{\protect \ustc@spacetitle  {符号说明}}{}}
 ...\write-{}
 ...\glue(\topskip) 12.0
@@ -129,32 +131,18 @@ Completed box being shipped out [1]
 .....\glue 6.0
 ....\penalty 0
 ....\TU/texgyretermes(0)/m/n/12.045 The
-....\kern -0.00021
-....\kern 0.00021
 ....\glue 3.01125 plus 1.50562 minus 1.00374
 ....\TU/texgyretermes(0)/m/n/12.045 total
-....\kern -0.00021
-....\kern 0.00021
 ....\glue 3.01125 plus 1.50562 minus 1.00374
 ....\TU/texgyretermes(0)/m/n/12.045 mass
-....\kern -0.00021
-....\kern 0.00021
 ....\glue 3.01125 plus 1.50562 minus 1.00374
 ....\TU/texgyretermes(0)/m/n/12.045 of
-....\kern -0.00021
-....\kern 0.00021
 ....\glue 3.01125 plus 1.50562 minus 1.00374
 ....\TU/texgyretermes(0)/m/n/12.045 angels
-....\kern -0.00021
-....\kern 0.00021
 ....\glue 3.01125 plus 1.50562 minus 1.00374
 ....\TU/texgyretermes(0)/m/n/12.045 per
-....\kern -0.00021
-....\kern 0.00021
 ....\glue 3.01125 plus 1.50562 minus 1.00374
 ....\TU/texgyretermes(0)/m/n/12.045 unit
-....\kern -0.00021
-....\kern 0.00021
 ....\glue 3.01125 plus 1.50562 minus 1.00374
 ....\TU/texgyretermes(0)/m/n/12.045 area
 ....\kern -0.0002
@@ -182,24 +170,14 @@ Completed box being shipped out [1]
 .....\glue 6.0
 ....\penalty 0
 ....\TU/texgyretermes(0)/m/n/12.045 The
-....\kern -0.00021
-....\kern 0.00021
 ....\glue 3.01125 plus 1.50562 minus 1.00374
 ....\TU/texgyretermes(0)/m/n/12.045 area
-....\kern -0.00021
-....\kern 0.00021
 ....\glue 3.01125 plus 1.50562 minus 1.00374
 ....\TU/texgyretermes(0)/m/n/12.045 of
-....\kern -0.00021
-....\kern 0.00021
 ....\glue 3.01125 plus 1.50562 minus 1.00374
 ....\TU/texgyretermes(0)/m/n/12.045 the
-....\kern -0.00021
-....\kern 0.00021
 ....\glue 3.01125 plus 1.50562 minus 1.00374
 ....\TU/texgyretermes(0)/m/n/12.045 needle
-....\kern -0.00021
-....\kern 0.00021
 ....\glue 3.01125 plus 1.50562 minus 1.00374
 ....\TU/texgyretermes(0)/m/n/12.045 point
 ....\kern -0.0002
@@ -227,28 +205,16 @@ Completed box being shipped out [1]
 .....\glue 6.0
 ....\penalty 0
 ....\TU/texgyretermes(0)/m/n/12.045 The
-....\kern -0.00021
-....\kern 0.00021
 ....\glue 3.01125 plus 1.50562 minus 1.00374
 ....\TU/texgyretermes(0)/m/n/12.045 number
-....\kern -0.00021
-....\kern 0.00021
 ....\glue 3.01125 plus 1.50562 minus 1.00374
 ....\TU/texgyretermes(0)/m/n/12.045 of
-....\kern -0.00021
-....\kern 0.00021
 ....\glue 3.01125 plus 1.50562 minus 1.00374
 ....\TU/texgyretermes(0)/m/n/12.045 angels
-....\kern -0.00021
-....\kern 0.00021
 ....\glue 3.01125 plus 1.50562 minus 1.00374
 ....\TU/texgyretermes(0)/m/n/12.045 per
-....\kern -0.00021
-....\kern 0.00021
 ....\glue 3.01125 plus 1.50562 minus 1.00374
 ....\TU/texgyretermes(0)/m/n/12.045 unit
-....\kern -0.00021
-....\kern 0.00021
 ....\glue 3.01125 plus 1.50562 minus 1.00374
 ....\TU/texgyretermes(0)/m/n/12.045 area
 ....\kern -0.0002
@@ -276,20 +242,12 @@ Completed box being shipped out [1]
 .....\glue 6.0
 ....\penalty 0
 ....\TU/texgyretermes(0)/m/n/12.045 The
-....\kern -0.00021
-....\kern 0.00021
 ....\glue 3.01125 plus 1.50562 minus 1.00374
 ....\TU/texgyretermes(0)/m/n/12.045 mass
-....\kern -0.00021
-....\kern 0.00021
 ....\glue 3.01125 plus 1.50562 minus 1.00374
 ....\TU/texgyretermes(0)/m/n/12.045 of
-....\kern -0.00021
-....\kern 0.00021
 ....\glue 3.01125 plus 1.50562 minus 1.00374
 ....\TU/texgyretermes(0)/m/n/12.045 one
-....\kern -0.00021
-....\kern 0.00021
 ....\glue 3.01125 plus 1.50562 minus 1.00374
 ....\TU/texgyretermes(0)/m/n/12.045 angel
 ....\kern -0.0002
@@ -318,28 +276,16 @@ Completed box being shipped out [1]
 .....\glue 6.0
 ....\penalty 0
 ....\TU/texgyretermes(0)/m/n/12.045 The
-....\kern -0.00021
-....\kern 0.00021
 ....\glue 3.01125 plus 1.50562 minus 1.00374
 ....\TU/texgyretermes(0)/m/n/12.045 number
-....\kern -0.00021
-....\kern 0.00021
 ....\glue 3.01125 plus 1.50562 minus 1.00374
 ....\TU/texgyretermes(0)/m/n/12.045 of
-....\kern -0.00021
-....\kern 0.00021
 ....\glue 3.01125 plus 1.50562 minus 1.00374
 ....\TU/texgyretermes(0)/m/n/12.045 angels
-....\kern -0.00021
-....\kern 0.00021
 ....\glue 3.01125 plus 1.50562 minus 1.00374
 ....\TU/texgyretermes(0)/m/n/12.045 per
-....\kern -0.00021
-....\kern 0.00021
 ....\glue 3.01125 plus 1.50562 minus 1.00374
 ....\TU/texgyretermes(0)/m/n/12.045 needle
-....\kern -0.00021
-....\kern 0.00021
 ....\glue 3.01125 plus 1.50562 minus 1.00374
 ....\TU/texgyretermes(0)/m/n/12.045 point
 ....\kern -0.0002
@@ -451,8 +397,6 @@ Completed box being shipped out [1]
 ..........\kern 0.00017
 ..........\glue 10.53937
 ..........\TU/texgyretermes(0)/m/n/10.53937 Main
-..........\kern -0.00021
-..........\kern 0.00021
 ..........\glue 2.63484 plus 1.31741 minus 0.87828
 ..........\TU/texgyretermes(0)/m/n/10.53937 matter
 ..........\kern -0.0002
@@ -482,6 +426,8 @@ Completed box being shipped out [1]
 ...\write-{}
 ...\write1{\pp@pagectr{footnote}{1}{\theabspage }{\thepage }}
 ...\write1{\@writefile{toc}{\protect \contentsline {chapter}{\protect \numberline \ETC.}
+...\marks1{第1章\hskip 1em\relax \protect \ustc@spacetitle  {Main matter}}
+...\marks2{\prg_do_nothing: }
 ...\mark{{第1章\hskip 1em\relax \protect \ustc@spacetitle  {Main matter}}{}}
 ...\write1{\@writefile{lof}{\protect \addvspace {10.0pt}}}
 ...\write1{\@writefile{lot}{\protect \addvspace {10.0pt}}}
@@ -503,8 +449,6 @@ Completed box being shipped out [1]
 ....\kern 0.00017
 ....\glue 16.06
 ....\TU/texgyreheros(0)/b/n/16.06 Main
-....\kern -0.00021
-....\kern 0.00021
 ....\glue 4.46468 plus 2.23233 minus 1.48822
 ....\TU/texgyreheros(0)/b/n/16.06 matter
 ....\kern -0.0002
@@ -519,12 +463,8 @@ Completed box being shipped out [1]
 ...\hbox(7.97379+2.61375)x417.11752, glue set 313.39809fil
 ....\hbox(0.0+0.0)x24.09
 ....\TU/texgyretermes(0)/m/n/12.045 Lorem
-....\kern -0.00021
-....\kern 0.00021
 ....\glue 3.01125 plus 1.50562 minus 1.00374
 ....\TU/texgyretermes(0)/m/n/12.045 ipsum.
-....\kern -0.00021
-....\kern 0.00021
 ....\glue 4.01498 plus 4.51685 minus 0.33458
 ....\write3{\nomenclatureentry{a$a$@[{$a$}]\begingroup The number of angels per u\ETC.}
 ....\penalty 10000

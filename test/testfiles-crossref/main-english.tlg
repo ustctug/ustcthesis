@@ -69,6 +69,8 @@ Completed box being shipped out [1]
 ...\write-{}
 ...\write-{}
 ...\write-{}
+...\marks1{\protect \ustc@spacetitle  {摘要}}
+...\marks2{\prg_do_nothing: }
 ...\mark{{\protect \ustc@spacetitle  {摘要}}{}}
 ...\write-{}
 ...\glue(\topskip) 12.0
@@ -254,6 +256,8 @@ Completed box being shipped out [2]
 ..\glue(\lineskip) 0.0
 ..\vbox(700.50723+0.0)x417.11752, glue set 597.81601fil
 ...\write-{}
+...\marks1{\protect \ustc@spacetitle  {Abstract}}
+...\marks2{\prg_do_nothing: }
 ...\mark{{\protect \ustc@spacetitle  {Abstract}}{}}
 ...\write-{}
 ...\glue(\topskip) 12.0
@@ -278,12 +282,8 @@ Completed box being shipped out [2]
 ...\hbox(8.22673+0.13248)x417.11752, glue set 302.45718fil
 ....\hbox(0.0+0.0)x24.09
 ....\TU/texgyretermes(0)/m/n/12.045 Abstract
-....\kern -0.00021
-....\kern 0.00021
 ....\glue 3.01125 plus 1.50562 minus 1.00374
 ....\TU/texgyretermes(0)/m/n/12.045 contents.
-....\kern -0.00021
-....\kern 0.00021
 ....\glue 4.01498 plus 4.51685 minus 0.33458
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil
@@ -295,28 +295,20 @@ Completed box being shipped out [2]
 ...\glue(\baselineskip) 11.84827
 ...\hbox(8.22673+2.6258)x417.11752
 ....\TU/texgyretermes(0)/b/n/12.045 Key
-....\kern -0.00021
-....\kern 0.00021
 ....\glue 3.01125 plus 1.50562 minus 1.00374
 ....\TU/texgyretermes(0)/b/n/12.045 Words
 ....\kern 0.0
 ....\kern -0.0002
 ....\kern 0.0002
 ....\TU/texgyretermes(0)/m/n/12.045 :
-....\kern -0.00021
-....\kern 0.00021
 ....\glue 4.01498 plus 3.01123 minus 0.50186
 ....\vbox(8.22673+2.6258)x352.82936
 .....\hbox(8.22673+2.6258)x352.82936, glue set 195.83485fil
 ......\hbox(0.0+0.0)x0.0
 ......\TU/texgyretermes(0)/m/n/12.045 dissertation,
-......\kern -0.00021
-......\kern 0.00021
 ......\glue 3.01125 plus 1.88202 minus 0.80298
 ......\glue 3.01125 plus 1.88202 minus 0.80298
 ......\TU/texgyretermes(0)/m/n/12.045 abstract,
-......\kern -0.00021
-......\kern 0.00021
 ......\glue 3.01125 plus 1.88202 minus 0.80298
 ......\glue 3.01125 plus 1.88202 minus 0.80298
 ......\TU/texgyretermes(0)/m/n/12.045 keywords
@@ -438,6 +430,8 @@ Completed box being shipped out [3]
 ..\vbox(700.50723+0.0)x417.11752, glue set 455.47304fil
 ...\write-{}
 ...\write-{}
+...\marks1{\protect \ustc@spacetitle  {Contents}}
+...\marks2{\prg_do_nothing: }
 ...\mark{{\protect \ustc@spacetitle  {Contents}}{}}
 ...\write-{}
 ...\glue(\topskip) 12.0
@@ -472,8 +466,6 @@ Completed box being shipped out [3]
 .....\hbox(9.59785+3.04938)x69.08205
 ......\special{color push  Black}
 ......\TU/texgyretermes(0)/m/n/14.05249 Chapter
-......\kern -0.00021
-......\kern 0.00021
 ......\glue 3.51312 plus 1.75656 minus 1.17104
 ......\TU/texgyretermes(0)/m/n/14.05249 1
 ......\kern -0.0002
@@ -633,8 +625,6 @@ Completed box being shipped out [3]
 .....\hbox(9.59785+3.04938)x69.08205
 ......\special{color push  Black}
 ......\TU/texgyretermes(0)/m/n/14.05249 Chapter
-......\kern -0.00021
-......\kern 0.00021
 ......\glue 3.51312 plus 1.75656 minus 1.17104
 ......\TU/texgyretermes(0)/m/n/14.05249 2
 ......\kern -0.0002
@@ -725,8 +715,6 @@ Completed box being shipped out [3]
 .....\hbox(9.59785+3.04938)x83.13454
 ......\special{color push  Black}
 ......\TU/texgyretermes(0)/m/n/14.05249 Appendix
-......\kern -0.00021
-......\kern 0.00021
 ......\glue 3.51312 plus 1.75656 minus 1.17104
 ......\TU/texgyretermes(0)/m/n/14.05249 A
 ......\kern -0.0002
@@ -960,6 +948,8 @@ Completed box being shipped out [5]
 ..\glue(\lineskip) 0.0
 ..\vbox(700.50723+0.0)x417.11752, glue set 638.19858fil
 ...\write-{}
+...\marks1{\protect \ustc@spacetitle  {Notation}}
+...\marks2{\prg_do_nothing: }
 ...\mark{{\protect \ustc@spacetitle  {Notation}}{}}
 ...\write-{}
 ...\glue(\topskip) 12.0
@@ -984,8 +974,6 @@ Completed box being shipped out [5]
 ...\hbox(7.97379+0.13248)x417.11752, glue set 343.41418fil
 ....\hbox(0.0+0.0)x24.09
 ....\TU/texgyretermes(0)/m/n/12.045 Notations.
-....\kern -0.00021
-....\kern 0.00021
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
@@ -1082,8 +1070,6 @@ Completed box being shipped out [1]
 ..........\glue(\leftskip) 0.0 plus 1.0fil
 ..........\hbox(0.0+0.0)x0.0
 ..........\TU/texgyretermes(0)/m/n/10.53937 Chapter
-..........\kern -0.00021
-..........\kern 0.00021
 ..........\glue 2.63484 plus 1.31741 minus 0.87828
 ..........\TU/texgyretermes(0)/m/n/10.53937 1
 ..........\kern -0.0002
@@ -1119,6 +1105,8 @@ Completed box being shipped out [1]
 ...\write-{}
 ...\write1{\pp@pagectr{footnote}{1}{\theabspage }{\thepage }}
 ...\write1{\@writefile{toc}{\protect \contentsline {chapter}{\protect \numberline \ETC.}
+...\marks1{Chapter 1\hskip 1em\relax \protect \ustc@spacetitle  {简介}}
+...\marks2{\prg_do_nothing: }
 ...\mark{{Chapter 1\hskip 1em\relax \protect \ustc@spacetitle  {简介}}{}}
 ...\write1{\@writefile{lof}{\protect \addvspace {10.0pt}}}
 ...\write1{\@writefile{lot}{\protect \addvspace {10.0pt}}}
@@ -1132,8 +1120,6 @@ Completed box being shipped out [1]
 ...\hbox(12.39832+3.50107)x417.11752, glue set 131.45473fil
 ....\glue(\leftskip) 0.0 plus 1.0fil
 ....\TU/texgyreheros(0)/b/n/16.06 Chapter
-....\kern -0.00021
-....\kern 0.00021
 ....\glue 4.46468 plus 2.23233 minus 1.48822
 ....\TU/texgyreheros(0)/b/n/16.06 1
 ....\kern -0.0002
@@ -1154,12 +1140,8 @@ Completed box being shipped out [1]
 ...\hbox(8.22673+2.61375)x417.11752, glue set 331.22466fil
 ....\hbox(0.0+0.0)x24.09
 ....\TU/texgyretermes(0)/m/n/12.045 Chapter
-....\kern -0.00021
-....\kern 0.00021
 ....\glue 3.01125 plus 1.50562 minus 1.00374
 ....\TU/texgyretermes(0)/m/n/12.045 text.
-....\kern -0.00021
-....\kern 0.00021
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
@@ -1169,12 +1151,8 @@ Completed box being shipped out [1]
 ...\hbox(8.22673+2.6258)x417.11752, glue set 299.25722fil
 ....\hbox(0.0+0.0)x24.09
 ....\TU/texgyretermes(0)/m/n/12.045 Another
-....\kern -0.00021
-....\kern 0.00021
 ....\glue 3.01125 plus 1.50562 minus 1.00374
 ....\TU/texgyretermes(0)/m/n/12.045 paragraph.
-....\kern -0.00021
-....\kern 0.00021
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
@@ -1212,12 +1190,8 @@ Completed box being shipped out [1]
 ...\hbox(8.14243+0.16861)x417.11752, glue set 333.22412fil
 ....\hbox(0.0+0.0)x24.09
 ....\TU/texgyretermes(0)/m/n/12.045 Section
-....\kern -0.00021
-....\kern 0.00021
 ....\glue 3.01125 plus 1.50562 minus 1.00374
 ....\TU/texgyretermes(0)/m/n/12.045 text.
-....\kern -0.00021
-....\kern 0.00021
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
@@ -1256,12 +1230,8 @@ Completed box being shipped out [1]
 ...\hbox(8.22673+0.16861)x417.11752, glue set 316.49362fil
 ....\hbox(0.0+0.0)x24.09
 ....\TU/texgyretermes(0)/m/n/12.045 Subsection
-....\kern -0.00021
-....\kern 0.00021
 ....\glue 3.01125 plus 1.50562 minus 1.00374
 ....\TU/texgyretermes(0)/m/n/12.045 text.
-....\kern -0.00021
-....\kern 0.00021
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
@@ -1303,12 +1273,8 @@ Completed box being shipped out [1]
 ...\hbox(8.22673+0.16861)x417.11752, glue set 299.7631fil
 ....\hbox(0.0+0.0)x24.09
 ....\TU/texgyretermes(0)/m/n/12.045 Subsubsection
-....\kern -0.00021
-....\kern 0.00021
 ....\glue 3.01125 plus 1.50562 minus 1.00374
 ....\TU/texgyretermes(0)/m/n/12.045 text.
-....\kern -0.00021
-....\kern 0.00021
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
@@ -1357,12 +1323,8 @@ Completed box being shipped out [1]
 ...\hbox(8.22673+2.6258)x417.11752, glue set 320.64914fil
 ....\hbox(0.0+0.0)x24.09
 ....\TU/texgyretermes(0)/m/n/12.045 Paragraph
-....\kern -0.00021
-....\kern 0.00021
 ....\glue 3.01125 plus 1.50562 minus 1.00374
 ....\TU/texgyretermes(0)/m/n/12.045 text.
-....\kern -0.00021
-....\kern 0.00021
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
@@ -1401,12 +1363,8 @@ Completed box being shipped out [1]
 ...\hbox(8.22673+2.6258)x417.11752, glue set 302.34074fil
 ....\hbox(0.0+0.0)x24.09
 ....\TU/texgyretermes(0)/m/n/12.045 Subparagraph
-....\kern -0.00021
-....\kern 0.00021
 ....\glue 3.01125 plus 1.50562 minus 1.00374
 ....\TU/texgyretermes(0)/m/n/12.045 text.
-....\kern -0.00021
-....\kern 0.00021
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
@@ -1448,20 +1406,12 @@ Completed box being shipped out [1]
 ...\hbox(8.22673+2.61375)x417.11752, glue set 239.91151fil
 ....\hbox(0.0+0.0)x24.09
 ....\TU/texgyretermes(0)/m/n/12.045 Test
-....\kern -0.00021
-....\kern 0.00021
 ....\glue 3.01125 plus 1.50562 minus 1.00374
 ....\TU/texgyretermes(0)/m/n/12.045 “double”
-....\kern -0.00021
-....\kern 0.00021
 ....\glue 3.01125 plus 1.50562 minus 1.00374
 ....\TU/texgyretermes(0)/m/n/12.045 quotaion
-....\kern -0.00021
-....\kern 0.00021
 ....\glue 3.01125 plus 1.50562 minus 1.00374
 ....\TU/texgyretermes(0)/m/n/12.045 ‘marks’.
-....\kern -0.00021
-....\kern 0.00021
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
@@ -1550,8 +1500,6 @@ Completed box being shipped out [2]
 ..........\glue(\leftskip) 0.0 plus 1.0fil
 ..........\hbox(0.0+0.0)x0.0
 ..........\TU/texgyretermes(0)/m/n/10.53937 Chapter
-..........\kern -0.00021
-..........\kern 0.00021
 ..........\glue 2.63484 plus 1.31741 minus 0.87828
 ..........\TU/texgyretermes(0)/m/n/10.53937 2
 ..........\kern -0.0002
@@ -1588,6 +1536,8 @@ Completed box being shipped out [2]
 ...\write-{}
 ...\write1{\pp@pagectr{footnote}{2}{\theabspage }{\thepage }}
 ...\write1{\@writefile{toc}{\protect \contentsline {chapter}{\protect \numberline \ETC.}
+...\marks1{Chapter 2\hskip 1em\relax \protect \ustc@spacetitle  {浮动体}}
+...\marks2{\prg_do_nothing: }
 ...\mark{{Chapter 2\hskip 1em\relax \protect \ustc@spacetitle  {浮动体}}{}}
 ...\write1{\@writefile{lof}{\protect \addvspace {10.0pt}}}
 ...\write1{\@writefile{lot}{\protect \addvspace {10.0pt}}}
@@ -1601,8 +1551,6 @@ Completed box being shipped out [2]
 ...\hbox(12.25378+3.50107)x417.11752, glue set 123.42473fil
 ....\glue(\leftskip) 0.0 plus 1.0fil
 ....\TU/texgyreheros(0)/b/n/16.06 Chapter
-....\kern -0.00021
-....\kern 0.00021
 ....\glue 4.46468 plus 2.23233 minus 1.48822
 ....\TU/texgyreheros(0)/b/n/16.06 2
 ....\kern -0.0002
@@ -1736,6 +1684,8 @@ Completed box being shipped out [3]
 ...\write-{}
 ...\write-{}
 ...\write1{\@writefile{toc}{\protect \contentsline {chapter}{Bibliography}{\thepage \ETC.}
+...\marks1{\protect \ustc@spacetitle  {Bibliography}}
+...\marks2{\prg_do_nothing: }
 ...\mark{{\protect \ustc@spacetitle  {Bibliography}}{}}
 ...\write1{\@writefile{lof}{\protect \addvspace {10.0pt}}}
 ...\write1{\@writefile{lot}{\protect \addvspace {10.0pt}}}
@@ -1758,7 +1708,7 @@ Completed box being shipped out [3]
 ...\glue 18.06749
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
-...\hbox(7.1984+2.37135)x398.82861, glue set - 0.15508, shifted 18.28891
+...\hbox(7.1984+2.37135)x398.82861, glue set - 0.15509, shifted 18.28891
 ....\hbox(7.12462+1.64412)x0.0
 .....\glue 0.0
 .....\glue -12.28891
@@ -1785,21 +1735,13 @@ Completed box being shipped out [3]
 ....\penalty 10000
 ....\glue 2.63484 plus 1.31741 minus 0.87828
 ....\TU/texgyretermes(0)/m/n/10.53937 E.
-....\kern -0.00021
-....\kern 0.00021
 ....\glue 2.63484 plus 1.31741 minus 0.87828
 ....\glue 1.15933 plus 3.478 minus 0.73782
 ....\TU/texgyretermes(0)/m/n/10.53937 Computers
-....\kern -0.00021
-....\kern 0.00021
 ....\glue 2.63484 plus 1.31741 minus 0.87828
 ....\TU/texgyretermes(0)/m/n/10.53937 and
-....\kern -0.00021
-....\kern 0.00021
 ....\glue 2.63484 plus 1.31741 minus 0.87828
 ....\TU/texgyretermes(0)/m/n/10.53937 typesetting:
-....\kern -0.00021
-....\kern 0.00021
 ....\glue 3.51312 plus 2.63483 minus 0.43913
 ....\TU/texgyretermes(0)/m/n/10.53937 volume
 ....\kern -0.0002
@@ -1811,8 +1753,6 @@ Completed box being shipped out [3]
 ....\kern 0.0002
 ....\glue 10.53937
 ....\TU/texgyretermes(0)/m/n/10.53937 The
-....\kern -0.00021
-....\kern 0.00021
 ....\glue 2.63484 plus 1.31741 minus 0.87828
 ....\TU/texgyretermes(0)/m/n/10.53937 T
 ....\kern -0.0002
@@ -1831,32 +1771,20 @@ Completed box being shipped out [3]
 ....\kern 0.0002
 ....\penalty 0
 ....\TU/texgyretermes(0)/m/n/10.53937 [M].
-....\kern -0.00021
-....\kern 0.00021
 ....\glue 2.63484 plus 1.31741 minus 0.87828
 ....\glue 1.15933 plus 3.478 minus 0.73782
 ....\TU/texgyretermes(0)/m/n/10.53937 Reading,
-....\kern -0.00021
-....\kern 0.00021
 ....\glue 2.63484 plus 1.64676 minus 0.70262
 ....\TU/texgyretermes(0)/m/n/10.53937 MA,
-....\kern -0.00021
-....\kern 0.00021
 ....\glue 2.63484 plus 1.31741 minus 0.87828
 ....\TU/texgyretermes(0)/m/n/10.53937 USA:
-....\kern -0.00021
-....\kern 0.0
 ....\glue(\rightskip) 0.0
 ...\penalty 14000
 ...\glue(\baselineskip) 10.49472
 ...\hbox(7.20892+2.29756)x398.82861, glue set 301.6978fil, shifted 18.28891
 ....\TU/texgyretermes(0)/m/n/10.53937 Addison-Wesley,
-....\kern -0.00021
-....\kern 0.00021
 ....\glue 2.63484 plus 1.64676 minus 0.70262
 ....\TU/texgyretermes(0)/m/n/10.53937 1986.
-....\kern -0.00021
-....\kern 0.00021
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
@@ -1936,8 +1864,6 @@ Completed box being shipped out [4]
 ..........\glue(\leftskip) 0.0 plus 1.0fil
 ..........\hbox(0.0+0.0)x0.0
 ..........\TU/texgyretermes(0)/m/n/10.53937 Appendix
-..........\kern -0.00021
-..........\kern 0.00021
 ..........\glue 2.63484 plus 1.31741 minus 0.87828
 ..........\TU/texgyretermes(0)/m/n/10.53937 A
 ..........\kern -0.0002
@@ -1976,6 +1902,8 @@ Completed box being shipped out [4]
 ...\write-{}
 ...\write1{\pp@pagectr{footnote}{3}{\theabspage }{\thepage }}
 ...\write1{\@writefile{toc}{\protect \contentsline {chapter}{\protect \numberline \ETC.}
+...\marks1{Appendix A\hskip 1em\relax \protect \ustc@spacetitle  {附录章节}}
+...\marks2{\prg_do_nothing: }
 ...\mark{{Appendix A\hskip 1em\relax \protect \ustc@spacetitle  {附录章节}\ETC.}
 ...\write1{\@writefile{lof}{\protect \addvspace {10.0pt}}}
 ...\write1{\@writefile{lot}{\protect \addvspace {10.0pt}}}
@@ -1989,8 +1917,6 @@ Completed box being shipped out [4]
 ...\hbox(12.35014+3.50107)x417.11752, glue set 111.7491fil
 ....\glue(\leftskip) 0.0 plus 1.0fil
 ....\TU/texgyreheros(0)/b/n/16.06 Appendix
-....\kern -0.00021
-....\kern 0.00021
 ....\glue 4.46468 plus 2.23233 minus 1.48822
 ....\TU/texgyreheros(0)/b/n/16.06 A
 ....\kern -0.0002
@@ -2128,6 +2054,8 @@ Completed box being shipped out [5]
 ..\vbox(700.50723+0.0)x417.11752, glue set 633.75043fil
 ...\write-{}
 ...\write1{\@writefile{toc}{\protect \contentsline {chapter}{Acknowledgements}{\thepage \ETC.}
+...\marks1{\protect \ustc@spacetitle  {Acknowledgements}}
+...\marks2{\prg_do_nothing: }
 ...\mark{{\protect \ustc@spacetitle  {Acknowledgements}}{}}
 ...\write1{\@writefile{lof}{\protect \addvspace {10.0pt}}}
 ...\write1{\@writefile{lot}{\protect \addvspace {10.0pt}}}
@@ -2268,6 +2196,8 @@ Completed box being shipped out [6]
 ..\vbox(700.50723+0.0)x417.11752, glue set 636.81354fil
 ...\write-{}
 ...\write1{\@writefile{toc}{\protect \contentsline {chapter}{Publications}{\thepage \ETC.}
+...\marks1{\protect \ustc@spacetitle  {Publications}}
+...\marks2{\prg_do_nothing: }
 ...\mark{{\protect \ustc@spacetitle  {Publications}}{}}
 ...\write1{\@writefile{lof}{\protect \addvspace {10.0pt}}}
 ...\write1{\@writefile{lot}{\protect \addvspace {10.0pt}}}
