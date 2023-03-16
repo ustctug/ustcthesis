@@ -105,7 +105,7 @@ Completed box being shipped out [1]
 ...\penalty 10000
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
-...\hbox(14.05243+6.02255)x417.11752, glue set 311.18173fill
+...\hbox(14.05243+6.02255)x417.11752, glue set 314.79527fill
 ....\glue(\leftskip) 48.18
 ....\hbox(0.0+0.0)x0.0
 ....\rule(14.05243+6.02255)x0.0
@@ -130,27 +130,24 @@ Completed box being shipped out [1]
 ....\kern 0.0002
 ....\rule(14.05243+6.02255)x0.0
 ....\kern 0.0
-....\glue -9.03374
+....\glue 2.00749
+....\glue -4.015
 ....\glue 3.01125
 ....\leaders 0.0 plus 1.0fill
-.....\hbox(3.68578+0.0)x9.03374, glue set 6.02249fil
+.....\hbox(3.68578+0.0)x4.015, glue set 1.00375fil
 ......\glue 0.0 plus 1.0fil minus 1.0fil
 ......\hbox(3.68578+0.0)x3.01125
 .......\special{color push  Black}
 .......\TU/texgyretermes(0)/m/n/12.045 ^^b7
 .......\special{color pop}
 ....\kern 0.0
-....\hbox(8.14243+0.0)x18.66977, glue set 12.64726fil
-.....\glue 0.0 plus 1.0fil
-.....\TU/texgyretermes(0)/m/n/12.045 1
-.....\kern -0.0002
-.....\kern 0.0002
-....\rule(*+*)x0.0
+....\glue 2.00749
+....\TU/texgyretermes(0)/m/n/12.045 1
+....\kern -0.0002
+....\kern 0.0002
 ....\penalty 10000
-....\glue -18.66977
-....\penalty 10000
-....\glue(\parfillskip) -12.045 plus 1.0fil
-....\glue(\rightskip) 30.71477
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
 ...\penalty 10000
 ...\penalty 0
 ...\glue 0.0 plus 0.1
@@ -158,7 +155,7 @@ Completed box being shipped out [1]
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 0.00002
-...\hbox(14.05243+6.02255)x417.11752, glue set 311.37445fill
+...\hbox(14.05243+6.02255)x417.11752, glue set 314.98799fill
 ....\glue(\leftskip) 48.18
 ....\hbox(0.0+0.0)x0.0
 ....\rule(14.05243+6.02255)x0.0
@@ -183,27 +180,24 @@ Completed box being shipped out [1]
 ....\kern 0.0002
 ....\rule(14.05243+6.02255)x0.0
 ....\kern 0.0
-....\glue -9.03374
+....\glue 2.00749
+....\glue -4.015
 ....\glue 3.01125
 ....\leaders 0.0 plus 1.0fill
-.....\hbox(3.68578+0.0)x9.03374, glue set 6.02249fil
+.....\hbox(3.68578+0.0)x4.015, glue set 1.00375fil
 ......\glue 0.0 plus 1.0fil minus 1.0fil
 ......\hbox(3.68578+0.0)x3.01125
 .......\special{color push  Black}
 .......\TU/texgyretermes(0)/m/n/12.045 ^^b7
 .......\special{color pop}
 ....\kern 0.0
-....\hbox(8.14243+0.0)x18.66977, glue set 12.64726fil
-.....\glue 0.0 plus 1.0fil
-.....\TU/texgyretermes(0)/m/n/12.045 1
-.....\kern -0.0002
-.....\kern 0.0002
-....\rule(*+*)x0.0
+....\glue 2.00749
+....\TU/texgyretermes(0)/m/n/12.045 1
+....\kern -0.0002
+....\kern 0.0002
 ....\penalty 10000
-....\glue -18.66977
-....\penalty 10000
-....\glue(\parfillskip) -12.045 plus 1.0fil
-....\glue(\rightskip) 30.71477
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
 ...\penalty 10000
 ...\penalty 0
 ...\glue 0.0 plus 0.1
@@ -211,7 +205,7 @@ Completed box being shipped out [1]
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 0.00002
-...\hbox(14.05243+6.02255)x417.11752, glue set 311.18173fill
+...\hbox(14.05243+6.02255)x417.11752, glue set 314.79527fill
 ....\glue(\leftskip) 48.18
 ....\hbox(0.0+0.0)x0.0
 ....\rule(14.05243+6.02255)x0.0
@@ -236,27 +230,24 @@ Completed box being shipped out [1]
 ....\kern 0.0002
 ....\rule(14.05243+6.02255)x0.0
 ....\kern 0.0
-....\glue -9.03374
+....\glue 2.00749
+....\glue -4.015
 ....\glue 3.01125
 ....\leaders 0.0 plus 1.0fill
-.....\hbox(3.68578+0.0)x9.03374, glue set 6.02249fil
+.....\hbox(3.68578+0.0)x4.015, glue set 1.00375fil
 ......\glue 0.0 plus 1.0fil minus 1.0fil
 ......\hbox(3.68578+0.0)x3.01125
 .......\special{color push  Black}
 .......\TU/texgyretermes(0)/m/n/12.045 ^^b7
 .......\special{color pop}
 ....\kern 0.0
-....\hbox(8.14243+0.0)x18.66977, glue set 12.64726fil
-.....\glue 0.0 plus 1.0fil
-.....\TU/texgyretermes(0)/m/n/12.045 1
-.....\kern -0.0002
-.....\kern 0.0002
-....\rule(*+*)x0.0
+....\glue 2.00749
+....\TU/texgyretermes(0)/m/n/12.045 1
+....\kern -0.0002
+....\kern 0.0002
 ....\penalty 10000
-....\glue -18.66977
-....\penalty 10000
-....\glue(\parfillskip) -12.045 plus 1.0fil
-....\glue(\rightskip) 30.71477
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
 ...\penalty 10000
 ...\glue 10.0
 ...\glue -16.0
@@ -268,7 +259,7 @@ Completed box being shipped out [1]
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 0.00002
-...\hbox(14.05243+6.02255)x417.11752, glue set 311.18173fill
+...\hbox(14.05243+6.02255)x417.11752, glue set 314.79527fill
 ....\glue(\leftskip) 48.18
 ....\hbox(0.0+0.0)x0.0
 ....\rule(14.05243+6.02255)x0.0
@@ -293,27 +284,24 @@ Completed box being shipped out [1]
 ....\kern 0.0002
 ....\rule(14.05243+6.02255)x0.0
 ....\kern 0.0
-....\glue -9.03374
+....\glue 2.00749
+....\glue -4.015
 ....\glue 3.01125
 ....\leaders 0.0 plus 1.0fill
-.....\hbox(3.68578+0.0)x9.03374, glue set 6.02249fil
+.....\hbox(3.68578+0.0)x4.015, glue set 1.00375fil
 ......\glue 0.0 plus 1.0fil minus 1.0fil
 ......\hbox(3.68578+0.0)x3.01125
 .......\special{color push  Black}
 .......\TU/texgyretermes(0)/m/n/12.045 ^^b7
 .......\special{color pop}
 ....\kern 0.0
-....\hbox(8.14243+0.0)x18.66977, glue set 12.64726fil
-.....\glue 0.0 plus 1.0fil
-.....\TU/texgyretermes(0)/m/n/12.045 2
-.....\kern -0.0002
-.....\kern 0.0002
-....\rule(*+*)x0.0
+....\glue 2.00749
+....\TU/texgyretermes(0)/m/n/12.045 2
+....\kern -0.0002
+....\kern 0.0002
 ....\penalty 10000
-....\glue -18.66977
-....\penalty 10000
-....\glue(\parfillskip) -12.045 plus 1.0fil
-....\glue(\rightskip) 30.71477
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
 ...\penalty 10000
 ...\penalty 0
 ...\glue 0.0 plus 0.1
@@ -321,7 +309,7 @@ Completed box being shipped out [1]
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 0.00002
-...\hbox(14.05243+6.02255)x417.11752, glue set 311.37445fill
+...\hbox(14.05243+6.02255)x417.11752, glue set 314.98799fill
 ....\glue(\leftskip) 48.18
 ....\hbox(0.0+0.0)x0.0
 ....\rule(14.05243+6.02255)x0.0
@@ -346,27 +334,24 @@ Completed box being shipped out [1]
 ....\kern 0.0002
 ....\rule(14.05243+6.02255)x0.0
 ....\kern 0.0
-....\glue -9.03374
+....\glue 2.00749
+....\glue -4.015
 ....\glue 3.01125
 ....\leaders 0.0 plus 1.0fill
-.....\hbox(3.68578+0.0)x9.03374, glue set 6.02249fil
+.....\hbox(3.68578+0.0)x4.015, glue set 1.00375fil
 ......\glue 0.0 plus 1.0fil minus 1.0fil
 ......\hbox(3.68578+0.0)x3.01125
 .......\special{color push  Black}
 .......\TU/texgyretermes(0)/m/n/12.045 ^^b7
 .......\special{color pop}
 ....\kern 0.0
-....\hbox(8.14243+0.0)x18.66977, glue set 12.64726fil
-.....\glue 0.0 plus 1.0fil
-.....\TU/texgyretermes(0)/m/n/12.045 2
-.....\kern -0.0002
-.....\kern 0.0002
-....\rule(*+*)x0.0
+....\glue 2.00749
+....\TU/texgyretermes(0)/m/n/12.045 2
+....\kern -0.0002
+....\kern 0.0002
 ....\penalty 10000
-....\glue -18.66977
-....\penalty 10000
-....\glue(\parfillskip) -12.045 plus 1.0fil
-....\glue(\rightskip) 30.71477
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
 ...\penalty 10000
 ...\penalty 0
 ...\glue 0.0 plus 0.1
@@ -374,7 +359,7 @@ Completed box being shipped out [1]
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 0.00002
-...\hbox(14.05243+6.02255)x417.11752, glue set 311.18173fill
+...\hbox(14.05243+6.02255)x417.11752, glue set 314.79527fill
 ....\glue(\leftskip) 48.18
 ....\hbox(0.0+0.0)x0.0
 ....\rule(14.05243+6.02255)x0.0
@@ -399,27 +384,24 @@ Completed box being shipped out [1]
 ....\kern 0.0002
 ....\rule(14.05243+6.02255)x0.0
 ....\kern 0.0
-....\glue -9.03374
+....\glue 2.00749
+....\glue -4.015
 ....\glue 3.01125
 ....\leaders 0.0 plus 1.0fill
-.....\hbox(3.68578+0.0)x9.03374, glue set 6.02249fil
+.....\hbox(3.68578+0.0)x4.015, glue set 1.00375fil
 ......\glue 0.0 plus 1.0fil minus 1.0fil
 ......\hbox(3.68578+0.0)x3.01125
 .......\special{color push  Black}
 .......\TU/texgyretermes(0)/m/n/12.045 ^^b7
 .......\special{color pop}
 ....\kern 0.0
-....\hbox(8.14243+0.0)x18.66977, glue set 12.64726fil
-.....\glue 0.0 plus 1.0fil
-.....\TU/texgyretermes(0)/m/n/12.045 2
-.....\kern -0.0002
-.....\kern 0.0002
-....\rule(*+*)x0.0
+....\glue 2.00749
+....\TU/texgyretermes(0)/m/n/12.045 2
+....\kern -0.0002
+....\kern 0.0002
 ....\penalty 10000
-....\glue -18.66977
-....\penalty 10000
-....\glue(\parfillskip) -12.045 plus 1.0fil
-....\glue(\rightskip) 30.71477
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
 ...\penalty 10000
 ...\glue -6.0
 ...\glue 0.0 plus 1.0fil

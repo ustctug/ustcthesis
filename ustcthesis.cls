@@ -2404,7 +2404,13 @@
 
 % 下面用 \pkg{titletoc} 宏包设置目录内容的格式。
 % 先定义目录线：
-\newcommand\ustc@leaders{\titlerule*[9bp]{\textperiodcentered}}
+\newcommand\ustc@leaders{%
+  \hspace{2bp}%
+  \titlerule*[4bp]{\textperiodcentered}%
+  \hspace{2bp}%
+}
+
+\contentsmargin{0bp}
 
 % 各章目录要求宋体 14 磅，单倍行距，段前 6 磅，段后 0 磅，两端对齐，
 % 页码右对齐，章序号与章名间空一字。
@@ -2413,7 +2419,7 @@
   \titlecontents{chapter}
     [\z@]{\addvspace{6bp}\fontsize{14bp}{20bp}\selectfont}
     {\contentspush{\thecontentslabel\hspace{\ccwd}}}{}
-    {\fontsize{12bp}{20bp}\selectfont\ustc@leaders\contentspage}
+    {\fontsize{12bp}{20bp}\selectfont\ustc@leaders\thecontentspage}
     %
     % 一级节标题目录要求宋体 12 磅，单倍行距，左缩进一字，段前 6 磅，段后 0 磅，
     % 两端对齐，页码右对齐，序号与题名间空一字。
@@ -2421,7 +2427,7 @@
   \titlecontents{section}
     [\ccwd]{\fontsize{12bp}{20bp}\selectfont}
     {\contentspush{\thecontentslabel\hspace{\ccwd}}}{}
-    {\ustc@leaders\contentspage}
+    {\ustc@leaders\thecontentspage}
     %
     % 二级节标题目录要求仿宋 12 磅，单倍行距，左缩进两字，段前 6 磅，段后 0 磅，
     % 两端对齐，页码右对齐，序号与题名间空一字。
@@ -2429,23 +2435,23 @@
   \titlecontents{subsection}
     [2\ccwd]{\fangsong\fontsize{12bp}{20bp}\selectfont}
     {\contentspush{\thecontentslabel\hspace{\ccwd}}}{}
-    {\ustc@leaders\contentspage}
+    {\ustc@leaders\thecontentspage}
     %
     % 本科生的目录使用小四宋体（同正文字体），其他同研究生的格式相近。
 \else
   \titlecontents{chapter}
     [\z@]{\normalsize}
     {\contentspush{\thecontentslabel\unskip\hspace{\ccwd}}}{}
-    {\ustc@leaders\contentspage}
+    {\ustc@leaders\thecontentspage}
   \titlecontents{section}
     [\ccwd]{\normalsize}
     {\contentspush{\thecontentslabel\hspace{\ccwd}}}{}
-    {\ustc@leaders\contentspage}
+    {\ustc@leaders\thecontentspage}
   \titlecontents{subsection}
     [2\ccwd]{\normalsize}
     {\contentspush{\thecontentslabel
       \ifustc@section@style@arabic\hspace{\ccwd}\else 、\fi}}{}
-    {\ustc@leaders\contentspage}
+    {\ustc@leaders\thecontentspage}
 \fi
 
 % 本科生要求目录中正文每章前多空一行，而目录、附录等章则不需要空行，
@@ -2481,11 +2487,11 @@
   \titlecontents{figure}%
     [\ustc@lof@label@width]{\normalsize}%
     {\contentslabel[\figurename~\thecontentslabel]{\ustc@lof@label@width}}{}%
-    {\ustc@leaders\contentspage}%
+    {\ustc@leaders\thecontentspage}%
   \titlecontents{table}%
     [\ustc@lof@label@width]{\normalsize}%
     {\contentslabel[\tablename~\thecontentslabel]{\ustc@lof@label@width}}{}%
-    {\ustc@leaders\contentspage}%
+    {\ustc@leaders\thecontentspage}%
 }
 \ustc@set@lof@format
 \ustc@option@hook{main-language}{\ustc@set@lof@format}

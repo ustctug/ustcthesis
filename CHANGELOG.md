@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - 本科生的正文不再另页右页（`\cleardoublepage`）。
 - 去掉本科生空白页的页码。
+- 目录的引导线更加稠密。
 
 ## [3.3.3] - 2022-05-17
 
