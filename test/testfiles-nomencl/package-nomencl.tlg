@@ -425,7 +425,7 @@ Completed box being shipped out [1]
 ..\vbox(700.50723+0.0)x417.11752, glue set 635.16356fil
 ...\write-{}
 ...\write1{\pp@pagectr{footnote}{1}{\theabspage }{\thepage }}
-...\write1{\@writefile{toc}{\protect \contentsline {chapter}{\protect \numberline \ETC.}
+...\write1{\@writefile{toc}{\protect \contentsline {chapter}{\protect \numberline {第1章}Main matter}{\thepage }{}\protected@file@percent }}
 ...\marks1{第1章\hskip 1em\relax \protect \ustc@spacetitle  {Main matter}}
 ...\marks2{\prg_do_nothing: }
 ...\mark{{第1章\hskip 1em\relax \protect \ustc@spacetitle  {Main matter}}{}}
@@ -466,17 +466,17 @@ Completed box being shipped out [1]
 ....\glue 3.01125 plus 1.50562 minus 1.00374
 ....\TU/texgyretermes(0)/m/n/12.045 ipsum.
 ....\glue 4.01498 plus 4.51685 minus 0.33458
-....\write3{\nomenclatureentry{a$a$@[{$a$}]\begingroup The number of angels per u\ETC.}
+....\write3{\nomenclatureentry{a$a$@[{$a$}]\begingroup The number of angels per unit area\protect \nomeqref {1.0}|nompageref}{\thepage }}
 ....\penalty 10000
 ....\glue 0.0
-....\write3{\nomenclatureentry{a$N$@[{$N$}]\begingroup The number of angels per n\ETC.}
+....\write3{\nomenclatureentry{a$N$@[{$N$}]\begingroup The number of angels per needle point\protect \nomeqref {1.0}|nompageref}{\thepage }}
 ....\glue 4.01498 plus 4.51685 minus 0.33458
-....\write3{\nomenclatureentry{a$A$@[{$A$}]\begingroup The area of the needle poi\ETC.}
+....\write3{\nomenclatureentry{a$A$@[{$A$}]\begingroup The area of the needle point\protect \nomeqref {1.0}|nompageref}{\thepage }}
 ....\penalty 10000
 ....\glue 0.0
-....\write3{\nomenclatureentry{a$\sigma$@[{$\sigma$}]\begingroup The total mass o\ETC.}
+....\write3{\nomenclatureentry{a$\sigma$@[{$\sigma$}]\begingroup The total mass of angels per unit area\protect \nomeqref {1.0}|nompageref}{\thepage }}
 ....\glue 4.01498 plus 4.51685 minus 0.33458
-....\write3{\nomenclatureentry{a$m$@[{$m$}]\begingroup The mass of one angel\protect \ETC.}
+....\write3{\nomenclatureentry{a$m$@[{$m$}]\begingroup The mass of one angel\protect \nomeqref {1.0}|nompageref}{\thepage }}
 ....\penalty 10000
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil

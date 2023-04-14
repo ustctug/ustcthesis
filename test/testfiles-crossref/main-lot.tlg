@@ -533,7 +533,7 @@ Completed box being shipped out [1]
 ..\vbox(700.50723+0.0)x417.11752, glue set 547.84077fil
 ...\write-{}
 ...\write1{\pp@pagectr{footnote}{1}{\theabspage }{\thepage }}
-...\write1{\@writefile{toc}{\protect \contentsline {chapter}{\protect \numberline \ETC.}
+...\write1{\@writefile{toc}{\protect \contentsline {chapter}{\protect \numberline {第1章}Foo}{\thepage }{}\protected@file@percent }}
 ...\marks1{第1章\hskip 1em\relax \protect \ustc@spacetitle  {Foo}}
 ...\marks2{\prg_do_nothing: }
 ...\mark{{第1章\hskip 1em\relax \protect \ustc@spacetitle  {Foo}}{}}
@@ -570,7 +570,7 @@ Completed box being shipped out [1]
 ...\vbox(19.72365+0.0)x417.11752
 ....\special{color push  Black}
 ....\vbox(19.72365+0.0)x417.11752
-.....\write1{\@writefile{lot}{\protect \contentsline {table}{\protect \numberline \ETC.}
+.....\write1{\@writefile{lot}{\protect \contentsline {table}{\protect \numberline {1.1}{\ignorespaces Table foo\relax }}{\thepage }{}\protected@file@percent }}
 .....\special{color push  Black}
 .....\glue 0.0
 .....\glue(\parskip) 0.0
@@ -624,7 +624,7 @@ Completed box being shipped out [1]
 ...\vbox(19.72365+0.0)x417.11752
 ....\special{color push  Black}
 ....\vbox(19.72365+0.0)x417.11752
-.....\write1{\@writefile{lot}{\protect \contentsline {table}{\protect \numberline \ETC.}
+.....\write1{\@writefile{lot}{\protect \contentsline {table}{\protect \numberline {1.2}{\ignorespaces Table bar\relax }}{\thepage }{}\protected@file@percent }}
 .....\special{color push  Black}
 .....\glue 0.0
 .....\glue(\parskip) 0.0
@@ -678,7 +678,7 @@ Completed box being shipped out [1]
 ...\vbox(19.72365+0.0)x417.11752
 ....\special{color push  Black}
 ....\vbox(19.72365+0.0)x417.11752
-.....\write1{\@writefile{lot}{\protect \contentsline {table}{\protect \numberline \ETC.}
+.....\write1{\@writefile{lot}{\protect \contentsline {table}{\protect \numberline {1.3}{\ignorespaces Table foo\relax }}{\thepage }{}\protected@file@percent }}
 .....\special{color push  Black}
 .....\glue 0.0
 .....\glue(\parskip) 0.0
@@ -828,7 +828,7 @@ Completed box being shipped out [2]
 ..\vbox(700.50723+0.0)x417.11752, glue set 547.84077fil
 ...\write-{}
 ...\write1{\pp@pagectr{footnote}{2}{\theabspage }{\thepage }}
-...\write1{\@writefile{toc}{\protect \contentsline {chapter}{\protect \numberline \ETC.}
+...\write1{\@writefile{toc}{\protect \contentsline {chapter}{\protect \numberline {第2章}Bar}{\thepage }{}\protected@file@percent }}
 ...\marks1{第2章\hskip 1em\relax \protect \ustc@spacetitle  {Bar}}
 ...\marks2{\prg_do_nothing: }
 ...\mark{{第2章\hskip 1em\relax \protect \ustc@spacetitle  {Bar}}{}}
@@ -865,7 +865,7 @@ Completed box being shipped out [2]
 ...\vbox(19.72365+0.0)x417.11752
 ....\special{color push  Black}
 ....\vbox(19.72365+0.0)x417.11752
-.....\write1{\@writefile{lot}{\protect \contentsline {table}{\protect \numberline \ETC.}
+.....\write1{\@writefile{lot}{\protect \contentsline {table}{\protect \numberline {2.1}{\ignorespaces Table foo\relax }}{\thepage }{}\protected@file@percent }}
 .....\special{color push  Black}
 .....\glue 0.0
 .....\glue(\parskip) 0.0
@@ -919,7 +919,7 @@ Completed box being shipped out [2]
 ...\vbox(19.72365+0.0)x417.11752
 ....\special{color push  Black}
 ....\vbox(19.72365+0.0)x417.11752
-.....\write1{\@writefile{lot}{\protect \contentsline {table}{\protect \numberline \ETC.}
+.....\write1{\@writefile{lot}{\protect \contentsline {table}{\protect \numberline {2.2}{\ignorespaces Table bar\relax }}{\thepage }{}\protected@file@percent }}
 .....\special{color push  Black}
 .....\glue 0.0
 .....\glue(\parskip) 0.0
@@ -973,7 +973,7 @@ Completed box being shipped out [2]
 ...\vbox(19.72365+0.0)x417.11752
 ....\special{color push  Black}
 ....\vbox(19.72365+0.0)x417.11752
-.....\write1{\@writefile{lot}{\protect \contentsline {table}{\protect \numberline \ETC.}
+.....\write1{\@writefile{lot}{\protect \contentsline {table}{\protect \numberline {2.3}{\ignorespaces Table foo\relax }}{\thepage }{}\protected@file@percent }}
 .....\special{color push  Black}
 .....\glue 0.0
 .....\glue(\parskip) 0.0

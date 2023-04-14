@@ -951,7 +951,7 @@ Completed box being shipped out [2]
 ...\write-{}
 ...\write1{\@writefile{toc}{\protect \addvspace {12bp}}}
 ...\write1{\pp@pagectr{footnote}{1}{\theabspage }{\thepage }}
-...\write1{\@writefile{toc}{\protect \contentsline {chapter}{\protect \numberline \ETC.}
+...\write1{\@writefile{toc}{\protect \contentsline {chapter}{\protect \numberline {Chapter 1}简介}{\thepage }{}\protected@file@percent }}
 ...\write1{\@writefile{lof}{\protect \addvspace {10.0pt}}}
 ...\write1{\@writefile{lot}{\protect \addvspace {10.0pt}}}
 ...\glue(\topskip) 12.0
@@ -1027,7 +1027,7 @@ Completed box being shipped out [2]
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0
 ....\glue(\rightskip) 0.0 plus 1.0fil
-...\write1{\@writefile{toc}{\protect \contentsline {section}{\protect \numberline \ETC.}
+...\write1{\@writefile{toc}{\protect \contentsline {section}{\protect \numberline {1.1}一级节标题}{\thepage }{}\protected@file@percent }}
 ...\penalty 10000
 ...\glue 6.02249
 ...\glue(\parskip) 0.0
@@ -1066,7 +1066,7 @@ Completed box being shipped out [2]
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
-...\write1{\@writefile{toc}{\protect \contentsline {subsection}{\protect \numberline \ETC.}
+...\write1{\@writefile{toc}{\protect \contentsline {subsection}{\protect \numberline {1.1.1}二级节标题}{\thepage }{}\protected@file@percent }}
 ...\penalty 10000
 ...\glue 6.02249
 ...\glue(\parskip) 0.0
@@ -1109,7 +1109,7 @@ Completed box being shipped out [2]
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
-...\write1{\@writefile{toc}{\protect \contentsline {subsubsection}{\protect \numberline \ETC.}
+...\write1{\@writefile{toc}{\protect \contentsline {subsubsection}{\protect \numberline {1}三级节标题}{\thepage }{}\protected@file@percent }}
 ...\penalty 10000
 ...\glue 0.0
 ...\glue(\parskip) 0.0
@@ -1158,7 +1158,7 @@ Completed box being shipped out [2]
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
-...\write1{\@writefile{toc}{\protect \contentsline {paragraph}{\protect \numberline \ETC.}
+...\write1{\@writefile{toc}{\protect \contentsline {paragraph}{\protect \numberline {（1）}四级节标题}{\thepage }{}\protected@file@percent }}
 ...\penalty 10000
 ...\glue 0.0
 ...\glue(\parskip) 0.0
@@ -1194,7 +1194,7 @@ Completed box being shipped out [2]
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
-...\write1{\@writefile{toc}{\protect \contentsline {subparagraph}{五级节标题\ETC.}
+...\write1{\@writefile{toc}{\protect \contentsline {subparagraph}{五级节标题}{\thepage }{}\protected@file@percent }}
 ...\penalty 10000
 ...\glue 0.0
 ...\glue(\parskip) 0.0
@@ -1345,7 +1345,7 @@ Completed box being shipped out [3]
 ...\write-{}
 ...\write1{\@writefile{toc}{\protect \addvspace {12bp}}}
 ...\write1{\pp@pagectr{footnote}{2}{\theabspage }{\thepage }}
-...\write1{\@writefile{toc}{\protect \contentsline {chapter}{\protect \numberline \ETC.}
+...\write1{\@writefile{toc}{\protect \contentsline {chapter}{\protect \numberline {Chapter 2}浮动体}{\thepage }{}\protected@file@percent }}
 ...\write1{\@writefile{lof}{\protect \addvspace {10.0pt}}}
 ...\write1{\@writefile{lot}{\protect \addvspace {10.0pt}}}
 ...\glue(\topskip) 12.0
@@ -1517,7 +1517,7 @@ Completed box being shipped out [4]
 ..\vbox(700.50723+0.0)x417.11752, glue set 610.86539fil
 ...\write-{}
 ...\write1{\@writefile{toc}{\protect \addvspace {12bp}}}
-...\write1{\@writefile{toc}{\protect \contentsline {chapter}{Bibliography}{\thepage \ETC.}
+...\write1{\@writefile{toc}{\protect \contentsline {chapter}{Bibliography}{\thepage }{}\protected@file@percent }}
 ...\write1{\@writefile{lof}{\protect \addvspace {10.0pt}}}
 ...\write1{\@writefile{lot}{\protect \addvspace {10.0pt}}}
 ...\glue(\topskip) 12.0
@@ -1747,7 +1747,7 @@ Completed box being shipped out [5]
 ..\vbox(700.50723+0.0)x417.11752, glue set 632.91138fil
 ...\write-{}
 ...\write1{\pp@pagectr{footnote}{3}{\theabspage }{\thepage }}
-...\write1{\@writefile{toc}{\protect \contentsline {chapter}{\protect \numberline \ETC.}
+...\write1{\@writefile{toc}{\protect \contentsline {chapter}{\protect \numberline {Appendix A}附录章节}{\thepage }{}\protected@file@percent }}
 ...\write1{\@writefile{lof}{\protect \addvspace {10.0pt}}}
 ...\write1{\@writefile{lot}{\protect \addvspace {10.0pt}}}
 ...\glue(\topskip) 12.0
@@ -1925,7 +1925,7 @@ Completed box being shipped out [6]
 ..\vbox(700.50723+0.0)x417.11752, glue set 587.68927fil
 ...\write-{}
 ...\write-{}
-...\write1{\@writefile{toc}{\protect \contentsline {chapter}{Acknowledgements}{\thepage \ETC.}
+...\write1{\@writefile{toc}{\protect \contentsline {chapter}{Acknowledgements}{\thepage }{}\protected@file@percent }}
 ...\write1{\@writefile{lof}{\protect \addvspace {10.0pt}}}
 ...\write1{\@writefile{lot}{\protect \addvspace {10.0pt}}}
 ...\glue(\topskip) 12.0
