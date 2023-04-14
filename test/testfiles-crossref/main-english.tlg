@@ -1080,7 +1080,7 @@ Completed box being shipped out [1]
 ..\vbox(700.50723+0.0)x417.11752, glue set 320.01578fil
 ...\write-{}
 ...\write1{\pp@pagectr{footnote}{1}{\theabspage }{\thepage }}
-...\write1{\@writefile{toc}{\protect \contentsline {chapter}{\protect \numberline \ETC.}
+...\write1{\@writefile{toc}{\protect \contentsline {chapter}{\protect \numberline {Chapter 1}简介}{\thepage }{}\protected@file@percent }}
 ...\marks1{Chapter 1\hskip 1em\relax \protect \ustc@spacetitle  {简介}}
 ...\marks2{\prg_do_nothing: }
 ...\mark{{Chapter 1\hskip 1em\relax \protect \ustc@spacetitle  {简介}}{}}
@@ -1157,7 +1157,7 @@ Completed box being shipped out [1]
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
-...\write1{\@writefile{toc}{\protect \contentsline {section}{\protect \numberline \ETC.}
+...\write1{\@writefile{toc}{\protect \contentsline {section}{\protect \numberline {1.1}一级节标题}{\thepage }{}\protected@file@percent }}
 ...\penalty 10000
 ...\glue 6.02249
 ...\glue(\parskip) 0.0
@@ -1197,7 +1197,7 @@ Completed box being shipped out [1]
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
-...\write1{\@writefile{toc}{\protect \contentsline {subsection}{\protect \numberline \ETC.}
+...\write1{\@writefile{toc}{\protect \contentsline {subsection}{\protect \numberline {1.1.1}二级节标题}{\thepage }{}\protected@file@percent }}
 ...\penalty 10000
 ...\glue 6.02249
 ...\glue(\parskip) 0.0
@@ -1240,7 +1240,7 @@ Completed box being shipped out [1]
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
-...\write1{\@writefile{toc}{\protect \contentsline {subsubsection}{\protect \numberline \ETC.}
+...\write1{\@writefile{toc}{\protect \contentsline {subsubsection}{\protect \numberline {1}三级节标题}{\thepage }{}\protected@file@percent }}
 ...\penalty 10000
 ...\glue 0.0
 ...\glue(\parskip) 0.0
@@ -1290,7 +1290,7 @@ Completed box being shipped out [1]
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
-...\write1{\@writefile{toc}{\protect \contentsline {paragraph}{\protect \numberline \ETC.}
+...\write1{\@writefile{toc}{\protect \contentsline {paragraph}{\protect \numberline {（1）}四级节标题}{\thepage }{}\protected@file@percent }}
 ...\penalty 10000
 ...\glue 0.0
 ...\glue(\parskip) 0.0
@@ -1330,7 +1330,7 @@ Completed box being shipped out [1]
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
-...\write1{\@writefile{toc}{\protect \contentsline {subparagraph}{\protect \numberline \ETC.}
+...\write1{\@writefile{toc}{\protect \contentsline {subparagraph}{\protect \numberline {\relax {\protect \symbol  {\numexpr \c@subparagraph  + "245F\relax }}}五级节标题}{\thepage }{}\protected@file@percent }}
 ...\penalty 10000
 ...\glue 0.0
 ...\glue(\parskip) 0.0
@@ -1511,7 +1511,7 @@ Completed box being shipped out [2]
 ..\vbox(700.50723+0.0)x417.11752, glue set 648.66777fil
 ...\write-{}
 ...\write1{\pp@pagectr{footnote}{2}{\theabspage }{\thepage }}
-...\write1{\@writefile{toc}{\protect \contentsline {chapter}{\protect \numberline \ETC.}
+...\write1{\@writefile{toc}{\protect \contentsline {chapter}{\protect \numberline {Chapter 2}浮动体}{\thepage }{}\protected@file@percent }}
 ...\marks1{Chapter 2\hskip 1em\relax \protect \ustc@spacetitle  {浮动体}}
 ...\marks2{\prg_do_nothing: }
 ...\mark{{Chapter 2\hskip 1em\relax \protect \ustc@spacetitle  {浮动体}}{}}
@@ -1659,7 +1659,7 @@ Completed box being shipped out [3]
 ..\vbox(700.50723+0.0)x417.11752, glue set 615.5288fil
 ...\write-{}
 ...\write-{}
-...\write1{\@writefile{toc}{\protect \contentsline {chapter}{Bibliography}{\thepage \ETC.}
+...\write1{\@writefile{toc}{\protect \contentsline {chapter}{Bibliography}{\thepage }{}\protected@file@percent }}
 ...\marks1{\protect \ustc@spacetitle  {Bibliography}}
 ...\marks2{\prg_do_nothing: }
 ...\mark{{\protect \ustc@spacetitle  {Bibliography}}{}}
@@ -1877,10 +1877,10 @@ Completed box being shipped out [4]
 ..\vbox(700.50723+0.0)x417.11752, glue set 633.12012fil
 ...\write-{}
 ...\write1{\pp@pagectr{footnote}{3}{\theabspage }{\thepage }}
-...\write1{\@writefile{toc}{\protect \contentsline {chapter}{\protect \numberline \ETC.}
+...\write1{\@writefile{toc}{\protect \contentsline {chapter}{\protect \numberline {Appendix A}附录章节}{\thepage }{}\protected@file@percent }}
 ...\marks1{Appendix A\hskip 1em\relax \protect \ustc@spacetitle  {附录章节}}
 ...\marks2{\prg_do_nothing: }
-...\mark{{Appendix A\hskip 1em\relax \protect \ustc@spacetitle  {附录章节}\ETC.}
+...\mark{{Appendix A\hskip 1em\relax \protect \ustc@spacetitle  {附录章节}}{}}
 ...\write1{\@writefile{lof}{\protect \addvspace {10.0pt}}}
 ...\write1{\@writefile{lot}{\protect \addvspace {10.0pt}}}
 ...\glue(\topskip) 12.0
@@ -2029,7 +2029,7 @@ Completed box being shipped out [5]
 ..\glue(\lineskip) 0.0
 ..\vbox(700.50723+0.0)x417.11752, glue set 633.75043fil
 ...\write-{}
-...\write1{\@writefile{toc}{\protect \contentsline {chapter}{Acknowledgements}{\thepage \ETC.}
+...\write1{\@writefile{toc}{\protect \contentsline {chapter}{Acknowledgements}{\thepage }{}\protected@file@percent }}
 ...\marks1{\protect \ustc@spacetitle  {Acknowledgements}}
 ...\marks2{\prg_do_nothing: }
 ...\mark{{\protect \ustc@spacetitle  {Acknowledgements}}{}}
@@ -2171,7 +2171,7 @@ Completed box being shipped out [6]
 ..\glue(\lineskip) 0.0
 ..\vbox(700.50723+0.0)x417.11752, glue set 636.81354fil
 ...\write-{}
-...\write1{\@writefile{toc}{\protect \contentsline {chapter}{Publications}{\thepage \ETC.}
+...\write1{\@writefile{toc}{\protect \contentsline {chapter}{Publications}{\thepage }{}\protected@file@percent }}
 ...\marks1{\protect \ustc@spacetitle  {Publications}}
 ...\marks2{\prg_do_nothing: }
 ...\mark{{\protect \ustc@spacetitle  {Publications}}{}}
