@@ -1964,10 +1964,10 @@
 
 \newbox\ustc@title@box
 
-% 本科生的封面
-\newcommand\ustc@title@page@bachelor{%
+% 本科生的外封
+\newcommand\ustc@cover{%
   \begin{titlepage}%
-    \ustc@pdfbookmark{Title page}%
+    \ustc@pdfbookmark{Cover}%
     \centering
     \vspace*{0.8cm}%
     \includegraphics{figures/ustc-title-page-heading.pdf}%
@@ -2033,6 +2033,55 @@
     \endgroup
   \end{titlepage}%
 }
+
+% 本科生的扉页（内封）
+\newcommand\ustc@title@page@bachelor{%
+  \begin{titlepage}%
+    \ustc@pdfbookmark{Title page}%
+    \centering
+    % \vspace*{68bp}%
+    \vspace*{29.5bp}%
+    \includegraphics{figures/ustc-name-stxingkai.pdf}\par
+    \vspace{0.8bp}%
+    \begingroup
+      \sffamily\fontsize{56bp}{72.8bp}\selectfont
+      \renewcommand\CJKglue{\hspace{6.2bp}}%
+      本科毕业论文\par
+    \endgroup
+    \vspace{52bp}%
+    \ifustc@badge@color@blue
+      \textcolor{ustcblue}{%
+        \includegraphics[height=126bp]{figures/ustc-badge.pdf}}%
+    \else
+      \includegraphics[height=4.1cm]{figures/ustc-badge.pdf}%
+    \fi\par
+    \vspace{43bp}%
+    \parbox[t][115bp][t]{\textwidth}{%
+      \centering\sffamily\bfseries\fontsize{26bp}{46.8bp}\selectfont
+      \ustc@title\par
+    }\par
+    \begingroup
+      \hspace{10bp}%
+      \heiti\fontsize{16bp}{31.7bp}\selectfont
+      \setlength\tabcolsep{0bp}%
+      \setlength\arrayrulewidth{0.5pt}%
+      \setlength\ustc@title@page@item@width{238bp}%
+      \begin{tabular}{p{90bp}c}%
+        作者姓名： & \makebox[238bp]{\ustc@author} \\
+        \cline{2-2}%
+        学\quad\quad 号： & \makebox[238bp]{\ustc@student@id} \\
+        \cline{2-2}%
+        专\quad\quad 业： & \makebox[238bp]{\ustc@speciality} \\
+        \cline{2-2}%
+        导师姓名： & \makebox[238bp]{\ustc@supervisor@names} \\
+        \cline{2-2}%
+        完成时间： & \makebox[238bp]{\ustc@date@zh@small} \\
+        \cline{2-2}%
+      \end{tabular}\par
+    \endgroup
+  \end{titlepage}%
+}
+\newlength\ustc@title@page@item@width
 
 % 重新定义 \cs{maketitle}，调用 \cs{ustc@makezhtitle}, \cs{ustc@makeentitle}
 % 分别生成中、英文封面。

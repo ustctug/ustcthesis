@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - 本科生的正文不再另页右页（`\cleardoublepage`）。
 - 去掉本科生空白页的页码。
 - 目录的引导线更加稠密。
+- 更新本科生扉页（内封）格式，同步教务处 2023-05-08 版《[中国科学技术大学本科毕业论文（设计）扉页（内封）](https://www.teach.ustc.edu.cn/?attachment_id=15889)》（[#374](https://github.com/ustctug/ustcthesis/issues/374)）。
 
 ## [3.3.3] - 2022-05-17
 
