@@ -1,5 +1,5 @@
 %
-% Copyright (C) 2015-2022 by USTC TeX Users Group <https://github.com/ustctug>
+% Copyright (C) 2015-2023 by USTC TeX Users Group <https://github.com/ustctug>
 %
 % This file may be distributed and/or modified under the
 % conditions of the LaTeX Project Public License, either version 1.3c
@@ -11,8 +11,8 @@
 %
 
 \NeedsTeXFormat{LaTeX2e}[2017/04/15]
-\newcommand\ustcthesisversion{3.3.3}
-\ProvidesClass{ustcthesis}[2022/05/17 {\ustcthesisversion} USTC thesis template]
+\newcommand\ustcthesisversion{3.3.4}
+\ProvidesClass{ustcthesis}[2023/05/10 {\ustcthesisversion} USTC thesis template]
 
 % 报错和警告
 \newcommand\ustc@error[1]{%

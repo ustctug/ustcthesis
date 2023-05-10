@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [3.3.4] - 2023-05-10
+
 ### Changed
 
 - 本科生的正文不再另页右页（`\cleardoublepage`）。
@@ -304,7 +306,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - 优化图注、算法的行距。
 - 二级以下节标题编号下采用“1.”、“(1)”、“①”。
 
-[Unreleased]: https://github.com/ustctug/ustcthesis/compare/v3.3.3...HEAD
+[Unreleased]: https://github.com/ustctug/ustcthesis/compare/v3.3.4...HEAD
+[3.3.4]: https://github.com/ustctug/ustcthesis/compare/v3.3.3...v3.3.4
 [3.3.3]: https://github.com/ustctug/ustcthesis/compare/v3.3.2...v3.3.3
 [3.3.2]: https://github.com/ustctug/ustcthesis/compare/v3.3.1...v3.3.2
 [3.3.1]: https://github.com/ustctug/ustcthesis/compare/v3.3.0...v3.3.1

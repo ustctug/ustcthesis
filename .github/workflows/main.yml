@@ -1,0 +1,56 @@
+name: Test and release
+
+on:
+  push:
+  pull_request:
+
+jobs:
+
+  test:
+    if: "!contains(github.event.head_commit.message, 'ci skip')"
+    name: Test
+    runs-on: ubuntu-latest
+    container: tunathu/thuthesis-test-env
+    steps:
+
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Install required packages
+        run: bash .github/install-packages.sh
+
+      - name: Test thesis
+        run: make main
+
+      - name: Test doc
+        run: make doc
+
+      - name: Run l3build
+        run: make test
+
+      - name: Archive failed test output
+        if: ${{ failure() }}
+        uses: actions/upload-artifact@v3
+        with:
+          name: testfiles
+          path: build/**/*.diff
+          retention-days: 3
+
+
+  release:
+    if: startsWith(github.ref, 'refs/tags/v')
+    needs: test
+    name: Release on GitHub
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Extract release notes
+        run: awk '/^#+ \[/ { if (p) { exit }; if ($2 != "[Unreleased]") { p=1 } } p' CHANGELOG.md > release-notes.md
+
+      - name: Create GitHub release
+        uses: ncipollo/release-action@v1
+        with:
+          bodyFile: "release-notes.md"

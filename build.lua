@@ -34,6 +34,10 @@ function update_tag(file, content, tagname, tagdate)
   local url = "https://github.com/ustctug/ustcthesis"
   local date = string.gsub(tagdate, "%-", "/")
 
+  content = string.gsub(content,
+  "Copyright %(C%) (%d%d%d%d)%-%d%d%d%d",
+  "Copyright (C) %1-" .. os.date("%Y"))
+
   if string.match(file, "%.cls$") then
     content = string.gsub(content, "\\newcommand\\ustcthesisversion{[0-9.]+",
       "\\newcommand\\ustcthesisversion{" .. tagname)
@@ -47,7 +51,6 @@ function update_tag(file, content, tagname, tagdate)
 
   elseif string.match(file, "CHANGELOG.md") then
     local previous = string.match(content, "/compare/v(.*)%.%.%.HEAD")
-    print(previous)
     if tagname == previous then return content end
     content = string.gsub(content,
       "## %[Unreleased%]",
