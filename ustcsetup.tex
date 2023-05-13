@@ -86,8 +86,10 @@
 
 % 用于写文档的命令
 \DeclareRobustCommand\cs[1]{\texttt{\char`\\#1}}
+%TC:ignore
 \DeclareRobustCommand\env{\texttt}
 \DeclareRobustCommand\pkg{\textsf}
+%TC:endignore
 \DeclareRobustCommand\file{\nolinkurl}
 
 % hyperref 宏包在最后调用
