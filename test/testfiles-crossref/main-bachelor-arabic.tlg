@@ -162,17 +162,17 @@ Completed box being shipped out [1]
 ....\glue 0.0 plus 0.61353
 ....\TU/FandolSong(0)/m/n/12.045 文
 ....\penalty 10000
-....\TU/FandolSong(0)/m/n/12.045 、
-....\rule(0.0+0.0)x-7.85333
-....\glue 7.85333 minus 6.02249
+....\TU/FandolSong(0)/m/n/12.045 ；
+....\rule(0.0+0.0)x-8.32309
+....\glue 8.32309 minus 6.02249
 ....\glue 0.0 plus 0.61353
 ....\TU/FandolSong(0)/m/n/12.045 摘
 ....\glue 0.0 plus 0.61353
 ....\TU/FandolSong(0)/m/n/12.045 要
 ....\penalty 10000
-....\TU/FandolSong(0)/m/n/12.045 、
-....\rule(0.0+0.0)x-7.85333
-....\glue 7.85333 minus 6.02249
+....\TU/FandolSong(0)/m/n/12.045 ；
+....\rule(0.0+0.0)x-8.32309
+....\glue 8.32309 minus 6.02249
 ....\glue 0.0 plus 0.61353
 ....\TU/FandolSong(0)/m/n/12.045 关
 ....\glue 0.0 plus 0.61353
@@ -346,14 +346,14 @@ Completed box being shipped out [2]
 ....\TU/texgyretermes(0)/m/n/12.045 :
 ....\glue 4.01498 plus 3.01123 minus 0.50186
 ....\vbox(8.22673+2.6258)x352.82936
-.....\hbox(8.22673+2.6258)x352.82936, glue set 195.83485fil
+.....\hbox(8.22673+2.6258)x352.82936, glue set 195.16035fil
 ......\hbox(0.0+0.0)x0.0
-......\TU/texgyretermes(0)/m/n/12.045 dissertation,
-......\glue 3.01125 plus 1.88202 minus 0.80298
-......\glue 3.01125 plus 1.88202 minus 0.80298
-......\TU/texgyretermes(0)/m/n/12.045 abstract,
-......\glue 3.01125 plus 1.88202 minus 0.80298
-......\glue 3.01125 plus 1.88202 minus 0.80298
+......\TU/texgyretermes(0)/m/n/12.045 dissertation;
+......\glue 3.01125 plus 2.25842 minus 0.66916
+......\glue 3.01125 plus 2.25842 minus 0.66916
+......\TU/texgyretermes(0)/m/n/12.045 abstract;
+......\glue 3.01125 plus 2.25842 minus 0.66916
+......\glue 3.01125 plus 2.25842 minus 0.66916
 ......\TU/texgyretermes(0)/m/n/12.045 keywords
 ......\kern -0.0002
 ......\kern 0.0002

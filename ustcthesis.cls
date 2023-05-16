@@ -2387,11 +2387,15 @@
   \ifustc@degree@graduate
     \ustc@clist@use{\ustc@keywords}{\quad}%
   \else
-    \ustc@clist@use{\ustc@keywords}{、}%
+    \ustc@clist@use{\ustc@keywords}{；}%
   \fi
 }
 \newcommand\ustc@keywords@en@text{%
-  \ustc@clist@use{\ustc@keywords@en}{, }%
+  \ifustc@degree@graduate
+    \ustc@clist@use{\ustc@keywords@en}{, }%
+  \else
+    \ustc@clist@use{\ustc@keywords@en}{; }%
+  \fi
 }
 \newenvironment{abstract}{%
   \ustcsetup{language=chinese}%
