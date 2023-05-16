@@ -16,5 +16,5 @@ FONT_PKGS="fandol tex-gyre xits";
 EXTRA_PKGS="$ALGORITHM2E_PKGS $BIBLATEX_PKGS booktabs $NOMENCL_PKGS siunitx";
 DOC_PKGS="hypdoc listings xcolor";
 
-tlmgr update --self
+tlmgr update --self --all;
 tlmgr install $BIN_PKGS $REQUIRED_PKGS $FONT_PKGS $EXTRA_PKGS $DOC_PKGS;

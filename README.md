@@ -2,7 +2,7 @@
 
 [![GitHub release](https://img.shields.io/github/release/ustctug/ustcthesis/all.svg)](https://github.com/ustctug/ustcthesis/releases/latest)
 [![GitHub commits](https://img.shields.io/github/commits-since/ustctug/ustcthesis/latest.svg)](https://github.com/ustctug/ustcthesis/commits/master)
-[![Build](https://github.com/ustctug/ustcthesis/workflows/build/badge.svg)](https://github.com/ustctug/ustcthesis/actions)
+[![Build](https://github.com/ustctug/ustcthesis/actions/workflows/main.yml/badge.svg)](https://github.com/ustctug/ustcthesis/actions/workflows/main.yml)
 
 本项目是中国科学技术大学的学位论文 LaTeX 模板 ustcthesis，按照最新版的
 《[研究生学位论文撰写手册](https://gradschool.ustc.edu.cn/static/upload/article/picture/ce3b02e5f0274c90b9331ef50ae1ac26.pdf)》
