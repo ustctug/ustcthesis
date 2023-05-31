@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - 本科生摘要关键词的分隔符改为分号，同步教务处 2023-05-06 的修改（[#376](https://github.com/ustctug/ustcthesis/issues/376)）。
+- 本科生的参考文献格式恢复为 2021 年版，同步教务处 2023-05-06 的修改（[#376](https://github.com/ustctug/ustcthesis/issues/376)）。
 
 ## [3.3.4] - 2023-05-10
 

@@ -1,16 +1,16 @@
 %%
-%% This is file `variants/ustc/ustcthesis-numerical.bst',
+%% This is file `variants/ustc/ustcthesis-bachelor.bst',
 %% generated with the docstrip utility.
 %%
 %% The original source files were:
 %%
-%% gbt7714.dtx  (with options: `2015,ustc,numerical')
+%% gbt7714.dtx  (with options: `2015,ustc-bachelor,numerical,no-uppercase,no-sentence-case,italic-book-title,no-mark,no-slash,short-journal,no-journal-strip-periods,italic-journal,page-range-delimiter-fullwidth-tilde,no-url,no-doi')
 %% -------------------------------------------------------------------
 %% GB/T 7714 BibTeX Style
 %% https://github.com/zepinglee/gbt7714-bibtex-style
-%% Version: 2022/03/21 v2.1.4
+%% Version: 2022/10/03 v2.1.5
 %% -------------------------------------------------------------------
-%% Copyright (C) 2016--2022 by Zeping Lee <zepinglee AT gmail.com>
+%% Copyright (C) 2016--2023 by Zeping Lee <zepinglee AT gmail.com>
 %% -------------------------------------------------------------------
 %% This file may be distributed and/or modified under the
 %% conditions of the LaTeX Project Public License, either version 1.3c
@@ -38,12 +38,12 @@ INTEGERS {
   space.before.mark
   show.medium.type
   short.journal
+  journal.strip.periods
   italic.journal
   bold.journal.volume
   show.missing.address.publisher
   space.before.pages
   only.start.page
-  wave.dash.in.pages
   show.urldate
   show.url
   show.doi
@@ -55,6 +55,8 @@ INTEGERS {
 
 STRINGS {
   component.part.label
+  page.range.delimiter.zh
+  page.range.delimiter.en
 }
 
 FUNCTION {load.config}
@@ -68,24 +70,26 @@ FUNCTION {load.config}
   #0 'year.after.author :=
   #1 'period.after.author :=
   #1 'italic.book.title :=
-  #1 'sentence.case.title :=
+  #0 'sentence.case.title :=
   #0 'link.title :=
   #1 'title.in.journal :=
   #0 'show.patent.country :=
   #0 'show.mark :=
   #0 'space.before.mark :=
   #1 'show.medium.type :=
-  "period" 'component.part.label :=
-  #0 'short.journal :=
+  "none" 'component.part.label :=
+  #1 'short.journal :=
+  #0 'journal.strip.periods :=
   #1 'italic.journal :=
   #0 'bold.journal.volume :=
   #0 'show.missing.address.publisher :=
   #1 'space.before.pages :=
   #0 'only.start.page :=
-  #1 'wave.dash.in.pages :=
+  "～" 'page.range.delimiter.zh :=
+  "-" 'page.range.delimiter.en :=
   #1 'show.urldate :=
-  #1 'show.url :=
-  #1 'show.doi :=
+  #0 'show.url :=
+  #0 'show.doi :=
   #1 'show.preprint :=
   #0 'show.note :=
   #0 'show.english.translation :=
@@ -590,7 +594,7 @@ FUNCTION {format.name}
     { bbl.et.al }
     { t get.str.lang 'name.lang :=
       name.lang lang.en =
-        { t #1 "{vv~}{ll}{~f{}}" format.name$
+        { t #1 "{vv~}{ll}{ f{}}" format.name$
           uppercase.name
             { "u" change.case$ }
             'skip$
@@ -612,11 +616,7 @@ FUNCTION {format.names}
     { namesleft #0 > }
     { s nameptr format.name bbl.et.al =
       numnames bibliography.et.al.min #1 - > nameptr bibliography.et.al.use.first > and or
-        {
-          entry.lang lang.en =
-            { ", " * }
-            'skip$
-          if$
+        { ", " *
           bbl.et.al *
           #1 'namesleft :=
         }
@@ -963,14 +963,7 @@ FUNCTION {format.series.vol.num.title}
     }
     { format.title.vol.num }
   if$
-  type$ "book" =
-  type$ "inbook" = or
-  type$ "collection" = or
-  type$ "proceedings" = or
-  type$ "thesis" = or
-    'format.btitle
-    'skip$
-  if$
+  format.btitle
   link.title
     'add.link
     'skip$
@@ -1005,7 +998,7 @@ FUNCTION {format.series.vol.num.booktitle}
   format.btitle
 }
 
-FUNCTION {remove.period}
+FUNCTION {strip.periods}
 { 't :=
   "" 's :=
     { t empty$ not }
@@ -1021,8 +1014,7 @@ FUNCTION {remove.period}
 }
 
 FUNCTION {abbreviate}
-{ remove.period
-  't :=
+{ 't :=
   t "l" change.case$ 's :=
   ""
   s "physical review letters" =
@@ -1065,10 +1057,14 @@ FUNCTION {get.journal.title}
       if$
     }
   if$
+  journal.strip.periods
+    'strip.periods
+    'skip$
+  if$
 }
 
 FUNCTION {check.arxiv.preprint}
-{ #1 #5 substring$ "l" change.case$ "arxiv" =
+{ #1 #5 substring$ purify$ "l" change.case$ "arxiv" =
     { #1 }
     { #0 }
   if$
@@ -1145,11 +1141,11 @@ FUNCTION {format.edition}
     { "" }
     { edition is.number
         { edition "1" = not
-        { entry.lang lang.zh =
-            { edition " 版" * }
-            { edition num.to.ordinal " ed." * }
-          if$
-        }
+            { entry.lang lang.zh =
+                { edition " 版" * }
+                { edition num.to.ordinal " ed." * }
+              if$
+            }
             'skip$
           if$
         }
@@ -1356,9 +1352,9 @@ FUNCTION {format.date}
         { entrysubtype empty$ not
             { type$ "article" = entrysubtype "newspaper" = and
                 { date }
-        { format.year }
-      if$
-    }
+                { format.year }
+              if$
+            }
             { format.year }
           if$
         }
@@ -1393,10 +1389,9 @@ FUNCTION {hyphenate}
   ""
     { t empty$ not }
     { t #1 #1 substring$ "-" =
-        { wave.dash.in.pages
-          entry.lang lang.zh = and
-            { "～" * }
-            { "-" * }
+        { entry.lang lang.zh =
+            { page.range.delimiter.zh * }
+            { page.range.delimiter.en * }
           if$
             { t #1 #1 substring$ "-" = }
             { t #2 global.max$ substring$ 't := }
@@ -1620,8 +1615,8 @@ FUNCTION {check.electronic}
 }
 
 FUNCTION {format.eprint}
-    { archivePrefix empty$ not
-        { archivePrefix }
+{ archivePrefix empty$ not
+    { archivePrefix }
     { eprinttype empty$ not
         { archivePrefix }
         { "" }
@@ -1662,7 +1657,7 @@ FUNCTION {output.translation}
 { show.english.translation entry.lang lang.zh = and
     { translation empty$ not
         { translation }
-        { "[English translation missing!]" }
+        { "" }
       if$
       " (in Chinese)" * output
       write$

@@ -8,9 +8,9 @@
 %% -------------------------------------------------------------------
 %% GB/T 7714 BibTeX Style
 %% https://github.com/zepinglee/gbt7714-bibtex-style
-%% Version: 2022/03/21 v2.1.4
+%% Version: 2022/10/03 v2.1.5
 %% -------------------------------------------------------------------
-%% Copyright (C) 2016--2022 by Zeping Lee <zepinglee AT gmail.com>
+%% Copyright (C) 2016--2023 by Zeping Lee <zepinglee AT gmail.com>
 %% -------------------------------------------------------------------
 %% This file may be distributed and/or modified under the
 %% conditions of the LaTeX Project Public License, either version 1.3c
@@ -38,12 +38,12 @@ INTEGERS {
   space.before.mark
   show.medium.type
   short.journal
+  journal.strip.periods
   italic.journal
   bold.journal.volume
   show.missing.address.publisher
   space.before.pages
   only.start.page
-  wave.dash.in.pages
   show.urldate
   show.url
   show.doi
@@ -60,6 +60,8 @@ INTEGERS {
 
 STRINGS {
   component.part.label
+  page.range.delimiter.zh
+  page.range.delimiter.en
 }
 
 FUNCTION {load.config}
@@ -82,12 +84,14 @@ FUNCTION {load.config}
   #1 'show.medium.type :=
   "slash" 'component.part.label :=
   #0 'short.journal :=
+  #1 'journal.strip.periods :=
   #0 'italic.journal :=
   #0 'bold.journal.volume :=
   #0 'show.missing.address.publisher :=
   #1 'space.before.pages :=
   #0 'only.start.page :=
-  #0 'wave.dash.in.pages :=
+  "-" 'page.range.delimiter.zh :=
+  "-" 'page.range.delimiter.en :=
   #1 'show.urldate :=
   #1 'show.url :=
   #1 'show.doi :=
@@ -1004,7 +1008,7 @@ FUNCTION {format.series.vol.num.booktitle}
   format.btitle
 }
 
-FUNCTION {remove.period}
+FUNCTION {strip.periods}
 { 't :=
   "" 's :=
     { t empty$ not }
@@ -1020,8 +1024,7 @@ FUNCTION {remove.period}
 }
 
 FUNCTION {abbreviate}
-{ remove.period
-  't :=
+{ 't :=
   t "l" change.case$ 's :=
   ""
   s "physical review letters" =
@@ -1064,10 +1067,14 @@ FUNCTION {get.journal.title}
       if$
     }
   if$
+  journal.strip.periods
+    'strip.periods
+    'skip$
+  if$
 }
 
 FUNCTION {check.arxiv.preprint}
-{ #1 #5 substring$ "l" change.case$ "arxiv" =
+{ #1 #5 substring$ purify$ "l" change.case$ "arxiv" =
     { #1 }
     { #0 }
   if$
@@ -1392,9 +1399,9 @@ FUNCTION {hyphenate}
   ""
     { t empty$ not }
     { t #1 #1 substring$ "-" =
-        { wave.dash.in.pages
-            { "～" * }
-            { "-" * }
+        { entry.lang lang.zh =
+            { page.range.delimiter.zh * }
+            { page.range.delimiter.en * }
           if$
             { t #1 #1 substring$ "-" = }
             { t #2 global.max$ substring$ 't := }
@@ -1660,7 +1667,7 @@ FUNCTION {output.translation}
 { show.english.translation entry.lang lang.zh = and
     { translation empty$ not
         { translation }
-        { "[English translation missing!]" }
+        { "" }
       if$
       " (in Chinese)" * output
       write$
