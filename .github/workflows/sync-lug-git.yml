@@ -1,0 +1,21 @@
+name: Sync to LUG git
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  sync:
+    name: Sync
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - uses: yesolutions/mirror-action@master
+        with:
+          REMOTE: 'https://git.lug.ustc.edu.cn/ustctug/ustcthesis.git'
+          GIT_USERNAME: ${{ secrets.GIT_LUG_USERNAME }}
+          GIT_PASSWORD: ${{ secrets.GIT_LUG_PASSWORD }}
