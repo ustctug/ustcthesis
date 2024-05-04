@@ -2254,7 +2254,6 @@
   subsection = {
     format     = \sffamily\fontsize{13bp}{21.67bp}\selectfont,
     aftername  = \hspace{\ccwd},
-    indent     = 2\ccwd,
     beforeskip = 12bp,
     afterskip  = 6bp,
   },
