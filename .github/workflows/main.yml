@@ -46,7 +46,7 @@ jobs:
     steps:
 
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Extract release notes
         run: awk '/^#+ \[/ { if (p) { exit }; if ($2 != "[Unreleased]") { p=1 } } p' CHANGELOG.md > release-notes.md
