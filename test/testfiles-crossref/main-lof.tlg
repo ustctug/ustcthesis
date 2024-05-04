@@ -562,17 +562,17 @@ Completed box being shipped out [1]
 ...\glue 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
-...\hbox(12.3662+2.77837)x417.11752, glue set 160.94087fil
+...\hbox(12.3662+2.77837)x417.11752, glue set 163.94409fil
 ....\glue(\leftskip) 0.0 plus 1.0fil
 ....\TU/FandolHei(0)/b/n/16.06 第
-....\glue 4.46468 plus 2.23233 minus 1.48822
-....\TU/texgyreheros(0)/b/n/16.06 1
-....\glue 4.46468 plus 2.23233 minus 1.48822
+....\glue 4.015 plus 2.00749 minus 1.33833
+....\TU/texgyretermes(0)/b/n/16.06 1
+....\glue 4.015 plus 2.00749 minus 1.33833
 ....\TU/FandolHei(0)/b/n/16.06 章
 ....\kern -0.00017
 ....\kern 0.00017
 ....\glue 16.06
-....\TU/texgyreheros(0)/b/n/16.06 Foo
+....\TU/texgyretermes(0)/b/n/16.06 Foo
 ....\kern -0.0002
 ....\kern 0.0002
 ....\penalty 10000
@@ -877,17 +877,17 @@ Completed box being shipped out [2]
 ...\glue 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
-...\hbox(12.3662+2.77837)x417.11752, glue set 162.15341fil
+...\hbox(12.3662+2.77837)x417.11752, glue set 163.50244fil
 ....\glue(\leftskip) 0.0 plus 1.0fil
 ....\TU/FandolHei(0)/b/n/16.06 第
-....\glue 4.46468 plus 2.23233 minus 1.48822
-....\TU/texgyreheros(0)/b/n/16.06 2
-....\glue 4.46468 plus 2.23233 minus 1.48822
+....\glue 4.015 plus 2.00749 minus 1.33833
+....\TU/texgyretermes(0)/b/n/16.06 2
+....\glue 4.015 plus 2.00749 minus 1.33833
 ....\TU/FandolHei(0)/b/n/16.06 章
 ....\kern -0.00017
 ....\kern 0.00017
 ....\glue 16.06
-....\TU/texgyreheros(0)/b/n/16.06 Bar
+....\TU/texgyretermes(0)/b/n/16.06 Bar
 ....\kern -0.0002
 ....\kern 0.0002
 ....\penalty 10000

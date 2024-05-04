@@ -2228,7 +2228,7 @@
 % 另外 \pkg{ctex} v2.2 前的beforeskip的符号有特殊意义。
 \ctexset{
   chapter = {
-    format      = \centering\sffamily\bfseries\fontsize{16bp}{26.67bp}\selectfont,
+    format      = \centering\heiti\bfseries\fontsize{16bp}{26.67bp}\selectfont,
     nameformat  = {},
     titleformat = \ustc@spacetitle,
     number      = \thechapter,
@@ -2243,7 +2243,7 @@
 % 序号与题名间空一字。
 \ctexset{
   section = {
-    format     = \sffamily\fontsize{14bp}{23.33bp}\selectfont,
+    format     = \heiti\fontsize{14bp}{23.33bp}\selectfont,
     aftername  = \hspace{\ccwd},
     beforeskip = 24bp,
     afterskip  = 6bp,
@@ -2252,7 +2252,7 @@
   % 二级节标题：黑体 13 磅，左缩进两字，单倍行距，段前 12 磅，段后 6 磅，
   % 序号与题名间空一字。
   subsection = {
-    format     = \sffamily\fontsize{13bp}{21.67bp}\selectfont,
+    format     = \heiti\fontsize{13bp}{21.67bp}\selectfont,
     aftername  = \hspace{\ccwd},
     beforeskip = 12bp,
     afterskip  = 6bp,
@@ -2261,7 +2261,7 @@
   % 三级及以下节标题的格式没有具体规定，按照 Word 模板的格式：
   % 使用黑体 12 磅，左缩进两字，行距 20 磅，段前段后 0 磅，序号与题名间空半字宽。
   subsubsection = {
-    format     = \sffamily\fontsize{12bp}{20bp}\selectfont,
+    format     = \heiti\fontsize{12bp}{20bp}\selectfont,
     number     = \arabic{subsubsection},
     aftername  = .\hspace{0.5\ccwd},
     indent     = 2\ccwd,
