@@ -1,17 +1,13 @@
 This is a generated file for the l3build validation system.
 Don't change this file in any respect.
-Package fontspec Info: Font family 'FandolHei(0)' created for font 'FandolHei'
-(fontspec)             with options
-(fontspec)             [Extension={.otf},UprightFont={*-Regular},BoldFont={*-Bold}].
+Package fontspec Info: 
+(fontspec)             Font family 'FandolHei(0)' created for font 'FandolHei' with options [Extension={.otf},UprightFont={*-Regular},BoldFont={*-Bold}].
 (fontspec)              
-(fontspec)              This font family consists of the following NFSS
-(fontspec)             series/shapes:
+(fontspec)              This font family consists of the following NFSS series/shapes:
 (fontspec)              
-(fontspec)             - 'normal' (m/n) with NFSS spec.:
-(fontspec)             <->"[FandolHei-Regular.otf]/OT:language=dflt;"
+(fontspec)             - 'normal' (m/n) with NFSS spec.: <->"[FandolHei-Regular.otf]/OT:language=dflt;"
 (fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
-(fontspec)             - 'bold' (b/n) with NFSS spec.:
-(fontspec)             <->"[FandolHei-Bold.otf]/OT:language=dflt;"
+(fontspec)             - 'bold' (b/n) with NFSS spec.: <->"[FandolHei-Bold.otf]/OT:language=dflt;"
 (fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.: 
 (main-lot.lot)
 \tf@lot=\write...
@@ -570,7 +566,7 @@ Completed box being shipped out [1]
 ...\vbox(19.72365+0.0)x417.11752
 ....\special{color push  Black}
 ....\vbox(19.72365+0.0)x417.11752
-.....\write1{\@writefile{lot}{\protect \contentsline {table}{\protect \numberline {1.1}{\ignorespaces Table foo\relax }}{\thepage }{}\protected@file@percent }}
+.....\write1{\@writefile{lot}{\protect \contentsline {table}{\protect \numberline {1.1}{\ignorespaces Table foo}}{\thepage }{}\protected@file@percent }}
 .....\special{color push  Black}
 .....\glue 0.0
 .....\glue(\parskip) 0.0
@@ -624,7 +620,7 @@ Completed box being shipped out [1]
 ...\vbox(19.72365+0.0)x417.11752
 ....\special{color push  Black}
 ....\vbox(19.72365+0.0)x417.11752
-.....\write1{\@writefile{lot}{\protect \contentsline {table}{\protect \numberline {1.2}{\ignorespaces Table bar\relax }}{\thepage }{}\protected@file@percent }}
+.....\write1{\@writefile{lot}{\protect \contentsline {table}{\protect \numberline {1.2}{\ignorespaces Table bar}}{\thepage }{}\protected@file@percent }}
 .....\special{color push  Black}
 .....\glue 0.0
 .....\glue(\parskip) 0.0
@@ -678,7 +674,7 @@ Completed box being shipped out [1]
 ...\vbox(19.72365+0.0)x417.11752
 ....\special{color push  Black}
 ....\vbox(19.72365+0.0)x417.11752
-.....\write1{\@writefile{lot}{\protect \contentsline {table}{\protect \numberline {1.3}{\ignorespaces Table foo\relax }}{\thepage }{}\protected@file@percent }}
+.....\write1{\@writefile{lot}{\protect \contentsline {table}{\protect \numberline {1.3}{\ignorespaces Table foo}}{\thepage }{}\protected@file@percent }}
 .....\special{color push  Black}
 .....\glue 0.0
 .....\glue(\parskip) 0.0
@@ -865,7 +861,7 @@ Completed box being shipped out [2]
 ...\vbox(19.72365+0.0)x417.11752
 ....\special{color push  Black}
 ....\vbox(19.72365+0.0)x417.11752
-.....\write1{\@writefile{lot}{\protect \contentsline {table}{\protect \numberline {2.1}{\ignorespaces Table foo\relax }}{\thepage }{}\protected@file@percent }}
+.....\write1{\@writefile{lot}{\protect \contentsline {table}{\protect \numberline {2.1}{\ignorespaces Table foo}}{\thepage }{}\protected@file@percent }}
 .....\special{color push  Black}
 .....\glue 0.0
 .....\glue(\parskip) 0.0
@@ -919,7 +915,7 @@ Completed box being shipped out [2]
 ...\vbox(19.72365+0.0)x417.11752
 ....\special{color push  Black}
 ....\vbox(19.72365+0.0)x417.11752
-.....\write1{\@writefile{lot}{\protect \contentsline {table}{\protect \numberline {2.2}{\ignorespaces Table bar\relax }}{\thepage }{}\protected@file@percent }}
+.....\write1{\@writefile{lot}{\protect \contentsline {table}{\protect \numberline {2.2}{\ignorespaces Table bar}}{\thepage }{}\protected@file@percent }}
 .....\special{color push  Black}
 .....\glue 0.0
 .....\glue(\parskip) 0.0
@@ -973,7 +969,7 @@ Completed box being shipped out [2]
 ...\vbox(19.72365+0.0)x417.11752
 ....\special{color push  Black}
 ....\vbox(19.72365+0.0)x417.11752
-.....\write1{\@writefile{lot}{\protect \contentsline {table}{\protect \numberline {2.3}{\ignorespaces Table foo\relax }}{\thepage }{}\protected@file@percent }}
+.....\write1{\@writefile{lot}{\protect \contentsline {table}{\protect \numberline {2.3}{\ignorespaces Table foo}}{\thepage }{}\protected@file@percent }}
 .....\special{color push  Black}
 .....\glue 0.0
 .....\glue(\parskip) 0.0
