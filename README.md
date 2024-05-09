@@ -4,8 +4,8 @@
 [![GitHub commits](https://img.shields.io/github/commits-since/ustctug/ustcthesis/latest.svg)](https://github.com/ustctug/ustcthesis/commits/master)
 [![Build](https://github.com/ustctug/ustcthesis/actions/workflows/main.yml/badge.svg)](https://github.com/ustctug/ustcthesis/actions/workflows/main.yml)
 
-本项目是中国科学技术大学的学位论文 LaTeX 模板 ustcthesis，按照最新版的
-《[研究生学位论文撰写手册](https://gradschool.ustc.edu.cn/static/upload/article/picture/ce3b02e5f0274c90b9331ef50ae1ac26.pdf)》
+本项目是中国科学技术大学的学位论文 LaTeX 模板 ustcthesis，按照
+《研究生学位论文撰写手册》（最近在修订中）
 和
 《[中国科学技术大学本科毕业论文（设计）格式](https://www.teach.ustc.edu.cn/?attachment_id=13867)》
 的要求编写，兼容最新版的 TeX Live、MacTeX 、MiKTeX 发行版，支持跨平台使用。
