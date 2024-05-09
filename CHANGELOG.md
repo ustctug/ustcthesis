@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [3.3.5] - 2024-05-09
+
 ### Changed
 
 - 本科生摘要关键词的分隔符改为分号，同步教务处 2023-05-06 的修改（[#376](https://github.com/ustctug/ustcthesis/issues/376)）。
@@ -313,7 +315,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - 优化图注、算法的行距。
 - 二级以下节标题编号下采用“1.”、“(1)”、“①”。
 
-[Unreleased]: https://github.com/ustctug/ustcthesis/compare/v3.3.4...HEAD
+[Unreleased]: https://github.com/ustctug/ustcthesis/compare/v3.3.5...HEAD
+[3.3.5]: https://github.com/ustctug/ustcthesis/compare/v3.3.4...v3.3.5
 [3.3.4]: https://github.com/ustctug/ustcthesis/compare/v3.3.3...v3.3.4
 [3.3.3]: https://github.com/ustctug/ustcthesis/compare/v3.3.2...v3.3.3
 [3.3.2]: https://github.com/ustctug/ustcthesis/compare/v3.3.1...v3.3.2
