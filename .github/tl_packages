@@ -59,6 +59,7 @@ xits
 #
 # Dependencies for extra packages
 booktabs
+threeparttable
 siunitx
 #
 # Dependencies for doc

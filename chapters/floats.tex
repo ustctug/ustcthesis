@@ -5,7 +5,8 @@
 \section{三线表}
 
 三线表是《撰写手册》推荐使用的格式，如表~\ref{tab:exampletable}。
-\begin{table}[h]
+
+\begin{table}
   \centering
   \caption{表号和表题在表的正上方}
   \label{tab:exampletable}
@@ -18,9 +19,30 @@
     卡线表 & 卡线表有完全表，不完全表和三线表三种       \\
     \bottomrule
   \end{tabular}
-  \note{注：表注分两种，第一种是对全表的注释，用不加阿拉伯数字排在表的下边，
-    前面加“注：”；第二种是和表内的某处文字或数字相呼应的注，
-    在表里面用带圈的阿拉伯数字在右上角标出，然后在表下面用同样的圈码注出来}
+\end{table}
+
+如果有表注，推荐使用 \pkg{threeparttable}。这样可以与表格对齐，满足部分评审老师的要求。
+
+\begin{table}
+  \centering
+  \begin{threeparttable}
+    \caption{带表注的表格}
+    \label{tab:tablewithnotes}
+    \begin{tabular}{cl}
+      \toprule
+      类型   & 描述                                       \\
+      \midrule
+      挂线表 & 挂线表也称系统表、组织表，用于表现系统结构 \\
+      无线表 & 无线表一般用于设备配置单、技术参数列表等   \\
+      卡线表 & 卡线表有完全表，不完全表和三线表三种       \\
+      \bottomrule
+    \end{tabular}
+    \begin{tablenotes}[flushleft]
+      \item 注：表注分两种，第一种是对全表的注释，用不加阿拉伯数字排在表的下边，
+      前面加“注：”；第二种是和表内的某处文字或数字相呼应的注，
+      在表里面用带圈的阿拉伯数字在右上角标出，然后在表下面用同样的圈码注出来
+    \end{tablenotes}
+  \end{threeparttable}
 \end{table}
 
 编制表格应简单明了，表达一致，明晰易懂，表文呼应、内容一致。
@@ -35,7 +57,8 @@
 事实上，这种做法已经过时。
 而且每次编译时都要要调用外部工具解析 eps，导致降低编译速度。
 所以我们推荐矢量图直接使用 pdf 格式，位图使用 jpeg 或 png 格式。
-\begin{figure}[h]
+
+\begin{figure}
   \centering
   \includegraphics[width=0.3\textwidth]{ustc-badge.pdf}
   \caption{图号、图题置于图的下方}
@@ -53,7 +76,7 @@
 模板中使用 \pkg{algorithm2e} 宏包实现算法环境。关于该宏包的具体用法，
 请阅读宏包的官方文档。
 
-\begin{algorithm}[h]
+\begin{algorithm}
   \SetAlgoLined
   \KwData{this text}
   \KwResult{how to write algorithm with \LaTeX2e }
