@@ -686,15 +686,19 @@
   \ifustc@system@windows
     \ustcsetup{fontset = windows}
   \else
-    \ifustc@system@mac
-      \ustcsetup{fontset = mac}
-    \else
-      \IfFontExistsTF{Noto Serif CJK SC}{
-        \ustcsetup{fontset = ubuntu}
-      }{
-        \ustcsetup{fontset = fandol}
-      }
-    \fi
+    \IfFontExistsTF{SimSun}{
+      \ustcsetup{fontset = windows}
+    }{
+      \ifustc@system@mac
+        \ustcsetup{fontset = mac}
+      \else
+        \IfFontExistsTF{Noto Serif CJK SC}{
+          \ustcsetup{fontset = ubuntu}
+        }{
+          \ustcsetup{fontset = fandol}
+        }
+      \fi
+    }
   \fi
 \fi
 
