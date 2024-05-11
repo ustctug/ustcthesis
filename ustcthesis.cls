@@ -2182,7 +2182,7 @@
 \setcounter{secnumdepth}{5}
 
 % 研究生规定章题为两字时中间空两字，三字时空一字，四字时空半字，四字以上不空。
-% 这里用 \LaTeX3 的 \cs{str\_count:N} 判断字数。
+% 这里用 \LaTeX3 的 \cs{\str_count:N} 判断字数。
 % 注意，\pkg{stringstrings} 宏包会导致范数命令 \verb+\|+ 被修改。
 \newcount\ustc@titlelength
 \DeclareRobustCommand\ustc@spacetitle[1]{%
