@@ -4,39 +4,10 @@
 \RequireBibliographyStyle{gb7714-2015}
 
 \ExecuteBibliographyOptions{
-  gbnamefmt   = lowercase,
-  gbtype      = false,
-  gbpub       = false,
-  gbalign     = left,
-  maxbibnames = 3, %将文献列表和引用中最大名字数量区分开
-  minbibnames = 1,
-}
-
-\renewrobustcmd*{\bibinitdelim}{}
-
-\DeclareDelimFormat[bib,biblist]{andothersdelim}{%
-  \iffieldequalstr{userd}{english}{\addcomma\addspace}{}%
-}
-
-\DeclareFieldFormat{title}{%
-  \iffieldequalstr{userd}{english}{%
-    \mkbibemph{#1}%
-  }{%
-    #1%
-  }%
-}
-\DeclareFieldFormat
-  [inbook,incollection,inproceedings,patent,thesis,unpublished]
-  {title}{#1}
-\DeclareFieldFormat[article]{title}{%
-  \iffieldequalstr{userd}{english}{}{#1}%
-}
-\DeclareFieldFormat{booktitle}{%
-  \iffieldequalstr{userd}{english}{%
-    \mkbibemph{#1}%
-  }{%
-    #1%
-  }%
+  gbpub   = false,
+  gbalign = left,
+  url     = false,
+  doi     = false,
 }
 
 \DeclareFieldFormat{journaltitle}{%
@@ -46,11 +17,3 @@
     #1\isdot
   }%
 }
-
-\DefineBibliographyExtras{english}{%
-  \renewcommand*{\bibrangedash}{%
-    \iffieldequalstr{userd}{chinese}{～}{--}%
-  }%
-}
-
-\renewcommand*{\finentrypunct}{}

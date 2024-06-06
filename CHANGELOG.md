@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- 本科生参考文献改用 GB/T 7714 格式（[zepinglee/gbt7714-bibtex-style#169](https://github.com/zepinglee/gbt7714-bibtex-style/issues/169)）。
+
 ## [3.3.5] - 2024-05-09
 
 ### Changed

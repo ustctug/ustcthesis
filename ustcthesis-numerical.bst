@@ -8,9 +8,9 @@
 %% -------------------------------------------------------------------
 %% GB/T 7714 BibTeX Style
 %% https://github.com/zepinglee/gbt7714-bibtex-style
-%% Version: 2022/10/03 v2.1.5
+%% Version: 2024/03/08 v2.1.6
 %% -------------------------------------------------------------------
-%% Copyright (C) 2016--2023 by Zeping Lee <zepinglee AT gmail.com>
+%% Copyright (C) 2016--2024 by Zeping Lee <zepinglee AT gmail.com>
 %% -------------------------------------------------------------------
 %% This file may be distributed and/or modified under the
 %% conditions of the LaTeX Project Public License, either version 1.3c
@@ -38,12 +38,13 @@ INTEGERS {
   space.before.mark
   show.medium.type
   short.journal
-  journal.strip.periods
   italic.journal
+  link.journal
   bold.journal.volume
   show.missing.address.publisher
   space.before.pages
   only.start.page
+  wave.dash.in.pages
   show.urldate
   show.url
   show.doi
@@ -55,8 +56,6 @@ INTEGERS {
 
 STRINGS {
   component.part.label
-  page.range.delimiter.zh
-  page.range.delimiter.en
 }
 
 FUNCTION {load.config}
@@ -79,14 +78,13 @@ FUNCTION {load.config}
   #1 'show.medium.type :=
   "slash" 'component.part.label :=
   #0 'short.journal :=
-  #1 'journal.strip.periods :=
   #0 'italic.journal :=
+  #0 'link.journal :=
   #0 'bold.journal.volume :=
   #0 'show.missing.address.publisher :=
   #1 'space.before.pages :=
   #0 'only.start.page :=
-  "-" 'page.range.delimiter.zh :=
-  "-" 'page.range.delimiter.en :=
+  #0 'wave.dash.in.pages :=
   #1 'show.urldate :=
   #1 'show.url :=
   #1 'show.doi :=
@@ -739,7 +737,7 @@ FUNCTION {editor.full}
 
 FUNCTION {make.full.names}
 { type$ "book" =
-  type$ "inbook" =
+  type$ "inbook" = booktitle empty$ not and
   or
     'author.editor.full
     { type$ "collection" =
@@ -998,7 +996,7 @@ FUNCTION {format.series.vol.num.booktitle}
   format.btitle
 }
 
-FUNCTION {strip.periods}
+FUNCTION {remove.period}
 { 't :=
   "" 's :=
     { t empty$ not }
@@ -1014,7 +1012,8 @@ FUNCTION {strip.periods}
 }
 
 FUNCTION {abbreviate}
-{ 't :=
+{ remove.period
+  't :=
   t "l" change.case$ 's :=
   ""
   s "physical review letters" =
@@ -1057,10 +1056,6 @@ FUNCTION {get.journal.title}
       if$
     }
   if$
-  journal.strip.periods
-    'strip.periods
-    'skip$
-  if$
 }
 
 FUNCTION {check.arxiv.preprint}
@@ -1075,6 +1070,10 @@ FUNCTION {format.journal}
   duplicate$ empty$ not
     { italic.journal entry.lang lang.en = and
         'emphasize
+        'skip$
+      if$
+      link.journal
+        'add.link
         'skip$
       if$
     }
@@ -1305,7 +1304,7 @@ FUNCTION {extract.after.slash}
 
 FUNCTION {format.year}
 { year empty$ not
-    { year extract.before.slash extra.label * }
+    { year extra.label * }
     { date empty$ not
         { date extract.before.dash extra.label * }
         { entry.is.electronic not
@@ -1389,9 +1388,9 @@ FUNCTION {hyphenate}
   ""
     { t empty$ not }
     { t #1 #1 substring$ "-" =
-        { entry.lang lang.zh =
-            { page.range.delimiter.zh * }
-            { page.range.delimiter.en * }
+        { wave.dash.in.pages
+            { "～" * }
+            { "-" * }
           if$
             { t #1 #1 substring$ "-" = }
             { t #2 global.max$ substring$ 't := }
@@ -1485,7 +1484,7 @@ FUNCTION {format.periodical.year.volume.number}
 
 FUNCTION {check.url}
 { url empty$ not
-    { "\url{" url * "}" * 'entry.url :=
+    { url 'entry.url :=
       #1 'entry.is.electronic :=
     }
     { howpublished empty$ not
@@ -1516,7 +1515,11 @@ FUNCTION {output.url}
 { show.url is.pure.electronic or
   entry.url empty$ not and
     { new.block
-      entry.url output
+      entry.url #1 #5 substring$ "\url{" =
+        { entry.url }
+        { "\url{" entry.url * "}" * }
+      if$
+      output
     }
     'skip$
   if$
@@ -1536,8 +1539,8 @@ FUNCTION {is.in.url}
     { entry.url empty$
         { #0 }
         { s text.length$ 'len :=
-          entry.url text.length$ 'charptr :=
-            { entry.url charptr len substring$ s = not
+          entry.url "l" change.case$ text.length$ 'charptr :=
+            { entry.url "l" change.case$ charptr len substring$ s "l" change.case$ = not
               charptr #0 >
               and
             }
@@ -1657,7 +1660,7 @@ FUNCTION {output.translation}
 { show.english.translation entry.lang lang.zh = and
     { translation empty$ not
         { translation }
-        { "" }
+        { "[English translation missing!]" }
       if$
       " (in Chinese)" * output
       write$
@@ -1973,6 +1976,10 @@ FUNCTION {preprint}
   format.urldate "" output.after
   output.eprint
   output.url
+  show.preprint not eprint empty$ or
+    'output.doi
+    'skip$
+  if$
   new.block
   format.note output
   fin.entry
@@ -2037,7 +2044,12 @@ FUNCTION {dataset}
   electronic
 }
 
-FUNCTION {inbook} { book }
+FUNCTION {inbook} {
+  booktitle empty$
+    'book
+    'incollection
+  if$
+}
 
 FUNCTION {inproceedings}
 { "C" set.entry.mark
@@ -2278,7 +2290,7 @@ FUNCTION {editor.key.organization.label}
 FUNCTION {calc.short.authors}
 { "" 'short.label :=
   type$ "book" =
-  type$ "inbook" =
+  type$ "inbook" = booktitle empty$ not and
   or
     'author.editor.key.label
     { type$ "collection" =
