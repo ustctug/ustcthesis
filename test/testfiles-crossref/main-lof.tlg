@@ -6,9 +6,7 @@ Package fontspec Info:
 (fontspec)              This font family consists of the following NFSS series/shapes:
 (fontspec)              
 (fontspec)             - 'normal' (m/n) with NFSS spec.: <->"[FandolHei-Regular.otf]/OT:language=dflt;"
-(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
 (fontspec)             - 'bold' (b/n) with NFSS spec.: <->"[FandolHei-Bold.otf]/OT:language=dflt;"
-(fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.: 
 (main-lof.lof)
 \tf@lof=\write...
 Completed box being shipped out [1]
@@ -70,8 +68,8 @@ Completed box being shipped out [1]
 ...\write-{}
 ...\write-{}
 ...\write-{}
-...\marks1{\protect \ustc@spacetitle  {插图清单}}
-...\marks2{\prg_do_nothing: }
+...\marks1{\__mark_id:n {1}\protect \ustc@spacetitle  {插图清单}}
+...\marks2{\__mark_id:n {2}}
 ...\mark{{\protect \ustc@spacetitle  {插图清单}}{}}
 ...\write-{}
 ...\glue(\topskip) 12.0
@@ -550,8 +548,8 @@ Completed box being shipped out [1]
 ...\write-{}
 ...\write1{\pp@pagectr{footnote}{1}{\theabspage }{\thepage }}
 ...\write1{\@writefile{toc}{\protect \contentsline {chapter}{\protect \numberline {第1章}Foo}{\thepage }{}\protected@file@percent }}
-...\marks1{第1章\hskip 1em\relax \protect \ustc@spacetitle  {Foo}}
-...\marks2{\prg_do_nothing: }
+...\marks1{\__mark_id:n {3}第1章\hskip 1em\relax \protect \ustc@spacetitle  {Foo}}
+...\marks2{\__mark_id:n {4}}
 ...\mark{{第1章\hskip 1em\relax \protect \ustc@spacetitle  {Foo}}{}}
 ...\write1{\@writefile{lof}{\protect \addvspace {10.0pt}}}
 ...\write1{\@writefile{lot}{\protect \addvspace {10.0pt}}}
@@ -865,8 +863,8 @@ Completed box being shipped out [2]
 ...\write-{}
 ...\write1{\pp@pagectr{footnote}{2}{\theabspage }{\thepage }}
 ...\write1{\@writefile{toc}{\protect \contentsline {chapter}{\protect \numberline {第2章}Bar}{\thepage }{}\protected@file@percent }}
-...\marks1{第2章\hskip 1em\relax \protect \ustc@spacetitle  {Bar}}
-...\marks2{\prg_do_nothing: }
+...\marks1{\__mark_id:n {5}第2章\hskip 1em\relax \protect \ustc@spacetitle  {Bar}}
+...\marks2{\__mark_id:n {6}}
 ...\mark{{第2章\hskip 1em\relax \protect \ustc@spacetitle  {Bar}}{}}
 ...\write1{\@writefile{lof}{\protect \addvspace {10.0pt}}}
 ...\write1{\@writefile{lot}{\protect \addvspace {10.0pt}}}

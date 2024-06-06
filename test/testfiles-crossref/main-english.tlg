@@ -7,9 +7,7 @@ Package fontspec Info:
 (fontspec)              This font family consists of the following NFSS series/shapes:
 (fontspec)              
 (fontspec)             - 'normal' (m/n) with NFSS spec.: <->"[FandolHei-Regular.otf]/OT:language=dflt;"
-(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
 (fontspec)             - 'bold' (b/n) with NFSS spec.: <->"[FandolHei-Bold.otf]/OT:language=dflt;"
-(fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.: 
 Completed box being shipped out [1]
 \vbox(722.98453+3.61353)x435.04271
 .\glue -29.59084
@@ -65,8 +63,8 @@ Completed box being shipped out [1]
 ...\write-{}
 ...\write-{}
 ...\write-{}
-...\marks1{\protect \ustc@spacetitle  {摘要}}
-...\marks2{\prg_do_nothing: }
+...\marks1{\__mark_id:n {1}\protect \ustc@spacetitle  {摘要}}
+...\marks2{\__mark_id:n {2}}
 ...\mark{{\protect \ustc@spacetitle  {摘要}}{}}
 ...\write-{}
 ...\glue(\topskip) 12.0
@@ -252,8 +250,8 @@ Completed box being shipped out [2]
 ..\glue(\lineskip) 0.0
 ..\vbox(700.50723+0.0)x417.11752, glue set 598.49045fil
 ...\write-{}
-...\marks1{\protect \ustc@spacetitle  {Abstract}}
-...\marks2{\prg_do_nothing: }
+...\marks1{\__mark_id:n {3}\protect \ustc@spacetitle  {Abstract}}
+...\marks2{\__mark_id:n {4}}
 ...\mark{{\protect \ustc@spacetitle  {Abstract}}{}}
 ...\write-{}
 ...\glue(\topskip) 12.0
@@ -368,7 +366,6 @@ Package fontspec Info:
 (fontspec)              This font family consists of the following NFSS series/shapes:
 (fontspec)              
 (fontspec)             - 'normal' (m/n) with NFSS spec.: <->"[FandolFang-Regular.otf]/OT:language=dflt;"
-(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
 )
 \tf@toc=\write...
 Completed box being shipped out [3]
@@ -423,8 +420,8 @@ Completed box being shipped out [3]
 ..\vbox(700.50723+0.0)x417.11752, glue set 456.16353fil
 ...\write-{}
 ...\write-{}
-...\marks1{\protect \ustc@spacetitle  {Contents}}
-...\marks2{\prg_do_nothing: }
+...\marks1{\__mark_id:n {5}\protect \ustc@spacetitle  {Contents}}
+...\marks2{\__mark_id:n {6}}
 ...\mark{{\protect \ustc@spacetitle  {Contents}}{}}
 ...\write-{}
 ...\glue(\topskip) 12.0
@@ -917,8 +914,8 @@ Completed box being shipped out [5]
 ..\glue(\lineskip) 0.0
 ..\vbox(700.50723+0.0)x417.11752, glue set 638.98543fil
 ...\write-{}
-...\marks1{\protect \ustc@spacetitle  {Notation}}
-...\marks2{\prg_do_nothing: }
+...\marks1{\__mark_id:n {7}\protect \ustc@spacetitle  {Notation}}
+...\marks2{\__mark_id:n {8}}
 ...\mark{{\protect \ustc@spacetitle  {Notation}}{}}
 ...\write-{}
 ...\glue(\topskip) 12.0
@@ -1074,8 +1071,8 @@ Completed box being shipped out [1]
 ...\write-{}
 ...\write1{\pp@pagectr{footnote}{1}{\theabspage }{\thepage }}
 ...\write1{\@writefile{toc}{\protect \contentsline {chapter}{\protect \numberline {Chapter 1}简介}{\thepage }{}\protected@file@percent }}
-...\marks1{Chapter 1\hskip 1em\relax \protect \ustc@spacetitle  {简介}}
-...\marks2{\prg_do_nothing: }
+...\marks1{\__mark_id:n {9}Chapter 1\hskip 1em\relax \protect \ustc@spacetitle  {简介}}
+...\marks2{\__mark_id:n {10}}
 ...\mark{{Chapter 1\hskip 1em\relax \protect \ustc@spacetitle  {简介}}{}}
 ...\write1{\@writefile{lof}{\protect \addvspace {10.0pt}}}
 ...\write1{\@writefile{lot}{\protect \addvspace {10.0pt}}}
@@ -1504,8 +1501,8 @@ Completed box being shipped out [2]
 ...\write-{}
 ...\write1{\pp@pagectr{footnote}{2}{\theabspage }{\thepage }}
 ...\write1{\@writefile{toc}{\protect \contentsline {chapter}{\protect \numberline {Chapter 2}浮动体}{\thepage }{}\protected@file@percent }}
-...\marks1{Chapter 2\hskip 1em\relax \protect \ustc@spacetitle  {浮动体}}
-...\marks2{\prg_do_nothing: }
+...\marks1{\__mark_id:n {11}Chapter 2\hskip 1em\relax \protect \ustc@spacetitle  {浮动体}}
+...\marks2{\__mark_id:n {12}}
 ...\mark{{Chapter 2\hskip 1em\relax \protect \ustc@spacetitle  {浮动体}}{}}
 ...\write1{\@writefile{lof}{\protect \addvspace {10.0pt}}}
 ...\write1{\@writefile{lot}{\protect \addvspace {10.0pt}}}
@@ -1652,8 +1649,8 @@ Completed box being shipped out [3]
 ...\write-{}
 ...\write-{}
 ...\write1{\@writefile{toc}{\protect \contentsline {chapter}{Bibliography}{\thepage }{}\protected@file@percent }}
-...\marks1{\protect \ustc@spacetitle  {Bibliography}}
-...\marks2{\prg_do_nothing: }
+...\marks1{\__mark_id:n {13}\protect \ustc@spacetitle  {Bibliography}}
+...\marks2{\__mark_id:n {14}}
 ...\mark{{\protect \ustc@spacetitle  {Bibliography}}{}}
 ...\write1{\@writefile{lof}{\protect \addvspace {10.0pt}}}
 ...\write1{\@writefile{lot}{\protect \addvspace {10.0pt}}}
@@ -1870,8 +1867,8 @@ Completed box being shipped out [4]
 ...\write-{}
 ...\write1{\pp@pagectr{footnote}{3}{\theabspage }{\thepage }}
 ...\write1{\@writefile{toc}{\protect \contentsline {chapter}{\protect \numberline {Appendix A}附录章节}{\thepage }{}\protected@file@percent }}
-...\marks1{Appendix A\hskip 1em\relax \protect \ustc@spacetitle  {附录章节}}
-...\marks2{\prg_do_nothing: }
+...\marks1{\__mark_id:n {15}Appendix A\hskip 1em\relax \protect \ustc@spacetitle  {附录章节}}
+...\marks2{\__mark_id:n {16}}
 ...\mark{{Appendix A\hskip 1em\relax \protect \ustc@spacetitle  {附录章节}}{}}
 ...\write1{\@writefile{lof}{\protect \addvspace {10.0pt}}}
 ...\write1{\@writefile{lot}{\protect \addvspace {10.0pt}}}
@@ -2022,8 +2019,8 @@ Completed box being shipped out [5]
 ..\vbox(700.50723+0.0)x417.11752, glue set 634.56938fil
 ...\write-{}
 ...\write1{\@writefile{toc}{\protect \contentsline {chapter}{Acknowledgements}{\thepage }{}\protected@file@percent }}
-...\marks1{\protect \ustc@spacetitle  {Acknowledgements}}
-...\marks2{\prg_do_nothing: }
+...\marks1{\__mark_id:n {17}\protect \ustc@spacetitle  {Acknowledgements}}
+...\marks2{\__mark_id:n {18}}
 ...\mark{{\protect \ustc@spacetitle  {Acknowledgements}}{}}
 ...\write1{\@writefile{lof}{\protect \addvspace {10.0pt}}}
 ...\write1{\@writefile{lot}{\protect \addvspace {10.0pt}}}
@@ -2164,8 +2161,8 @@ Completed box being shipped out [6]
 ..\vbox(700.50723+0.0)x417.11752, glue set 637.66463fil
 ...\write-{}
 ...\write1{\@writefile{toc}{\protect \contentsline {chapter}{Publications}{\thepage }{}\protected@file@percent }}
-...\marks1{\protect \ustc@spacetitle  {Publications}}
-...\marks2{\prg_do_nothing: }
+...\marks1{\__mark_id:n {19}\protect \ustc@spacetitle  {Publications}}
+...\marks2{\__mark_id:n {20}}
 ...\mark{{\protect \ustc@spacetitle  {Publications}}{}}
 ...\write1{\@writefile{lof}{\protect \addvspace {10.0pt}}}
 ...\write1{\@writefile{lot}{\protect \addvspace {10.0pt}}}
