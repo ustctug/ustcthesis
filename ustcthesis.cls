@@ -1810,7 +1810,7 @@
   \newcommand\ustc@speciality@name{学科专业}
 \else
   \ifustc@degree@doctor
-    \renewcommand\ustc@thesis@name{专业博士学位论文}
+    \renewcommand\ustc@thesis@name{工程博士学位论文}
   \else
     \renewcommand\ustc@thesis@name{专业硕士学位论文}
   \fi

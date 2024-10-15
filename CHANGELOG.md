@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - 本科生参考文献改用 GB/T 7714 格式（[zepinglee/gbt7714-bibtex-style#169](https://github.com/zepinglee/gbt7714-bibtex-style/issues/169)）。
+- 专业博士的封面改为“工程博士”（研究生院 2024-10-14 Word 模板修改，[#402](https://github.com/ustctug/ustcthesis/issues/402)）。
 
 ## [3.3.5] - 2024-05-09
 
