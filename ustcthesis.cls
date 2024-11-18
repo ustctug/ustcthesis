@@ -1660,7 +1660,7 @@
     name    = speciality@en,
   },
   supervisor = {
-    default = {导师姓名},
+    default = {导师},
   },
   supervisor* = {
     default = {Supervisor Name},
@@ -1903,7 +1903,7 @@
         \textsf{作者姓名：} & \ustc@author \\
         \textsf{\ustc@speciality@name：} & \ustc@speciality \\
         \ifx\ustc@advisor\@empty
-          \textsf{导师姓名：} & \ustc@supervisor@names \\
+          \textsf{导\hspace{2em}师：} & \ustc@supervisor@names \\
         \else
           \textsf{校内导师：} & \ustc@supervisor@names \\
           \textsf{企业导师：} & \ustc@advisor@names \\
@@ -2077,7 +2077,7 @@
         \cline{2-2}%
         专\quad\quad 业： & \makebox[238bp]{\ustc@speciality} \\
         \cline{2-2}%
-        导师姓名： & \makebox[238bp]{\ustc@supervisor@names} \\
+        导\hspace{2em}师： & \makebox[238bp]{\ustc@supervisor@names} \\
         \cline{2-2}%
         完成时间： & \makebox[238bp]{\ustc@date@zh@small} \\
         \cline{2-2}%
