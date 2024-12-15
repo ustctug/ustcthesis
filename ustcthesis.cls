@@ -567,7 +567,7 @@
   \ifustc@main@language@chinese
     \def\contentsname{目录}%
     \def\listfigurename{插图清单}%
-    \def\listtablename{表格清单}%
+    \def\listtablename{附表清单}%
     \ctexset{
       chapter/name   = {第,章},
     }%
