@@ -641,7 +641,7 @@
     \renewcommand\normalsize{%
       \@setfontsize\normalsize{12bp}{20bp}%
       \abovedisplayskip 12bp \@plus3bp \@minus7bp%
-      \abovedisplayshortskip \z@ \@plus3bp%
+      \abovedisplayshortskip 0bp \@plus3bp%
       \belowdisplayshortskip 6.5bp \@plus3.5bp \@minus3bp%
       \belowdisplayskip \abovedisplayskip
       \let\@listi\@listI}%
@@ -651,7 +651,7 @@
     \renewcommand\normalsize{%
       \@setfontsize\normalsize{12bp}{22bp}%
       \abovedisplayskip 12bp \@plus3bp \@minus7bp%
-      \abovedisplayshortskip \z@ \@plus3bp%
+      \abovedisplayshortskip 0bp \@plus3bp%
       \belowdisplayshortskip 6.5bp \@plus3.5bp \@minus3bp%
       \belowdisplayskip \abovedisplayskip
       \let\@listi\@listI}%
@@ -1904,7 +1904,7 @@
       \ustc@title\par}\par
     \vskip 0.6cm%
     {\fontsize{16bp}{31bp}\selectfont
-      \begin{tabular}{@{}l@{\hspace{\ccwd}}l@{}}%
+      \begin{tabular}{@{}l@{\quad}l@{}}%
         \textsf{作者姓名：} & \ustc@author \\
         \textsf{\ustc@speciality@name：} & \ustc@speciality \\
         \ifx\ustc@advisor\@empty
@@ -1983,7 +1983,7 @@
     \vskip 4.3cm%
     \begingroup
       \bfseries\fontsize{15bp}{16bp}\selectfont
-      \setlength\tabcolsep{\z@}%
+      \setlength\tabcolsep{0bp}%
       \setlength\arrayrulewidth{1.5pt}%
       \begin{tabular}{lp{140bp}lp{140bp}}%
         题\quad 目 &
@@ -2131,7 +2131,7 @@
 \newcommand\ustc@underline[2][3.2cm]{\underline{\hb@xt@ #1{\hss#2\hss}}}
 
 \newcommand\ustc@checkbox{%
-  \makebox[\z@][l]{$\square$}%
+  \makebox[0bp][l]{$\square$}%
   \raisebox{-0.2ex}{\hspace{0.1em}$\checkmark$}%
 }
 
@@ -2233,7 +2233,7 @@
     nameformat  = {},
     titleformat = {},
     number      = \thechapter,
-    aftername   = \hspace{\ccwd},
+    aftername   = \quad,
     beforeskip  = 24bp,
     afterskip   = 18bp,
     fixskip     = true,
@@ -2245,7 +2245,7 @@
 \ctexset{
   section = {
     format     = \heiti\fontsize{14bp}{23.33bp}\selectfont,
-    aftername  = \hspace{\ccwd},
+    aftername  = \quad,
     beforeskip = 24bp,
     afterskip  = 6bp,
   },
@@ -2254,7 +2254,7 @@
   % 序号与题名间空一字。
   subsection = {
     format     = \heiti\fontsize{13bp}{21.67bp}\selectfont,
-    aftername  = \hspace{\ccwd},
+    aftername  = \quad,
     beforeskip = 12bp,
     afterskip  = 6bp,
   },
@@ -2264,10 +2264,10 @@
   subsubsection = {
     format     = \heiti\fontsize{12bp}{20bp}\selectfont,
     number     = \arabic{subsubsection},
-    aftername  = .\hspace{0.5\ccwd},
-    indent     = 2\ccwd,
-    beforeskip = \z@,
-    afterskip  = \z@,
+    aftername  = .\hspace{0.5em},
+    indent     = 2em,
+    beforeskip = 0bp,
+    afterskip  = 0bp,
   },
   %
   % 按照 Word 模板的格式，四级节标题：宋体 12 磅，左缩进两字，行距 20 磅，
@@ -2275,10 +2275,10 @@
   paragraph = {
     format     = \rmfamily\fontsize{12bp}{20bp}\selectfont,
     number     = （\arabic{paragraph}）,
-    aftername  = \hspace{0.5\ccwd},
-    indent     = 2\ccwd,
-    beforeskip = \z@,
-    afterskip  = \z@,
+    aftername  = \hspace{0.5em},
+    indent     = 2em,
+    beforeskip = 0bp,
+    afterskip  = 0bp,
     runin      = false,
   },
   %
@@ -2287,10 +2287,10 @@
   subparagraph = {
     format     = \rmfamily\fontsize{12bp}{20bp}\selectfont,
     number     = \ustc@textcircled{subparagraph},
-    aftername  = \hspace{0.5\ccwd},
-    indent     = 2\ccwd,
-    beforeskip = \z@,
-    afterskip  = \z@,
+    aftername  = \hspace{0.5em},
+    indent     = 2em,
+    beforeskip = 0bp,
+    afterskip  = 0bp,
     runin      = false,
   },
 }
@@ -2333,16 +2333,16 @@
     },
     subsection = {
       format    = \sffamily\fontsize{14bp}{25.67bp}\selectfont,
-      indent    = \z@,
+      indent    = 0bp,
     },
     subsubsection = {
       format    = \rmfamily\fontsize{12bp}{22bp}\selectfont,
-      indent    = \ccwd,
+      indent    = 1em,
     },
     paragraph = {
       format    = \rmfamily\fontsize{12bp}{22bp}\selectfont,
       aftername = {},
-      indent    = \ccwd,
+      indent    = 1em,
     },
   }
   %
@@ -2398,7 +2398,7 @@
   \ustcsetup{language=chinese}%
   \ustc@chapter{摘要}%
 }{
-  \par\null\par\noindent\hangindent=4\ccwd\relax
+  \par\null\par\noindent\hangindent=4em\relax
   \textbf{关键词}：\ustc@keywords@text\par
   \ustc@reset@main@language
 }
@@ -2478,33 +2478,33 @@
 % 带有序号的各级标题，其序号与题名之间均空一字符，行末右顶格。
 \ifustc@degree@graduate
   \titlecontents{chapter}
-    [\z@]{\addvspace{6bp}\heiti\normalsize}
+    [0bp]{\addvspace{6bp}\heiti\normalsize}
     {\contentspush{\thecontentslabel\hspace{\ccwd}}}{}
     {\bfseries\normalsize\ustc@leaders\thecontentspage}
     %
   \titlecontents{section}
-    [\ccwd]{\normalsize}
-    {\contentspush{\thecontentslabel\hspace{\ccwd}}}{}
+    [1em]{\normalsize}
+    {\contentspush{\thecontentslabel\quad}}{}
     {\ustc@leaders\thecontentspage}
     %
   \titlecontents{subsection}
-    [2\ccwd]{\normalsize}
-    {\contentspush{\thecontentslabel\hspace{\ccwd}}}{}
+    [2em]{\normalsize}
+    {\contentspush{\thecontentslabel\quad}}{}
     {\ustc@leaders\thecontentspage}
 \else
   % 本科生的目录使用小四宋体（同正文字体），其他同研究生的格式相近。
   \titlecontents{chapter}
-    [\z@]{\normalsize}
-    {\contentspush{\thecontentslabel\unskip\hspace{\ccwd}}}{}
+    [0bp]{\normalsize}
+    {\contentspush{\thecontentslabel\unskip\quad}}{}
     {\ustc@leaders\thecontentspage}
   \titlecontents{section}
-    [\ccwd]{\normalsize}
-    {\contentspush{\thecontentslabel\hspace{\ccwd}}}{}
+    [1em]{\normalsize}
+    {\contentspush{\thecontentslabel\quad}}{}
     {\ustc@leaders\thecontentspage}
   \titlecontents{subsection}
-    [2\ccwd]{\normalsize}
+    [2em]{\normalsize}
     {\contentspush{\thecontentslabel
-      \ifustc@section@style@arabic\hspace{\ccwd}\else 、\fi}}{}
+      \ifustc@section@style@arabic\quad\else 、\fi}}{}
     {\ustc@leaders\thecontentspage}
 \fi
 
@@ -2608,7 +2608,7 @@
 \raggedbottom
 
 % 段间距 0 磅。
-\setlength{\parskip}{\z@}
+\setlength{\parskip}{0bp}
 
 % 首段缩进。
 \ctexset{autoindent=2}
@@ -2647,16 +2647,16 @@
   %
   % 注文缩进两字：
 \renewcommand\@makefntext[1]{%
-  \parindent 2\ccwd\relax
+  \parindent=2em\relax
   \noindent
-  \hb@xt@2\ccwd{\hss\@makefnmark}#1}
+  \hb@xt@ 2em{\hss\@makefnmark}#1}
 
 
 % \subsection{列表}
 % \label{sec:list}
 
 % 调整列表中各项之间过大的间距。
-\setlength\partopsep{\z@}
+\setlength\partopsep{0bp}
 \newcommand\ustc@nolistsep{%
   \parsep 0\p@ \@plus.2\p@
   \topsep 0\p@ \@plus.2\p@
@@ -2770,7 +2770,7 @@
   \begingroup
     \captionsetup{
       font          = ustc,
-      margin        = 2\ccwd,
+      margin        = 2em,
       position      = bottom,
     }%
     \caption*{#1}%
@@ -3107,7 +3107,7 @@
   }
   \setlength{\bibsep}{0\p@ \@plus.2\p@}
   \renewcommand\@biblabel[1]{[#1]\hfill}
-  \setlength{\bibhang}{2\ccwd}
+  \setlength{\bibhang}{2em}
 }
 
 
@@ -3127,7 +3127,7 @@
     \fi
   }
   \setlength{\bibitemsep}{0\p@ \@plus.2\p@}
-  \setlength{\bibhang}{2\ccwd}
+  \setlength{\bibhang}{2em}
 }
 
 % \subsection{附录}
@@ -3279,9 +3279,9 @@
 \AtEndOfPackageFile*{amsthm}{
   \newtheoremstyle{ustcplain}
     {}{}
-    {}{2\ccwd}
+    {}{2em}
     {\bfseries}{}
-    {\ccwd}{}
+    {1em}{}
   \theoremstyle{ustcplain}
   % 定义新的定理
   \ifustc@language@chinese
@@ -3320,15 +3320,15 @@
   \newtheorem{example}             {\ustc@example@name}    [chapter]
   \newtheorem*{remark}             {\ustc@remark@name}
   % \pkg{amsthm} 单独定义了 proof 环境，这里重新定义以满足格式要求。
-  % 原本模仿 \pkg{amsthm} 写成 |\item[\hskip\labelsep\hskip2\ccwd #1\hskip\ccwd]|，
+  % 原本模仿 \pkg{amsthm} 写成 |\item[\hskip\labelsep\hskip2em #1\hskip1em]|，
   % 但是却会多出一些间隙。
   \renewenvironment{proof}[1][\ustc@proof@name]{\par
     \pushQED{\qed}%
     \normalfont \topsep6\p@\@plus6\p@\relax
     \trivlist
-      \item\relax\hskip2\ccwd
+      \item\relax\hskip2em\relax
       \textbf{#1}
-      \hskip\ccwd\ignorespaces
+      \hskip1em\ignorespaces
     }{%
     \popQED\endtrivlist\@endpefalse
   }
@@ -3355,7 +3355,7 @@
   \ifustc@degree@graduate
     \SetAlCapNameSty{textbf}
   \fi
-  \SetAlgoCaptionSeparator{\unskip\hspace*{\ccwd}}
+  \SetAlgoCaptionSeparator{\unskip\hspace*{1em}}
   %
   % 设置算法清单的格式
   \renewcommand\listofalgocfs{%
