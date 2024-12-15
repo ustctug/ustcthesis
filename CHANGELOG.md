@@ -7,11 +7,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [4.0.0-beta.2] - 2024-11-18
+
+### Changed
+
+- 封面中“导师姓名”改为“导师”（研究生院 2024-10-14 Word 模板修改，[#406](https://github.com/ustctug/ustcthesis/issues/406)）。
+
+## [4.0.0-beta.1] - 2024-10-18
+
 ### Changed
 
 - 本科生参考文献改用 GB/T 7714 格式（[zepinglee/gbt7714-bibtex-style#169](https://github.com/zepinglee/gbt7714-bibtex-style/issues/169)）。
 - 专业博士的封面改为“工程博士”（研究生院 2024-10-14 Word 模板修改，[#402](https://github.com/ustctug/ustcthesis/issues/402)）。
-- 封面中“导师姓名”改为“导师”（研究生院 2024-10-14 Word 模板修改，[#406](https://github.com/ustctug/ustcthesis/issues/406)）。
 
 ## [3.3.5] - 2024-05-09
 
@@ -321,7 +328,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - 优化图注、算法的行距。
 - 二级以下节标题编号下采用“1.”、“(1)”、“①”。
 
-[Unreleased]: https://github.com/ustctug/ustcthesis/compare/v3.3.5...HEAD
+[Unreleased]: https://github.com/ustctug/ustcthesis/compare/v4.0.0-beta.2...HEAD
+[4.0.0-beta.2]: https://github.com/ustctug/ustcthesis/compare/v4.0.0-beta.1...v4.0.0-beta.2
+[4.0.0-beta.1]: https://github.com/ustctug/ustcthesis/compare/v3.3.5...v4.0.0-beta.1
 [3.3.5]: https://github.com/ustctug/ustcthesis/compare/v3.3.4...v3.3.5
 [3.3.4]: https://github.com/ustctug/ustcthesis/compare/v3.3.3...v3.3.4
 [3.3.3]: https://github.com/ustctug/ustcthesis/compare/v3.3.2...v3.3.3
