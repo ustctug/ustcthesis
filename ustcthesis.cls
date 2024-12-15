@@ -1960,7 +1960,7 @@
         \else
           \ustc@advisor@en@line \\
         \fi
-        Finished time: \ustc@date@en
+        Completion date: \ustc@date@en
       \end{tabular}\par}%
   \end{titlepage}%
   \ustc@reset@main@language
