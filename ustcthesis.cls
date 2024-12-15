@@ -2462,39 +2462,37 @@
 % 先定义目录线：
 \newcommand\ustc@leaders{%
   \hspace{2bp}%
-  \titlerule*[4bp]{\textperiodcentered}%
+  \ifustc@degree@graduate
+    \titlerule*[4bp]{.}%
+  \else
+    \titlerule*[4bp]{\textperiodcentered}%
+  \fi
   \hspace{2bp}%
 }
 
 \contentsmargin{0bp}
 
-% 各章目录要求宋体 14 磅，单倍行距，段前 6 磅，段后 0 磅，两端对齐，
-% 页码右对齐，章序号与章名间空一字。
-% 但是 Word 模板中实际是行距 20 磅。
+% 目录中的章标题行采用黑体小四号字，固定行距 20 磅，段前 6 磅，段后 0 磅；
+% 其他内容采用宋体小四号字，行距 20 磅，段前、段后均为 0 磅。
+% 章标题行居左书写，一级节标题行缩进 1 个汉字符，二级节标题行缩进 2 个汉字符。
+% 带有序号的各级标题，其序号与题名之间均空一字符，行末右顶格。
 \ifustc@degree@graduate
   \titlecontents{chapter}
-    [\z@]{\addvspace{6bp}\fontsize{14bp}{20bp}\selectfont}
+    [\z@]{\addvspace{6bp}\heiti\normalsize}
     {\contentspush{\thecontentslabel\hspace{\ccwd}}}{}
-    {\fontsize{12bp}{20bp}\selectfont\ustc@leaders\thecontentspage}
+    {\bfseries\normalsize\ustc@leaders\thecontentspage}
     %
-    % 一级节标题目录要求宋体 12 磅，单倍行距，左缩进一字，段前 6 磅，段后 0 磅，
-    % 两端对齐，页码右对齐，序号与题名间空一字。
-    % Word 模板中实际是行距 20 磅，段前 0 磅。
   \titlecontents{section}
-    [\ccwd]{\fontsize{12bp}{20bp}\selectfont}
+    [\ccwd]{\normalsize}
     {\contentspush{\thecontentslabel\hspace{\ccwd}}}{}
     {\ustc@leaders\thecontentspage}
     %
-    % 二级节标题目录要求仿宋 12 磅，单倍行距，左缩进两字，段前 6 磅，段后 0 磅，
-    % 两端对齐，页码右对齐，序号与题名间空一字。
-    % Word 模板中实际是行距 20 磅，段前 0 磅。
   \titlecontents{subsection}
-    [2\ccwd]{\fangsong\fontsize{12bp}{20bp}\selectfont}
+    [2\ccwd]{\normalsize}
     {\contentspush{\thecontentslabel\hspace{\ccwd}}}{}
     {\ustc@leaders\thecontentspage}
-    %
-    % 本科生的目录使用小四宋体（同正文字体），其他同研究生的格式相近。
 \else
+  % 本科生的目录使用小四宋体（同正文字体），其他同研究生的格式相近。
   \titlecontents{chapter}
     [\z@]{\normalsize}
     {\contentspush{\thecontentslabel\unskip\hspace{\ccwd}}}{}
