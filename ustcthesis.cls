@@ -1931,9 +1931,9 @@
       \raggedleft\fontsize{14bp}{14bp}\selectfont
       \null\ustc@secret@level@en\par}\par
     \vskip 0.5cm%
-    {\sffamily\fontsize{20bp}{30bp}\selectfont
-      University of Science and Technology of China\par}%
-    {\sffamily\fontsize{26bp}{30bp}\selectfont
+    {\fontsize{20bp}{30bp}\selectfont
+      University of Science and Technology of China\par\null\par}%
+    {\fontsize{26bp}{30bp}\selectfont
       \ustc@thesis@name@en\par}%
     \ifustc@degree@type@academic\else
       \begingroup
@@ -1954,7 +1954,7 @@
       \includegraphics[height=4.5cm]{figures/ustc-badge.pdf}%
     \fi\par
     \vskip 0.5cm%
-    \parbox[t][4.5cm][c]{\textwidth}{%
+    \parbox[t][2.5cm][c]{\textwidth}{%
       \centering\sffamily\bfseries\fontsize{26bp}{30bp}\selectfont
       \ustc@title@en\par}\par
     \vskip 1.6cm%
