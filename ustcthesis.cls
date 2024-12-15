@@ -2413,6 +2413,8 @@
 \newlength\ustc@keywords@width
 
 % 英文摘要环境
+\newcommand\ustc@keywords@label{KEY WORDS}%
+
 \newenvironment{abstract*}{%
   \ustcsetup{language=english}%
   \ifustc@degree@graduate
@@ -2426,10 +2428,13 @@
   \fi
 }{
   \par\null\par\noindent
-  \savebox\ustc@keywords@box{\textbf{Key Words}: }%
+  \ifustc@degree@bachelor
+    \renewcommand\ustc@keywords@label{Key Words}%
+  \fi
+  \savebox\ustc@keywords@box{\textbf{\ustc@keywords@label}: }%
   \ustc@keywords@width=\linewidth
   \advance\ustc@keywords@width-\wd\ustc@keywords@box
-  \textbf{Key Words}: \parbox[t]{\ustc@keywords@width}{\ustc@keywords@en@text\par}\par
+  \textbf{\ustc@keywords@label}: \parbox[t]{\ustc@keywords@width}{\ustc@keywords@en@text\par}\par
   \ifustc@degree@graduate
     \cleardoublepage
   \fi
