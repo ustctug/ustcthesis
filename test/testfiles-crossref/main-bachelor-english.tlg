@@ -528,11 +528,13 @@ Completed box being shipped out [1]
 ....\glue -4.015
 ....\glue 3.01125
 ....\leaders 0.0 plus 1.0fill
-.....\hbox(3.68578+0.0)x4.015, glue set 1.00375fil
+.....\hbox(1.2045+0.13248)x4.015, glue set 1.00375fil
 ......\glue 0.0 plus 1.0fil minus 1.0fil
-......\hbox(3.68578+0.0)x3.01125
+......\hbox(1.2045+0.13248)x3.01125
 .......\special{color push  Black}
-.......\TU/texgyretermes(0)/m/n/12.045 ^^b7
+.......\TU/texgyretermes(0)/m/n/12.045 .
+.......\kern -0.0002
+.......\kern 0.0002
 .......\special{color pop}
 ....\kern 0.0
 ....\glue 2.00749
@@ -579,11 +581,13 @@ Completed box being shipped out [1]
 ....\glue -4.015
 ....\glue 3.01125
 ....\leaders 0.0 plus 1.0fill
-.....\hbox(3.68578+0.0)x4.015, glue set 1.00375fil
+.....\hbox(1.2045+0.13248)x4.015, glue set 1.00375fil
 ......\glue 0.0 plus 1.0fil minus 1.0fil
-......\hbox(3.68578+0.0)x3.01125
+......\hbox(1.2045+0.13248)x3.01125
 .......\special{color push  Black}
-.......\TU/texgyretermes(0)/m/n/12.045 ^^b7
+.......\TU/texgyretermes(0)/m/n/12.045 .
+.......\kern -0.0002
+.......\kern 0.0002
 .......\special{color pop}
 ....\kern 0.0
 ....\glue 2.00749
@@ -630,11 +634,13 @@ Completed box being shipped out [1]
 ....\glue -4.015
 ....\glue 3.01125
 ....\leaders 0.0 plus 1.0fill
-.....\hbox(3.68578+0.0)x4.015, glue set 1.00375fil
+.....\hbox(1.2045+0.13248)x4.015, glue set 1.00375fil
 ......\glue 0.0 plus 1.0fil minus 1.0fil
-......\hbox(3.68578+0.0)x3.01125
+......\hbox(1.2045+0.13248)x3.01125
 .......\special{color push  Black}
-.......\TU/texgyretermes(0)/m/n/12.045 ^^b7
+.......\TU/texgyretermes(0)/m/n/12.045 .
+.......\kern -0.0002
+.......\kern 0.0002
 .......\special{color pop}
 ....\kern 0.0
 ....\glue 2.00749
@@ -683,11 +689,13 @@ Completed box being shipped out [1]
 ....\glue -4.015
 ....\glue 3.01125
 ....\leaders 0.0 plus 1.0fill
-.....\hbox(3.68578+0.0)x4.015, glue set 1.00375fil
+.....\hbox(1.2045+0.13248)x4.015, glue set 1.00375fil
 ......\glue 0.0 plus 1.0fil minus 1.0fil
-......\hbox(3.68578+0.0)x3.01125
+......\hbox(1.2045+0.13248)x3.01125
 .......\special{color push  Black}
-.......\TU/texgyretermes(0)/m/n/12.045 ^^b7
+.......\TU/texgyretermes(0)/m/n/12.045 .
+.......\kern -0.0002
+.......\kern 0.0002
 .......\special{color pop}
 ....\kern 0.0
 ....\glue 2.00749
@@ -720,11 +728,13 @@ Completed box being shipped out [1]
 ....\glue -4.015
 ....\glue 3.01125
 ....\leaders 0.0 plus 1.0fill
-.....\hbox(3.68578+0.0)x4.015, glue set 1.00375fil
+.....\hbox(1.2045+0.13248)x4.015, glue set 1.00375fil
 ......\glue 0.0 plus 1.0fil minus 1.0fil
-......\hbox(3.68578+0.0)x3.01125
+......\hbox(1.2045+0.13248)x3.01125
 .......\special{color push  Black}
-.......\TU/texgyretermes(0)/m/n/12.045 ^^b7
+.......\TU/texgyretermes(0)/m/n/12.045 .
+.......\kern -0.0002
+.......\kern 0.0002
 .......\special{color pop}
 ....\kern 0.0
 ....\glue 2.00749
@@ -771,11 +781,13 @@ Completed box being shipped out [1]
 ....\glue -4.015
 ....\glue 3.01125
 ....\leaders 0.0 plus 1.0fill
-.....\hbox(3.68578+0.0)x4.015, glue set 1.00375fil
+.....\hbox(1.2045+0.13248)x4.015, glue set 1.00375fil
 ......\glue 0.0 plus 1.0fil minus 1.0fil
-......\hbox(3.68578+0.0)x3.01125
+......\hbox(1.2045+0.13248)x3.01125
 .......\special{color push  Black}
-.......\TU/texgyretermes(0)/m/n/12.045 ^^b7
+.......\TU/texgyretermes(0)/m/n/12.045 .
+.......\kern -0.0002
+.......\kern 0.0002
 .......\special{color pop}
 ....\kern 0.0
 ....\glue 2.00749
@@ -804,11 +816,13 @@ Completed box being shipped out [1]
 ....\glue -4.015
 ....\glue 3.01125
 ....\leaders 0.0 plus 1.0fill
-.....\hbox(3.68578+0.0)x4.015, glue set 1.00375fil
+.....\hbox(1.2045+0.13248)x4.015, glue set 1.00375fil
 ......\glue 0.0 plus 1.0fil minus 1.0fil
-......\hbox(3.68578+0.0)x3.01125
+......\hbox(1.2045+0.13248)x3.01125
 .......\special{color push  Black}
-.......\TU/texgyretermes(0)/m/n/12.045 ^^b7
+.......\TU/texgyretermes(0)/m/n/12.045 .
+.......\kern -0.0002
+.......\kern 0.0002
 .......\special{color pop}
 ....\kern 0.0
 ....\glue 2.00749

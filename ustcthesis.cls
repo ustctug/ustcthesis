@@ -2462,11 +2462,7 @@
 % 先定义目录线：
 \newcommand\ustc@leaders{%
   \hspace{2bp}%
-  \ifustc@degree@graduate
-    \titlerule*[4bp]{.}%
-  \else
-    \titlerule*[4bp]{\textperiodcentered}%
-  \fi
+  \titlerule*[4bp]{.}%
   \hspace{2bp}%
 }
 
