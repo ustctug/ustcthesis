@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - 章标题较短时（四字以下）不再空字（研究生院 2024-12-05 Word 模板修改，[#390](https://github.com/ustctug/ustcthesis/issues/390#issuecomment-2532580113)）。
 - “在读期间发表的学术论文与取得的研究成果”改为“在读期间取得的科研成果”（研究生院 2024-12-05 Word 模板修改，[#390](https://github.com/ustctug/ustcthesis/issues/390#issuecomment-2532580113)）。
 - 关键词之间改用分号间隔（研究生院 2024-12-05 Word 模板修改）。
+- 英文摘要的页眉改为大写“ABSTRACT”（研究生院 2024-12-05 Word 模板修改）。
 
 ## [4.0.0-beta.2] - 2024-11-18
 

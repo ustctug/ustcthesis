@@ -2412,7 +2412,7 @@
 \newenvironment{abstract*}{%
   \ustcsetup{language=english}%
   \ifustc@degree@graduate
-    \ustc@chapter[Abstract]{ABSTRACT}%
+    \ustc@chapter{ABSTRACT}%
   \else
     \begingroup
       % 本科生的英文摘要使用小二号衬线体
