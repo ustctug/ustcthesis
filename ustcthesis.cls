@@ -1563,7 +1563,7 @@
     \fancyfoot[C]{\ustc@hf@font\thepage}%
     \let\@mkboth\markboth
     \def\chaptermark##1{%
-      \markboth{\CTEXifname{\CTEXthechapter\quad}{}\ustc@spacetitle{##1}}{}%
+      \markboth{\CTEXifname{\CTEXthechapter\quad}{}##1}{}%
     }%
     \let\sectionmark\@gobble
   \else
@@ -2181,30 +2181,19 @@
 % 标题最多允许使用五级。
 \setcounter{secnumdepth}{5}
 
-% 研究生规定章题为两字时中间空两字，三字时空一字，四字时空半字，四字以上不空。
+% 本科生章题为两字时中间空一字，三字时空半字，四字及以上不空。
 % 这里用 \LaTeX3 的 \cs{\str_count:N} 判断字数。
 % 注意，\pkg{stringstrings} 宏包会导致范数命令 \verb+\|+ 被修改。
 \newcount\ustc@titlelength
-\DeclareRobustCommand\ustc@spacetitle[1]{%
+\DeclareRobustCommand\ustc@spaced@title[1]{%
   \ustc@titlelength=\csname str_count:N\endcsname{#1}%
   \begingroup
-    \ifustc@degree@graduate
+    \if@mainmatter\else
       \ifcase\ustc@titlelength
       \or\or
-        \ziju{2}%
-      \or
         \ziju{1}%
-      \or
+      \or\or
         \ziju{0.5}%
-      \fi
-    \else
-      \if@mainmatter\else
-        \ifcase\ustc@titlelength
-        \or\or
-          \ziju{1}%
-        \or\or
-          \ziju{0.5}%
-        \fi
       \fi
     \fi
     #1%
@@ -2234,7 +2223,7 @@
   chapter = {
     format      = \centering\heiti\bfseries\fontsize{16bp}{26.67bp}\selectfont,
     nameformat  = {},
-    titleformat = \ustc@spacetitle,
+    titleformat = {},
     number      = \thechapter,
     aftername   = \hspace{\ccwd},
     beforeskip  = 24bp,
@@ -2329,6 +2318,7 @@
           \fontsize{18bp}{33bp}\selectfont
         \fi
       },
+      titleformat = \ustc@spaced@title,
     },
     section = {
       format = \centering\sffamily\fontsize{15bp}{27.5bp}\selectfont,

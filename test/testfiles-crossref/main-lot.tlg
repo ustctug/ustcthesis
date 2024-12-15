@@ -31,15 +31,15 @@ Completed box being shipped out [1]
 .........\glue 0.0 plus 1.0fil minus 1.0fil
 ........\glue 0.0 plus 1.0fill
 ........\vbox(8.43146+3.61353)x417.11752
-.........\hbox(8.43146+3.61353)x417.11752, glue set 179.5755fil
+.........\hbox(8.43146+3.61353)x417.11752, glue set 187.48003fil
 ..........\glue(\leftskip) 0.0 plus 1.0fil
 ..........\hbox(0.0+0.0)x0.0
 ..........\TU/FandolSong(0)/m/n/10.53937 表
-..........\glue 5.26968 plus 0.45407 minus 0.17143
+..........\glue 0.0 plus 0.44923
 ..........\TU/FandolSong(0)/m/n/10.53937 格
-..........\glue 5.26968 plus 0.45407 minus 0.17143
+..........\glue 0.0 plus 0.44923
 ..........\TU/FandolSong(0)/m/n/10.53937 清
-..........\glue 5.26968 plus 0.45407 minus 0.17143
+..........\glue 0.0 plus 0.44923
 ..........\TU/FandolSong(0)/m/n/10.53937 单
 ..........\kern -0.00017
 ..........\kern 0.00017
@@ -68,9 +68,9 @@ Completed box being shipped out [1]
 ...\write-{}
 ...\write-{}
 ...\write-{}
-...\marks1{\__mark_id:n {1}\protect \ustc@spacetitle  {表格清单}}
+...\marks1{\__mark_id:n {1}表格清单}
 ...\marks2{\__mark_id:n {2}}
-...\mark{{\protect \ustc@spacetitle  {表格清单}}{}}
+...\mark{{表格清单}{}}
 ...\write-{}
 ...\glue(\topskip) 12.0
 ...\rule(0.0+0.0)x*
@@ -79,14 +79,14 @@ Completed box being shipped out [1]
 ...\glue 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
-...\hbox(12.35014+2.73018)x417.11752, glue set 164.39377fil
+...\hbox(12.35014+2.73018)x417.11752, glue set 176.43877fil
 ....\glue(\leftskip) 0.0 plus 1.0fil
 ....\TU/FandolHei(0)/b/n/16.06 表
-....\glue 8.03 plus 0.9761 minus 0.49838
+....\glue 0.0 plus 1.37729
 ....\TU/FandolHei(0)/b/n/16.06 格
-....\glue 8.03 plus 0.9761 minus 0.49838
+....\glue 0.0 plus 1.37729
 ....\TU/FandolHei(0)/b/n/16.06 清
-....\glue 8.03 plus 0.9761 minus 0.49838
+....\glue 0.0 plus 1.37729
 ....\TU/FandolHei(0)/b/n/16.06 单
 ....\kern -0.00017
 ....\kern 0.00017
@@ -528,9 +528,9 @@ Completed box being shipped out [1]
 ...\write-{}
 ...\write1{\pp@pagectr{footnote}{1}{\theabspage }{\thepage }}
 ...\write1{\@writefile{toc}{\protect \contentsline {chapter}{\protect \numberline {第1章}Foo}{\thepage }{}\protected@file@percent }}
-...\marks1{\__mark_id:n {3}第1章\hskip 1em\relax \protect \ustc@spacetitle  {Foo}}
+...\marks1{\__mark_id:n {3}第1章\hskip 1em\relax Foo}
 ...\marks2{\__mark_id:n {4}}
-...\mark{{第1章\hskip 1em\relax \protect \ustc@spacetitle  {Foo}}{}}
+...\mark{{第1章\hskip 1em\relax Foo}{}}
 ...\write1{\@writefile{lof}{\protect \addvspace {10.0pt}}}
 ...\write1{\@writefile{lot}{\protect \addvspace {10.0pt}}}
 ...\glue(\topskip) 12.0
@@ -823,9 +823,9 @@ Completed box being shipped out [2]
 ...\write-{}
 ...\write1{\pp@pagectr{footnote}{2}{\theabspage }{\thepage }}
 ...\write1{\@writefile{toc}{\protect \contentsline {chapter}{\protect \numberline {第2章}Bar}{\thepage }{}\protected@file@percent }}
-...\marks1{\__mark_id:n {5}第2章\hskip 1em\relax \protect \ustc@spacetitle  {Bar}}
+...\marks1{\__mark_id:n {5}第2章\hskip 1em\relax Bar}
 ...\marks2{\__mark_id:n {6}}
-...\mark{{第2章\hskip 1em\relax \protect \ustc@spacetitle  {Bar}}{}}
+...\mark{{第2章\hskip 1em\relax Bar}{}}
 ...\write1{\@writefile{lof}{\protect \addvspace {10.0pt}}}
 ...\write1{\@writefile{lot}{\protect \addvspace {10.0pt}}}
 ...\glue(\topskip) 12.0

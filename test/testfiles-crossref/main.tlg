@@ -30,11 +30,11 @@ Completed box being shipped out [1]
 .........\glue 0.0 plus 1.0fil minus 1.0fil
 ........\glue 0.0 plus 1.0fill
 ........\vbox(8.43146+3.61353)x417.11752
-.........\hbox(8.43146+3.61353)x417.11752, glue set 187.48003fil
+.........\hbox(8.43146+3.61353)x417.11752, glue set 198.0194fil
 ..........\glue(\leftskip) 0.0 plus 1.0fil
 ..........\hbox(0.0+0.0)x0.0
 ..........\TU/FandolSong(0)/m/n/10.53937 摘
-..........\glue 21.07874 plus 2.26341 minus 0.34286
+..........\glue 0.0 plus 0.44923
 ..........\TU/FandolSong(0)/m/n/10.53937 要
 ..........\kern -0.00017
 ..........\kern 0.00017
@@ -63,9 +63,9 @@ Completed box being shipped out [1]
 ...\write-{}
 ...\write-{}
 ...\write-{}
-...\marks1{\__mark_id:n {1}\protect \ustc@spacetitle  {摘要}}
+...\marks1{\__mark_id:n {1}摘要}
 ...\marks2{\__mark_id:n {2}}
-...\mark{{\protect \ustc@spacetitle  {摘要}}{}}
+...\mark{{摘要}{}}
 ...\write-{}
 ...\glue(\topskip) 12.0
 ...\rule(0.0+0.0)x*
@@ -74,10 +74,10 @@ Completed box being shipped out [1]
 ...\glue 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
-...\hbox(12.59103+2.90685)x417.11752, glue set 176.43877fil
+...\hbox(12.59103+2.90685)x417.11752, glue set 192.49876fil
 ....\glue(\leftskip) 0.0 plus 1.0fil
 ....\TU/FandolHei(0)/b/n/16.06 摘
-....\glue 32.12 plus 1.9522 minus 3.61804
+....\glue 0.0 plus 1.37729
 ....\TU/FandolHei(0)/b/n/16.06 要
 ....\kern -0.00017
 ....\kern 0.00017
@@ -250,9 +250,9 @@ Completed box being shipped out [2]
 ..\glue(\lineskip) 0.0
 ..\vbox(700.50723+0.0)x417.11752, glue set 598.49045fil
 ...\write-{}
-...\marks1{\__mark_id:n {3}\protect \ustc@spacetitle  {Abstract}}
+...\marks1{\__mark_id:n {3}Abstract}
 ...\marks2{\__mark_id:n {4}}
-...\mark{{\protect \ustc@spacetitle  {Abstract}}{}}
+...\mark{{Abstract}{}}
 ...\write-{}
 ...\glue(\topskip) 12.0
 ...\rule(0.0+0.0)x*
@@ -390,11 +390,11 @@ Completed box being shipped out [3]
 .........\glue 0.0 plus 1.0fil minus 1.0fil
 ........\glue 0.0 plus 1.0fill
 ........\vbox(8.43146+3.61353)x417.11752
-.........\hbox(8.43146+3.61353)x417.11752, glue set 187.48003fil
+.........\hbox(8.43146+3.61353)x417.11752, glue set 198.0194fil
 ..........\glue(\leftskip) 0.0 plus 1.0fil
 ..........\hbox(0.0+0.0)x0.0
 ..........\TU/FandolSong(0)/m/n/10.53937 目
-..........\glue 21.07874 plus 2.26341 minus 0.34286
+..........\glue 0.0 plus 0.44923
 ..........\TU/FandolSong(0)/m/n/10.53937 录
 ..........\kern -0.00017
 ..........\kern 0.00017
@@ -422,9 +422,9 @@ Completed box being shipped out [3]
 ..\vbox(700.50723+0.0)x417.11752, glue set 453.25697fil
 ...\write-{}
 ...\write-{}
-...\marks1{\__mark_id:n {5}\protect \ustc@spacetitle  {目录}}
+...\marks1{\__mark_id:n {5}目录}
 ...\marks2{\__mark_id:n {6}}
-...\mark{{\protect \ustc@spacetitle  {目录}}{}}
+...\mark{{目录}{}}
 ...\write-{}
 ...\glue(\topskip) 12.0
 ...\rule(0.0+0.0)x*
@@ -433,10 +433,10 @@ Completed box being shipped out [3]
 ...\glue 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
-...\hbox(11.7238+2.58565)x417.11752, glue set 176.43877fil
+...\hbox(11.7238+2.58565)x417.11752, glue set 192.49876fil
 ....\glue(\leftskip) 0.0 plus 1.0fil
 ....\TU/FandolHei(0)/b/n/16.06 目
-....\glue 32.12 plus 1.9522 minus 3.61804
+....\glue 0.0 plus 1.37729
 ....\TU/FandolHei(0)/b/n/16.06 录
 ....\kern -0.00017
 ....\kern 0.00017
@@ -939,15 +939,15 @@ Completed box being shipped out [5]
 .........\glue 0.0 plus 1.0fil minus 1.0fil
 ........\glue 0.0 plus 1.0fill
 ........\vbox(8.43146+3.61353)x417.11752
-.........\hbox(8.43146+3.61353)x417.11752, glue set 179.5755fil
+.........\hbox(8.43146+3.61353)x417.11752, glue set 187.48003fil
 ..........\glue(\leftskip) 0.0 plus 1.0fil
 ..........\hbox(0.0+0.0)x0.0
 ..........\TU/FandolSong(0)/m/n/10.53937 符
-..........\glue 5.26968 plus 0.45407 minus 0.17143
+..........\glue 0.0 plus 0.44923
 ..........\TU/FandolSong(0)/m/n/10.53937 号
-..........\glue 5.26968 plus 0.45407 minus 0.17143
+..........\glue 0.0 plus 0.44923
 ..........\TU/FandolSong(0)/m/n/10.53937 说
-..........\glue 5.26968 plus 0.45407 minus 0.17143
+..........\glue 0.0 plus 0.44923
 ..........\TU/FandolSong(0)/m/n/10.53937 明
 ..........\kern -0.00017
 ..........\kern 0.00017
@@ -974,9 +974,9 @@ Completed box being shipped out [5]
 ..\glue(\lineskip) 0.0
 ..\vbox(700.50723+0.0)x417.11752, glue set 635.06721fil
 ...\write-{}
-...\marks1{\__mark_id:n {7}\protect \ustc@spacetitle  {符号说明}}
+...\marks1{\__mark_id:n {7}符号说明}
 ...\marks2{\__mark_id:n {8}}
-...\mark{{\protect \ustc@spacetitle  {符号说明}}{}}
+...\mark{{符号说明}{}}
 ...\write-{}
 ...\glue(\topskip) 12.0
 ...\rule(0.0+0.0)x*
@@ -985,14 +985,14 @@ Completed box being shipped out [5]
 ...\glue 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
-...\hbox(12.43044+2.81049)x417.11752, glue set 164.39377fil
+...\hbox(12.43044+2.81049)x417.11752, glue set 176.43877fil
 ....\glue(\leftskip) 0.0 plus 1.0fil
 ....\TU/FandolHei(0)/b/n/16.06 符
-....\glue 8.03 plus 0.9761 minus 0.49838
+....\glue 0.0 plus 1.37729
 ....\TU/FandolHei(0)/b/n/16.06 号
-....\glue 8.03 plus 0.9761 minus 0.49838
+....\glue 0.0 plus 1.37729
 ....\TU/FandolHei(0)/b/n/16.06 说
-....\glue 8.03 plus 0.9761 minus 0.49838
+....\glue 0.0 plus 1.37729
 ....\TU/FandolHei(0)/b/n/16.06 明
 ....\kern -0.00017
 ....\kern 0.00017
@@ -1098,7 +1098,7 @@ Completed box being shipped out [1]
 .........\glue 0.0 plus 1.0fil minus 1.0fil
 ........\glue 0.0 plus 1.0fill
 ........\vbox(8.43146+3.61353)x417.11752
-.........\hbox(8.43146+3.61353)x417.11752, glue set 166.40129fil
+.........\hbox(8.43146+3.61353)x417.11752, glue set 176.94066fil
 ..........\glue(\leftskip) 0.0 plus 1.0fil
 ..........\hbox(0.0+0.0)x0.0
 ..........\TU/FandolSong(0)/m/n/10.53937 第
@@ -1110,7 +1110,7 @@ Completed box being shipped out [1]
 ..........\kern 0.00017
 ..........\glue 10.53937
 ..........\TU/FandolSong(0)/m/n/10.53937 简
-..........\glue 21.07874 plus 2.26341 minus 0.34286
+..........\glue 0.0 plus 0.44923
 ..........\TU/FandolSong(0)/m/n/10.53937 介
 ..........\kern -0.00017
 ..........\kern 0.00017
@@ -1139,9 +1139,9 @@ Completed box being shipped out [1]
 ...\write-{}
 ...\write1{\pp@pagectr{footnote}{1}{\theabspage }{\thepage }}
 ...\write1{\@writefile{toc}{\protect \contentsline {chapter}{\protect \numberline {第1章}简介}{\thepage }{}\protected@file@percent }}
-...\marks1{\__mark_id:n {9}第1章\hskip 1em\relax \protect \ustc@spacetitle  {简介}}
+...\marks1{\__mark_id:n {9}第1章\hskip 1em\relax 简介}
 ...\marks2{\__mark_id:n {10}}
-...\mark{{第1章\hskip 1em\relax \protect \ustc@spacetitle  {简介}}{}}
+...\mark{{第1章\hskip 1em\relax 简介}{}}
 ...\write1{\@writefile{lof}{\protect \addvspace {10.0pt}}}
 ...\write1{\@writefile{lot}{\protect \addvspace {10.0pt}}}
 ...\glue(\topskip) 12.0
@@ -1151,7 +1151,7 @@ Completed box being shipped out [1]
 ...\glue 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
-...\hbox(12.39832+2.77837)x417.11752, glue set 144.31877fil
+...\hbox(12.39832+2.77837)x417.11752, glue set 160.37877fil
 ....\glue(\leftskip) 0.0 plus 1.0fil
 ....\TU/FandolHei(0)/b/n/16.06 第
 ....\glue 4.015 plus 2.00749 minus 1.33833
@@ -1162,7 +1162,7 @@ Completed box being shipped out [1]
 ....\kern 0.00017
 ....\glue 16.06
 ....\TU/FandolHei(0)/b/n/16.06 简
-....\glue 32.12 plus 1.9522 minus 3.61804
+....\glue 0.0 plus 1.37729
 ....\TU/FandolHei(0)/b/n/16.06 介
 ....\kern -0.00017
 ....\kern 0.00017
@@ -1560,7 +1560,7 @@ Completed box being shipped out [2]
 .........\glue 0.0 plus 1.0fil minus 1.0fil
 ........\glue 0.0 plus 1.0fill
 ........\vbox(8.43146+3.61353)x417.11752
-.........\hbox(8.43146+3.61353)x417.11752, glue set 161.1316fil
+.........\hbox(8.43146+3.61353)x417.11752, glue set 171.67097fil
 ..........\glue(\leftskip) 0.0 plus 1.0fil
 ..........\hbox(0.0+0.0)x0.0
 ..........\TU/FandolSong(0)/m/n/10.53937 第
@@ -1572,9 +1572,9 @@ Completed box being shipped out [2]
 ..........\kern 0.00017
 ..........\glue 10.53937
 ..........\TU/FandolSong(0)/m/n/10.53937 浮
-..........\glue 10.53937 plus 0.32011 minus 0.74983
+..........\glue 0.0 plus 0.44923
 ..........\TU/FandolSong(0)/m/n/10.53937 动
-..........\glue 10.53937 plus 0.32011 minus 0.74983
+..........\glue 0.0 plus 0.44923
 ..........\TU/FandolSong(0)/m/n/10.53937 体
 ..........\kern -0.00017
 ..........\kern 0.00017
@@ -1602,9 +1602,9 @@ Completed box being shipped out [2]
 ...\write-{}
 ...\write1{\pp@pagectr{footnote}{2}{\theabspage }{\thepage }}
 ...\write1{\@writefile{toc}{\protect \contentsline {chapter}{\protect \numberline {第2章}浮动体}{\thepage }{}\protected@file@percent }}
-...\marks1{\__mark_id:n {11}第2章\hskip 1em\relax \protect \ustc@spacetitle  {浮动体}}
+...\marks1{\__mark_id:n {11}第2章\hskip 1em\relax 浮动体}
 ...\marks2{\__mark_id:n {12}}
-...\mark{{第2章\hskip 1em\relax \protect \ustc@spacetitle  {浮动体}}{}}
+...\mark{{第2章\hskip 1em\relax 浮动体}{}}
 ...\write1{\@writefile{lof}{\protect \addvspace {10.0pt}}}
 ...\write1{\@writefile{lot}{\protect \addvspace {10.0pt}}}
 ...\glue(\topskip) 12.0
@@ -1614,7 +1614,7 @@ Completed box being shipped out [2]
 ...\glue 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
-...\hbox(12.3662+2.77837)x417.11752, glue set 136.28877fil
+...\hbox(12.3662+2.77837)x417.11752, glue set 152.34877fil
 ....\glue(\leftskip) 0.0 plus 1.0fil
 ....\TU/FandolHei(0)/b/n/16.06 第
 ....\glue 4.015 plus 2.00749 minus 1.33833
@@ -1625,9 +1625,9 @@ Completed box being shipped out [2]
 ....\kern 0.00017
 ....\glue 16.06
 ....\TU/FandolHei(0)/b/n/16.06 浮
-....\glue 16.06 plus 1.30147 minus 1.26941
+....\glue 0.0 plus 1.37729
 ....\TU/FandolHei(0)/b/n/16.06 动
-....\glue 16.06 plus 1.30147 minus 1.26941
+....\glue 0.0 plus 1.37729
 ....\TU/FandolHei(0)/b/n/16.06 体
 ....\kern -0.00017
 ....\kern 0.00017
@@ -1721,15 +1721,15 @@ Completed box being shipped out [3]
 .........\glue 0.0 plus 1.0fil minus 1.0fil
 ........\glue 0.0 plus 1.0fill
 ........\vbox(8.43146+3.61353)x417.11752
-.........\hbox(8.43146+3.61353)x417.11752, glue set 179.5755fil
+.........\hbox(8.43146+3.61353)x417.11752, glue set 187.48003fil
 ..........\glue(\leftskip) 0.0 plus 1.0fil
 ..........\hbox(0.0+0.0)x0.0
 ..........\TU/FandolSong(0)/m/n/10.53937 参
-..........\glue 5.26968 plus 0.45407 minus 0.17143
+..........\glue 0.0 plus 0.44923
 ..........\TU/FandolSong(0)/m/n/10.53937 考
-..........\glue 5.26968 plus 0.45407 minus 0.17143
+..........\glue 0.0 plus 0.44923
 ..........\TU/FandolSong(0)/m/n/10.53937 文
-..........\glue 5.26968 plus 0.45407 minus 0.17143
+..........\glue 0.0 plus 0.44923
 ..........\TU/FandolSong(0)/m/n/10.53937 献
 ..........\kern -0.00017
 ..........\kern 0.00017
@@ -1758,9 +1758,9 @@ Completed box being shipped out [3]
 ...\write-{}
 ...\write-{}
 ...\write1{\@writefile{toc}{\protect \contentsline {chapter}{参考文献}{\thepage }{}\protected@file@percent }}
-...\marks1{\__mark_id:n {13}\protect \ustc@spacetitle  {参考文献}}
+...\marks1{\__mark_id:n {13}参考文献}
 ...\marks2{\__mark_id:n {14}}
-...\mark{{\protect \ustc@spacetitle  {参考文献}}{}}
+...\mark{{参考文献}{}}
 ...\write1{\@writefile{lof}{\protect \addvspace {10.0pt}}}
 ...\write1{\@writefile{lot}{\protect \addvspace {10.0pt}}}
 ...\glue(\topskip) 12.0
@@ -1770,14 +1770,14 @@ Completed box being shipped out [3]
 ...\glue 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
-...\hbox(12.49467+2.87473)x417.11752, glue set 164.39377fil
+...\hbox(12.49467+2.87473)x417.11752, glue set 176.43877fil
 ....\glue(\leftskip) 0.0 plus 1.0fil
 ....\TU/FandolHei(0)/b/n/16.06 参
-....\glue 8.03 plus 0.9761 minus 0.49838
+....\glue 0.0 plus 1.37729
 ....\TU/FandolHei(0)/b/n/16.06 考
-....\glue 8.03 plus 0.9761 minus 0.49838
+....\glue 0.0 plus 1.37729
 ....\TU/FandolHei(0)/b/n/16.06 文
-....\glue 8.03 plus 0.9761 minus 0.49838
+....\glue 0.0 plus 1.37729
 ....\TU/FandolHei(0)/b/n/16.06 献
 ....\kern -0.00017
 ....\kern 0.00017
@@ -1940,7 +1940,7 @@ Completed box being shipped out [4]
 .........\glue 0.0 plus 1.0fil minus 1.0fil
 ........\glue 0.0 plus 1.0fill
 ........\vbox(8.43146+3.61353)x417.11752
-.........\hbox(8.43146+3.61353)x417.11752, glue set 158.64432fil
+.........\hbox(8.43146+3.61353)x417.11752, glue set 166.54884fil
 ..........\glue(\leftskip) 0.0 plus 1.0fil
 ..........\hbox(0.0+0.0)x0.0
 ..........\TU/FandolSong(0)/m/n/10.53937 附
@@ -1952,11 +1952,11 @@ Completed box being shipped out [4]
 ..........\kern 0.0002
 ..........\glue 10.53937
 ..........\TU/FandolSong(0)/m/n/10.53937 附
-..........\glue 5.26968 plus 0.45407 minus 0.17143
+..........\glue 0.0 plus 0.44923
 ..........\TU/FandolSong(0)/m/n/10.53937 录
-..........\glue 5.26968 plus 0.45407 minus 0.17143
+..........\glue 0.0 plus 0.44923
 ..........\TU/FandolSong(0)/m/n/10.53937 章
-..........\glue 5.26968 plus 0.45407 minus 0.17143
+..........\glue 0.0 plus 0.44923
 ..........\TU/FandolSong(0)/m/n/10.53937 节
 ..........\kern -0.00017
 ..........\kern 0.00017
@@ -1984,9 +1984,9 @@ Completed box being shipped out [4]
 ...\write-{}
 ...\write1{\pp@pagectr{footnote}{3}{\theabspage }{\thepage }}
 ...\write1{\@writefile{toc}{\protect \contentsline {chapter}{\protect \numberline {附录 A}附录章节}{\thepage }{}\protected@file@percent }}
-...\marks1{\__mark_id:n {15}附录 A\hskip 1em\relax \protect \ustc@spacetitle  {附录章节}}
+...\marks1{\__mark_id:n {15}附录 A\hskip 1em\relax 附录章节}
 ...\marks2{\__mark_id:n {16}}
-...\mark{{附录 A\hskip 1em\relax \protect \ustc@spacetitle  {附录章节}}{}}
+...\mark{{附录 A\hskip 1em\relax 附录章节}{}}
 ...\write1{\@writefile{lof}{\protect \addvspace {10.0pt}}}
 ...\write1{\@writefile{lot}{\protect \addvspace {10.0pt}}}
 ...\glue(\topskip) 12.0
@@ -1996,7 +1996,7 @@ Completed box being shipped out [4]
 ...\glue 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
-...\hbox(12.35014+2.77837)x417.11752, glue set 132.49861fil
+...\hbox(12.35014+2.77837)x417.11752, glue set 144.54361fil
 ....\glue(\leftskip) 0.0 plus 1.0fil
 ....\TU/FandolHei(0)/b/n/16.06 附
 ....\glue 0.0 plus 1.37729
@@ -2009,11 +2009,11 @@ Completed box being shipped out [4]
 ....\kern 0.0002
 ....\glue 16.06
 ....\TU/FandolHei(0)/b/n/16.06 附
-....\glue 8.03 plus 0.9761 minus 0.49838
+....\glue 0.0 plus 1.37729
 ....\TU/FandolHei(0)/b/n/16.06 录
-....\glue 8.03 plus 0.9761 minus 0.49838
+....\glue 0.0 plus 1.37729
 ....\TU/FandolHei(0)/b/n/16.06 章
-....\glue 8.03 plus 0.9761 minus 0.49838
+....\glue 0.0 plus 1.37729
 ....\TU/FandolHei(0)/b/n/16.06 节
 ....\kern -0.00017
 ....\kern 0.00017
@@ -2110,11 +2110,11 @@ Completed box being shipped out [5]
 .........\glue 0.0 plus 1.0fil minus 1.0fil
 ........\glue 0.0 plus 1.0fill
 ........\vbox(8.43146+3.61353)x417.11752
-.........\hbox(8.43146+3.61353)x417.11752, glue set 187.48003fil
+.........\hbox(8.43146+3.61353)x417.11752, glue set 198.0194fil
 ..........\glue(\leftskip) 0.0 plus 1.0fil
 ..........\hbox(0.0+0.0)x0.0
 ..........\TU/FandolSong(0)/m/n/10.53937 致
-..........\glue 21.07874 plus 2.26341 minus 0.34286
+..........\glue 0.0 plus 0.44923
 ..........\TU/FandolSong(0)/m/n/10.53937 谢
 ..........\kern -0.00017
 ..........\kern 0.00017
@@ -2142,9 +2142,9 @@ Completed box being shipped out [5]
 ..\vbox(700.50723+0.0)x417.11752, glue set 633.78255fil
 ...\write-{}
 ...\write1{\@writefile{toc}{\protect \contentsline {chapter}{致谢}{\thepage }{}\protected@file@percent }}
-...\marks1{\__mark_id:n {17}\protect \ustc@spacetitle  {致谢}}
+...\marks1{\__mark_id:n {17}致谢}
 ...\marks2{\__mark_id:n {18}}
-...\mark{{\protect \ustc@spacetitle  {致谢}}{}}
+...\mark{{致谢}{}}
 ...\write1{\@writefile{lof}{\protect \addvspace {10.0pt}}}
 ...\write1{\@writefile{lot}{\protect \addvspace {10.0pt}}}
 ...\glue(\topskip) 12.0
@@ -2154,10 +2154,10 @@ Completed box being shipped out [5]
 ...\glue 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
-...\hbox(12.38226+2.79442)x417.11752, glue set 176.43877fil
+...\hbox(12.38226+2.79442)x417.11752, glue set 192.49876fil
 ....\glue(\leftskip) 0.0 plus 1.0fil
 ....\TU/FandolHei(0)/b/n/16.06 致
-....\glue 32.12 plus 1.9522 minus 3.61804
+....\glue 0.0 plus 1.37729
 ....\TU/FandolHei(0)/b/n/16.06 谢
 ....\kern -0.00017
 ....\kern 0.00017
@@ -2322,9 +2322,9 @@ Completed box being shipped out [6]
 ..\vbox(700.50723+0.0)x417.11752, glue set 633.4413fil
 ...\write-{}
 ...\write1{\@writefile{toc}{\protect \contentsline {chapter}{在读期间发表的学术论文与取得的研究成果}{\thepage }{}\protected@file@percent }}
-...\marks1{\__mark_id:n {19}\protect \ustc@spacetitle  {在读期间发表的学术论文与取得的研究成果}}
+...\marks1{\__mark_id:n {19}在读期间发表的学术论文与取得的研究成果}
 ...\marks2{\__mark_id:n {20}}
-...\mark{{\protect \ustc@spacetitle  {在读期间发表的学术论文与取得的研究成果}}{}}
+...\mark{{在读期间发表的学术论文与取得的研究成果}{}}
 ...\write1{\@writefile{lof}{\protect \addvspace {10.0pt}}}
 ...\write1{\@writefile{lot}{\protect \addvspace {10.0pt}}}
 ...\glue(\topskip) 12.0
