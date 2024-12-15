@@ -21,3 +21,4 @@ jobs:
           REMOTE: 'https://git.lug.ustc.edu.cn/ustctug/ustcthesis.git'
           GIT_USERNAME: ${{ secrets.GIT_LUG_USERNAME }}
           GIT_PASSWORD: ${{ secrets.GIT_LUG_PASSWORD }}
+          PUSH_ALL_REFS: false
