@@ -2385,11 +2385,7 @@
 
 % 中文摘要环境。
 \newcommand\ustc@keywords@text{%
-  \ifustc@degree@graduate
-    \ustc@clist@use{\ustc@keywords}{\quad}%
-  \else
-    \ustc@clist@use{\ustc@keywords}{；}%
-  \fi
+  \ustc@clist@use{\ustc@keywords}{；}%
 }
 \newcommand\ustc@keywords@en@text{%
   \ifustc@degree@graduate

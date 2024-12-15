@@ -112,7 +112,7 @@ Completed box being shipped out [1]
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 10.6799
-...\hbox(9.3951+2.21626)x417.11752, glue set 230.42006fil
+...\hbox(9.3951+2.21626)x417.11752, glue set 236.44255fil
 ....\TU/FandolSong(0)/b/n/12.045 关
 ....\glue 0.0 plus 0.61353
 ....\TU/FandolSong(0)/b/n/12.045 键
@@ -133,17 +133,19 @@ Completed box being shipped out [1]
 ....\TU/FandolSong(0)/m/n/12.045 论
 ....\glue 0.0 plus 0.61353
 ....\TU/FandolSong(0)/m/n/12.045 文
-....\kern -0.00017
-....\kern 0.00017
-....\glue 12.045
-....\glue 3.01125 plus 1.50562 minus 1.00374
+....\penalty 10000
+....\TU/FandolSong(0)/m/n/12.045 ；
+....\rule(0.0+0.0)x-8.32309
+....\glue 8.32309 minus 6.02249
+....\glue 0.0 plus 0.61353
 ....\TU/FandolSong(0)/m/n/12.045 摘
 ....\glue 0.0 plus 0.61353
 ....\TU/FandolSong(0)/m/n/12.045 要
-....\kern -0.00017
-....\kern 0.00017
-....\glue 12.045
-....\glue 3.01125 plus 1.50562 minus 1.00374
+....\penalty 10000
+....\TU/FandolSong(0)/m/n/12.045 ；
+....\rule(0.0+0.0)x-8.32309
+....\glue 8.32309 minus 6.02249
+....\glue 0.0 plus 0.61353
 ....\TU/FandolSong(0)/m/n/12.045 关
 ....\glue 0.0 plus 0.61353
 ....\TU/FandolSong(0)/m/n/12.045 键
@@ -297,15 +299,15 @@ Completed box being shipped out [2]
 ....\TU/texgyretermes(0)/m/n/12.045 :
 ....\glue 3.01125 plus 1.50562 minus 1.00374
 ....\vbox(8.22673+2.6258)x336.74124
-.....\hbox(8.22673+2.6258)x336.74124, glue set 179.74673fil
+.....\hbox(8.22673+2.6258)x336.74124, glue set 171.29115fil
 ......\hbox(0.0+0.0)x0.0
-......\TU/texgyretermes(0)/m/n/12.045 dissertation,
+......\TU/texgyretermes(0)/m/n/12.045 Dissertation,
 ......\glue 3.01125 plus 1.88202 minus 0.80298
 ......\glue 3.01125 plus 1.88202 minus 0.80298
-......\TU/texgyretermes(0)/m/n/12.045 abstract,
+......\TU/texgyretermes(0)/m/n/12.045 Abstract,
 ......\glue 3.01125 plus 1.88202 minus 0.80298
 ......\glue 3.01125 plus 1.88202 minus 0.80298
-......\TU/texgyretermes(0)/m/n/12.045 keywords
+......\TU/texgyretermes(0)/m/n/12.045 Keywords
 ......\kern -0.0002
 ......\kern 0.0002
 ......\penalty 10000

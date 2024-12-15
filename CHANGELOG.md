@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - 英文摘要的“Key Words”改为大写“KEY WORDS”（研究生院 2024-12-05 Word 模板修改，[#390](https://github.com/ustctug/ustcthesis/issues/390#issuecomment-2532580113)）。
 - 章标题较短时（四字以下）不再空字（研究生院 2024-12-05 Word 模板修改，[#390](https://github.com/ustctug/ustcthesis/issues/390#issuecomment-2532580113)）。
 - “在读期间发表的学术论文与取得的研究成果”改为“在读期间取得的科研成果”（研究生院 2024-12-05 Word 模板修改，[#390](https://github.com/ustctug/ustcthesis/issues/390#issuecomment-2532580113)）。
+- 关键词之间改用分号间隔（研究生院 2024-12-05 Word 模板修改）。
 
 ## [4.0.0-beta.2] - 2024-11-18
 
@@ -25,7 +26,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - 本科生参考文献改用 GB/T 7714 格式（[zepinglee/gbt7714-bibtex-style#169](https://github.com/zepinglee/gbt7714-bibtex-style/issues/169)）。
-- 专业博士的封面改为“工程博士”（研究生院 2024-10-14 Word 模板修改，[#402](https://github.com/ustctug/ustcthesis/issues/402)）。
+- 专业博士的封面改为“工程博士”（研究生院 2024-09-23 Word 模板修改，[#402](https://github.com/ustctug/ustcthesis/issues/402)）。
 
 ## [3.3.5] - 2024-05-09
 
