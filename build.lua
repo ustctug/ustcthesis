@@ -14,11 +14,11 @@ checkengines = {"xetex"}
 stdengine = "xetex"
 
 checkconfigs = {
-    "build",
-    "test/config-crossref",
-    "test/config-nomencl",
-    "test/config-bibtex",
-    "test/config-biblatex",
+  "build",
+  "test/config-crossref",
+  "test/config-nomencl",
+  "test/config-bibtex",
+  "test/config-biblatex",
 }
 
 typesetexe = "xelatex"
@@ -35,30 +35,31 @@ function update_tag(file, content, tagname, tagdate)
   local date = string.gsub(tagdate, "%-", "/")
 
   content = string.gsub(content,
-  "Copyright %(C%) (%d%d%d%d)%-%d%d%d%d",
-  "Copyright (C) %1-" .. os.date("%Y"))
+    "Copyright %(C%) (%d%d%d%d)%-%d%d%d%d",
+    "Copyright (C) %1-" .. os.date("%Y"))
 
   if string.match(file, "%.cls$") then
-    content = string.gsub(content, "\\newcommand\\ustcthesisversion{[0-9.]+",
+    content = string.gsub(content, "\\newcommand\\ustcthesisversion{[0-9a-z.-]+",
       "\\newcommand\\ustcthesisversion{" .. tagname)
 
     content = string.gsub(content, "\\ProvidesClass{ustcthesis}%[%d%d%d%d/%d%d/%d%d",
       "\\ProvidesClass{ustcthesis}[" .. date)
 
   elseif string.match(file, "%-doc.tex") then
-    content = string.gsub(content, "v[0-9.]+\\qquad %d%d%d%d%-%d%d%-%d%d",
+    content = string.gsub(content, "v[0-9a-z.-]+\\qquad %d%d%d%d%-%d%d%-%d%d",
       "v" .. tagname .. "\\qquad " .. tagdate)
 
   elseif string.match(file, "CHANGELOG.md") then
-    local previous = string.match(content, "/compare/v(.*)%.%.%.HEAD")
+    local previous = string.match(content, "/compare/v([0-9a-z.-]+)%.%.%.HEAD")
     if tagname == previous then return content end
     content = string.gsub(content,
       "## %[Unreleased%]",
-      "## [Unreleased]\n\n## [" .. tagname .."] - " .. tagdate)
+      "## [Unreleased]\n\n## [" .. tagname .. "] - " .. tagdate)
+
     content = string.gsub(content,
-      previous .. "%.%.%.HEAD",
+      previous:gsub("%.", "%%."):gsub("%-", "%%-") .. "%.%.%.HEAD",
       tagname .. "...HEAD\n[" .. tagname .. "]: " .. url .. "/compare/v"
-        .. previous .. "...v" .. tagname)
+      .. previous .. "...v" .. tagname)
   end
   return content
 end
