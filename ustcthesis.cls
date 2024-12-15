@@ -22,6 +22,10 @@
   \ClassWarning{ustcthesis}{#1}%
 }
 
+\newcommand\ustc@deprecated[3]{%
+  \ustc@warning{The #1 is deprecated since #2. Use #3 instead.}%
+}
+
 % 检查 \LaTeXe{} kernel 版本
 \@ifl@t@r\fmtversion{2017/04/15}{}{
   \ustc@error{%
@@ -570,7 +574,7 @@
     \def\bibname{参考文献}%
     \def\appendixname{附录}%
     \def\ustc@acknowledgements@name{致谢}%
-    \def\ustc@publication@name{在读期间发表的学术论文与取得的研究成果}%
+    \def\ustc@achievements@name{在读期间取得的科研成果}%
     \newcommand\ustc@notation@name{符号说明}%
   \else
     \def\contentsname{Contents}%
@@ -582,7 +586,7 @@
     \def\bibname{Bibliography}%
     \def\appendixname{Appendix}%
     \def\ustc@acknowledgements@name{Acknowledgements}%
-    \def\ustc@publication@name{Publications}%
+    \def\ustc@achievements@name{Research Achievements}%
     \def\ustc@notation@name{Notation}%
   \fi
 }
@@ -1766,6 +1770,7 @@
 % Reserved for compatibility until 2020-07-01.
 \def\ustc@define@term#1#2{%
   \expandafter\gdef\csname #1\endcsname##1{%
+    \ustc@deprecated{'\expandafter\protect\csname #1\endcsname' command}{2020-07-01}{'\protect\ustcsetup'}%
     \ustcsetup{#2 = {##1}}%
   }%
 }
@@ -2173,7 +2178,10 @@
   \let\copyrightpage\relax
 \fi
 % Reserved for compatibility until 2020-07-01.
-\let\makestatement\copyrightpage
+\newcommand\makestatement{%
+  \ustc@deprecated{'\protect\makestatement' command}{2020-07-01}{'\protect\copyrightpage'}%
+  \copyrightpage
+}
 
 
 % \subsection{章节标题}
@@ -2433,6 +2441,7 @@
 
 % Reserved for compatibility until 2020-07-01.
 \newenvironment{enabstract}{%
+  \ustc@deprecated{'enabsctract' environment}{2020-07-01}{'abstract*'}%
   \begin{abstract*}%
 }{%
   \end{abstract*}%
@@ -3153,10 +3162,17 @@
   \end{acknowledgements}%
 }
 
-% 发表成果环境：
-\newenvironment{publications}{%
+% 科研成果环境：
+\newenvironment{achievements}{%
   \@mainmatterfalse
-  \chapter{\ustc@publication@name}%
+  \chapter{\ustc@achievements@name}%
+}{}
+
+% 兼容旧的接口
+\newenvironment{publications}{%
+  \ustc@deprecated{'publications' environment}{2024-12-15}{'achievements'}%
+  \@mainmatterfalse
+  \chapter{\ustc@achievements@name}%
 }{}
 
 

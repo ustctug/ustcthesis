@@ -785,7 +785,7 @@ Completed box being shipped out [3]
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 0.00002
-...\hbox(14.05243+6.02255)x417.11752, glue set 141.08647fill
+...\hbox(14.05243+6.02255)x417.11752, glue set 253.5064fill
 ....\hbox(0.0+0.0)x0.0
 ....\rule(14.05243+6.02255)x0.0
 ....\TU/FandolSong(0)/m/n/14.05249 在
@@ -796,31 +796,15 @@ Completed box being shipped out [3]
 ....\glue 0.0 plus 0.87584
 ....\TU/FandolSong(0)/m/n/14.05249 间
 ....\glue 0.0 plus 0.87584
-....\TU/FandolSong(0)/m/n/14.05249 发
-....\glue 0.0 plus 0.87584
-....\TU/FandolSong(0)/m/n/14.05249 表
-....\glue 0.0 plus 0.87584
-....\TU/FandolSong(0)/m/n/14.05249 的
-....\glue 0.0 plus 0.87584
-....\TU/FandolSong(0)/m/n/14.05249 学
-....\glue 0.0 plus 0.87584
-....\TU/FandolSong(0)/m/n/14.05249 术
-....\glue 0.0 plus 0.87584
-....\TU/FandolSong(0)/m/n/14.05249 论
-....\glue 0.0 plus 0.87584
-....\TU/FandolSong(0)/m/n/14.05249 文
-....\glue 0.0 plus 0.87584
-....\TU/FandolSong(0)/m/n/14.05249 与
-....\glue 0.0 plus 0.87584
 ....\TU/FandolSong(0)/m/n/14.05249 取
 ....\glue 0.0 plus 0.87584
 ....\TU/FandolSong(0)/m/n/14.05249 得
 ....\glue 0.0 plus 0.87584
 ....\TU/FandolSong(0)/m/n/14.05249 的
 ....\glue 0.0 plus 0.87584
-....\TU/FandolSong(0)/m/n/14.05249 研
+....\TU/FandolSong(0)/m/n/14.05249 科
 ....\glue 0.0 plus 0.87584
-....\TU/FandolSong(0)/m/n/14.05249 究
+....\TU/FandolSong(0)/m/n/14.05249 研
 ....\glue 0.0 plus 0.87584
 ....\TU/FandolSong(0)/m/n/14.05249 成
 ....\glue 0.0 plus 0.87584
@@ -2257,7 +2241,7 @@ Completed box being shipped out [6]
 .........\glue 0.0 plus 1.0fil minus 1.0fil
 ........\glue 0.0 plus 1.0fill
 ........\vbox(8.43146+3.61353)x417.11752
-.........\hbox(8.43146+3.61353)x417.11752, glue set 108.43477fil
+.........\hbox(8.43146+3.61353)x417.11752, glue set 150.59224fil
 ..........\glue(\leftskip) 0.0 plus 1.0fil
 ..........\hbox(0.0+0.0)x0.0
 ..........\TU/FandolSong(0)/m/n/10.53937 在
@@ -2268,31 +2252,15 @@ Completed box being shipped out [6]
 ..........\glue 0.0 plus 0.44923
 ..........\TU/FandolSong(0)/m/n/10.53937 间
 ..........\glue 0.0 plus 0.44923
-..........\TU/FandolSong(0)/m/n/10.53937 发
-..........\glue 0.0 plus 0.44923
-..........\TU/FandolSong(0)/m/n/10.53937 表
-..........\glue 0.0 plus 0.44923
-..........\TU/FandolSong(0)/m/n/10.53937 的
-..........\glue 0.0 plus 0.44923
-..........\TU/FandolSong(0)/m/n/10.53937 学
-..........\glue 0.0 plus 0.44923
-..........\TU/FandolSong(0)/m/n/10.53937 术
-..........\glue 0.0 plus 0.44923
-..........\TU/FandolSong(0)/m/n/10.53937 论
-..........\glue 0.0 plus 0.44923
-..........\TU/FandolSong(0)/m/n/10.53937 文
-..........\glue 0.0 plus 0.44923
-..........\TU/FandolSong(0)/m/n/10.53937 与
-..........\glue 0.0 plus 0.44923
 ..........\TU/FandolSong(0)/m/n/10.53937 取
 ..........\glue 0.0 plus 0.44923
 ..........\TU/FandolSong(0)/m/n/10.53937 得
 ..........\glue 0.0 plus 0.44923
 ..........\TU/FandolSong(0)/m/n/10.53937 的
 ..........\glue 0.0 plus 0.44923
-..........\TU/FandolSong(0)/m/n/10.53937 研
+..........\TU/FandolSong(0)/m/n/10.53937 科
 ..........\glue 0.0 plus 0.44923
-..........\TU/FandolSong(0)/m/n/10.53937 究
+..........\TU/FandolSong(0)/m/n/10.53937 研
 ..........\glue 0.0 plus 0.44923
 ..........\TU/FandolSong(0)/m/n/10.53937 成
 ..........\glue 0.0 plus 0.44923
@@ -2319,12 +2287,12 @@ Completed box being shipped out [6]
 ....\special{color pop}
 ..\glue 8.2511
 ..\glue(\lineskip) 0.0
-..\vbox(700.50723+0.0)x417.11752, glue set 633.4413fil
+..\vbox(700.50723+0.0)x417.11752, glue set 633.7143fil
 ...\write-{}
-...\write1{\@writefile{toc}{\protect \contentsline {chapter}{在读期间发表的学术论文与取得的研究成果}{\thepage }{}\protected@file@percent }}
-...\marks1{\__mark_id:n {19}在读期间发表的学术论文与取得的研究成果}
+...\write1{\@writefile{toc}{\protect \contentsline {chapter}{在读期间取得的科研成果}{\thepage }{}\protected@file@percent }}
+...\marks1{\__mark_id:n {19}在读期间取得的科研成果}
 ...\marks2{\__mark_id:n {20}}
-...\mark{{在读期间发表的学术论文与取得的研究成果}{}}
+...\mark{{在读期间取得的科研成果}{}}
 ...\write1{\@writefile{lof}{\protect \addvspace {10.0pt}}}
 ...\write1{\@writefile{lot}{\protect \addvspace {10.0pt}}}
 ...\glue(\topskip) 12.0
@@ -2334,7 +2302,7 @@ Completed box being shipped out [6]
 ...\glue 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
-...\hbox(12.6071+2.87473)x417.11752, glue set 55.98878fil
+...\hbox(12.33408+2.87473)x417.11752, glue set 120.22878fil
 ....\glue(\leftskip) 0.0 plus 1.0fil
 ....\TU/FandolHei(0)/b/n/16.06 在
 ....\glue 0.0 plus 1.37729
@@ -2344,31 +2312,15 @@ Completed box being shipped out [6]
 ....\glue 0.0 plus 1.37729
 ....\TU/FandolHei(0)/b/n/16.06 间
 ....\glue 0.0 plus 1.37729
-....\TU/FandolHei(0)/b/n/16.06 发
-....\glue 0.0 plus 1.37729
-....\TU/FandolHei(0)/b/n/16.06 表
-....\glue 0.0 plus 1.37729
-....\TU/FandolHei(0)/b/n/16.06 的
-....\glue 0.0 plus 1.37729
-....\TU/FandolHei(0)/b/n/16.06 学
-....\glue 0.0 plus 1.37729
-....\TU/FandolHei(0)/b/n/16.06 术
-....\glue 0.0 plus 1.37729
-....\TU/FandolHei(0)/b/n/16.06 论
-....\glue 0.0 plus 1.37729
-....\TU/FandolHei(0)/b/n/16.06 文
-....\glue 0.0 plus 1.37729
-....\TU/FandolHei(0)/b/n/16.06 与
-....\glue 0.0 plus 1.37729
 ....\TU/FandolHei(0)/b/n/16.06 取
 ....\glue 0.0 plus 1.37729
 ....\TU/FandolHei(0)/b/n/16.06 得
 ....\glue 0.0 plus 1.37729
 ....\TU/FandolHei(0)/b/n/16.06 的
 ....\glue 0.0 plus 1.37729
-....\TU/FandolHei(0)/b/n/16.06 研
+....\TU/FandolHei(0)/b/n/16.06 科
 ....\glue 0.0 plus 1.37729
-....\TU/FandolHei(0)/b/n/16.06 究
+....\TU/FandolHei(0)/b/n/16.06 研
 ....\glue 0.0 plus 1.37729
 ....\TU/FandolHei(0)/b/n/16.06 成
 ....\glue 0.0 plus 1.37729
