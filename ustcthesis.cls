@@ -568,6 +568,7 @@
     \def\contentsname{目录}%
     \def\listfigurename{插图清单}%
     \def\listtablename{附表清单}%
+    \def\ustc@list@figure@table@name{插图和附表清单}%
     \ctexset{
       chapter/name   = {第,章},
     }%
@@ -580,6 +581,7 @@
     \def\contentsname{Contents}%
     \def\listfigurename{List of Figures}%
     \def\listtablename{List of Tables}%
+    \def\ustc@list@figure@table@name{List of Figures and Tables}%
     \ctexset{
       chapter/name   = {\chaptername\space},
     }%
@@ -2557,6 +2559,15 @@
     \cleardoublepage
   \fi
   \ustc@chapter{\listtablename}%
+  \@starttoc{lot}%
+}
+
+\newcommand\listoffiguresandtables{%
+  \ifustc@degree@graduate
+    \cleardoublepage
+  \fi
+  \ustc@chapter{\ustc@list@figure@table@name}%
+  \@starttoc{lof}%
   \@starttoc{lot}%
 }
 
