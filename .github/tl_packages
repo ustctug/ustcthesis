@@ -43,6 +43,7 @@ xkeyval
 # Dependencies for ustcthesis
 bigfoot
 caption
+enumitem
 fancyhdr
 footmisc
 filehook

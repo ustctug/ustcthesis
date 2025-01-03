@@ -428,6 +428,7 @@
 \RequirePackage{color}
 \RequirePackage{titletoc}
 \RequirePackage{caption}
+\RequirePackage{enumitem}
 \RequirePackage[perpage]{footmisc}
 \RequirePackage{url}
 \RequirePackage{notoccite}
@@ -3175,6 +3176,29 @@
   \@mainmatterfalse
   \chapter{\ustc@achievements@name}%
 }{}
+
+\newenvironment{theachievements}[1][已发表论文]{%
+  \par\null\par
+  \noindent\textbf{#1：}\par
+  \begin{achievementlist}
+}{%
+  \end{achievementlist}
+}
+
+\newlist{achievementlist}{enumerate}{1}
+\setlist[achievementlist]{
+  topsep     = 0bp,
+  partopsep  = 0bp,
+  itemsep    = 0bp,
+  parsep     = 0bp,
+  leftmargin = 1.5em,
+  itemindent = 1.5em,
+  labelsep   = 0em,
+  labelwidth = 3em,
+  align      = left,
+  label      = （\arabic*）,
+}
+
 
 
 % \subsection{其他宏包的设置}
