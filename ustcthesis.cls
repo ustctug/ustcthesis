@@ -2231,7 +2231,7 @@
 % 另外 \pkg{ctex} v2.2 前的beforeskip的符号有特殊意义。
 \ctexset{
   chapter = {
-    format      = \centering\heiti\bfseries\fontsize{16bp}{26.67bp}\selectfont,
+    format      = \centering\heiti\fontsize{16bp}{26.67bp}\selectfont,
     nameformat  = {},
     titleformat = {},
     number      = \thechapter,

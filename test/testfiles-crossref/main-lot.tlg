@@ -64,7 +64,7 @@ Completed box being shipped out [1]
 ....\special{color pop}
 ..\glue 8.2511
 ..\glue(\lineskip) 0.0
-..\vbox(700.50723+0.0)x417.11752, glue set 518.76405fil
+..\vbox(700.50723+0.0)x417.11752, glue set 518.53923fil
 ...\write-{}
 ...\write-{}
 ...\write-{}
@@ -79,15 +79,15 @@ Completed box being shipped out [1]
 ...\glue 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
-...\hbox(12.35014+2.73018)x417.11752, glue set 176.43877fil
+...\hbox(12.38226+2.9229)x417.11752, glue set 176.43877fil
 ....\glue(\leftskip) 0.0 plus 1.0fil
-....\TU/FandolHei(0)/b/n/16.06 附
+....\TU/FandolHei(0)/m/n/16.06 附
 ....\glue 0.0 plus 1.37729
-....\TU/FandolHei(0)/b/n/16.06 表
+....\TU/FandolHei(0)/m/n/16.06 表
 ....\glue 0.0 plus 1.37729
-....\TU/FandolHei(0)/b/n/16.06 清
+....\TU/FandolHei(0)/m/n/16.06 清
 ....\glue 0.0 plus 1.37729
-....\TU/FandolHei(0)/b/n/16.06 单
+....\TU/FandolHei(0)/m/n/16.06 单
 ....\kern -0.00017
 ....\kern 0.00017
 ....\penalty 10000
@@ -536,7 +536,7 @@ Completed box being shipped out [1]
 ....\special{color pop}
 ..\glue 8.2511
 ..\glue(\lineskip) 0.0
-..\vbox(700.50723+0.0)x417.11752, glue set 547.84077fil
+..\vbox(700.50723+0.0)x417.11752, glue set 547.58385fil
 ...\write-{}
 ...\write1{\pp@pagectr{footnote}{1}{\theabspage }{\thepage }}
 ...\write1{\@writefile{toc}{\protect \contentsline {chapter}{\protect \numberline {第1章}Foo}{\thepage }{}\protected@file@percent }}
@@ -552,17 +552,17 @@ Completed box being shipped out [1]
 ...\glue 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
-...\hbox(12.3662+2.77837)x417.11752, glue set 163.94409fil
+...\hbox(12.55891+2.8426)x417.11752, glue set 164.10469fil
 ....\glue(\leftskip) 0.0 plus 1.0fil
-....\TU/FandolHei(0)/b/n/16.06 第
+....\TU/FandolHei(0)/m/n/16.06 第
 ....\glue 4.015 plus 2.00749 minus 1.33833
-....\TU/texgyretermes(0)/b/n/16.06 1
+....\TU/texgyretermes(0)/m/n/16.06 1
 ....\glue 4.015 plus 2.00749 minus 1.33833
-....\TU/FandolHei(0)/b/n/16.06 章
+....\TU/FandolHei(0)/m/n/16.06 章
 ....\kern -0.00017
 ....\kern 0.00017
 ....\glue 16.06
-....\TU/texgyretermes(0)/b/n/16.06 Foo
+....\TU/texgyretermes(0)/m/n/16.06 Foo
 ....\kern -0.0002
 ....\kern 0.0002
 ....\penalty 10000
@@ -831,7 +831,7 @@ Completed box being shipped out [2]
 ....\special{color pop}
 ..\glue 8.2511
 ..\glue(\lineskip) 0.0
-..\vbox(700.50723+0.0)x417.11752, glue set 547.84077fil
+..\vbox(700.50723+0.0)x417.11752, glue set 547.58385fil
 ...\write-{}
 ...\write1{\pp@pagectr{footnote}{2}{\theabspage }{\thepage }}
 ...\write1{\@writefile{toc}{\protect \contentsline {chapter}{\protect \numberline {第2章}Bar}{\thepage }{}\protected@file@percent }}
@@ -847,17 +847,17 @@ Completed box being shipped out [2]
 ...\glue 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
-...\hbox(12.3662+2.77837)x417.11752, glue set 163.50244fil
+...\hbox(12.55891+2.8426)x417.11752, glue set 164.84344fil
 ....\glue(\leftskip) 0.0 plus 1.0fil
-....\TU/FandolHei(0)/b/n/16.06 第
+....\TU/FandolHei(0)/m/n/16.06 第
 ....\glue 4.015 plus 2.00749 minus 1.33833
-....\TU/texgyretermes(0)/b/n/16.06 2
+....\TU/texgyretermes(0)/m/n/16.06 2
 ....\glue 4.015 plus 2.00749 minus 1.33833
-....\TU/FandolHei(0)/b/n/16.06 章
+....\TU/FandolHei(0)/m/n/16.06 章
 ....\kern -0.00017
 ....\kern 0.00017
 ....\glue 16.06
-....\TU/texgyretermes(0)/b/n/16.06 Bar
+....\TU/texgyretermes(0)/m/n/16.06 Bar
 ....\kern -0.0002
 ....\kern 0.0002
 ....\penalty 10000

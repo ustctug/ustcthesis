@@ -873,7 +873,7 @@ Completed box being shipped out [2]
 ....\special{color pop}
 ..\glue 8.2511
 ..\glue(\lineskip) 0.0
-..\vbox(700.50723+0.0)x417.11752, glue set 554.42151fil
+..\vbox(700.50723+0.0)x417.11752, glue set 554.16457fil
 ...\write-{}
 ...\write-{}
 ...\write1{\@writefile{toc}{\protect \contentsline {chapter}{参考文献}{\thepage }{}\protected@file@percent }}
@@ -889,15 +889,15 @@ Completed box being shipped out [2]
 ...\glue 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
-...\hbox(12.49467+2.87473)x417.11752, glue set 176.43877fil
+...\hbox(12.6071+3.01927)x417.11752, glue set 176.43877fil
 ....\glue(\leftskip) 0.0 plus 1.0fil
-....\TU/FandolHei(0)/b/n/16.06 参
+....\TU/FandolHei(0)/m/n/16.06 参
 ....\glue 0.0 plus 1.37729
-....\TU/FandolHei(0)/b/n/16.06 考
+....\TU/FandolHei(0)/m/n/16.06 考
 ....\glue 0.0 plus 1.37729
-....\TU/FandolHei(0)/b/n/16.06 文
+....\TU/FandolHei(0)/m/n/16.06 文
 ....\glue 0.0 plus 1.37729
-....\TU/FandolHei(0)/b/n/16.06 献
+....\TU/FandolHei(0)/m/n/16.06 献
 ....\kern -0.00017
 ....\kern 0.00017
 ....\penalty 10000
