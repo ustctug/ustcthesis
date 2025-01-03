@@ -1673,12 +1673,19 @@
     default = {Supervisor Name},
     name    = supervisor@en,
   },
-  advisor = {
+  practice-supervisor = {
     default = {},
+    name    = practice@supervisor,
+  },
+  practice-supervisor* = {
+    default = {},
+    name    = practice@supervisor@en,
+  },
+  advisor = {
+    name    = practice@supervisor,
   },
   advisor* = {
-    default = {},
-    name    = advisor@en,
+    name    = practice@supervisor@en,
   },
   date = {
     default = {\the\year-\two@digits{\month}-\two@digits{\day}},
@@ -1720,8 +1727,8 @@
 \newcommand\ustc@supervisor@names{%
   \ustc@clist@use{\ustc@supervisor}{\quad}
 }
-\newcommand\ustc@advisor@names{%
-  \ustc@clist@use{\ustc@advisor}{\quad}
+\newcommand\ustc@practice@supervisor@names{%
+  \ustc@clist@use{\ustc@practice@supervisor}{\quad}
 }
 \newcounter{ustc@count}
 \newcommand\ustc@supervisor@en@line{%
@@ -1733,14 +1740,14 @@
   \fi
   \space\ustc@clist@use{\ustc@supervisor@en}{, }%
 }
-\newcommand\ustc@advisor@en@line{%
-  \setcounter{ustc@count}{\ustc@clist@count{\ustc@advisor@en}}%
+\newcommand\ustc@practice@supervisor@en@line{%
+  \setcounter{ustc@count}{\ustc@clist@count{\ustc@practice@supervisor@en}}%
   \ifnum\c@ustc@count>1\relax
-    Advisor:%
+    Practice supervisor:%
   \else
-    Advisor:%
+    Practice supervisor:%
   \fi
-  \space\ustc@clist@use{\ustc@advisor@en}{, }%
+  \space\ustc@clist@use{\ustc@practice@supervisor@en}{, }%
 }
 
 % 输出日期的给定格式：\cs{ustc@format@date}\marg{format}\marg{date}，
@@ -1815,7 +1822,6 @@
   \fi
 \fi
 \ifustc@degree@type@academic
-  \newcommand\ustc@speciality@name{学科专业}
 \else
   \ifustc@degree@doctor
     \renewcommand\ustc@thesis@name{工程博士学位论文}
@@ -1833,7 +1839,6 @@
       \providecommand\lishu{\sffamily}
     \fi
   \fi
-  \newcommand\ustc@speciality@name{专业领域}
 \fi
 
 % 定义校徽颜色
@@ -1866,7 +1871,6 @@
 % 作者姓名宋体 16 磅，单倍行距；
 % 注意这里的“单倍行距”的地方开启了“对齐到网格”，所以实际行距有所偏差，
 % 所以只能使用直尺测量。
-\newcommand\ustc@speciality@sse{软件工程}
 \newcommand\ustc@title@page@graduate@zh{%
   \ustcsetup{language=chinese}%
   \begin{titlepage}%
@@ -1909,12 +1913,12 @@
     {\fontsize{16bp}{31bp}\selectfont
       \begin{tabular}{@{}l@{\quad}l@{}}%
         \textsf{作者姓名：} & \ustc@author \\
-        \textsf{\ustc@speciality@name：} & \ustc@speciality \\
-        \ifx\ustc@advisor\@empty
+        \textsf{学科专业：} & \ustc@speciality \\
+        \ifx\ustc@practice@supervisor\@empty
           \textsf{导\hspace{2em}师：} & \ustc@supervisor@names \\
         \else
           \textsf{校内导师：} & \ustc@supervisor@names \\
-          \textsf{企业导师：} & \ustc@advisor@names \\
+          \textsf{企业导师：} & \ustc@practice@supervisor@names \\
         \fi
         \textsf{完成时间：} & \ustc@date@zh@big
       \end{tabular}\par}%
@@ -1964,9 +1968,9 @@
         Author:        \ustc@author@en \\
         Speciality:    \ustc@speciality@en \\
         \ustc@supervisor@en@line \\
-        \ifx\ustc@advisor\@empty
+        \ifx\ustc@practice@supervisor@en\@empty
         \else
-          \ustc@advisor@en@line \\
+          \ustc@practice@supervisor@en@line \\
         \fi
         Completion date: \ustc@date@en
       \end{tabular}\par}%
