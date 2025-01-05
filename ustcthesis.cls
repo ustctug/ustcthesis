@@ -2748,11 +2748,12 @@
 % 图注、表注使用 `\figurenote` 或 `\tablenote` 命令，与 `apa7.cls` 一致。
 % 图注采用宋体 11pt，单倍行距，段前6磅，段后0磅。
 % 多个图注则须顺序编号，注序左缩进2字，与注文之间空一字符，续行悬挂缩进左对齐，两端对齐。
+\let\ustc@figure@note@font\ustc@caption@font
 \newcommand\figurenote[1]{%
   \begingroup
     \par
     \setlength\parskip{6bp}%
-    \ustc@caption@font
+    \ustc@figure@note@font
     \parbox{\linewidth}{#1\par}\par
   \endgroup
 }
@@ -2761,6 +2762,13 @@
 \newcommand\note[1]{%
   \ustc@deprecated{'\protect\note' command}{2025-01-05}{'\protect\figurenote'}%
   \figurenote{#1}%
+}
+
+% 设置 \pkg{threeparttable} 表注的默认字号。
+\AtEndOfPackageFile*{threeparttable}{
+  \AtBeginEnvironment{tablenotes}{%
+    \ustc@figure@note@font
+  }
 }
 
 % 不宜将多个插图连续排版，插图与文字论述段落应穿插排版。
