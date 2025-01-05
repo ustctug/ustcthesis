@@ -2736,7 +2736,6 @@
 }
 \ifustc@degree@graduate
   \captionsetup{font+=bf}
-  \captionsetup[table]{font+=sf}
 \fi
 \captionsetup[figure]{
   belowskip = 6bp,
