@@ -2717,18 +2717,30 @@
   \captionsetup{font+=bf}
 \fi
 
-% 表格默认字号略小
+% 表单元格中的文字采用 11pt 宋体字，单倍行距，段前3磅，段后3磅。
+% 对于中文，`\arraystretch` 需要设为 1 + (3pt + 3pt) / (11pt * 1.3) ~= 1.42。
+% 对于英文，`\arraystretch` 需要设为 1 + (3pt + 3pt) / (11pt * 1.15) ~= 1.47。
+\newcommand\ustc@table@font{%
+  \ifustc@language@chinese
+    \fontsize{11bp}{14.3bp}\selectfont
+    \renewcommand\arraystretch{1.42}%
+  \else
+    \fontsize{11bp}{12.65bp}\selectfont
+    \renewcommand\arraystretch{1.47}%
+  \fi
+}
+
 \patchcmd\@floatboxreset{%
   \normalsize
 }{%
-  \small
+  \ustc@table@font
 }{}{\ustc@patch@error{\@floatboxreset}}
 
 % 对 \pkg{longtable} 跨页表格进行相同的设置。
 \AtEndOfPackageFile*{longtable}{
   \AtBeginEnvironment{longtable}{%
-    \ifdim\f@size pt > 12pt\relax
-      \small
+    \ifdim\f@size pt > 11bp\relax
+      \ustc@table@font
     \fi
   }
 }
