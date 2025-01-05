@@ -20,6 +20,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - 图表的标题字号改为 11pt（研究生院 2024-12-05 Word 模板修改）。
 - 表题改为宋体（研究生院 2024-12-05 Word 模板修改）。
 - 图注、表注字号改为 11pt（研究生院 2024-12-05 Word 模板修改）。
+- 调整插图、表格与文字的间距。（研究生院 2024-12-05 Word 模板修改）。
 
 ### Deprecated
 

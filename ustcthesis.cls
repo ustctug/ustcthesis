@@ -2714,9 +2714,12 @@
 
 % 表题置于表的上方，采用宋体，加粗，字号11pt，居中书写，单倍行距，段前6磅，段后0磅。
 % 表序与表名之间空一个汉字符。
-\setlength{\floatsep}{6bp}
-\setlength{\textfloatsep}{6bp}
-\setlength{\intextsep}{6bp}
+
+% 插图前后与文字段落之间须留有10磅空行。
+% 插图如果不得不与其它插图或表格连续排版，则它们之间须留有20磅空行。
+\setlength{\floatsep}{20bp}
+\setlength{\textfloatsep}{10bp}
+\setlength{\intextsep}{10bp}
 
 \DeclareCaptionFont{ustc}{\ustc@caption@font}
 \newcommand\ustc@caption@font{%

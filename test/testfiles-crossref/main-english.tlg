@@ -1583,7 +1583,7 @@ Completed box being shipped out [2]
 ....\special{color pop}
 ..\glue 8.2511
 ..\glue(\lineskip) 0.0
-..\vbox(700.50723+0.0)x417.11752, glue set 194.81723fil
+..\vbox(700.50723+0.0)x417.11752, glue set 178.75896fil
 ...\write-{}
 ...\write1{\pp@pagectr{footnote}{2}{\theabspage }{\thepage }}
 ...\write1{\@writefile{toc}{\protect \contentsline {chapter}{\protect \numberline {Chapter 2}插图和表格}{\thepage }{}\protected@file@percent }}
@@ -1858,7 +1858,7 @@ Completed box being shipped out [2]
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
 ...\penalty 0
-...\glue 6.02249
+...\glue 10.03749
 ...\glue 0.0
 ...\vbox(187.02507+0.0)x417.11752
 ....\special{color push  Black}
@@ -2169,7 +2169,7 @@ Completed box being shipped out [2]
 ....\special{color pop}
 ...\penalty 0
 ...\penalty 10000
-...\glue 6.02249
+...\glue 10.03749
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
 ...\hbox(9.40715+2.32468)x417.11752, glue set - 0.37006
@@ -2372,7 +2372,7 @@ Completed box being shipped out [2]
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
 ...\penalty 0
-...\glue 6.02249
+...\glue 10.03749
 ...\glue 0.0
 ...\vbox(83.22067+0.0)x417.11752
 ....\special{color push  Black}
@@ -2681,7 +2681,7 @@ Completed box being shipped out [2]
 ....\special{color pop}
 ...\penalty 0
 ...\penalty 10000
-...\glue 6.02249
+...\glue 10.03749
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
 ...\hbox(9.40715+2.32468)x417.11752, glue set - 0.37006
