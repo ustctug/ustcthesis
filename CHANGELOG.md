@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - 新增科研成果列表环境 `theachievements`。
+- 新增图注命令 `\figurenote`。
 
 ### Changed
 
@@ -18,6 +19,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - 更新专业硕士论文封面：“专业领域”改为“学科专业”，“Advisor”改为“Practice supervisor”（研究生院 2024-12-05 Word 模板修改，[#390](https://github.com/ustctug/ustcthesis/issues/390#issuecomment-2558042581)）。
 - 图表的标题字号改为 11pt（研究生院 2024-12-05 Word 模板修改）。
 - 表题改为宋体（研究生院 2024-12-05 Word 模板修改）。
+- 图注、表注字号改为 11pt（研究生院 2024-12-05 Word 模板修改）。
+
+### Deprecated
+
+- 图注、表注命令 `\note` 已经过时，改为使用 `\figurenote` 或 `\tablenote` 命令。
 
 ## [4.0.0-beta.3] - 2024-12-15
 

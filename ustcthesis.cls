@@ -2737,9 +2737,6 @@
 \ifustc@degree@graduate
   \captionsetup{font+=bf}
 \fi
-\captionsetup[figure]{
-  belowskip = 6bp,
-}
 
 % 由于 LaTeX2e kernel 的问题，图表等浮动体与文字前后的距离不一致，需要进行 patch。
 % 参考 \href{https://github.com/tuna/thuthesis/issues/614}{tuna/thuthesis/issues\#614}、
@@ -2776,15 +2773,23 @@
 % 新定义了 \cs{note} 来生成图表的附注。
 % 如果用 \cs{caption} 生成图表的附注会导致图表的序号有误；
 % 如果用 \cs{bicaption} 会导致表注无法置于表后，而且对齐方式不对。
-\newcommand\note[1]{%
+
+% 图注采用宋体 11pt，单倍行距，段前6磅，段后0磅。
+% 多个图注则须顺序编号，注序左缩进2字，与注文之间空一字符，续行悬挂缩进左对齐，两端对齐。
+% 图注、表注使用`\figurenote` 或 `\tablenote`，与 `apa7.cls` 一致。
+\newcommand\figurenote[1]{%
   \begingroup
-    \captionsetup{
-      font          = ustc,
-      margin        = 2em,
-      position      = bottom,
-    }%
-    \caption*{#1}%
+    \par
+    \setlength\parskip{6bp}\relax
+    \ustc@caption@font
+    \parbox{\linewidth}{#1\par}\par
   \endgroup
+}
+\let\tablenote\figurenote
+
+\newcommand\note[1]{%
+  \ustc@deprecated{'\protect\note' command}{2025-01-05}{'\protect\figurenote'}%
+  \figurenote{#1}%
 }
 
 % 表格默认字号略小
