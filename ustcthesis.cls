@@ -2709,22 +2709,21 @@
 
 % 用 \pkg{caption} 宏包设置图、表的格式：
 
-% 图号、图题置于图的下方，宋体 10.5 磅居中，单倍行距，段前 6 磅，段后 12 磅，
-% 图号与图题文字之间空一字，图号、图题加粗。
-% 图注位于图的下方，左缩进两字，续行悬挂缩进左对齐，两端对齐。
+% 图题采用宋体，加粗，字号 11pt，居中书写，单倍行距，段前6磅，段后0磅，
+% 图序与图名之间空一个汉字符，
 
-% 表号、表题置于表的上方，黑体 10.5 磅居中，单倍行距，段前 6 磅，段后 6 磅，
-% 表号与表题文字之间空一字，表号、表题加粗。
-% 表注左缩进两字，续行悬挂缩进左对齐，两端对齐。
+% 表题置于表的上方，采用宋体，加粗，字号11pt，居中书写，单倍行距，段前6磅，段后0磅。
+% 表序与表名之间空一个汉字符。
 \setlength{\floatsep}{6bp}
 \setlength{\textfloatsep}{6bp}
 \setlength{\intextsep}{6bp}
 
-\DeclareCaptionFont{ustc}{%
+\DeclareCaptionFont{ustc}{\ustc@caption@font}
+\newcommand\ustc@caption@font{%
   \ifustc@language@chinese
-    \fontsize{10.5bp}{13.65bp}\selectfont
+    \fontsize{11bp}{14.3bp}\selectfont
   \else
-    \fontsize{10.5bp}{12.075bp}\selectfont
+    \fontsize{11bp}{12.65bp}\selectfont
   \fi
 }
 

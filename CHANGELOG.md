@@ -16,6 +16,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - 章标题取消加粗（研究生院 2024-12-05 Word 模板修改，[#411](https://github.com/ustctug/ustcthesis/issues/411)）。
 - 调整科研成果示例（研究生院 2024-12-05 Word 模板修改，[#411](https://github.com/ustctug/ustcthesis/issues/411)）。
 - 更新专业硕士论文封面：“专业领域”改为“学科专业”，“Advisor”改为“Practice supervisor”（研究生院 2024-12-05 Word 模板修改，[#390](https://github.com/ustctug/ustcthesis/issues/390#issuecomment-2558042581)）。
+- 图表的标题字号改为 11pt（研究生院 2024-12-05 Word 模板修改）。
 
 ## [4.0.0-beta.3] - 2024-12-15
 
