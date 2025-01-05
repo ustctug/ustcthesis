@@ -29,6 +29,8 @@
 
 - TexPage 模板 <https://texpage.com/template/fe69d6fc-f811-4b8c-824f-7848a07c9551>
 
+- LoongTeX <https://www.loongtex.com/>
+
 - Overleaf 模板 <https://www.overleaf.com/latex/templates/latex-template-for-ustc-thesis/qbfkwzbrfhbr>
 
 - 研究生院网站（版本较旧，不推荐）：<https://gradschool.ustc.edu.cn/column/65>
