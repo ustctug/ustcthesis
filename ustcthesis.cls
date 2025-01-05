@@ -2690,37 +2690,13 @@
 
 % \subsection{浮动体}
 
-% \LaTeX{} 对放置浮动体的要求比较强，这里按照 UK TeX FAQ 的建议
-% \footnote{\url{https://texfaq.org/FAQ-floats}} 对其适当放宽。
-\renewcommand\topfraction{.85}
-\renewcommand\bottomfraction{.7}
-\renewcommand\textfraction{.15}
-\renewcommand\floatpagefraction{.66}
-\renewcommand\dbltopfraction{.66}
-\renewcommand\dblfloatpagefraction{.66}
-\setcounter{topnumber}{9}
-\setcounter{bottomnumber}{9}
-\setcounter{totalnumber}{20}
-\setcounter{dbltopnumber}{9}
-
-% 修改默认的浮动体描述符为 |h|。
-\def\fps@figure{h}
-\def\fps@table{h}
-
-% 用 \pkg{caption} 宏包设置图、表的格式：
-
 % 图题采用宋体，加粗，字号 11pt，居中书写，单倍行距，段前6磅，段后0磅，
 % 图序与图名之间空一个汉字符，
 
 % 表题置于表的上方，采用宋体，加粗，字号11pt，居中书写，单倍行距，段前6磅，段后0磅。
 % 表序与表名之间空一个汉字符。
 
-% 插图前后与文字段落之间须留有10磅空行。
-% 插图如果不得不与其它插图或表格连续排版，则它们之间须留有20磅空行。
-\setlength{\floatsep}{20bp}
-\setlength{\textfloatsep}{10bp}
-\setlength{\intextsep}{10bp}
-
+% 使用 \pkg{caption} 宏包设置图、表的格式：
 \DeclareCaptionFont{ustc}{\ustc@caption@font}
 \newcommand\ustc@caption@font{%
   \ifustc@language@chinese
@@ -2740,6 +2716,65 @@
 \ifustc@degree@graduate
   \captionsetup{font+=bf}
 \fi
+
+% 表格默认字号略小
+\patchcmd\@floatboxreset{%
+  \normalsize
+}{%
+  \small
+}{}{\ustc@patch@error{\@floatboxreset}}
+
+% 对 \pkg{longtable} 跨页表格进行相同的设置。
+\AtEndOfPackageFile*{longtable}{
+  \AtBeginEnvironment{longtable}{%
+    \ifdim\f@size pt > 12pt\relax
+      \small
+    \fi
+  }
+}
+
+% 图注、表注使用 `\figurenote` 或 `\tablenote` 命令，与 `apa7.cls` 一致。
+% 图注采用宋体 11pt，单倍行距，段前6磅，段后0磅。
+% 多个图注则须顺序编号，注序左缩进2字，与注文之间空一字符，续行悬挂缩进左对齐，两端对齐。
+\newcommand\figurenote[1]{%
+  \begingroup
+    \par
+    \setlength\parskip{6bp}%
+    \ustc@caption@font
+    \parbox{\linewidth}{#1\par}\par
+  \endgroup
+}
+\let\tablenote\figurenote
+
+\newcommand\note[1]{%
+  \ustc@deprecated{'\protect\note' command}{2025-01-05}{'\protect\figurenote'}%
+  \figurenote{#1}%
+}
+
+% 不宜将多个插图连续排版，插图与文字论述段落应穿插排版。
+
+% 修改默认的浮动体描述符为 |h|。
+\def\fps@figure{h}
+\def\fps@table{h}
+
+% \LaTeX{} 对放置浮动体的要求比较强，这里按照 UK TeX FAQ 的建议
+% \footnote{\url{https://texfaq.org/FAQ-floats}} 对其适当放宽。
+\renewcommand\topfraction{.85}
+\renewcommand\bottomfraction{.7}
+\renewcommand\textfraction{.15}
+\renewcommand\floatpagefraction{.66}
+\renewcommand\dbltopfraction{.66}
+\renewcommand\dblfloatpagefraction{.66}
+\setcounter{topnumber}{9}
+\setcounter{bottomnumber}{9}
+\setcounter{totalnumber}{20}
+\setcounter{dbltopnumber}{9}
+
+% 插图前后与文字段落之间须留有10磅空行。
+% 插图如果不得不与其它插图或表格连续排版，则它们之间须留有20磅空行。
+\setlength{\floatsep}{20bp}
+\setlength{\textfloatsep}{10bp}
+\setlength{\intextsep}{10bp}
 
 % 由于 LaTeX2e kernel 的问题，图表等浮动体与文字前后的距离不一致，需要进行 patch。
 % 参考 \href{https://github.com/tuna/thuthesis/issues/614}{tuna/thuthesis/issues\#614}、
@@ -2772,49 +2807,6 @@
   {}{\ustc@patch@error{\@addtocurcol}}
 \patchcmd{\@getpen}{\@M}{\@Mi}
   {}{\ustc@patch@error{\@getpen}}
-
-% 新定义了 \cs{note} 来生成图表的附注。
-% 如果用 \cs{caption} 生成图表的附注会导致图表的序号有误；
-% 如果用 \cs{bicaption} 会导致表注无法置于表后，而且对齐方式不对。
-
-% 图注采用宋体 11pt，单倍行距，段前6磅，段后0磅。
-% 多个图注则须顺序编号，注序左缩进2字，与注文之间空一字符，续行悬挂缩进左对齐，两端对齐。
-% 图注、表注使用`\figurenote` 或 `\tablenote`，与 `apa7.cls` 一致。
-\newcommand\figurenote[1]{%
-  \begingroup
-    \par
-    \setlength\parskip{6bp}\relax
-    \ustc@caption@font
-    \parbox{\linewidth}{#1\par}\par
-  \endgroup
-}
-\let\tablenote\figurenote
-
-\newcommand\note[1]{%
-  \ustc@deprecated{'\protect\note' command}{2025-01-05}{'\protect\figurenote'}%
-  \figurenote{#1}%
-}
-
-% 表格默认字号略小
-\patchcmd\@floatboxreset{%
-  \normalsize
-}{%
-  \small
-}{}{\ustc@patch@error{\@floatboxreset}}
-
-% 对 \pkg{longtable} 跨页表格进行相同的设置。
-%
-% 在 Word 模板中按照正确的设置（需要去掉文档网格），
-% 中文模板每页能装下 1 行标题、1 行表头、30 行表身，
-% 英文模板每页能装下 1 行标题、1 行表头、33 行表身。
-%    \begin{macrocode}
-\AtEndOfPackageFile*{longtable}{
-  \AtBeginEnvironment{longtable}{%
-    \ifdim\f@size pt > 12pt\relax
-      \small
-    \fi
-  }
-}
 
 
 % \subsection{参考文献}
