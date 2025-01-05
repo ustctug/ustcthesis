@@ -2696,13 +2696,19 @@
 % 表题置于表的上方，采用宋体，加粗，字号11pt，居中书写，单倍行距，段前6磅，段后0磅。
 % 表序与表名之间空一个汉字符。
 
+% 本科生：图全文要分别统一编号或按章编号，标题用小四宋体:
+
 % 使用 \pkg{caption} 宏包设置图、表的格式：
 \DeclareCaptionFont{ustc}{\ustc@caption@font}
 \newcommand\ustc@caption@font{%
-  \ifustc@language@chinese
-    \fontsize{11bp}{14.3bp}\selectfont
+  \ifustc@degree@bachelor
+    \fontsize{12bp}{14.4bp}\selectfont
   \else
-    \fontsize{11bp}{12.65bp}\selectfont
+    \ifustc@language@chinese
+      \fontsize{11bp}{14.3bp}\selectfont
+    \else
+      \fontsize{11bp}{12.65bp}\selectfont
+    \fi
   \fi
 }
 
@@ -2720,13 +2726,25 @@
 % 表单元格中的文字采用 11pt 宋体字，单倍行距，段前3磅，段后3磅。
 % 对于中文，`\arraystretch` 需要设为 1 + (3pt + 3pt) / (11pt * 1.3) ~= 1.42。
 % 对于英文，`\arraystretch` 需要设为 1 + (3pt + 3pt) / (11pt * 1.15) ~= 1.47。
+%
+% 本科生：表格内容用小四宋体或五号宋体选定某种样式后，全文应统一。
 \newcommand\ustc@table@font{%
-  \ifustc@language@chinese
-    \fontsize{11bp}{14.3bp}\selectfont
-    \renewcommand\arraystretch{1.42}%
+  \ifustc@degree@bachelor
+    \ifustc@language@chinese
+      \fontsize{10.5bp}{13.65bp}\selectfont
+      \renewcommand\arraystretch{1.44}%
+    \else
+      \fontsize{10.5bp}{12.075bp}\selectfont
+      \renewcommand\arraystretch{1.5}%
+    \fi
   \else
-    \fontsize{11bp}{12.65bp}\selectfont
-    \renewcommand\arraystretch{1.47}%
+    \ifustc@language@chinese
+      \fontsize{11bp}{14.3bp}\selectfont
+      \renewcommand\arraystretch{1.42}%
+    \else
+      \fontsize{11bp}{12.65bp}\selectfont
+      \renewcommand\arraystretch{1.47}%
+    \fi
   \fi
 }
 
@@ -2748,7 +2766,17 @@
 % 图注、表注使用 `\figurenote` 或 `\tablenote` 命令，与 `apa7.cls` 一致。
 % 图注采用宋体 11pt，单倍行距，段前6磅，段后0磅。
 % 多个图注则须顺序编号，注序左缩进2字，与注文之间空一字符，续行悬挂缩进左对齐，两端对齐。
-\let\ustc@figure@note@font\ustc@caption@font
+\newcommand\ustc@figure@note@font{%
+  \ifustc@degree@bachelor
+    \ifustc@language@chinese
+      \fontsize{10.5bp}{13.65bp}\selectfont
+    \else
+      \fontsize{10.5bp}{12.075bp}\selectfont
+    \fi
+  \else
+    \ustc@caption@font
+  \fi
+}
 \newcommand\figurenote[1]{%
   \begingroup
     \par
