@@ -2419,6 +2419,9 @@
 \newenvironment{abstract*}{%
   \ustcsetup{language=english}%
   \ifustc@degree@graduate
+    \ctexset{
+      chapter/format = \centering\bfseries\fontsize{16bp}{26.67bp}\selectfont,
+    }%
     \ustc@chapter{ABSTRACT}%
   \else
     \begingroup

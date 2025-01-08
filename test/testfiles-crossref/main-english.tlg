@@ -250,7 +250,7 @@ Completed box being shipped out [2]
 ....\special{color pop}
 ..\glue 8.2511
 ..\glue(\lineskip) 0.0
-..\vbox(700.50723+0.0)x417.11752, glue set 598.82768fil
+..\vbox(700.50723+0.0)x417.11752, glue set 598.49045fil
 ...\write-{}
 ...\marks1{\__mark_id:n {3}ABSTRACT}
 ...\marks2{\__mark_id:n {4}}
@@ -263,9 +263,9 @@ Completed box being shipped out [2]
 ...\glue 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
-...\hbox(10.85655+0.22482)x417.11752, glue set 167.22034fil
+...\hbox(11.11353+0.30513)x417.11752, glue set 165.55812fil
 ....\glue(\leftskip) 0.0 plus 1.0fil
-....\TU/texgyretermes(0)/m/n/16.06 ABSTRACT
+....\TU/texgyretermes(0)/b/n/16.06 ABSTRACT
 ....\kern -0.0002
 ....\kern 0.0002
 ....\penalty 10000
