@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [4.0.0-beta.5] - 2025-02-10
+
 ### Fixed
 
 - 修正英文摘要标题“ABSTRACT”的粗体（[#411](https://github.com/ustctug/ustcthesis/issues/411#issuecomment-2577181494)）。
@@ -375,7 +377,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - 优化图注、算法的行距。
 - 二级以下节标题编号下采用“1.”、“(1)”、“①”。
 
-[Unreleased]: https://github.com/ustctug/ustcthesis/compare/v4.0.0-beta.4...HEAD
+[Unreleased]: https://github.com/ustctug/ustcthesis/compare/v4.0.0-beta.5...HEAD
+[4.0.0-beta.5]: https://github.com/ustctug/ustcthesis/compare/v4.0.0-beta.4...v4.0.0-beta.5
 [4.0.0-beta.4]: https://github.com/ustctug/ustcthesis/compare/v4.0.0-beta.3...v4.0.0-beta.4
 [4.0.0-beta.3]: https://github.com/ustctug/ustcthesis/compare/v4.0.0-beta.2...v4.0.0-beta.3
 [4.0.0-beta.2]: https://github.com/ustctug/ustcthesis/compare/v4.0.0-beta.1...v4.0.0-beta.2
