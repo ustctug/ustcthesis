@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 
 - 修正英文摘要标题“ABSTRACT”的粗体（[#411](https://github.com/ustctug/ustcthesis/issues/411#issuecomment-2577181494)）。
+- 修正中文封面的“企业导师”（[#411](https://github.com/ustctug/ustcthesis/issues/390#issuecomment-2646114373)）。
 
 ## [4.0.0-beta.4] - 2025-01-05
 
