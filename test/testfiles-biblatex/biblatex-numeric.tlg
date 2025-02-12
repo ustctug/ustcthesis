@@ -14,15 +14,15 @@ LaTeX Font Info:    Font shape `TU/XITSMath-Regular(3)/m/n' will be
 (Font)              scaled to size 7.22623pt on input line ....
 Completed box being shipped out [1]
 \vbox(722.98453+0.0)x435.04271
-.\glue -29.59084
-.\vbox(752.57536+0.0)x417.11752, shifted 17.92519
-..\vbox(21.33955+0.0)x417.11752, glue set 21.33955fil
+.\glue -15.36447
+.\vbox(738.349+0.0)x417.11752, shifted 17.92519
+..\vbox(15.36429+0.0)x417.11752, glue set 15.36429fil
 ...\glue 0.0 plus 1.0fil
 ...\hbox(0.0+0.0)x417.11752
 ....\special{color push  Black}
 ....\hbox(0.0+0.0)x417.11752
 ....\special{color pop}
-..\glue 8.2511
+..\glue 0.0
 ..\glue(\lineskip) 0.0
 ..\vbox(700.50723+0.0)x417.11752, glue set 407.41376fil
 ...\write-{}
@@ -635,15 +635,15 @@ LaTeX Font Info:    Font shape `TU/texgyrecursor(0)/m/n' will be
 (Font)              scaled to size 11.37337pt on input line ....
 Completed box being shipped out [2]
 \vbox(722.98453+0.0)x435.04271
-.\glue -29.59084
-.\vbox(752.57536+0.0)x417.11752, shifted 17.92519
-..\vbox(21.33955+0.0)x417.11752, glue set 21.33955fil
+.\glue -15.36447
+.\vbox(738.349+0.0)x417.11752, shifted 17.92519
+..\vbox(15.36429+0.0)x417.11752, glue set 15.36429fil
 ...\glue 0.0 plus 1.0fil
 ...\hbox(0.0+0.0)x417.11752
 ....\special{color push  Black}
 ....\hbox(0.0+0.0)x417.11752
 ....\special{color pop}
-..\glue 8.2511
+..\glue 0.0
 ..\glue(\lineskip) 0.0
 ..\vbox(700.50723+0.0)x417.11752, glue set >20000.0fil
 ...\write-{}
@@ -2999,15 +2999,15 @@ Completed box being shipped out [2]
 ...\special{color pop}
 Completed box being shipped out [3]
 \vbox(722.98453+0.0)x435.04271
-.\glue -29.59084
-.\vbox(752.57536+0.0)x417.11752, shifted 17.92519
-..\vbox(21.33955+0.0)x417.11752, glue set 21.33955fil
+.\glue -15.36447
+.\vbox(738.349+0.0)x417.11752, shifted 17.92519
+..\vbox(15.36429+0.0)x417.11752, glue set 15.36429fil
 ...\glue 0.0 plus 1.0fil
 ...\hbox(0.0+0.0)x417.11752
 ....\special{color push  Black}
 ....\hbox(0.0+0.0)x417.11752
 ....\special{color pop}
-..\glue 8.2511
+..\glue 0.0
 ..\glue(\lineskip) 0.0
 ..\vbox(700.50723+0.0)x417.11752, glue set 527.85088fil
 ...\glue(\topskip) 3.88469

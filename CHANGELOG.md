@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- 调整页眉距边界 2.0 cm（研究生院 2024-12-05 Word 模板修改，[#411](https://github.com/ustctug/ustcthesis/issues/411#issuecomment-2652543582)）。
+
 ## [4.0.0-beta.5] - 2025-02-10
 
 ### Fixed

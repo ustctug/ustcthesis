@@ -1538,17 +1538,16 @@
 
 % 纸张：A4；
 
-% 页面设置：上、下 2.54 cm，左、右 3.17 cm，页眉 1.5 cm，页脚 1.75 cm。
-
-% 注意这里指的是页眉顶部到纸张顶部的距离为 1.5 cm，
-% 所以应该是 2.54cm - 0.8cm - 0.24cm = 1.5cm
-
+% 纸张大小：标准A4（21.0cm×29.7cm）尺寸。
+% 页边距：上、下、左、右、装订线的页边距分别为：2.54cm，2.54cm，3.17cm，3.17cm，0cm。装订线位置：左。左右对称页边距。
+% 页眉距边界2.0cm
+% 页脚距边界1.75cm
 \geometry{
   paper      = a4paper,
   vmargin    = 2.54cm,
   hmargin    = 3.17cm,
-  headheight = 0.75cm,
-  headsep    = 0.29cm,
+  headheight = 0.54cm,
+  headsep    = 0cm,
   footskip   = 0.79cm,
 }
 

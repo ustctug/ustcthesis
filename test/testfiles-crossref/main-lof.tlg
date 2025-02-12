@@ -11,9 +11,9 @@ Package fontspec Info:
 \tf@lof=\write...
 Completed box being shipped out [1]
 \vbox(722.98453+3.61353)x435.04271
-.\glue -29.59084
-.\vbox(752.57536+3.61353)x417.11752, shifted 17.92519
-..\vbox(21.33955+0.0)x417.11752, glue set 9.29457fil
+.\glue -15.36447
+.\vbox(738.349+3.61353)x417.11752, shifted 17.92519
+..\vbox(15.36429+0.0)x417.11752, glue set 3.3193fil
 ...\glue 0.0 plus 1.0fil
 ...\hbox(12.04498+0.0)x417.11752
 ....\special{color push  Black}
@@ -62,7 +62,7 @@ Completed box being shipped out [1]
 .......\glue -0.4
 .....\glue 0.0 plus 1.0fil minus 1.0fil
 ....\special{color pop}
-..\glue 8.2511
+..\glue 0.0
 ..\glue(\lineskip) 0.0
 ..\vbox(700.50723+0.0)x417.11752, glue set 518.53923fil
 ...\write-{}
