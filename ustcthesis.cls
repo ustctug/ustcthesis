@@ -1594,13 +1594,18 @@
 \def\ps@chapter{}
 \ctexset{chapter/pagestyle=chapter}
 
-% 空白页不加页眉和页码。
+% 空白页不需加页眉（包括页眉线），但需有连续编的页码。
+\fancypagestyle{blank}{%
+  \fancyhf{}%
+  \fancyfoot[C]{\ustc@hf@font\thepage}%
+}
+
 \def\cleardoublepage{%
   \clearpage
   \if@twoside
     \ifodd\c@page\else
       \hbox{}%
-      \thispagestyle{empty}%
+      \thispagestyle{blank}%
       \newpage
       \if@twocolumn
         \hbox{}%
