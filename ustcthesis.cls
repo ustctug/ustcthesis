@@ -1587,7 +1587,7 @@
 }
 \pagestyle{plain}
 
-% |headings| 只有页眉，没有页脚，用于研究生的符号说明和本科生的 front matter。
+% |headings| 只有页眉，没有页脚，用于本科生的 front matter。
 \fancypagestyle{headings}{\fancyfoot{}}
 
 % 设置特殊的 page style 不改变任何内容，用于每章首页。
@@ -2587,11 +2587,9 @@
 % \subsection{符号说明}
 
 % 研究生规定符号说明另页起，标题字体字号等同论文正文，
-% 《撰写手册》第 9 页 1.10(2) 还规定“符号说明不加页码”。
 \newenvironment{notation}{%
   \ifustc@degree@graduate
     \cleardoublepage
-    \pagestyle{headings}%
   \fi
   \ustc@chapter{\ustc@notation@name}%
 }{%
