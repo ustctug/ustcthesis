@@ -1601,12 +1601,19 @@
   \fancyfoot[C]{\ustc@hf@font\thepage}%
 }
 
+\newif\ifustc@title@page
+
 \def\cleardoublepage{%
   \clearpage
   \if@twoside
     \ifodd\c@page\else
       \hbox{}%
-      \thispagestyle{blank}%
+      \ifustc@title@page
+        % 封面的空白页不显示页码
+        \thispagestyle{empty}%
+      \else
+        \thispagestyle{blank}%
+      \fi
       \newpage
       \if@twocolumn
         \hbox{}%
@@ -2110,6 +2117,7 @@
   \newgeometry{margin=2.54cm}%
   \pagenumbering{Alph}%
   \pagestyle{empty}%
+  \ustc@title@pagetrue
   \ifustc@degree@graduate
     \ustc@title@page@graduate@zh
     \ustc@title@page@graduate@en
@@ -2119,6 +2127,7 @@
   \cleardoublepage
   \restoregeometry
   \pagestyle{plain}%
+  \ustc@title@pagefalse
 }
 
 
