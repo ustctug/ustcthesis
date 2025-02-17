@@ -1597,6 +1597,7 @@
 % 空白页不需加页眉（包括页眉线），但需有连续编的页码。
 \fancypagestyle{blank}{%
   \fancyhf{}%
+  \renewcommand\headrulewidth{0pt}%
   \fancyfoot[C]{\ustc@hf@font\thepage}%
 }
 
