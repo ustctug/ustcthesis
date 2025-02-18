@@ -2194,6 +2194,9 @@
       评审专家签名：\ustc@underline{}\par
     \fi
   \end{titlepage}%
+  \ustc@title@pagetrue
+  \cleardoublepage
+  \ustc@title@pagefalse
 }
 \ifustc@degree@bachelor
   \let\copyrightpage\relax
