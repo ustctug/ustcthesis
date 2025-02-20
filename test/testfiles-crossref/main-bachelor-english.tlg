@@ -10,8 +10,8 @@ Package fontspec Info:
 (fontspec)             - 'bold' (b/n) with NFSS spec.: <->"[FandolHei-Bold.otf]/OT:language=dflt;"
 Completed box being shipped out [1]
 \vbox(722.98453+0.0)x435.04271
-.\glue -15.36447
-.\vbox(738.349+0.0)x417.11752, shifted 17.92519
+.\glue -16.36447
+.\vbox(739.349+0.0)x417.11752, shifted 17.92519
 ..\vbox(15.36429+0.0)x417.11752, glue set 3.3193fil
 ...\glue 0.0 plus 1.0fil
 ...\hbox(12.04498+0.0)x417.11752
@@ -81,7 +81,7 @@ Completed box being shipped out [1]
 .......\glue -0.4
 .....\glue 0.0 plus 1.0fil minus 1.0fil
 ....\special{color pop}
-..\glue 0.0
+..\glue 1.0
 ..\glue(\lineskip) 0.0
 ..\vbox(700.50723+0.0)x417.11752, glue set 587.6953fil
 ...\write-{}
@@ -221,8 +221,8 @@ Completed box being shipped out [1]
 ...\special{color pop}
 Completed box being shipped out [2]
 \vbox(722.98453+0.0)x435.04271
-.\glue -15.36447
-.\vbox(738.349+0.0)x417.11752, shifted 17.92519
+.\glue -16.36447
+.\vbox(739.349+0.0)x417.11752, shifted 17.92519
 ..\vbox(15.36429+0.0)x417.11752, glue set 3.3193fil
 ...\glue 0.0 plus 1.0fil
 ...\hbox(12.04498+0.0)x417.11752
@@ -292,7 +292,7 @@ Completed box being shipped out [2]
 .......\rule(0.4+0.0)x417.11752
 .......\glue -0.4
 ....\special{color pop}
-..\glue 0.0
+..\glue 1.0
 ..\glue(\lineskip) 0.0
 ..\vbox(700.50723+0.0)x417.11752, glue set 593.4281fil
 ...\write-{}
@@ -402,8 +402,8 @@ Completed box being shipped out [2]
 \tf@toc=\write...
 Completed box being shipped out [1]
 \vbox(722.98453+3.61353)x435.04271
-.\glue -15.36447
-.\vbox(738.349+3.61353)x417.11752, shifted 17.92519
+.\glue -16.36447
+.\vbox(739.349+3.61353)x417.11752, shifted 17.92519
 ..\vbox(15.36429+0.0)x417.11752, glue set 3.3193fil
 ...\glue 0.0 plus 1.0fil
 ...\hbox(12.04498+0.0)x417.11752
@@ -473,7 +473,7 @@ Completed box being shipped out [1]
 .......\glue -0.4
 .....\glue 0.0 plus 1.0fil minus 1.0fil
 ....\special{color pop}
-..\glue 0.0
+..\glue 1.0
 ..\glue(\lineskip) 0.0
 ..\vbox(700.50723+0.0)x417.11752, glue set 437.6865fil
 ...\write-{}
@@ -938,8 +938,8 @@ Completed box being shipped out [1]
 Chapter 1
 Completed box being shipped out [2]
 \vbox(722.98453+3.61353)x435.04271
-.\glue -15.36447
-.\vbox(738.349+3.61353)x417.11752, shifted 17.92519
+.\glue -16.36447
+.\vbox(739.349+3.61353)x417.11752, shifted 17.92519
 ..\vbox(15.36429+0.0)x417.11752, glue set 3.3193fil
 ...\glue 0.0 plus 1.0fil
 ...\hbox(12.04498+0.0)x417.11752
@@ -1009,7 +1009,7 @@ Completed box being shipped out [2]
 .......\rule(0.4+0.0)x417.11752
 .......\glue -0.4
 ....\special{color pop}
-..\glue 0.0
+..\glue 1.0
 ..\glue(\lineskip) 0.0
 ..\vbox(700.50723+0.0)x417.11752, glue set 335.80714fil
 ...\write-{}
@@ -1335,8 +1335,8 @@ LaTeX Font Info:    Font shape `TU/XITSMath-Regular(3)/m/n' will be
 (Font)              scaled to size 4.99947pt on input line ....
 Completed box being shipped out [3]
 \vbox(722.98453+3.61353)x435.04271
-.\glue -15.36447
-.\vbox(738.349+3.61353)x417.11752, shifted 17.92519
+.\glue -16.36447
+.\vbox(739.349+3.61353)x417.11752, shifted 17.92519
 ..\vbox(15.36429+0.0)x417.11752, glue set 3.3193fil
 ...\glue 0.0 plus 1.0fil
 ...\hbox(12.04498+0.0)x417.11752
@@ -1406,7 +1406,7 @@ Completed box being shipped out [3]
 .......\glue -0.4
 .....\glue 0.0 plus 1.0fil minus 1.0fil
 ....\special{color pop}
-..\glue 0.0
+..\glue 1.0
 ..\glue(\lineskip) 0.0
 ..\vbox(700.50723+0.0)x417.11752, glue set 142.69922fil
 ...\write-{}
@@ -2749,8 +2749,8 @@ LaTeX Font Info:    Font shape `TU/XITSMath-Regular(3)/m/n' will be
 (Font)              scaled to size 7.22623pt on input line ....
 Completed box being shipped out [4]
 \vbox(722.98453+3.61353)x435.04271
-.\glue -15.36447
-.\vbox(738.349+3.61353)x417.11752, shifted 17.92519
+.\glue -16.36447
+.\vbox(739.349+3.61353)x417.11752, shifted 17.92519
 ..\vbox(15.36429+0.0)x417.11752, glue set 3.3193fil
 ...\glue 0.0 plus 1.0fil
 ...\hbox(12.04498+0.0)x417.11752
@@ -2820,7 +2820,7 @@ Completed box being shipped out [4]
 .......\rule(0.4+0.0)x417.11752
 .......\glue -0.4
 ....\special{color pop}
-..\glue 0.0
+..\glue 1.0
 ..\glue(\lineskip) 0.0
 ..\vbox(700.50723+0.0)x417.11752, glue set 648.8926fil
 ...\write-{}
@@ -2920,8 +2920,8 @@ Completed box being shipped out [4]
 ...\special{color pop}
 Completed box being shipped out [5]
 \vbox(722.98453+3.61353)x435.04271
-.\glue -15.36447
-.\vbox(738.349+3.61353)x417.11752, shifted 17.92519
+.\glue -16.36447
+.\vbox(739.349+3.61353)x417.11752, shifted 17.92519
 ..\vbox(15.36429+0.0)x417.11752, glue set 3.3193fil
 ...\glue 0.0 plus 1.0fil
 ...\hbox(12.04498+0.0)x417.11752
@@ -2991,7 +2991,7 @@ Completed box being shipped out [5]
 .......\glue -0.4
 .....\glue 0.0 plus 1.0fil minus 1.0fil
 ....\special{color pop}
-..\glue 0.0
+..\glue 1.0
 ..\glue(\lineskip) 0.0
 ..\vbox(700.50723+0.0)x417.11752, glue set 610.86539fil
 ...\write-{}
@@ -3150,8 +3150,8 @@ Completed box being shipped out [5]
 Appendix A
 Completed box being shipped out [6]
 \vbox(722.98453+3.61353)x435.04271
-.\glue -15.36447
-.\vbox(738.349+3.61353)x417.11752, shifted 17.92519
+.\glue -16.36447
+.\vbox(739.349+3.61353)x417.11752, shifted 17.92519
 ..\vbox(15.36429+0.0)x417.11752, glue set 3.3193fil
 ...\glue 0.0 plus 1.0fil
 ...\hbox(12.04498+0.0)x417.11752
@@ -3221,7 +3221,7 @@ Completed box being shipped out [6]
 .......\rule(0.4+0.0)x417.11752
 .......\glue -0.4
 ....\special{color pop}
-..\glue 0.0
+..\glue 1.0
 ..\glue(\lineskip) 0.0
 ..\vbox(700.50723+0.0)x417.11752, glue set 632.91138fil
 ...\write-{}
@@ -3328,8 +3328,8 @@ Completed box being shipped out [6]
 )
 Completed box being shipped out [7]
 \vbox(722.98453+3.61353)x435.04271
-.\glue -15.36447
-.\vbox(738.349+3.61353)x417.11752, shifted 17.92519
+.\glue -16.36447
+.\vbox(739.349+3.61353)x417.11752, shifted 17.92519
 ..\vbox(15.36429+0.0)x417.11752, glue set 3.3193fil
 ...\glue 0.0 plus 1.0fil
 ...\hbox(12.04498+0.0)x417.11752
@@ -3399,7 +3399,7 @@ Completed box being shipped out [7]
 .......\glue -0.4
 .....\glue 0.0 plus 1.0fil minus 1.0fil
 ....\special{color pop}
-..\glue 0.0
+..\glue 1.0
 ..\glue(\lineskip) 0.0
 ..\vbox(700.50723+0.0)x417.11752, glue set 587.68927fil
 ...\write-{}

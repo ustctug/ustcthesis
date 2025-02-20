@@ -1542,12 +1542,13 @@
 % 页边距：上、下、左、右、装订线的页边距分别为：2.54cm，2.54cm，3.17cm，3.17cm，0cm。装订线位置：左。左右对称页边距。
 % 页眉距边界2.0cm
 % 页脚距边界1.75cm
+% Word 模板中，页眉线是跟版心上边缘重合的，所以 headsep 设为 1pt，防止页眉线与版心内容重叠（#413）。
 \geometry{
   paper      = a4paper,
   vmargin    = 2.54cm,
   hmargin    = 3.17cm,
   headheight = 0.54cm,
-  headsep    = 0cm,
+  headsep    = 1pt,
   footskip   = 0.79cm,
 }
 

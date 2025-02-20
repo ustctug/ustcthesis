@@ -10,8 +10,8 @@ Package fontspec Info:
 (fontspec)             - 'bold' (b/n) with NFSS spec.: <->"[FandolHei-Bold.otf]/OT:language=dflt;"
 Completed box being shipped out [1]
 \vbox(722.98453+3.61353)x435.04271
-.\glue -15.36447
-.\vbox(738.349+3.61353)x417.11752, shifted 17.92519
+.\glue -16.36447
+.\vbox(739.349+3.61353)x417.11752, shifted 17.92519
 ..\vbox(15.36429+0.0)x417.11752, glue set 3.3193fil
 ...\glue 0.0 plus 1.0fil
 ...\hbox(12.04498+0.0)x417.11752
@@ -57,7 +57,7 @@ Completed box being shipped out [1]
 .......\glue -0.4
 .....\glue 0.0 plus 1.0fil minus 1.0fil
 ....\special{color pop}
-..\glue 0.0
+..\glue 1.0
 ..\glue(\lineskip) 0.0
 ..\vbox(700.50723+0.0)x417.11752, glue set 593.60474fil
 ...\write-{}
@@ -203,8 +203,8 @@ Completed box being shipped out [1]
 ...\special{color pop}
 Completed box being shipped out [2]
 \vbox(722.98453+3.61353)x435.04271
-.\glue -15.36447
-.\vbox(738.349+3.61353)x417.11752, shifted 17.92519
+.\glue -16.36447
+.\vbox(739.349+3.61353)x417.11752, shifted 17.92519
 ..\vbox(15.36429+0.0)x417.11752, glue set 3.3193fil
 ...\glue 0.0 plus 1.0fil
 ...\hbox(12.04498+0.0)x417.11752
@@ -248,7 +248,7 @@ Completed box being shipped out [2]
 .......\rule(0.4+0.0)x417.11752
 .......\glue -0.4
 ....\special{color pop}
-..\glue 0.0
+..\glue 1.0
 ..\glue(\lineskip) 0.0
 ..\vbox(700.50723+0.0)x417.11752, glue set 598.49045fil
 ...\write-{}
@@ -365,8 +365,8 @@ Completed box being shipped out [2]
 \tf@toc=\write...
 Completed box being shipped out [3]
 \vbox(722.98453+3.61353)x435.04271
-.\glue -15.36447
-.\vbox(738.349+3.61353)x417.11752, shifted 17.92519
+.\glue -16.36447
+.\vbox(739.349+3.61353)x417.11752, shifted 17.92519
 ..\vbox(15.36429+0.0)x417.11752, glue set 3.3193fil
 ...\glue 0.0 plus 1.0fil
 ...\hbox(12.04498+0.0)x417.11752
@@ -412,7 +412,7 @@ Completed box being shipped out [3]
 .......\glue -0.4
 .....\glue 0.0 plus 1.0fil minus 1.0fil
 ....\special{color pop}
-..\glue 0.0
+..\glue 1.0
 ..\glue(\lineskip) 0.0
 ..\vbox(700.50723+0.0)x417.11752, glue set 426.98564fil
 ...\write-{}
@@ -946,8 +946,8 @@ Completed box being shipped out [3]
 ...\special{color pop}
 Completed box being shipped out [4]
 \vbox(722.98453+3.61353)x435.04271
-.\glue -15.36447
-.\vbox(738.349+3.61353)x417.11752, shifted 17.92519
+.\glue -16.36447
+.\vbox(739.349+3.61353)x417.11752, shifted 17.92519
 ..\vbox(15.36429+0.0)x417.11752, glue set 15.36429fil
 ...\glue 0.0 plus 1.0fil
 ...\hbox(0.0+0.0)x417.11752
@@ -987,7 +987,7 @@ Completed box being shipped out [4]
 .......\rule(0.0+0.0)x417.11752
 .......\glue 0.0
 ....\special{color pop}
-..\glue 0.0
+..\glue 1.0
 ..\glue(\lineskip) 0.0
 ..\vbox(700.50723+0.0)x0.0, glue set 688.4337fil
 ...\write-{}
@@ -1039,8 +1039,8 @@ Completed box being shipped out [4]
 ...\special{color pop}
 Completed box being shipped out [5]
 \vbox(722.98453+3.61353)x435.04271
-.\glue -15.36447
-.\vbox(738.349+3.61353)x417.11752, shifted 17.92519
+.\glue -16.36447
+.\vbox(739.349+3.61353)x417.11752, shifted 17.92519
 ..\vbox(15.36429+0.0)x417.11752, glue set 3.3193fil
 ...\glue 0.0 plus 1.0fil
 ...\hbox(12.04498+0.0)x417.11752
@@ -1090,7 +1090,7 @@ Completed box being shipped out [5]
 .......\glue -0.4
 .....\glue 0.0 plus 1.0fil minus 1.0fil
 ....\special{color pop}
-..\glue 0.0
+..\glue 1.0
 ..\glue(\lineskip) 0.0
 ..\vbox(700.50723+0.0)x417.11752, glue set 635.08327fil
 ...\write-{}
@@ -1176,8 +1176,8 @@ Completed box being shipped out [5]
 ...\special{color pop}
 Completed box being shipped out [6]
 \vbox(722.98453+3.61353)x435.04271
-.\glue -15.36447
-.\vbox(738.349+3.61353)x417.11752, shifted 17.92519
+.\glue -16.36447
+.\vbox(739.349+3.61353)x417.11752, shifted 17.92519
 ..\vbox(15.36429+0.0)x417.11752, glue set 15.36429fil
 ...\glue 0.0 plus 1.0fil
 ...\hbox(0.0+0.0)x417.11752
@@ -1217,7 +1217,7 @@ Completed box being shipped out [6]
 .......\rule(0.0+0.0)x417.11752
 .......\glue 0.0
 ....\special{color pop}
-..\glue 0.0
+..\glue 1.0
 ..\glue(\lineskip) 0.0
 ..\vbox(700.50723+0.0)x0.0, glue set 688.4337fil
 ...\write-{}
@@ -1271,8 +1271,8 @@ Completed box being shipped out [6]
 第1章
 Completed box being shipped out [1]
 \vbox(722.98453+3.61353)x435.04271
-.\glue -15.36447
-.\vbox(738.349+3.61353)x417.11752, shifted 17.92519
+.\glue -16.36447
+.\vbox(739.349+3.61353)x417.11752, shifted 17.92519
 ..\vbox(15.36429+0.0)x417.11752, glue set 3.3193fil
 ...\glue 0.0 plus 1.0fil
 ...\hbox(12.04498+0.0)x417.11752
@@ -1326,7 +1326,7 @@ Completed box being shipped out [1]
 .......\glue -0.4
 .....\glue 0.0 plus 1.0fil minus 1.0fil
 ....\special{color pop}
-..\glue 0.0
+..\glue 1.0
 ..\glue(\lineskip) 0.0
 ..\vbox(700.50723+0.0)x417.11752, glue set 320.41724fil
 ...\write-{}
@@ -1735,8 +1735,8 @@ LaTeX Font Info:    Font shape `TU/XITSMath-Regular(3)/m/n' will be
 (Font)              scaled to size 5.52002pt on input line ....
 Completed box being shipped out [2]
 \vbox(722.98453+3.61353)x435.04271
-.\glue -15.36447
-.\vbox(738.349+3.61353)x417.11752, shifted 17.92519
+.\glue -16.36447
+.\vbox(739.349+3.61353)x417.11752, shifted 17.92519
 ..\vbox(15.36429+0.0)x417.11752, glue set 3.3193fil
 ...\glue 0.0 plus 1.0fil
 ...\hbox(12.04498+0.0)x417.11752
@@ -1796,7 +1796,7 @@ Completed box being shipped out [2]
 .......\rule(0.4+0.0)x417.11752
 .......\glue -0.4
 ....\special{color pop}
-..\glue 0.0
+..\glue 1.0
 ..\glue(\lineskip) 0.0
 ..\vbox(700.50723+0.0)x417.11752, glue set 141.71257fil
 ...\write-{}
@@ -3148,8 +3148,8 @@ LaTeX Font Info:    Font shape `TU/XITSMath-Regular(3)/m/n' will be
 (Font)              scaled to size 7.22623pt on input line ....
 Completed box being shipped out [3]
 \vbox(722.98453+3.61353)x435.04271
-.\glue -15.36447
-.\vbox(738.349+3.61353)x417.11752, shifted 17.92519
+.\glue -16.36447
+.\vbox(739.349+3.61353)x417.11752, shifted 17.92519
 ..\vbox(15.36429+0.0)x417.11752, glue set 3.3193fil
 ...\glue 0.0 plus 1.0fil
 ...\hbox(12.04498+0.0)x417.11752
@@ -3203,7 +3203,7 @@ Completed box being shipped out [3]
 .......\glue -0.4
 .....\glue 0.0 plus 1.0fil minus 1.0fil
 ....\special{color pop}
-..\glue 0.0
+..\glue 1.0
 ..\glue(\lineskip) 0.0
 ..\vbox(700.50723+0.0)x417.11752, glue set 649.02107fil
 ...\write-{}
@@ -3306,8 +3306,8 @@ Completed box being shipped out [3]
 ...\special{color pop}
 Completed box being shipped out [4]
 \vbox(722.98453+3.61353)x435.04271
-.\glue -15.36447
-.\vbox(738.349+3.61353)x417.11752, shifted 17.92519
+.\glue -16.36447
+.\vbox(739.349+3.61353)x417.11752, shifted 17.92519
 ..\vbox(15.36429+0.0)x417.11752, glue set 3.3193fil
 ...\glue 0.0 plus 1.0fil
 ...\hbox(12.04498+0.0)x417.11752
@@ -3357,7 +3357,7 @@ Completed box being shipped out [4]
 .......\rule(0.4+0.0)x417.11752
 .......\glue -0.4
 ....\special{color pop}
-..\glue 0.0
+..\glue 1.0
 ..\glue(\lineskip) 0.0
 ..\vbox(700.50723+0.0)x417.11752, glue set 615.38425fil
 ...\write-{}
@@ -3524,8 +3524,8 @@ Completed box being shipped out [4]
 附录 A
 Completed box being shipped out [5]
 \vbox(722.98453+3.61353)x435.04271
-.\glue -15.36447
-.\vbox(738.349+3.61353)x417.11752, shifted 17.92519
+.\glue -16.36447
+.\vbox(739.349+3.61353)x417.11752, shifted 17.92519
 ..\vbox(15.36429+0.0)x417.11752, glue set 3.3193fil
 ...\glue 0.0 plus 1.0fil
 ...\hbox(12.04498+0.0)x417.11752
@@ -3583,7 +3583,7 @@ Completed box being shipped out [5]
 .......\glue -0.4
 .....\glue 0.0 plus 1.0fil minus 1.0fil
 ....\special{color pop}
-..\glue 0.0
+..\glue 1.0
 ..\glue(\lineskip) 0.0
 ..\vbox(700.50723+0.0)x417.11752, glue set 633.65005fil
 ...\write-{}
@@ -3695,8 +3695,8 @@ Completed box being shipped out [5]
 ...\special{color pop}
 Completed box being shipped out [6]
 \vbox(722.98453+3.61353)x435.04271
-.\glue -15.36447
-.\vbox(738.349+3.61353)x417.11752, shifted 17.92519
+.\glue -16.36447
+.\vbox(739.349+3.61353)x417.11752, shifted 17.92519
 ..\vbox(15.36429+0.0)x417.11752, glue set 3.3193fil
 ...\glue 0.0 plus 1.0fil
 ...\hbox(12.04498+0.0)x417.11752
@@ -3742,7 +3742,7 @@ Completed box being shipped out [6]
 .......\rule(0.4+0.0)x417.11752
 .......\glue -0.4
 ....\special{color pop}
-..\glue 0.0
+..\glue 1.0
 ..\glue(\lineskip) 0.0
 ..\vbox(700.50723+0.0)x417.11752, glue set 633.58984fil
 ...\write-{}
@@ -3841,8 +3841,8 @@ Completed box being shipped out [6]
 )
 Completed box being shipped out [7]
 \vbox(722.98453+3.61353)x435.04271
-.\glue -15.36447
-.\vbox(738.349+3.61353)x417.11752, shifted 17.92519
+.\glue -16.36447
+.\vbox(739.349+3.61353)x417.11752, shifted 17.92519
 ..\vbox(15.36429+0.0)x417.11752, glue set 3.3193fil
 ...\glue 0.0 plus 1.0fil
 ...\hbox(12.04498+0.0)x417.11752
@@ -3906,7 +3906,7 @@ Completed box being shipped out [7]
 .......\glue -0.4
 .....\glue 0.0 plus 1.0fil minus 1.0fil
 ....\special{color pop}
-..\glue 0.0
+..\glue 1.0
 ..\glue(\lineskip) 0.0
 ..\vbox(700.50723+0.0)x417.11752, glue set 522.42639fil
 ...\write-{}
