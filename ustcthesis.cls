@@ -2797,11 +2797,19 @@
   \fi
 }
 \newcommand\figurenote[1]{%
+  \par
   \begingroup
-    \par
     \setlength\parskip{6bp}%
     \ustc@figure@note@font
-    \parbox{\linewidth}{#1\par}\par
+    % 参考 `\@makecaption` 的实现
+    \sbox\@tempboxa{#1}%
+    \ifdim \wd\@tempboxa >\hsize
+      \parbox{\linewidth}{#1\par}%
+    \else
+      \global \@minipagefalse
+      \hb@xt@\hsize{\hfil\box\@tempboxa\hfil}%
+    \fi
+    \par
   \endgroup
 }
 \let\tablenote\figurenote
