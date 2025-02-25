@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [4.0.0-beta.6] - 2025-02-25
+
 ### Changed
 
 - 调整页眉距边界 2.0 cm（研究生院 2024-12-05 Word 模板修改，[#411](https://github.com/ustctug/ustcthesis/issues/411#issuecomment-2652543582)）。
@@ -385,7 +387,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - 优化图注、算法的行距。
 - 二级以下节标题编号下采用“1.”、“(1)”、“①”。
 
-[Unreleased]: https://github.com/ustctug/ustcthesis/compare/v4.0.0-beta.5...HEAD
+[Unreleased]: https://github.com/ustctug/ustcthesis/compare/v4.0.0-beta.6...HEAD
+[4.0.0-beta.6]: https://github.com/ustctug/ustcthesis/compare/v4.0.0-beta.5...v4.0.0-beta.6
 [4.0.0-beta.5]: https://github.com/ustctug/ustcthesis/compare/v4.0.0-beta.4...v4.0.0-beta.5
 [4.0.0-beta.4]: https://github.com/ustctug/ustcthesis/compare/v4.0.0-beta.3...v4.0.0-beta.4
 [4.0.0-beta.3]: https://github.com/ustctug/ustcthesis/compare/v4.0.0-beta.2...v4.0.0-beta.3
