@@ -2244,17 +2244,15 @@
 
 % 用 \pkg{ctex} 的接口设置全部章节标题格式。
 
-% 各章标题：黑体 16 磅加粗居中，单倍行距，段前 24 磅，段后 18 磅，
-% 章序号与章名间空一字。
-
-% 由于 Word 模板中使用“单倍行距”，还“对齐到网格”，这在 TeX 中不容易实现。
-% 所以目前按照默认的行距。
+% 各章标题，例如：“第1章  引言”。
+% 章序号采用阿拉伯数字，章序号与标题之间空一个汉字符，采用黑体三号字，居中书写，单倍行距，段前24磅，段后18磅。
+% 摘要、目录和列于目录中与章平级的其它部分的标题（如参考文献、附录、致谢等）也用这同一种格式。
 
 % 注意 \pkg{ctex} v2.4.3 以下版本的bug会导致章节标题前后的距离的实际值偏大。
 % 另外 \pkg{ctex} v2.2 前的beforeskip的符号有特殊意义。
 \ctexset{
   chapter = {
-    format      = \centering\heiti\fontsize{16bp}{26.67bp}\selectfont,
+    format      = \centering\heiti\fontsize{16bp}{20.8bp}\selectfont,
     nameformat  = {},
     titleformat = {},
     number      = \thechapter,
@@ -2265,34 +2263,35 @@
   },
 }
 
-% 一级节标题：黑体 14 磅左顶格，单倍行距，段前 24 磅，段后 6 磅，
-% 序号与题名间空一字。
+% 一级节标题，例如：“2.1  实验方法”。
+% 节编号用阿拉伯数字表示，前边数字为上级章节的序号，后一数字为本节的顺序号。
+% 数字间用半角小数点“.”连接。
+% 节标题序号与标题名之间空一个汉字符（下同）。
+% 采用黑体四号（14pt）字居左书写，固定行距20磅，段前24磅，段后6磅。
 \ctexset{
   section = {
-    format     = \heiti\fontsize{14bp}{23.33bp}\selectfont,
+    format     = \heiti\fontsize{14bp}{20bp}\selectfont,
     aftername  = \quad,
     beforeskip = 24bp,
     afterskip  = 6bp,
   },
   %
-  % 二级节标题：黑体 13 磅，左缩进两字，单倍行距，段前 12 磅，段后 6 磅，
-  % 序号与题名间空一字。
+  % 二级节标题，例如：“2.1.1  实验装置”。
+  % 采用黑体13pt字居左书写，固定行距20磅，段前12磅，段后6磅。
   subsection = {
-    format     = \heiti\fontsize{13bp}{21.67bp}\selectfont,
+    format     = \heiti\fontsize{13bp}{20bp}\selectfont,
     aftername  = \quad,
     beforeskip = 12bp,
     afterskip  = 6bp,
   },
   %
-  % 三级及以下节标题的格式没有具体规定，按照 Word 模板的格式：
-  % 使用黑体 12 磅，左缩进两字，行距 20 磅，段前段后 0 磅，序号与题名间空半字宽。
+  % 三级节标题，例如：“2.1.1.1  实验结果”。
+  % 采用黑体小四号（12pt）字居左书写，固定行距20磅，段前12磅，段后6磅。
   subsubsection = {
     format     = \heiti\fontsize{12bp}{20bp}\selectfont,
-    number     = \arabic{subsubsection},
-    aftername  = .\hspace{0.5em},
-    indent     = 2em,
-    beforeskip = 0bp,
-    afterskip  = 0bp,
+    aftername  = \quad,
+    beforeskip = 12bp,
+    afterskip  = 6bp,
   },
   %
   % 按照 Word 模板的格式，四级节标题：宋体 12 磅，左缩进两字，行距 20 磅，
@@ -2362,6 +2361,8 @@
     },
     subsubsection = {
       format    = \rmfamily\fontsize{12bp}{22bp}\selectfont,
+      number    = \arabic{subsubsection},
+      aftername = .\hspace{0.5em},
       indent    = 1em,
     },
     paragraph = {

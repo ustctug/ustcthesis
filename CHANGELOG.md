@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - 空白页添加页码（研究生院 2024-12-05 Word 模板修改，[#390](https://github.com/ustctug/ustcthesis/issues/390#issuecomment-2652974038)）。
 - 修改符号说明的页脚样式（研究生院 2024-12-05 Word 模板修改，[#411](https://github.com/ustctug/ustcthesis/issues/411#issuecomment-2656237617)）。
 - 图注较短时居中（[#414](https://github.com/ustctug/ustcthesis/issues/414)）。
+- 修改章节标题的格式（研究生院 2024-12-05 Word 模板修改，[#411](https://github.com/ustctug/ustcthesis/issues/390#issuecomment-2677732743)）。
 
 ## [4.0.0-beta.5] - 2025-02-10
 

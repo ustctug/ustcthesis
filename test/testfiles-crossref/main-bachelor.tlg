@@ -1038,7 +1038,7 @@ Completed box being shipped out [2]
 ....\special{color pop}
 ..\glue 1.0
 ..\glue(\lineskip) 0.0
-..\vbox(700.50723+0.0)x417.11752, glue set 336.30496fil
+..\vbox(700.50723+0.0)x417.11752, glue set 318.2394fil
 ...\write-{}
 ...\write-{}
 ...\write1{\@writefile{toc}{\protect \addvspace {12bp}}}
@@ -1186,7 +1186,7 @@ Completed box being shipped out [2]
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
 ...\penalty -300
-...\glue 0.0
+...\glue 12.045
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 12.54288
@@ -1216,7 +1216,7 @@ Completed box being shipped out [2]
 ....\glue(\rightskip) 0.0
 ...\write1{\@writefile{toc}{\protect \contentsline {subsubsection}{\protect \numberline {1}三级节标题}{\thepage }{}\protected@file@percent }}
 ...\penalty 10000
-...\glue 0.0
+...\glue 6.02249
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 11.71176
