@@ -1756,7 +1756,7 @@
 \newcommand\ustc@practice@supervisor@en@line{%
   \setcounter{ustc@count}{\ustc@clist@count{\ustc@practice@supervisor@en}}%
   \ifnum\c@ustc@count>1\relax
-    Practice supervisor:%
+    Practice supervisors:%
   \else
     Practice supervisor:%
   \fi
