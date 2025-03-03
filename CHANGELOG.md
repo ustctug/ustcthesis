@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- 添加博士学位论文的“创新性说明”的示例（研究生院 2025-02-27 Word 模板，[#423](https://github.com/ustctug/ustcthesis/issues/423)）。
+
 ## [4.0.0-beta.6] - 2025-02-25
 
 ### Changed
