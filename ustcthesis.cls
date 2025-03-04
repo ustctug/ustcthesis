@@ -174,6 +174,7 @@
     choices = {
       academic,
       professional,
+      engineering,
     },
     default = academic,
   },
@@ -386,6 +387,7 @@
 \DeclareVoidOption{english}{\ustcsetup{language=english}}
 \DeclareVoidOption{academic}{\ustcsetup{degree-type=academic}}
 \DeclareVoidOption{professional}{\ustcsetup{degree-type=professional}}
+\DeclareVoidOption{engineering}{\ustcsetup{degree-type=engineering}}
 \DeclareVoidOption{print}{\ustcsetup{output=print}}
 \DeclareVoidOption{pdf}{\ustcsetup{output=electronic}}
 \newif\ifustc@legacy@cite@style
@@ -1839,7 +1841,11 @@
   \ifustc@degree@doctor
     \renewcommand\ustc@thesis@name{工程博士学位论文}
   \else
-    \renewcommand\ustc@thesis@name{专业硕士学位论文}
+    \ifustc@degree@type@engineering
+      \renewcommand\ustc@thesis@name{工程硕士学位论文}
+    \else
+      \renewcommand\ustc@thesis@name{专业硕士学位论文}
+    \fi
   \fi
   \ifustc@cjk@font@mac
     \providecommand\lishu{\CJKfamily{zhli}}
@@ -1926,7 +1932,11 @@
     {\fontsize{16bp}{31bp}\selectfont
       \begin{tabular}{@{}l@{\quad}l@{}}%
         \textsf{作者姓名：} & \ustc@author \\
-        \textsf{学科专业：} & \ustc@speciality \\
+        \ifustc@degree@type@engineering
+          \textsf{类别领域：} & \ustc@speciality \\
+        \else
+          \textsf{学科专业：} & \ustc@speciality \\
+        \fi
         \ifx\ustc@practice@supervisor\@empty
           \textsf{导\hspace{2em}师：} & \ustc@supervisor@names \\
         \else
