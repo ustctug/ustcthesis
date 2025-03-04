@@ -41,7 +41,7 @@ install : cls doc
 	mkdir -p $(TEXMF)/{doc,source,tex}/latex/$(NAME)
 	mkdir -p $(TEXMF)/bibtex/bst/$(NAME)
 	cp $(BSTFILES) $(TEXMF)/bibtex/bst/$(NAME)
-	cp $(NAME).pdf $(TEXMF)/doc/latex/$(NAME)
+	cp $(NAME)-doc.pdf $(TEXMF)/doc/latex/$(NAME)/$(NAME).pdf
 	cp $(CLSFILES) $(TEXMF)/tex/latex/$(NAME)
 
 zip : main doc
