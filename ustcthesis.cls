@@ -2414,6 +2414,20 @@
   \chapter*{#2}}
 
 
+% \subsection{创新性说明}
+
+\NewDocumentEnvironment{innovations}{+b}{%
+  \ifustc@degree@doctor
+    \ifustc@degree@type@academic
+      \ustc@chapter{创新性说明}%
+    \else
+      \ustc@chapter{创新性及应用性说明}%
+    \fi
+    #1\par
+  \fi
+}
+
+
 % \subsection{摘要}
 
 % 中文摘要环境。
