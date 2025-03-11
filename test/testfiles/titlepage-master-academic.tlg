@@ -84,7 +84,7 @@ Completed box being shipped out [1]
 ...\hbox(43.95622+9.94916)x417.11752, glue set 39.92879fil
 ....\glue(\leftskip) 0.0 plus 1.0fil
 ....\hbox(0.0+0.0)x0.0
-....\TU/FandolHei(0)/m/n/56.20999 博
+....\TU/FandolHei(0)/m/n/56.20999 硕
 ....\glue 0.0 plus 15.97151
 ....\TU/FandolHei(0)/m/n/56.20999 士
 ....\glue 0.0 plus 15.97151
@@ -466,7 +466,7 @@ Completed box being shipped out [3]
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 12.2879
-...\hbox(17.82458+5.68924)x417.11752, glue set 34.084fil
+...\hbox(17.82458+5.68924)x417.11752, glue set 32.83133fil
 ....\glue(\leftskip) 0.0 plus 1.0fil
 ....\hbox(0.0+0.0)x0.0
 ....\TU/texgyretermes(0)/m/n/26.09749 A
@@ -475,7 +475,7 @@ Completed box being shipped out [3]
 ....\glue 6.52437 plus 3.26218 minus 2.17479
 ....\TU/texgyretermes(0)/m/n/26.09749 for
 ....\glue 6.52437 plus 3.26218 minus 2.17479
-....\TU/texgyretermes(0)/m/n/26.09749 doctor’s
+....\TU/texgyretermes(0)/m/n/26.09749 master’s
 ....\glue 6.52437 plus 3.26218 minus 2.17479
 ....\TU/texgyretermes(0)/m/n/26.09749 degree
 ....\kern -0.0002
@@ -687,4 +687,4 @@ Completed box being shipped out [4]
 ...\special{color push  Black}
 ...\hbox(0.0+0.0)x417.11752
 ...\special{color pop}
-(titlepage.aux)
+(titlepage-master-academic.aux)

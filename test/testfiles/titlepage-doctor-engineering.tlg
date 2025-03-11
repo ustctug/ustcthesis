@@ -41,7 +41,7 @@ Completed box being shipped out [1]
 ....\special{color pop}
 ..\glue 1.0
 ..\glue(\lineskip) 0.0
-..\vbox(700.50723+0.0)x417.11752, glue set >20000.0fil
+..\vbox(700.50723+0.0)x417.11752, glue set 27.09766fil
 ...\write-{}
 ...\write-{}
 ...\glue(\topskip) 12.0
@@ -81,27 +81,23 @@ Completed box being shipped out [1]
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 12.25377
-...\hbox(43.95622+10.34262)x417.11752, glue set 11.82379fil
+...\hbox(43.95622+9.94916)x417.11752, glue set 3.39348fil
 ....\glue(\leftskip) 0.0 plus 1.0fil
 ....\hbox(0.0+0.0)x0.0
-....\TU/FandolHei(0)/m/n/56.20999 专
-....\glue 0.0 plus 15.97151
-....\TU/FandolHei(0)/m/n/56.20999 业
-....\glue 0.0 plus 15.97151
-....\TU/FandolHei(0)/m/n/56.20999 硕
-....\glue 0.0 plus 15.97151
+....\TU/FandolHei(0)/m/n/56.20999 工
+....\glue -5.62134 plus 0.96956 minus 5.47522
+....\TU/FandolHei(0)/m/n/56.20999 程
+....\glue -5.62134 plus 0.96956 minus 5.47522
+....\TU/FandolHei(0)/m/n/56.20999 博
+....\glue -5.62134 plus 0.96956 minus 5.47522
 ....\TU/FandolHei(0)/m/n/56.20999 士
-....\glue 0.0 plus 15.97151
+....\glue -5.62134 plus 0.96956 minus 5.47522
 ....\TU/FandolHei(0)/m/n/56.20999 学
-....\glue 0.0 plus 15.97151
+....\glue -5.62134 plus 0.96956 minus 5.47522
 ....\TU/FandolHei(0)/m/n/56.20999 位
-....\glue 0.0 plus 15.97151
+....\glue -5.62134 plus 0.96956 minus 5.47522
 ....\TU/FandolHei(0)/m/n/56.20999 论
-....\glue(\rightskip) 0.0 plus 1.0fil
-...\penalty 300
-...\glue(\baselineskip) 3.87851
-...\hbox(41.98886+9.27463)x417.11752, glue set 180.45377fil
-....\glue(\leftskip) 0.0 plus 1.0fil
+....\glue -5.62134 plus 0.96956 minus 5.47522
 ....\TU/FandolHei(0)/m/n/56.20999 文
 ....\kern -0.00017
 ....\kern 0.00017
@@ -116,9 +112,9 @@ Completed box being shipped out [1]
 ....\glue(\leftskip) 0.0 plus 1.0fil
 ....\hbox(0.0+0.0)x0.0
 ....\rule(0.0+0.0)x-16.28484
-....\TU/FandolHei(0)/m/n/26.09749 （专
+....\TU/FandolHei(0)/m/n/26.09749 （工
 ....\glue 0.0 plus 3.98097
-....\TU/FandolHei(0)/m/n/26.09749 业
+....\TU/FandolHei(0)/m/n/26.09749 程
 ....\glue 0.0 plus 3.98097
 ....\TU/FandolHei(0)/m/n/26.09749 学
 ....\glue 0.0 plus 3.98097
@@ -229,27 +225,10 @@ Completed box being shipped out [1]
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0
 ....\glue(\rightskip) 0.0 plus 1.0fil
-...\glue -6.0
-...\glue 0.0 plus 0.0001fil
-..\glue(\baselineskip) 22.47748
-..\hbox(0.0+0.0)x417.11752
-...\special{color push  Black}
-...\hbox(0.0+0.0)x417.11752
-...\special{color pop}
-Completed box being shipped out [2]
-\vbox(722.98453+0.0)x435.04271
-.\glue -16.36447
-.\vbox(739.349+0.0)x417.11752, shifted 17.92519
-..\vbox(15.36429+0.0)x417.11752, glue set 15.36429fil
-...\glue 0.0 plus 1.0fil
-...\hbox(0.0+0.0)x417.11752
-....\special{color push  Black}
-....\hbox(0.0+0.0)x417.11752
-....\special{color pop}
-..\glue 1.0
-..\glue(\lineskip) 0.0
-..\vbox(700.50723+0.0)x417.11752, glue set 550.86726fil
-...\glue(\topskip) 0.0
+...\glue 17.07182
+...\glue(\parskip) 0.0
+...\glue(\parskip) 0.0
+...\glue(\lineskip) 1.0
 ...\hbox(81.806+73.77513)x417.11752, glue set 79.42032fil
 ....\glue(\leftskip) 0.0 plus 1.0fil
 ....\hbox(0.0+0.0)x0.0
@@ -296,13 +275,13 @@ Completed box being shipped out [2]
 .......\hbox(21.78127+9.33496)x96.36
 ........\rule(21.78127+9.33496)x0.0
 ........\glue 0.00002
-........\TU/FandolHei(0)/m/n/16.06 学
+........\TU/FandolHei(0)/m/n/16.06 类
 ........\glue 0.0 plus 1.37729
-........\TU/FandolHei(0)/m/n/16.06 科
+........\TU/FandolHei(0)/m/n/16.06 别
 ........\glue 0.0 plus 1.37729
-........\TU/FandolHei(0)/m/n/16.06 专
+........\TU/FandolHei(0)/m/n/16.06 领
 ........\glue 0.0 plus 1.37729
-........\TU/FandolHei(0)/m/n/16.06 业
+........\TU/FandolHei(0)/m/n/16.06 域
 ........\penalty 10000
 ........\TU/FandolHei(0)/m/n/16.06 ：
 ........\rule(0.0+0.0)x-11.37048
@@ -493,6 +472,30 @@ Completed box being shipped out [2]
 ...\special{color push  Black}
 ...\hbox(0.0+0.0)x417.11752
 ...\special{color pop}
+Completed box being shipped out [2]
+\vbox(722.98453+0.0)x435.04271
+.\glue -16.36447
+.\vbox(739.349+0.0)x417.11752, shifted 17.92519
+..\vbox(15.36429+0.0)x417.11752, glue set 15.36429fil
+...\glue 0.0 plus 1.0fil
+...\hbox(0.0+0.0)x417.11752
+....\special{color push  Black}
+....\hbox(0.0+0.0)x417.11752
+....\special{color pop}
+..\glue 1.0
+..\glue(\lineskip) 0.0
+..\vbox(700.50723+0.0)x0.0, glue set 688.4337fil
+...\write-{}
+...\glue(\topskip) 12.0
+...\hbox(0.0+0.0)x0.0
+...\glue 0.0 plus 1.0fil
+...\glue 0.0
+...\glue 0.0 plus 0.0001fil
+..\glue(\baselineskip) 22.47748
+..\hbox(0.0+0.0)x417.11752
+...\special{color push  Black}
+...\hbox(0.0+0.0)x417.11752
+...\special{color pop}
 File: figures/ustc-badge.pdf Graphic file (type pdf)
 <use figures/ustc-badge.pdf>
 Completed box being shipped out [3]
@@ -508,7 +511,6 @@ Completed box being shipped out [3]
 ..\glue 1.0
 ..\glue(\lineskip) 0.0
 ..\vbox(700.50723+0.0)x417.11752, glue set 51.62737fil
-...\write-{}
 ...\glue(\topskip) 12.0
 ...\hbox(0.0+11.38092)x417.11752, glue set 208.55876fil
 ....\glue(\leftskip) 0.0 plus 1.0fil
@@ -549,7 +551,7 @@ Completed box being shipped out [3]
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 12.2879
-...\hbox(17.82458+5.68924)x417.11752, glue set 32.83133fil
+...\hbox(17.82458+5.68924)x417.11752, glue set 34.084fil
 ....\glue(\leftskip) 0.0 plus 1.0fil
 ....\hbox(0.0+0.0)x0.0
 ....\TU/texgyretermes(0)/m/n/26.09749 A
@@ -558,7 +560,7 @@ Completed box being shipped out [3]
 ....\glue 6.52437 plus 3.26218 minus 2.17479
 ....\TU/texgyretermes(0)/m/n/26.09749 for
 ....\glue 6.52437 plus 3.26218 minus 2.17479
-....\TU/texgyretermes(0)/m/n/26.09749 master’s
+....\TU/texgyretermes(0)/m/n/26.09749 doctor’s
 ....\glue 6.52437 plus 3.26218 minus 2.17479
 ....\TU/texgyretermes(0)/m/n/26.09749 degree
 ....\kern -0.0002
@@ -569,10 +571,10 @@ Completed box being shipped out [3]
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 15.46178
-...\hbox(10.96898+3.50107)x417.11752, glue set 124.46861fil
+...\hbox(10.96898+3.50107)x417.11752, glue set 124.47664fil
 ....\glue(\leftskip) 0.0 plus 1.0fil
 ....\hbox(0.0+0.0)x0.0
-....\TU/texgyretermes(0)/m/n/16.06 (Professional
+....\TU/texgyretermes(0)/m/n/16.06 (Engineering
 ....\glue 4.015 plus 2.00749 minus 1.33833
 ....\TU/texgyretermes(0)/m/n/16.06 degree
 ....\glue 4.015 plus 2.00749 minus 1.33833
@@ -812,4 +814,4 @@ Completed box being shipped out [4]
 ...\special{color push  Black}
 ...\hbox(0.0+0.0)x417.11752
 ...\special{color pop}
-(titlepage-master.aux)
+(titlepage-doctor-engineering.aux)

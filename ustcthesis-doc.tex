@@ -288,7 +288,8 @@ Windows 用户可能无法使用GNU make，使用 |latexmk| 也是一个比较�
 \end{latex}
 
 \DescribeOption{degree-type}
-学位类型。可选：学术型 \opt{academic}（默认），专业型 \opt{professional}。
+学位类型。可选：学术型 \opt{academic}（默认），专业型 \opt{professional}，
+工程型 \opt{engineering}。
 \begin{latex}
   \documentclass[degree-type=professional]{ustcthesis}
 \end{latex}
@@ -396,10 +397,11 @@ key-value 的方式填写，如：
     命令               & 命令（英文）        & 说明          \\
     \midrule
     \opt{title}        & \opt{title*}        & 论文标题      \\
+    \opt{professional-type} & \opt{professional-type*} & 专业/工程学位类型 \\
     \opt{author}       & \opt{author*}       & 作者姓名      \\
     \opt{speciality}   & \opt{speciality*}   & 学科专业      \\
     \opt{supervisor}   & \opt{supervisor*}   & 导师      \\
-    \opt{supepractice-supervisorrvisor} & \opt{practice-supervisor*} & 导师 \\
+    \opt{practice-supervisor} & \opt{practice-supervisor*} & 实践导师 \\
     \opt{date}         & -                   & 完成时间      \\
     \opt{secret-level} & \opt{secret-level*} & 密级          \\
     \opt{secret-year}  & -                   & 保密/控阅年限 \\
@@ -412,6 +414,8 @@ key-value 的方式填写，如：
   \item \cs{ustcsetup} 使用 \pkg{kvsetkeys} 机制，配置项之间不能有空行，否则会报错。
   \item 其中带 |*| 后缀的选项用于设置英文封面。
   \item 导师姓名 \opt{supervisor} 允许多个姓名，使用“,”（西文逗号 U+002C）隔开。
+  \item 专业/工程学位需要填写专业/工程学位类型 \opt{professional-type} 和实践导师
+    \opt{practice-supervisor}。
   \item 完成时间 \opt{date} 应使用 ISO 格式（yyyy-mm-dd），默认为当前日期。
 \end{itemize}
 

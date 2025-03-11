@@ -1846,12 +1846,22 @@
 \ifustc@degree@type@academic
 \else
   \ifustc@degree@doctor
-    \renewcommand\ustc@thesis@name{工程博士学位论文}
-  \else
-    \ifustc@degree@type@engineering
-      \renewcommand\ustc@thesis@name{工程硕士学位论文}
+    \ifustc@degree@type@professional
+      \renewcommand\ustc@thesis@name{专业博士学位论文}
     \else
-      \renewcommand\ustc@thesis@name{专业硕士学位论文}
+      \ifustc@degree@type@engineering
+        \renewcommand\ustc@thesis@name{工程博士学位论文}
+      \fi
+    \fi
+  \else
+    \ifustc@degree@master
+      \ifustc@degree@type@professional
+        \renewcommand\ustc@thesis@name{专业硕士学位论文}
+      \else
+        \ifustc@degree@type@engineering
+          \renewcommand\ustc@thesis@name{工程硕士学位论文}
+        \fi
+      \fi
     \fi
   \fi
   \ifustc@cjk@font@mac
@@ -1909,6 +1919,9 @@
     \includegraphics[height=1.3cm]{figures/ustc-name.pdf}\par
     \vskip 0.6cm%
     {\sffamily\fontsize{56bp}{56bp}\selectfont
+      \ifustc@degree@type@academic\else
+        \ziju{-0.1}%
+      \fi
       \ustc@thesis@name\par}%
     \ifustc@degree@type@academic
       \vskip 2.0cm%

@@ -1,0 +1,817 @@
+This is a generated file for the l3build validation system.
+Don't change this file in any respect.
+Package fontspec Info: 
+(fontspec)             Font family 'FandolFang(0)' created for font 'FandolFang' with options [Extension={.otf},UprightFont={*-Regular}].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.: <->"[FandolFang-Regular.otf]/OT:language=dflt;"
+File: figures/ustc-name.pdf Graphic file (type pdf)
+<use figures/ustc-name.pdf>
+Package fontspec Info: 
+(fontspec)             Font family 'FandolHei(0)' created for font 'FandolHei' with options [Extension={.otf},UprightFont={*-Regular},BoldFont={*-Bold}].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.: <->"[FandolHei-Regular.otf]/OT:language=dflt;"
+(fontspec)             - 'bold' (b/n) with NFSS spec.: <->"[FandolHei-Bold.otf]/OT:language=dflt;"
+File: figures/ustc-badge.pdf Graphic file (type pdf)
+<use figures/ustc-badge.pdf>
+LaTeX Font Info:    Font shape `TU/XITSMath-Regular(2)/m/n' will be
+(Font)              scaled to size 16.0617pt on input line ....
+LaTeX Font Info:    Font shape `TU/XITSMath-Regular(2)/m/n' will be
+(Font)              scaled to size 14.05399pt on input line ....
+LaTeX Font Info:    Font shape `TU/XITSMath-Regular(2)/m/n' will be
+(Font)              scaled to size 10.54048pt on input line ....
+LaTeX Font Info:    Font shape `TU/XITSMath-Regular(3)/m/n' will be
+(Font)              scaled to size 16.05827pt on input line ....
+LaTeX Font Info:    Font shape `TU/XITSMath-Regular(3)/m/n' will be
+(Font)              scaled to size 14.05098pt on input line ....
+LaTeX Font Info:    Font shape `TU/XITSMath-Regular(3)/m/n' will be
+(Font)              scaled to size 10.53824pt on input line ....
+Completed box being shipped out [1]
+\vbox(722.98453+0.0)x435.04271
+.\glue -16.36447
+.\vbox(739.349+0.0)x417.11752, shifted 17.92519
+..\vbox(15.36429+0.0)x417.11752, glue set 15.36429fil
+...\glue 0.0 plus 1.0fil
+...\hbox(0.0+0.0)x417.11752
+....\special{color push  Black}
+....\hbox(0.0+0.0)x417.11752
+....\special{color pop}
+..\glue 1.0
+..\glue(\lineskip) 0.0
+..\vbox(700.50723+0.0)x417.11752, glue set 27.09766fil
+...\write-{}
+...\write-{}
+...\glue(\topskip) 12.0
+...\hbox(0.0+17.07182)x417.11752, glue set 208.55876fil
+....\glue(\leftskip) 0.0 plus 1.0fil
+....\hbox(0.0+0.0)x0.0
+....\vbox(0.0+17.07182)x0.0, glue set 17.07182fil
+.....\hbox(0.0+0.0)x0.0
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+....\penalty 10000
+....\glue(\parfillskip) 0.0
+....\glue(\rightskip) 0.0 plus 1.0fil
+...\glue 14.22636
+...\glue(\parskip) 0.0
+...\glue(\parskip) 0.0
+...\glue(\lineskip) 1.0
+...\hbox(36.98866+0.0)x417.11752, glue set 65.88966fil
+....\glue(\leftskip) 0.0 plus 1.0fil
+....\hbox(0.0+0.0)x0.0
+....\hbox(36.98866+0.0)x285.33821
+.....\hbox(36.98837+0.0)x285.33891
+......\hbox(36.98837+0.0)x285.33891
+.......\hbox(36.98837+0.0)x0.0
+........\special{pdf:btrans}
+........\special{x:scale 0.75204 0.75204}
+........\hbox(49.18375+0.0)x0.0, glue set - 379.41751fil
+.........\hbox(49.18375+0.0)x379.41751
+..........\XeTeXpdffile ".../ustc-name.pdf"
+.........\glue 0.0 plus 1.0fil minus 1.0fil
+........\special{pdf:etrans}
+.......\kern 285.33891
+.......\glue 0.0 plus 1.0fil minus 1.0fil
+....\penalty 10000
+....\glue(\parfillskip) 0.0
+....\glue(\rightskip) 0.0 plus 1.0fil
+...\glue 17.07182
+...\glue(\parskip) 0.0
+...\glue(\parskip) 0.0
+...\glue(\baselineskip) 12.25377
+...\hbox(43.95622+9.94916)x417.11752, glue set 3.39348fil
+....\glue(\leftskip) 0.0 plus 1.0fil
+....\hbox(0.0+0.0)x0.0
+....\TU/FandolHei(0)/m/n/56.20999 工
+....\glue -5.62134 plus 0.96956 minus 5.47522
+....\TU/FandolHei(0)/m/n/56.20999 程
+....\glue -5.62134 plus 0.96956 minus 5.47522
+....\TU/FandolHei(0)/m/n/56.20999 硕
+....\glue -5.62134 plus 0.96956 minus 5.47522
+....\TU/FandolHei(0)/m/n/56.20999 士
+....\glue -5.62134 plus 0.96956 minus 5.47522
+....\TU/FandolHei(0)/m/n/56.20999 学
+....\glue -5.62134 plus 0.96956 minus 5.47522
+....\TU/FandolHei(0)/m/n/56.20999 位
+....\glue -5.62134 plus 0.96956 minus 5.47522
+....\TU/FandolHei(0)/m/n/56.20999 论
+....\glue -5.62134 plus 0.96956 minus 5.47522
+....\TU/FandolHei(0)/m/n/56.20999 文
+....\kern -0.00017
+....\kern 0.00017
+....\penalty 10000
+....\glue(\parfillskip) 0.0
+....\glue(\rightskip) 0.0 plus 1.0fil
+...\glue 22.76228
+...\glue(\parskip) 0.0
+...\glue(\parskip) 0.0
+...\glue(\lineskip) 1.0
+...\hbox(20.87799+5.21948)x417.11752, glue set 120.45364fil
+....\glue(\leftskip) 0.0 plus 1.0fil
+....\hbox(0.0+0.0)x0.0
+....\rule(0.0+0.0)x-16.28484
+....\TU/FandolHei(0)/m/n/26.09749 （工
+....\glue 0.0 plus 3.98097
+....\TU/FandolHei(0)/m/n/26.09749 程
+....\glue 0.0 plus 3.98097
+....\TU/FandolHei(0)/m/n/26.09749 学
+....\glue 0.0 plus 3.98097
+....\TU/FandolHei(0)/m/n/26.09749 位
+....\glue 0.0 plus 3.98097
+....\TU/FandolHei(0)/m/n/26.09749 类
+....\glue 0.0 plus 3.98097
+....\TU/FandolHei(0)/m/n/26.09749 型
+....\penalty 10000
+....\TU/FandolHei(0)/m/n/26.09749 ）
+....\rule(0.0+0.0)x-16.28484
+....\kern 0.00099
+....\kern -0.00099
+....\kern -0.99623
+....\kern 0.99623
+....\penalty 10000
+....\glue(\parfillskip) 0.0
+....\glue(\rightskip) 0.0 plus 1.0fil
+...\glue 28.45274
+...\glue(\parskip) 0.0
+...\glue(\parskip) 0.0
+...\glue(\lineskip) 1.0
+...\hbox(116.65646+0.0)x417.11752, glue set 150.23152fil
+....\glue(\leftskip) 0.0 plus 1.0fil
+....\hbox(0.0+0.0)x0.0
+....\special{color push cmyk 1 0.8 0 0}
+....\hbox(116.65646+0.0)x116.6545
+.....\hbox(116.65477+0.0)x116.65477
+......\hbox(116.65477+0.0)x116.65477
+.......\hbox(116.65477+0.0)x0.0
+........\special{pdf:btrans}
+........\special{x:scale 0.292 0.292}
+........\hbox(399.4925+0.0)x0.0, glue set - 399.4925fil
+.........\hbox(399.4925+0.0)x399.4925
+..........\XeTeXpdffile ".../ustc-badge.pdf"
+.........\glue 0.0 plus 1.0fil minus 1.0fil
+........\special{pdf:etrans}
+.......\kern 116.65477
+.......\glue 0.0 plus 1.0fil minus 1.0fil
+....\special{color pop}
+....\penalty 10000
+....\glue(\parfillskip) 0.0
+....\glue(\rightskip) 0.0 plus 1.0fil
+...\glue 25.6073
+...\glue(\parskip) 0.0
+...\glue(\parskip) 0.0
+...\glue(\baselineskip) 20.075
+...\hbox(0.0+99.58464)x417.11752
+....\glue(\leftskip) 0.0 plus 1.0fil
+....\hbox(0.0+0.0)x0.0
+....\vbox(0.0+99.58464)x417.11752, glue set 12.22398fil
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+.....\hbox(20.48653+4.46266)x417.11752, glue set 104.16881fil
+......\glue(\leftskip) 0.0 plus 1.0fil
+......\hbox(0.0+0.0)x0.0
+......\TU/FandolHei(0)/b/n/26.09749 中
+......\glue 0.0 plus 3.98097
+......\TU/FandolHei(0)/b/n/26.09749 国
+......\glue 0.0 plus 3.98097
+......\TU/FandolHei(0)/b/n/26.09749 科
+......\glue 0.0 plus 3.98097
+......\TU/FandolHei(0)/b/n/26.09749 学
+......\glue 0.0 plus 3.98097
+......\TU/FandolHei(0)/b/n/26.09749 技
+......\glue 0.0 plus 3.98097
+......\TU/FandolHei(0)/b/n/26.09749 术
+......\glue 0.0 plus 3.98097
+......\TU/FandolHei(0)/b/n/26.09749 大
+......\glue 0.0 plus 3.98097
+......\TU/FandolHei(0)/b/n/26.09749 学
+......\kern -0.00017
+......\kern 0.00017
+......\penalty 10000
+......\glue(\parfillskip) 0.0
+......\glue(\rightskip) 0.0 plus 1.0fil
+.....\glue 0.0
+.....\glue(\parskip) 0.0
+.....\glue(\parskip) 0.0
+.....\glue(\baselineskip) 25.23831
+.....\hbox(20.48653+4.46266)x417.11752, glue set 78.07132fil
+......\glue(\leftskip) 0.0 plus 1.0fil
+......\hbox(0.0+0.0)x0.0
+......\TU/FandolHei(0)/b/n/26.09749 学
+......\glue 0.0 plus 3.98097
+......\TU/FandolHei(0)/b/n/26.09749 位
+......\glue 0.0 plus 3.98097
+......\TU/FandolHei(0)/b/n/26.09749 论
+......\glue 0.0 plus 3.98097
+......\TU/FandolHei(0)/b/n/26.09749 文
+......\glue 0.0 plus 3.98097
+......\TU/FandolHei(0)/b/n/26.09749 模
+......\glue 0.0 plus 3.98097
+......\TU/FandolHei(0)/b/n/26.09749 板
+......\glue 0.0 plus 3.98097
+......\TU/FandolHei(0)/b/n/26.09749 示
+......\glue 0.0 plus 3.98097
+......\TU/FandolHei(0)/b/n/26.09749 例
+......\glue 0.0 plus 3.98097
+......\TU/FandolHei(0)/b/n/26.09749 文
+......\glue 0.0 plus 3.98097
+......\TU/FandolHei(0)/b/n/26.09749 档
+......\kern -0.00017
+......\kern 0.00017
+......\penalty 10000
+......\glue(\parfillskip) 0.0
+......\glue(\rightskip) 0.0 plus 1.0fil
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+....\penalty 10000
+....\glue(\parfillskip) 0.0
+....\glue(\rightskip) 0.0 plus 1.0fil
+...\glue 17.07182
+...\glue(\parskip) 0.0
+...\glue(\parskip) 0.0
+...\glue(\lineskip) 1.0
+...\hbox(81.806+73.77513)x417.11752, glue set 79.42032fil
+....\glue(\leftskip) 0.0 plus 1.0fil
+....\hbox(0.0+0.0)x0.0
+....\hbox(81.806+73.77513)x258.2769
+.....\mathon
+.....\vbox(81.806+73.77513)x258.2769
+......\hbox(21.78127+9.33496)x258.2769
+.......\glue(\tabskip) 0.0
+.......\hbox(21.78127+9.33496)x96.36
+........\rule(21.78127+9.33496)x0.0
+........\glue 0.00002
+........\TU/FandolHei(0)/m/n/16.06 作
+........\glue 0.0 plus 1.37729
+........\TU/FandolHei(0)/m/n/16.06 者
+........\glue 0.0 plus 1.37729
+........\TU/FandolHei(0)/m/n/16.06 姓
+........\glue 0.0 plus 1.37729
+........\TU/FandolHei(0)/m/n/16.06 名
+........\penalty 10000
+........\TU/FandolHei(0)/m/n/16.06 ：
+........\rule(0.0+0.0)x-11.37048
+........\kern 0.00069
+........\kern -0.00069
+........\kern -0.99649
+........\kern 0.99649
+........\glue 11.37048 minus 8.03
+........\glue 0.0 plus 1.0fil
+........\glue 16.06
+.......\glue(\tabskip) 0.0
+.......\hbox(21.78127+9.33496)x161.9169, glue set 113.7369fil
+........\glue 0.00002
+........\TU/FandolSong(0)/m/n/16.06 李
+........\glue 0.0 plus 1.37729
+........\TU/FandolSong(0)/m/n/16.06 泽
+........\glue 0.0 plus 1.37729
+........\TU/FandolSong(0)/m/n/16.06 平
+........\kern -0.00017
+........\kern 0.00017
+........\glue 0.0 plus 1.0fil
+.......\glue(\tabskip) 0.0
+......\glue(\lineskip) 0.0
+......\hbox(21.78127+9.33496)x258.2769
+.......\glue(\tabskip) 0.0
+.......\hbox(21.78127+9.33496)x96.36
+........\rule(21.78127+9.33496)x0.0
+........\glue 0.00002
+........\TU/FandolHei(0)/m/n/16.06 类
+........\glue 0.0 plus 1.37729
+........\TU/FandolHei(0)/m/n/16.06 别
+........\glue 0.0 plus 1.37729
+........\TU/FandolHei(0)/m/n/16.06 领
+........\glue 0.0 plus 1.37729
+........\TU/FandolHei(0)/m/n/16.06 域
+........\penalty 10000
+........\TU/FandolHei(0)/m/n/16.06 ：
+........\rule(0.0+0.0)x-11.37048
+........\kern 0.00069
+........\kern -0.00069
+........\kern -0.99649
+........\kern 0.99649
+........\glue 11.37048 minus 8.03
+........\glue 0.0 plus 1.0fil
+........\glue 16.06
+.......\glue(\tabskip) 0.0
+.......\hbox(21.78127+9.33496)x161.9169, glue set 49.4969fil
+........\glue 0.00002
+........\TU/FandolSong(0)/m/n/16.06 数
+........\glue 0.0 plus 1.37729
+........\TU/FandolSong(0)/m/n/16.06 学
+........\glue 0.0 plus 1.37729
+........\TU/FandolSong(0)/m/n/16.06 与
+........\glue 0.0 plus 1.37729
+........\TU/FandolSong(0)/m/n/16.06 应
+........\glue 0.0 plus 1.37729
+........\TU/FandolSong(0)/m/n/16.06 用
+........\glue 0.0 plus 1.37729
+........\TU/FandolSong(0)/m/n/16.06 数
+........\glue 0.0 plus 1.37729
+........\TU/FandolSong(0)/m/n/16.06 学
+........\kern -0.00017
+........\kern 0.00017
+........\glue 0.0 plus 1.0fil
+.......\glue(\tabskip) 0.0
+......\glue(\lineskip) 0.0
+......\hbox(21.78127+9.33496)x258.2769
+.......\glue(\tabskip) 0.0
+.......\hbox(21.78127+9.33496)x96.36
+........\rule(21.78127+9.33496)x0.0
+........\glue 0.00002
+........\TU/FandolHei(0)/m/n/16.06 校
+........\glue 0.0 plus 1.37729
+........\TU/FandolHei(0)/m/n/16.06 内
+........\glue 0.0 plus 1.37729
+........\TU/FandolHei(0)/m/n/16.06 导
+........\glue 0.0 plus 1.37729
+........\TU/FandolHei(0)/m/n/16.06 师
+........\penalty 10000
+........\TU/FandolHei(0)/m/n/16.06 ：
+........\rule(0.0+0.0)x-11.37048
+........\kern 0.00069
+........\kern -0.00069
+........\kern -0.99649
+........\kern 0.99649
+........\glue 11.37048 minus 8.03
+........\glue 0.0 plus 1.0fil
+........\glue 16.06
+.......\glue(\tabskip) 0.0
+.......\hbox(21.78127+9.33496)x161.9169
+........\glue 0.00002
+........\TU/texgyretermes(0)/m/n/16.06 XXX
+........\kern -0.0002
+........\kern 0.0002
+........\penalty 10000
+........\glue 4.015 plus 2.00749 minus 1.33833
+........\TU/FandolSong(0)/m/n/16.06 教
+........\glue 0.0 plus 1.37729
+........\TU/FandolSong(0)/m/n/16.06 授
+........\kern -0.00017
+........\kern 0.00017
+........\glue 16.06
+........\glue 4.015 plus 2.00749 minus 1.33833
+........\TU/texgyretermes(0)/m/n/16.06 XXX
+........\kern -0.0002
+........\kern 0.0002
+........\penalty 10000
+........\glue 4.015 plus 2.00749 minus 1.33833
+........\TU/FandolSong(0)/m/n/16.06 教
+........\glue 0.0 plus 1.37729
+........\TU/FandolSong(0)/m/n/16.06 授
+........\kern -0.00018
+........\kern 0.00018
+........\glue 0.0 plus 1.0fil
+.......\glue(\tabskip) 0.0
+......\glue(\lineskip) 0.0
+......\hbox(21.78127+9.33496)x258.2769
+.......\glue(\tabskip) 0.0
+.......\hbox(21.78127+9.33496)x96.36
+........\rule(21.78127+9.33496)x0.0
+........\glue 0.00002
+........\TU/FandolHei(0)/m/n/16.06 实
+........\glue 0.0 plus 1.37729
+........\TU/FandolHei(0)/m/n/16.06 践
+........\glue 0.0 plus 1.37729
+........\TU/FandolHei(0)/m/n/16.06 导
+........\glue 0.0 plus 1.37729
+........\TU/FandolHei(0)/m/n/16.06 师
+........\penalty 10000
+........\TU/FandolHei(0)/m/n/16.06 ：
+........\rule(0.0+0.0)x-11.37048
+........\kern 0.00069
+........\kern -0.00069
+........\kern -0.99649
+........\kern 0.99649
+........\glue 11.37048 minus 8.03
+........\glue 0.0 plus 1.0fil
+........\glue 16.06
+.......\glue(\tabskip) 0.0
+.......\hbox(21.78127+9.33496)x161.9169
+........\glue 0.00002
+........\TU/texgyretermes(0)/m/n/16.06 XXX
+........\kern -0.0002
+........\kern 0.0002
+........\penalty 10000
+........\glue 4.015 plus 2.00749 minus 1.33833
+........\TU/FandolSong(0)/m/n/16.06 教
+........\glue 0.0 plus 1.37729
+........\TU/FandolSong(0)/m/n/16.06 授
+........\kern -0.00017
+........\kern 0.00017
+........\glue 16.06
+........\glue 4.015 plus 2.00749 minus 1.33833
+........\TU/texgyretermes(0)/m/n/16.06 XXX
+........\kern -0.0002
+........\kern 0.0002
+........\penalty 10000
+........\glue 4.015 plus 2.00749 minus 1.33833
+........\TU/FandolSong(0)/m/n/16.06 教
+........\glue 0.0 plus 1.37729
+........\TU/FandolSong(0)/m/n/16.06 授
+........\kern -0.00018
+........\kern 0.00018
+........\glue 0.0 plus 1.0fil
+.......\glue(\tabskip) 0.0
+......\glue(\lineskip) 0.0
+......\hbox(21.78127+9.33496)x258.2769
+.......\glue(\tabskip) 0.0
+.......\hbox(21.78127+9.33496)x96.36
+........\rule(21.78127+9.33496)x0.0
+........\glue 0.00002
+........\TU/FandolHei(0)/m/n/16.06 完
+........\glue 0.0 plus 1.37729
+........\TU/FandolHei(0)/m/n/16.06 成
+........\glue 0.0 plus 1.37729
+........\TU/FandolHei(0)/m/n/16.06 时
+........\glue 0.0 plus 1.37729
+........\TU/FandolHei(0)/m/n/16.06 间
+........\penalty 10000
+........\TU/FandolHei(0)/m/n/16.06 ：
+........\rule(0.0+0.0)x-11.37048
+........\kern 0.00069
+........\kern -0.00069
+........\kern -0.99649
+........\kern 0.99649
+........\glue 11.37048 minus 8.03
+........\glue 0.0 plus 1.0fil
+........\glue 16.06
+.......\glue(\tabskip) 0.0
+.......\hbox(21.78127+9.33496)x161.9169, glue set 17.3769fil
+........\glue 0.00002
+........\TU/FandolSong(0)/m/n/16.06 二
+........\glue 0.0 plus 1.37729
+........\TU/FandolSong(0)/m/n/16.06 〇
+........\glue 0.0 plus 1.37729
+........\TU/FandolSong(0)/m/n/16.06 一
+........\glue 0.0 plus 1.37729
+........\TU/FandolSong(0)/m/n/16.06 七
+........\glue 0.0 plus 1.37729
+........\TU/FandolSong(0)/m/n/16.06 年
+........\glue 0.0 plus 1.37729
+........\TU/FandolSong(0)/m/n/16.06 五
+........\glue 0.0 plus 1.37729
+........\TU/FandolSong(0)/m/n/16.06 月
+........\glue 0.0 plus 1.37729
+........\TU/FandolSong(0)/m/n/16.06 一
+........\glue 0.0 plus 1.37729
+........\TU/FandolSong(0)/m/n/16.06 日
+........\kern -0.00017
+........\kern 0.00017
+........\glue 0.0 plus 1.0fil
+.......\glue(\tabskip) 0.0
+.....\mathoff
+....\penalty 10000
+....\glue(\parfillskip) 0.0
+....\glue(\rightskip) 0.0 plus 1.0fil
+...\glue -6.0
+...\glue 0.0 plus 1.0fil
+...\glue 0.0
+...\glue 0.0 plus 0.0001fil
+..\glue(\baselineskip) 22.47748
+..\hbox(0.0+0.0)x417.11752
+...\special{color push  Black}
+...\hbox(0.0+0.0)x417.11752
+...\special{color pop}
+Completed box being shipped out [2]
+\vbox(722.98453+0.0)x435.04271
+.\glue -16.36447
+.\vbox(739.349+0.0)x417.11752, shifted 17.92519
+..\vbox(15.36429+0.0)x417.11752, glue set 15.36429fil
+...\glue 0.0 plus 1.0fil
+...\hbox(0.0+0.0)x417.11752
+....\special{color push  Black}
+....\hbox(0.0+0.0)x417.11752
+....\special{color pop}
+..\glue 1.0
+..\glue(\lineskip) 0.0
+..\vbox(700.50723+0.0)x0.0, glue set 688.4337fil
+...\write-{}
+...\glue(\topskip) 12.0
+...\hbox(0.0+0.0)x0.0
+...\glue 0.0 plus 1.0fil
+...\glue 0.0
+...\glue 0.0 plus 0.0001fil
+..\glue(\baselineskip) 22.47748
+..\hbox(0.0+0.0)x417.11752
+...\special{color push  Black}
+...\hbox(0.0+0.0)x417.11752
+...\special{color pop}
+File: figures/ustc-badge.pdf Graphic file (type pdf)
+<use figures/ustc-badge.pdf>
+Completed box being shipped out [3]
+\vbox(722.98453+0.0)x435.04271
+.\glue -16.36447
+.\vbox(739.349+0.0)x417.11752, shifted 17.92519
+..\vbox(15.36429+0.0)x417.11752, glue set 15.36429fil
+...\glue 0.0 plus 1.0fil
+...\hbox(0.0+0.0)x417.11752
+....\special{color push  Black}
+....\hbox(0.0+0.0)x417.11752
+....\special{color pop}
+..\glue 1.0
+..\glue(\lineskip) 0.0
+..\vbox(700.50723+0.0)x417.11752, glue set 51.62737fil
+...\glue(\topskip) 12.0
+...\hbox(0.0+11.38092)x417.11752, glue set 208.55876fil
+....\glue(\leftskip) 0.0 plus 1.0fil
+....\hbox(0.0+0.0)x0.0
+....\vbox(0.0+11.38092)x0.0, glue set 11.38092fil
+.....\hbox(0.0+0.0)x0.0
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+....\penalty 10000
+....\glue(\parfillskip) 0.0
+....\glue(\rightskip) 0.0 plus 1.0fil
+...\glue 14.22636
+...\glue(\parskip) 0.0
+...\glue(\parskip) 0.0
+...\glue(\baselineskip) 5.02034
+...\hbox(13.71123+4.37633)x417.11752, glue set 18.41841fil
+....\glue(\leftskip) 0.0 plus 1.0fil
+....\hbox(0.0+0.0)x0.0
+....\TU/texgyretermes(0)/m/n/20.075 University
+....\glue 5.01875 plus 2.50937 minus 1.67291
+....\TU/texgyretermes(0)/m/n/20.075 of
+....\glue 5.01875 plus 2.50937 minus 1.67291
+....\TU/texgyretermes(0)/m/n/20.075 Science
+....\glue 5.01875 plus 2.50937 minus 1.67291
+....\TU/texgyretermes(0)/m/n/20.075 and
+....\glue 5.01875 plus 2.50937 minus 1.67291
+....\TU/texgyretermes(0)/m/n/20.075 Technology
+....\glue 5.01875 plus 2.50937 minus 1.67291
+....\TU/texgyretermes(0)/m/n/20.075 of
+....\glue 5.01875 plus 2.50937 minus 1.67291
+....\TU/texgyretermes(0)/m/n/20.075 China
+....\kern -0.0002
+....\kern 0.0002
+....\penalty 10000
+....\glue(\parfillskip) 0.0
+....\glue(\rightskip) 0.0 plus 1.0fil
+...\glue(\baselineskip) 25.73616
+...\hbox(0.0+0.0)x0.0
+...\glue(\parskip) 0.0
+...\glue(\parskip) 0.0
+...\glue(\baselineskip) 12.2879
+...\hbox(17.82458+5.68924)x417.11752, glue set 32.83133fil
+....\glue(\leftskip) 0.0 plus 1.0fil
+....\hbox(0.0+0.0)x0.0
+....\TU/texgyretermes(0)/m/n/26.09749 A
+....\glue 6.52437 plus 3.25891 minus 2.17696
+....\TU/texgyretermes(0)/m/n/26.09749 dissertation
+....\glue 6.52437 plus 3.26218 minus 2.17479
+....\TU/texgyretermes(0)/m/n/26.09749 for
+....\glue 6.52437 plus 3.26218 minus 2.17479
+....\TU/texgyretermes(0)/m/n/26.09749 master’s
+....\glue 6.52437 plus 3.26218 minus 2.17479
+....\TU/texgyretermes(0)/m/n/26.09749 degree
+....\kern -0.0002
+....\kern 0.0002
+....\penalty 10000
+....\glue(\parfillskip) 0.0
+....\glue(\rightskip) 0.0 plus 1.0fil
+...\glue(\parskip) 0.0
+...\glue(\parskip) 0.0
+...\glue(\baselineskip) 15.46178
+...\hbox(10.96898+3.50107)x417.11752, glue set 124.47664fil
+....\glue(\leftskip) 0.0 plus 1.0fil
+....\hbox(0.0+0.0)x0.0
+....\TU/texgyretermes(0)/m/n/16.06 (Engineering
+....\glue 4.015 plus 2.00749 minus 1.33833
+....\TU/texgyretermes(0)/m/n/16.06 degree
+....\glue 4.015 plus 2.00749 minus 1.33833
+....\TU/texgyretermes(0)/m/n/16.06 type)
+....\penalty 10000
+....\glue(\parfillskip) 0.0
+....\glue(\rightskip) 0.0 plus 1.0fil
+...\glue 71.13188
+...\glue(\parskip) 0.0
+...\glue(\parskip) 0.0
+...\glue(\lineskip) 1.0
+...\hbox(128.0374+0.0)x417.11752, glue set 144.54114fil
+....\glue(\leftskip) 0.0 plus 1.0fil
+....\hbox(0.0+0.0)x0.0
+....\special{color push cmyk 1 0.8 0 0}
+....\hbox(128.0374+0.0)x128.03526
+.....\hbox(128.03558+0.0)x128.03558
+......\hbox(128.03558+0.0)x128.03558
+.......\hbox(128.03558+0.0)x0.0
+........\special{pdf:btrans}
+........\special{x:scale 0.3205 0.3205}
+........\hbox(399.4925+0.0)x0.0, glue set - 399.4925fil
+.........\hbox(399.4925+0.0)x399.4925
+..........\XeTeXpdffile ".../ustc-badge.pdf"
+.........\glue 0.0 plus 1.0fil minus 1.0fil
+........\special{pdf:etrans}
+.......\kern 128.03558
+.......\glue 0.0 plus 1.0fil minus 1.0fil
+....\special{color pop}
+....\penalty 10000
+....\glue(\parfillskip) 0.0
+....\glue(\rightskip) 0.0 plus 1.0fil
+...\glue 14.22636
+...\glue(\parskip) 0.0
+...\glue(\parskip) 0.0
+...\glue(\baselineskip) 20.075
+...\hbox(0.0+71.13188)x417.11752
+....\glue(\leftskip) 0.0 plus 1.0fil
+....\hbox(0.0+0.0)x0.0
+....\vbox(0.0+71.13188)x417.11752, glue set - 7.12553fil
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+.....\hbox(19.44263+5.68924)x417.11752, glue set 0.24861fil
+......\glue(\leftskip) 0.0 plus 1.0fil
+......\hbox(0.0+0.0)x0.0
+......\TU/texgyreheros(0)/b/n/26.09749 An
+......\glue 7.2551 plus 3.62755 minus 2.41837
+......\TU/texgyreheros(0)/b/n/26.09749 example
+......\glue 7.2551 plus 3.62755 minus 2.41837
+......\TU/texgyreheros(0)/b/n/26.09749 of
+......\glue 7.2551 plus 3.62755 minus 2.41837
+......\TU/texgyreheros(0)/b/n/26.09749 thesis
+......\glue 7.2551 plus 3.62755 minus 2.41837
+......\TU/texgyreheros(0)/b/n/26.09749 template
+......\glue 7.2551 plus 3.62755 minus 2.41837
+......\TU/texgyreheros(0)/b/n/26.09749 for
+......\glue(\rightskip) 0.0 plus 1.0fil
+.....\penalty 150
+.....\glue(\baselineskip) 4.98062
+.....\hbox(19.44263+5.71533)x417.11752, glue set 49.80774fil
+......\glue(\leftskip) 0.0 plus 1.0fil
+......\TU/texgyreheros(0)/b/n/26.09749 University
+......\glue 7.2551 plus 3.62755 minus 2.41837
+......\TU/texgyreheros(0)/b/n/26.09749 of
+......\glue 7.2551 plus 3.62755 minus 2.41837
+......\TU/texgyreheros(0)/b/n/26.09749 Science
+......\glue 7.2551 plus 3.62755 minus 2.41837
+......\TU/texgyreheros(0)/b/n/26.09749 and
+......\glue(\rightskip) 0.0 plus 1.0fil
+.....\penalty 150
+.....\glue(\baselineskip) 4.95453
+.....\hbox(19.44263+5.71533)x417.11752, glue set 80.4201fil
+......\glue(\leftskip) 0.0 plus 1.0fil
+......\TU/texgyreheros(0)/b/n/26.09749 Technology
+......\glue 7.2551 plus 3.62755 minus 2.41837
+......\TU/texgyreheros(0)/b/n/26.09749 of
+......\glue 7.2551 plus 3.62755 minus 2.41837
+......\TU/texgyreheros(0)/b/n/26.09749 China
+......\kern -0.0002
+......\kern 0.0002
+......\penalty 10000
+......\glue(\parfillskip) 0.0
+......\glue(\rightskip) 0.0 plus 1.0fil
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+....\penalty 10000
+....\glue(\parfillskip) 0.0
+....\glue(\rightskip) 0.0 plus 1.0fil
+...\glue 45.52458
+...\glue(\parskip) 0.0
+...\glue(\parskip) 0.0
+...\glue(\lineskip) 1.0
+...\hbox(79.29662+71.26575)x417.11752, glue set 45.27408fil
+....\glue(\leftskip) 0.0 plus 1.0fil
+....\hbox(0.0+0.0)x0.0
+....\hbox(79.29662+71.26575)x326.56937
+.....\mathon
+.....\vbox(79.29662+71.26575)x326.56937
+......\hbox(21.07864+9.03383)x326.56937
+.......\glue(\tabskip) 0.0
+.......\hbox(21.07864+9.03383)x326.56937, glue set 207.94485fil
+........\rule(21.07864+9.03383)x0.0
+........\glue 0.00002
+........\TU/texgyretermes(0)/m/n/16.06 Author:
+........\glue 5.35333 plus 4.01498 minus 0.66916
+........\TU/texgyretermes(0)/m/n/16.06 Li
+........\glue 4.015 plus 2.00749 minus 1.33833
+........\TU/texgyretermes(0)/m/n/16.06 Zeping
+........\kern -0.0002
+........\kern 0.0002
+........\glue 0.0 plus 1.0fil
+.......\glue(\tabskip) 0.0
+......\glue(\lineskip) 0.0
+......\hbox(21.07864+9.03383)x326.56937
+.......\glue(\tabskip) 0.0
+.......\hbox(21.07864+9.03383)x326.56937
+........\rule(21.07864+9.03383)x0.0
+........\glue 0.00002
+........\TU/texgyretermes(0)/m/n/16.06 Speciality:
+........\glue 5.35333 plus 4.01498 minus 0.66916
+........\TU/texgyretermes(0)/m/n/16.06 Mathematics
+........\glue 4.015 plus 2.00749 minus 1.33833
+........\TU/texgyretermes(0)/m/n/16.06 and
+........\glue 4.015 plus 2.00749 minus 1.33833
+........\TU/texgyretermes(0)/m/n/16.06 Applied
+........\glue 4.015 plus 2.00749 minus 1.33833
+........\TU/texgyretermes(0)/m/n/16.06 Mathematics
+........\kern -0.0002
+........\kern 0.0002
+........\glue 0.0 plus 1.0fil
+.......\glue(\tabskip) 0.0
+......\glue(\lineskip) 0.0
+......\hbox(21.07864+9.03383)x326.56937
+.......\glue(\tabskip) 0.0
+.......\hbox(21.07864+9.03383)x326.56937, glue set 87.6073fil
+........\rule(21.07864+9.03383)x0.0
+........\glue 0.00002
+........\TU/texgyretermes(0)/m/n/16.06 Supervisors:
+........\glue 5.35333 plus 4.01498 minus 0.66916
+........\TU/texgyretermes(0)/m/n/16.06 Prof.
+........\kern -0.0002
+........\kern 0.0002
+........\penalty 10000
+........\glue 4.015 plus 2.00749 minus 1.33833
+........\TU/texgyretermes(0)/m/n/16.06 XXX,
+........\glue 4.015 plus 2.00749 minus 1.33833
+........\glue 4.015 plus 2.00749 minus 1.33833
+........\TU/texgyretermes(0)/m/n/16.06 Prof.
+........\kern -0.0002
+........\kern 0.0002
+........\penalty 10000
+........\glue 4.015 plus 2.00749 minus 1.33833
+........\TU/texgyretermes(0)/m/n/16.06 XXX
+........\kern -0.0002
+........\kern 0.0002
+........\glue 0.0 plus 1.0fil
+.......\glue(\tabskip) 0.0
+......\glue(\lineskip) 0.0
+......\hbox(21.07864+9.03383)x326.56937
+.......\glue(\tabskip) 0.0
+.......\hbox(21.07864+9.03383)x326.56937, glue set 40.79239fil
+........\rule(21.07864+9.03383)x0.0
+........\glue 0.00002
+........\TU/texgyretermes(0)/m/n/16.06 Practice
+........\glue 4.015 plus 2.00749 minus 1.33833
+........\TU/texgyretermes(0)/m/n/16.06 supervisor:
+........\glue 5.35333 plus 4.01498 minus 0.66916
+........\TU/texgyretermes(0)/m/n/16.06 Prof.
+........\kern -0.0002
+........\kern 0.0002
+........\penalty 10000
+........\glue 4.015 plus 2.00749 minus 1.33833
+........\TU/texgyretermes(0)/m/n/16.06 XXX,
+........\glue 4.015 plus 2.00749 minus 1.33833
+........\glue 4.015 plus 2.00749 minus 1.33833
+........\TU/texgyretermes(0)/m/n/16.06 Prof.
+........\kern -0.0002
+........\kern 0.0002
+........\penalty 10000
+........\glue 4.015 plus 2.00749 minus 1.33833
+........\TU/texgyretermes(0)/m/n/16.06 XXX
+........\kern -0.0002
+........\kern 0.0002
+........\glue 0.0 plus 1.0fil
+.......\glue(\tabskip) 0.0
+......\glue(\lineskip) 0.0
+......\hbox(21.07864+9.03383)x326.56937
+.......\glue(\tabskip) 0.0
+.......\hbox(21.07864+9.03383)x326.56937, glue set 128.97784fil
+........\rule(21.07864+9.03383)x0.0
+........\glue 0.00002
+........\TU/texgyretermes(0)/m/n/16.06 Completion
+........\glue 4.015 plus 2.00749 minus 1.33833
+........\TU/texgyretermes(0)/m/n/16.06 date:
+........\glue 5.35333 plus 4.01498 minus 0.66916
+........\TU/texgyretermes(0)/m/n/16.06 May
+........\glue 4.015 plus 2.00749 minus 1.33833
+........\TU/texgyretermes(0)/m/n/16.06 1,
+........\glue 4.015 plus 2.50935 minus 1.07066
+........\TU/texgyretermes(0)/m/n/16.06 2017
+........\kern -0.0002
+........\kern 0.0002
+........\glue 0.0 plus 1.0fil
+.......\glue(\tabskip) 0.0
+.....\mathoff
+....\penalty 10000
+....\glue(\parfillskip) 0.0
+....\glue(\rightskip) 0.0 plus 1.0fil
+...\glue -6.0
+...\glue 0.0 plus 1.0fil
+...\glue 0.0
+...\glue 0.0 plus 0.0001fil
+..\glue(\baselineskip) 22.47748
+..\hbox(0.0+0.0)x417.11752
+...\special{color push  Black}
+...\hbox(0.0+0.0)x417.11752
+...\special{color pop}
+Completed box being shipped out [4]
+\vbox(722.98453+0.0)x435.04271
+.\glue -16.36447
+.\vbox(739.349+0.0)x417.11752, shifted 17.92519
+..\vbox(15.36429+0.0)x417.11752, glue set 15.36429fil
+...\glue 0.0 plus 1.0fil
+...\hbox(0.0+0.0)x417.11752
+....\special{color push  Black}
+....\hbox(0.0+0.0)x417.11752
+....\special{color pop}
+..\glue 1.0
+..\glue(\lineskip) 0.0
+..\vbox(700.50723+0.0)x0.0, glue set 688.4337fil
+...\write-{}
+...\glue(\topskip) 12.0
+...\hbox(0.0+0.0)x0.0
+...\glue 0.0 plus 1.0fil
+...\glue 0.0
+...\glue 0.0 plus 0.0001fil
+..\glue(\baselineskip) 22.47748
+..\hbox(0.0+0.0)x417.11752
+...\special{color push  Black}
+...\hbox(0.0+0.0)x417.11752
+...\special{color pop}
+(titlepage-master-engineering.aux)
