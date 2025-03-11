@@ -2122,7 +2122,6 @@
 % 重新定义 \cs{maketitle}，调用 \cs{ustc@makezhtitle}, \cs{ustc@makeentitle}
 % 分别生成中、英文封面。
 \renewcommand\maketitle{%
-  \newgeometry{margin=2.54cm}%
   \pagenumbering{Alph}%
   \pagestyle{empty}%
   \ustc@title@pagetrue
