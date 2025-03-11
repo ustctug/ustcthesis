@@ -348,6 +348,13 @@
     },
     default = false,
   },
+  eqn-paren-style = {
+    name = eqn@paren@style,
+    choices = {
+      full,
+      half,
+    }
+  },
 }
 
 % 将 \ustc@cite@style 置空方便后续进行判断。
@@ -2884,6 +2891,25 @@
 \patchcmd{\@getpen}{\@M}{\@Mi}
   {}{\ustc@patch@error{\@getpen}}
 
+
+% \subsection{表达式}
+
+% 修改 `amsmath` 的 `\tagform@`
+% \def\tagform@#1{\maketag@@@{(\ignorespaces#1\unskip\@@italiccorr)}}
+\def\tagform@#1{%
+  \ifustc@language@chinese
+    \ifustc@eqn@paren@style@full
+      % 这里的 `\unskip` 是为了 `式~\eqref` 不产生额外的空格。
+      \unskip
+      % \kern 0pt 防止中文左括号与前面文字的距离过窄
+      \maketag@@@{\kern 0pt\relax （\ignorespaces#1\unskip\@@italiccorr）}%
+    \else
+      \maketag@@@{(\ignorespaces#1\unskip\@@italiccorr)}%
+    \fi
+  \else
+    \maketag@@@{(\ignorespaces#1\unskip\@@italiccorr)}%
+  \fi
+}
 
 % \subsection{参考文献}
 

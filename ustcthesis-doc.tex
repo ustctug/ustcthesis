@@ -319,6 +319,14 @@ Windows 用户可能无法使用GNU make，使用 |latexmk| 也是一个比较�
   \documentclass[section-style=arabic]{ustcthesis}
 \end{latex}
 
+\DescribeOption{eqn-paren-style}
+数学公式的编号（\cs{eqref}）使用全角括号或半角括号，该选项仅在 \opt{langugage = chinese}
+时有效。 可选：
+\begin{itemize}
+  \item \opt{full} 全角括号（中文默认）
+  \item \opt{half} 半角括号
+\end{itemize}
+
 
 \subsection{字体设置}
 模板默认会自动根据操作系统配置合适的字体，

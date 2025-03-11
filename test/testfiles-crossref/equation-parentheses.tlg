@@ -1,0 +1,365 @@
+This is a generated file for the l3build validation system.
+Don't change this file in any respect.
+============================================================
+TEST 1: Chinese fullwidth equation parentheses
+============================================================
+============================================================
+============================================================
+TEST 2: Chinese halfwidth equation parentheses
+============================================================
+============================================================
+============================================================
+TEST 3: English equation parentheses
+============================================================
+============================================================
+Completed box being shipped out [1]
+\vbox(722.98453+3.61353)x435.04271
+.\glue -16.36447
+.\vbox(739.349+3.61353)x417.11752, shifted 17.92519
+..\vbox(15.36429+0.0)x417.11752, glue set 3.3193fil
+...\glue 0.0 plus 1.0fil
+...\hbox(12.04498+0.0)x417.11752
+....\special{color push  Black}
+....\hbox(12.04498+0.0)x417.11752
+.....\hbox(12.04498+0.0)x417.11752
+......\vbox(12.04498+0.0)x417.11752
+.......\hbox(8.43146+3.61353)x417.11752
+........\hbox(0.0+0.0)x0.0, glue set - 417.11752fil
+.........\vbox(0.0+0.0)x417.11752
+..........\hbox(0.0+0.0)x417.11752, glue set 208.55876fil
+...........\hbox(0.0+0.0)x0.0
+...........\penalty 10000
+...........\glue(\parfillskip) 0.0 plus 1.0fil
+...........\glue(\rightskip) 0.0 plus 1.0fil
+.........\glue 0.0 plus 1.0fil minus 1.0fil
+........\glue 0.0 plus 1.0fill
+........\vbox(8.43146+3.61353)x417.11752
+.........\hbox(8.43146+3.61353)x417.11752, glue set 208.55876fil
+..........\glue(\leftskip) 0.0 plus 1.0fil
+..........\hbox(0.0+0.0)x0.0
+..........\rule(8.43146+3.61353)x0.0
+..........\penalty 10000
+..........\glue(\parfillskip) 0.0
+..........\glue(\rightskip) 0.0 plus 1.0fil
+........\glue 0.0 plus 1.0fill
+........\hbox(0.0+0.0)x0.0, glue set - 417.11752fil
+.........\glue 0.0 plus 1.0fil minus 1.0fil
+.........\vbox(0.0+0.0)x417.11752
+..........\hbox(0.0+0.0)x417.11752, glue set 417.11752fil
+...........\glue(\leftskip) 0.0 plus 1.0fil
+...........\hbox(0.0+0.0)x0.0
+...........\penalty 10000
+...........\glue(\parfillskip) 0.0
+...........\glue(\rightskip) 0.0
+.......\glue 0.0
+.......\rule(0.4+0.0)x417.11752
+.......\glue -0.4
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+....\special{color pop}
+..\glue 1.0
+..\glue(\lineskip) 0.0
+..\vbox(700.50723+0.0)x417.11752, glue set 507.77803fil
+...\write-{}
+...\glue(\topskip) 2.364
+...\hbox(9.636+2.40898)x417.11752, glue set 373.56282fil
+....\hbox(0.0+0.0)x0.0
+....\TU/FandolSong(0)/m/n/12.045 式
+....\glue 0.0 plus 0.61353
+....\glue 7.63654 minus 6.0225
+....\rule(0.0+0.0)x-7.63654
+....\TU/FandolSong(0)/m/n/12.045 （
+....\penalty 10000
+....\glue 0.0
+....\TU/texgyretermes(0)/m/n/12.045 3.1
+....\penalty 10000
+....\TU/FandolSong(0)/m/n/12.045 ）
+....\rule(0.0+0.0)x-7.63654
+....\kern 0.00047
+....\kern -0.00047
+....\kern -0.99623
+....\kern 0.99623
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\glue(\parskip) 0.0
+...\glue(\parskip) 0.0
+...\glue(\baselineskip) 8.03001
+...\hbox(9.636+2.40898)x417.11752, glue set 365.92628fil
+....\hbox(0.0+0.0)x0.0
+....\TU/FandolSong(0)/m/n/12.045 式
+....\kern -0.00017
+....\kern 0.00017
+....\penalty 10000
+....\hbox(9.636+2.40898)x39.14624
+.....\kern 0.0
+.....\glue 7.63654 minus 6.0225
+.....\rule(0.0+0.0)x-7.63654
+.....\TU/FandolSong(0)/m/n/12.045 （
+.....\kern 0.00009
+.....\kern -0.00009
+.....\kern -0.99622
+.....\kern 0.99622
+.....\penalty 10000
+.....\glue 0.0
+.....\TU/texgyretermes(0)/m/n/12.045 3.1
+.....\kern -0.0002
+.....\kern 0.0002
+.....\hbox(0.0+0.0)x0.0
+.....\penalty 10000
+.....\TU/FandolSong(0)/m/n/12.045 ）
+.....\rule(0.0+0.0)x-7.63654
+.....\kern 0.00047
+.....\kern -0.00047
+.....\kern -0.99623
+.....\kern 0.99623
+.....\glue 7.63654 minus 6.0225
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\glue(\parskip) 0.0
+...\glue(\parskip) 0.0
+...\glue(\baselineskip) 8.03001
+...\hbox(9.636+2.40898)x417.11752, glue set 365.92628fil
+....\hbox(0.0+0.0)x0.0
+....\TU/FandolSong(0)/m/n/12.045 式
+....\kern -0.00018
+....\kern 0.00018
+....\hbox(9.636+2.40898)x39.14624
+.....\kern 0.0
+.....\glue 7.63654 minus 6.0225
+.....\rule(0.0+0.0)x-7.63654
+.....\TU/FandolSong(0)/m/n/12.045 （
+.....\kern 0.00009
+.....\kern -0.00009
+.....\kern -0.99622
+.....\kern 0.99622
+.....\penalty 10000
+.....\glue 0.0
+.....\TU/texgyretermes(0)/m/n/12.045 3.1
+.....\kern -0.0002
+.....\kern 0.0002
+.....\hbox(0.0+0.0)x0.0
+.....\penalty 10000
+.....\TU/FandolSong(0)/m/n/12.045 ）
+.....\rule(0.0+0.0)x-7.63654
+.....\kern 0.00047
+.....\kern -0.00047
+.....\kern -0.99623
+.....\kern 0.99623
+.....\glue 7.63654 minus 6.0225
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\glue(\parskip) 0.0
+...\glue(\parskip) 0.0
+...\glue(\baselineskip) 8.03001
+...\hbox(9.636+2.40898)x417.11752, glue set 365.92628fil
+....\hbox(0.0+0.0)x0.0
+....\TU/FandolSong(0)/m/n/12.045 式
+....\kern 0.0
+....\kern -0.00017
+....\kern 0.00017
+....\hbox(9.636+2.40898)x39.14624
+.....\kern 0.0
+.....\glue 7.63654 minus 6.0225
+.....\rule(0.0+0.0)x-7.63654
+.....\TU/FandolSong(0)/m/n/12.045 （
+.....\kern 0.00009
+.....\kern -0.00009
+.....\kern -0.99622
+.....\kern 0.99622
+.....\penalty 10000
+.....\glue 0.0
+.....\TU/texgyretermes(0)/m/n/12.045 3.1
+.....\kern -0.0002
+.....\kern 0.0002
+.....\hbox(0.0+0.0)x0.0
+.....\penalty 10000
+.....\TU/FandolSong(0)/m/n/12.045 ）
+.....\rule(0.0+0.0)x-7.63654
+.....\kern 0.00047
+.....\kern -0.00047
+.....\kern -0.99623
+.....\kern 0.99623
+.....\glue 7.63654 minus 6.0225
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\glue(\parskip) 0.0
+...\glue(\parskip) 0.0
+...\glue(\baselineskip) 8.36728
+...\hbox(9.29874+2.13194)x417.11752, glue set 378.98306fil
+....\hbox(0.0+0.0)x0.0
+....\TU/FandolSong(0)/m/n/12.045 式
+....\kern -0.00017
+....\kern 0.00017
+....\penalty 10000
+....\glue 3.01125 plus 1.50562 minus 1.00374
+....\hbox(8.14243+2.13194)x23.07822
+.....\TU/texgyretermes(0)/m/n/12.045 (3.1
+.....\kern -0.0002
+.....\kern 0.0002
+.....\hbox(0.0+0.0)x0.0
+.....\TU/texgyretermes(0)/m/n/12.045 )
+.....\kern -0.0002
+.....\kern 0.0002
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\glue(\parskip) 0.0
+...\glue(\parskip) 0.0
+...\glue(\baselineskip) 8.64432
+...\hbox(9.29874+2.13194)x417.11752, glue set 378.98306fil
+....\hbox(0.0+0.0)x0.0
+....\TU/FandolSong(0)/m/n/12.045 式
+....\kern -0.00018
+....\kern 0.00018
+....\glue 3.01125 plus 1.50562 minus 1.00374
+....\hbox(8.14243+2.13194)x23.07822
+.....\TU/texgyretermes(0)/m/n/12.045 (3.1
+.....\kern -0.0002
+.....\kern 0.0002
+.....\hbox(0.0+0.0)x0.0
+.....\TU/texgyretermes(0)/m/n/12.045 )
+.....\kern -0.0002
+.....\kern 0.0002
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\glue(\parskip) 0.0
+...\glue(\parskip) 0.0
+...\glue(\baselineskip) 8.64432
+...\hbox(9.29874+2.13194)x417.11752, glue set 381.99431fil
+....\hbox(0.0+0.0)x0.0
+....\TU/FandolSong(0)/m/n/12.045 式
+....\kern 0.0
+....\kern -0.00017
+....\kern 0.00017
+....\hbox(8.14243+2.13194)x23.07822
+.....\TU/texgyretermes(0)/m/n/12.045 (3.1
+.....\kern -0.0002
+.....\kern 0.0002
+.....\hbox(0.0+0.0)x0.0
+.....\TU/texgyretermes(0)/m/n/12.045 )
+.....\kern -0.0002
+.....\kern 0.0002
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\glue(\parskip) 0.0
+...\glue(\parskip) 0.0
+...\glue(\baselineskip) 9.80063
+...\hbox(8.14243+2.61375)x417.11752, glue set 349.66554fil
+....\hbox(0.0+0.0)x0.0
+....\TU/texgyretermes(0)/m/n/12.045 equation
+....\kern -0.0002
+....\kern 0.0002
+....\penalty 10000
+....\glue 3.01125 plus 1.50562 minus 1.00374
+....\hbox(8.14243+2.13194)x23.07822
+.....\TU/texgyretermes(0)/m/n/12.045 (3.1
+.....\kern -0.0002
+.....\kern 0.0002
+.....\hbox(0.0+0.0)x0.0
+.....\TU/texgyretermes(0)/m/n/12.045 )
+.....\kern -0.0002
+.....\kern 0.0002
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\glue(\parskip) 0.0
+...\glue(\parskip) 0.0
+...\glue(\baselineskip) 9.31882
+...\hbox(8.14243+2.61375)x417.11752, glue set 349.66554fil
+....\hbox(0.0+0.0)x0.0
+....\TU/texgyretermes(0)/m/n/12.045 equation
+....\kern 0.0
+....\glue 3.01125 plus 1.50562 minus 1.00374
+....\hbox(8.14243+2.13194)x23.07822
+.....\TU/texgyretermes(0)/m/n/12.045 (3.1
+.....\kern -0.0002
+.....\kern 0.0002
+.....\hbox(0.0+0.0)x0.0
+.....\TU/texgyretermes(0)/m/n/12.045 )
+.....\kern -0.0002
+.....\kern 0.0002
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\glue(\parskip) 0.0
+...\glue(\parskip) 0.0
+...\glue(\baselineskip) 9.31882
+...\hbox(8.14243+2.61375)x417.11752, glue set 352.67679fil
+....\hbox(0.0+0.0)x0.0
+....\TU/texgyretermes(0)/m/n/12.045 equation
+....\kern 0.0
+....\kern -0.0002
+....\kern 0.0002
+....\hbox(8.14243+2.13194)x23.07822
+.....\TU/texgyretermes(0)/m/n/12.045 (3.1
+.....\kern -0.0002
+.....\kern 0.0002
+.....\hbox(0.0+0.0)x0.0
+.....\TU/texgyretermes(0)/m/n/12.045 )
+.....\kern -0.0002
+.....\kern 0.0002
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\glue -2.61375
+...\glue 0.0 plus 1.0fil
+...\glue 0.0
+...\glue 0.0 plus 0.0001fil
+..\glue(\baselineskip) 8.02347
+..\hbox(14.45401+3.61353)x417.11752
+...\special{color push  Black}
+...\hbox(14.45401+3.61353)x417.11752
+....\hbox(14.45401+3.61353)x417.11752
+.....\vbox(14.45401+3.61353)x417.11752
+......\rule(0.0+0.0)x417.11752
+......\glue 6.02255
+......\hbox(8.43146+3.61353)x417.11752
+.......\hbox(0.0+0.0)x0.0, glue set - 417.11752fil
+........\vbox(0.0+0.0)x417.11752
+.........\hbox(0.0+0.0)x417.11752, glue set 208.55876fil
+..........\hbox(0.0+0.0)x0.0
+..........\penalty 10000
+..........\glue(\parfillskip) 0.0 plus 1.0fil
+..........\glue(\rightskip) 0.0 plus 1.0fil
+........\glue 0.0 plus 1.0fil minus 1.0fil
+.......\glue 0.0 plus 1.0fill
+.......\vbox(8.43146+3.61353)x417.11752
+........\hbox(8.43146+3.61353)x417.11752, glue set 205.92392fil
+.........\glue(\leftskip) 0.0 plus 1.0fil
+.........\hbox(0.0+0.0)x0.0
+.........\TU/texgyretermes(0)/m/n/10.53937 1
+.........\kern -0.0002
+.........\kern 0.0002
+.........\rule(8.43146+3.61353)x0.0
+.........\penalty 10000
+.........\glue(\parfillskip) 0.0
+.........\glue(\rightskip) 0.0 plus 1.0fil
+.......\glue 0.0 plus 1.0fill
+.......\hbox(0.0+0.0)x0.0, glue set - 417.11752fil
+........\glue 0.0 plus 1.0fil minus 1.0fil
+........\vbox(0.0+0.0)x417.11752
+.........\hbox(0.0+0.0)x417.11752, glue set 417.11752fil
+..........\glue(\leftskip) 0.0 plus 1.0fil
+..........\hbox(0.0+0.0)x0.0
+..........\penalty 10000
+..........\glue(\parfillskip) 0.0
+..........\glue(\rightskip) 0.0
+....\glue 0.0 plus 1.0fil minus 1.0fil
+...\special{color pop}
+LaTeX Font Info:    Font shape `TU/XITSMath-Regular(2)/m/n' will be
+(Font)              scaled to size 12.04628pt on input line ....
+LaTeX Font Info:    Font shape `TU/XITSMath-Regular(2)/m/n' will be
+(Font)              scaled to size 9.03471pt on input line ....
+LaTeX Font Info:    Font shape `TU/XITSMath-Regular(2)/m/n' will be
+(Font)              scaled to size 7.22777pt on input line ....
+LaTeX Font Info:    Font shape `TU/XITSMath-Regular(3)/m/n' will be
+(Font)              scaled to size 12.0437pt on input line ....
+LaTeX Font Info:    Font shape `TU/XITSMath-Regular(3)/m/n' will be
+(Font)              scaled to size 9.03278pt on input line ....
+LaTeX Font Info:    Font shape `TU/XITSMath-Regular(3)/m/n' will be
+(Font)              scaled to size 7.22623pt on input line ....

@@ -1,0 +1,48 @@
+\input{regression-test.tex}
+\documentclass[degree=doctor,fontset=fandol]{ustcthesis}
+
+\setlength{\parindent}{0pt}
+
+\begin{document}
+\START
+\showoutput
+
+式（3.1）\par
+
+\setcounter{chapter}{3}
+
+\TEST{Chinese fullwidth equation parentheses}{
+  式~\eqref{eq:example}\par
+  式 \eqref{eq:example}\par
+  式\eqref{eq:example}\par
+}
+
+\ustcsetup{eqn-paren-style = half}
+
+\TEST{Chinese halfwidth equation parentheses}{
+  式~\eqref{eq:example}\par
+  式 \eqref{eq:example}\par
+  式\eqref{eq:example}\par
+}
+
+\ustcsetup{eqn-paren-style = full}
+
+\ustcsetup{language = english}
+
+\TEST{English equation parentheses}{
+  equation~\eqref{eq:example}\par
+  equation \eqref{eq:example}\par
+  equation\eqref{eq:example}\par
+}
+
+\clearpage
+
+\begin{equation}
+  y = f(x)
+  \label{eq:example}
+\end{equation}
+
+\OMIT
+
+\end{document}
+\END
