@@ -41,7 +41,7 @@ Completed box being shipped out [1]
 ....\special{color pop}
 ..\glue 1.0
 ..\glue(\lineskip) 0.0
-..\vbox(700.50723+0.0)x417.11752, glue set 27.09766fil
+..\vbox(700.50723+0.0)x417.11752, glue set 38.04564fil
 ...\write-{}
 ...\write-{}
 ...\glue(\topskip) 12.0
@@ -105,34 +105,8 @@ Completed box being shipped out [1]
 ....\glue(\parfillskip) 0.0
 ....\glue(\rightskip) 0.0 plus 1.0fil
 ...\glue 22.76228
-...\glue(\parskip) 0.0
-...\glue(\parskip) 0.0
-...\glue(\lineskip) 1.0
-...\hbox(20.87799+5.21948)x417.11752, glue set 120.45364fil
-....\glue(\leftskip) 0.0 plus 1.0fil
-....\hbox(0.0+0.0)x0.0
-....\rule(0.0+0.0)x-16.28484
-....\TU/FandolHei(0)/m/n/26.09749 （工
-....\glue 0.0 plus 3.98097
-....\TU/FandolHei(0)/m/n/26.09749 程
-....\glue 0.0 plus 3.98097
-....\TU/FandolHei(0)/m/n/26.09749 学
-....\glue 0.0 plus 3.98097
-....\TU/FandolHei(0)/m/n/26.09749 位
-....\glue 0.0 plus 3.98097
-....\TU/FandolHei(0)/m/n/26.09749 类
-....\glue 0.0 plus 3.98097
-....\TU/FandolHei(0)/m/n/26.09749 型
-....\penalty 10000
-....\TU/FandolHei(0)/m/n/26.09749 ）
-....\rule(0.0+0.0)x-16.28484
-....\kern 0.00099
-....\kern -0.00099
-....\kern -0.99623
-....\kern 0.99623
-....\penalty 10000
-....\glue(\parfillskip) 0.0
-....\glue(\rightskip) 0.0 plus 1.0fil
+...\glue(\baselineskip) 16.14833
+...\hbox(0.0+0.0)x0.0
 ...\glue 28.45274
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
@@ -510,7 +484,7 @@ Completed box being shipped out [3]
 ....\special{color pop}
 ..\glue 1.0
 ..\glue(\lineskip) 0.0
-..\vbox(700.50723+0.0)x417.11752, glue set 51.62737fil
+..\vbox(700.50723+0.0)x417.11752, glue set 55.12805fil
 ...\glue(\topskip) 12.0
 ...\hbox(0.0+11.38092)x417.11752, glue set 208.55876fil
 ....\glue(\leftskip) 0.0 plus 1.0fil
@@ -568,20 +542,8 @@ Completed box being shipped out [3]
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0
 ....\glue(\rightskip) 0.0 plus 1.0fil
-...\glue(\parskip) 0.0
-...\glue(\parskip) 0.0
-...\glue(\baselineskip) 15.46178
-...\hbox(10.96898+3.50107)x417.11752, glue set 124.47664fil
-....\glue(\leftskip) 0.0 plus 1.0fil
-....\hbox(0.0+0.0)x0.0
-....\TU/texgyretermes(0)/m/n/16.06 (Engineering
-....\glue 4.015 plus 2.00749 minus 1.33833
-....\TU/texgyretermes(0)/m/n/16.06 degree
-....\glue 4.015 plus 2.00749 minus 1.33833
-....\TU/texgyretermes(0)/m/n/16.06 type)
-....\penalty 10000
-....\glue(\parfillskip) 0.0
-....\glue(\rightskip) 0.0 plus 1.0fil
+...\glue(\baselineskip) 26.43076
+...\hbox(0.0+0.0)x0.0
 ...\glue 71.13188
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0

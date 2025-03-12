@@ -1864,17 +1864,19 @@
       \fi
     \fi
   \fi
-  \ifustc@cjk@font@mac
+  \IfFontExistsTF{LiSu}{
+    \setCJKfamilyfont{zhli}{LiSu}
     \providecommand\lishu{\CJKfamily{zhli}}
-  \else
-    \ifustc@cjk@font@windows
-      \setCJKfamilyfont{zhli}{LiSu}
+  }{
+    \ifustc@cjk@font@mac
       \providecommand\lishu{\CJKfamily{zhli}}
     \else
-      \ustc@warning{LiShu font is required}
-      \providecommand\lishu{\sffamily}
+      \providecommand\lishu{%
+        \ustc@warning{Font LiSu is not available}%
+        \sffamily
+      }
     \fi
-  \fi
+  }
 \fi
 
 % 定义校徽颜色
