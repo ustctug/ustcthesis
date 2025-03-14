@@ -21,6 +21,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 
 - 修正复数 Practice supervisors 的拼写（[#431](https://github.com/ustctug/ustcthesis/pull/431)）。
+- 修正英文摘要的缩进为 1 em（[#434](https://github.com/ustctug/ustcthesis/pull/434)）。
 
 ### Removed
 
