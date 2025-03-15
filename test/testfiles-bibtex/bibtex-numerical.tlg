@@ -1,17 +1,25 @@
 This is a generated file for the l3build validation system.
 Don't change this file in any respect.
+LaTeX Font Info:    Font shape `TU/XITSMath-Regular(1)/m/n' will be
+(Font)              scaled to size 9.03375pt on input line ....
+LaTeX Font Info:    Font shape `TU/XITSMath-Regular(1)/m/n' will be
+(Font)              scaled to size 7.227pt on input line ....
 LaTeX Font Info:    Font shape `TU/XITSMath-Regular(2)/m/n' will be
-(Font)              scaled to size 12.04628pt on input line ....
+(Font)              scaled to size 12.0461pt on input line ....
 LaTeX Font Info:    Font shape `TU/XITSMath-Regular(2)/m/n' will be
-(Font)              scaled to size 9.03471pt on input line ....
+(Font)              scaled to size 9.03458pt on input line ....
 LaTeX Font Info:    Font shape `TU/XITSMath-Regular(2)/m/n' will be
-(Font)              scaled to size 7.22777pt on input line ....
+(Font)              scaled to size 7.22766pt on input line ....
 LaTeX Font Info:    Font shape `TU/XITSMath-Regular(3)/m/n' will be
 (Font)              scaled to size 12.0437pt on input line ....
 LaTeX Font Info:    Font shape `TU/XITSMath-Regular(3)/m/n' will be
 (Font)              scaled to size 9.03278pt on input line ....
 LaTeX Font Info:    Font shape `TU/XITSMath-Regular(3)/m/n' will be
 (Font)              scaled to size 7.22623pt on input line ....
+LaTeX Font Info:    Font shape `TU/STIXTwoMath-Regular(0)/m/n' will be
+(Font)              scaled to size 8.59444pt on input line ....
+LaTeX Font Info:    Font shape `TU/STIXTwoMath-Regular(0)/m/n' will be
+(Font)              scaled to size 6.87555pt on input line ....
 Completed box being shipped out [1]
 \vbox(722.98453+0.0)x435.04271
 .\glue -16.36447
@@ -26,8 +34,8 @@ Completed box being shipped out [1]
 ..\glue(\lineskip) 0.0
 ..\vbox(700.50723+0.0)x417.11752, glue set 407.41376fil
 ...\write-{}
-...\glue(\topskip) 1.07468
-...\hbox(10.92532+2.144)x417.11752, glue set 294.67918fil
+...\glue(\topskip) 1.07475
+...\hbox(10.92525+2.144)x417.11752, glue set 294.67918fil
 ....\hbox(0.0+0.0)x24.09
 ....\TU/FandolSong(0)/m/n/12.045 引
 ....\glue 0.0 plus 0.61353
@@ -42,20 +50,20 @@ Completed box being shipped out [1]
 ....\kern 0.00017
 ....\penalty 10000
 ....\mathon
-....\hbox(5.98035+1.40926)x4.50824, shifted -4.81851
+....\hbox(5.98035+1.40926)x4.50824, shifted -4.81844
 .....\kern 1.0
 .....\TU/texgyretermes(0)/m/n/9.03375 [
 ....\mathoff
 ....\penalty 10000
 ....\mathon
-....\hbox(6.10681+0.0)x5.01688, shifted -4.81851
+....\hbox(6.10681+0.0)x5.01688, shifted -4.81844
 .....\TU/texgyretermes(0)/m/n/9.03375 1
 .....\kern -0.0002
 .....\kern 0.0002
 ....\mathoff
 ....\penalty 10000
 ....\mathon
-....\hbox(5.98035+1.40926)x3.50824, shifted -4.81851
+....\hbox(5.98035+1.40926)x3.50824, shifted -4.81844
 .....\TU/texgyretermes(0)/m/n/9.03375 ]
 .....\kern -0.0002
 .....\kern 0.0002
@@ -71,8 +79,8 @@ Completed box being shipped out [1]
 ....\glue(\rightskip) 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
-...\glue(\baselineskip) 7.00568
-...\hbox(10.92532+2.144)x417.11752, glue set 285.14543fil
+...\glue(\baselineskip) 7.00575
+...\hbox(10.92525+2.144)x417.11752, glue set 285.14543fil
 ....\hbox(0.0+0.0)x24.09
 ....\TU/FandolSong(0)/m/n/12.045 引
 ....\glue 0.0 plus 0.61353
@@ -87,26 +95,26 @@ Completed box being shipped out [1]
 ....\kern 0.00017
 ....\penalty 10000
 ....\mathon
-....\hbox(5.98035+1.40926)x4.50824, shifted -4.81851
+....\hbox(5.98035+1.40926)x4.50824, shifted -4.81844
 .....\kern 1.0
 .....\TU/texgyretermes(0)/m/n/9.03375 [
 ....\mathoff
 ....\penalty 10000
 ....\mathon
-....\hbox(6.10681+0.0)x5.01688, shifted -4.81851
+....\hbox(6.10681+0.0)x5.01688, shifted -4.81844
 .....\TU/texgyretermes(0)/m/n/9.03375 1
 .....\kern -0.0002
 .....\kern 0.0002
 ....\mathoff
 ....\penalty 10000
 ....\mathon
-....\hbox(5.98035+1.40926)x3.50824, shifted -4.81851
+....\hbox(5.98035+1.40926)x3.50824, shifted -4.81844
 .....\TU/texgyretermes(0)/m/n/9.03375 ]
 .....\kern -0.0002
 .....\kern 0.0002
 ....\mathoff
 ....\mathon
-....\hbox(6.10681+0.0)x9.53375, shifted -4.81851
+....\hbox(6.10681+0.0)x9.53375, shifted -4.81844
 .....\TU/texgyretermes(0)/m/n/9.03375 42
 .....\kern -0.0002
 .....\kern 0.0002
@@ -122,8 +130,8 @@ Completed box being shipped out [1]
 ....\glue(\rightskip) 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
-...\glue(\baselineskip) 7.00568
-...\hbox(10.92532+2.144)x417.11752, glue set 331.81418fil
+...\glue(\baselineskip) 7.00575
+...\hbox(10.92525+2.144)x417.11752, glue set 331.81418fil
 ....\hbox(0.0+0.0)x24.09
 ....\TU/FandolSong(0)/m/n/12.045 引
 ....\glue 0.0 plus 0.61353
@@ -132,7 +140,7 @@ Completed box being shipped out [1]
 ....\kern 0.00017
 ....\kern 1.0
 ....\mathon
-....\hbox(6.10681+1.40926)x11.03336, shifted -4.81851
+....\hbox(6.10681+1.40926)x11.03336, shifted -4.81844
 .....\TU/texgyretermes(0)/m/n/9.03375 [
 .....\hbox(6.10681+0.0)x4.51688
 ......\TU/texgyretermes(0)/m/n/9.03375 2
@@ -153,8 +161,8 @@ Completed box being shipped out [1]
 ....\glue(\rightskip) 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
-...\glue(\baselineskip) 7.00568
-...\hbox(10.92532+2.144)x417.11752, glue set 322.78043fil
+...\glue(\baselineskip) 7.00575
+...\hbox(10.92525+2.144)x417.11752, glue set 322.78043fil
 ....\hbox(0.0+0.0)x24.09
 ....\TU/FandolSong(0)/m/n/12.045 引
 ....\glue 0.0 plus 0.61353
@@ -163,7 +171,7 @@ Completed box being shipped out [1]
 ....\kern 0.00017
 ....\kern 1.0
 ....\mathon
-....\hbox(6.10681+1.40926)x20.06711, shifted -4.81851
+....\hbox(6.10681+1.40926)x20.06711, shifted -4.81844
 .....\TU/texgyretermes(0)/m/n/9.03375 [
 .....\hbox(6.10681+0.0)x4.51688
 ......\TU/texgyretermes(0)/m/n/9.03375 2
@@ -184,8 +192,8 @@ Completed box being shipped out [1]
 ....\glue(\rightskip) 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
-...\glue(\baselineskip) 7.00568
-...\hbox(10.92532+2.144)x417.11752, glue set 319.76918fil
+...\glue(\baselineskip) 7.00575
+...\hbox(10.92525+2.144)x417.11752, glue set 319.76918fil
 ....\hbox(0.0+0.0)x24.09
 ....\TU/FandolSong(0)/m/n/12.045 引
 ....\glue 0.0 plus 0.61353
@@ -196,7 +204,7 @@ Completed box being shipped out [1]
 ....\kern 0.00017
 ....\kern 1.0
 ....\mathon
-....\hbox(6.10681+1.40926)x11.03336, shifted -4.81851
+....\hbox(6.10681+1.40926)x11.03336, shifted -4.81844
 .....\TU/texgyretermes(0)/m/n/9.03375 [
 .....\hbox(6.10681+0.12646)x4.51688
 ......\TU/texgyretermes(0)/m/n/9.03375 3
@@ -217,8 +225,8 @@ Completed box being shipped out [1]
 ....\glue(\rightskip) 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
-...\glue(\baselineskip) 7.00568
-...\hbox(10.92532+2.144)x417.11752, glue set 310.73543fil
+...\glue(\baselineskip) 7.00575
+...\hbox(10.92525+2.144)x417.11752, glue set 310.73543fil
 ....\hbox(0.0+0.0)x24.09
 ....\TU/FandolSong(0)/m/n/12.045 引
 ....\glue 0.0 plus 0.61353
@@ -229,7 +237,7 @@ Completed box being shipped out [1]
 ....\kern 0.00017
 ....\kern 1.0
 ....\mathon
-....\hbox(6.10681+1.40926)x20.06711, shifted -4.81851
+....\hbox(6.10681+1.40926)x20.06711, shifted -4.81844
 .....\TU/texgyretermes(0)/m/n/9.03375 [
 .....\hbox(6.10681+0.12646)x4.51688
 ......\TU/texgyretermes(0)/m/n/9.03375 3
@@ -250,8 +258,8 @@ Completed box being shipped out [1]
 ....\glue(\rightskip) 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
-...\glue(\baselineskip) 7.00568
-...\hbox(10.92532+0.16861)x417.11752, glue set 245.86082fil
+...\glue(\baselineskip) 7.00575
+...\hbox(10.92525+0.16861)x417.11752, glue set 245.86082fil
 ....\hbox(0.0+0.0)x24.09
 ....\TU/texgyretermes(0)/m/n/12.045 Citation
 ....\glue 3.01125 plus 1.50562 minus 1.00374
@@ -267,20 +275,20 @@ Completed box being shipped out [1]
 ....\kern 0.0002
 ....\penalty 10000
 ....\mathon
-....\hbox(5.98035+1.40926)x4.50824, shifted -4.81851
+....\hbox(5.98035+1.40926)x4.50824, shifted -4.81844
 .....\kern 1.0
 .....\TU/texgyretermes(0)/m/n/9.03375 [
 ....\mathoff
 ....\penalty 10000
 ....\mathon
-....\hbox(6.10681+0.0)x5.01688, shifted -4.81851
+....\hbox(6.10681+0.0)x5.01688, shifted -4.81844
 .....\TU/texgyretermes(0)/m/n/9.03375 4
 .....\kern -0.0002
 .....\kern 0.0002
 ....\mathoff
 ....\penalty 10000
 ....\mathon
-....\hbox(5.98035+1.40926)x3.50824, shifted -4.81851
+....\hbox(5.98035+1.40926)x3.50824, shifted -4.81844
 .....\TU/texgyretermes(0)/m/n/9.03375 ]
 .....\kern -0.0002
 .....\kern 0.0002
@@ -295,8 +303,8 @@ Completed box being shipped out [1]
 ....\glue(\rightskip) 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
-...\glue(\baselineskip) 8.98106
-...\hbox(10.92532+0.16861)x417.11752, glue set 236.32707fil
+...\glue(\baselineskip) 8.98114
+...\hbox(10.92525+0.16861)x417.11752, glue set 236.32707fil
 ....\hbox(0.0+0.0)x24.09
 ....\TU/texgyretermes(0)/m/n/12.045 Citation
 ....\glue 3.01125 plus 1.50562 minus 1.00374
@@ -312,26 +320,26 @@ Completed box being shipped out [1]
 ....\kern 0.0002
 ....\penalty 10000
 ....\mathon
-....\hbox(5.98035+1.40926)x4.50824, shifted -4.81851
+....\hbox(5.98035+1.40926)x4.50824, shifted -4.81844
 .....\kern 1.0
 .....\TU/texgyretermes(0)/m/n/9.03375 [
 ....\mathoff
 ....\penalty 10000
 ....\mathon
-....\hbox(6.10681+0.0)x5.01688, shifted -4.81851
+....\hbox(6.10681+0.0)x5.01688, shifted -4.81844
 .....\TU/texgyretermes(0)/m/n/9.03375 4
 .....\kern -0.0002
 .....\kern 0.0002
 ....\mathoff
 ....\penalty 10000
 ....\mathon
-....\hbox(5.98035+1.40926)x3.50824, shifted -4.81851
+....\hbox(5.98035+1.40926)x3.50824, shifted -4.81844
 .....\TU/texgyretermes(0)/m/n/9.03375 ]
 .....\kern -0.0002
 .....\kern 0.0002
 ....\mathoff
 ....\mathon
-....\hbox(6.10681+0.0)x9.53375, shifted -4.81851
+....\hbox(6.10681+0.0)x9.53375, shifted -4.81844
 .....\TU/texgyretermes(0)/m/n/9.03375 42
 .....\kern -0.0002
 .....\kern 0.0002
@@ -346,15 +354,15 @@ Completed box being shipped out [1]
 ....\glue(\rightskip) 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
-...\glue(\baselineskip) 8.98106
-...\hbox(10.92532+0.16861)x417.11752, glue set 321.61206fil
+...\glue(\baselineskip) 8.98114
+...\hbox(10.92525+0.16861)x417.11752, glue set 321.61206fil
 ....\hbox(0.0+0.0)x24.09
 ....\TU/texgyretermes(0)/m/n/12.045 Citation
 ....\kern -0.0002
 ....\kern 0.0002
 ....\kern 1.0
 ....\mathon
-....\hbox(6.10681+1.40926)x11.03336, shifted -4.81851
+....\hbox(6.10681+1.40926)x11.03336, shifted -4.81844
 .....\TU/texgyretermes(0)/m/n/9.03375 [
 .....\hbox(6.10681+0.0)x4.51688
 ......\TU/texgyretermes(0)/m/n/9.03375 4
@@ -374,15 +382,15 @@ Completed box being shipped out [1]
 ....\glue(\rightskip) 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
-...\glue(\baselineskip) 8.98106
-...\hbox(10.92532+0.16861)x417.11752, glue set 312.57831fil
+...\glue(\baselineskip) 8.98114
+...\hbox(10.92525+0.16861)x417.11752, glue set 312.57831fil
 ....\hbox(0.0+0.0)x24.09
 ....\TU/texgyretermes(0)/m/n/12.045 Citation
 ....\kern -0.0002
 ....\kern 0.0002
 ....\kern 1.0
 ....\mathon
-....\hbox(6.10681+1.40926)x20.06711, shifted -4.81851
+....\hbox(6.10681+1.40926)x20.06711, shifted -4.81844
 .....\TU/texgyretermes(0)/m/n/9.03375 [
 .....\hbox(6.10681+0.0)x4.51688
 ......\TU/texgyretermes(0)/m/n/9.03375 4
@@ -402,8 +410,8 @@ Completed box being shipped out [1]
 ....\glue(\rightskip) 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
-...\glue(\baselineskip) 8.87265
-...\hbox(11.03374+0.16861)x417.11752, glue set 303.21935fil
+...\glue(\baselineskip) 8.87273
+...\hbox(11.03366+0.16861)x417.11752, glue set 303.21935fil
 ....\hbox(0.0+0.0)x24.09
 ....\TU/texgyretermes(0)/m/n/12.045 Citation
 ....\glue 3.01125 plus 1.50562 minus 1.00374
@@ -412,7 +420,7 @@ Completed box being shipped out [1]
 ....\kern 0.0002
 ....\kern 1.0
 ....\mathon
-....\hbox(6.21523+1.40926)x11.03336, shifted -4.81851
+....\hbox(6.21523+1.40926)x11.03336, shifted -4.81844
 .....\TU/texgyretermes(0)/m/n/9.03375 [
 .....\hbox(6.21523+0.12646)x4.51688
 ......\TU/texgyretermes(0)/m/n/9.03375 5
@@ -432,8 +440,8 @@ Completed box being shipped out [1]
 ....\glue(\rightskip) 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
-...\glue(\baselineskip) 8.87265
-...\hbox(11.03374+0.16861)x417.11752, glue set 294.1856fil
+...\glue(\baselineskip) 8.87273
+...\hbox(11.03366+0.16861)x417.11752, glue set 294.1856fil
 ....\hbox(0.0+0.0)x24.09
 ....\TU/texgyretermes(0)/m/n/12.045 Citation
 ....\glue 3.01125 plus 1.50562 minus 1.00374
@@ -442,7 +450,7 @@ Completed box being shipped out [1]
 ....\kern 0.0002
 ....\kern 1.0
 ....\mathon
-....\hbox(6.21523+1.40926)x20.06711, shifted -4.81851
+....\hbox(6.21523+1.40926)x20.06711, shifted -4.81844
 .....\TU/texgyretermes(0)/m/n/9.03375 [
 .....\hbox(6.21523+0.12646)x4.51688
 ......\TU/texgyretermes(0)/m/n/9.03375 5
@@ -462,8 +470,8 @@ Completed box being shipped out [1]
 ....\glue(\rightskip) 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
-...\glue(\baselineskip) 8.98106
-...\hbox(10.92532+2.144)x417.11752, glue set 331.81418fil
+...\glue(\baselineskip) 8.98114
+...\hbox(10.92525+2.144)x417.11752, glue set 331.81418fil
 ....\hbox(0.0+0.0)x24.09
 ....\TU/FandolSong(0)/m/n/12.045 引
 ....\glue 0.0 plus 0.61353
@@ -472,7 +480,7 @@ Completed box being shipped out [1]
 ....\kern 0.00017
 ....\kern 1.0
 ....\mathon
-....\hbox(6.10681+1.40926)x11.03336, shifted -4.81851
+....\hbox(6.10681+1.40926)x11.03336, shifted -4.81844
 .....\TU/texgyretermes(0)/m/n/9.03375 [
 .....\hbox(6.10681+0.0)x4.51688
 ......\TU/texgyretermes(0)/m/n/9.03375 1
@@ -493,8 +501,8 @@ Completed box being shipped out [1]
 ....\glue(\rightskip) 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
-...\glue(\baselineskip) 7.00568
-...\hbox(10.92532+2.144)x417.11752, glue set 324.28906fil
+...\glue(\baselineskip) 7.00575
+...\hbox(10.92525+2.144)x417.11752, glue set 324.28906fil
 ....\hbox(0.0+0.0)x24.09
 ....\TU/FandolSong(0)/m/n/12.045 引
 ....\glue 0.0 plus 0.61353
@@ -503,7 +511,7 @@ Completed box being shipped out [1]
 ....\kern 0.00017
 ....\kern 1.0
 ....\mathon
-....\hbox(6.10681+1.40926)x18.55847, shifted -4.81851
+....\hbox(6.10681+1.40926)x18.55847, shifted -4.81844
 .....\TU/texgyretermes(0)/m/n/9.03375 [
 .....\hbox(6.10681+0.0)x4.51688
 ......\TU/texgyretermes(0)/m/n/9.03375 2
@@ -532,8 +540,8 @@ Completed box being shipped out [1]
 ....\glue(\rightskip) 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
-...\glue(\baselineskip) 6.9334
-...\hbox(10.9976+2.144)x417.11752, glue set 324.28906fil
+...\glue(\baselineskip) 6.93347
+...\hbox(10.99753+2.144)x417.11752, glue set 324.28906fil
 ....\hbox(0.0+0.0)x24.09
 ....\TU/FandolSong(0)/m/n/12.045 引
 ....\glue 0.0 plus 0.61353
@@ -542,7 +550,7 @@ Completed box being shipped out [1]
 ....\kern 0.00017
 ....\kern 1.0
 ....\mathon
-....\hbox(6.1791+1.40926)x18.55847, shifted -4.81851
+....\hbox(6.1791+1.40926)x18.55847, shifted -4.81844
 .....\TU/texgyretermes(0)/m/n/9.03375 [
 .....\hbox(6.10681+0.0)x4.51688
 ......\TU/texgyretermes(0)/m/n/9.03375 4
