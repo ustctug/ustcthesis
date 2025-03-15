@@ -1,17 +1,25 @@
 This is a generated file for the l3build validation system.
 Don't change this file in any respect.
+LaTeX Font Info:    Font shape `TU/XITSMath-Regular(1)/m/n' will be
+(Font)              scaled to size 9.03375pt on input line ....
+LaTeX Font Info:    Font shape `TU/XITSMath-Regular(1)/m/n' will be
+(Font)              scaled to size 7.227pt on input line ....
 LaTeX Font Info:    Font shape `TU/XITSMath-Regular(2)/m/n' will be
-(Font)              scaled to size 12.04628pt on input line ....
+(Font)              scaled to size 12.0461pt on input line ....
 LaTeX Font Info:    Font shape `TU/XITSMath-Regular(2)/m/n' will be
-(Font)              scaled to size 9.03471pt on input line ....
+(Font)              scaled to size 9.03458pt on input line ....
 LaTeX Font Info:    Font shape `TU/XITSMath-Regular(2)/m/n' will be
-(Font)              scaled to size 7.22777pt on input line ....
+(Font)              scaled to size 7.22766pt on input line ....
 LaTeX Font Info:    Font shape `TU/XITSMath-Regular(3)/m/n' will be
 (Font)              scaled to size 12.0437pt on input line ....
 LaTeX Font Info:    Font shape `TU/XITSMath-Regular(3)/m/n' will be
 (Font)              scaled to size 9.03278pt on input line ....
 LaTeX Font Info:    Font shape `TU/XITSMath-Regular(3)/m/n' will be
 (Font)              scaled to size 7.22623pt on input line ....
+LaTeX Font Info:    Font shape `TU/STIXTwoMath-Regular(0)/m/n' will be
+(Font)              scaled to size 8.59444pt on input line ....
+LaTeX Font Info:    Font shape `TU/STIXTwoMath-Regular(0)/m/n' will be
+(Font)              scaled to size 6.87555pt on input line ....
 Completed box being shipped out [1]
 \vbox(722.98453+0.0)x435.04271
 .\glue -16.36447
@@ -42,7 +50,7 @@ Completed box being shipped out [1]
 ....\penalty 10000
 ....\glue 0.0
 ....\mathon
-....\hbox(0.0+0.0)x0.5, shifted -4.81851
+....\hbox(0.0+0.0)x0.5, shifted -4.81844
 ....\mathoff
 ....\kern 0.0
 ....\TU/FandolSong(0)/m/n/12.045 测
@@ -55,8 +63,8 @@ Completed box being shipped out [1]
 ....\glue(\rightskip) 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
-...\glue(\baselineskip) 7.00568
-...\hbox(10.92532+2.144)x417.11752, glue set 318.25807fil
+...\glue(\baselineskip) 7.00575
+...\hbox(10.92525+2.144)x417.11752, glue set 318.25807fil
 ....\hbox(0.0+0.0)x24.09
 ....\TU/FandolSong(0)/m/n/12.045 引
 ....\glue 0.0 plus 0.61353
@@ -71,7 +79,7 @@ Completed box being shipped out [1]
 ....\penalty 10000
 ....\glue 0.0
 ....\mathon
-....\hbox(6.10681+0.0)x9.53375, shifted -4.81851
+....\hbox(6.10681+0.0)x9.53375, shifted -4.81844
 .....\TU/texgyretermes(0)/m/n/9.03375 42
 .....\kern -0.0002
 .....\kern 0.0002
@@ -108,7 +116,7 @@ Completed box being shipped out [1]
 ....\penalty 10000
 ....\glue 0.0
 ....\mathon
-....\hbox(0.0+0.0)x0.5, shifted -4.81851
+....\hbox(0.0+0.0)x0.5, shifted -4.81844
 ....\mathoff
 ....\kern 0.0
 ....\TU/FandolSong(0)/m/n/12.045 测
@@ -121,8 +129,8 @@ Completed box being shipped out [1]
 ....\glue(\rightskip) 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
-...\glue(\baselineskip) 7.00568
-...\hbox(10.92532+2.144)x417.11752, glue set 303.20181fil
+...\glue(\baselineskip) 7.00575
+...\hbox(10.92525+2.144)x417.11752, glue set 303.20181fil
 ....\hbox(0.0+0.0)x24.09
 ....\TU/FandolSong(0)/m/n/12.045 引
 ....\glue 0.0 plus 0.61353
@@ -142,7 +150,7 @@ Completed box being shipped out [1]
 ....\penalty 10000
 ....\glue 0.0
 ....\mathon
-....\hbox(6.10681+0.0)x9.53375, shifted -4.81851
+....\hbox(6.10681+0.0)x9.53375, shifted -4.81844
 .....\TU/texgyretermes(0)/m/n/9.03375 42
 .....\kern -0.0002
 .....\kern 0.0002
@@ -172,7 +180,7 @@ Completed box being shipped out [1]
 ....\penalty 10000
 ....\glue 0.0
 ....\mathon
-....\hbox(0.0+0.0)x0.5, shifted -4.81851
+....\hbox(0.0+0.0)x0.5, shifted -4.81844
 ....\mathoff
 ....\kern 0.0
 ....\glue 3.01125 plus 1.50562 minus 1.00374
@@ -184,8 +192,8 @@ Completed box being shipped out [1]
 ....\glue(\rightskip) 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
-...\glue(\baselineskip) 7.27068
-...\hbox(10.92532+1.879)x417.11752, glue set 308.05595fil
+...\glue(\baselineskip) 7.27075
+...\hbox(10.92525+1.879)x417.11752, glue set 308.05595fil
 ....\hbox(0.0+0.0)x24.09
 ....\TU/texgyretermes(0)/m/n/12.045 Citation
 ....\glue 3.01125 plus 1.50562 minus 1.00374
@@ -198,7 +206,7 @@ Completed box being shipped out [1]
 ....\penalty 10000
 ....\glue 0.0
 ....\mathon
-....\hbox(6.10681+0.0)x9.53375, shifted -4.81851
+....\hbox(6.10681+0.0)x9.53375, shifted -4.81844
 .....\TU/texgyretermes(0)/m/n/9.03375 42
 .....\kern -0.0002
 .....\kern 0.0002
@@ -231,7 +239,7 @@ Completed box being shipped out [1]
 ....\penalty 10000
 ....\glue 0.0
 ....\mathon
-....\hbox(0.0+0.0)x0.5, shifted -4.81851
+....\hbox(0.0+0.0)x0.5, shifted -4.81844
 ....\mathoff
 ....\kern 0.0
 ....\glue 3.01125 plus 1.50562 minus 1.00374
@@ -243,8 +251,8 @@ Completed box being shipped out [1]
 ....\glue(\rightskip) 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
-...\glue(\baselineskip) 7.27068
-...\hbox(10.92532+1.879)x417.11752, glue set 289.66324fil
+...\glue(\baselineskip) 7.27075
+...\hbox(10.92525+1.879)x417.11752, glue set 289.66324fil
 ....\hbox(0.0+0.0)x24.09
 ....\TU/texgyretermes(0)/m/n/12.045 Citation
 ....\glue 3.01125 plus 1.50562 minus 1.00374
@@ -261,7 +269,7 @@ Completed box being shipped out [1]
 ....\penalty 10000
 ....\glue 0.0
 ....\mathon
-....\hbox(6.10681+0.0)x9.53375, shifted -4.81851
+....\hbox(6.10681+0.0)x9.53375, shifted -4.81844
 .....\TU/texgyretermes(0)/m/n/9.03375 42
 .....\kern -0.0002
 .....\kern 0.0002
@@ -292,7 +300,7 @@ Completed box being shipped out [1]
 ....\penalty 10000
 ....\glue 0.0
 ....\mathon
-....\hbox(0.0+0.0)x0.5, shifted -4.81851
+....\hbox(0.0+0.0)x0.5, shifted -4.81844
 ....\mathoff
 ....\kern 0.0
 ....\TU/FandolSong(0)/m/n/12.045 测
@@ -328,7 +336,7 @@ Completed box being shipped out [1]
 ....\penalty 10000
 ....\glue 0.0
 ....\mathon
-....\hbox(0.0+0.0)x0.5, shifted -4.81851
+....\hbox(0.0+0.0)x0.5, shifted -4.81844
 ....\mathoff
 ....\kern 0.0
 ....\TU/FandolSong(0)/m/n/12.045 测
@@ -364,7 +372,7 @@ Completed box being shipped out [1]
 ....\penalty 10000
 ....\glue 0.0
 ....\mathon
-....\hbox(0.0+0.0)x0.5, shifted -4.81851
+....\hbox(0.0+0.0)x0.5, shifted -4.81844
 ....\mathoff
 ....\kern 0.0
 ....\TU/FandolSong(0)/m/n/12.045 测

@@ -55,6 +55,7 @@ unicode-math
 #
 # Dependencies for fonts
 fandol
+stix2-otf
 tex-gyre
 xits
 #

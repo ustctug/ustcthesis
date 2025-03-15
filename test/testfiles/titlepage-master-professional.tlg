@@ -17,18 +17,30 @@ Package fontspec Info:
 (fontspec)             - 'bold' (b/n) with NFSS spec.: <->"[FandolHei-Bold.otf]/OT:language=dflt;"
 File: figures/ustc-badge.pdf Graphic file (type pdf)
 <use figures/ustc-badge.pdf>
+LaTeX Font Info:    Font shape `TU/XITSMath-Regular(1)/m/n' will be
+(Font)              scaled to size 16.06pt on input line ....
+LaTeX Font Info:    Font shape `TU/XITSMath-Regular(1)/m/n' will be
+(Font)              scaled to size 14.05249pt on input line ....
+LaTeX Font Info:    Font shape `TU/XITSMath-Regular(1)/m/n' will be
+(Font)              scaled to size 10.53937pt on input line ....
 LaTeX Font Info:    Font shape `TU/XITSMath-Regular(2)/m/n' will be
-(Font)              scaled to size 16.0617pt on input line ....
+(Font)              scaled to size 16.06146pt on input line ....
 LaTeX Font Info:    Font shape `TU/XITSMath-Regular(2)/m/n' will be
-(Font)              scaled to size 14.05399pt on input line ....
+(Font)              scaled to size 14.05377pt on input line ....
 LaTeX Font Info:    Font shape `TU/XITSMath-Regular(2)/m/n' will be
-(Font)              scaled to size 10.54048pt on input line ....
+(Font)              scaled to size 10.54033pt on input line ....
 LaTeX Font Info:    Font shape `TU/XITSMath-Regular(3)/m/n' will be
 (Font)              scaled to size 16.05827pt on input line ....
 LaTeX Font Info:    Font shape `TU/XITSMath-Regular(3)/m/n' will be
 (Font)              scaled to size 14.05098pt on input line ....
 LaTeX Font Info:    Font shape `TU/XITSMath-Regular(3)/m/n' will be
 (Font)              scaled to size 10.53824pt on input line ....
+LaTeX Font Info:    Font shape `TU/STIXTwoMath-Regular(0)/m/n' will be
+(Font)              scaled to size 15.27899pt on input line ....
+LaTeX Font Info:    Font shape `TU/STIXTwoMath-Regular(0)/m/n' will be
+(Font)              scaled to size 13.36911pt on input line ....
+LaTeX Font Info:    Font shape `TU/STIXTwoMath-Regular(0)/m/n' will be
+(Font)              scaled to size 10.02684pt on input line ....
 Completed box being shipped out [1]
 \vbox(722.98453+0.0)x435.04271
 .\glue -16.36447
@@ -203,12 +215,12 @@ Completed box being shipped out [1]
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\lineskip) 1.0
-...\hbox(81.806+73.77513)x417.11752, glue set 79.42032fil
+...\hbox(81.80594+73.77519)x417.11752, glue set 79.42032fil
 ....\glue(\leftskip) 0.0 plus 1.0fil
 ....\hbox(0.0+0.0)x0.0
-....\hbox(81.806+73.77513)x258.2769
+....\hbox(81.80594+73.77519)x258.2769
 .....\mathon
-.....\vbox(81.806+73.77513)x258.2769
+.....\vbox(81.80594+73.77519)x258.2769
 ......\hbox(21.78127+9.33496)x258.2769
 .......\glue(\tabskip) 0.0
 .......\hbox(21.78127+9.33496)x96.36
@@ -627,12 +639,12 @@ Completed box being shipped out [3]
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\lineskip) 1.0
-...\hbox(79.29662+71.26575)x417.11752, glue set 45.27408fil
+...\hbox(79.29655+71.26581)x417.11752, glue set 45.27408fil
 ....\glue(\leftskip) 0.0 plus 1.0fil
 ....\hbox(0.0+0.0)x0.0
-....\hbox(79.29662+71.26575)x326.56937
+....\hbox(79.29655+71.26581)x326.56937
 .....\mathon
-.....\vbox(79.29662+71.26575)x326.56937
+.....\vbox(79.29655+71.26581)x326.56937
 ......\hbox(21.07864+9.03383)x326.56937
 .......\glue(\tabskip) 0.0
 .......\hbox(21.07864+9.03383)x326.56937, glue set 207.94485fil

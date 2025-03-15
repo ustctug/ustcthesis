@@ -1321,18 +1321,30 @@ Completed box being shipped out [2]
 Chapter 2
 File: figures/ustc-badge.pdf Graphic file (type pdf)
 <use figures/ustc-badge.pdf>
+LaTeX Font Info:    Font shape `TU/XITSMath-Regular(1)/m/n' will be
+(Font)              scaled to size 10.53937pt on input line ....
+LaTeX Font Info:    Font shape `TU/XITSMath-Regular(1)/m/n' will be
+(Font)              scaled to size 7.0pt on input line ....
+LaTeX Font Info:    Font shape `TU/XITSMath-Regular(1)/m/n' will be
+(Font)              scaled to size 5.0pt on input line ....
 LaTeX Font Info:    Font shape `TU/XITSMath-Regular(2)/m/n' will be
-(Font)              scaled to size 10.54048pt on input line ....
+(Font)              scaled to size 10.54033pt on input line ....
 LaTeX Font Info:    Font shape `TU/XITSMath-Regular(2)/m/n' will be
-(Font)              scaled to size 7.00075pt on input line ....
+(Font)              scaled to size 7.00064pt on input line ....
 LaTeX Font Info:    Font shape `TU/XITSMath-Regular(2)/m/n' will be
-(Font)              scaled to size 5.00053pt on input line ....
+(Font)              scaled to size 5.00046pt on input line ....
 LaTeX Font Info:    Font shape `TU/XITSMath-Regular(3)/m/n' will be
 (Font)              scaled to size 10.53824pt on input line ....
 LaTeX Font Info:    Font shape `TU/XITSMath-Regular(3)/m/n' will be
 (Font)              scaled to size 6.99925pt on input line ....
 LaTeX Font Info:    Font shape `TU/XITSMath-Regular(3)/m/n' will be
 (Font)              scaled to size 4.99947pt on input line ....
+LaTeX Font Info:    Font shape `TU/STIXTwoMath-Regular(0)/m/n' will be
+(Font)              scaled to size 10.02684pt on input line ....
+LaTeX Font Info:    Font shape `TU/STIXTwoMath-Regular(0)/m/n' will be
+(Font)              scaled to size 6.65959pt on input line ....
+LaTeX Font Info:    Font shape `TU/STIXTwoMath-Regular(0)/m/n' will be
+(Font)              scaled to size 4.75685pt on input line ....
 Completed box being shipped out [3]
 \vbox(722.98453+3.61353)x435.04271
 .\glue -16.36447
@@ -1763,11 +1775,11 @@ Completed box being shipped out [3]
 .....\glue(\parskip) 6.02249
 .....\glue(\parskip) 0.0
 .....\glue(\lineskip) 1.0
-.....\hbox(25.95872+20.68849)x417.11752
+.....\hbox(25.9587+20.68852)x417.11752
 ......\glue(\leftskip) 0.0 plus 1.0fil
 ......\hbox(0.0+0.0)x0.0
 ......\mathon
-......\vbox(25.95872+20.68849)x417.11752
+......\vbox(25.9587+20.68852)x417.11752
 .......\hbox(8.25232+2.03409)x417.11752, glue set - 0.19519
 ........\hbox(0.0+0.0)x0.0
 ........\TU/FandolSong(0)/m/n/10.53937 若
@@ -2356,12 +2368,12 @@ Completed box being shipped out [3]
 .....\write1{\newlabel{tab:exampletable}{{2.1}{\thepage }{}{table.2.1}{}}}
 .....\glue(\parskip) 0.0
 .....\glue(\parskip) 0.0
-.....\hbox(45.9518+40.68155)x417.11752, glue set 70.08633fil
+.....\hbox(45.95177+40.68158)x417.11752, glue set 70.08633fil
 ......\glue(\leftskip) 0.0 plus 1.0fil
 ......\hbox(0.0+0.0)x0.0
-......\hbox(45.9518+40.68155)x276.94485
+......\hbox(45.95177+40.68158)x276.94485
 .......\mathon
-.......\vbox(45.9518+40.68155)x276.94485
+.......\vbox(45.95177+40.68158)x276.94485
 ........\glue 0.0
 ........\rule(0.96361+0.0)x276.94485
 ........\glue 3.52312
@@ -2835,18 +2847,26 @@ Completed box being shipped out [3]
 ....\glue 0.0 plus 1.0fil minus 1.0fil
 ...\special{color pop}
 Chapter 3
+LaTeX Font Info:    Font shape `TU/XITSMath-Regular(1)/m/n' will be
+(Font)              scaled to size 9.03375pt on input line ....
+LaTeX Font Info:    Font shape `TU/XITSMath-Regular(1)/m/n' will be
+(Font)              scaled to size 7.227pt on input line ....
 LaTeX Font Info:    Font shape `TU/XITSMath-Regular(2)/m/n' will be
-(Font)              scaled to size 12.04628pt on input line ....
+(Font)              scaled to size 12.0461pt on input line ....
 LaTeX Font Info:    Font shape `TU/XITSMath-Regular(2)/m/n' will be
-(Font)              scaled to size 9.03471pt on input line ....
+(Font)              scaled to size 9.03458pt on input line ....
 LaTeX Font Info:    Font shape `TU/XITSMath-Regular(2)/m/n' will be
-(Font)              scaled to size 7.22777pt on input line ....
+(Font)              scaled to size 7.22766pt on input line ....
 LaTeX Font Info:    Font shape `TU/XITSMath-Regular(3)/m/n' will be
 (Font)              scaled to size 12.0437pt on input line ....
 LaTeX Font Info:    Font shape `TU/XITSMath-Regular(3)/m/n' will be
 (Font)              scaled to size 9.03278pt on input line ....
 LaTeX Font Info:    Font shape `TU/XITSMath-Regular(3)/m/n' will be
 (Font)              scaled to size 7.22623pt on input line ....
+LaTeX Font Info:    Font shape `TU/STIXTwoMath-Regular(0)/m/n' will be
+(Font)              scaled to size 8.59444pt on input line ....
+LaTeX Font Info:    Font shape `TU/STIXTwoMath-Regular(0)/m/n' will be
+(Font)              scaled to size 6.87555pt on input line ....
 Completed box being shipped out [4]
 \vbox(722.98453+3.61353)x435.04271
 .\glue -16.36447
@@ -2922,7 +2942,7 @@ Completed box being shipped out [4]
 ....\special{color pop}
 ..\glue 1.0
 ..\glue(\lineskip) 0.0
-..\vbox(700.50723+0.0)x417.11752, glue set 648.8926fil
+..\vbox(700.50723+0.0)x417.11752, glue set 648.89267fil
 ...\write-{}
 ...\write1{\@writefile{toc}{\protect \addvspace {12bp}}}
 ...\write1{\pp@pagectr{footnote}{3}{\theabspage }{\thepage }}
@@ -2957,10 +2977,10 @@ Completed box being shipped out [4]
 ...\kern 1.0
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
-...\hbox(10.92532+0.0)x417.11752, glue set 380.99417fil
+...\hbox(10.92525+0.0)x417.11752, glue set 380.99417fil
 ....\hbox(0.0+0.0)x24.09
 ....\mathon
-....\hbox(6.10681+1.40926)x11.03336, shifted -4.81851
+....\hbox(6.10681+1.40926)x11.03336, shifted -4.81844
 .....\TU/texgyretermes(0)/m/n/9.03375 [
 .....\hbox(6.10681+0.0)x4.51688
 ......\TU/texgyretermes(0)/m/n/9.03375 1

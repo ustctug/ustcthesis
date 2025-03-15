@@ -1317,12 +1317,15 @@
   \ustc@set@xits@names
   \setmathfont{\ustc@font@name@xits@math}[
     Extension    = .otf,
+    Scale        = MatchLowercase,
     StylisticSet = \ustc@xits@integral@stylistic@set,
   ]%
-  \setmathfont{\ustc@font@name@xits@math}[
+  % 使用 STIX Two Math 的 `\mathcal` 字形
+  \ustc@set@stix@names
+  \setmathfont{\ustc@font@name@stix@math}[
     Extension    = .otf,
-    StylisticSet = 1,
-    range        = {cal,bfcal},
+    Scale        = MatchLowercase,
+    range        = {cal, bfcal},
   ]%
 }
 
