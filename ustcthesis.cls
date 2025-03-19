@@ -1568,7 +1568,7 @@
 % \cs{sectionmark}。
 \pagestyle{fancy}
 \let\sectionmark\@gobble
-\renewcommand\headrulewidth{0.4\p@}
+\renewcommand\headrulewidth{0.75bp}
 
 % 重定义默认的 |plain| page style，会显示页眉和页脚。
 \fancypagestyle{plain}{%
