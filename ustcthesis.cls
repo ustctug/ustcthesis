@@ -2463,7 +2463,7 @@
     \fi
     #1\par
   \fi
-}
+}{}
 
 
 % \subsection{摘要}
