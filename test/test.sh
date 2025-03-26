@@ -26,6 +26,8 @@ for config in main crossref nomencl bibtex biblatex; do
             diff_path="$diff_dir/$test.pdf";
             diff-pdf --output-diff "$diff_path" "$baseline_path" "$output_path";
             open "$diff_path";
+        else
+            open "$output_path";
         fi
         break;
     fi

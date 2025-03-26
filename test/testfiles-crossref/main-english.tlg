@@ -69,6 +69,7 @@ Completed box being shipped out [1]
 ...\write-{}
 ...\write-{}
 ...\write-{}
+...\write-{}
 ...\marks1{\__mark_id:n {1}创新性说明}
 ...\marks2{\__mark_id:n {2}}
 ...\mark{{创新性说明}{}}
@@ -717,7 +718,7 @@ Completed box being shipped out [5]
 ....\special{color pop}
 ..\glue 1.0
 ..\glue(\lineskip) 0.0
-..\vbox(700.50723+0.0)x417.11752, glue set 430.39fil
+..\vbox(700.50723+0.0)x417.11752, glue set 350.09859fil
 ...\write-{}
 ...\marks1{\__mark_id:n {7}Contents}
 ...\marks2{\__mark_id:n {8}}
@@ -902,7 +903,7 @@ Completed box being shipped out [5]
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 0.00002
-...\hbox(14.05243+6.02255)x417.11752, glue set 288.64558fill
+...\hbox(14.05243+6.02255)x417.11752, glue set 300.69058fill
 ....\glue(\leftskip) 59.21321
 ....\hbox(0.0+0.0)x0.0
 ....\rule(14.05243+6.02255)x0.0
@@ -917,15 +918,13 @@ Completed box being shipped out [5]
 ......\kern 0.0002
 ......\glue 12.045
 ......\special{color pop}
-....\TU/FandolHei(0)/m/n/12.045 插
+....\TU/FandolHei(0)/m/n/12.045 内
 ....\glue 0.0 plus 0.61353
-....\TU/FandolHei(0)/m/n/12.045 图
+....\TU/FandolHei(0)/m/n/12.045 容
 ....\glue 0.0 plus 0.61353
-....\TU/FandolHei(0)/m/n/12.045 和
+....\TU/FandolHei(0)/m/n/12.045 要
 ....\glue 0.0 plus 0.61353
-....\TU/FandolHei(0)/m/n/12.045 表
-....\glue 0.0 plus 0.61353
-....\TU/FandolHei(0)/m/n/12.045 格
+....\TU/FandolHei(0)/m/n/12.045 素
 ....\kern -0.00017
 ....\kern 0.00017
 ....\rule(14.05243+6.02255)x0.0
@@ -951,7 +950,213 @@ Completed box being shipped out [5]
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
 ...\penalty 10000
+...\penalty 10000
+...\glue 0.0 plus 0.1
+...\penalty 10000
+...\glue(\parskip) 0.0
+...\glue(\parskip) 0.0
+...\glue(\baselineskip) 0.00002
+...\hbox(14.05243+6.02255)x417.11752, glue set 260.53256fill
+....\glue(\leftskip) 39.14624
+....\hbox(0.0+0.0)x0.0
+....\rule(14.05243+6.02255)x0.0
+....\hbox(8.14243+0.13248)x0.0, glue set - 27.10124fil
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+.....\hbox(8.14243+0.13248)x27.10124
+......\special{color push  Black}
+......\TU/texgyretermes(0)/m/n/12.045 2.1
+......\kern -0.0002
+......\kern 0.0002
+......\glue 12.045
+......\special{color pop}
+....\TU/FandolSong(0)/m/n/12.045 有
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 关
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 图
+....\penalty 10000
+....\TU/FandolSong(0)/m/n/12.045 、
+....\rule(0.0+0.0)x-7.85333
+....\glue 7.85333 minus 6.02249
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 表
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 和
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 表
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 达
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 式
+....\kern -0.00017
+....\kern 0.00017
+....\rule(14.05243+6.02255)x0.0
+....\kern 0.0
+....\glue 2.00749
+....\glue -4.015
+....\glue 3.01125
+....\leaders 0.0 plus 1.0fill
+.....\hbox(1.2045+0.13248)x4.015, glue set 1.00375fil
+......\glue 0.0 plus 1.0fil minus 1.0fil
+......\hbox(1.2045+0.13248)x3.01125
+.......\special{color push  Black}
+.......\TU/texgyretermes(0)/m/n/12.045 .
+.......\kern -0.0002
+.......\kern 0.0002
+.......\special{color pop}
+....\kern 0.0
+....\glue 2.00749
+....\TU/texgyretermes(0)/m/n/12.045 2
+....\kern -0.0002
+....\kern 0.0002
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\penalty 10000
+...\penalty 10000
+...\glue 0.0 plus 0.1
+...\penalty 10000
+...\glue(\parskip) 0.0
+...\glue(\parskip) 0.0
+...\glue(\baselineskip) 0.00002
+...\hbox(14.05243+6.02255)x417.11752, glue set 323.7688fill
+....\glue(\leftskip) 60.22499
+....\hbox(0.0+0.0)x0.0
+....\rule(14.05243+6.02255)x0.0
+....\hbox(8.14243+0.13248)x0.0, glue set - 36.135fil
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+.....\hbox(8.14243+0.13248)x36.135
+......\special{color push  Black}
+......\TU/texgyretermes(0)/m/n/12.045 2.1.1
+......\kern -0.0002
+......\kern 0.0002
+......\glue 12.045
+......\special{color pop}
+....\TU/FandolSong(0)/m/n/12.045 插
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 图
+....\kern -0.00017
+....\kern 0.00017
+....\rule(14.05243+6.02255)x0.0
+....\kern 0.0
+....\glue 2.00749
+....\glue -4.015
+....\glue 3.01125
+....\leaders 0.0 plus 1.0fill
+.....\hbox(1.2045+0.13248)x4.015, glue set 1.00375fil
+......\glue 0.0 plus 1.0fil minus 1.0fil
+......\hbox(1.2045+0.13248)x3.01125
+.......\special{color push  Black}
+.......\TU/texgyretermes(0)/m/n/12.045 .
+.......\kern -0.0002
+.......\kern 0.0002
+.......\special{color pop}
+....\kern 0.0
+....\glue 2.00749
+....\TU/texgyretermes(0)/m/n/12.045 2
+....\kern -0.0002
+....\kern 0.0002
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\penalty 10000
 ...\penalty 0
+...\glue 0.0 plus 0.1
+...\penalty 10000
+...\glue(\parskip) 0.0
+...\glue(\parskip) 0.0
+...\glue(\baselineskip) 0.00002
+...\hbox(14.05243+6.02255)x417.11752, glue set 323.7688fill
+....\glue(\leftskip) 60.22499
+....\hbox(0.0+0.0)x0.0
+....\rule(14.05243+6.02255)x0.0
+....\hbox(8.14243+0.13248)x0.0, glue set - 36.135fil
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+.....\hbox(8.14243+0.13248)x36.135
+......\special{color push  Black}
+......\TU/texgyretermes(0)/m/n/12.045 2.1.2
+......\kern -0.0002
+......\kern 0.0002
+......\glue 12.045
+......\special{color pop}
+....\TU/FandolSong(0)/m/n/12.045 表
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 格
+....\kern -0.00017
+....\kern 0.00017
+....\rule(14.05243+6.02255)x0.0
+....\kern 0.0
+....\glue 2.00749
+....\glue -4.015
+....\glue 3.01125
+....\leaders 0.0 plus 1.0fill
+.....\hbox(1.2045+0.13248)x4.015, glue set 1.00375fil
+......\glue 0.0 plus 1.0fil minus 1.0fil
+......\hbox(1.2045+0.13248)x3.01125
+.......\special{color push  Black}
+.......\TU/texgyretermes(0)/m/n/12.045 .
+.......\kern -0.0002
+.......\kern 0.0002
+.......\special{color pop}
+....\kern 0.0
+....\glue 2.00749
+....\TU/texgyretermes(0)/m/n/12.045 2
+....\kern -0.0002
+....\kern 0.0002
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\penalty 10000
+...\penalty 0
+...\glue 0.0 plus 0.1
+...\penalty 10000
+...\glue(\parskip) 0.0
+...\glue(\parskip) 0.0
+...\glue(\baselineskip) 0.00002
+...\hbox(14.05243+6.02255)x417.11752, glue set 311.7238fill
+....\glue(\leftskip) 60.22499
+....\hbox(0.0+0.0)x0.0
+....\rule(14.05243+6.02255)x0.0
+....\hbox(8.14243+0.16861)x0.0, glue set - 36.135fil
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+.....\hbox(8.14243+0.16861)x36.135
+......\special{color push  Black}
+......\TU/texgyretermes(0)/m/n/12.045 2.1.3
+......\kern -0.0002
+......\kern 0.0002
+......\glue 12.045
+......\special{color pop}
+....\TU/FandolSong(0)/m/n/12.045 表
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 达
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 式
+....\kern -0.00017
+....\kern 0.00017
+....\rule(14.05243+6.02255)x0.0
+....\kern 0.0
+....\glue 2.00749
+....\glue -4.015
+....\glue 3.01125
+....\leaders 0.0 plus 1.0fill
+.....\hbox(1.2045+0.13248)x4.015, glue set 1.00375fil
+......\glue 0.0 plus 1.0fil minus 1.0fil
+......\hbox(1.2045+0.13248)x3.01125
+.......\special{color push  Black}
+.......\TU/texgyretermes(0)/m/n/12.045 .
+.......\kern -0.0002
+.......\kern 0.0002
+.......\special{color pop}
+....\kern 0.0
+....\glue 2.00749
+....\TU/texgyretermes(0)/m/n/12.045 3
+....\kern -0.0002
+....\kern 0.0002
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\penalty 10000
+...\penalty -300
 ...\glue 0.0 plus 0.1
 ...\penalty 10000
 ...\glue 6.02249
@@ -994,7 +1199,7 @@ Completed box being shipped out [5]
 .......\special{color pop}
 ....\kern 0.0
 ....\glue 2.00749
-....\TU/texgyretermes(0)/b/n/12.045 3
+....\TU/texgyretermes(0)/b/n/12.045 4
 ....\kern -0.0002
 ....\kern 0.0002
 ....\penalty 10000
@@ -1030,7 +1235,7 @@ Completed box being shipped out [5]
 .......\special{color pop}
 ....\kern 0.0
 ....\glue 2.00749
-....\TU/texgyretermes(0)/b/n/12.045 4
+....\TU/texgyretermes(0)/b/n/12.045 5
 ....\kern -0.0002
 ....\kern 0.0002
 ....\penalty 10000
@@ -1084,7 +1289,7 @@ Completed box being shipped out [5]
 .......\special{color pop}
 ....\kern 0.0
 ....\glue 2.00749
-....\TU/texgyretermes(0)/b/n/12.045 5
+....\TU/texgyretermes(0)/b/n/12.045 6
 ....\kern -0.0002
 ....\kern 0.0002
 ....\penalty 10000
@@ -1120,7 +1325,7 @@ Completed box being shipped out [5]
 .......\special{color pop}
 ....\kern 0.0
 ....\glue 2.00749
-....\TU/texgyretermes(0)/b/n/12.045 6
+....\TU/texgyretermes(0)/b/n/12.045 7
 ....\kern -0.0002
 ....\kern 0.0002
 ....\penalty 10000
@@ -1158,7 +1363,7 @@ Completed box being shipped out [5]
 .......\special{color pop}
 ....\kern 0.0
 ....\glue 2.00749
-....\TU/texgyretermes(0)/b/n/12.045 7
+....\TU/texgyretermes(0)/b/n/12.045 8
 ....\kern -0.0002
 ....\kern 0.0002
 ....\penalty 10000
@@ -1580,15 +1785,15 @@ Completed box being shipped out [1]
 ....\special{color pop}
 ..\glue 1.0
 ..\glue(\lineskip) 0.0
-..\vbox(700.50723+0.0)x417.11752, glue set 306.88814fil
+..\vbox(700.50723+0.0)x417.11752, glue set 347.03384fil
 ...\write-{}
-...\write1{\pp@pagectr{footnote}{1}{\theabspage }{\thepage }}
-...\write1{\@writefile{toc}{\protect \contentsline {chapter}{\protect \numberline {Chapter 1}简介}{\thepage }{}\protected@file@percent }}
+...\write2{\pp@pagectr{footnote}{1}{\theabspage }{\thepage }}
+...\write2{\@writefile{toc}{\protect \contentsline {chapter}{\protect \numberline {Chapter 1}简介}{\thepage }{}\protected@file@percent }}
 ...\marks1{\__mark_id:n {11}Chapter 1\hskip 1em\relax 简介}
 ...\marks2{\__mark_id:n {12}}
 ...\mark{{Chapter 1\hskip 1em\relax 简介}{}}
-...\write1{\@writefile{lof}{\protect \addvspace {10.0pt}}}
-...\write1{\@writefile{lot}{\protect \addvspace {10.0pt}}}
+...\write2{\@writefile{lof}{\protect \addvspace {10.0pt}}}
+...\write2{\@writefile{lot}{\protect \addvspace {10.0pt}}}
 ...\glue(\topskip) 12.0
 ...\rule(0.0+0.0)x*
 ...\penalty 10000
@@ -1660,7 +1865,7 @@ Completed box being shipped out [1]
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
-...\write1{\@writefile{toc}{\protect \contentsline {section}{\protect \numberline {1.1}一级节标题}{\thepage }{}\protected@file@percent }}
+...\write2{\@writefile{toc}{\protect \contentsline {section}{\protect \numberline {1.1}一级节标题}{\thepage }{}\protected@file@percent }}
 ...\penalty 10000
 ...\glue 6.02249
 ...\glue(\parskip) 0.0
@@ -1699,7 +1904,7 @@ Completed box being shipped out [1]
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
-...\write1{\@writefile{toc}{\protect \contentsline {subsection}{\protect \numberline {1.1.1}二级节标题}{\thepage }{}\protected@file@percent }}
+...\write2{\@writefile{toc}{\protect \contentsline {subsection}{\protect \numberline {1.1.1}二级节标题}{\thepage }{}\protected@file@percent }}
 ...\penalty 10000
 ...\glue 6.02249
 ...\glue(\parskip) 0.0
@@ -1738,7 +1943,7 @@ Completed box being shipped out [1]
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
-...\write1{\@writefile{toc}{\protect \contentsline {subsubsection}{\protect \numberline {1.1.1.1}三级节标题}{\thepage }{}\protected@file@percent }}
+...\write2{\@writefile{toc}{\protect \contentsline {subsubsection}{\protect \numberline {1.1.1.1}三级节标题}{\thepage }{}\protected@file@percent }}
 ...\penalty 10000
 ...\glue 6.02249
 ...\glue(\parskip) 0.0
@@ -1788,7 +1993,7 @@ Completed box being shipped out [1]
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
-...\write1{\@writefile{toc}{\protect \contentsline {paragraph}{\protect \numberline {（1）}四级节标题}{\thepage }{}\protected@file@percent }}
+...\write2{\@writefile{toc}{\protect \contentsline {paragraph}{\protect \numberline {（1）}四级节标题}{\thepage }{}\protected@file@percent }}
 ...\penalty 10000
 ...\glue 0.0
 ...\glue(\parskip) 0.0
@@ -1828,7 +2033,7 @@ Completed box being shipped out [1]
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
-...\write1{\@writefile{toc}{\protect \contentsline {subparagraph}{\protect \numberline {\relax {\protect \symbol  {\numexpr \c@subparagraph  + "245F\relax }}}五级节标题}{\thepage }{}\protected@file@percent }}
+...\write2{\@writefile{toc}{\protect \contentsline {subparagraph}{\protect \numberline {\relax {\protect \symbol  {\numexpr \c@subparagraph  + "245F\relax }}}五级节标题}{\thepage }{}\protected@file@percent }}
 ...\penalty 10000
 ...\glue 0.0
 ...\glue(\parskip) 0.0
@@ -1842,54 +2047,7 @@ Completed box being shipped out [1]
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
-...\glue(\parskip) 0.0
-...\glue(\parskip) 0.0
-...\glue(\baselineskip) 8.24683
-...\hbox(9.20238+2.04764)x417.11752, glue set 276.67285fil
-....\hbox(0.0+0.0)x24.09
-....\TU/FandolSong(0)/m/n/12.045 测
-....\glue 3.01125 plus 1.50562 minus 1.00374
-....\TU/texgyretermes(0)/m/n/12.045 ‘
-....\TU/FandolSong(0)/m/n/12.045 引
-....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 号
-....\TU/texgyretermes(0)/m/n/12.045 ’
-....\glue 3.01125 plus 1.50562 minus 1.00374
-....\TU/FandolSong(0)/m/n/12.045 和
-....\glue 3.01125 plus 1.50562 minus 1.00374
-....\TU/texgyretermes(0)/m/n/12.045 “
-....\TU/FandolSong(0)/m/n/12.045 双
-....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 引
-....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 号
-....\TU/texgyretermes(0)/m/n/12.045 ”
-....\penalty 10000
-....\TU/FandolSong(0)/m/n/12.045 。
-....\rule(0.0+0.0)x-7.75697
-....\kern 0.00047
-....\kern -0.00047
-....\kern -0.18753
-....\kern 0.18753
-....\penalty 10000
-....\glue(\parfillskip) 0.0 plus 1.0fil
-....\glue(\rightskip) 0.0
-...\glue(\parskip) 0.0
-...\glue(\parskip) 0.0
-...\glue(\baselineskip) 9.80063
-...\hbox(8.22673+2.61375)x417.11752, glue set 239.91151fil
-....\hbox(0.0+0.0)x24.09
-....\TU/texgyretermes(0)/m/n/12.045 Test
-....\glue 3.01125 plus 1.50562 minus 1.00374
-....\TU/texgyretermes(0)/m/n/12.045 “double”
-....\glue 3.01125 plus 1.50562 minus 1.00374
-....\TU/texgyretermes(0)/m/n/12.045 quotaion
-....\glue 3.01125 plus 1.50562 minus 1.00374
-....\TU/texgyretermes(0)/m/n/12.045 ‘marks’.
-....\penalty 10000
-....\glue(\parfillskip) 0.0 plus 1.0fil
-....\glue(\rightskip) 0.0
-...\glue -2.61375
+...\glue -2.6258
 ...\glue 0.0 plus 1.0fil
 ...\glue 0.0
 ...\glue 0.0 plus 0.0001fil
@@ -1985,7 +2143,7 @@ Completed box being shipped out [2]
 .........\glue 0.0 plus 1.0fil minus 1.0fil
 ........\glue 0.0 plus 1.0fill
 ........\vbox(8.43146+3.61353)x417.11752
-.........\hbox(8.43146+3.61353)x417.11752, glue set 156.30458fil
+.........\hbox(8.43146+3.61353)x417.11752, glue set 161.57426fil
 ..........\glue(\leftskip) 0.0 plus 1.0fil
 ..........\hbox(0.0+0.0)x0.0
 ..........\TU/texgyretermes(0)/m/n/10.53937 Chapter
@@ -1994,15 +2152,13 @@ Completed box being shipped out [2]
 ..........\kern -0.0002
 ..........\kern 0.0002
 ..........\glue 10.53937
-..........\TU/FandolSong(0)/m/n/10.53937 插
+..........\TU/FandolSong(0)/m/n/10.53937 内
 ..........\glue 0.0 plus 0.44923
-..........\TU/FandolSong(0)/m/n/10.53937 图
+..........\TU/FandolSong(0)/m/n/10.53937 容
 ..........\glue 0.0 plus 0.44923
-..........\TU/FandolSong(0)/m/n/10.53937 和
+..........\TU/FandolSong(0)/m/n/10.53937 要
 ..........\glue 0.0 plus 0.44923
-..........\TU/FandolSong(0)/m/n/10.53937 表
-..........\glue 0.0 plus 0.44923
-..........\TU/FandolSong(0)/m/n/10.53937 格
+..........\TU/FandolSong(0)/m/n/10.53937 素
 ..........\kern -0.00017
 ..........\kern 0.00017
 ..........\rule(8.43146+3.61353)x0.0
@@ -2025,15 +2181,15 @@ Completed box being shipped out [2]
 ....\special{color pop}
 ..\glue 1.0
 ..\glue(\lineskip) 0.0
-..\vbox(700.50723+0.0)x417.11752, glue set 141.9716fil
+..\vbox(700.50723+0.0)x417.11752, glue set 91.18933fil
 ...\write-{}
-...\write1{\pp@pagectr{footnote}{2}{\theabspage }{\thepage }}
-...\write1{\@writefile{toc}{\protect \contentsline {chapter}{\protect \numberline {Chapter 2}插图和表格}{\thepage }{}\protected@file@percent }}
-...\marks1{\__mark_id:n {13}Chapter 2\hskip 1em\relax 插图和表格}
+...\write2{\pp@pagectr{footnote}{2}{\theabspage }{\thepage }}
+...\write2{\@writefile{toc}{\protect \contentsline {chapter}{\protect \numberline {Chapter 2}内容要素}{\thepage }{}\protected@file@percent }}
+...\marks1{\__mark_id:n {13}Chapter 2\hskip 1em\relax 内容要素}
 ...\marks2{\__mark_id:n {14}}
-...\mark{{Chapter 2\hskip 1em\relax 插图和表格}{}}
-...\write1{\@writefile{lof}{\protect \addvspace {10.0pt}}}
-...\write1{\@writefile{lot}{\protect \addvspace {10.0pt}}}
+...\mark{{Chapter 2\hskip 1em\relax 内容要素}{}}
+...\write2{\@writefile{lof}{\protect \addvspace {10.0pt}}}
+...\write2{\@writefile{lot}{\protect \addvspace {10.0pt}}}
 ...\glue(\topskip) 12.0
 ...\rule(0.0+0.0)x*
 ...\penalty 10000
@@ -2041,7 +2197,7 @@ Completed box being shipped out [2]
 ...\glue 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
-...\hbox(12.47862+3.485)x417.11752, glue set 128.93329fil
+...\hbox(12.41438+3.485)x417.11752, glue set 136.96329fil
 ....\glue(\leftskip) 0.0 plus 1.0fil
 ....\TU/texgyretermes(0)/m/n/16.06 Chapter
 ....\glue 4.015 plus 2.00749 minus 1.33833
@@ -2049,15 +2205,13 @@ Completed box being shipped out [2]
 ....\kern -0.0002
 ....\kern 0.0002
 ....\glue 16.06
-....\TU/FandolHei(0)/m/n/16.06 插
+....\TU/FandolHei(0)/m/n/16.06 内
 ....\glue 0.0 plus 1.37729
-....\TU/FandolHei(0)/m/n/16.06 图
+....\TU/FandolHei(0)/m/n/16.06 容
 ....\glue 0.0 plus 1.37729
-....\TU/FandolHei(0)/m/n/16.06 和
+....\TU/FandolHei(0)/m/n/16.06 要
 ....\glue 0.0 plus 1.37729
-....\TU/FandolHei(0)/m/n/16.06 表
-....\glue 0.0 plus 1.37729
-....\TU/FandolHei(0)/m/n/16.06 格
+....\TU/FandolHei(0)/m/n/16.06 素
 ....\kern -0.00017
 ....\kern 0.00017
 ....\penalty 10000
@@ -2067,7 +2221,291 @@ Completed box being shipped out [2]
 ...\glue 18.06749
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
-...\hbox(9.41919+2.26445)x417.11752, glue set - 0.14803
+...\hbox(10.97499+2.52943)x417.11752, glue set 259.02701fil
+....\hbox(9.49948+0.15456)x31.6181
+.....\TU/texgyretermes(0)/m/n/14.05249 2.1
+.....\kern -0.0002
+.....\kern 0.0002
+.....\glue 14.05249
+....\TU/FandolHei(0)/m/n/14.05249 有
+....\glue 0.0 plus 0.87584
+....\TU/FandolHei(0)/m/n/14.05249 关
+....\glue 0.0 plus 0.87584
+....\TU/FandolHei(0)/m/n/14.05249 图
+....\penalty 10000
+....\TU/FandolHei(0)/m/n/14.05249 、
+....\rule(0.0+0.0)x-9.16223
+....\glue 9.16223 minus 7.02626
+....\glue 0.0 plus 0.87584
+....\TU/FandolHei(0)/m/n/14.05249 表
+....\glue 0.0 plus 0.87584
+....\TU/FandolHei(0)/m/n/14.05249 和
+....\glue 0.0 plus 0.87584
+....\TU/FandolHei(0)/m/n/14.05249 表
+....\glue 0.0 plus 0.87584
+....\TU/FandolHei(0)/m/n/14.05249 达
+....\glue 0.0 plus 0.87584
+....\TU/FandolHei(0)/m/n/14.05249 式
+....\kern -0.00017
+....\kern 0.00017
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\write2{\@writefile{toc}{\protect \contentsline {section}{\protect \numberline {2.1}有关图、表和表达式}{\thepage }{}\protected@file@percent }}
+...\penalty 10000
+...\penalty 10000
+...\glue 6.02249
+...\glue(\parskip) 0.0
+...\glue(\parskip) 0.0
+...\glue(\baselineskip) 8.11433
+...\hbox(9.43123+2.32468)x417.11752, glue set - 0.2467
+....\hbox(0.0+0.0)x24.09
+....\TU/FandolSong(0)/m/n/12.045 图
+....\penalty 10000
+....\TU/FandolSong(0)/m/n/12.045 、
+....\rule(0.0+0.0)x-7.85333
+....\glue 7.85333 minus 6.02249
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 表
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 和
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 表
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 达
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 式
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 按
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 章
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 连
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 续
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 编
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 号
+....\penalty 10000
+....\TU/FandolSong(0)/m/n/12.045 ，
+....\rule(0.0+0.0)x-8.33514
+....\glue 8.33514 minus 6.0225
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 用
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 两
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 个
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 阿
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 拉
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 伯
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 数
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 字
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 表
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 示
+....\penalty 10000
+....\TU/FandolSong(0)/m/n/12.045 ，
+....\rule(0.0+0.0)x-8.33514
+....\glue 8.33514 minus 6.0225
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 前
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 一
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 数
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 字
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 为
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 章
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 的
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 序
+....\glue(\rightskip) 0.0
+...\penalty 10000
+...\glue(\baselineskip) 8.31909
+...\hbox(9.43123+2.32468)x417.11752, glue set 0.01607
+....\TU/FandolSong(0)/m/n/12.045 号
+....\penalty 10000
+....\TU/FandolSong(0)/m/n/12.045 ，
+....\rule(0.0+0.0)x-8.33514
+....\glue 8.33514 minus 6.0225
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 后
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 一
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 数
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 字
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 为
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 本
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 章
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 内
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 图
+....\penalty 10000
+....\TU/FandolSong(0)/m/n/12.045 、
+....\rule(0.0+0.0)x-7.85333
+....\glue 7.85333 minus 6.02249
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 表
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 或
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 表
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 达
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 式
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 的
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 顺
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 序
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 号
+....\penalty 10000
+....\TU/FandolSong(0)/m/n/12.045 。
+....\rule(0.0+0.0)x-7.75697
+....\glue 7.75697 minus 6.02249
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 两
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 数
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 字
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 间
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 用
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 半
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 角
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 小
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 数
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 点
+....\glue 3.01125 plus 1.50562 minus 1.00374
+....\TU/texgyretermes(0)/m/n/12.045 “.”
+....\glue 3.01125 plus 1.50562 minus 1.00374
+....\TU/FandolSong(0)/m/n/12.045 连
+....\glue(\rightskip) 0.0
+...\penalty 150
+...\glue(\baselineskip) 8.33113
+...\hbox(9.41919+2.13194)x417.11752, glue set 183.01097fil
+....\TU/FandolSong(0)/m/n/12.045 接
+....\penalty 10000
+....\TU/FandolSong(0)/m/n/12.045 。
+....\rule(0.0+0.0)x-7.75697
+....\glue 7.75697 minus 6.02249
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 例
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 如
+....\glue 3.01125 plus 1.50562 minus 1.00374
+....\TU/texgyretermes(0)/m/n/12.045 “
+....\TU/FandolSong(0)/m/n/12.045 图
+....\kern -0.00017
+....\kern 0.00017
+....\penalty 10000
+....\glue 3.01125 plus 1.50562 minus 1.00374
+....\TU/texgyretermes(0)/m/n/12.045 2.1
+....\kern -0.0002
+....\kern 0.0002
+....\hbox(0.0+0.0)x0.0
+....\TU/texgyretermes(0)/m/n/12.045 ”
+....\penalty 10000
+....\TU/FandolSong(0)/m/n/12.045 、
+....\rule(0.0+0.0)x-7.85333
+....\glue 7.85333 minus 6.02249
+....\TU/texgyretermes(0)/m/n/12.045 “
+....\TU/FandolSong(0)/m/n/12.045 表
+....\kern -0.00017
+....\kern 0.00017
+....\penalty 10000
+....\glue 3.01125 plus 1.50562 minus 1.00374
+....\TU/texgyretermes(0)/m/n/12.045 2.1
+....\kern -0.0002
+....\kern 0.0002
+....\hbox(0.0+0.0)x0.0
+....\TU/texgyretermes(0)/m/n/12.045 ”
+....\penalty 10000
+....\TU/FandolSong(0)/m/n/12.045 、
+....\rule(0.0+0.0)x-7.85333
+....\glue 7.85333 minus 6.02249
+....\TU/texgyretermes(0)/m/n/12.045 “
+....\TU/FandolSong(0)/m/n/12.045 式
+....\kern 0.0
+....\kern -0.00017
+....\kern 0.00017
+....\hbox(8.14243+2.13194)x23.07822
+.....\TU/texgyretermes(0)/m/n/12.045 (2.1
+.....\kern -0.0002
+.....\kern 0.0002
+.....\hbox(0.0+0.0)x0.0
+.....\TU/texgyretermes(0)/m/n/12.045 )
+.....\kern -0.0002
+.....\kern 0.0002
+....\TU/texgyretermes(0)/m/n/12.045 ”
+....\glue 3.01125 plus 1.50562 minus 1.00374
+....\TU/FandolSong(0)/m/n/12.045 等
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 等
+....\penalty 10000
+....\TU/FandolSong(0)/m/n/12.045 。
+....\rule(0.0+0.0)x-7.75697
+....\kern 0.00047
+....\kern -0.00047
+....\kern -0.18753
+....\kern 0.18753
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\penalty -300
+...\glue 12.045
+...\glue(\parskip) 0.0
+...\glue(\parskip) 0.0
+...\glue(\baselineskip) 8.05211
+...\hbox(9.89095+2.07474)x417.11752, glue set 351.87384fil
+....\hbox(8.82095+0.14352)x39.14621
+.....\TU/texgyretermes(0)/m/n/13.04874 2.1.1
+.....\kern -0.0002
+.....\kern 0.0002
+.....\glue 13.04874
+....\TU/FandolHei(0)/m/n/13.04874 插
+....\glue 0.0 plus 0.88467
+....\TU/FandolHei(0)/m/n/13.04874 图
+....\kern -0.00017
+....\kern 0.00017
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\write2{\@writefile{toc}{\protect \contentsline {subsection}{\protect \numberline {2.1.1}插图}{\thepage }{}\protected@file@percent }}
+...\penalty 10000
+...\glue 6.02249
+...\glue(\parskip) 0.0
+...\glue(\parskip) 0.0
+...\glue(\baselineskip) 8.59311
+...\hbox(9.40715+2.15604)x417.11752, glue set 220.10953fil
 ....\hbox(0.0+0.0)x24.09
 ....\TU/FandolSong(0)/m/n/12.045 插
 ....\glue 0.0 plus 0.61353
@@ -2103,195 +2541,6 @@ Completed box being shipped out [2]
 ....\penalty 10000
 ....\TU/FandolSong(0)/m/n/12.045 。
 ....\rule(0.0+0.0)x-7.75697
-....\glue 7.75697 minus 6.02249
-....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 插
-....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 图
-....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 中
-....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 的
-....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 术
-....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 语
-....\penalty 10000
-....\TU/FandolSong(0)/m/n/12.045 、
-....\rule(0.0+0.0)x-7.85333
-....\glue 7.85333 minus 6.02249
-....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 符
-....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 号
-....\penalty 10000
-....\TU/FandolSong(0)/m/n/12.045 、
-....\rule(0.0+0.0)x-7.85333
-....\glue 7.85333 minus 6.02249
-....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 单
-....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 位
-....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 等
-....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 应
-....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 与
-....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 正
-....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 文
-....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 表
-....\glue(\rightskip) 0.0
-...\penalty 10000
-...\glue(\baselineskip) 8.37932
-...\hbox(9.43123+2.32468)x417.11752, glue set - 0.16386
-....\TU/FandolSong(0)/m/n/12.045 述
-....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 所
-....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 用
-....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 一
-....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 致
-....\penalty 10000
-....\TU/FandolSong(0)/m/n/12.045 。
-....\rule(0.0+0.0)x-7.75697
-....\glue 7.75697 minus 6.02249
-....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 图
-....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 序
-....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 与
-....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 图
-....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 名
-....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 合
-....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 称
-....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 图
-....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 题
-....\penalty 10000
-....\TU/FandolSong(0)/m/n/12.045 ，
-....\rule(0.0+0.0)x-8.33514
-....\glue 8.33514 minus 6.0225
-....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 例
-....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 如
-....\penalty 10000
-....\TU/FandolSong(0)/m/n/12.045 ：
-....\rule(0.0+0.0)x-8.39537
-....\glue 8.39537 minus 6.0225
-....\TU/texgyretermes(0)/m/n/12.045 “
-....\TU/FandolSong(0)/m/n/12.045 图
-....\glue 3.01125 plus 1.50562 minus 1.00374
-....\TU/texgyretermes(0)/m/n/12.045 2.1
-....\glue 3.01125 plus 1.50562 minus 1.00374
-....\TU/texgyretermes(0)/m/n/12.045 2010
-....\glue 3.01125 plus 1.50562 minus 1.00374
-....\TU/FandolSong(0)/m/n/12.045 年
-....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 至
-....\glue 3.01125 plus 1.50562 minus 1.00374
-....\TU/texgyretermes(0)/m/n/12.045 2024
-....\glue 3.01125 plus 1.50562 minus 1.00374
-....\TU/FandolSong(0)/m/n/12.045 年
-....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 西
-....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 藏
-....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 地
-....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 区
-....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 年
-....\glue(\rightskip) 0.0
-...\penalty 150
-...\glue(\baselineskip) 8.31909
-...\hbox(9.43123+2.32468)x417.11752, glue set 21.72844fil
-....\TU/FandolSong(0)/m/n/12.045 平
-....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 均
-....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 气
-....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 温
-....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 分
-....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 布
-....\TU/texgyretermes(0)/m/n/12.045 ”
-....\penalty 10000
-....\TU/FandolSong(0)/m/n/12.045 。
-....\rule(0.0+0.0)x-7.75697
-....\kern 0.00047
-....\kern -0.00047
-....\kern -0.18753
-....\kern 0.18753
-....\glue 7.75697 minus 6.02249
-....\TU/texgyretermes(0)/m/n/12.045 “
-....\TU/FandolSong(0)/m/n/12.045 图
-....\glue 3.01125 plus 1.50562 minus 1.00374
-....\TU/texgyretermes(0)/m/n/12.045 2.1”
-....\glue 3.01125 plus 1.50562 minus 1.00374
-....\TU/FandolSong(0)/m/n/12.045 是
-....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 图
-....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 序
-....\penalty 10000
-....\TU/FandolSong(0)/m/n/12.045 ，
-....\rule(0.0+0.0)x-8.33514
-....\glue 8.33514 minus 6.0225
-....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 是
-....\glue 3.01125 plus 1.50562 minus 1.00374
-....\TU/texgyretermes(0)/m/n/12.045 “
-....\TU/FandolSong(0)/m/n/12.045 第
-....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 二
-....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 章
-....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 第
-....\glue 3.01125 plus 1.50562 minus 1.00374
-....\TU/texgyretermes(0)/m/n/12.045 1
-....\glue 3.01125 plus 1.50562 minus 1.00374
-....\TU/FandolSong(0)/m/n/12.045 个
-....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 图
-....\TU/texgyretermes(0)/m/n/12.045 ”
-....\glue 3.01125 plus 1.50562 minus 1.00374
-....\TU/FandolSong(0)/m/n/12.045 的
-....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 序
-....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 号
-....\penalty 10000
-....\TU/FandolSong(0)/m/n/12.045 ，
-....\rule(0.0+0.0)x-8.33514
-....\glue 8.33514 minus 6.0225
-....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 依
-....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 次
-....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 类
-....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 推
-....\penalty 10000
-....\TU/FandolSong(0)/m/n/12.045 。
-....\rule(0.0+0.0)x-7.75697
 ....\kern 0.00047
 ....\kern -0.00047
 ....\kern -0.18753
@@ -2302,9 +2551,9 @@ Completed box being shipped out [2]
 ...\penalty 0
 ...\glue 10.03749
 ...\glue 0.0
-...\vbox(199.74457+0.0)x417.11752
+...\vbox(187.02507+0.0)x417.11752
 ....\special{color push  Black}
-....\vbox(199.74457+0.0)x417.11752
+....\vbox(187.02507+0.0)x417.11752
 .....\hbox(125.13368+0.0)x417.11752, glue set 145.99051fil
 ......\glue(\leftskip) 0.0 plus 1.0fil
 ......\hbox(0.0+0.0)x0.0
@@ -2324,7 +2573,7 @@ Completed box being shipped out [2]
 ......\penalty 10000
 ......\glue(\parfillskip) 0.0
 ......\glue(\rightskip) 0.0 plus 1.0fil
-.....\write1{\@writefile{lof}{\protect \contentsline {figure}{\protect \numberline {2.1}{\ignorespaces 图题置于图的下方}}{\thepage }{}\protected@file@percent }}
+.....\write2{\@writefile{lof}{\protect \contentsline {figure}{\protect \numberline {2.1}{\ignorespaces 图题置于图的下方}}{\thepage }{}\protected@file@percent }}
 .....\special{color push  Black}
 .....\rule(0.0+0.0)x*
 .....\glue 6.02249
@@ -2376,17 +2625,17 @@ Completed box being shipped out [2]
 ......\glue(\rightskip) 0.0
 .....\glue 0.0
 .....\special{color pop}
-.....\write1{\providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}}
-.....\write1{\newlabel{fig:badge}{{2.1}{\thepage }{}{figure.2.1}{}}}
+.....\write2{\providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}}
+.....\write2{\newlabel{fig:example}{{2.1}{\thepage }{}{figure.2.1}{}}}
 .....\glue(\parskip) 6.02249
 .....\glue(\parskip) 0.0
 .....\glue(\lineskip) 1.0
-.....\hbox(27.19481+21.67369)x417.11752
+.....\hbox(20.83507+15.31393)x417.11752
 ......\glue(\leftskip) 0.0 plus 1.0fil
 ......\hbox(0.0+0.0)x0.0
 ......\mathon
-......\vbox(27.19481+21.67369)x417.11752
-.......\hbox(8.6453+2.13095)x417.11752, glue set - 0.1024
+......\vbox(20.83507+15.31393)x417.11752
+.......\hbox(8.62321+2.13095)x417.11752, glue set - 0.11093
 ........\hbox(0.0+0.0)x0.0
 ........\TU/FandolSong(0)/m/n/11.04124 若
 ........\glue 0.0 plus 0.56093
@@ -2415,107 +2664,6 @@ Completed box being shipped out [2]
 ........\TU/FandolSong(0)/m/n/11.04124 下
 ........\glue 0.0 plus 0.56093
 ........\TU/FandolSong(0)/m/n/11.04124 方
-........\penalty 10000
-........\TU/FandolSong(0)/m/n/11.04124 。
-........\rule(0.0+0.0)x-7.11057
-........\glue 7.11057 minus 5.52063
-........\glue 0.0 plus 0.56093
-........\TU/FandolSong(0)/m/n/11.04124 多
-........\glue 0.0 plus 0.56093
-........\TU/FandolSong(0)/m/n/11.04124 个
-........\glue 0.0 plus 0.56093
-........\TU/FandolSong(0)/m/n/11.04124 图
-........\glue 0.0 plus 0.56093
-........\TU/FandolSong(0)/m/n/11.04124 注
-........\glue 0.0 plus 0.56093
-........\TU/FandolSong(0)/m/n/11.04124 则
-........\glue 0.0 plus 0.56093
-........\TU/FandolSong(0)/m/n/11.04124 须
-........\glue 0.0 plus 0.56093
-........\TU/FandolSong(0)/m/n/11.04124 顺
-........\glue 0.0 plus 0.56093
-........\TU/FandolSong(0)/m/n/11.04124 序
-........\glue 0.0 plus 0.56093
-........\TU/FandolSong(0)/m/n/11.04124 编
-........\glue 0.0 plus 0.56093
-........\TU/FandolSong(0)/m/n/11.04124 号
-........\penalty 10000
-........\TU/FandolSong(0)/m/n/11.04124 ，
-........\rule(0.0+0.0)x-7.64055
-........\glue 7.64055 minus 5.52063
-........\glue 0.0 plus 0.56093
-........\TU/FandolSong(0)/m/n/11.04124 注
-........\glue 0.0 plus 0.56093
-........\TU/FandolSong(0)/m/n/11.04124 序
-........\glue 0.0 plus 0.56093
-........\TU/FandolSong(0)/m/n/11.04124 左
-........\glue 0.0 plus 0.56093
-........\TU/FandolSong(0)/m/n/11.04124 缩
-........\glue 0.0 plus 0.56093
-........\TU/FandolSong(0)/m/n/11.04124 进
-........\glue 2.76031 plus 1.38016 minus 0.9201
-........\TU/texgyretermes(0)/m/n/11.04124 2
-........\glue 2.76031 plus 1.38016 minus 0.9201
-........\TU/FandolSong(0)/m/n/11.04124 字
-........\penalty 10000
-........\TU/FandolSong(0)/m/n/11.04124 ，
-........\rule(0.0+0.0)x-7.64055
-........\glue 7.64055 minus 5.52063
-........\glue 0.0 plus 0.56093
-........\TU/FandolSong(0)/m/n/11.04124 与
-........\glue 0.0 plus 0.56093
-........\TU/FandolSong(0)/m/n/11.04124 注
-........\glue 0.0 plus 0.56093
-........\TU/FandolSong(0)/m/n/11.04124 文
-........\glue 0.0 plus 0.56093
-........\TU/FandolSong(0)/m/n/11.04124 之
-........\glue 0.0 plus 0.56093
-........\TU/FandolSong(0)/m/n/11.04124 间
-........\glue(\rightskip) 0.0
-.......\penalty 10000
-.......\glue(\baselineskip) 1.94325
-.......\hbox(8.62321+2.13095)x417.11752, glue set - 0.11093
-........\TU/FandolSong(0)/m/n/11.04124 空
-........\glue 0.0 plus 0.56093
-........\TU/FandolSong(0)/m/n/11.04124 一
-........\glue 0.0 plus 0.56093
-........\TU/FandolSong(0)/m/n/11.04124 字
-........\glue 0.0 plus 0.56093
-........\TU/FandolSong(0)/m/n/11.04124 符
-........\penalty 10000
-........\TU/FandolSong(0)/m/n/11.04124 ，
-........\rule(0.0+0.0)x-7.64055
-........\glue 7.64055 minus 5.52063
-........\glue 0.0 plus 0.56093
-........\TU/FandolSong(0)/m/n/11.04124 续
-........\glue 0.0 plus 0.56093
-........\TU/FandolSong(0)/m/n/11.04124 行
-........\glue 0.0 plus 0.56093
-........\TU/FandolSong(0)/m/n/11.04124 悬
-........\glue 0.0 plus 0.56093
-........\TU/FandolSong(0)/m/n/11.04124 挂
-........\glue 0.0 plus 0.56093
-........\TU/FandolSong(0)/m/n/11.04124 缩
-........\glue 0.0 plus 0.56093
-........\TU/FandolSong(0)/m/n/11.04124 进
-........\glue 0.0 plus 0.56093
-........\TU/FandolSong(0)/m/n/11.04124 左
-........\glue 0.0 plus 0.56093
-........\TU/FandolSong(0)/m/n/11.04124 对
-........\glue 0.0 plus 0.56093
-........\TU/FandolSong(0)/m/n/11.04124 齐
-........\penalty 10000
-........\TU/FandolSong(0)/m/n/11.04124 ，
-........\rule(0.0+0.0)x-7.64055
-........\glue 7.64055 minus 5.52063
-........\glue 0.0 plus 0.56093
-........\TU/FandolSong(0)/m/n/11.04124 两
-........\glue 0.0 plus 0.56093
-........\TU/FandolSong(0)/m/n/11.04124 端
-........\glue 0.0 plus 0.56093
-........\TU/FandolSong(0)/m/n/11.04124 对
-........\glue 0.0 plus 0.56093
-........\TU/FandolSong(0)/m/n/11.04124 齐
 ........\penalty 10000
 ........\TU/FandolSong(0)/m/n/11.04124 。
 ........\rule(0.0+0.0)x-7.11057
@@ -2558,9 +2706,7 @@ Completed box being shipped out [2]
 ........\TU/FandolSong(0)/m/n/11.04124 可
 ........\glue 0.0 plus 0.56093
 ........\TU/FandolSong(0)/m/n/11.04124 加
-........\glue(\rightskip) 0.0
-.......\glue(\baselineskip) 1.94325
-.......\hbox(8.62321+2.13095)x417.11752, glue set - 0.22188
+........\glue 0.0 plus 0.56093
 ........\TU/FandolSong(0)/m/n/11.04124 标
 ........\glue 0.0 plus 0.56093
 ........\TU/FandolSong(0)/m/n/11.04124 点
@@ -2574,7 +2720,10 @@ Completed box being shipped out [2]
 ........\TU/FandolSong(0)/m/n/11.04124 个
 ........\glue 0.0 plus 0.56093
 ........\TU/FandolSong(0)/m/n/11.04124 图
-........\glue 0.0 plus 0.56093
+........\glue(\rightskip) 0.0
+.......\penalty 10000
+.......\glue(\baselineskip) 1.94325
+.......\hbox(8.62321+2.07574)x417.11752, glue set 0.43762
 ........\TU/FandolSong(0)/m/n/11.04124 注
 ........\glue 0.0 plus 0.56093
 ........\TU/FandolSong(0)/m/n/11.04124 可
@@ -2640,10 +2789,7 @@ Completed box being shipped out [2]
 ........\TU/FandolSong(0)/m/n/11.04124 字
 ........\glue 0.0 plus 0.56093
 ........\TU/FandolSong(0)/m/n/11.04124 数
-........\glue(\rightskip) 0.0
-.......\penalty 150
-.......\glue(\baselineskip) 1.97638
-.......\hbox(8.59009+2.13095)x417.11752, glue set 148.19698fil
+........\glue 0.0 plus 0.56093
 ........\TU/FandolSong(0)/m/n/11.04124 较
 ........\glue 0.0 plus 0.56093
 ........\TU/FandolSong(0)/m/n/11.04124 多
@@ -2653,7 +2799,10 @@ Completed box being shipped out [2]
 ........\TU/FandolSong(0)/m/n/11.04124 者
 ........\glue 0.0 plus 0.56093
 ........\TU/FandolSong(0)/m/n/11.04124 甚
-........\glue 0.0 plus 0.56093
+........\glue(\rightskip) 0.0
+.......\penalty 150
+.......\glue(\baselineskip) 2.03159
+.......\hbox(8.59009+2.13095)x417.11752, glue set 203.4032fil
 ........\TU/FandolSong(0)/m/n/11.04124 至
 ........\glue 0.0 plus 0.56093
 ........\TU/FandolSong(0)/m/n/11.04124 需
@@ -2714,7 +2863,7 @@ Completed box being shipped out [2]
 ...\glue 10.03749
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
-...\hbox(9.40715+2.32468)x417.11752, glue set - 0.37006
+...\hbox(9.40715+2.32468)x417.11752, glue set 75.56955fil
 ....\hbox(0.0+0.0)x24.09
 ....\TU/FandolSong(0)/m/n/12.045 不
 ....\glue 0.0 plus 0.61353
@@ -2770,139 +2919,73 @@ Completed box being shipped out [2]
 ....\glue 0.0 plus 0.61353
 ....\TU/FandolSong(0)/m/n/12.045 版
 ....\penalty 10000
-....\TU/FandolSong(0)/m/n/12.045 ，
-....\rule(0.0+0.0)x-8.33514
-....\glue 8.33514 minus 6.0225
-....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 插
-....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 图
-....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 前
-....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 后
-....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 与
-....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 文
-....\glue(\rightskip) 0.0
-...\penalty 150
-...\glue(\baselineskip) 8.34317
-...\hbox(9.40715+2.32468)x417.11752, glue set 0.07523
-....\TU/FandolSong(0)/m/n/12.045 字
-....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 段
-....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 落
-....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 之
-....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 间
-....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 须
-....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 留
-....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 有
-....\glue 3.01125 plus 1.50562 minus 1.00374
-....\TU/texgyretermes(0)/m/n/12.045 10
-....\glue 3.01125 plus 1.50562 minus 1.00374
-....\TU/FandolSong(0)/m/n/12.045 磅
-....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 空
-....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 行
-....\penalty 10000
 ....\TU/FandolSong(0)/m/n/12.045 。
 ....\rule(0.0+0.0)x-7.75697
-....\glue 7.75697 minus 6.02249
-....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 插
-....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 图
-....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 如
-....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 果
-....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 不
-....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 得
-....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 不
-....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 与
-....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 其
-....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 它
-....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 插
-....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 图
-....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 或
-....\glue 0.0 plus 0.61353
+....\kern 0.00047
+....\kern -0.00047
+....\kern -0.18753
+....\kern 0.18753
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\penalty -300
+...\glue 12.045
+...\glue(\parskip) 0.0
+...\glue(\parskip) 0.0
+...\glue(\baselineskip) 7.61145
+...\hbox(10.13887+2.34875)x417.11752, glue set 351.87384fil
+....\hbox(8.82095+0.14352)x39.14621
+.....\TU/texgyretermes(0)/m/n/13.04874 2.1.2
+.....\kern -0.0002
+.....\kern 0.0002
+.....\glue 13.04874
+....\TU/FandolHei(0)/m/n/13.04874 表
+....\glue 0.0 plus 0.88467
+....\TU/FandolHei(0)/m/n/13.04874 格
+....\kern -0.00017
+....\kern 0.00017
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\write2{\@writefile{toc}{\protect \contentsline {subsection}{\protect \numberline {2.1.2}表格}{\thepage }{}\protected@file@percent }}
+...\penalty 10000
+...\glue 6.02249
+...\glue(\parskip) 0.0
+...\glue(\parskip) 0.0
+...\glue(\baselineskip) 8.31909
+...\hbox(9.40715+2.15604)x417.11752, glue set 220.10953fil
+....\hbox(0.0+0.0)x24.09
 ....\TU/FandolSong(0)/m/n/12.045 表
 ....\glue 0.0 plus 0.61353
 ....\TU/FandolSong(0)/m/n/12.045 格
 ....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 连
+....\TU/FandolSong(0)/m/n/12.045 一
 ....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 续
+....\TU/FandolSong(0)/m/n/12.045 般
 ....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 排
+....\TU/FandolSong(0)/m/n/12.045 由
 ....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 版
+....\TU/FandolSong(0)/m/n/12.045 表
 ....\penalty 10000
-....\TU/FandolSong(0)/m/n/12.045 ，
-....\rule(0.0+0.0)x-8.33514
-....\glue 8.33514 minus 6.0225
+....\TU/FandolSong(0)/m/n/12.045 、
+....\rule(0.0+0.0)x-7.85333
+....\glue 7.85333 minus 6.02249
 ....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 则
-....\glue(\rightskip) 0.0
-...\penalty 150
-...\glue(\baselineskip) 8.37932
-...\hbox(9.371+2.20422)x417.11752, glue set 177.95204fil
-....\TU/FandolSong(0)/m/n/12.045 它
+....\TU/FandolSong(0)/m/n/12.045 表
 ....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 们
-....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 之
-....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 间
-....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 须
-....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 留
-....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 有
-....\glue 3.01125 plus 1.50562 minus 1.00374
-....\TU/texgyretermes(0)/m/n/12.045 20
-....\glue 3.01125 plus 1.50562 minus 1.00374
-....\TU/FandolSong(0)/m/n/12.045 磅
-....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 空
-....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 行
+....\TU/FandolSong(0)/m/n/12.045 题
 ....\penalty 10000
-....\TU/FandolSong(0)/m/n/12.045 。
-....\rule(0.0+0.0)x-7.75697
-....\glue 7.75697 minus 6.02249
+....\TU/FandolSong(0)/m/n/12.045 、
+....\rule(0.0+0.0)x-7.85333
+....\glue 7.85333 minus 6.02249
 ....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 插
+....\TU/FandolSong(0)/m/n/12.045 表
 ....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 图
+....\TU/FandolSong(0)/m/n/12.045 注
 ....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 不
+....\TU/FandolSong(0)/m/n/12.045 构
 ....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 允
-....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 许
-....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 跨
-....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 页
+....\TU/FandolSong(0)/m/n/12.045 成
 ....\penalty 10000
 ....\TU/FandolSong(0)/m/n/12.045 。
 ....\rule(0.0+0.0)x-7.75697
@@ -2919,7 +3002,7 @@ Completed box being shipped out [2]
 ...\vbox(107.29245+0.0)x417.11752
 ....\special{color push  Black}
 ....\vbox(107.29245+0.0)x417.11752
-.....\write1{\@writefile{lot}{\protect \contentsline {table}{\protect \numberline {2.1}{\ignorespaces 表题置于表的上方}}{\thepage }{}\protected@file@percent }}
+.....\write2{\@writefile{lot}{\protect \contentsline {table}{\protect \numberline {2.1}{\ignorespaces 表题置于表的上方}}{\thepage }{}\protected@file@percent }}
 .....\special{color push  Black}
 .....\glue 0.0
 .....\glue(\parskip) 0.0
@@ -2971,7 +3054,7 @@ Completed box being shipped out [2]
 .....\glue 6.02249
 .....\rule(0.0+0.0)x*
 .....\special{color pop}
-.....\write1{\newlabel{tab:exampletable}{{2.1}{\thepage }{}{table.2.1}{}}}
+.....\write2{\newlabel{tab:example}{{2.1}{\thepage }{}{table.2.1}{}}}
 .....\glue(\parskip) 0.0
 .....\glue(\parskip) 0.0
 .....\hbox(47.04684+41.52571)x417.11752, glue set 64.06381fil
@@ -3226,7 +3309,7 @@ Completed box being shipped out [2]
 ...\glue 10.03749
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
-...\hbox(9.40715+2.32468)x417.11752, glue set - 0.37006
+...\hbox(9.40715+2.32468)x417.11752, glue set 75.56955fil
 ....\hbox(0.0+0.0)x24.09
 ....\TU/FandolSong(0)/m/n/12.045 不
 ....\glue 0.0 plus 0.61353
@@ -3282,122 +3365,6 @@ Completed box being shipped out [2]
 ....\glue 0.0 plus 0.61353
 ....\TU/FandolSong(0)/m/n/12.045 版
 ....\penalty 10000
-....\TU/FandolSong(0)/m/n/12.045 ，
-....\rule(0.0+0.0)x-8.33514
-....\glue 8.33514 minus 6.0225
-....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 表
-....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 格
-....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 前
-....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 后
-....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 与
-....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 文
-....\glue(\rightskip) 0.0
-...\penalty 150
-...\glue(\baselineskip) 8.34317
-...\hbox(9.40715+2.32468)x417.11752, glue set 0.07523
-....\TU/FandolSong(0)/m/n/12.045 字
-....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 段
-....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 落
-....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 之
-....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 间
-....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 须
-....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 留
-....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 有
-....\glue 3.01125 plus 1.50562 minus 1.00374
-....\TU/texgyretermes(0)/m/n/12.045 10
-....\glue 3.01125 plus 1.50562 minus 1.00374
-....\TU/FandolSong(0)/m/n/12.045 磅
-....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 空
-....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 行
-....\penalty 10000
-....\TU/FandolSong(0)/m/n/12.045 。
-....\rule(0.0+0.0)x-7.75697
-....\glue 7.75697 minus 6.02249
-....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 表
-....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 格
-....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 如
-....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 果
-....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 不
-....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 得
-....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 不
-....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 与
-....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 其
-....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 它
-....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 表
-....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 格
-....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 或
-....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 插
-....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 图
-....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 连
-....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 续
-....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 排
-....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 版
-....\penalty 10000
-....\TU/FandolSong(0)/m/n/12.045 ，
-....\rule(0.0+0.0)x-8.33514
-....\glue 8.33514 minus 6.0225
-....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 则
-....\glue(\rightskip) 0.0
-...\penalty 150
-...\glue(\baselineskip) 8.37932
-...\hbox(9.371+2.16809)x417.11752, glue set 274.31203fil
-....\TU/FandolSong(0)/m/n/12.045 它
-....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 们
-....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 之
-....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 间
-....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 须
-....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 留
-....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 有
-....\glue 3.01125 plus 1.50562 minus 1.00374
-....\TU/texgyretermes(0)/m/n/12.045 20
-....\glue 3.01125 plus 1.50562 minus 1.00374
-....\TU/FandolSong(0)/m/n/12.045 磅
-....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 空
-....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 行
-....\penalty 10000
 ....\TU/FandolSong(0)/m/n/12.045 。
 ....\rule(0.0+0.0)x-7.75697
 ....\kern 0.00047
@@ -3407,7 +3374,7 @@ Completed box being shipped out [2]
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
-...\glue -2.16809
+...\glue -2.32468
 ...\glue 0.0 plus 1.0fil
 ...\glue 0.0
 ...\glue 0.0 plus 0.0001fil
@@ -3452,7 +3419,6 @@ Completed box being shipped out [2]
 ..........\glue(\parfillskip) 0.0
 ..........\glue(\rightskip) 0.0
 ...\special{color pop}
-Chapter 3
 LaTeX Font Info:    Font shape `TU/XITSMath-Regular(1)/m/n' will be
 (Font)              scaled to size 9.03375pt on input line ....
 LaTeX Font Info:    Font shape `TU/XITSMath-Regular(1)/m/n' will be
@@ -3482,6 +3448,290 @@ Completed box being shipped out [3]
 ...\hbox(12.04498+0.0)x417.11752
 ....\special{color push  Black}
 ....\hbox(12.04498+0.0)x417.11752
+.....\hbox(12.04498+0.0)x417.11752
+......\vbox(12.04498+0.0)x417.11752
+.......\hbox(8.43146+3.61353)x417.11752
+........\hbox(0.0+0.0)x0.0, glue set - 417.11752fil
+.........\vbox(0.0+0.0)x417.11752
+..........\hbox(0.0+0.0)x417.11752, glue set 208.55876fil
+...........\hbox(0.0+0.0)x0.0
+...........\penalty 10000
+...........\glue(\parfillskip) 0.0 plus 1.0fil
+...........\glue(\rightskip) 0.0 plus 1.0fil
+.........\glue 0.0 plus 1.0fil minus 1.0fil
+........\glue 0.0 plus 1.0fill
+........\vbox(8.43146+3.61353)x417.11752
+.........\hbox(8.43146+3.61353)x417.11752, glue set 161.57426fil
+..........\glue(\leftskip) 0.0 plus 1.0fil
+..........\hbox(0.0+0.0)x0.0
+..........\TU/texgyretermes(0)/m/n/10.53937 Chapter
+..........\glue 2.63484 plus 1.31741 minus 0.87828
+..........\TU/texgyretermes(0)/m/n/10.53937 2
+..........\kern -0.0002
+..........\kern 0.0002
+..........\glue 10.53937
+..........\TU/FandolSong(0)/m/n/10.53937 内
+..........\glue 0.0 plus 0.44923
+..........\TU/FandolSong(0)/m/n/10.53937 容
+..........\glue 0.0 plus 0.44923
+..........\TU/FandolSong(0)/m/n/10.53937 要
+..........\glue 0.0 plus 0.44923
+..........\TU/FandolSong(0)/m/n/10.53937 素
+..........\kern -0.00017
+..........\kern 0.00017
+..........\rule(8.43146+3.61353)x0.0
+..........\penalty 10000
+..........\glue(\parfillskip) 0.0
+..........\glue(\rightskip) 0.0 plus 1.0fil
+........\glue 0.0 plus 1.0fill
+........\hbox(0.0+0.0)x0.0, glue set - 417.11752fil
+.........\glue 0.0 plus 1.0fil minus 1.0fil
+.........\vbox(0.0+0.0)x417.11752
+..........\hbox(0.0+0.0)x417.11752, glue set 417.11752fil
+...........\glue(\leftskip) 0.0 plus 1.0fil
+...........\hbox(0.0+0.0)x0.0
+...........\penalty 10000
+...........\glue(\parfillskip) 0.0
+...........\glue(\rightskip) 0.0
+.......\glue 0.0
+.......\rule(0.7528+0.0)x417.11752
+.......\glue -0.7528
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+....\special{color pop}
+..\glue 1.0
+..\glue(\lineskip) 0.0
+..\vbox(700.50723+0.0)x417.11752, glue set 598.10587fil
+...\write-{}
+...\glue(\topskip) 1.92638
+...\hbox(10.07362+2.34875)x417.11752, glue set 338.8251fil
+....\hbox(8.82095+0.18266)x39.14621
+.....\TU/texgyretermes(0)/m/n/13.04874 2.1.3
+.....\kern -0.0002
+.....\kern 0.0002
+.....\glue 13.04874
+....\TU/FandolHei(0)/m/n/13.04874 表
+....\glue 0.0 plus 0.88467
+....\TU/FandolHei(0)/m/n/13.04874 达
+....\glue 0.0 plus 0.88467
+....\TU/FandolHei(0)/m/n/13.04874 式
+....\kern -0.00017
+....\kern 0.00017
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\write2{\@writefile{toc}{\protect \contentsline {subsection}{\protect \numberline {2.1.3}表达式}{\thepage }{}\protected@file@percent }}
+...\penalty 10000
+...\glue 6.02249
+...\glue(\parskip) 0.0
+...\glue(\parskip) 0.0
+...\glue(\baselineskip) 8.29501
+...\hbox(9.43123+2.21626)x417.11752, glue set 135.79454fil
+....\hbox(0.0+0.0)x24.09
+....\TU/FandolSong(0)/m/n/12.045 表
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 达
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 式
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 主
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 要
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 是
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 指
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 分
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 章
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 连
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 续
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 编
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 有
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 序
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 号
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 的
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 数
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 字
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 表
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 达
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 式
+....\penalty 10000
+....\TU/FandolSong(0)/m/n/12.045 。
+....\rule(0.0+0.0)x-7.75697
+....\kern 0.00047
+....\kern -0.00047
+....\kern -0.18753
+....\kern 0.18753
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\penalty 10000
+...\glue(\abovedisplayskip) 12.045 plus 3.01125 minus 7.02625
+...\glue(\baselineskip) 9.71631
+...\hbox(8.14243+3.01152)x252.87306, shifted 164.24446
+....\hbox(5.5407+3.01152)x88.62862, display
+.....\hbox(0.0+0.0)x0.0
+.....\TU/XITSMath-Regular(1)/m/n/12.045 glyph#2523
+.....\hbox(6.10681+0.0)x5.01688, shifted 3.01152
+......\TU/XITSMath-Regular(1)/m/n/9.03375 glyph#50
+.....\glue(\thickmuskip) 3.3461 plus 3.3461
+.....\TU/XITSMath-Regular(1)/m/n/12.045 glyph#62
+.....\glue(\thickmuskip) 3.3461 plus 3.3461
+.....\TU/XITSMath-Regular(1)/m/n/12.045 glyph#2521
+.....\hbox(6.10681+0.0)x9.53375, shifted 3.01152
+......\TU/XITSMath-Regular(1)/m/n/9.03375 glyph#50
+......\TU/XITSMath-Regular(1)/m/n/9.03375 glyph#50
+.....\glue(\medmuskip) 2.67688 plus 1.33844 minus 2.67688
+.....\TU/XITSMath-Regular(1)/m/n/12.045 glyph#1155
+.....\glue(\medmuskip) 2.67688 plus 1.33844 minus 2.67688
+.....\TU/XITSMath-Regular(1)/m/n/12.045 glyph#2521
+.....\hbox(6.10681+0.0)x9.53375, shifted 3.01152
+......\TU/XITSMath-Regular(1)/m/n/9.03375 glyph#50
+......\TU/XITSMath-Regular(1)/m/n/9.03375 glyph#51
+.....\TU/XITSMath-Regular(1)/m/n/12.045 glyph#2521
+.....\hbox(6.10681+0.0)x9.53375, shifted 3.01152
+......\TU/XITSMath-Regular(1)/m/n/9.03375 glyph#51
+......\TU/XITSMath-Regular(1)/m/n/9.03375 glyph#50
+....\kern141.16623
+....\hbox(8.14243+2.13194)x23.07822, display
+.....\hbox(8.14243+2.13194)x23.07822
+......\TU/texgyretermes(0)/m/n/12.045 (2.1
+......\kern -0.0002
+......\kern 0.0002
+......\TU/texgyretermes(0)/m/n/12.045 )
+......\kern -0.0002
+......\kern 0.0002
+.....\write2{\newlabel{eq:example}{{2.1}{\thepage }{}{equation.2.1}{}}}
+...\penalty 0
+...\glue(\belowdisplayskip) 12.045 plus 3.01125 minus 7.02625
+...\glue(\baselineskip) 7.69247
+...\hbox(9.371+2.32468)x417.11752, glue set 147.83954fil
+....\TU/FandolSong(0)/m/n/12.045 表
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 达
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 式
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 的
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 行
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 距
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 根
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 据
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 需
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 要
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 采
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 用
+....\penalty 10000
+....\TU/FandolSong(0)/m/n/12.045 ，
+....\rule(0.0+0.0)x-8.33514
+....\glue 8.33514 minus 6.0225
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 段
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 前
+....\glue 3.01125 plus 1.50562 minus 1.00374
+....\TU/texgyretermes(0)/m/n/12.045 6
+....\glue 3.01125 plus 1.50562 minus 1.00374
+....\TU/FandolSong(0)/m/n/12.045 磅
+....\penalty 10000
+....\TU/FandolSong(0)/m/n/12.045 、
+....\rule(0.0+0.0)x-7.85333
+....\glue 7.85333 minus 6.02249
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 段
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 后
+....\glue 3.01125 plus 1.50562 minus 1.00374
+....\TU/texgyretermes(0)/m/n/12.045 6
+....\glue 3.01125 plus 1.50562 minus 1.00374
+....\TU/FandolSong(0)/m/n/12.045 磅
+....\penalty 10000
+....\TU/FandolSong(0)/m/n/12.045 。
+....\rule(0.0+0.0)x-7.75697
+....\kern 0.00047
+....\kern -0.00047
+....\kern -0.18753
+....\kern 0.18753
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\glue -2.32468
+...\glue 0.0 plus 1.0fil
+...\glue 0.0
+...\glue 0.0 plus 0.0001fil
+..\glue(\baselineskip) 8.02347
+..\hbox(14.45401+3.61353)x417.11752
+...\special{color push  Black}
+...\hbox(14.45401+3.61353)x417.11752
+....\hbox(14.45401+3.61353)x417.11752
+.....\vbox(14.45401+3.61353)x417.11752
+......\rule(0.0+0.0)x417.11752
+......\glue 6.02255
+......\hbox(8.43146+3.61353)x417.11752
+.......\hbox(0.0+0.0)x0.0, glue set - 417.11752fil
+........\vbox(0.0+0.0)x417.11752
+.........\hbox(0.0+0.0)x417.11752, glue set 208.55876fil
+..........\hbox(0.0+0.0)x0.0
+..........\penalty 10000
+..........\glue(\parfillskip) 0.0 plus 1.0fil
+..........\glue(\rightskip) 0.0 plus 1.0fil
+........\glue 0.0 plus 1.0fil minus 1.0fil
+.......\glue 0.0 plus 1.0fill
+.......\vbox(8.43146+3.61353)x417.11752
+........\hbox(8.43146+3.61353)x417.11752, glue set 205.92392fil
+.........\glue(\leftskip) 0.0 plus 1.0fil
+.........\hbox(0.0+0.0)x0.0
+.........\TU/texgyretermes(0)/m/n/10.53937 3
+.........\kern -0.0002
+.........\kern 0.0002
+.........\rule(8.43146+3.61353)x0.0
+.........\penalty 10000
+.........\glue(\parfillskip) 0.0
+.........\glue(\rightskip) 0.0 plus 1.0fil
+.......\glue 0.0 plus 1.0fill
+.......\hbox(0.0+0.0)x0.0, glue set - 417.11752fil
+........\glue 0.0 plus 1.0fil minus 1.0fil
+........\vbox(0.0+0.0)x417.11752
+.........\hbox(0.0+0.0)x417.11752, glue set 417.11752fil
+..........\glue(\leftskip) 0.0 plus 1.0fil
+..........\hbox(0.0+0.0)x0.0
+..........\penalty 10000
+..........\glue(\parfillskip) 0.0
+..........\glue(\rightskip) 0.0
+....\glue 0.0 plus 1.0fil minus 1.0fil
+...\special{color pop}
+Chapter 3
+Completed box being shipped out [4]
+\vbox(722.98453+3.61353)x435.04271
+.\glue -16.36447
+.\vbox(739.349+3.61353)x417.11752, shifted 17.92519
+..\vbox(15.36429+0.0)x417.11752, glue set 3.3193fil
+...\glue 0.0 plus 1.0fil
+...\hbox(12.04498+0.0)x417.11752
+....\special{color push  Black}
+....\hbox(12.04498+0.0)x417.11752
+.....\glue 0.0 plus 1.0fil minus 1.0fil
 .....\hbox(12.04498+0.0)x417.11752
 ......\vbox(12.04498+0.0)x417.11752
 .......\hbox(8.43146+3.61353)x417.11752
@@ -3526,19 +3776,18 @@ Completed box being shipped out [3]
 .......\glue 0.0
 .......\rule(0.7528+0.0)x417.11752
 .......\glue -0.7528
-.....\glue 0.0 plus 1.0fil minus 1.0fil
 ....\special{color pop}
 ..\glue 1.0
 ..\glue(\lineskip) 0.0
 ..\vbox(700.50723+0.0)x417.11752, glue set 648.90874fil
 ...\write-{}
-...\write1{\pp@pagectr{footnote}{3}{\theabspage }{\thepage }}
-...\write1{\@writefile{toc}{\protect \contentsline {chapter}{\protect \numberline {Chapter 3}引用}{\thepage }{}\protected@file@percent }}
+...\write2{\pp@pagectr{footnote}{3}{\theabspage }{\thepage }}
+...\write2{\@writefile{toc}{\protect \contentsline {chapter}{\protect \numberline {Chapter 3}引用}{\thepage }{}\protected@file@percent }}
 ...\marks1{\__mark_id:n {15}Chapter 3\hskip 1em\relax 引用}
 ...\marks2{\__mark_id:n {16}}
 ...\mark{{Chapter 3\hskip 1em\relax 引用}{}}
-...\write1{\@writefile{lof}{\protect \addvspace {10.0pt}}}
-...\write1{\@writefile{lot}{\protect \addvspace {10.0pt}}}
+...\write2{\@writefile{lof}{\protect \addvspace {10.0pt}}}
+...\write2{\@writefile{lot}{\protect \addvspace {10.0pt}}}
 ...\glue(\topskip) 12.0
 ...\rule(0.0+0.0)x*
 ...\penalty 10000
@@ -3590,6 +3839,7 @@ Completed box being shipped out [3]
 ..\hbox(14.45401+3.61353)x417.11752
 ...\special{color push  Black}
 ...\hbox(14.45401+3.61353)x417.11752
+....\glue 0.0 plus 1.0fil minus 1.0fil
 ....\hbox(14.45401+3.61353)x417.11752
 .....\vbox(14.45401+3.61353)x417.11752
 ......\rule(0.0+0.0)x417.11752
@@ -3608,7 +3858,7 @@ Completed box being shipped out [3]
 ........\hbox(8.43146+3.61353)x417.11752, glue set 205.92392fil
 .........\glue(\leftskip) 0.0 plus 1.0fil
 .........\hbox(0.0+0.0)x0.0
-.........\TU/texgyretermes(0)/m/n/10.53937 3
+.........\TU/texgyretermes(0)/m/n/10.53937 4
 .........\kern -0.0002
 .........\kern 0.0002
 .........\rule(8.43146+3.61353)x0.0
@@ -3625,9 +3875,8 @@ Completed box being shipped out [3]
 ..........\penalty 10000
 ..........\glue(\parfillskip) 0.0
 ..........\glue(\rightskip) 0.0
-....\glue 0.0 plus 1.0fil minus 1.0fil
 ...\special{color pop}
-Completed box being shipped out [4]
+Completed box being shipped out [5]
 \vbox(722.98453+3.61353)x435.04271
 .\glue -16.36447
 .\vbox(739.349+3.61353)x417.11752, shifted 17.92519
@@ -3636,7 +3885,6 @@ Completed box being shipped out [4]
 ...\hbox(12.04498+0.0)x417.11752
 ....\special{color push  Black}
 ....\hbox(12.04498+0.0)x417.11752
-.....\glue 0.0 plus 1.0fil minus 1.0fil
 .....\hbox(12.04498+0.0)x417.11752
 ......\vbox(12.04498+0.0)x417.11752
 .......\hbox(8.43146+3.61353)x417.11752
@@ -3673,18 +3921,18 @@ Completed box being shipped out [4]
 .......\glue 0.0
 .......\rule(0.7528+0.0)x417.11752
 .......\glue -0.7528
+.....\glue 0.0 plus 1.0fil minus 1.0fil
 ....\special{color pop}
 ..\glue 1.0
 ..\glue(\lineskip) 0.0
 ..\vbox(700.50723+0.0)x417.11752, glue set 616.54045fil
 ...\write-{}
-...\write-{}
-...\write1{\@writefile{toc}{\protect \contentsline {chapter}{Bibliography}{\thepage }{}\protected@file@percent }}
+...\write2{\@writefile{toc}{\protect \contentsline {chapter}{Bibliography}{\thepage }{}\protected@file@percent }}
 ...\marks1{\__mark_id:n {17}Bibliography}
 ...\marks2{\__mark_id:n {18}}
 ...\mark{{Bibliography}{}}
-...\write1{\@writefile{lof}{\protect \addvspace {10.0pt}}}
-...\write1{\@writefile{lot}{\protect \addvspace {10.0pt}}}
+...\write2{\@writefile{lof}{\protect \addvspace {10.0pt}}}
+...\write2{\@writefile{lot}{\protect \addvspace {10.0pt}}}
 ...\glue(\topskip) 12.0
 ...\rule(0.0+0.0)x*
 ...\penalty 10000
@@ -3795,7 +4043,6 @@ Completed box being shipped out [4]
 ..\hbox(14.45401+3.61353)x417.11752
 ...\special{color push  Black}
 ...\hbox(14.45401+3.61353)x417.11752
-....\glue 0.0 plus 1.0fil minus 1.0fil
 ....\hbox(14.45401+3.61353)x417.11752
 .....\vbox(14.45401+3.61353)x417.11752
 ......\rule(0.0+0.0)x417.11752
@@ -3814,7 +4061,7 @@ Completed box being shipped out [4]
 ........\hbox(8.43146+3.61353)x417.11752, glue set 205.92392fil
 .........\glue(\leftskip) 0.0 plus 1.0fil
 .........\hbox(0.0+0.0)x0.0
-.........\TU/texgyretermes(0)/m/n/10.53937 4
+.........\TU/texgyretermes(0)/m/n/10.53937 5
 .........\kern -0.0002
 .........\kern 0.0002
 .........\rule(8.43146+3.61353)x0.0
@@ -3831,9 +4078,10 @@ Completed box being shipped out [4]
 ..........\penalty 10000
 ..........\glue(\parfillskip) 0.0
 ..........\glue(\rightskip) 0.0
+....\glue 0.0 plus 1.0fil minus 1.0fil
 ...\special{color pop}
 Appendix A
-Completed box being shipped out [5]
+Completed box being shipped out [6]
 \vbox(722.98453+3.61353)x435.04271
 .\glue -16.36447
 .\vbox(739.349+3.61353)x417.11752, shifted 17.92519
@@ -3842,6 +4090,7 @@ Completed box being shipped out [5]
 ...\hbox(12.04498+0.0)x417.11752
 ....\special{color push  Black}
 ....\hbox(12.04498+0.0)x417.11752
+.....\glue 0.0 plus 1.0fil minus 1.0fil
 .....\hbox(12.04498+0.0)x417.11752
 ......\vbox(12.04498+0.0)x417.11752
 .......\hbox(8.43146+3.61353)x417.11752
@@ -3890,19 +4139,18 @@ Completed box being shipped out [5]
 .......\glue 0.0
 .......\rule(0.7528+0.0)x417.11752
 .......\glue -0.7528
-.....\glue 0.0 plus 1.0fil minus 1.0fil
 ....\special{color pop}
 ..\glue 1.0
 ..\glue(\lineskip) 0.0
 ..\vbox(700.50723+0.0)x417.11752, glue set 632.92744fil
 ...\write-{}
-...\write1{\pp@pagectr{footnote}{4}{\theabspage }{\thepage }}
-...\write1{\@writefile{toc}{\protect \contentsline {chapter}{\protect \numberline {Appendix A}附录章节}{\thepage }{}\protected@file@percent }}
+...\write2{\pp@pagectr{footnote}{4}{\theabspage }{\thepage }}
+...\write2{\@writefile{toc}{\protect \contentsline {chapter}{\protect \numberline {Appendix A}附录章节}{\thepage }{}\protected@file@percent }}
 ...\marks1{\__mark_id:n {19}Appendix A\hskip 1em\relax 附录章节}
 ...\marks2{\__mark_id:n {20}}
 ...\mark{{Appendix A\hskip 1em\relax 附录章节}{}}
-...\write1{\@writefile{lof}{\protect \addvspace {10.0pt}}}
-...\write1{\@writefile{lot}{\protect \addvspace {10.0pt}}}
+...\write2{\@writefile{lof}{\protect \addvspace {10.0pt}}}
+...\write2{\@writefile{lot}{\protect \addvspace {10.0pt}}}
 ...\glue(\topskip) 12.0
 ...\rule(0.0+0.0)x*
 ...\penalty 10000
@@ -3961,6 +4209,7 @@ Completed box being shipped out [5]
 ..\hbox(14.45401+3.61353)x417.11752
 ...\special{color push  Black}
 ...\hbox(14.45401+3.61353)x417.11752
+....\glue 0.0 plus 1.0fil minus 1.0fil
 ....\hbox(14.45401+3.61353)x417.11752
 .....\vbox(14.45401+3.61353)x417.11752
 ......\rule(0.0+0.0)x417.11752
@@ -3979,7 +4228,7 @@ Completed box being shipped out [5]
 ........\hbox(8.43146+3.61353)x417.11752, glue set 205.92392fil
 .........\glue(\leftskip) 0.0 plus 1.0fil
 .........\hbox(0.0+0.0)x0.0
-.........\TU/texgyretermes(0)/m/n/10.53937 5
+.........\TU/texgyretermes(0)/m/n/10.53937 6
 .........\kern -0.0002
 .........\kern 0.0002
 .........\rule(8.43146+3.61353)x0.0
@@ -3996,9 +4245,8 @@ Completed box being shipped out [5]
 ..........\penalty 10000
 ..........\glue(\parfillskip) 0.0
 ..........\glue(\rightskip) 0.0
-....\glue 0.0 plus 1.0fil minus 1.0fil
 ...\special{color pop}
-Completed box being shipped out [6]
+Completed box being shipped out [7]
 \vbox(722.98453+3.61353)x435.04271
 .\glue -16.36447
 .\vbox(739.349+3.61353)x417.11752, shifted 17.92519
@@ -4007,7 +4255,6 @@ Completed box being shipped out [6]
 ...\hbox(12.04498+0.0)x417.11752
 ....\special{color push  Black}
 ....\hbox(12.04498+0.0)x417.11752
-.....\glue 0.0 plus 1.0fil minus 1.0fil
 .....\hbox(12.04498+0.0)x417.11752
 ......\vbox(12.04498+0.0)x417.11752
 .......\hbox(8.43146+3.61353)x417.11752
@@ -4044,17 +4291,19 @@ Completed box being shipped out [6]
 .......\glue 0.0
 .......\rule(0.7528+0.0)x417.11752
 .......\glue -0.7528
+.....\glue 0.0 plus 1.0fil minus 1.0fil
 ....\special{color pop}
 ..\glue 1.0
 ..\glue(\lineskip) 0.0
 ..\vbox(700.50723+0.0)x417.11752, glue set 634.4891fil
 ...\write-{}
-...\write1{\@writefile{toc}{\protect \contentsline {chapter}{Acknowledgements}{\thepage }{}\protected@file@percent }}
+...\write-{}
+...\write2{\@writefile{toc}{\protect \contentsline {chapter}{Acknowledgements}{\thepage }{}\protected@file@percent }}
 ...\marks1{\__mark_id:n {21}Acknowledgements}
 ...\marks2{\__mark_id:n {22}}
 ...\mark{{Acknowledgements}{}}
-...\write1{\@writefile{lof}{\protect \addvspace {10.0pt}}}
-...\write1{\@writefile{lot}{\protect \addvspace {10.0pt}}}
+...\write2{\@writefile{lof}{\protect \addvspace {10.0pt}}}
+...\write2{\@writefile{lot}{\protect \addvspace {10.0pt}}}
 ...\glue(\topskip) 12.0
 ...\rule(0.0+0.0)x*
 ...\penalty 10000
@@ -4102,7 +4351,6 @@ Completed box being shipped out [6]
 ..\hbox(14.45401+3.61353)x417.11752
 ...\special{color push  Black}
 ...\hbox(14.45401+3.61353)x417.11752
-....\glue 0.0 plus 1.0fil minus 1.0fil
 ....\hbox(14.45401+3.61353)x417.11752
 .....\vbox(14.45401+3.61353)x417.11752
 ......\rule(0.0+0.0)x417.11752
@@ -4121,7 +4369,7 @@ Completed box being shipped out [6]
 ........\hbox(8.43146+3.61353)x417.11752, glue set 205.92392fil
 .........\glue(\leftskip) 0.0 plus 1.0fil
 .........\hbox(0.0+0.0)x0.0
-.........\TU/texgyretermes(0)/m/n/10.53937 6
+.........\TU/texgyretermes(0)/m/n/10.53937 7
 .........\kern -0.0002
 .........\kern 0.0002
 .........\rule(8.43146+3.61353)x0.0
@@ -4138,9 +4386,10 @@ Completed box being shipped out [6]
 ..........\penalty 10000
 ..........\glue(\parfillskip) 0.0
 ..........\glue(\rightskip) 0.0
+....\glue 0.0 plus 1.0fil minus 1.0fil
 ...\special{color pop}
 )
-Completed box being shipped out [7]
+Completed box being shipped out [8]
 \vbox(722.98453+3.61353)x435.04271
 .\glue -16.36447
 .\vbox(739.349+3.61353)x417.11752, shifted 17.92519
@@ -4149,6 +4398,7 @@ Completed box being shipped out [7]
 ...\hbox(12.04498+0.0)x417.11752
 ....\special{color push  Black}
 ....\hbox(12.04498+0.0)x417.11752
+.....\glue 0.0 plus 1.0fil minus 1.0fil
 .....\hbox(12.04498+0.0)x417.11752
 ......\vbox(12.04498+0.0)x417.11752
 .......\hbox(8.43146+3.61353)x417.11752
@@ -4187,18 +4437,17 @@ Completed box being shipped out [7]
 .......\glue 0.0
 .......\rule(0.7528+0.0)x417.11752
 .......\glue -0.7528
-.....\glue 0.0 plus 1.0fil minus 1.0fil
 ....\special{color pop}
 ..\glue 1.0
 ..\glue(\lineskip) 0.0
 ..\vbox(700.50723+0.0)x417.11752, glue set 526.6497fil
 ...\write-{}
-...\write1{\@writefile{toc}{\protect \contentsline {chapter}{Research Achievements}{\thepage }{}\protected@file@percent }}
+...\write2{\@writefile{toc}{\protect \contentsline {chapter}{Research Achievements}{\thepage }{}\protected@file@percent }}
 ...\marks1{\__mark_id:n {23}Research Achievements}
 ...\marks2{\__mark_id:n {24}}
 ...\mark{{Research Achievements}{}}
-...\write1{\@writefile{lof}{\protect \addvspace {10.0pt}}}
-...\write1{\@writefile{lot}{\protect \addvspace {10.0pt}}}
+...\write2{\@writefile{lof}{\protect \addvspace {10.0pt}}}
+...\write2{\@writefile{lot}{\protect \addvspace {10.0pt}}}
 ...\glue(\topskip) 12.0
 ...\rule(0.0+0.0)x*
 ...\penalty 10000
@@ -4455,6 +4704,7 @@ Completed box being shipped out [7]
 ..\hbox(14.45401+3.61353)x417.11752
 ...\special{color push  Black}
 ...\hbox(14.45401+3.61353)x417.11752
+....\glue 0.0 plus 1.0fil minus 1.0fil
 ....\hbox(14.45401+3.61353)x417.11752
 .....\vbox(14.45401+3.61353)x417.11752
 ......\rule(0.0+0.0)x417.11752
@@ -4473,7 +4723,7 @@ Completed box being shipped out [7]
 ........\hbox(8.43146+3.61353)x417.11752, glue set 205.92392fil
 .........\glue(\leftskip) 0.0 plus 1.0fil
 .........\hbox(0.0+0.0)x0.0
-.........\TU/texgyretermes(0)/m/n/10.53937 7
+.........\TU/texgyretermes(0)/m/n/10.53937 8
 .........\kern -0.0002
 .........\kern 0.0002
 .........\rule(8.43146+3.61353)x0.0
@@ -4490,5 +4740,4 @@ Completed box being shipped out [7]
 ..........\penalty 10000
 ..........\glue(\parfillskip) 0.0
 ..........\glue(\rightskip) 0.0
-....\glue 0.0 plus 1.0fil minus 1.0fil
 ...\special{color pop}

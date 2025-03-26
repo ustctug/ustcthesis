@@ -37,35 +37,40 @@ Paragraph text.
 \subparagraph{五级节标题}
 Subparagraph text.
 
-测‘引号’和“双引号”。
+\chapter{内容要素}
 
-Test “double” quotaion ‘marks’.
+\section{有关图、表和表达式}
 
-\chapter{插图和表格}
+图、表和表达式按章连续编号，用两个阿拉伯数字表示，前一数字为章的序号，
+后一数字为本章内图、表或表达式的顺序号。
+两数字间用半角小数点“.”连接。
+例如“图~\ref{fig:example}”、“表~\ref{tab:example}”、“式\eqref{eq:example}”等等。
 
-插图一般由图、图题、图注构成。插图中的术语、符号、单位等应与正文表述所用一致。
-图序与图名合称图题，例如：“图2.1  2010年至2024年西藏地区年平均气温分布”。
-“图2.1”是图序，是“第二章第1个图”的序号，依次类推。
+\subsection{插图}
+
+插图一般由图、图题、图注构成。
 
 \begin{figure}[h]
   \centering
   \includegraphics[width=0.3\textwidth]{figures/ustc-badge.pdf}
   \caption{图题置于图的下方}
-  \label{fig:badge}
+  \label{fig:example}
   \figurenote{若有图注，图注置于图题下方。
-    多个图注则须顺序编号，注序左缩进2字，与注文之间空一字符，续行悬挂缩进左对齐，两端对齐。
     注文的字数较少且是短语时，末尾不可加标点，多个图注可以在同一行通过自由选取字符空格将各个图注间隔开来；
     注文的字数较多或者甚至需要用句子说明时，该图注可以独立成行。
   }
 \end{figure}
 
-不宜将多个插图连续排版，插图与文字论述段落应穿插排版，插图前后与文字段落之间须留有10磅空行。
-插图如果不得不与其它插图或表格连续排版，则它们之间须留有20磅空行。插图不允许跨页。
+不宜将多个插图连续排版，插图与文字论述段落应穿插排版。
+
+\subsection{表格}
+
+表格一般由表、表题、表注构成。
 
 \begin{table}[h]
   \centering
   \caption{表题置于表的上方}
-  \label{tab:exampletable}
+  \label{tab:example}
   \begin{tabular}{cl}
     \toprule
     类型   & 描述                                       \\
@@ -77,14 +82,23 @@ Test “double” quotaion ‘marks’.
   \end{tabular}
 \end{table}
 
-不宜将多个表格连续排版，表格与文字论述段落应穿插排版，表格前后与文字段落之间须留有10磅空行。
-表格如果不得不与其它表格或插图连续排版，则它们之间须留有20磅空行。
+不宜将多个表格连续排版，表格与文字论述段落应穿插排版。
+
+\clearpage
+
+\subsection{表达式}
+
+表达式主要是指分章连续编有序号的数字表达式。
+\begin{equation}
+  w_1 = u_{11} - u_{12} u_{21}
+  \label{eq:example}
+\end{equation}
+表达式的行距根据需要采用，段前6磅、段后6磅。
 
 \chapter{引用}
 \ustcsetup{cite-style=super}
 \cite{knuth86a}
 
-\backmatter
 \begin{thebibliography}{1}
 \bibitem[Knuth(1986)]{knuth86a}
 KNUTH~D~E.
@@ -97,6 +111,7 @@ KNUTH~D~E.
 \chapter{附录章节}
 附录内容。
 
+\backmatter
 \begin{acknowledgements}
   致谢内容。
 \end{acknowledgements}
