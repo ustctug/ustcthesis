@@ -3322,9 +3322,12 @@
 }
 
 % 科研成果环境：
-\newenvironment{achievements}{%
-  \@mainmatterfalse
-  \chapter{\ustc@achievements@name}%
+\NewDocumentEnvironment{achievements}{+b}{%
+  \ifustc@degree@graduate
+    \@mainmatterfalse
+    \chapter{\ustc@achievements@name}%
+    #1\par
+  \fi
 }{}
 
 % 兼容旧的接口
