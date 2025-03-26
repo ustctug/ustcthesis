@@ -2184,10 +2184,10 @@
   允许论文被查阅和借阅，可以将学位论文编入《中国学位论文全文数据库》等%
   有关数据库进行检索，可以采用影印、缩印或扫描等复制手段保存、汇编学位论文。%
   本人提交的电子文档的内容和纸质论文的内容相一致。\par
-  控阅的学位论文在解密后也遵守此规定。}
-  %
-  % 生成空的下划线
-\newcommand\ustc@underline[2][3.2cm]{\underline{\hb@xt@ #1{\hss#2\hss}}}
+  控阅的学位论文在解除后也遵守此规定。}
+
+% 生成空的下划线
+\newcommand\ustc@underline[2][8em]{\underline{\hb@xt@ #1{\hss#2\hss}}}
 
 \newcommand\ustc@checkbox{%
   \makebox[0bp][l]{$\square$}%
@@ -2197,37 +2197,45 @@
 \newcommand\copyrightpage{%
   \begin{titlepage}%
     \ustc@pdfbookmark{原创性和授权使用声明}%
-    \null
-    \vskip 0.3cm%
+    \vspace*{21bp}%
     {\centering\sffamily\fontsize{16bp}{32bp}\selectfont
       中国科学技术大学学位论文原创性声明\par}%
-    \vskip 0.7cm%
-    \ustc@originality\par
-    \vskip 1.3cm%
-    作者签名：\ustc@underline{}\hspace{2.7cm}%
+    \vspace{13bp}%
+    \begingroup
+      \renewcommand\CJKglue{\hspace{0bp plus .1pt minus .1pt}}%
+      \ustc@originality\par
+    \endgroup
+    \vspace{37bp}%
+    \noindent
+    作者签名：\ustc@underline{}\hspace{8em}%
     签字日期：\ustc@underline{}\par
-    \vskip 1.9cm%
+    \vspace{69bp}%
     {\centering\sffamily\fontsize{16bp}{32bp}\selectfont
       中国科学技术大学学位论文授权使用声明\par}%
-    \vskip 0.7cm%
-    \ustc@authorization\par
-    \vskip 0.6cm%
+    \vspace{13bp}%
+    \begingroup
+      \renewcommand\CJKglue{\hspace{0bp plus .1pt minus .1pt}}%
+      \ustc@authorization\par
+    \endgroup
+    \vspace{12bp}%
     \ifx\ustc@secret@level\@empty
-      \ustc@checkbox{} 公开\quad
+      \ustc@checkbox{}公开\quad
       $\square$ 控阅（\ustc@underline[0.85cm]{}年）\par
     \else
-      $\square$ 公开\quad
-      \ustc@checkbox{} 控阅（\ustc@underline[0.8cm]{\ustc@secret@year}年）\par
+      $\square$公开\quad
+      \ustc@checkbox{} 控阅（\ustc@underline[2em]{\ustc@secret@year}年）\par
     \fi
-    \vskip 0.5cm%
-    作者签名：\ustc@underline{}\hspace{2.7cm}%
-    导师签名：\ustc@underline{}\par
-    \vskip 0.5cm%
-    签字日期：\ustc@underline{}\hspace{2.7cm}%
-    签字日期：\ustc@underline{}\par
+    \vspace{29bp}%
+    \noindent
+    作者签名：\ustc@underline[7.5em]{}\hspace{8.5em}%
+    导师签名：\ustc@underline[7.5em]{}\par
+    \vspace{1em}%
+    \noindent
+    签字日期：\ustc@underline[7.5em]{}\hspace{8.5em}%
+    签字日期：\ustc@underline[7.5em]{}\par
     \ifustc@reviewer@true
-      \vskip 1.5cm%
-      \hskip -1em%
+      \vspace{1.5cm}%
+      \hspace{-1em}%
       评审专家签名：\ustc@underline{}\hspace{4.5em}%
       评审专家签名：\ustc@underline{}\par
     \fi

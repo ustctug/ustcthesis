@@ -18,6 +18,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - 中文数学公式的编号（`\eqref`）默认使用全角括号（[#420](https://github.com/ustctug/ustcthesis/issues/420)）。
 - 封面的横向页边距改为 3.17 cm（[#424](https://github.com/ustctug/ustcthesis/issues/424)）。
 - 更新封面的格式（[#438](https://github.com/ustctug/ustcthesis/issues/438)）。
+- 更新原创性和授权使用声明的格式。
 
 ### Fixed
 
