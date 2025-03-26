@@ -19,6 +19,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - 封面的横向页边距改为 3.17 cm（[#424](https://github.com/ustctug/ustcthesis/issues/424)）。
 - 更新封面的格式（[#438](https://github.com/ustctug/ustcthesis/issues/438)）。
 - 更新原创性和授权使用声明的格式。
+- 数学式的改为段前6磅、段后6磅（研究生院 2025-03-12 Word 模板）。。
 
 ### Fixed
 

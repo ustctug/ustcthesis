@@ -647,14 +647,16 @@
 %   \end{tabular}
 % \end{table}
 %
+% 表达式的行距根据需要采用，段前6磅、段后6磅。
+%
 % 注意重定义 \normalsize 应在 \pkg{unicode-math} 的 \cs{setmathfont} 前。
 \newcommand\ustc@set@font@size{%
   \ifustc@degree@graduate
     \renewcommand\normalsize{%
       \@setfontsize\normalsize{12bp}{20bp}%
-      \abovedisplayskip 12bp \@plus3bp \@minus7bp%
-      \abovedisplayshortskip 0bp \@plus3bp%
-      \belowdisplayshortskip 6.5bp \@plus3.5bp \@minus3bp%
+      \abovedisplayskip 6bp \@plus3bp \@minus3bp%
+      \abovedisplayshortskip 6bp \@plus3bp \@minus3bp%
+      \belowdisplayshortskip \abovedisplayshortskip
       \belowdisplayskip \abovedisplayskip
       \let\@listi\@listI}%
     %
@@ -662,9 +664,9 @@
   \else
     \renewcommand\normalsize{%
       \@setfontsize\normalsize{12bp}{22bp}%
-      \abovedisplayskip 12bp \@plus3bp \@minus7bp%
-      \abovedisplayshortskip 0bp \@plus3bp%
-      \belowdisplayshortskip 6.5bp \@plus3.5bp \@minus3bp%
+      \abovedisplayskip 6bp \@plus3bp \@minus3bp%
+      \abovedisplayshortskip 6bp \@plus3bp \@minus3bp%
+      \belowdisplayshortskip \abovedisplayshortskip
       \belowdisplayskip \abovedisplayskip
       \let\@listi\@listI}%
   \fi

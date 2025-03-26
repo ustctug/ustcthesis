@@ -3166,7 +3166,7 @@ Completed box being shipped out [5]
 ....\special{color pop}
 ..\glue 1.0
 ..\glue(\lineskip) 0.0
-..\vbox(700.50723+0.0)x417.11752, glue set 592.08403fil
+..\vbox(700.50723+0.0)x417.11752, glue set 604.12776fil
 ...\write-{}
 ...\glue(\topskip) 1.15147
 ...\hbox(10.84853+2.52943)x417.11752, glue set 329.65482fil
@@ -3245,7 +3245,7 @@ Completed box being shipped out [5]
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
 ...\penalty 10000
-...\glue(\abovedisplayskip) 12.045 plus 3.01125 minus 7.02625
+...\glue(\abovedisplayskip) 6.02249 plus 3.01125 minus 3.01125
 ...\glue(\baselineskip) 10.23022
 ...\hbox(9.636+3.01152)x252.87306, shifted 164.24446
 ....\hbox(5.5407+3.01152)x88.62862, display
@@ -3297,7 +3297,7 @@ Completed box being shipped out [5]
 ......\glue 7.63654 minus 6.0225
 .....\write2{\newlabel{eq:example}{{2.1}{\thepage }{}{equation.2.1}{}}}
 ...\penalty 0
-...\glue(\belowdisplayskip) 12.045 plus 3.01125 minus 7.02625
+...\glue(\belowdisplayskip) 6.02249 plus 3.01125 minus 3.01125
 ...\glue(\baselineskip) 9.69997
 ...\hbox(9.371+2.32468)x417.11752, glue set 147.83954fil
 ....\TU/FandolSong(0)/m/n/12.045 表
