@@ -1909,67 +1909,71 @@
 % 密级仿宋 14 磅；
 % 论文类型黑体 56 磅；
 % 论文题目黑体 26 磅加粗居中，单倍行距；
-% 作者姓名宋体 16 磅，单倍行距；
-% 注意这里的“单倍行距”的地方开启了“对齐到网格”，所以实际行距有所偏差，
-% 所以只能使用直尺测量。
+% 作者姓名宋体 16 磅，1.5 倍行距；
 \newcommand\ustc@title@page@graduate@zh{%
   \ustcsetup{language=chinese}%
   \begin{titlepage}%
     \ustc@pdfbookmark{封面}%
     \centering
-    \parbox[t][0.6cm][t]{\textwidth}{%
+    \parbox[t][0bp][t]{\textwidth}{%
       \raggedleft\fangsong\fontsize{14bp}{14bp}\selectfont
-      \null\ustc@secret@level\par}\par
-    \vskip 0.5cm%
-    \includegraphics[height=1.3cm]{figures/ustc-name.pdf}\par
-    \vskip 0.6cm%
-    {\sffamily\fontsize{56bp}{56bp}\selectfont
-      \ifustc@degree@type@academic\else
-        \ziju{-0.1}%
+      \null\ustc@secret@level
+    }\par
+    \vspace{11bp}%
+    \includegraphics[height=1.3cm]{figures/ustc-name-stxingkai.pdf}\par
+    \vspace{-7bp}%
+    \begingroup
+      \sffamily\fontsize{54bp}{70.2bp}\selectfont
+      \renewcommand\CJKglue{\hspace{-5.2bp}}%
+      \ustc@thesis@name\par
+    \endgroup
+    \parbox[t][0bp][t]{\textwidth}{%
+      \fontsize{26bp}{33.8bp}\selectfont
+      \ifx\ustc@professional@type\@empty
+        \null
+      \else
+        \lishu （\ustc@professional@type ）%
       \fi
-      \ustc@thesis@name\par}%
-    \ifustc@degree@type@academic
-      \vskip 2.0cm%
-    \else
-      \vskip 0.8cm%
-      \begingroup
-        \fontsize{26bp}{26bp}\selectfont
-        \ifx\ustc@professional@type\@empty
-          \null
-        \else
-          \lishu （\ustc@professional@type ）%
-        \fi
-        \par
-      \endgroup
-      \vskip 1.0cm%
-    \fi
-    \ifustc@badge@color@blue
-      \textcolor{ustcblue}{%
-        \includegraphics[height=4.1cm]{figures/ustc-badge.pdf}}%
-    \else
-      \includegraphics[height=4.1cm]{figures/ustc-badge.pdf}%
-    \fi\par
-    \vskip 0.9cm%
-    \parbox[t][3.5cm][c]{\textwidth}{%
-      \centering\sffamily\bfseries\fontsize{26bp}{50bp}\selectfont
-      \ustc@title\par}\par
-    \vskip 0.6cm%
-    {\fontsize{16bp}{31bp}\selectfont
-      \begin{tabular}{@{}l@{\quad}l@{}}%
-        \textsf{作者姓名：} & \ustc@author \\
+    }\par
+    \vspace{37bp}%
+    \begingroup
+      \ifustc@badge@color@blue
+        \color{ustcblue}%
+      \fi
+      % \hspace{3bp}%
+      \includegraphics[height=123bp]{figures/ustc-badge.pdf}\par
+    \endgroup
+    \vspace{2.8bp}%
+    \parbox[t][101.3bp][c]{\textwidth}{%
+      \centering\sffamily\bfseries\fontsize{26bp}{33.8bp}\selectfont
+      \ustc@title
+    }\par
+    \vspace{37bp}%
+    \parbox[t]{\textwidth}{%
+      \hspace{45bp}%
+      \parbox[t]{368bp}{%
+        % 1.5 行 = 16bp * 1.3 * 1.5
+        \fontsize{16bp}{31.2bp}\selectfont
+        \textsf{作者姓名：}\quad\ustc@author \par
         \ifustc@degree@type@engineering
-          \textsf{类别领域：} & \ustc@speciality \\
+          % 工程硕士的封面是“类别领域”，而工程博士的是“学科专业”
+          \ifustc@degree@master
+            \textsf{类别领域：}\quad\ustc@speciality\par
+          \else
+            \textsf{学科专业：}\quad\ustc@speciality\par
+          \fi
         \else
-          \textsf{学科专业：} & \ustc@speciality \\
+          \textsf{学科专业：}\quad\ustc@speciality\par
         \fi
         \ifx\ustc@practice@supervisor\@empty
-          \textsf{导\hspace{2em}师：} & \ustc@supervisor@names \\
+          \textsf{导\hspace{2em}师：}\quad\ustc@supervisor@names \par
         \else
-          \textsf{校内导师：} & \ustc@supervisor@names \\
-          \textsf{实践导师：} & \ustc@practice@supervisor@names \\
+          \textsf{校内导师：}\quad\ustc@supervisor@names \par
+          \textsf{实践导师：}\quad\ustc@practice@supervisor@names \par
         \fi
-        \textsf{完成时间：} & \ustc@date@zh@big
-      \end{tabular}\par}%
+        \textsf{完成时间：}\quad\ustc@date@zh@big\par
+      }%
+    }%
   \end{titlepage}%
   \ustc@reset@main@language
 }
@@ -1980,48 +1984,47 @@
   \begin{titlepage}%
     \ustc@pdfbookmark{Title page}%
     \centering
-    \parbox[t][0.4cm][t]{\textwidth}{%
-      \raggedleft\fontsize{14bp}{14bp}\selectfont
-      \null\ustc@secret@level@en\par}\par
-    \vskip 0.5cm%
-    {\fontsize{20bp}{30bp}\selectfont
-      University of Science and Technology of China\par\null\par}%
-    {\fontsize{26bp}{30bp}\selectfont
-      \ustc@thesis@name@en\par}%
-    \ifustc@degree@type@academic\else
-      \begingroup
-        \fontsize{16bp}{32bp}\selectfont
-        \ifx\ustc@professional@type@en\@empty
-          \null
-        \else
-          (\ustc@professional@type@en)
-        \fi
-        \par
-      \endgroup
-    \fi
-    \vskip 2.5cm%
-    \ifustc@badge@color@blue
-      \textcolor{ustcblue}{%
-        \includegraphics[height=4.5cm]{figures/ustc-badge.pdf}}%
-    \else
-      \includegraphics[height=4.5cm]{figures/ustc-badge.pdf}%
-    \fi\par
-    \vskip 0.5cm%
-    \parbox[t][2.5cm][c]{\textwidth}{%
+    \parbox[t][0bp][t]{\textwidth}{%
+      \raggedleft\fangsong\fontsize{14bp}{14bp}\selectfont
+      \null\ustc@secret@level@en
+    }\par
+    \vspace{5bp}%
+    \begingroup
+      \fontsize{20bp}{30bp}\selectfont
+      University of Science and Technology of China\par
+    \endgroup
+    \vspace{30bp}%
+    \begingroup
+      \fontsize{26bp}{30bp}\selectfont
+      \ustc@thesis@name@en\par
+    \endgroup
+    \vspace{68bp}%
+    \begingroup
+      \ifustc@badge@color@blue
+        \color{ustcblue}%
+      \fi
+      % \hspace{3bp}%
+      \includegraphics[height=123bp]{figures/ustc-badge.pdf}\par
+    \endgroup
+    \vspace{10bp}%
+    \parbox[t][90bp][c]{\textwidth}{%
       \centering\sffamily\bfseries\fontsize{26bp}{30bp}\selectfont
-      \ustc@title@en\par}\par
-    \vskip 1.6cm%
-    {\fontsize{16bp}{30bp}\selectfont
-      \begin{tabular}{@{}l@{}}%
-        Author:        \ustc@author@en \\
-        Speciality:    \ustc@speciality@en \\
-        \ustc@supervisor@en@line \\
-        \ifx\ustc@practice@supervisor@en\@empty
-        \else
-          \ustc@practice@supervisor@en@line \\
+      \ustc@title@en
+    }\par
+    \vspace{48bp}%
+    \parbox[t]{\textwidth}{%
+      \hspace{61.5bp}%
+      \parbox[t]{352bp}{%
+        \fontsize{16bp}{30bp}\selectfont
+        Author:        \ustc@author@en\par
+        Speciality:    \ustc@speciality@en\par
+        \ustc@supervisor@en@line\par
+        \ifx\ustc@practice@supervisor@en\@empty\else
+          \ustc@practice@supervisor@en@line\par
         \fi
-        Completion date: \ustc@date@en
-      \end{tabular}\par}%
+        Completion date: \ustc@date@en\par
+      }%
+    }\par
   \end{titlepage}%
   \ustc@reset@main@language
 }
