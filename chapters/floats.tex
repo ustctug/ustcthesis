@@ -2,15 +2,53 @@
 
 \chapter{插图和表格}
 
-\section{三线表}
+\section{插图}
 
-三线表是《撰写手册》推荐使用的格式，如表~\ref{tab:exampletable}。
+插图中的术语、符号、单位等应与正文表 述所用一致。
+专用名词、代号、 单位等可采用外文表示，坐标轴题名、词组、描述性的词语均须采用中文。
 
-\begin{table}
+图题置于图的下方，图名末尾不可加标点。
+若有英文图题，另起一行置于中文图题下方。
+推荐使用 \pkg{bicaption} 宏包，例如图~\ref{fig:example}。
+
+\begin{figure}[h]
   \centering
-  % \caption{表号和表题在表的正上方}
-  \bicaption{表号和表题在表的正上方}{A test table}
-  \label{tab:exampletable}
+  \includegraphics[width=.4\linewidth]{example-image.pdf}
+  \bicaption{图题置于图的下方}{If there is an English caption, place it below the Chinese caption}
+  \label{fig:example}
+  \figurenote{若有图注，图注置于图题下方。
+    若有英文图题，则只需在英文图题下方给出英文图注。
+    多个图注则须顺序编号，注序左缩进 2 字，与注文之间空一字符，续行悬挂缩进左对齐，两端对齐。
+    注文的字数较少且是短语时，末尾不可加标点，
+    多个图注可以在同一行通过自由选取字符空格将各个图注间隔开来；
+    注文的字数较多或者甚至需要用句子说明时，该图注可以独立成行。
+  }
+\end{figure}
+
+如果插图中的图是由两个以上的分图组成时，则各分图要求分别以 (a)、(b)、(c)……作为分图序，
+与分图名一起构成分图题。
+将分图题按图注处理，分图题的格式与图注同。
+推荐使用 \pkg{subcaption} 宏包，例如图~\ref{fig:sub-figures}。
+
+\begin{figure}[h]
+  \centering
+  \subcaptionbox{分图示例 A\label{fig:sub-figure-a}}
+    {\includegraphics[width=.4\linewidth]{example-image-a.pdf}}
+  \subcaptionbox{分图示例 B\label{fig:sub-figure-b}}
+    {\includegraphics[width=.4\linewidth]{example-image-b.pdf}}
+  \caption{插图由两个以上的分图组成的示例}
+  \label{fig:sub-figs}
+\end{figure}
+
+
+\section{表格}
+
+表题置于表的上方。若有英文表题，另起一行置于中文表题下方。
+
+\begin{table}[h]
+  \centering
+  \bicaption{表号和表题在表的正上方}{If there is an English caption, place it below the Chinese caption}
+  \label{tab:example}
   \begin{tabular}{cl}
     \toprule
     类型   & 描述                                       \\
@@ -22,84 +60,89 @@
   \end{tabular}
 \end{table}
 
-如果有表注，推荐使用 \pkg{threeparttable}。这样可以与表格对齐，满足部分评审老师的要求。
+若表格有附注，则表注置于表的下方。
+推荐使用 \pkg{threeparttable} 宏包，例如表~\ref{tab:table-note}。
 
-\begin{table}
+\begin{table}[h]
   \centering
   \begin{threeparttable}
-    \caption{带表注的表格}
-    \label{tab:tablewithnotes}
+    \caption{带附注的表格示例}
+    \label{tab:table-note}
     \begin{tabular}{cl}
       \toprule
       类型   & 描述                                       \\
       \midrule
-      挂线表 & 挂线表也称系统表、组织表，用于表现系统结构 \\
-      无线表 & 无线表一般用于设备配置单、技术参数列表等   \\
-      卡线表 & 卡线表有完全表，不完全表和三线表三种       \\
+      挂线表\tnote{1} & 挂线表也称系统表、组织表，用于表现系统结构 \\
+      无线表\tnote{2} & 无线表一般用于设备配置单、技术参数列表等   \\
+      卡线表          & 卡线表有完全表，不完全表和三线表三种       \\
       \bottomrule
     \end{tabular}
-    \begin{tablenotes}[flushleft]
-      \item 注：表注分两种，第一种是对全表的注释，用不加阿拉伯数字排在表的下边，
-      前面加“注：”；第二种是和表内的某处文字或数字相呼应的注，
-      在表里面用带圈的阿拉伯数字在右上角标出，然后在表下面用同样的圈码注出来
+    \begin{tablenotes}[online]
+      \item[1] 多个表注则须顺序编号，注序左缩进 2 字，与注文之间空一字符，
+        续行悬挂缩进左对齐，两端对齐。
+      \item[2] 注文若是短语，末尾不可加标点。
     \end{tablenotes}
   \end{threeparttable}
 \end{table}
 
-编制表格应简单明了，表达一致，明晰易懂，表文呼应、内容一致。
-排版时表格字号略小，或变换字体，尽量不分页，尽量不跨节。
-表格太大需要转页时，需要在续表上方注明“续表”，表头页应重复排出。
+当表格较大而不能在一页内打印时，可以“续表”的形式另页打印，格式同前，
+只需在另页的表序前加“续”字即可，例如“续表 2.1 实验方式”。
+续表均应重复给出横表头。
+推荐使用 \pkg{longtable} 宏包，例如表~\ref{tab:long-table}。
 
-
-
-\section{插图}
-
-有的同学可能听说“\LaTeX{} 只能使用 eps 格式的图片”，甚至把 jpg 格式转为 eps。
-事实上，这种做法已经过时。
-而且每次编译时都要要调用外部工具解析 eps，导致降低编译速度。
-所以我们推荐矢量图直接使用 pdf 格式，位图使用 jpeg 或 png 格式。
-
-\begin{figure}[ht]
-  \centering
-  \includegraphics[width=0.3\textwidth]{ustc-badge.pdf}
-  % \caption{图号、图题置于图的下方}
-  \bicaption{图号、图题置于图的下方}{A test figure}
-  \label{fig:badge}
-  \figurenote{若有图注，图注置于图题下方。
-    多个图注则须顺序编号，注序左缩进2字，与注文之间空一字符，续行悬挂缩进左对齐，两端对齐。
-    注文的字数较少且是短语时，末尾不可加标点，多个图注可以在同一行通过自由选取字符空格将各个图注间隔开来；
-    注文的字数较多或者甚至需要用句子说明时，该图注可以独立成行。
-  }
-\end{figure}
-
-关于图片的并排，推荐使用较新的 \pkg{subcaption} 宏包，
-不建议使用 \pkg{subfigure} 或 \pkg{subfig} 等宏包。
-
+\begin{longtable}{cccc}
+    \caption{跨页长表格的表题}
+    \label{tab:long-table} \\
+    \toprule
+    表头 1 & 表头 2 & 表头 3 & 表头 4 \\
+    \midrule
+  \endfirsthead
+    \caption*{续表~\thetable\quad 跨页长表格的表题} \\
+    \toprule
+    表头 1 & 表头 2 & 表头 3 & 表头 4 \\
+    \midrule
+  \endhead
+    \bottomrule
+  \endfoot
+  Row 1  & & & \\
+  Row 2  & & & \\
+  Row 3  & & & \\
+  Row 4  & & & \\
+  Row 5  & & & \\
+  Row 6  & & & \\
+  Row 7  & & & \\
+  Row 8  & & & \\
+  Row 9  & & & \\
+  Row 10 & & & \\
+\end{longtable}
 
 
 \section{算法环境}
 
-模板中使用 \pkg{algorithm2e} 宏包实现算法环境。关于该宏包的具体用法，
-请阅读宏包的官方文档。
+算法环境可以使用 \pkg{algorithms} 或者 \pkg{algorithm2e} 宏包。
+
+\renewcommand{\algorithmicrequire}{\textbf{输入：}}
+\renewcommand{\algorithmicensure}{\textbf{输出：}}
 
 \begin{algorithm}
-  \SetAlgoLined
-  \KwData{this text}
-  \KwResult{how to write algorithm with \LaTeX2e }
+  \caption{Calculate $y = x^n$}
+  \label{alg:example}
+  \begin{algorithmic}
+    \REQUIRE $n \geq 0$
+    \ENSURE $y = x^n$
 
-  initialization\;
-  \While{not at end of this document}{
-    read current\;
-    \eIf{understand}{
-      go to next section\;
-      current section becomes this one\;
-    }{
-      go back to the beginning of current section\;
-    }
-  }
-  \caption{算法示例1}
-  \label{algo:algorithm1}
+    \STATE $y \leftarrow 1$
+    \STATE $X \leftarrow x$
+    \STATE $N \leftarrow n$
+
+    \WHILE{$N \neq 0$}
+      \IF{$N$ is even}
+        \STATE $X \leftarrow X \times X$
+        \STATE $N \leftarrow N / 2$
+      \ELSE[$N$ is odd]
+        \STATE $y \leftarrow y \times X$
+        \STATE $N \leftarrow N - 1$
+      \ENDIF
+    \ENDWHILE
+  \end{algorithmic}
 \end{algorithm}
-
-注意，我们可以在论文中插入算法，但是插入大段的代码是愚蠢的。
-然而这并不妨碍有的同学选择这么做，对于这些同学，建议用 \pkg{listings} 宏包。
