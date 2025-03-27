@@ -1,0 +1,31 @@
+\input{regression-test.tex}
+\documentclass[degree=doctor, fontset=fandol]{ustcthesis}
+
+\usepackage{bicaption}
+
+\pagestyle{empty}
+
+\begin{document}
+\START
+\showoutput
+
+\frontmatter
+
+\listoffigures
+
+\mainmatter
+
+图题置于图的下方，图名末尾不可加标点。
+
+\begin{figure}[h]
+  \centering
+  \includegraphics{example-image.pdf}
+  \bicaption{图题置于图的“下方”}{If there is an English caption, place it “below” the Chinese caption}
+  \label{fig:example}
+\end{figure}
+
+若有英文图题，另起一行置于中文图题下方。
+
+\clearpage
+\OMIT
+\end{document}
