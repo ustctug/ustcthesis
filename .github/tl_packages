@@ -68,3 +68,6 @@ siunitx
 hypdoc
 listings
 xcolor
+#
+# Dependencies for tests
+mwe
