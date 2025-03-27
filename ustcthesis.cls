@@ -2787,18 +2787,22 @@
   skip           = 6bp,
   figureposition = bottom,
   tableposition  = top,
-  justification  = centering,
 }
 \ifustc@degree@graduate
-  \RequirePackage[list=off]{bicaption}
-  \DeclareCaptionOption{bi-first}[]{}% 设置第一种语言的图/表题
-  \DeclareCaptionOption{bi-second}[]{% 设置第二种语言的图/表题
-  	\ustcsetup{language=english}
-  }
-  \captionsetup[bi-first]{bi-first}%
-  \captionsetup[bi-second]{bi-second}%
   \captionsetup{font+=bf}
 \fi
+
+% 若有英文图题，另起一行置于中文图题下方。
+\AtEndOfPackageFile*{bicaption}{
+  \captionsetup[bi-first]{lang = chinese}
+  \captionsetup[bi-second]{
+    lang = english,
+    list = off,
+  }
+  \renewcommand\selectcaptionlanguage[2]{%
+    \ustcsetup{language = #2}%
+  }
+}
 
 % 表单元格中的文字采用 11pt 宋体字，单倍行距，段前3磅，段后3磅。
 % 对于中文，`\arraystretch` 需要设为 1 + (3pt + 3pt) / (11pt * 1.3) ~= 1.42。
