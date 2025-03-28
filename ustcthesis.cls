@@ -2466,8 +2466,16 @@
   \ustcsetup{language=chinese}%
   \ustc@chapter{摘要}%
 }{
-  \par\null\par\noindent\hangindent=4em\relax
-  \textbf{关键词}：\ustc@keywords@text\par
+  \par\null\par
+  \setlength\hangindent{4em}%
+  \noindent
+  \textbf{关键词：}%
+  \ifustc@degree@graduate
+    \ustc@clist@use{\ustc@keywords@en}{, }%
+  \else
+    \ustc@clist@use{\ustc@keywords@en}{; }%
+  \fi
+  \par
   \ustc@reset@main@language
 }
 
@@ -2496,17 +2504,13 @@
     \endgroup
   \fi
 }{
-  \par\null\par\noindent
+  \par\null\par
   \ifustc@degree@bachelor
     \renewcommand\ustc@keywords@label{Key Words}%
   \fi
-  \savebox\ustc@keywords@box{\textbf{\ustc@keywords@label}: }%
-  \ustc@keywords@width=\linewidth
-  \advance\ustc@keywords@width-\wd\ustc@keywords@box
-  \textbf{\ustc@keywords@label}: \parbox[t]{\ustc@keywords@width}{\ustc@keywords@en@text\par}\par
-  \ifustc@degree@graduate
-    \cleardoublepage
-  \fi
+  \setlength\hangindent{6.5em}%
+  \noindent
+  \textbf{\ustc@keywords@label}: \ustc@keywords@en@text\par
   \ustc@reset@main@language
 }
 

@@ -22,6 +22,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - 数学式的改为段前6磅、段后6磅（研究生院 2025-03-12 Word 模板）。
 - 图表标题的对齐方式改为 `centerlast`（两端对齐、末行居中）（[#442](https://github.com/ustctug/ustcthesis/issues/442)）。
 - 英文摘要改为悬挂缩进 2 em（研究生院 2025-03-12 Word 模板）。
+- 英文关键词改为悬挂缩进 6.5 em（研究生院 2025-03-12 Word 模板）。
 
 ### Fixed
 
