@@ -28,10 +28,11 @@ LaTeX Font Info:    Font shape `TU/STIXTwoMath-Regular(0)/m/n' will be
 (Font)              scaled to size 8.59444pt on input line ....
 LaTeX Font Info:    Font shape `TU/STIXTwoMath-Regular(0)/m/n' will be
 (Font)              scaled to size 6.87555pt on input line ....
+)
 Completed box being shipped out [1]
-\vbox(722.98453+0.0)x435.04271
+\vbox(722.98453+3.61353)x435.04271
 .\glue -16.36447
-.\vbox(739.349+0.0)x417.11752, shifted 17.92519
+.\vbox(739.349+3.61353)x417.11752, shifted 17.92519
 ..\vbox(15.36429+0.0)x417.11752, glue set 3.3193fil
 ...\glue 0.0 plus 1.0fil
 ...\hbox(12.04498+0.0)x417.11752
@@ -84,7 +85,6 @@ Completed box being shipped out [1]
 ..\glue 1.0
 ..\glue(\lineskip) 0.0
 ..\vbox(700.50723+0.0)x417.11752, glue set 541.09897fil
-...\write-{}
 ...\write-{}
 ...\write-{}
 ...\write-{}
@@ -303,15 +303,15 @@ Completed box being shipped out [1]
 ...\glue 0.0 plus 1.0fil
 ...\glue 0.0
 ...\glue 0.0 plus 0.0001fil
-..\glue(\baselineskip) 16.45493
-..\hbox(6.02255+0.0)x417.11752
+..\glue(\baselineskip) 8.02347
+..\hbox(14.45401+3.61353)x417.11752
 ...\special{color push  Black}
-...\hbox(6.02255+0.0)x417.11752
-....\hbox(6.02255+0.0)x417.11752
-.....\vbox(6.02255+0.0)x417.11752
+...\hbox(14.45401+3.61353)x417.11752
+....\hbox(14.45401+3.61353)x417.11752
+.....\vbox(14.45401+3.61353)x417.11752
 ......\rule(0.0+0.0)x417.11752
 ......\glue 6.02255
-......\hbox(0.0+0.0)x417.11752
+......\hbox(8.43146+3.61353)x417.11752
 .......\hbox(0.0+0.0)x0.0, glue set - 417.11752fil
 ........\vbox(0.0+0.0)x417.11752
 .........\hbox(0.0+0.0)x417.11752, glue set 208.55876fil
@@ -321,10 +321,14 @@ Completed box being shipped out [1]
 ..........\glue(\rightskip) 0.0 plus 1.0fil
 ........\glue 0.0 plus 1.0fil minus 1.0fil
 .......\glue 0.0 plus 1.0fill
-.......\vbox(0.0+0.0)x417.11752
-........\hbox(0.0+0.0)x417.11752, glue set 208.55876fil
+.......\vbox(8.43146+3.61353)x417.11752
+........\hbox(8.43146+3.61353)x417.11752, glue set 206.80396fil
 .........\glue(\leftskip) 0.0 plus 1.0fil
 .........\hbox(0.0+0.0)x0.0
+.........\TU/texgyretermes(0)/m/n/10.53937 I
+.........\kern -0.0002
+.........\kern 0.0002
+.........\rule(8.43146+3.61353)x0.0
 .........\penalty 10000
 .........\glue(\parfillskip) 0.0
 .........\glue(\rightskip) 0.0 plus 1.0fil
@@ -340,7 +344,6 @@ Completed box being shipped out [1]
 ..........\glue(\rightskip) 0.0
 ....\glue 0.0 plus 1.0fil minus 1.0fil
 ...\special{color pop}
-)
 Completed box being shipped out [2]
 \vbox(722.98453+3.61353)x435.04271
 .\glue -16.36447
@@ -387,7 +390,6 @@ Completed box being shipped out [2]
 ..\glue 1.0
 ..\glue(\lineskip) 0.0
 ..\vbox(700.50723+0.0)x0.0, glue set 688.4337fil
-...\write-{}
 ...\write-{}
 ...\glue(\topskip) 12.0
 ...\hbox(0.0+0.0)x0.0

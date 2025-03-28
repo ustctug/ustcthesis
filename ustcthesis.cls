@@ -2638,16 +2638,9 @@
 
 % 研究生规定符号说明另页起，标题字体字号等同论文正文，
 \newenvironment{notation}{%
-  \ifustc@degree@graduate
-    \cleardoublepage
-  \fi
   \ustc@chapter{\ustc@notation@name}%
-}{%
-  \ifustc@degree@graduate
-    \clearpage
-    \pagestyle{plain}%
-  \fi
-}%
+}{}%
+
 \newcommand*\notationlabel[1]{#1\hfil}%
 \newenvironment{notationlist}[1]{%
   \list{}{%
@@ -3569,10 +3562,6 @@
 \AtEndOfPackageFile*{nomencl}{
   \let\nomname\ustc@notation@name
   \def\thenomenclature{%
-    \ifustc@degree@graduate
-      \cleardoublepage
-      \pagestyle{headings}%
-    \fi
     \ustc@chapter{\ustc@notation@name}%
     \nompreamble
     \list{}{%
@@ -3584,10 +3573,6 @@
   \def\endthenomenclature{%
     \endlist
     \nompostamble
-    \ifustc@degree@graduate
-      \clearpage
-      \pagestyle{plain}%
-    \fi
   }
 }
 
