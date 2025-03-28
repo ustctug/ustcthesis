@@ -65,7 +65,7 @@ Completed box being shipped out [1]
 ....\special{color pop}
 ..\glue 1.0
 ..\glue(\lineskip) 0.0
-..\vbox(700.50723+0.0)x417.11752, glue set 593.5164fil
+..\vbox(700.50723+0.0)x417.11752, glue set 581.24467fil
 ...\write-{}
 ...\write-{}
 ...\write-{}
@@ -77,10 +77,11 @@ Completed box being shipped out [1]
 ...\glue(\topskip) 12.0
 ...\rule(0.0+0.0)x*
 ...\penalty 10000
-...\glue 12.09
+...\glue 7.02625
 ...\glue 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
+...\glue(\baselineskip) 8.47968
 ...\hbox(12.39832+2.82654)x417.11752, glue set 168.40877fil
 ....\glue(\leftskip) 0.0 plus 1.0fil
 ....\TU/FandolHei(0)/m/n/16.06 创
@@ -98,9 +99,10 @@ Completed box being shipped out [1]
 ....\glue(\parfillskip) 0.0
 ....\glue(\rightskip) 0.0 plus 1.0fil
 ...\penalty 10000
-...\glue 18.06749
+...\glue 19.07124
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
+...\glue(\baselineskip) 7.85336
 ...\hbox(9.3951+2.32468)x417.11752, glue set 0.41225
 ....\hbox(0.0+0.0)x24.09
 ....\TU/FandolSong(0)/m/n/12.045 学
@@ -402,7 +404,7 @@ Completed box being shipped out [2]
 ....\special{color pop}
 ..\glue 1.0
 ..\glue(\lineskip) 0.0
-..\vbox(700.50723+0.0)x417.11752, glue set 533.36208fil
+..\vbox(700.50723+0.0)x417.11752, glue set 521.02612fil
 ...\write-{}
 ...\marks1{\__mark_id:n {3}摘要}
 ...\marks2{\__mark_id:n {4}}
@@ -411,10 +413,11 @@ Completed box being shipped out [2]
 ...\glue(\topskip) 12.0
 ...\rule(0.0+0.0)x*
 ...\penalty 10000
-...\glue 12.09
+...\glue 7.02625
 ...\glue 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
+...\glue(\baselineskip) 8.5118
 ...\hbox(12.3662+2.79442)x417.11752, glue set 192.49876fil
 ....\glue(\leftskip) 0.0 plus 1.0fil
 ....\TU/FandolHei(0)/m/n/16.06 摘
@@ -426,9 +429,10 @@ Completed box being shipped out [2]
 ....\glue(\parfillskip) 0.0
 ....\glue(\rightskip) 0.0 plus 1.0fil
 ...\penalty 10000
-...\glue 18.06749
+...\glue 19.07124
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
+...\glue(\baselineskip) 7.88548
 ...\hbox(9.3951+2.32468)x417.11752, glue set 0.41225
 ....\hbox(0.0+0.0)x24.09
 ....\TU/FandolSong(0)/m/n/12.045 研
@@ -793,7 +797,7 @@ Completed box being shipped out [3]
 ....\special{color pop}
 ..\glue 1.0
 ..\glue(\lineskip) 0.0
-..\vbox(700.50723+0.0)x417.11752, glue set 521.57288fil
+..\vbox(700.50723+0.0)x417.11752, glue set 498.43573fil
 ...\write-{}
 ...\marks1{\__mark_id:n {5}ABSTRACT}
 ...\marks2{\__mark_id:n {6}}
@@ -802,10 +806,11 @@ Completed box being shipped out [3]
 ...\glue(\topskip) 12.0
 ...\rule(0.0+0.0)x*
 ...\penalty 10000
-...\glue 12.09
+...\glue 7.02625
 ...\glue 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
+...\glue(\baselineskip) 15.65648
 ...\hbox(11.11353+0.30513)x417.11752, glue set 165.55812fil
 ....\glue(\leftskip) 0.0 plus 1.0fil
 ....\TU/texgyretermes(0)/b/n/16.06 ABSTRACT
@@ -815,9 +820,10 @@ Completed box being shipped out [3]
 ....\glue(\parfillskip) 0.0
 ....\glue(\rightskip) 0.0 plus 1.0fil
 ...\penalty 10000
-...\glue 18.06749
+...\glue 19.07124
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
+...\glue(\baselineskip) 11.54314
 ...\hbox(8.22673+2.6258)x417.11752, glue set - 0.06552
 ....\hbox(0.0+0.0)x12.045
 ....\TU/texgyretermes(0)/m/n/12.045 Graduate
@@ -1162,7 +1168,7 @@ Completed box being shipped out [5]
 ....\special{color pop}
 ..\glue 1.0
 ..\glue(\lineskip) 0.0
-..\vbox(700.50723+0.0)x417.11752, glue set 346.69423fil
+..\vbox(700.50723+0.0)x417.11752, glue set 338.34067fil
 ...\write-{}
 ...\marks1{\__mark_id:n {7}目录}
 ...\marks2{\__mark_id:n {8}}
@@ -1171,10 +1177,11 @@ Completed box being shipped out [5]
 ...\glue(\topskip) 12.0
 ...\rule(0.0+0.0)x*
 ...\penalty 10000
-...\glue 12.09
+...\glue 7.02625
 ...\glue 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
+...\glue(\baselineskip) 9.15419
 ...\hbox(11.7238+2.7623)x417.11752, glue set 192.49876fil
 ....\glue(\leftskip) 0.0 plus 1.0fil
 ....\TU/FandolHei(0)/m/n/16.06 目
@@ -1186,13 +1193,14 @@ Completed box being shipped out [5]
 ....\glue(\parfillskip) 0.0
 ....\glue(\rightskip) 0.0 plus 1.0fil
 ...\penalty 10000
-...\glue 18.06749
+...\glue 19.07124
 ...\penalty 10000
 ...\glue 0.0 plus 0.1
 ...\penalty 10000
 ...\glue 6.02249
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
+...\glue(\baselineskip) 3.26027
 ...\hbox(14.05243+6.02255)x417.11752, glue set 335.8138fill
 ....\glue(\leftskip) 48.18
 ....\hbox(0.0+0.0)x0.0
@@ -2069,7 +2077,7 @@ Completed box being shipped out [7]
 ....\special{color pop}
 ..\glue 1.0
 ..\glue(\lineskip) 0.0
-..\vbox(700.50723+0.0)x417.11752, glue set 588.83171fil
+..\vbox(700.50723+0.0)x417.11752, glue set 581.29712fil
 ...\write-{}
 ...\marks1{\__mark_id:n {9}插图和附表清单}
 ...\marks2{\__mark_id:n {10}}
@@ -2078,10 +2086,11 @@ Completed box being shipped out [7]
 ...\glue(\topskip) 12.0
 ...\rule(0.0+0.0)x*
 ...\penalty 10000
-...\glue 12.09
+...\glue 7.02625
 ...\glue 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
+...\glue(\baselineskip) 8.49573
 ...\hbox(12.38226+2.9229)x417.11752, glue set 152.34877fil
 ....\glue(\leftskip) 0.0 plus 1.0fil
 ....\TU/FandolHei(0)/m/n/16.06 插
@@ -2103,11 +2112,12 @@ Completed box being shipped out [7]
 ....\glue(\parfillskip) 0.0
 ....\glue(\rightskip) 0.0 plus 1.0fil
 ...\penalty 10000
-...\glue 18.06749
+...\glue 19.07124
 ...\glue 0.0 plus 0.1
 ...\penalty 10000
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
+...\glue(\baselineskip) 3.09967
 ...\hbox(14.05243+6.02255)x417.11752, glue set 263.54381fill
 ....\glue(\leftskip) 48.18
 ....\hbox(0.0+0.0)x0.0
@@ -2428,7 +2438,7 @@ Completed box being shipped out [9]
 ....\special{color pop}
 ..\glue 1.0
 ..\glue(\lineskip) 0.0
-..\vbox(700.50723+0.0)x417.11752, glue set 635.08327fil
+..\vbox(700.50723+0.0)x417.11752, glue set 621.39038fil
 ...\write-{}
 ...\marks1{\__mark_id:n {11}符号说明}
 ...\marks2{\__mark_id:n {12}}
@@ -2437,10 +2447,11 @@ Completed box being shipped out [9]
 ...\glue(\topskip) 12.0
 ...\rule(0.0+0.0)x*
 ...\penalty 10000
-...\glue 12.09
+...\glue 7.02625
 ...\glue 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
+...\glue(\baselineskip) 8.44756
 ...\hbox(12.43044+2.79442)x417.11752, glue set 176.43877fil
 ....\glue(\leftskip) 0.0 plus 1.0fil
 ....\TU/FandolHei(0)/m/n/16.06 符
@@ -2456,9 +2467,10 @@ Completed box being shipped out [9]
 ....\glue(\parfillskip) 0.0
 ....\glue(\rightskip) 0.0 plus 1.0fil
 ...\penalty 10000
-...\glue 18.06749
+...\glue 19.07124
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
+...\glue(\baselineskip) 9.3068
 ...\hbox(7.97379+0.13248)x417.11752, glue set 343.41418fil
 ....\hbox(0.0+0.0)x24.09
 ....\TU/texgyretermes(0)/m/n/12.045 Notations.
@@ -2664,7 +2676,7 @@ Completed box being shipped out [1]
 ....\special{color pop}
 ..\glue 1.0
 ..\glue(\lineskip) 0.0
-..\vbox(700.50723+0.0)x417.11752, glue set 304.2907fil
+..\vbox(700.50723+0.0)x417.11752, glue set 292.19562fil
 ...\write-{}
 ...\write2{\pp@pagectr{footnote}{1}{\theabspage }{\thepage }}
 ...\write2{\@writefile{toc}{\protect \contentsline {chapter}{\protect \numberline {第1章}引言}{\thepage }{}\protected@file@percent }}
@@ -2676,10 +2688,11 @@ Completed box being shipped out [1]
 ...\glue(\topskip) 12.0
 ...\rule(0.0+0.0)x*
 ...\penalty 10000
-...\glue 12.09
+...\glue 7.02625
 ...\glue 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
+...\glue(\baselineskip) 8.31908
 ...\hbox(12.55891+2.8426)x417.11752, glue set 160.37877fil
 ....\glue(\leftskip) 0.0 plus 1.0fil
 ....\TU/FandolHei(0)/m/n/16.06 第
@@ -2699,9 +2712,10 @@ Completed box being shipped out [1]
 ....\glue(\parfillskip) 0.0
 ....\glue(\rightskip) 0.0 plus 1.0fil
 ...\penalty 10000
-...\glue 18.06749
+...\glue 19.07124
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
+...\glue(\baselineskip) 7.8373
 ...\hbox(9.3951+2.32468)x417.11752, glue set 0.41225
 ....\hbox(0.0+0.0)x24.09
 ....\TU/FandolSong(0)/m/n/12.045 研
@@ -3789,7 +3803,7 @@ Completed box being shipped out [2]
 ....\special{color pop}
 ..\glue 1.0
 ..\glue(\lineskip) 0.0
-..\vbox(700.50723+0.0)x417.11752, glue set 78.19609fil
+..\vbox(700.50723+0.0)x417.11752, glue set 67.68073fil
 ...\write-{}
 ...\write2{\pp@pagectr{footnote}{2}{\theabspage }{\thepage }}
 ...\write2{\@writefile{toc}{\protect \contentsline {chapter}{\protect \numberline {第2章}内容要素}{\thepage }{}\protected@file@percent }}
@@ -3801,10 +3815,11 @@ Completed box being shipped out [2]
 ...\glue(\topskip) 12.0
 ...\rule(0.0+0.0)x*
 ...\penalty 10000
-...\glue 12.09
+...\glue 7.02625
 ...\glue 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
+...\glue(\baselineskip) 8.31908
 ...\hbox(12.55891+2.8426)x417.11752, glue set 144.31877fil
 ....\glue(\leftskip) 0.0 plus 1.0fil
 ....\TU/FandolHei(0)/m/n/16.06 第
@@ -3828,9 +3843,10 @@ Completed box being shipped out [2]
 ....\glue(\parfillskip) 0.0
 ....\glue(\rightskip) 0.0 plus 1.0fil
 ...\penalty 10000
-...\glue 18.06749
+...\glue 19.07124
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
+...\glue(\baselineskip) 6.2574
 ...\hbox(10.97499+2.52943)x417.11752, glue set 259.02701fil
 ....\hbox(9.49948+0.15456)x31.6181
 .....\TU/texgyretermes(0)/m/n/14.05249 2.1
@@ -5438,7 +5454,7 @@ Completed box being shipped out [4]
 ....\special{color pop}
 ..\glue 1.0
 ..\glue(\lineskip) 0.0
-..\vbox(700.50723+0.0)x417.11752, glue set 649.02115fil
+..\vbox(700.50723+0.0)x417.11752, glue set 639.4597fil
 ...\write-{}
 ...\write2{\pp@pagectr{footnote}{3}{\theabspage }{\thepage }}
 ...\write2{\@writefile{toc}{\protect \contentsline {chapter}{\protect \numberline {第3章}引用}{\thepage }{}\protected@file@percent }}
@@ -5450,10 +5466,11 @@ Completed box being shipped out [4]
 ...\glue(\topskip) 12.0
 ...\rule(0.0+0.0)x*
 ...\penalty 10000
-...\glue 12.09
+...\glue 7.02625
 ...\glue 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
+...\glue(\baselineskip) 8.31908
 ...\hbox(12.55891+2.8426)x417.11752, glue set 160.37877fil
 ....\glue(\leftskip) 0.0 plus 1.0fil
 ....\TU/FandolHei(0)/m/n/16.06 第
@@ -5476,6 +5493,7 @@ Completed box being shipped out [4]
 ...\kern 1.0
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
+...\glue(\baselineskip) 6.30714
 ...\hbox(10.92525+0.0)x417.11752, glue set 380.99417fil
 ....\hbox(0.0+0.0)x24.09
 ....\mathon
@@ -5592,7 +5610,7 @@ Completed box being shipped out [5]
 ....\special{color pop}
 ..\glue 1.0
 ..\glue(\lineskip) 0.0
-..\vbox(700.50723+0.0)x417.11752, glue set 615.38425fil
+..\vbox(700.50723+0.0)x417.11752, glue set 601.31754fil
 ...\write-{}
 ...\write2{\@writefile{toc}{\protect \contentsline {chapter}{参考文献}{\thepage }{}\protected@file@percent }}
 ...\marks1{\__mark_id:n {19}参考文献}
@@ -5603,10 +5621,11 @@ Completed box being shipped out [5]
 ...\glue(\topskip) 12.0
 ...\rule(0.0+0.0)x*
 ...\penalty 10000
-...\glue 12.09
+...\glue 7.02625
 ...\glue 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
+...\glue(\baselineskip) 8.27089
 ...\hbox(12.6071+3.01927)x417.11752, glue set 176.43877fil
 ....\glue(\leftskip) 0.0 plus 1.0fil
 ....\TU/FandolHei(0)/m/n/16.06 参
@@ -5622,9 +5641,10 @@ Completed box being shipped out [5]
 ....\glue(\parfillskip) 0.0
 ....\glue(\rightskip) 0.0 plus 1.0fil
 ...\penalty 10000
-...\glue 18.06749
+...\glue 19.07124
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
+...\glue(\baselineskip) 9.85733
 ...\hbox(7.1984+2.37135)x398.82861, glue set - 0.15509, shifted 18.28891
 ....\hbox(7.12462+1.64412)x0.0
 .....\glue 0.0
@@ -5817,7 +5837,7 @@ Completed box being shipped out [6]
 ....\special{color pop}
 ..\glue 1.0
 ..\glue(\lineskip) 0.0
-..\vbox(700.50723+0.0)x417.11752, glue set 633.65005fil
+..\vbox(700.50723+0.0)x417.11752, glue set 621.39038fil
 ...\write-{}
 ...\write2{\pp@pagectr{footnote}{4}{\theabspage }{\thepage }}
 ...\write2{\@writefile{toc}{\protect \contentsline {chapter}{\protect \numberline {附录 A}附录章节}{\thepage }{}\protected@file@percent }}
@@ -5829,10 +5849,11 @@ Completed box being shipped out [6]
 ...\glue(\topskip) 12.0
 ...\rule(0.0+0.0)x*
 ...\penalty 10000
-...\glue 12.09
+...\glue 7.02625
 ...\glue 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
+...\glue(\baselineskip) 8.31908
 ...\hbox(12.55891+2.7623)x417.11752, glue set 144.54361fil
 ....\glue(\leftskip) 0.0 plus 1.0fil
 ....\TU/FandolHei(0)/m/n/16.06 附
@@ -5858,9 +5879,10 @@ Completed box being shipped out [6]
 ....\glue(\parfillskip) 0.0
 ....\glue(\rightskip) 0.0 plus 1.0fil
 ...\penalty 10000
-...\glue 18.06749
+...\glue 19.07124
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
+...\glue(\baselineskip) 8.0019
 ...\hbox(9.31079+2.20422)x417.11752, glue set 340.55951fil
 ....\hbox(0.0+0.0)x24.09
 ....\TU/FandolSong(0)/m/n/12.045 附
@@ -5976,7 +5998,7 @@ Completed box being shipped out [7]
 ....\special{color pop}
 ..\glue 1.0
 ..\glue(\lineskip) 0.0
-..\vbox(700.50723+0.0)x417.11752, glue set 633.58984fil
+..\vbox(700.50723+0.0)x417.11752, glue set 621.39038fil
 ...\write-{}
 ...\write-{}
 ...\write2{\@writefile{toc}{\protect \contentsline {chapter}{致谢}{\thepage }{}\protected@file@percent }}
@@ -5988,10 +6010,11 @@ Completed box being shipped out [7]
 ...\glue(\topskip) 12.0
 ...\rule(0.0+0.0)x*
 ...\penalty 10000
-...\glue 12.09
+...\glue 7.02625
 ...\glue 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
+...\glue(\baselineskip) 8.44756
 ...\hbox(12.43044+2.93896)x417.11752, glue set 192.49876fil
 ....\glue(\leftskip) 0.0 plus 1.0fil
 ....\TU/FandolHei(0)/m/n/16.06 致
@@ -6003,9 +6026,10 @@ Completed box being shipped out [7]
 ....\glue(\parfillskip) 0.0
 ....\glue(\rightskip) 0.0 plus 1.0fil
 ...\penalty 10000
-...\glue 18.06749
+...\glue 19.07124
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
+...\glue(\baselineskip) 7.8132
 ...\hbox(9.32283+2.20422)x417.11752, glue set 332.80254fil
 ....\hbox(0.0+0.0)x24.09
 ....\TU/FandolSong(0)/m/n/12.045 致
@@ -6141,7 +6165,7 @@ Completed box being shipped out [8]
 ....\special{color pop}
 ..\glue 1.0
 ..\glue(\lineskip) 0.0
-..\vbox(700.50723+0.0)x417.11752, glue set 522.42639fil
+..\vbox(700.50723+0.0)x417.11752, glue set 500.95326fil
 ...\write-{}
 ...\write2{\@writefile{toc}{\protect \contentsline {chapter}{在读期间取得的科研成果}{\thepage }{}\protected@file@percent }}
 ...\marks1{\__mark_id:n {25}在读期间取得的科研成果}
@@ -6152,10 +6176,11 @@ Completed box being shipped out [8]
 ...\glue(\topskip) 12.0
 ...\rule(0.0+0.0)x*
 ...\penalty 10000
-...\glue 12.09
+...\glue 7.02625
 ...\glue 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
+...\glue(\baselineskip) 8.28696
 ...\hbox(12.59103+2.82654)x417.11752, glue set 120.22878fil
 ....\glue(\leftskip) 0.0 plus 1.0fil
 ....\TU/FandolHei(0)/m/n/16.06 在
@@ -6185,7 +6210,8 @@ Completed box being shipped out [8]
 ....\glue(\parfillskip) 0.0
 ....\glue(\rightskip) 0.0 plus 1.0fil
 ...\penalty 10000
-...\glue 18.06749
+...\glue 19.07124
+...\glue(\baselineskip) 17.24846
 ...\hbox(0.0+0.0)x0.0
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0

@@ -2294,9 +2294,8 @@
 % 各章标题，例如：“第1章  引言”。
 % 章序号采用阿拉伯数字，章序号与标题之间空一个汉字符，采用黑体三号字，居中书写，单倍行距，段前24磅，段后18磅。
 % 摘要、目录和列于目录中与章平级的其它部分的标题（如参考文献、附录、致谢等）也用这同一种格式。
-
-% 注意 \pkg{ctex} v2.4.3 以下版本的bug会导致章节标题前后的距离的实际值偏大。
-% 另外 \pkg{ctex} v2.2 前的beforeskip的符号有特殊意义。
+% 由于 LaTeX 的排版方式与 Word 不同，为了效果与 Word 模板一致，
+% 将段前、段后分别修正为 7bp 和 19bp。
 \ctexset{
   chapter = {
     format      = \centering\heiti\fontsize{16bp}{20.8bp}\selectfont,
@@ -2304,9 +2303,9 @@
     titleformat = {},
     number      = \thechapter,
     aftername   = \quad,
-    beforeskip  = 24bp,
-    afterskip   = 18bp,
-    fixskip     = true,
+    beforeskip  = 7bp,
+    afterskip   = 19bp,
+    % fixskip     = true,
   },
 }
 

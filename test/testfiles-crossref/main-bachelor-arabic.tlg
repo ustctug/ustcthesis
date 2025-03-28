@@ -83,7 +83,7 @@ Completed box being shipped out [1]
 ....\special{color pop}
 ..\glue 1.0
 ..\glue(\lineskip) 0.0
-..\vbox(700.50723+0.0)x417.11752, glue set 521.43082fil
+..\vbox(700.50723+0.0)x417.11752, glue set 496.738fil
 ...\write-{}
 ...\write-{}
 ...\write-{}
@@ -92,10 +92,11 @@ Completed box being shipped out [1]
 ...\glue(\topskip) 12.0
 ...\rule(0.0+0.0)x*
 ...\penalty 10000
-...\glue 12.09
+...\glue 7.02625
 ...\glue 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
+...\glue(\baselineskip) 19.21178
 ...\hbox(13.91197+3.14372)x417.11752, glue set 179.9519fil
 ....\glue(\leftskip) 0.0 plus 1.0fil
 ....\glue 3.01125 plus 1.50562 minus 1.00374
@@ -108,9 +109,10 @@ Completed box being shipped out [1]
 ....\glue(\parfillskip) 0.0
 ....\glue(\rightskip) 0.0 plus 1.0fil
 ...\penalty 10000
-...\glue 18.06749
+...\glue 19.07124
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
+...\glue(\baselineskip) 9.54367
 ...\hbox(9.3951+2.32468)x417.11752, glue set 0.41225
 ....\hbox(0.0+0.0)x24.09
 ....\TU/FandolSong(0)/m/n/12.045 研
@@ -497,16 +499,17 @@ Completed box being shipped out [2]
 ....\special{color pop}
 ..\glue 1.0
 ..\glue(\lineskip) 0.0
-..\vbox(700.50723+0.0)x417.11752, glue set 508.48143fil
+..\vbox(700.50723+0.0)x417.11752, glue set 478.03172fil
 ...\write-{}
 ...\write-{}
 ...\glue(\topskip) 12.0
 ...\rule(0.0+0.0)x*
 ...\penalty 10000
-...\glue 12.09
+...\glue 7.02625
 ...\glue 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
+...\glue(\baselineskip) 20.91013
 ...\hbox(12.21362+0.25293)x417.11752, glue set 162.05304fil
 ....\glue(\leftskip) 0.0 plus 1.0fil
 ....\TU/texgyretermes(0)/m/n/18.06749 ABSTRACT
@@ -516,9 +519,10 @@ Completed box being shipped out [2]
 ....\glue(\parfillskip) 0.0
 ....\glue(\rightskip) 0.0 plus 1.0fil
 ...\penalty 10000
-...\glue 18.06749
+...\glue 19.07124
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
+...\glue(\baselineskip) 13.60283
 ...\hbox(8.22673+2.6258)x417.11752, glue set - 0.06552
 ....\hbox(0.0+0.0)x12.045
 ....\TU/texgyretermes(0)/m/n/12.045 Graduate
@@ -788,17 +792,18 @@ Completed box being shipped out [1]
 ....\special{color pop}
 ..\glue 1.0
 ..\glue(\lineskip) 0.0
-..\vbox(700.50723+0.0)x417.11752, glue set 346.89099fil
+..\vbox(700.50723+0.0)x417.11752, glue set 327.50134fil
 ...\write-{}
 ...\write-{}
 ...\write-{}
 ...\glue(\topskip) 12.0
 ...\rule(0.0+0.0)x*
 ...\penalty 10000
-...\glue 12.09
+...\glue 7.02625
 ...\glue 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
+...\glue(\baselineskip) 19.93448
 ...\hbox(13.18927+3.10759)x417.11752, glue set 179.9519fil
 ....\glue(\leftskip) 0.0 plus 1.0fil
 ....\glue 3.01125 plus 1.50562 minus 1.00374
@@ -811,12 +816,13 @@ Completed box being shipped out [1]
 ....\glue(\parfillskip) 0.0
 ....\glue(\rightskip) 0.0 plus 1.0fil
 ...\penalty 10000
-...\glue 18.06749
+...\glue 19.07124
 ...\penalty 10000
 ...\glue 0.0 plus 0.1
 ...\penalty 10000
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
+...\glue(\baselineskip) 3.51723
 ...\hbox(15.45767+6.6248)x417.11752, glue set 335.8138fill
 ....\glue(\leftskip) 48.18
 ....\hbox(0.0+0.0)x0.0
@@ -1565,16 +1571,17 @@ Completed box being shipped out [2]
 ....\special{color pop}
 ..\glue 1.0
 ..\glue(\lineskip) 0.0
-..\vbox(700.50723+0.0)x417.11752, glue set 582.90422fil
+..\vbox(700.50723+0.0)x417.11752, glue set 564.43593fil
 ...\write-{}
 ...\write-{}
 ...\glue(\topskip) 12.0
 ...\rule(0.0+0.0)x*
 ...\penalty 10000
-...\glue 12.09
+...\glue 7.02625
 ...\glue 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
+...\glue(\baselineskip) 19.19371
 ...\hbox(13.93004+3.28827)x417.11752, glue set 143.81693fil
 ....\glue(\leftskip) 0.0 plus 1.0fil
 ....\glue 3.01125 plus 1.50562 minus 1.00374
@@ -1597,11 +1604,12 @@ Completed box being shipped out [2]
 ....\glue(\parfillskip) 0.0
 ....\glue(\rightskip) 0.0 plus 1.0fil
 ...\penalty 10000
-...\glue 18.06749
+...\glue 19.07124
 ...\glue 0.0 plus 0.1
 ...\penalty 10000
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
+...\glue(\baselineskip) 3.33655
 ...\hbox(15.45767+6.6248)x417.11752, glue set 263.54381fill
 ....\glue(\leftskip) 48.18
 ....\hbox(0.0+0.0)x0.0
@@ -1849,16 +1857,17 @@ Completed box being shipped out [3]
 ....\special{color pop}
 ..\glue 1.0
 ..\glue(\lineskip) 0.0
-..\vbox(700.50723+0.0)x417.11752, glue set 633.18037fil
+..\vbox(700.50723+0.0)x417.11752, glue set 607.13866fil
 ...\write-{}
 ...\write-{}
 ...\glue(\topskip) 12.0
 ...\rule(0.0+0.0)x*
 ...\penalty 10000
-...\glue 12.09
+...\glue 7.02625
 ...\glue 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
+...\glue(\baselineskip) 19.13951
 ...\hbox(13.98424+3.14372)x417.11752, glue set 157.36755fil
 ....\glue(\leftskip) 0.0 plus 1.0fil
 ....\glue 3.01125 plus 1.50562 minus 1.00374
@@ -1875,9 +1884,10 @@ Completed box being shipped out [3]
 ....\glue(\parfillskip) 0.0
 ....\glue(\rightskip) 0.0 plus 1.0fil
 ...\penalty 10000
-...\glue 18.06749
+...\glue 19.07124
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
+...\glue(\baselineskip) 10.96498
 ...\hbox(7.97379+0.13248)x417.11752, glue set 339.3992fil
 ....\hbox(0.0+0.0)x24.09
 ....\TU/texgyretermes(0)/m/n/12.045 Notations.
@@ -2006,7 +2016,7 @@ Completed box being shipped out [4]
 ....\special{color pop}
 ..\glue 1.0
 ..\glue(\lineskip) 0.0
-..\vbox(700.50723+0.0)x417.11752, glue set 266.9854fil
+..\vbox(700.50723+0.0)x417.11752, glue set 244.32196fil
 ...\write-{}
 ...\write-{}
 ...\write2{\@writefile{toc}{\protect \addvspace {12bp}}}
@@ -2017,10 +2027,11 @@ Completed box being shipped out [4]
 ...\glue(\topskip) 12.0
 ...\rule(0.0+0.0)x*
 ...\penalty 10000
-...\glue 12.09
+...\glue 7.02625
 ...\glue 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
+...\glue(\baselineskip) 16.88107
 ...\hbox(12.55891+2.8426)x417.11752, glue set 157.9738fil
 ....\glue(\leftskip) 0.0 plus 1.0fil
 ....\glue 3.01125 plus 1.50562 minus 1.00374
@@ -2041,9 +2052,10 @@ Completed box being shipped out [4]
 ....\glue(\parfillskip) 0.0
 ....\glue(\rightskip) 0.0 plus 1.0fil
 ...\penalty 10000
-...\glue 18.06749
+...\glue 19.07124
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
+...\glue(\baselineskip) 9.84479
 ...\hbox(9.3951+2.32468)x417.11752, glue set 0.41225
 ....\hbox(0.0+0.0)x24.09
 ....\TU/FandolSong(0)/m/n/12.045 研
@@ -3143,7 +3155,7 @@ Completed box being shipped out [5]
 ....\special{color pop}
 ..\glue 1.0
 ..\glue(\lineskip) 0.0
-..\vbox(700.50723+0.0)x417.11752, glue set 60.19681fil
+..\vbox(700.50723+0.0)x417.11752, glue set 34.37689fil
 ...\write-{}
 ...\write2{\@writefile{toc}{\protect \addvspace {12bp}}}
 ...\write2{\pp@pagectr{footnote}{2}{\theabspage }{\thepage }}
@@ -3153,10 +3165,11 @@ Completed box being shipped out [5]
 ...\glue(\topskip) 12.0
 ...\rule(0.0+0.0)x*
 ...\penalty 10000
-...\glue 12.09
+...\glue 7.02625
 ...\glue 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
+...\glue(\baselineskip) 16.88107
 ...\hbox(12.55891+2.8426)x417.11752, glue set 141.9138fil
 ....\glue(\leftskip) 0.0 plus 1.0fil
 ....\glue 3.01125 plus 1.50562 minus 1.00374
@@ -3181,9 +3194,10 @@ Completed box being shipped out [5]
 ....\glue(\parfillskip) 0.0
 ....\glue(\rightskip) 0.0 plus 1.0fil
 ...\penalty 10000
-...\glue 18.06749
+...\glue 19.07124
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
+...\glue(\baselineskip) 13.00159
 ...\hbox(11.75893+2.71011)x417.11752, glue set 122.81346fil
 ....\glue(\leftskip) 0.0 plus 1.0fil
 ....\hbox(10.67488+0.0)x35.98442
@@ -4820,7 +4834,7 @@ Completed box being shipped out [7]
 ....\special{color pop}
 ..\glue 1.0
 ..\glue(\lineskip) 0.0
-..\vbox(700.50723+0.0)x417.11752, glue set 649.02115fil
+..\vbox(700.50723+0.0)x417.11752, glue set 628.89134fil
 ...\write-{}
 ...\write2{\@writefile{toc}{\protect \addvspace {12bp}}}
 ...\write2{\pp@pagectr{footnote}{3}{\theabspage }{\thepage }}
@@ -4830,10 +4844,11 @@ Completed box being shipped out [7]
 ...\glue(\topskip) 12.0
 ...\rule(0.0+0.0)x*
 ...\penalty 10000
-...\glue 12.09
+...\glue 7.02625
 ...\glue 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
+...\glue(\baselineskip) 16.88107
 ...\hbox(12.55891+2.8426)x417.11752, glue set 157.9738fil
 ....\glue(\leftskip) 0.0 plus 1.0fil
 ....\glue 3.01125 plus 1.50562 minus 1.00374
@@ -4857,6 +4872,7 @@ Completed box being shipped out [7]
 ...\kern 1.0
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
+...\glue(\baselineskip) 8.31464
 ...\hbox(10.92525+0.0)x417.11752, glue set 380.99417fil
 ....\hbox(0.0+0.0)x24.09
 ....\mathon
@@ -4993,7 +5009,7 @@ Completed box being shipped out [8]
 ....\special{color pop}
 ..\glue 1.0
 ..\glue(\lineskip) 0.0
-..\vbox(700.50723+0.0)x417.11752, glue set 610.39568fil
+..\vbox(700.50723+0.0)x417.11752, glue set 585.05853fil
 ...\write-{}
 ...\write2{\@writefile{toc}{\protect \addvspace {12bp}}}
 ...\write2{\@writefile{toc}{\protect \contentsline {chapter}{参考文献}{\thepage }{}\protected@file@percent }}
@@ -5002,10 +5018,11 @@ Completed box being shipped out [8]
 ...\glue(\topskip) 12.0
 ...\rule(0.0+0.0)x*
 ...\penalty 10000
-...\glue 12.09
+...\glue 7.02625
 ...\glue 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
+...\glue(\baselineskip) 18.94077
 ...\hbox(14.18298+3.39667)x417.11752, glue set 157.36755fil
 ....\glue(\leftskip) 0.0 plus 1.0fil
 ....\glue 3.01125 plus 1.50562 minus 1.00374
@@ -5022,9 +5039,10 @@ Completed box being shipped out [8]
 ....\glue(\parfillskip) 0.0
 ....\glue(\rightskip) 0.0 plus 1.0fil
 ...\penalty 10000
-...\glue 18.06749
+...\glue 19.07124
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
+...\glue(\baselineskip) 10.45909
 ...\hbox(8.22673+2.71011)x397.07306, glue set - 0.50313, shifted 20.04446
 ....\hbox(8.14243+1.879)x0.0
 .....\glue 0.0
@@ -5229,7 +5247,7 @@ Completed box being shipped out [9]
 ....\special{color pop}
 ..\glue 1.0
 ..\glue(\lineskip) 0.0
-..\vbox(700.50723+0.0)x417.11752, glue set 633.65005fil
+..\vbox(700.50723+0.0)x417.11752, glue set 610.82202fil
 ...\write-{}
 ...\write2{\pp@pagectr{footnote}{4}{\theabspage }{\thepage }}
 ...\write2{\@writefile{toc}{\protect \contentsline {chapter}{\protect \numberline {附录 A}附录章节}{\thepage }{}\protected@file@percent }}
@@ -5238,10 +5256,11 @@ Completed box being shipped out [9]
 ...\glue(\topskip) 12.0
 ...\rule(0.0+0.0)x*
 ...\penalty 10000
-...\glue 12.09
+...\glue 7.02625
 ...\glue 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
+...\glue(\baselineskip) 16.88107
 ...\hbox(12.55891+2.7623)x417.11752, glue set 143.2548fil
 ....\glue(\leftskip) 0.0 plus 1.0fil
 ....\glue 3.01125 plus 1.50562 minus 1.00374
@@ -5268,9 +5287,10 @@ Completed box being shipped out [9]
 ....\glue(\parfillskip) 0.0
 ....\glue(\rightskip) 0.0 plus 1.0fil
 ...\penalty 10000
-...\glue 18.06749
+...\glue 19.07124
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
+...\glue(\baselineskip) 10.0094
 ...\hbox(9.31079+2.20422)x417.11752, glue set 340.55951fil
 ....\hbox(0.0+0.0)x24.09
 ....\TU/FandolSong(0)/m/n/12.045 附
@@ -5411,7 +5431,7 @@ Completed box being shipped out [10]
 ....\special{color pop}
 ..\glue 1.0
 ..\glue(\lineskip) 0.0
-..\vbox(700.50723+0.0)x417.11752, glue set 587.5086fil
+..\vbox(700.50723+0.0)x417.11752, glue set 562.9784fil
 ...\write-{}
 ...\write-{}
 ...\write2{\@writefile{toc}{\protect \contentsline {chapter}{致谢}{\thepage }{}\protected@file@percent }}
@@ -5420,10 +5440,11 @@ Completed box being shipped out [10]
 ...\glue(\topskip) 12.0
 ...\rule(0.0+0.0)x*
 ...\penalty 10000
-...\glue 12.09
+...\glue 7.02625
 ...\glue 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
+...\glue(\baselineskip) 19.13951
 ...\hbox(13.98424+3.30634)x417.11752, glue set 179.9519fil
 ....\glue(\leftskip) 0.0 plus 1.0fil
 ....\glue 3.01125 plus 1.50562 minus 1.00374
@@ -5436,9 +5457,10 @@ Completed box being shipped out [10]
 ....\glue(\parfillskip) 0.0
 ....\glue(\rightskip) 0.0 plus 1.0fil
 ...\penalty 10000
-...\glue 18.06749
+...\glue 19.07124
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
+...\glue(\baselineskip) 9.45332
 ...\hbox(9.32283+2.20422)x417.11752, glue set 340.55951fil
 ....\hbox(0.0+0.0)x24.09
 ....\TU/FandolSong(0)/m/n/12.045 致
