@@ -2481,7 +2481,11 @@
   \ustcsetup{language=english}%
   \ifustc@degree@graduate
     \ctexset{
-      chapter/format = \centering\bfseries\fontsize{16bp}{26.67bp}\selectfont,
+      chapter = {
+        format = \centering\bfseries\fontsize{16bp}{18.4bp}\selectfont,
+        beforeskip = 9bp,
+        afterskip = 17bp,
+      }
     }%
     \ustc@chapter{ABSTRACT}%
   \else

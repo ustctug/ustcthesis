@@ -797,7 +797,7 @@ Completed box being shipped out [3]
 ....\special{color pop}
 ..\glue 1.0
 ..\glue(\lineskip) 0.0
-..\vbox(700.50723+0.0)x417.11752, glue set 498.43573fil
+..\vbox(700.50723+0.0)x417.11752, glue set 506.73589fil
 ...\write-{}
 ...\marks1{\__mark_id:n {5}ABSTRACT}
 ...\marks2{\__mark_id:n {6}}
@@ -806,11 +806,11 @@ Completed box being shipped out [3]
 ...\glue(\topskip) 12.0
 ...\rule(0.0+0.0)x*
 ...\penalty 10000
-...\glue 7.02625
+...\glue 9.03374
 ...\glue 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
-...\glue(\baselineskip) 15.65648
+...\glue(\baselineskip) 7.35545
 ...\hbox(11.11353+0.30513)x417.11752, glue set 165.55812fil
 ....\glue(\leftskip) 0.0 plus 1.0fil
 ....\TU/texgyretermes(0)/b/n/16.06 ABSTRACT
@@ -820,7 +820,7 @@ Completed box being shipped out [3]
 ....\glue(\parfillskip) 0.0
 ....\glue(\rightskip) 0.0 plus 1.0fil
 ...\penalty 10000
-...\glue 19.07124
+...\glue 17.06374
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 11.54314
