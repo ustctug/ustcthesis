@@ -2553,31 +2553,29 @@
 % 带有序号的各级标题，其序号与题名之间均空一字符，行末右顶格。
 \ifustc@degree@graduate
   \titlecontents{chapter}
-    [0bp]{\addvspace{6bp}\heiti\normalsize}
-    {\contentspush{\thecontentslabel\hspace{\ccwd}}}{}
-    {\bfseries\normalsize\ustc@leaders\thecontentspage}
-    %
+    [0bp]{\addvspace{6bp}\heiti}
+    {\contentspush{\thecontentslabel\quad}}{}
+    {\bfseries\ustc@leaders\thecontentspage}
   \titlecontents{section}
-    [1em]{\normalsize}
+    [1em]{}
     {\contentspush{\thecontentslabel\quad}}{}
     {\ustc@leaders\thecontentspage}
-    %
   \titlecontents{subsection}
-    [2em]{\normalsize}
+    [2em]{}
     {\contentspush{\thecontentslabel\quad}}{}
     {\ustc@leaders\thecontentspage}
 \else
   % 本科生的目录使用小四宋体（同正文字体），其他同研究生的格式相近。
   \titlecontents{chapter}
-    [0bp]{\normalsize}
-    {\contentspush{\thecontentslabel\unskip\quad}}{}
+    [0bp]{}
+    {\contentspush{\thecontentslabel\quad}}{}
     {\ustc@leaders\thecontentspage}
   \titlecontents{section}
-    [1em]{\normalsize}
+    [1em]{}
     {\contentspush{\thecontentslabel\quad}}{}
     {\ustc@leaders\thecontentspage}
   \titlecontents{subsection}
-    [2em]{\normalsize}
+    [2em]{}
     {\contentspush{\thecontentslabel
       \ifustc@section@style@arabic\quad\else 、\fi}}{}
     {\ustc@leaders\thecontentspage}
