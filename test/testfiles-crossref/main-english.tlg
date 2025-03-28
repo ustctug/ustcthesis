@@ -1787,7 +1787,6 @@ Completed box being shipped out [5]
 ..\glue(\lineskip) 0.0
 ..\vbox(700.50723+0.0)x417.11752, glue set 581.29712fil
 ...\write-{}
-...\write-{}
 ...\marks1{\__mark_id:n {9}List of Figures and Tables}
 ...\marks2{\__mark_id:n {10}}
 ...\mark{{List of Figures and Tables}{}}
@@ -1823,24 +1822,19 @@ Completed box being shipped out [5]
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 2.5215
-...\hbox(14.05243+6.02255)x417.11752, glue set 244.31999fill
-....\glue(\leftskip) 67.40381
+...\hbox(14.05243+6.02255)x417.11752, glue set 284.62256fill
+....\glue(\leftskip) 27.10124
 ....\hbox(0.0+0.0)x0.0
 ....\rule(14.05243+6.02255)x0.0
-....\rule(*+*)x0.0
-....\penalty 10000
-....\glue -67.40381
-....\glue 0.0
-....\hbox(8.14243+2.6258)x67.40381, glue set 18.0675fil
-.....\TU/texgyretermes(0)/m/n/12.045 Figure
-.....\kern -0.0002
-.....\kern 0.0002
-.....\penalty 10000
-.....\glue 3.01125 plus 1.50562 minus 1.00374
-.....\TU/texgyretermes(0)/m/n/12.045 2.1
-.....\kern -0.0002
-.....\kern 0.0002
-.....\glue 0.0 plus 1.0fil
+....\hbox(8.14243+0.13248)x0.0, glue set - 27.10124fil
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+.....\hbox(8.14243+0.13248)x27.10124
+......\special{color push  Black}
+......\TU/texgyretermes(0)/m/n/12.045 2.1
+......\kern -0.0002
+......\kern 0.0002
+......\glue 12.045
+......\special{color pop}
 ....\TU/FandolSong(0)/m/n/12.045 图
 ....\glue 0.0 plus 0.61353
 ....\TU/FandolSong(0)/m/n/12.045 题
@@ -1891,24 +1885,19 @@ Completed box being shipped out [5]
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 0.00002
-...\hbox(14.05243+6.02255)x417.11752, glue set 244.31999fill
-....\glue(\leftskip) 67.40381
+...\hbox(14.05243+6.02255)x417.11752, glue set 284.62256fill
+....\glue(\leftskip) 27.10124
 ....\hbox(0.0+0.0)x0.0
 ....\rule(14.05243+6.02255)x0.0
-....\rule(*+*)x0.0
-....\penalty 10000
-....\glue -67.40381
-....\glue 0.0
-....\hbox(8.22673+0.13248)x67.40381, glue set 22.81323fil
-.....\TU/texgyretermes(0)/m/n/12.045 Table
-.....\kern -0.0002
-.....\kern 0.0002
-.....\penalty 10000
-.....\glue 3.01125 plus 1.50562 minus 1.00374
-.....\TU/texgyretermes(0)/m/n/12.045 2.1
-.....\kern -0.0002
-.....\kern 0.0002
-.....\glue 0.0 plus 1.0fil
+....\hbox(8.14243+0.13248)x0.0, glue set - 27.10124fil
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+.....\hbox(8.14243+0.13248)x27.10124
+......\special{color push  Black}
+......\TU/texgyretermes(0)/m/n/12.045 2.1
+......\kern -0.0002
+......\kern 0.0002
+......\glue 12.045
+......\special{color pop}
 ....\TU/FandolSong(0)/m/n/12.045 表
 ....\glue 0.0 plus 0.61353
 ....\TU/FandolSong(0)/m/n/12.045 题

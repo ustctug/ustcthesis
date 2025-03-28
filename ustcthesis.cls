@@ -2606,41 +2606,28 @@
   \secdef\@chapter\@schapter
 }
 
-% 研究生要求图、表的清单须另页起。
-\newlength{\ustc@lof@label@width}
-\newcommand\ustc@set@lof@format{%
-  \settowidth{\ustc@lof@label@width}{\figurename~9.99}%
-  \addtolength{\ustc@lof@label@width}{1em}%
-  \titlecontents{figure}%
-    [\ustc@lof@label@width]{\normalsize}%
-    {\contentslabel[\figurename~\thecontentslabel]{\ustc@lof@label@width}}{}%
-    {\ustc@leaders\thecontentspage}%
-  \titlecontents{table}%
-    [\ustc@lof@label@width]{\normalsize}%
-    {\contentslabel[\tablename~\thecontentslabel]{\ustc@lof@label@width}}{}%
-    {\ustc@leaders\thecontentspage}%
-}
-\ustc@set@lof@format
-\ustc@option@hook{main-language}{\ustc@set@lof@format}
+% 插图和附表清单
+\titlecontents{figure}
+  [0bp]{}
+  {\contentspush{\thecontentslabel\quad}}{}
+  {\ustc@leaders\thecontentspage}
+
+\titlecontents{table}
+  [0bp]{}
+  {\contentspush{\thecontentslabel\quad}}{}
+  {\ustc@leaders\thecontentspage}
+
 \renewcommand\listoffigures{%
-  \ifustc@degree@graduate
-    \cleardoublepage
-  \fi
   \ustc@chapter{\listfigurename}%
   \@starttoc{lof}%
 }
+
 \renewcommand\listoftables{%
-  \ifustc@degree@graduate
-    \cleardoublepage
-  \fi
   \ustc@chapter{\listtablename}%
   \@starttoc{lot}%
 }
 
 \newcommand\listoffiguresandtables{%
-  \ifustc@degree@graduate
-    \cleardoublepage
-  \fi
   \ustc@chapter{\ustc@list@figure@table@name}%
   \@starttoc{lof}%
   \@starttoc{lot}%
