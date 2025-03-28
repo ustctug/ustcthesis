@@ -523,8 +523,8 @@ Completed box being shipped out [2]
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 13.60283
-...\hbox(8.22673+2.6258)x417.11752, glue set - 0.06552
-....\hbox(0.0+0.0)x12.045
+...\hbox(8.22673+2.6258)x417.11752, glue set 0.27924
+....\hbox(0.0+0.0)x24.09
 ....\TU/texgyretermes(0)/m/n/12.045 Graduate
 ....\glue 3.01125 plus 1.50562 minus 1.00374
 ....\TU/texgyretermes(0)/m/n/12.045 dissertation
@@ -547,12 +547,12 @@ Completed box being shipped out [2]
 ....\glue 3.01125 plus 1.50562 minus 1.00374
 ....\TU/texgyretermes(0)/m/n/12.045 concentrated
 ....\glue 3.01125 plus 1.50562 minus 1.00374
-....\TU/texgyretermes(0)/m/n/12.045 reflec-
+....\TU/texgyretermes(0)/m/n/12.045 re-
 ....\glue(\rightskip) 0.0
 ...\penalty 250
 ...\glue(\baselineskip) 11.22997
-...\hbox(8.22673+2.6258)x417.11752, glue set 0.07945
-....\TU/texgyretermes(0)/m/n/12.045 tion,
+...\hbox(8.22673+2.6258)x417.11752, glue set 0.71335
+....\TU/texgyretermes(0)/m/n/12.045 flection,
 ....\glue 3.01125 plus 1.88202 minus 0.80298
 ....\TU/texgyretermes(0)/m/n/12.045 represents
 ....\glue 3.01125 plus 1.50562 minus 1.00374
@@ -581,13 +581,11 @@ Completed box being shipped out [2]
 ....\TU/texgyretermes(0)/m/n/12.045 basis
 ....\glue 3.01125 plus 1.50562 minus 1.00374
 ....\TU/texgyretermes(0)/m/n/12.045 of
-....\glue 3.01125 plus 1.50562 minus 1.00374
-....\TU/texgyretermes(0)/m/n/12.045 appli-
 ....\glue(\rightskip) 0.0
-...\penalty 250
+...\penalty 150
 ...\glue(\baselineskip) 11.22997
-...\hbox(8.22673+2.6258)x417.11752, glue set 217.556fil
-....\TU/texgyretermes(0)/m/n/12.045 cation
+...\hbox(8.22673+2.6258)x417.11752, glue set 193.466fil
+....\TU/texgyretermes(0)/m/n/12.045 application
 ....\glue 3.01125 plus 1.50562 minus 1.00374
 ....\TU/texgyretermes(0)/m/n/12.045 and
 ....\glue 3.01125 plus 1.50562 minus 1.00374
@@ -604,8 +602,8 @@ Completed box being shipped out [2]
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 18.2522
-...\hbox(1.2045+0.13248)x417.11752, glue set 393.02753fil
-....\hbox(0.0+0.0)x12.045
+...\hbox(1.2045+0.13248)x417.11752, glue set 380.98253fil
+....\hbox(0.0+0.0)x24.09
 ....\TU/texgyretermes(0)/m/n/12.045 …
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil

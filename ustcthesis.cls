@@ -2495,7 +2495,6 @@
       \ustc@chapter{ABSTRACT}%
     \endgroup
   \fi
-  \setlength{\parindent}{1em}%
 }{
   \par\null\par\noindent
   \ifustc@degree@bachelor

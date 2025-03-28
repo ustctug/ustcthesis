@@ -19,8 +19,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - 封面的横向页边距改为 3.17 cm（[#424](https://github.com/ustctug/ustcthesis/issues/424)）。
 - 更新封面的格式（[#438](https://github.com/ustctug/ustcthesis/issues/438)）。
 - 更新原创性和授权使用声明的格式。
-- 数学式的改为段前6磅、段后6磅（研究生院 2025-03-12 Word 模板）。。
+- 数学式的改为段前6磅、段后6磅（研究生院 2025-03-12 Word 模板）。
 - 图表标题的对齐方式改为 `centerlast`（两端对齐、末行居中）（[#442](https://github.com/ustctug/ustcthesis/issues/442)）。
+- 英文摘要改为悬挂缩进 2 em（研究生院 2025-03-12 Word 模板）。
 
 ### Fixed
 
