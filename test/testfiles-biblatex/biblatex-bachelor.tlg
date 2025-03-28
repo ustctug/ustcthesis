@@ -643,7 +643,7 @@ Completed box being shipped out [2]
 ....\special{color pop}
 ..\glue 1.0
 ..\glue(\lineskip) 0.0
-..\vbox(700.50723+0.0)x417.11752, glue set 520.89487fil
+..\vbox(700.50723+0.0)x417.11752, glue set 496.738fil
 ...\write-{}
 ...\write-{}
 ...\write1{\@writefile{toc}{\protect \contentsline {chapter}{参考文献}{\thepage }{}\protected@file@percent }}
@@ -652,10 +652,11 @@ Completed box being shipped out [2]
 ...\glue(\topskip) 12.0
 ...\rule(0.0+0.0)x*
 ...\penalty 10000
-...\glue 12.09
+...\glue 7.02625
 ...\glue 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
+...\glue(\baselineskip) 18.94077
 ...\hbox(14.18298+3.39667)x417.11752, glue set 157.36755fil
 ....\glue(\leftskip) 0.0 plus 1.0fil
 ....\glue 3.01125 plus 1.50562 minus 1.00374
@@ -672,9 +673,10 @@ Completed box being shipped out [2]
 ....\glue(\parfillskip) 0.0
 ....\glue(\rightskip) 0.0 plus 1.0fil
 ...\penalty 10000
-...\glue 18.06749
+...\glue 19.07124
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
+...\glue(\baselineskip) 9.27867
 ...\hbox(9.40715+2.18013)x391.07304, glue set - 0.67706, shifted 26.04448
 ....\hbox(8.14243+1.879)x0.0
 .....\glue 0.0

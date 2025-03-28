@@ -665,10 +665,11 @@ Completed box being shipped out [2]
 ...\glue(\topskip) 12.0
 ...\rule(0.0+0.0)x*
 ...\penalty 10000
-...\glue 12.09
+...\glue 7.02625
 ...\glue 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
+...\glue(\baselineskip) 8.27089
 ...\hbox(12.6071+3.01927)x417.11752, glue set 176.43877fil
 ....\glue(\leftskip) 0.0 plus 1.0fil
 ....\TU/FandolHei(0)/m/n/16.06 参
@@ -684,9 +685,10 @@ Completed box being shipped out [2]
 ....\glue(\parfillskip) 0.0
 ....\glue(\rightskip) 0.0 plus 1.0fil
 ...\penalty 10000
-...\glue 18.06749
+...\glue 19.07124
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
+...\glue(\baselineskip) 8.62424
 ...\hbox(8.43149+2.10786)x387.55893, glue set - 0.17757, shifted 29.5586
 ....\hbox(7.12462+1.64412)x0.0
 .....\glue 0.0
@@ -2882,11 +2884,27 @@ Completed box being shipped out [2]
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
-...\penalty -51
-...\glue 0.0 plus 0.2
-...\glue(\parskip) 0.0
-...\glue(\parskip) 0.0
-...\glue(\baselineskip) 9.72536
+...\glue -1.91815
+...\glue 0.0 plus 0.0001fil
+..\glue(\baselineskip) 22.47748
+..\hbox(0.0+0.0)x417.11752
+...\special{color push  Black}
+...\hbox(0.0+0.0)x417.11752
+...\special{color pop}
+Completed box being shipped out [3]
+\vbox(722.98453+0.0)x435.04271
+.\glue -16.36447
+.\vbox(739.349+0.0)x417.11752, shifted 17.92519
+..\vbox(15.36429+0.0)x417.11752, glue set 15.36429fil
+...\glue 0.0 plus 1.0fil
+...\hbox(0.0+0.0)x417.11752
+....\special{color push  Black}
+....\hbox(0.0+0.0)x417.11752
+....\special{color pop}
+..\glue 1.0
+..\glue(\lineskip) 0.0
+..\vbox(700.50723+0.0)x417.11752, glue set 507.77803fil
+...\glue(\topskip) 3.56851
 ...\hbox(8.43149+2.10786)x387.55893, glue set 0.09071, shifted 29.5586
 ....\hbox(7.12462+1.64412)x0.0
 .....\glue 0.0
@@ -2998,27 +3016,8 @@ Completed box being shipped out [2]
 ....\glue 0.0 plus 0.44923
 ....\TU/FandolSong(0)/m/n/10.53937 科
 ....\glue(\rightskip) 0.0
-...\glue -2.10786
-...\glue 0.0 plus 0.0001fil
-..\glue(\baselineskip) 22.47748
-..\hbox(0.0+0.0)x417.11752
-...\special{color push  Black}
-...\hbox(0.0+0.0)x417.11752
-...\special{color pop}
-Completed box being shipped out [3]
-\vbox(722.98453+0.0)x435.04271
-.\glue -16.36447
-.\vbox(739.349+0.0)x417.11752, shifted 17.92519
-..\vbox(15.36429+0.0)x417.11752, glue set 15.36429fil
-...\glue 0.0 plus 1.0fil
-...\hbox(0.0+0.0)x417.11752
-....\special{color push  Black}
-....\hbox(0.0+0.0)x417.11752
-....\special{color pop}
-..\glue 1.0
-..\glue(\lineskip) 0.0
-..\vbox(700.50723+0.0)x417.11752, glue set 527.85088fil
-...\glue(\topskip) 3.88469
+...\penalty 300
+...\glue(\baselineskip) 9.85182
 ...\hbox(8.11531+1.78114)x387.55893, glue set 305.8792fil, shifted 29.5586
 ....\TU/FandolSong(0)/m/n/10.53937 全
 ....\glue 0.0 plus 0.44923

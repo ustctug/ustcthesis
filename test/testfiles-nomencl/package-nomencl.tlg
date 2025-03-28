@@ -83,7 +83,7 @@ Completed box being shipped out [1]
 ....\special{color pop}
 ..\glue 1.0
 ..\glue(\lineskip) 0.0
-..\vbox(700.50723+0.0)x417.11752, glue set 554.53894fil
+..\vbox(700.50723+0.0)x417.11752, glue set 541.09897fil
 ...\write-{}
 ...\write-{}
 ...\write-{}
@@ -95,10 +95,11 @@ Completed box being shipped out [1]
 ...\glue(\topskip) 12.0
 ...\rule(0.0+0.0)x*
 ...\penalty 10000
-...\glue 12.09
+...\glue 7.02625
 ...\glue 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
+...\glue(\baselineskip) 8.44756
 ...\hbox(12.43044+2.79442)x417.11752, glue set 176.43877fil
 ....\glue(\leftskip) 0.0 plus 1.0fil
 ....\TU/FandolHei(0)/m/n/16.06 符
@@ -114,9 +115,10 @@ Completed box being shipped out [1]
 ....\glue(\parfillskip) 0.0
 ....\glue(\rightskip) 0.0 plus 1.0fil
 ...\penalty 10000
-...\glue 18.06749
+...\glue 19.07124
 ...\glue(\parskip) 0.0 plus 0.2
 ...\glue(\parskip) 0.0
+...\glue(\baselineskip) 9.05385
 ...\hbox(8.22673+2.6258)x382.66478, glue set 202.66435fil, shifted 34.45274
 ....\hbox(5.15526+0.13249)x0.0
 .....\glue 0.0
@@ -493,7 +495,7 @@ Completed box being shipped out [1]
 ....\special{color pop}
 ..\glue 1.0
 ..\glue(\lineskip) 0.0
-..\vbox(700.50723+0.0)x417.11752, glue set 634.90663fil
+..\vbox(700.50723+0.0)x417.11752, glue set 621.39038fil
 ...\write-{}
 ...\write1{\pp@pagectr{footnote}{1}{\theabspage }{\thepage }}
 ...\write1{\@writefile{toc}{\protect \contentsline {chapter}{\protect \numberline {第1章}Main matter}{\thepage }{}\protected@file@percent }}
@@ -505,10 +507,11 @@ Completed box being shipped out [1]
 ...\glue(\topskip) 12.0
 ...\rule(0.0+0.0)x*
 ...\penalty 10000
-...\glue 12.09
+...\glue 7.02625
 ...\glue 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
+...\glue(\baselineskip) 8.31908
 ...\hbox(12.55891+2.8426)x417.11752, glue set 136.96329fil
 ....\glue(\leftskip) 0.0 plus 1.0fil
 ....\TU/FandolHei(0)/m/n/16.06 第
@@ -528,9 +531,10 @@ Completed box being shipped out [1]
 ....\glue(\parfillskip) 0.0
 ....\glue(\rightskip) 0.0 plus 1.0fil
 ...\penalty 10000
-...\glue 18.06749
+...\glue 19.07124
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
+...\glue(\baselineskip) 9.2586
 ...\hbox(7.97379+2.61375)x417.11752, glue set 313.39809fil
 ....\hbox(0.0+0.0)x24.09
 ....\TU/texgyretermes(0)/m/n/12.045 Lorem
