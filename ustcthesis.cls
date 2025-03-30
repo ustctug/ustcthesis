@@ -2795,6 +2795,7 @@
 }
 
 \captionsetup{
+  justification  = centerlast,
   font           = ustc,
   labelsep       = quad,
   skip           = 6bp,
