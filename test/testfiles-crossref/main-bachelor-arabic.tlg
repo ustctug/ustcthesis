@@ -1390,7 +1390,7 @@ Completed box being shipped out [3]
 ....\special{color pop}
 ..\glue 1.0
 ..\glue(\lineskip) 0.0
-..\vbox(700.50723+0.0)x417.11752, glue set 318.2394fil
+..\vbox(700.50723+0.0)x417.11752, glue set 320.69835fil
 ...\write-{}
 ...\write-{}
 ...\write2{\@writefile{toc}{\protect \addvspace {12bp}}}
@@ -1619,35 +1619,25 @@ Completed box being shipped out [3]
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
 ...\penalty -300
-...\glue 0.0
+...\glue 17.61578 plus 5.42024 minus 1.08403
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
-...\glue(\baselineskip) 8.0782
-...\hbox(9.371+2.144)x417.11752, glue set 332.80254fil
+...\glue(\baselineskip) 10.26636
+...\hbox(9.19034+2.6258)x417.11752, glue set 230.07076fil
 ....\hbox(0.0+0.0)x24.09
-.....\hbox(0.0+0.0)x24.09
-....\TU/FandolSong(0)/m/n/12.045 五
+....\TU/FandolSong(0)/b/n/12.045 五
 ....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 级
+....\TU/FandolSong(0)/b/n/12.045 级
 ....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 节
+....\TU/FandolSong(0)/b/n/12.045 节
 ....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 标
+....\TU/FandolSong(0)/b/n/12.045 标
 ....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 题
+....\TU/FandolSong(0)/b/n/12.045 题
 ....\kern -0.00017
 ....\kern 0.00017
-....\penalty 10000
-....\glue(\parfillskip) 0.0 plus 1.0fil
-....\glue(\rightskip) 0.0
-...\write2{\@writefile{toc}{\protect \contentsline {subparagraph}{五级节标题}{\thepage }{}\protected@file@percent }}
-...\penalty 10000
-...\glue 0.0
-...\glue(\parskip) 0.0
-...\glue(\parskip) 0.0
-...\glue(\baselineskip) 11.71176
-...\hbox(8.22673+2.6258)x417.11752, glue set 302.34074fil
-....\hbox(0.0+0.0)x24.09
+....\write2{\@writefile{toc}{\protect \contentsline {subparagraph}{五级节标题}{\thepage }{}\protected@file@percent }}
+....\glue 12.045
 ....\TU/texgyretermes(0)/m/n/12.045 Subparagraph
 ....\glue 3.01125 plus 1.50562 minus 1.00374
 ....\TU/texgyretermes(0)/m/n/12.045 text.

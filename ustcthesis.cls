@@ -2341,29 +2341,7 @@
     afterskip  = 6bp,
   },
   %
-  % 按照 Word 模板的格式，四级节标题：宋体 12 磅，左缩进两字，行距 20 磅，
-  % 段前段后 0 磅，序号使用全宽括号，与题名间空半字宽。
-  paragraph = {
-    format     = \rmfamily\fontsize{12bp}{20bp}\selectfont,
-    number     = （\arabic{paragraph}）,
-    aftername  = \hspace{0.5em},
-    indent     = 2em,
-    beforeskip = 0bp,
-    afterskip  = 0bp,
-    runin      = false,
-  },
-  %
-  % 按照 Word 模板的格式，五级节标题：宋体 12 磅，左缩进两字，行距 20 磅，
-  % 段前段后 0 磅，序号使用全宽括号，与题名间空半字宽。
-  subparagraph = {
-    format     = \rmfamily\fontsize{12bp}{20bp}\selectfont,
-    number     = \ustc@textcircled{subparagraph},
-    aftername  = \hspace{0.5em},
-    indent     = 2em,
-    beforeskip = 0bp,
-    afterskip  = 0bp,
-    runin      = false,
-  },
+  % 研究生要求不得使用三级以下节标题
 }
 
 \ifustc@degree@bachelor
@@ -2414,8 +2392,12 @@
     },
     paragraph = {
       format    = \rmfamily\fontsize{12bp}{22bp}\selectfont,
+      number     = （\arabic{paragraph}）,
       aftername = {},
       indent    = 1em,
+      beforeskip = 0bp,
+      afterskip  = 0bp,
+      runin      = false,
     },
   }
   %

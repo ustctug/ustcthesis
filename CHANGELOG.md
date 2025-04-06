@@ -30,6 +30,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Removed
 
 - 移除封面的“专业/工程学位类型”（[#427](https://github.com/ustctug/ustcthesis/issues/427#issuecomment-2714402725)）。
+- 移除研究生的三级以下节标题的设置（[#445](https://github.com/ustctug/ustcthesis/issues/445)）。
 
 ## [4.0.0-beta.6] - 2025-02-25
 

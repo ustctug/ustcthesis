@@ -1785,7 +1785,7 @@ Completed box being shipped out [1]
 ....\special{color pop}
 ..\glue 1.0
 ..\glue(\lineskip) 0.0
-..\vbox(700.50723+0.0)x417.11752, glue set 347.03384fil
+..\vbox(700.50723+0.0)x417.11752, glue set 351.95174fil
 ...\write-{}
 ...\write2{\pp@pagectr{footnote}{1}{\theabspage }{\thepage }}
 ...\write2{\@writefile{toc}{\protect \contentsline {chapter}{\protect \numberline {Chapter 1}简介}{\thepage }{}\protected@file@percent }}
@@ -1958,49 +1958,28 @@ Completed box being shipped out [1]
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
 ...\penalty -300
-...\glue 0.0
+...\glue 17.61578 plus 5.42024 minus 1.08403
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
-...\glue(\baselineskip) 10.27039
-...\hbox(9.636+2.40898)x417.11752, glue set 304.30408fil
-....\hbox(9.636+2.40898)x52.58846
-.....\hbox(0.0+0.0)x24.09
-.....\rule(0.0+0.0)x-7.63654
-.....\TU/FandolSong(0)/m/n/12.045 （
-.....\penalty 10000
-.....\glue 0.0
-.....\TU/texgyretermes(0)/m/n/12.045 1
-.....\penalty 10000
-.....\TU/FandolSong(0)/m/n/12.045 ）
-.....\rule(0.0+0.0)x-7.63654
-.....\kern 0.00047
-.....\kern -0.00047
-.....\kern -0.99623
-.....\kern 0.99623
-.....\glue 7.63654 minus 6.0225
-.....\glue 6.02249
-....\TU/FandolSong(0)/m/n/12.045 四
+...\glue(\baselineskip) 10.71605
+...\hbox(9.19034+2.6258)x417.11752, glue set 218.26665fil
+....\TU/texgyretermes(0)/b/n/12.045 1.1.1.1.1
+....\kern -0.0002
+....\kern 0.0002
+....\glue 12.045
+....\TU/FandolSong(0)/b/n/12.045 四
 ....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 级
+....\TU/FandolSong(0)/b/n/12.045 级
 ....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 节
+....\TU/FandolSong(0)/b/n/12.045 节
 ....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 标
+....\TU/FandolSong(0)/b/n/12.045 标
 ....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 题
+....\TU/FandolSong(0)/b/n/12.045 题
 ....\kern -0.00017
 ....\kern 0.00017
-....\penalty 10000
-....\glue(\parfillskip) 0.0 plus 1.0fil
-....\glue(\rightskip) 0.0
-...\write2{\@writefile{toc}{\protect \contentsline {paragraph}{\protect \numberline {（1）}四级节标题}{\thepage }{}\protected@file@percent }}
-...\penalty 10000
-...\glue 0.0
-...\glue(\parskip) 0.0
-...\glue(\parskip) 0.0
-...\glue(\baselineskip) 9.43929
-...\hbox(8.22673+2.6258)x417.11752, glue set 320.64914fil
-....\hbox(0.0+0.0)x24.09
+....\write2{\@writefile{toc}{\protect \contentsline {paragraph}{\protect \numberline {1.1.1.1.1}四级节标题}{\thepage }{}\protected@file@percent }}
+....\glue 12.045
 ....\TU/texgyretermes(0)/m/n/12.045 Paragraph
 ....\glue 3.01125 plus 1.50562 minus 1.00374
 ....\TU/texgyretermes(0)/m/n/12.045 text.
@@ -2008,39 +1987,29 @@ Completed box being shipped out [1]
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
 ...\penalty -300
-...\glue 0.0
+...\glue 17.61578 plus 5.42024 minus 1.08403
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
-...\glue(\baselineskip) 6.90984
-...\hbox(10.53937+2.144)x417.11752, glue set 314.73505fil
-....\hbox(10.53937+2.03558)x42.15749
-.....\hbox(0.0+0.0)x24.09
-.....\TU/FandolSong(0)/m/n/12.045 ①
-.....\kern -0.00017
-.....\kern 0.00017
-.....\glue 6.02249
-....\TU/FandolSong(0)/m/n/12.045 五
+...\glue(\baselineskip) 8.25887
+...\hbox(9.19034+2.6258)x417.11752, glue set 166.83452fil
+....\hbox(0.0+0.0)x24.09
+....\TU/texgyretermes(0)/b/n/12.045 1.1.1.1.1.1
+....\kern -0.0002
+....\kern 0.0002
+....\glue 12.045
+....\TU/FandolSong(0)/b/n/12.045 五
 ....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 级
+....\TU/FandolSong(0)/b/n/12.045 级
 ....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 节
+....\TU/FandolSong(0)/b/n/12.045 节
 ....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 标
+....\TU/FandolSong(0)/b/n/12.045 标
 ....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 题
+....\TU/FandolSong(0)/b/n/12.045 题
 ....\kern -0.00017
 ....\kern 0.00017
-....\penalty 10000
-....\glue(\parfillskip) 0.0 plus 1.0fil
-....\glue(\rightskip) 0.0
-...\write2{\@writefile{toc}{\protect \contentsline {subparagraph}{\protect \numberline {\relax {\protect \symbol  {\numexpr \c@subparagraph  + "245F\relax }}}五级节标题}{\thepage }{}\protected@file@percent }}
-...\penalty 10000
-...\glue 0.0
-...\glue(\parskip) 0.0
-...\glue(\parskip) 0.0
-...\glue(\baselineskip) 9.70427
-...\hbox(8.22673+2.6258)x417.11752, glue set 302.34074fil
-....\hbox(0.0+0.0)x24.09
+....\write2{\@writefile{toc}{\protect \contentsline {subparagraph}{\protect \numberline {1.1.1.1.1.1}五级节标题}{\thepage }{}\protected@file@percent }}
+....\glue 12.045
 ....\TU/texgyretermes(0)/m/n/12.045 Subparagraph
 ....\glue 3.01125 plus 1.50562 minus 1.00374
 ....\TU/texgyretermes(0)/m/n/12.045 text.
