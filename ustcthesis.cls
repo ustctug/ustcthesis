@@ -2827,35 +2827,21 @@
 % 图注、表注使用 `\figurenote` 或 `\tablenote` 命令，与 `apa7.cls` 一致。
 % 图注采用宋体 11pt，单倍行距，段前6磅，段后0磅。
 % 多个图注则须顺序编号，注序左缩进2字，与注文之间空一字符，续行悬挂缩进左对齐，两端对齐。
-\newcommand\ustc@figure@note@font{%
-  \ifustc@degree@bachelor
-    \ifustc@language@chinese
-      \fontsize{10.5bp}{13.65bp}\selectfont
-    \else
-      \fontsize{10.5bp}{12.075bp}\selectfont
-    \fi
-  \else
-    \ustc@caption@font
-  \fi
-}
+\let\ustc@figure@note@font\ustc@caption@font
+
 \newcommand\figurenote[1]{%
-  \par
   \begingroup
-    \setlength\parskip{6bp}%
-    \ustc@figure@note@font
-    % 参考 `\@makecaption` 的实现
-    \sbox\@tempboxa{#1}%
-    \ifdim \wd\@tempboxa >\hsize
-      \parbox{\linewidth}{#1\par}%
-    \else
-      \global \@minipagefalse
-      \hb@xt@\hsize{\hfil\box\@tempboxa\hfil}%
-    \fi
-    \par
+    \captionsetup{
+      font = ustc,
+      margin = {2em, 0pt},
+      oneside,
+    }%
+    \caption*{#1}
   \endgroup
 }
 \let\tablenote\figurenote
 
+% 兼容旧版的 `\note` 命令。
 \newcommand\note[1]{%
   \ustc@deprecated{'\protect\note' command}{2025-01-05}{'\protect\figurenote'}%
   \figurenote{#1}%
