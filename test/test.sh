@@ -23,7 +23,7 @@ for config in main crossref nomencl bibtex biblatex; do
             if [ ! -d "$diff_dir" ]; then
                 mkdir -p "$diff_dir";
             fi
-            diff_path="$diff_dir/$test.pdf";
+            diff_path="$diff_dir/$test-diff.pdf";
             diff-pdf --output-diff "$diff_path" "$baseline_path" "$output_path";
             open "$diff_path";
         else
