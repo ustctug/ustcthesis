@@ -66,11 +66,16 @@
 
 \begin{figure}[h]
   \centering
-  \includegraphics[width=0.3\textwidth]{figures/ustc-badge.pdf}
+  \includegraphics[width=.4\linewidth]{example-image.pdf}
   \caption{图题置于图的下方}
   \label{fig:example}
-  \figurenote{若有图注，图注置于图题下方。
-    注文的字数较少且是短语时，末尾不可加标点，多个图注可以在同一行通过自由选取字符空格将各个图注间隔开来；
+  % \figurenote{简短的图注}
+  \figurenote{%
+    (a)\quad 若有图注，图注置于图题下方。
+    (b)\quad 若有英文图题，则只需在英文图题下方给出英文图注。
+    (c)\quad 多个图注则须顺序编号，注序左缩进 2 字，与注文之间空一字符，续行悬挂缩进左对齐，两端对齐。
+    \\(d)\quad 注文的字数较少且是短语时，末尾不可加标点，
+    多个图注可以在同一行通过自由选取字符空格将各个图注间隔开来；
     注文的字数较多或者甚至需要用句子说明时，该图注可以独立成行。
   }
 \end{figure}
@@ -113,31 +118,47 @@
 \ustcsetup{cite-style=super}
 \cite{knuth86a}
 
-\begin{thebibliography}{1}
-\bibitem[Knuth(1986)]{knuth86a}
-KNUTH~D~E.
-\newblock Computers and typesetting: volume~A\quad The
-  {\TeX}book\allowbreak[M].
-\newblock Reading, MA, USA: Addison-Wesley, 1986.
+\begin{thebibliography}{2}
+\bibitem[汪继祥(1986)]{wang2004}
+汪继祥.
+\newblock 科学出版社作者编辑手册[M].
+\newblock 北京: 科学出版社: 2004.
+
+\bibitem[孙立广(1986)]{sun2016}
+孙立广.
+\newblock 极地科学前沿与热点: 顶级期刊论文摘要汇编(1990-2010)[M].
+\newblock 合肥: 中国科学技术大学出版社, 2016:222.
+
 \end{thebibliography}
 
 \appendix
-\chapter{附录章节}
+\chapter{学科门类名称中英文对照表}
 附录内容。
 
 \backmatter
 \begin{acknowledgements}
-  致谢内容。
+  不知不觉在科大读研已七年，七年时间转瞬即逝，在这七年时间里也学会了很多，
+  在此我要对指导过我的老师，帮助过我的同学，照顾过我的朋友说一声“谢谢”！
+
+  首先感谢我的导师***，为我提供了读研的宝贵机会，
+  使我能够继续深造并且很幸运地在科研的道路上前行。
+  此论文是在导师的指导下完成的，他们在实验结果的讨论、论文的结构、
+  撰写和修改等方面都提出了宝贵的意见，也提供了很多的帮助。
+  导师深厚的学术功底，敏锐的科学洞察力，独到的见解使我受益良多，
+  也会深刻影响我以后的工作和生活。在此，向他们致以最诚挚的感谢！
+
+  \hfill 2024 年 6 月
 \end{acknowledgements}
 
 \begin{achievements}
 
-\begin{theachievements}[已发表论文]
-  \item xx. 中国科学技术大学研究生学位论文撰写规范. 中国科学技术大学学报，2024,1.
-\end{theachievements}
+  \begin{theachievements}[已发表论文]
+    \item xx. 中国科学技术大学研究生学位论文撰写规范. 中国科学技术大学学报，2024,1.
+  \end{theachievements}
 
-\begin{theachievements}[发明专利]
-  \item xx. 一种温热外敷药制备方案. 授权号：CN123456789B，2023-08-12.
-\end{theachievements}
+  \vspace{38bp}
 
+  \begin{theachievements}[发明专利]
+    \item xx. 一种温热外敷药制备方案. 授权号：CN123456789B，2023-08-12.
+  \end{theachievements}
 \end{achievements}

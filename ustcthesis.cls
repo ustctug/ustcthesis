@@ -2751,6 +2751,11 @@
 \newcommand\ustc@caption@font{%
   \ifustc@degree@bachelor
     \fontsize{12bp}{14.4bp}\selectfont
+    \ifustc@language@chinese
+      \fontsize{12bp}{15.6bp}\selectfont
+    \else
+      \fontsize{12bp}{13.8bp}\selectfont
+    \fi
   \else
     \ifustc@language@chinese
       \fontsize{11bp}{14.3bp}\selectfont
@@ -3206,14 +3211,14 @@
   % 另外如果调用了 \pkg{chapterbib} 或者使用了 \opt{sectionbib} 参数，
   % 需要使用节标题 \cs{section}。
   \newcommand\ustc@bib@chapter{%
-    \@mainmatterfalse
+    \ctexset{chapter/numbering = false}%
     \chapter{\bibname}%
+    \ctexset{chapter/numbering = true}%
   }%
   \newcommand\ustc@bib@section{%
-    \begingroup
-      \ctexset{section/numbering=false}%
-      \section{\bibname}%
-    \endgroup
+    \ctexset{section/numbering=false}%
+    \section{\bibname}%
+    \ctexset{section/numbering=true}%
   }%
   \@ifpackagewith{chapterbib}{sectionbib}{%
     \ustc@error{The "sectionbib" option cannot be used with chaperbib if natbib loaded}%
@@ -3293,6 +3298,9 @@
   \ifustc@degree@graduate
     \@mainmatterfalse
     \chapter{\ustc@achievements@name}%
+    \fontsize{12bp}{16bp}\selectfont
+    \setlength\parskip{3bp}%
+    \vspace{-2bp}%
     #1\par
   \fi
 }{}
@@ -3305,7 +3313,7 @@
 }{}
 
 \newenvironment{theachievements}[1][已发表论文]{%
-  \par\null\par
+  % \vspace{19bp}%
   \noindent\textbf{#1：}\par
   \begin{achievementlist}
 }{%
@@ -3316,11 +3324,11 @@
 \setlist[achievementlist]{
   topsep     = 0bp,
   partopsep  = 0bp,
-  itemsep    = 0bp,
+  itemsep    = 3bp,
   parsep     = 0bp,
-  leftmargin = 1.5em,
-  itemindent = 1.5em,
-  labelsep   = 0em,
+  leftmargin = 3em,
+  itemindent = 0em,
+  labelsep   = 0bp,
   labelwidth = 3em,
   align      = left,
   label      = （\arabic*）,
@@ -3593,10 +3601,9 @@
       \ustc@error{The "sectionbib" option cannot be used with chaperbib if natbib loaded}%
     }{}%
     \renewcommand\bibsection{%
-      \begingroup
-        \ctexset{section/numbering=false}%
-        \section{\bibname}%
-      \endgroup
+      \ctexset{section/numbering=false}%
+      \section{\bibname}%
+      \ctexset{section/numbering=true}%
     }
   }{}
 }
