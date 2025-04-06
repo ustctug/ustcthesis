@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [4.0.0-beta.7] - 2025-04-07
+
 ### Added
 
 - 新增 `eqn-paren-style` 控制中文数学公式的编号（`\eqref`）使用全角或半角括号（[#420](https://github.com/ustctug/ustcthesis/issues/420)）。
@@ -415,7 +417,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - 优化图注、算法的行距。
 - 二级以下节标题编号下采用“1.”、“(1)”、“①”。
 
-[Unreleased]: https://github.com/ustctug/ustcthesis/compare/v4.0.0-beta.6...HEAD
+[Unreleased]: https://github.com/ustctug/ustcthesis/compare/v4.0.0-beta.7...HEAD
+[4.0.0-beta.7]: https://github.com/ustctug/ustcthesis/compare/v4.0.0-beta.6...v4.0.0-beta.7
 [4.0.0-beta.6]: https://github.com/ustctug/ustcthesis/compare/v4.0.0-beta.5...v4.0.0-beta.6
 [4.0.0-beta.5]: https://github.com/ustctug/ustcthesis/compare/v4.0.0-beta.4...v4.0.0-beta.5
 [4.0.0-beta.4]: https://github.com/ustctug/ustcthesis/compare/v4.0.0-beta.3...v4.0.0-beta.4
