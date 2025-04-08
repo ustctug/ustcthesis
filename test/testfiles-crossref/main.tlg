@@ -589,57 +589,113 @@ Completed box being shipped out [2]
 ...\hbox(0.0+0.0)x0.0
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
-...\glue(\baselineskip) 10.83649
-...\hbox(9.23851+2.6258)x417.11752, glue set - 0.09982
+...\glue(\baselineskip) 10.6799
+...\hbox(9.3951+2.21626)x417.11752, glue set - 0.03065
 ....\TU/FandolSong(0)/b/n/12.045 关
 ....\glue 0.0 plus 0.61353
 ....\TU/FandolSong(0)/b/n/12.045 键
 ....\glue 0.0 plus 0.61353
 ....\TU/FandolSong(0)/b/n/12.045 词
+....\kern 0.0
+....\kern -0.00017
+....\kern 0.00017
 ....\penalty 10000
-....\TU/FandolSong(0)/b/n/12.045 ：
-....\rule(0.0+0.0)x-8.09424
-....\kern 0.00049
-....\kern -0.00049
-....\kern -0.99649
-....\kern 0.99649
-....\glue 8.09424 minus 6.02249
-....\TU/texgyretermes(0)/m/n/12.045 Dissertation,
-....\glue 3.01125 plus 1.88202 minus 0.80298
-....\glue 3.01125 plus 1.88202 minus 0.80298
-....\TU/texgyretermes(0)/m/n/12.045 Keyword
+....\TU/FandolSong(0)/m/n/12.045 ：
+....\rule(0.0+0.0)x-8.39537
+....\glue 8.39537 minus 6.0225
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 学
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 位
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 论
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 文
+....\penalty 10000
+....\TU/FandolSong(0)/m/n/12.045 ；
+....\rule(0.0+0.0)x-8.32309
+....\glue 8.32309 minus 6.02249
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 关
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 键
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 词
 ....\glue 3.01125 plus 1.50562 minus 1.00374
-....\TU/texgyretermes(0)/m/n/12.045 2,
-....\glue 3.01125 plus 1.88202 minus 0.80298
-....\glue 3.01125 plus 1.88202 minus 0.80298
-....\TU/texgyretermes(0)/m/n/12.045 Keyword
+....\TU/texgyretermes(0)/m/n/12.045 2
+....\penalty 10000
+....\TU/FandolSong(0)/m/n/12.045 ；
+....\rule(0.0+0.0)x-8.32309
+....\glue 8.32309 minus 6.02249
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 关
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 键
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 词
 ....\glue 3.01125 plus 1.50562 minus 1.00374
-....\TU/texgyretermes(0)/m/n/12.045 3,
-....\glue 3.01125 plus 1.88202 minus 0.80298
-....\glue 3.01125 plus 1.88202 minus 0.80298
-....\TU/texgyretermes(0)/m/n/12.045 Keyword
+....\TU/texgyretermes(0)/m/n/12.045 3
+....\penalty 10000
+....\TU/FandolSong(0)/m/n/12.045 ；
+....\rule(0.0+0.0)x-8.32309
+....\glue 8.32309 minus 6.02249
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 关
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 键
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 词
 ....\glue 3.01125 plus 1.50562 minus 1.00374
-....\TU/texgyretermes(0)/m/n/12.045 4,
-....\glue 3.01125 plus 1.88202 minus 0.80298
-....\glue 3.01125 plus 1.88202 minus 0.80298
-....\TU/texgyretermes(0)/m/n/12.045 Keyword
+....\TU/texgyretermes(0)/m/n/12.045 4
+....\penalty 10000
+....\TU/FandolSong(0)/m/n/12.045 ；
+....\rule(0.0+0.0)x-8.32309
+....\glue 8.32309 minus 6.02249
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 关
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 键
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 词
 ....\glue 3.01125 plus 1.50562 minus 1.00374
-....\TU/texgyretermes(0)/m/n/12.045 5,
-....\glue 3.01125 plus 1.88202 minus 0.80298
-....\glue 3.01125 plus 1.88202 minus 0.80298
-....\TU/texgyretermes(0)/m/n/12.045 Keyword
+....\TU/texgyretermes(0)/m/n/12.045 5
+....\penalty 10000
+....\TU/FandolSong(0)/m/n/12.045 ；
+....\rule(0.0+0.0)x-8.32309
+....\glue 8.32309 minus 6.02249
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 关
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 键
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 词
 ....\glue 3.01125 plus 1.50562 minus 1.00374
-....\TU/texgyretermes(0)/m/n/12.045 6,
+....\TU/texgyretermes(0)/m/n/12.045 6
+....\penalty 10000
+....\TU/FandolSong(0)/m/n/12.045 ；
+....\rule(0.0+0.0)x-8.32309
+....\glue 8.32309 minus 6.02249
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 关
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 键
 ....\glue(\rightskip) 0.0
 ...\penalty 300
-...\glue(\baselineskip) 9.22247
-...\hbox(8.22673+2.6258)x368.93753, glue set 254.24507fil, shifted 48.18
-....\TU/texgyretermes(0)/m/n/12.045 Keyword
+...\glue(\baselineskip) 8.58409
+...\hbox(9.27464+2.21626)x368.93753, glue set 290.64503fil, shifted 48.18
+....\TU/FandolSong(0)/m/n/12.045 词
 ....\glue 3.01125 plus 1.50562 minus 1.00374
-....\TU/texgyretermes(0)/m/n/12.045 7,
-....\glue 3.01125 plus 1.88202 minus 0.80298
-....\glue 3.01125 plus 1.88202 minus 0.80298
-....\TU/texgyretermes(0)/m/n/12.045 Keyword
+....\TU/texgyretermes(0)/m/n/12.045 7
+....\penalty 10000
+....\TU/FandolSong(0)/m/n/12.045 ；
+....\rule(0.0+0.0)x-8.32309
+....\glue 8.32309 minus 6.02249
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 关
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 键
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 词
 ....\glue 3.01125 plus 1.50562 minus 1.00374
 ....\TU/texgyretermes(0)/m/n/12.045 8
 ....\kern -0.0002
@@ -647,7 +703,7 @@ Completed box being shipped out [2]
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
-...\glue -2.6258
+...\glue -2.21626
 ...\glue 0.0 plus 1.0fil
 ...\glue 0.0
 ...\glue 0.0 plus 0.0001fil

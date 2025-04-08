@@ -9,6 +9,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [4.0.0-beta.7] - 2025-04-07
 
+### Fixed
+
+- 修正中文摘要的关键词和分隔符（[#449](https://github.com/ustctug/ustcthesis/issues/449)、[#450](https://github.com/ustctug/ustcthesis/issues/450)）。
+
 ### Added
 
 - 新增 `eqn-paren-style` 控制中文数学公式的编号（`\eqref`）使用全角或半角括号（[#420](https://github.com/ustctug/ustcthesis/issues/420)）。

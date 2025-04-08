@@ -2469,13 +2469,7 @@
   \par\null\par
   \setlength\hangindent{4em}%
   \noindent
-  \textbf{关键词：}%
-  \ifustc@degree@graduate
-    \ustc@clist@use{\ustc@keywords@en}{, }%
-  \else
-    \ustc@clist@use{\ustc@keywords@en}{; }%
-  \fi
-  \par
+  \textbf{关键词}：\ustc@keywords@text\par
   \ustc@reset@main@language
 }
 
