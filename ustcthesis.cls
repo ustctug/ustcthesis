@@ -2471,9 +2471,9 @@
   \noindent
   \textbf{关键词：}%
   \ifustc@degree@graduate
-    \ustc@clist@use{\ustc@keywords@en}{, }%
+    \ustc@clist@use{\ustc@keywords}{, }%
   \else
-    \ustc@clist@use{\ustc@keywords@en}{; }%
+    \ustc@clist@use{\ustc@keywords}{; }%
   \fi
   \par
   \ustc@reset@main@language
