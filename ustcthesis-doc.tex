@@ -121,7 +121,7 @@
 \section{简介}
 
 本模板 \cls{ustcthesis} 是中国科学技术大学本科生和研究生学位论文的 \LaTeX{}
-模板， 按照《中国科学技术大学研究生学位论文撰写手册》（最近在修订中）和
+模板， 按照研究生院发布的学位论文 Word 模板和
 《\href{https://www.teach.ustc.edu.cn/?attachment_id=13867}
 {中国科学技术大学本科毕业论文（设计）格式}》的要求编写。
 
@@ -130,16 +130,17 @@
 后来两模板进行了整合梳理，由 ywg 维护。
 2015 年，seisman 和 zepinglee 基于 \pkg{ctex} 2.0 重新编写了模板。
 2017 年，随着学校发布了新版的《撰写手册》，本模板也更新到 v3.0。
+2024 年，研究生院发布了新版学位论文模板，本模板也同步更至 v4.0。
 
 下载地址：
 \begin{itemize}
   \item 主要地址：\url{https://github.com/ustctug/ustcthesis/releases}
   \item 学校镜像：\url{https://git.lug.ustc.edu.cn/ustctug/ustcthesis}
-  \item 研究生院网站（版本较旧）：
+  \item 研究生院网站（可能版本不是最新）：
     \url{https://gradschool.ustc.edu.cn/column/65}
 \end{itemize}
 
-用户在使用 \pkg{ustcthesis} 模板前，应先阅读学校的《撰写手册》等规范。
+用户在使用 \pkg{ustcthesis} 模板前，应先阅读学校的格式要求。
 如果在使用的过程中遇到问题，可以阅读
 \href{https://github.com/ustctug/ustcthesis/wiki}{常见问题}，
 或者在 \href{https://github.com/ustctug/ustcthesis/issues}{GitHub Issues}
@@ -360,9 +361,9 @@ Windows 用户可能无法使用GNU make，使用 |latexmk| 也是一个比较�
 然而自动配置的字体只能保证编译通过，但是还存在一些问题：
 \begin{enumerate}
   \item 在其他平台上配置的 TeX Gyre 系列字体，虽然在风格上比较接近 Times 和 Arial，
-    但是毕竟跟《撰写手册》要求的字体不完全一致；
+    但是毕竟跟要求的字体不完全一致；
   \item Fandol 字库的字形较少，常常出现缺字的情况；
-  \item 华文字库和 Fandol 字库虽然不违反《撰写手册》的要求，
+  \item 华文字库和 Fandol 字库虽然不违反要求，
     但是其字形跟中易字库有所差别，可能被审查老师认为格式不符合要求。
 \end{enumerate}
 
@@ -471,7 +472,7 @@ key-value 的方式填写，如：
 
 \subsection{插图和表格}
 
-《撰写手册》要求图题置于图的下方，表题置于表的上方。
+研究生学位论文要求图题置于图的下方，表题置于表的上方。
 \LaTeX{} 的 \cs{caption} 命令并不能控制标题的位置，
 需要作者注意写在合适的地方。
 
