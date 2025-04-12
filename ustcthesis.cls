@@ -2768,6 +2768,9 @@
 \fi
 
 % 若有英文图题，另起一行置于中文图题下方。
+\AtBeginOfPackageFile*{bicaption}{
+  \let\captionmainlanguage\ustc@main@language
+}
 \AtEndOfPackageFile*{bicaption}{
   \captionsetup[bi-first]{lang = chinese}
   \captionsetup[bi-second]{
