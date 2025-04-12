@@ -2604,12 +2604,12 @@
 % 插图和附表清单
 \titlecontents{figure}
   [0bp]{}
-  {\contentspush{\thecontentslabel\quad}}{}
+  {\contentspush{\figurename~\thecontentslabel\quad}}{}
   {\ustc@leaders\thecontentspage}
 
 \titlecontents{table}
   [0bp]{}
-  {\contentspush{\thecontentslabel\quad}}{}
+  {\contentspush{\tablename~\thecontentslabel\quad}}{}
   {\ustc@leaders\thecontentspage}
 
 \renewcommand\listoffigures{%
