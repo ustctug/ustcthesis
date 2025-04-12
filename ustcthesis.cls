@@ -2490,6 +2490,7 @@
       }
     }%
     \ustc@chapter{ABSTRACT}%
+    \ctexset{autoindent = 2em}%
   \else
     \begingroup
       % 本科生的英文摘要使用小二号衬线体
