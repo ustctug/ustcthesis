@@ -35,3 +35,32 @@ jobs:
           name: testfiles
           path: build/**/*.diff
           retention-days: 3
+
+  test-history-texlive:
+    if: ${{ !contains(github.event.head_commit.message, 'ci skip') }}
+    name: Test with historic TeX Live
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        texlive_version: [2020, 2021, 2022, 2023, 2024, 2025]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup TeX Live
+        uses: teatimeguest/setup-texlive-action@v3
+        with:
+          version: ${{ matrix.texlive_version }}
+          package-file: ${{ matrix.texlive_version >= 2021 && '.github/tl_packages_2021' || '.github/tl_packages_2017' }}
+
+      - name: Test thesis
+        run: make main
+
+      - name: Archive failed test output
+        if: ${{ failure() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: testfiles
+          path: build/**/*.diff
+          retention-days: 3
