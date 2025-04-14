@@ -11,7 +11,10 @@
 %
 
 \NeedsTeXFormat{LaTeX2e}[2017/04/15]
-\RequirePackage{expl3}
+\providecommand\IfFormatAtLeastTF{\@ifl@t@r\fmtversion}
+\IfFormatAtLeastTF{2020/02/02}{}
+  {\RequirePackage{expl3}}
+
 \newcommand\ustcthesisversion{4.0.0-beta.8}
 \ProvidesExplClass{ustcthesis}{2025-04-16}{\ustcthesisversion}{USTC thesis template}
 
@@ -29,12 +32,15 @@
   \ustc@warning{The #1 is deprecated since #2. Use #3 instead.}%
 }
 
+\ExplSyntaxOn
+
 % 检查 \LaTeXe{} kernel 版本
-\@ifl@t@r\fmtversion{2017/04/15}{}{
-  \ustc@error{%
-    TeX Live 2017 or later version is required to compile this document%
-  }
-}
+\msg_new:nnn { ustcthesis } { latex-kernel-too-old }
+  { You~ need~ a~ newer~ LaTeX~ to~ use~ this~ template. }
+
+\IfFormatAtLeastTF { 2017/04/15 }
+  {}
+  { \msg_fatal:nn { ustcthesis } { latex-kernel-too-old } }
 
 % 检查编译引擎，要求使用 XeLaTeX 或 LuaLaTeX。
 \RequirePackage{iftex}
