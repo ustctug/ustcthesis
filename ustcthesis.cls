@@ -467,53 +467,64 @@
   }
 }
 
+\ExplSyntaxOn
+
 % 对冲突的宏包报错。
 \RequirePackage{filehook}
-\newcommand\ustc@package@conflict[2]{
-  \AtEndOfPackageFile*{#1}{%
-    \AtBeginOfPackageFile*{#2}{%
-      \ustc@error{The "#2" package is incompatible with "#1"}%
-    }%
-  }%
-}
+\cs_new:Npn \__ustc_package_conflict:nn #1#2
+  {
+    \hook_gput_code:nnn { package / #1 / before } { . }
+      {
+        \hook_gput_code:nnn { package / #2 / before } { . }
+          { \msg_error:nnnn { ustcthesis } { package-conflict } {#1} {#2} }
+      }
+  }
 
-\ustc@package@conflict{biblatex}{bibunits}
-\ustc@package@conflict{biblatex}{chapterbib}
-\ustc@package@conflict{biblatex}{cite}
-\ustc@package@conflict{biblatex}{multibib}
-\ustc@package@conflict{biblatex}{natbib}
+\msg_new:nnn { ustcthesis } { package-conflict }
+  { The~ '#2'~ package~ is~ incompatible~ with~ '#1'. }
 
-\ustc@package@conflict{bibunits}{biblatex}
-\ustc@package@conflict{bibunits}{chapterbib}
-\ustc@package@conflict{bibunits}{multibib}
+\__ustc_package_conflict:nn { biblatex } { bibunits }
+\__ustc_package_conflict:nn { biblatex } { chapterbib }
+\__ustc_package_conflict:nn { biblatex } { cite }
+\__ustc_package_conflict:nn { biblatex } { multibib }
+\__ustc_package_conflict:nn { biblatex } { natbib }
 
-\ustc@package@conflict{unicode-math}{amscd}
-\ustc@package@conflict{unicode-math}{amsfonts}
-\ustc@package@conflict{unicode-math}{amssymb}
-\ustc@package@conflict{unicode-math}{bbm}
-\ustc@package@conflict{unicode-math}{bm}
-\ustc@package@conflict{unicode-math}{eucal}
-\ustc@package@conflict{unicode-math}{eufrak}
-\ustc@package@conflict{unicode-math}{mathrsfs}
-\ustc@package@conflict{unicode-math}{newtxmath}
-\ustc@package@conflict{unicode-math}{upgreek}
+\__ustc_package_conflict:nn { bibunits } { biblatex }
+\__ustc_package_conflict:nn { bibunits } { chapterbib }
+\__ustc_package_conflict:nn { bibunits } { multibib }
 
-\ustc@package@conflict{natbib}{biblatex}
-\ustc@package@conflict{natbib}{cite}
+\__ustc_package_conflict:nn { unicode-math } { amscd }
+\__ustc_package_conflict:nn { unicode-math } { amsfonts }
+\__ustc_package_conflict:nn { unicode-math } { amssymb }
+\__ustc_package_conflict:nn { unicode-math } { bbm }
+\__ustc_package_conflict:nn { unicode-math } { bm }
+\__ustc_package_conflict:nn { unicode-math } { eucal }
+\__ustc_package_conflict:nn { unicode-math } { eufrak }
+\__ustc_package_conflict:nn { unicode-math } { mathrsfs }
+\__ustc_package_conflict:nn { unicode-math } { newtxmath }
+\__ustc_package_conflict:nn { unicode-math } { upgreek }
 
-\ustc@package@conflict{newtxmath}{amsfonts}
-\ustc@package@conflict{newtxmath}{amssymb}
-\ustc@package@conflict{newtxmath}{unicode-math}
-\ustc@package@conflict{newtxmath}{upgreek}
+\__ustc_package_conflict:nn { natbib } { biblatex }
+\__ustc_package_conflict:nn { natbib } { cite }
+
+\__ustc_package_conflict:nn { newtxmath } { amsfonts }
+\__ustc_package_conflict:nn { newtxmath } { amssymb }
+\__ustc_package_conflict:nn { newtxmath } { unicode-math }
+\__ustc_package_conflict:nn { newtxmath } { upgreek }
 
 
 % \pkg{amsthm} 需要在 \pkg{newtx} 前载入，参考 \pkg{newtx} 的文档。
-\AtBeginOfPackageFile*{amsthm}{
-  \@ifpackageloaded{newtxmath}{
-    \ustc@error{The "amsthm" package should be loaded before setting "newtxmath"}
-  }{}
-}%
+\hook_gput_code:nnn { package / amsthm / before } { . }
+  {
+    \@ifpackageloaded { newtxmath }
+      { \msg_error:nn { ustcthesis } { amsthm-after-newtxmath } }
+      {}
+  }
 
+\msg_new:nnn { ustcthesis } { amsthm-after-newtxmath }
+  { The~ 'amsthm'~ package~ should~ be~ loaded~ before~ setting~ 'newtxmath'. }
+
+\ExplSyntaxOff
 
 
 % \subsection{处理语言}
