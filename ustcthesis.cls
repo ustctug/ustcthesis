@@ -43,13 +43,21 @@
   { \msg_fatal:nn { ustcthesis } { latex-kernel-too-old } }
 
 % 检查编译引擎，要求使用 XeLaTeX 或 LuaLaTeX。
-\RequirePackage{iftex}
-\ifXeTeX\else
-  \ifLuaTeX\else
-    \ustc@error{XeLaTeX or LuaLaTeX is required to compile this document}
-  \fi
-\fi
+\msg_new:nnn { ustcthesis } { unsupported-engine }
+  {
+    The~ ustcthesis~ class~ requires~ either~ XeTeX~ or~ LuaTeX.\\
+    '#1'~ is~ not~ supported.
+  }
 
+\sys_if_engine_xetex:F
+  {
+    \sys_if_engine_luatex:F
+      {
+        \msg_fatal:nnV { ustcthesis } { unsupported-engine } \c_sys_engine_str
+      }
+  }
+
+\ExplSyntaxOff
 
 % \subsection{处理选项}
 
