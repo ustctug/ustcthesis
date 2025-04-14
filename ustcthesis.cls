@@ -11,6 +11,7 @@
 %
 
 \NeedsTeXFormat{LaTeX2e}[2017/04/15]
+\RequirePackage{expl3}
 \newcommand\ustcthesisversion{4.0.0-beta.8}
 \ProvidesExplClass{ustcthesis}{2025-04-16}{\ustcthesisversion}{USTC thesis template}
 
