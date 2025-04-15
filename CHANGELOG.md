@@ -9,6 +9,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [4.0.0-beta.7] - 2025-04-07
 
+### Changed
+
+- 科研成果列表的序号改为方括号（[#449](https://github.com/ustctug/ustcthesis/issues/449#issuecomment-2804822791)）。
+- 更新科研成果列表的缩进（[#449](https://github.com/ustctug/ustcthesis/issues/449#issuecomment-2804870730)）。
+
 ### Fixed
 
 - 修正中文摘要的关键词和分隔符（[#449](https://github.com/ustctug/ustcthesis/issues/449)、[#450](https://github.com/ustctug/ustcthesis/issues/450)）。
