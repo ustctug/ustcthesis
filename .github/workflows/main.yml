@@ -1,4 +1,4 @@
-name: test
+name: Test and release
 
 on:
 
@@ -12,17 +12,12 @@ permissions:
   contents: write
   discussions: write
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
   build:
     if: ${{ !contains(github.event.head_commit.message, 'ci skip') }}
-    # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: Checkout
         uses: actions/checkout@v4
 
@@ -31,10 +26,10 @@ jobs:
         with:
           package_file: .github/tl_packages
               
-      - name: Create thesis
+      - name: Test thesis
         run: make main
 
-      - name: Create doc
+      - name: Test doc
         run: make doc
       
       - name: Run l3build
