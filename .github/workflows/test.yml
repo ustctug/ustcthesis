@@ -1,17 +1,16 @@
-name: Test and release
+name: Test
 
 on:
   push:
   pull_request:
+  workflow_dispatch:
 
 jobs:
-
   test:
     if: ${{ !contains(github.event.head_commit.message, 'ci skip') }}
     name: Test
     runs-on: ubuntu-latest
     steps:
-
       - name: Checkout
         uses: actions/checkout@v4
 
@@ -26,7 +25,7 @@ jobs:
       - name: Test doc
         run: make doc
 
-      - name: Run l3build
+      - name: Run regression tests
         run: make test
 
       - name: Archive failed test output
@@ -36,22 +35,3 @@ jobs:
           name: testfiles
           path: build/**/*.diff
           retention-days: 3
-
-
-  release:
-    if: startsWith(github.ref, 'refs/tags/v')
-    needs: test
-    name: Release on GitHub
-    runs-on: ubuntu-latest
-    steps:
-
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Extract release notes
-        run: awk '/^#+ \[/ { if (p) { exit }; if ($2 != "[Unreleased]") { p=1 } } p' CHANGELOG.md > release-notes.md
-
-      - name: Create GitHub release
-        uses: ncipollo/release-action@v1
-        with:
-          bodyFile: "release-notes.md"
