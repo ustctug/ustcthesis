@@ -5,8 +5,8 @@ BSTFILES = $(NAME)-numerical.bst $(NAME)-authoryear.bst $(NAME)-bachelor.bst
 
 SHELL = bash
 LATEXMK = latexmk -xelatex
-VERSION = $(shell cat $(NAME).cls | egrep -o "\\ustcthesisversion{[0-9.]+" \
-	  | egrep -o "[0-9.]+")
+VERSION = $(shell cat $(NAME).cls | egrep -o "\\ustcthesisversion{[0-9.]+[0-9a-z.-]*" \
+	  | egrep -o "[0-9.]+[0-9a-z.-]*")
 TEXMF = $(shell kpsewhich --var-value TEXMFHOME)
 
 .PHONY : main cls doc test save clean all install distclean zip FORCE_MAKE
