@@ -524,8 +524,6 @@
 \msg_new:nnn { ustcthesis } { amsthm-after-newtxmath }
   { The~ 'amsthm'~ package~ should~ be~ loaded~ before~ setting~ 'newtxmath'. }
 
-\ExplSyntaxOff
-
 
 % \subsection{处理语言}
 
@@ -533,68 +531,87 @@
 % 保存为论文的主要语言；
 % \cs{ustc@reset@main@language} 则用于正文中恢复为主要语言。
 %    \begin{macrocode}
-\ustcsetup{main-language=\ustc@language}%
-\let\ustc@main@language\ustc@language
+\tl_new:N \l__ustc_main_language_code_tl
+\tl_new:N \l__ustc_language_code_tl
 
-\ustc@option@hook{language}{%
-  \ifx\@begindocumenthook\@undefined\else
-    \ustcsetup{main-language=\ustc@language}%
-    \let\ustc@main@language\ustc@language
-  \fi
-}
-\newcommand\ustc@reset@main@language{%
-  \ustcsetup{language = \ustc@main@language}%
-  \let\ustc@language\ustc@main@language
-}
+\ustc@option@hook { main-language } { \tl_use:N \l__ustc_main_language_code_tl }
+\ustc@option@hook { language } { \tl_use:N \l__ustc_language_code_tl }
+
+\exp_args:Ne \ustcsetup { main-language = \ustc@language }
+
+\prg_new_conditional:Nnn \__ustc_if_preamble: { T , F , TF }
+  {
+    \if_meaning:w \@begindocumenthook \@undefined
+      \prg_return_false:
+    \else
+      \prg_return_true:
+    \fi
+  }
+
+\tl_put_right:Nn \l__ustc_language_code_tl
+  {
+    \__ustc_if_preamble:T
+      { \exp_args:Ne \ustcsetup { main-language = \ustc@language } }
+  }
+\cs_new:Npn \ustc@reset@main@language
+  { \exp_args:Ne \ustcsetup { language = \ustc@main@language } }
 
 % 带圈数字和星号使用中文字体。
-\ifLuaTeX
-  % ctex 将带圈数字 U+2460–U+24FF 归入字符范围 3（ALchar），这里改回范围 6（JAchar）
-  \ltjdefcharrange{3}{%
-    "2000-"243F, "2500-"27BF, "2900-"29FF, "2B00-"2BFF}
-  \ltjdefcharrange{6}{%
-    "2460-"24FF, "2E80-"2EFF, "3000-"30FF, "3190-"319F, "31F0-"4DBF,
-    "4E00-"9FFF, "F900-"FAFF, "FE10-"FE1F, "FE30-"FE6F, "FF00-"FFEF,
-    "1B000-"1B16F, "1F100-"1F2FF, "20000-"3FFFF, "E0100-"E01EF}
-\else
-  \ifXeTeX
-    \xeCJKDeclareCharClass{CJK}{"2460 -> "2473}
-    \xeCJKDeclareCharClass{CJK}{"2605}
-  \fi
-\fi
+\sys_if_engine_xetex:TF
+  {
+    \xeCJKDeclareCharClass { CJK } { "2460 -> "2473 }
+    \xeCJKDeclareCharClass { CJK } { "2605 }
+  }
+  {
+    \sys_if_engine_luatex:T
+      {
+        % ctex 将带圈数字 U+2460–U+24FF 归入字符范围 3（ALchar），这里改回范围 6（JAchar）
+        \ltjdefcharrange { 3 }
+          { "2000-"243F, "2500-"27BF, "2900-"29FF, "2B00-"2BFF}
+        \ltjdefcharrange { 6 }
+          {
+            "2460-"24FF, "2E80-"2EFF, "3000-"30FF, "3190-"319F, "31F0-"4DBF,
+            "4E00-"9FFF, "F900-"FAFF, "FE10-"FE1F, "FE30-"FE6F, "FF00-"FFEF,
+            "1B000-"1B16F, "1F100-"1F2FF, "20000-"3FFFF, "E0100-"E01EF
+          }
+      }
+  }
 
 % 由于 Unicode 的一些标点符号是中西文混用的：
 % U+00B7、U+2013、U+2014、U+2018、U+2019、
 % U+201C、U+201D、U+2025、U+2026、U+2E3A，
 % 所以要根据语言设置正确的字体。
 % https://github.com/CTeX-org/ctex-kit/issues/389
-\newcommand\ustc@set@punctuations{%
-  \ifustc@language@chinese
-    \ifLuaTeX
-      \ltjsetparameter{jacharrange={+9}}
+\cs_new:Npn \__ustc_set_punctuations:
+  {
+    \ifustc@language@chinese
+      \sys_if_engine_xetex:TF
+        {
+          \xeCJKDeclareCharClass { FullLeft } { "2018, "201C }
+          \xeCJKDeclareCharClass { FullRight }
+            { "00B7, "2019, "201D, "2013, "2014, "2025, "2026, "2E3A }
+        }
+        {
+          \sys_if_engine_luatex:T
+          { \ltjsetparameter { jacharrange = { +9 } } }
+        }
     \else
-      \ifXeTeX
-        \xeCJKDeclareCharClass{FullLeft}{"2018, "201C}%
-        \xeCJKDeclareCharClass{FullRight}{
-          "00B7, "2019, "201D, "2013, "2014, "2025, "2026, "2E3A,
-        }%
-      \fi
+      \sys_if_engine_xetex:TF
+        {
+          \xeCJKDeclareCharClass { HalfLeft } { "2018, "201C }
+          \xeCJKDeclareCharClass { HalfRight }
+            { "00B7, "2019, "201D, "2013, "2014, "2025, "2026, "2E3A }
+        }
+        {
+          \sys_if_engine_luatex:T
+            { \ltjsetparameter { jacharrange = { -9 } } }
+        }
     \fi
-  \else
-    \ifLuaTeX
-      \ltjsetparameter{jacharrange={-9}}
-    \else
-      \ifXeTeX
-        \xeCJKDeclareCharClass{HalfLeft}{"2018, "201C}%
-        \xeCJKDeclareCharClass{HalfRight}{
-          "00B7, "2019, "201D, "2013, "2014, "2025, "2026, "2E3A,
-        }%
-      \fi
-    \fi
-  \fi
-}
-\ustc@set@punctuations
-\ustc@option@hook{language}{\ustc@set@punctuations}
+  }
+\__ustc_set_punctuations:
+\tl_put_right:Nn \l__ustc_language_code_tl { \__ustc_set_punctuations: }
+
+\ExplSyntaxOff
 
 % 根据语言设置各章节的名称，只有在导言区设置 \option{language} 时会修改，
 % 而在正文局部切换语言时则不变。
