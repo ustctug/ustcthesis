@@ -662,8 +662,6 @@
 \__ustc_set_names:
 \tl_put_right:Nn \l__ustc_language_code_tl { \__ustc_set_names: }
 
-\ExplSyntaxOff
-
 % \subsection{字体}
 
 % 字号
@@ -695,36 +693,45 @@
 % 表达式的行距根据需要采用，段前6磅、段后6磅。
 %
 % 注意重定义 \normalsize 应在 \pkg{unicode-math} 的 \cs{setmathfont} 前。
-\newcommand\ustc@set@font@size{%
-  \ifustc@degree@graduate
-    \renewcommand\normalsize{%
-      \@setfontsize\normalsize{12bp}{20bp}%
-      \abovedisplayskip 6bp \@plus3bp \@minus3bp%
-      \abovedisplayshortskip 6bp \@plus3bp \@minus3bp%
-      \belowdisplayshortskip \abovedisplayshortskip
-      \belowdisplayskip \abovedisplayskip
-      \let\@listi\@listI}%
-    %
-    % 注意第~\ref{sec:list} 节去掉了列表的间距，所以不再修改 \cs{@listi}。
-  \else
-    \renewcommand\normalsize{%
-      \@setfontsize\normalsize{12bp}{22bp}%
-      \abovedisplayskip 6bp \@plus3bp \@minus3bp%
-      \abovedisplayshortskip 6bp \@plus3bp \@minus3bp%
-      \belowdisplayshortskip \abovedisplayshortskip
-      \belowdisplayskip \abovedisplayskip
-      \let\@listi\@listI}%
-  \fi
-  \normalsize
-  \ifx\MakeRobust\@undefined \else
-      \MakeRobust\normalsize
-  \fi
-}
-\ustc@set@font@size
-\ustc@option@hook{degree}{\ustc@set@font@size}
+\cs_set:Npn \__ustc_set_font_size:
+  {
+    \ifustc@degree@graduate
+      \cs_set:Npn \normalsize
+        {
+          \@setfontsize \normalsize { 12 bp } { 20 bp }
+          \skip_set:Nn \abovedisplayskip { 6 bp plus 3 bp minus 3 bp }
+          \skip_set:Nn \abovedisplayshortskip { 6 bp plus 3 bp minus 3 bp }
+          \skip_set_eq:NN \belowdisplayshortskip \abovedisplayshortskip
+          \skip_set_eq:NN \belowdisplayskip \abovedisplayskip
+          \cs_set_eq:NN \@listi \@listI
+        }
+      %
+      % 注意第~\ref{sec:list} 节去掉了列表的间距，所以不再修改 \cs{@listi}。
+    \else
+      \cs_set:Npn \normalsize
+        {
+          \@setfontsize \normalsize { 12 bp } { 22 bp }
+          \skip_set:Nn \abovedisplayskip { 6 bp plus 3 bp minus 3 bp }
+          \skip_set:Nn \abovedisplayshortskip { 6 bp plus 3 bp minus 3 bp }
+          \skip_set_eq:NN \belowdisplayshortskip \abovedisplayshortskip
+          \skip_set_eq:NN \belowdisplayskip \abovedisplayskip
+          \cs_set_eq:NN \@listi \@listI
+        }
+    \fi
+    \normalsize
+    \cs_if_exist:NT \MakeRobust
+      { \MakeRobust \normalsize }
+  }
+\__ustc_set_font_size:
+
+\tl_new:N \l__ustc_degree_code_tl
+\ustc@option@hook { degree } { \tl_use:N \l__ustc_degree_code_tl}
+\tl_put_right:Nn \l__ustc_degree_code_tl { \__ustc_set_font_size: }
 
 % 设置行距的倍数为 1。
-\linespread{1}\selectfont
+\linespread { 1 } \selectfont
+
+\ExplSyntaxOff
 
 
 % 检测系统
