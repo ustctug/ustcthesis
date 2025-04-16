@@ -611,58 +611,58 @@
 \__ustc_set_punctuations:
 \tl_put_right:Nn \l__ustc_language_code_tl { \__ustc_set_punctuations: }
 
-\ExplSyntaxOff
-
 % 根据语言设置各章节的名称，只有在导言区设置 \option{language} 时会修改，
 % 而在正文局部切换语言时则不变。
 
 % 由于《撰写手册》中的“speciality”一词使用的是英式拼法，
 % 所以“acknowledgements”也保持一致。
-\newcommand\ustc@set@chapter@names{%
-  \ifustc@main@language@chinese
-    \def\contentsname{目录}%
-    \def\listfigurename{插图清单}%
-    \def\listtablename{附表清单}%
-    \def\ustc@list@figure@table@name{插图和附表清单}%
-    \ctexset{
-      chapter/name   = {第,章},
-    }%
-    \def\bibname{参考文献}%
-    \def\appendixname{附录}%
-    \def\ustc@acknowledgements@name{致谢}%
-    \def\ustc@achievements@name{在读期间取得的科研成果}%
-    \newcommand\ustc@notation@name{符号说明}%
-  \else
-    \def\contentsname{Contents}%
-    \def\listfigurename{List of Figures}%
-    \def\listtablename{List of Tables}%
-    \def\ustc@list@figure@table@name{List of Figures and Tables}%
-    \ctexset{
-      chapter/name   = {\chaptername\space},
-    }%
-    \def\bibname{Bibliography}%
-    \def\appendixname{Appendix}%
-    \def\ustc@acknowledgements@name{Acknowledgements}%
-    \def\ustc@achievements@name{Research Achievements}%
-    \def\ustc@notation@name{Notation}%
-  \fi
-}
-\ustc@set@chapter@names
-\ustc@option@hook{main-language}{\ustc@set@chapter@names}
+
+\tl_new:N \ustc@notation@name
+
+\cs_new:Npn \__ustc_set_chapter_names:
+  {
+    \ifustc@main@language@chinese
+      \ctexset { chapter / name = { 第 , 章 } }
+      \tl_set:Nn \contentsname{目录}
+      \tl_set:Nn \listfigurename { 插图清单 }
+      \tl_set:Nn \listtablename { 附表清单 }
+      \tl_set:Nn \ustc@list@figure@table@name { 插图和附表清单 }
+      \tl_set:Nn \ustc@notation@name { 符号说明 }
+      \tl_set:Nn \bibname { 参考文献 }
+      \tl_set:Nn \appendixname { 附录 }
+      \tl_set:Nn \ustc@acknowledgements@name { 致谢 }
+      \tl_set:Nn \ustc@achievements@name { 在读期间取得的科研成果 }
+    \else
+      \ctexset { chapter / name = \chaptername \space }
+      \tl_set:Nn \contentsname { Contents }
+      \tl_set:Nn \listfigurename { List~ of~ Figures }
+      \tl_set:Nn \listtablename { List~ of~ Tables }
+      \tl_set:Nn \ustc@list@figure@table@name { List~ of~ Figures~ and~ Tables }
+      \tl_set:Nn \ustc@notation@name { Notation }
+      \tl_set:Nn \bibname { Bibliography }
+      \tl_set:Nn \appendixname { Appendix }
+      \tl_set:Nn \ustc@acknowledgements@name { Acknowledgements }
+      \tl_set:Nn \ustc@achievements@name { Research~ Achievements }
+    \fi
+  }
+\__ustc_set_chapter_names:
+\tl_put_right:Nn \l__ustc_main_language_code_tl { \__ustc_set_chapter_names: }
 
 % 这部分名称在正文中局部地修改语言时会发生变化。
-\newcommand\ustc@set@names{%
-  \ifustc@language@chinese
-    \def\figurename{图}%
-    \def\tablename{表}%
-  \else
-    \def\figurename{Figure}%
-    \def\tablename{Table}%
-  \fi
-}
-\ustc@set@names
-\ustc@option@hook{language}{\ustc@set@names}
+\cs_new:Npn \__ustc_set_names:
+  {
+    \ifustc@language@chinese
+      \tl_set:Nn \figurename { 图 }
+      \tl_set:Nn \tablename { 表 }
+    \else
+      \tl_set:Nn \figurename { Figure }
+      \tl_set:Nn \tablename { Table }
+    \fi
+  }
+\__ustc_set_names:
+\tl_put_right:Nn \l__ustc_language_code_tl { \__ustc_set_names: }
 
+\ExplSyntaxOff
 
 % \subsection{字体}
 
