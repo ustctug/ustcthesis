@@ -78,7 +78,7 @@ FUNCTION {load.config}
   #1 'show.medium.type :=
   "slash" 'component.part.label :=
   #0 'short.journal :=
-  #1 'italic.journal :=
+  #0 'italic.journal :=
   #0 'link.journal :=
   #0 'bold.journal.volume :=
   #0 'show.missing.address.publisher :=
