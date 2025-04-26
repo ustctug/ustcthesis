@@ -1558,8 +1558,6 @@
       { \RequirePackage { amssymb } }
   }
 
-\ExplSyntaxOff
-
 
 
 % \subsection{纸张和页面}
@@ -1572,118 +1570,132 @@
 % 页眉距边界2.0cm
 % 页脚距边界1.75cm
 % Word 模板中，页眉线是跟版心上边缘重合的，所以 headsep 设为 1pt，防止页眉线与版心内容重叠（#413）。
-\geometry{
-  paper      = a4paper,
-  vmargin    = 2.54cm,
-  hmargin    = 3.17cm,
-  headheight = 0.54cm,
-  headsep    = 1pt,
-  footskip   = 0.79cm,
-}
+\geometry
+  {
+    paper      = a4paper ,
+    vmargin    = 2.54 cm ,
+    hmargin    = 3.17 cm ,
+    headheight = 0.54 cm ,
+    headsep    = 1 pt ,
+    footskip   = 0.79 cm ,
+  }
 
 % 使用 \pkg{fancy} 需要先调用 |\pagestyle{fancy}| 再修改 \cs{chaptermark} 和
 % \cs{sectionmark}。
-\pagestyle{fancy}
-\let\sectionmark\@gobble
-\renewcommand\headrulewidth{0.75bp}
+\pagestyle { fancy }
+\cs_set_eq:NN \sectionmark \use_none:n
+\cs_set:Npn \headrulewidth { 0.75 bp }
 
 % 重定义默认的 |plain| page style，会显示页眉和页脚。
-\fancypagestyle{plain}{%
-  \fancyhf{}%
-  %
-  % 页眉与该部分的章标题相同，宋体 10.5 磅（五号）居中。
-  % 页码：宋体 10.5 磅、页面下脚居中。
-  \ifustc@degree@graduate
-    \def\ustc@hf@font{\fontsize{10.5bp}{12bp}\selectfont}
-    \fancyhead[C]{\ustc@hf@font\leftmark}%
-    \fancyfoot[C]{\ustc@hf@font\thepage}%
-    \let\@mkboth\markboth
-    \def\chaptermark##1{%
-      \markboth{\CTEXifname{\CTEXthechapter\quad}{}##1}{}%
-    }%
-    \let\sectionmark\@gobble
-  \else
+\fancypagestyle { plain }
+  {
+    \fancyhf { }
     %
-    % 本科生要求除封面、扉页外，每面上部加页眉，
-    % 用小 5 号字（9 bp）标注“中国科学技术大学本科毕业论文”，居中；
-    % 从目录页开始在每面底部居中用小五宋体（9 bp）连续编页码。
-    \def\ustc@hf@font{\fontsize{9bp}{12bp}\selectfont}
-    \fancyhead[C]{\ustc@hf@font 中国科学技术大学本科毕业论文}%
-    \fancyfoot[C]{\ustc@hf@font\thepage}%
-    \let\@mkboth\@gobbletwo
-    \let\chaptermark\@gobble
-    \let\sectionmark\@gobble
-  \fi
-}
-\pagestyle{plain}
+    % 页眉与该部分的章标题相同，宋体 10.5 磅（五号）居中。
+    % 页码：宋体 10.5 磅、页面下脚居中。
+    \ifustc@degree@graduate
+      \cs_set:Npn \__ustc_hf_font: { \fontsize { 10.5 bp } { 12 bp } \selectfont }
+      \fancyhead [ C ] { \__ustc_hf_font: \leftmark }
+      \fancyfoot [ C ] { \__ustc_hf_font: \thepage }
+      \cs_set_eq:NN \@mkboth \markboth
+      \cs_set:Npn \chaptermark ##1
+        { \markboth { \CTEXifname { \CTEXthechapter \quad } { } ##1 } { } }
+      \cs_set_eq:NN \sectionmark \use_none:n
+    \else
+      %
+      % 本科生要求除封面、扉页外，每面上部加页眉，
+      % 用小 5 号字（9 bp）标注“中国科学技术大学本科毕业论文”，居中；
+      % 从目录页开始在每面底部居中用小五宋体（9 bp）连续编页码。
+      \cs_set:Npn \__ustc_hf_font: { \fontsize { 9 bp } { 12 bp } \selectfont }
+      \fancyhead [ C ] { \__ustc_hf_font: 中国科学技术大学本科毕业论文 }
+      \fancyfoot [ C ] { \__ustc_hf_font: \thepage }
+      \cs_set_eq:NN \@mkboth \use_none:nn
+      \cs_set_eq:NN \chaptermark \use_none:n
+      \cs_set_eq:NN \sectionmark \use_none:n
+    \fi
+  }
+\pagestyle { plain }
 
 % |headings| 只有页眉，没有页脚，用于本科生的 front matter。
-\fancypagestyle{headings}{\fancyfoot{}}
+\fancypagestyle { headings } { \fancyfoot { } }
 
 % 设置特殊的 page style 不改变任何内容，用于每章首页。
-\def\ps@chapter{}
-\ctexset{chapter/pagestyle=chapter}
+\fancypagestyle { chapter } { }
+\ctexset { chapter / pagestyle = chapter }
 
 % 空白页不需加页眉（包括页眉线），但需有连续编的页码。
-\fancypagestyle{blank}{%
-  \fancyhf{}%
-  \renewcommand\headrulewidth{0pt}%
-  \fancyfoot[C]{\ustc@hf@font\thepage}%
-}
+\fancypagestyle { blank }
+  {
+    \fancyhf { }
+    \cs_set:Npn \headrulewidth { 0 pt }
+    \fancyfoot [ C ] { \__ustc_hf_font: \thepage }
+  }
 
+% 封面部分单面打印，空白页不编页码。
+% 正文部分应从另页右页开始，此空白页不需加页眉（包括页眉线），但需有连续编的页码。
+% 需要判断是否 `\maketitle` 或 `\copyrightpage` 中的 `\cleardoublepage`。
 \newif\ifustc@title@page
 
-\def\cleardoublepage{%
-  \clearpage
-  \if@twoside
-    \ifodd\c@page\else
-      \hbox{}%
-      \ifustc@degree@graduate
-        \ifustc@title@page
-          % 封面的空白页不显示页码
-          \thispagestyle{empty}%
-        \else
-          \thispagestyle{blank}%
-        \fi
-      \else
-        \thispagestyle{empty}%
-      \fi
-      \newpage
-      \if@twocolumn
-        \hbox{}%
-        \newpage
-      \fi
-    \fi
-  \fi
-}
-
-%
-% 研究生要求从“中文摘要”开始页码用大写罗马数字，
-% 而本科生的 frontmatter（只有致谢）不编页码，从目录开始页码用阿拉伯数字。
-\renewcommand\frontmatter{%
-  \cleardoublepage
-  \@mainmatterfalse
-  \pagenumbering{Roman}%
-  \ifustc@degree@graduate
-    \pagestyle{plain}%
-  \else
-    \pagestyle{headings}%
-  \fi
-}
-
-% 研究生要求“第 1 章”要另页起，但是本科生要求另面起。
-\renewcommand\mainmatter{%
-  \ifustc@degree@graduate
-    \cleardoublepage
-    \pagenumbering{arabic}%
-  \else
+\cs_set_nopar:Npn \cleardoublepage
+  {
     \clearpage
-  \fi
-  \pagestyle{plain}%
-  \@mainmattertrue
-}
+    \if@twoside
+      \int_if_odd:nF { \c@page }
+        {
+          \hbox:n { }
+          % 封面的空白页不显示页码
+          \ifustc@degree@graduate
+            \ifustc@title@page
+              \thispagestyle { empty }
+            \else
+              \thispagestyle { blank }
+            \fi
+          \else
+            \thispagestyle { empty }
+          \fi
+          \newpage
+          \if@twocolumn
+            \hbox:n { }
+            \newpage
+          \fi
+        }
+    \fi
+  }
 
-\g@addto@macro\appendix{\@mainmattertrue}%
+% 研究生从“摘要”开始页码用 罗马数字，
+% 而本科生摘要页只有页眉，从目录页才开始编页码。
+\cs_set:Npn \frontmatter
+  {
+    \cleardoublepage
+    \@mainmatterfalse
+    \ifustc@degree@graduate
+      \pagenumbering { Roman }
+      \pagestyle { plain }
+    \else
+      \pagestyle { headings }
+    \fi
+  }
+
+% 研究生正文部分应从另页右页开始，页码用阿拉伯数字
+\cs_set:Npn \mainmatter
+  {
+    \ifustc@degree@graduate
+      \cleardoublepage
+      \pagenumbering { arabic }
+    \else
+      \clearpage
+    \fi
+    \pagestyle { plain }
+    \@mainmattertrue
+  }
+
+\cs_new_eq:NN \__ustc_save_appendix: \appendix \cs_set_protected:Npn \appendix
+  {
+    \__ustc_save_appendix:
+    \@mainmattertrue
+  }
+
+\ExplSyntaxOff
 
 
 % \subsection{封面}
