@@ -250,7 +250,6 @@
       auto,
       windows,
       mac,
-      noto,
       fandol,
       none,
     },
@@ -976,161 +975,142 @@
 \ustc@option@hook { font } { \__ustc_set_font: }
 \__ustc_set_font:
 
-\ExplSyntaxOff
-
 % 中文字体
 \ifustc@cjk@font@auto
   \ifustc@fontset@mac
-    \ustcsetup{cjk-font = mac}
+    \ustcsetup { cjk-font = mac }
   \else
     \ifustc@fontset@windows
-      \ustcsetup{cjk-font = windows}
+      \ustcsetup { cjk-font = windows }
     \else
       \ifustc@fontset@ubuntu
-        \ustcsetup{cjk-font = noto}
+        \ustcsetup { cjk-font = noto }
       \else
-        \ustcsetup{cjk-font = fandol}
+        \ustcsetup { cjk-font = fandol }
       \fi
     \fi
   \fi
 \fi
 
 % Windows 的中易字体。
-\newcommand\ustc@set@cjk@font@windows{%
-  \setCJKmainfont{SimSun}[
-    AutoFakeBold = 3,
-    ItalicFont   = KaiTi,
-  ]%
-  \setCJKsansfont{SimHei}[AutoFakeBold = 3]%
-  \setCJKmonofont{FangSong}%
-  \setCJKfamilyfont{zhsong}{SimSun}[AutoFakeBold = 3]%
-  \setCJKfamilyfont{zhhei}{SimHei}[AutoFakeBold = 3]%
-  \setCJKfamilyfont{zhkai}{KaiTi}%
-  \setCJKfamilyfont{zhfs}{FangSong}%
-}
+\cs_new:Npn \__ustc_set_cjk_font_windows:
+  {
+    \setCJKmainfont { SimSun }
+      [
+        AutoFakeBold = 3 ,
+        ItalicFont   = KaiTi ,
+      ]
+    \setCJKsansfont { SimHei } [ AutoFakeBold = 3 ]
+    \setCJKmonofont { FangSong }
+    \setCJKfamilyfont { zhsong } { SimSun } [ AutoFakeBold = 3 ]
+    \setCJKfamilyfont { zhhei } { SimHei } [ AutoFakeBold = 3 ]
+    \setCJKfamilyfont { zhkai } { KaiTi }
+    \setCJKfamilyfont { zhfs } { FangSong }
+  }
 
 % macOS 的华文字体。
-\newcommand\ustc@set@cjk@font@mac{%
-  \defaultCJKfontfeatures{}%
-  \setCJKmainfont{Songti SC}[
-    UprightFont    = * Light,
-    BoldFont       = * Bold,
-    ItalicFont     = Kaiti SC Regular,
-    BoldItalicFont = Kaiti SC Bold,
-  ]%
-  \setCJKsansfont{Heiti SC}[
-    UprightFont    = * Light,
-    BoldFont       = * Medium,
-  ]%
-  \setCJKmonofont{STFangsong}
-  \setCJKfamilyfont{zhsong}{Songti SC}[
-    UprightFont    = * Light,
-    BoldFont       = * Bold,
-  ]%
-  \setCJKfamilyfont{zhhei}{Heiti SC}[
-    UprightFont    = * Light,
-    BoldFont       = * Medium,
-  ]%
-  \setCJKfamilyfont{zhfs}{STFangsong}%
-  \setCJKfamilyfont{zhkai}{Kaiti SC}[
-    UprightFont    = * Regular,
-    BoldFont       = * Bold,
-  ]%
-  \setCJKfamilyfont{zhli}{Baoli SC}%
-  \setCJKfamilyfont{zhyuan}{Yuanyi SC}[
-    UprightFont    = * Light,
-    BoldFont       = * Bold,
-  ]%
-}
-
-% 思源字体。
-% 注意 Noto CJK 的 regular 字重名字不带“Regular”。
-\newcommand\ustc@set@cjk@font@noto{%
-  \defaultCJKfontfeatures{}%
-  \setCJKmainfont{Noto Serif CJK SC}[
-    UprightFont    = * Light,
-    BoldFont       = * Bold,
-    ItalicFont     = FandolKai-Regular,
-    ItalicFeatures = {Extension = .otf},
-    Script         = CJK,
-  ]%
-  \setCJKsansfont{Noto Sans CJK SC}[
-    BoldFont       = * Medium,
-    Script         = CJK,
-  ]%
-  \setCJKmonofont{Noto Sans Mono CJK SC}[
-    Script         = CJK,
-  ]%
-  \setCJKfamilyfont{zhsong}{Noto Serif CJK SC}[
-    UprightFont    = * Light,
-    UprightFont    = * Bold,
-    Script         = CJK,
-  ]%
-  \setCJKfamilyfont{zhhei}{Noto Sans CJK SC}[
-    BoldFont       = * Medium,
-    Script         = CJK,
-  ]%
-  \setCJKfamilyfont{zhfs}{FandolFang}[
-    Extension      = .otf,
-    UprightFont    = *-Regular,
-  ]%
-  \setCJKfamilyfont{zhkai}{FandolKai}[
-    Extension      = .otf,
-    UprightFont    = *-Regular,
-  ]%
-}
+\cs_new:Npn \__ustc_set_cjk_font_mac:
+  {
+    \defaultCJKfontfeatures { }
+    \setCJKmainfont { Songti~ SC }
+      [
+        UprightFont    = *~ Light ,
+        BoldFont       = *~ Bold ,
+        ItalicFont     = Kaiti~ SC~ Regular ,
+        BoldItalicFont = Kaiti~ SC~ Bold ,
+      ]
+    \setCJKsansfont { Heiti~ SC }
+      [
+        UprightFont    = *~ Light ,
+        BoldFont       = *~ Medium ,
+      ]
+    \setCJKmonofont { STFangsong }
+    \setCJKfamilyfont { zhsong } { Songti~ SC }
+      [
+        UprightFont    = *~ Light ,
+        BoldFont       = *~ Bold ,
+      ]
+    \setCJKfamilyfont { zhhei } { Heiti~ SC }
+      [
+        UprightFont    = *~ Light ,
+        BoldFont       = *~ Medium ,
+      ]
+    \setCJKfamilyfont { zhfs } { STFangsong }
+    \setCJKfamilyfont { zhkai } { Kaiti~ SC }
+      [
+        UprightFont    = *~ Regular ,
+        BoldFont       = *~ Bold ,
+      ]
+    \setCJKfamilyfont { zhli } { Baoli~ SC }
+    \setCJKfamilyfont { zhyuan } { Yuanyi~ SC }
+      [
+        UprightFont    = *~ Light ,
+        BoldFont       = *~ Bold ,
+      ]
+  }
 
 % Fandol 字体。
-\newcommand\ustc@set@cjk@font@fandol{%
-  \defaultCJKfontfeatures{}%
-  \setCJKmainfont{FandolSong}[
-    Extension   = .otf,
-    UprightFont = *-Regular,
-    BoldFont    = *-Bold,
-    ItalicFont  = FandolKai-Regular,
-    ItalicFeatures = {Extension = .otf},
-  ]%
-  \setCJKsansfont{FandolHei}[
-    Extension   = .otf,
-    UprightFont = *-Regular,
-    BoldFont    = *-Bold,
-  ]%
-  \setCJKmonofont{FandolFang}[
-    Extension   = .otf,
-    UprightFont = *-Regular,
-  ]%
-  \setCJKfamilyfont{zhsong}{FandolSong}[
-    Extension   = .otf,
-    UprightFont = *-Regular,
-    BoldFont    = *-Bold,
-  ]%
-  \setCJKfamilyfont{zhhei}{FandolHei}[
-    Extension   = .otf,
-    UprightFont = *-Regular,
-    BoldFont    = *-Bold,
-  ]%
-  \setCJKfamilyfont{zhfs}{FandolFang}[
-    Extension   = .otf,
-    UprightFont = *-Regular,
-  ]%
-  \setCJKfamilyfont{zhkai}{FandolKai}[
-    Extension   = .otf,
-    UprightFont = *-Regular,
-  ]%
-}
+\cs_new:Npn \__ustc_set_cjk_font_fandol:
+  {
+    \defaultCJKfontfeatures { }
+    \setCJKmainfont { FandolSong }
+      [
+        Extension   = .otf ,
+        UprightFont = *-Regular ,
+        BoldFont    = *-Bold ,
+        ItalicFont  = FandolKai-Regular ,
+        ItalicFeatures = { Extension = .otf } ,
+      ]
+    \setCJKsansfont { FandolHei }
+      [
+        Extension   = .otf ,
+        UprightFont = *-Regular ,
+        BoldFont    = *-Bold ,
+      ]
+    \setCJKmonofont { FandolFang }
+      [
+        Extension   = .otf ,
+        UprightFont = *-Regular ,
+      ]
+    \setCJKfamilyfont { zhsong } { FandolSong }
+      [
+        Extension   = .otf ,
+        UprightFont = *-Regular ,
+        BoldFont    = *-Bold ,
+      ]
+    \setCJKfamilyfont { zhhei } { FandolHei }
+      [
+        Extension   = .otf ,
+        UprightFont = *-Regular ,
+        BoldFont    = *-Bold ,
+      ]
+    \setCJKfamilyfont { zhfs } { FandolFang }
+      [
+        Extension   = .otf ,
+        UprightFont = *-Regular ,
+      ]
+    \setCJKfamilyfont { zhkai } { FandolKai }
+      [
+        Extension   = .otf ,
+        UprightFont = *-Regular ,
+      ]
+  }
 
-\ifustc@cjk@font@none\else
-  \providecommand\songti{\CJKfamily{zhsong}}
-  \providecommand\heiti{\CJKfamily{zhhei}}
-  \providecommand\fangsong{\CJKfamily{zhfs}}
-  \providecommand\kaishu{\CJKfamily{zhkai}}
+\ifustc@cjk@font@none \else
+  \providecommand \songti { \CJKfamily { zhsong } }
+  \providecommand \heiti { \CJKfamily { zhhei } }
+  \providecommand \fangsong { \CJKfamily { zhfs } }
+  \providecommand \kaishu { \CJKfamily { zhkai } }
 \fi
 
-\newcommand\ustc@set@cjk@font{%
-  \@nameuse{ustc@set@cjk@font@\ustc@cjk@font}%
-}
-\ustc@set@cjk@font
-\ustc@option@hook{cjk-font}{\ustc@set@cjk@font}
+\cs_new:Npn \__ustc_set_cjk_font:
+  {
+    \use:c { __ustc_set_cjk_font_ \ustc@cjk@font : }
+  }
+\ustc@option@hook { cjk-font } { \__ustc_set_cjk_font: }
+\__ustc_set_cjk_font:
+
+\ExplSyntaxOff
 
 % 数学字体
 
