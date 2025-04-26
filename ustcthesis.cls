@@ -1620,7 +1620,7 @@
 \fancypagestyle { headings } { \fancyfoot { } }
 
 % 设置特殊的 page style 不改变任何内容，用于每章首页。
-\fancypagestyle { chapter } { }
+\cs_set:Npn \ps@chapter { }
 \ctexset { chapter / pagestyle = chapter }
 
 % 空白页不需加页眉（包括页眉线），但需有连续编的页码。
@@ -1699,7 +1699,6 @@
 
 
 % \subsection{封面}
-
 
 % 定义用户接口：
 \ustc@define@key{
