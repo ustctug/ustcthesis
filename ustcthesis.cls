@@ -237,7 +237,6 @@
       termes,
       stix,
       xits,
-      libertinus,
       newcm,
       lm,
       newtx,
@@ -263,7 +262,6 @@
       auto,
       stix,
       xits,
-      libertinus,
       newcm,
       cm,
       lm,
@@ -731,278 +729,254 @@
 % 设置行距的倍数为 1。
 \linespread { 1 } \selectfont
 
-\ExplSyntaxOff
-
 
 % 检测系统
-\ifustc@system@auto
-  \IfFileExists{/System/Library/Fonts/Menlo.ttc}{
-    \ustcsetup{system = mac}
-  }{
-    \IfFileExists{/dev/null}{
-      \IfFileExists{null:}{
-        \ustcsetup{system = windows}
-      }{
-        \ustcsetup{system = unix}
-      }
-    }{
-      \ustcsetup{system = windows}
-    }
+\bool_new:N \l__ustc_platform_mac_bool
+\prg_new_conditional:Nnn \__ustc_if_platform_mac: { T , F , TF }
+  {
+    \bool_if:NTF \l__ustc_platform_mac_bool
+      { \prg_return_true: }
+      { \prg_return_false: }
   }
-\fi
+
+\bool_set_false:N \l__ustc_platform_mac_bool
+\sys_if_platform_unix:T
+  {
+    \file_if_exist:nT { /System/Library/Fonts/Menlo.ttc }
+      { \bool_set_true:N \l__ustc_platform_mac_bool }
+  }
 
 % 处理 \opt{fontset}
 \ifustc@fontset@auto
-  \ifustc@system@windows
-    \ustcsetup{fontset = windows}
-  \else
-    \IfFontExistsTF{SimSun}{
-      \ustcsetup{fontset = windows}
-    }{
-      \ifustc@system@mac
-        \ustcsetup{fontset = mac}
-      \else
-        \IfFontExistsTF{Noto Serif CJK SC}{
-          \ustcsetup{fontset = ubuntu}
-        }{
-          \ustcsetup{fontset = fandol}
+  \sys_if_platform_windows:TF
+    { \ustcsetup { fontset = windows } }
+    {
+      \fontspec_font_if_exist:nTF { SimSun }
+        { \ustcsetup { fontset = windows} }
+        {
+          \__ustc_if_platform_mac:TF
+            { \ustcsetup { fontset = mac } }
+            {
+              \fontspec_font_if_exist:nTF { Noto~ Serif~ CJK~ SC }
+                { \ustcsetup { fontset = ubuntu } }
+                { \ustcsetup { fontset = fandol } }
+            }
         }
-      \fi
     }
-  \fi
 \fi
 
 % 《撰写手册》要求西文字体使用 Times New Roman 和 Arial，
 % 但是在 Linux 下没有这两个字体，所以使用它们的克隆版 TeX Gyre Termes 和
 % TeX Gyre Heros。
-\ifustc@font@auto
-  \ifustc@fontset@windows
-    \ustcsetup{font=times}
-  \else
-    \ifustc@fontset@mac
-      \ustcsetup{font=times}
+\cs_new:Npn \__ustc_set_font_auto:
+  {
+    \ifustc@fontset@windows
+      \ustcsetup { font = times }
     \else
-      \ustcsetup{font=termes}
+      \ifustc@fontset@mac
+        \ustcsetup { font = times }
+      \else
+        \ustcsetup { font = termes }
+      \fi
     \fi
-  \fi
-\fi
+  }
 
 % Times New Roman + Arial
-\newcommand\ustc@set@font@times{%
-  \setmainfont{Times New Roman}%
-  \setsansfont{Arial}%
-  \ifustc@system@mac
-    \setmonofont{Menlo}[Scale = MatchLowercase]%
-  \else
-    \setmonofont{Courier New}[Scale = MatchLowercase]%
-  \fi
-}
+\cs_new:Npn \__ustc_set_font_times:
+  {
+    \setmainfont { Times~ New~ Roman }
+    \setsansfont { Arial }
+    \setmonofont { Courier~ New } [ Scale = MatchLowercase ]
+  }
 
 % TeX Gyre Termes
-\newcommand\ustc@set@font@termes{%
-  \setmainfont{texgyretermes}[
-    Extension      = .otf,
-    UprightFont    = *-regular,
-    BoldFont       = *-bold,
-    ItalicFont     = *-italic,
-    BoldItalicFont = *-bolditalic,
-  ]%
-  \ustc@set@texgyre@sans@mono
-}
+\cs_new:Npn \__ustc_set_font_termes:
+  {
+    \setmainfont { texgyretermes }
+      [
+        Extension      = .otf ,
+        UprightFont    = *-regular ,
+        BoldFont       = *-bold ,
+        ItalicFont     = *-italic ,
+        BoldItalicFont = *-bolditalic ,
+      ]
+    \__ustc_set_texgyre_sans_mono:
+  }
 
-\newcommand\ustc@set@texgyre@sans@mono{%
-  \setsansfont{texgyreheros}[
-    Extension      = .otf,
-    UprightFont    = *-regular,
-    BoldFont       = *-bold,
-    ItalicFont     = *-italic,
-    BoldItalicFont = *-bolditalic,
-  ]%
-  \setmonofont{texgyrecursor}[
-    Extension      = .otf,
-    UprightFont    = *-regular,
-    BoldFont       = *-bold,
-    ItalicFont     = *-italic,
-    BoldItalicFont = *-bolditalic,
-    Scale          = MatchLowercase,
-    Ligatures      = CommonOff,
-  ]%
-}
+\cs_new:Npn \__ustc_set_texgyre_sans_mono:
+  {
+    \setsansfont { texgyreheros }
+      [
+        Extension      = .otf ,
+        UprightFont    = *-regular ,
+        BoldFont       = *-bold ,
+        ItalicFont     = *-italic ,
+        BoldItalicFont = *-bolditalic ,
+      ]
+    \setmonofont { texgyrecursor }
+      [
+        Extension      = .otf ,
+        UprightFont    = *-regular ,
+        BoldFont       = *-bold ,
+        ItalicFont     = *-italic ,
+        BoldItalicFont = *-bolditalic ,
+        Scale          = MatchLowercase ,
+        Ligatures      = CommonOff ,
+      ]
+  }
 
 % STIX Two 字体。
 % STIX 文件名在 v2.10 2020-12-19 从
 % \file{STIX2Text-Regular.otf}、\file{STIX2Math.otf} 分别改为
 % \file{STIXTwoText-Regular.otf}、\file{STIXTwoMath-Regular.otf}。
-\let\ustc@font@family@stix\@empty
-\newcommand\ustc@set@stix@names{%
-  \ifx\ustc@font@family@stix\@empty
-    \IfFontExistsTF{STIXTwoText-Regular.otf}{%
-      \gdef\ustc@font@family@stix{STIXTwoText}%
-      \gdef\ustc@font@name@stix@math{STIXTwoMath-Regular}%
-    }{%
-      \gdef\ustc@font@family@stix{STIX2Text}%
-      \gdef\ustc@font@name@stix@math{STIX2Math}%
-    }%
-  \fi
-}
+\tl_new:N \l__ustc_stix_font_family_tl
+\tl_new:N \l__ustc_font_name_stix_math_tl
+\tl_new:N \l__ustc_stix_math_font_name_tl
+\cs_new:Npn \__ustc_set_stix_names:
+  {
+    \tl_if_empty:NT \l__ustc_stix_font_family_tl
+      {
+        \IfFontExistsTF { STIXTwoText-Regular.otf }
+          {
+            \tl_set:Nn \l__ustc_stix_font_family_tl { STIXTwoText }
+            \tl_set:Nn \l__ustc_font_name_stix_math_tl { STIXTwoMath-Regular }
+          }
+          {
+            \tl_set:Nn \l__ustc_stix_font_family_tl { STIX2Text }
+            \tl_set:Nn \l__ustc_font_name_stix_math_tl { STIX2Math }
+          }
+      }
+  }
 
-\newcommand\ustc@set@font@stix{%
-  \ustc@set@stix@names
-  \setmainfont{\ustc@font@family@stix}[
-    Extension      = .otf,
-    UprightFont    = *-Regular,
-    BoldFont       = *-Bold,
-    ItalicFont     = *-Italic,
-    BoldItalicFont = *-BoldItalic,
-  ]%
-  \ustc@set@texgyre@sans@mono
-}
+\cs_new:Npn \__ustc_set_font_stix:
+  {
+    \__ustc_set_stix_names:
+    \exp_args:NV \setmainfont \l__ustc_stix_font_family_tl
+      [
+        Extension      = .otf ,
+        UprightFont    = *-Regular ,
+        BoldFont       = *-Bold ,
+        ItalicFont     = *-Italic ,
+        BoldItalicFont = *-BoldItalic ,
+      ]
+    \__ustc_set_texgyre_sans_mono:
+  }
 
 % XITS 字体。
 % XITS 的文件名在 v1.109 2018-09-30
 % 从 \file{xits-regular.otf}、\file{xits-math.otf} 分别改为
 % \file{XITS-Regular.otf}、\file{XITSMath-Regular.otf}。
-\let\ustc@font@family@xits\@empty
-\newcommand\ustc@set@xits@names{%
-  \ifx\ustc@font@family@xits\@empty
-    \IfFontExistsTF{XITSMath-Regular.otf}{%
-      \gdef\ustc@font@family@xits{XITS}%
-      \gdef\ustc@font@style@xits@rm{Regular}%
-      \gdef\ustc@font@style@xits@bf{Bold}%
-      \gdef\ustc@font@style@xits@it{Italic}%
-      \gdef\ustc@font@style@xits@bfit{BoldItalic}%
-      \gdef\ustc@font@name@xits@math{XITSMath-Regular}%
-    }{%
-      \gdef\ustc@font@family@xits{xits}%
-      \gdef\ustc@font@style@xits@rm{regular}%
-      \gdef\ustc@font@style@xits@bf{bold}%
-      \gdef\ustc@font@style@xits@it{italic}%
-      \gdef\ustc@font@style@xits@bfit{bolditalic}%
-      \gdef\ustc@font@name@xits@math{xits-math}%
-    }%
-  \fi
-}
+\tl_new:N \l__ustc_xits_font_family_tl
+\tl_new:N \l__ustc_font_style_xits_rm_tl
+\tl_new:N \l__ustc_font_style_xits_bf_tl
+\tl_new:N \l__ustc_font_style_xits_it_tl
+\tl_new:N \l__ustc_font_style_xits_bf_it_tl
+\tl_new:N \l__ustc_font_name_xits_math_tl
+\cs_new:Npn \__ustc_set_xits_names:
+  {
+    \tl_if_empty:NT \l__ustc_xits_font_family_tl
+      {
+        \fontspec_font_if_exist:nTF {XITSMath-Regular.otf}
+          {
+            \tl_set:Nn \l__ustc_xits_font_family_tl { XITS }
+            \tl_set:Nn \l__ustc_font_style_xits_rm_tl { Regular }
+            \tl_set:Nn \l__ustc_font_style_xits_bf_tl { Bold }
+            \tl_set:Nn \l__ustc_font_style_xits_it_tl { Italic }
+            \tl_set:Nn \l__ustc_font_style_xits_bf_it_tl { BoldItalic }
+            \tl_set:Nn \l__ustc_font_name_xits_math_tl { XITSMath-Regular }
+          }
+          {
+            \tl_set:Nn \l__ustc_xits_font_family_tl { xits }
+            \tl_set:Nn \l__ustc_font_style_xits_rm_tl { regular }
+            \tl_set:Nn \l__ustc_font_style_xits_bf_tl { bold }
+            \tl_set:Nn \l__ustc_font_style_xits_it_tl { italic }
+            \tl_set:Nn \l__ustc_font_style_xits_bf_it_tl { bolditalic }
+            \tl_set:Nn \l__ustc_font_name_xits_math_tl { xits-math }
+          }
+      }
+  }
 
-\newcommand\ustc@set@font@xits{%
-  \ustc@set@xits@names
-  \setmainfont{\ustc@font@family@xits}[
-    Extension      = .otf,
-    UprightFont    = *-\ustc@font@style@xits@rm,
-    BoldFont       = *-\ustc@font@style@xits@bf,
-    ItalicFont     = *-\ustc@font@style@xits@it,
-    BoldItalicFont = *-\ustc@font@style@xits@bfit,
-  ]%
-  \ustc@set@texgyre@sans@mono
-}
-
-% Libertinus 的文件名在 v6.7 2019-04-03 从小写改为驼峰式，
-% 在大小写敏感的平台上需要进行判断。
-\let\ustc@font@family@libertinus\@empty
-\newcommand\ustc@set@libertinus@names{%
-  \ifx\ustc@font@family@libertinus\@empty
-    \IfFontExistsTF{LibertinusSerif-Regular.otf}{%
-      \gdef\ustc@font@family@libertinus@serif{LibertinusSerif}%
-      \gdef\ustc@font@family@libertinus@sans{LibertinusSans}%
-      \gdef\ustc@font@name@libertinus@math{LibertinusMath-Regular}%
-      \gdef\ustc@font@style@libertinus@rm{Regular}%
-      \gdef\ustc@font@style@libertinus@bf{Bold}%
-      \gdef\ustc@font@style@libertinus@it{Italic}%
-      \gdef\ustc@font@style@libertinus@bfit{BoldItalic}%
-    }{%
-      \gdef\ustc@font@family@libertinus@serif{libertinusserif}%
-      \gdef\ustc@font@family@libertinus@sans{libertinussans}%
-      \gdef\ustc@font@name@libertinus@math{libertinusmath-regular}%
-      \gdef\ustc@font@style@libertinus@rm{regular}%
-      \gdef\ustc@font@style@libertinus@bf{bold}%
-      \gdef\ustc@font@style@libertinus@it{italic}%
-      \gdef\ustc@font@style@libertinus@bfit{bolditalic}%
-    }%
-  \fi
-}
-
-\newcommand\ustc@set@font@libertinus{%
-  \ustc@set@libertinus@names
-  \setmainfont{\ustc@font@family@libertinus@serif}[
-    Extension      = .otf,
-    UprightFont    = *-\ustc@font@style@libertinus@rm,
-    BoldFont       = *-\ustc@font@style@libertinus@bf,
-    ItalicFont     = *-\ustc@font@style@libertinus@it,
-    BoldItalicFont = *-\ustc@font@style@libertinus@bfit,
-  ]%
-  \setsansfont{\ustc@font@family@libertinus@sans}[
-    Extension      = .otf,
-    UprightFont    = *-\ustc@font@style@libertinus@rm,
-    BoldFont       = *-\ustc@font@style@libertinus@bf,
-    ItalicFont     = *-\ustc@font@style@libertinus@it,
-  ]%
-  \setmonofont{lmmonolt10}[
-    Extension      = .otf,
-    UprightFont    = *-regular,
-    BoldFont       = *-bold,
-    ItalicFont     = *-oblique,
-    BoldItalicFont = *-boldoblique,
-  ]%
-}
+\cs_set:Npn \__ustc_set_font_xits:
+  {
+    \__ustc_set_xits_names:
+    \exp_args:NV \setmainfont \l__ustc_xits_font_family_tl
+      [
+        Extension      = .otf ,
+        UprightFont    = *- \l__ustc_font_style_xits_rm_tl ,
+        BoldFont       = *- \l__ustc_font_style_xits_bf_tl ,
+        ItalicFont     = *- \l__ustc_font_style_xits_it_tl ,
+        BoldItalicFont = *- \l__ustc_font_style_xits_bf_it_tl ,
+      ]
+    \__ustc_set_texgyre_sans_mono:
+  }
 
 % New Computer Modern
-\newcommand\ustc@set@font@newcm{%
-  \setmainfont{NewCM10}[
-    Extension      = .otf,
-    UprightFont    = *-Book,
-    BoldFont       = *-Bold,
-    ItalicFont     = *-BookItalic,
-    BoldItalicFont = *-BoldItalic,
-  ]%
-  \setsansfont{NewCMSans10}[
-    Extension         = .otf,
-    UprightFont       = *-Book,
-    BoldFont          = *-Bold,
-    ItalicFont        = *-BookOblique,
-    BoldItalicFont    = *-BoldOblique,
-  ]%
-  \setmonofont{NewCMMono10}[
-    Extension           = .otf,
-    UprightFont         = *-Book,
-    ItalicFont          = *-BookItalic,
-    BoldFont            = *-Bold,
-    BoldItalicFont      = *-BoldOblique,
-  ]%
-}
+\cs_new:Npn \ustc_set_font_newcm:
+  {
+    \setmainfont { NewCM10 }
+      [
+        Extension      = .otf ,
+        UprightFont    = *-Book ,
+        BoldFont       = *-Bold ,
+        ItalicFont     = *-BookItalic ,
+        BoldItalicFont = *-BoldItalic ,
+      ]
+    \setsansfont{ NewCMSans10 }
+      [
+        Extension      = .otf ,
+        UprightFont    = *-Book ,
+        BoldFont       = *-Bold ,
+        ItalicFont     = *-BookOblique ,
+        BoldItalicFont = *-BoldOblique ,
+      ]
+    \setmonofont { NewCMMono10 }
+      [
+        Extension      = .otf ,
+        UprightFont    = *-Book ,
+        ItalicFont     = *-BookItalic ,
+        BoldFont       = *-Bold ,
+        BoldItalicFont = *-BoldOblique ,
+      ]
+  }
 
 % Latin Modern
-\newcommand\ustc@set@font@lm{%
-  \setmainfont{lmroman10}[
-    Extension      = .otf,
-    UprightFont    = *-regular,
-    BoldFont       = *-bold,
-    ItalicFont     = *-italic,
-    BoldItalicFont = *-bolditalic,
-  ]%
-  \setsansfont{lmsans10}[
-    Extension      = .otf,
-    UprightFont    = *-regular,
-    BoldFont       = *-bold,
-    ItalicFont     = *-oblique,
-    BoldItalicFont = *-boldoblique,
-  ]%
-  \setmonofont{lmmonolt10}[
-    Extension      = .otf,
-    UprightFont    = *-regular,
-    BoldFont       = *-bold,
-    ItalicFont     = *-oblique,
-    BoldItalicFont = *-boldoblique,
-  ]%
-}
+\cs_new:Npn \ustc_set_font_lm:
+  {
+    \setmainfont { lmroman10 }
+      [
+        Extension      = .otf ,
+        UprightFont    = *-regular ,
+        BoldFont       = *-bold ,
+        ItalicFont     = *-italic ,
+        BoldItalicFont = *-bolditalic ,
+      ]
+    \setsansfont { lmsans10 }
+      [
+        Extension      = .otf ,
+        UprightFont    = *-regular ,
+        BoldFont       = *-bold ,
+        ItalicFont     = *-oblique ,
+        BoldItalicFont = *-boldoblique ,
+      ]
+    \setmonofont { lmmonolt10 }
+      [
+        Extension      = .otf ,
+        UprightFont    = *-regular ,
+        BoldFont       = *-bold ,
+        ItalicFont     = *-oblique ,
+        BoldItalicFont = *-boldoblique ,
+      ]
+  }
 
-\newcommand\ustc@set@font@newtx{%
-  \RequirePackage{newtxtext}%
-}
+\cs_new:Npn \__ustc_set_font_newtx:
+  { \RequirePackage { newtxtext } }
 
-\newcommand\ustc@set@font{%
-  \@nameuse{ustc@set@font@\ustc@font}%
-}
-\ustc@set@font
-\ustc@option@hook{font}{\ustc@set@font}
+\cs_new:Npn \__ustc_set_font:
+  { \use:c { __ustc_set_font_ \ustc@font : } }
+\ustc@option@hook { font } { \__ustc_set_font: }
+\__ustc_set_font:
+
+\ExplSyntaxOff
 
 % 中文字体
 \ifustc@cjk@font@auto
@@ -1341,261 +1315,270 @@
   }%
 }
 
+\ExplSyntaxOn
+
 % STIX Two Math
-\newcommand\ustc@set@math@font@stix{%
-  \ustc@load@unimath
-  \ustc@set@unimath@style
-  \ustc@set@stix@names
-  \setmathfont{\ustc@font@name@stix@math}[
-    Extension    = .otf,
-    Scale        = MatchLowercase,
-    StylisticSet = \ustc@xits@integral@stylistic@set,
-  ]%
-  \setmathfont{\ustc@font@name@stix@math}[
-    Extension    = .otf,
-    Scale        = MatchLowercase,
-    StylisticSet = 1,
-    range        = {scr,bfscr},
-  ]%
-}
+\cs_new:Npn \__ustc_set_math_font_stix:
+  {
+    \ustc@load@unimath
+    \ustc@set@unimath@style
+    \ustc@set@stix@names
+    \exp_args:NV \setmathfont \l__ustc_font_name_stix_math_tl
+      [
+        Extension    = .otf ,
+        Scale        = MatchLowercase ,
+        StylisticSet = \ustc@xits@integral@stylistic@set ,
+      ]
+    \exp_args:NV \setmathfont \l__ustc_font_name_stix_math_tl
+      [
+        Extension    = .otf ,
+        Scale        = MatchLowercase ,
+        StylisticSet = 1 ,
+        range        = { scr , bfscr } ,
+      ]
+  }
 
 % XITS Math
-\newcommand\ustc@xits@integral@stylistic@set{%
-  \ifustc@integral@upright
-    8%
-  \fi
-}
-\newcommand\ustc@set@math@font@xits{%
-  \ustc@load@unimath
-  \ustc@set@unimath@style
-  \ustc@set@xits@names
-  \setmathfont{\ustc@font@name@xits@math}[
-    Extension    = .otf,
-    Scale        = MatchLowercase,
-    StylisticSet = \ustc@xits@integral@stylistic@set,
-  ]%
-  % 使用 STIX Two Math 的 `\mathcal` 字形
-  \ustc@set@stix@names
-  \setmathfont{\ustc@font@name@stix@math}[
-    Extension    = .otf,
-    Scale        = MatchLowercase,
-    range        = {cal, bfcal},
-  ]%
-}
+\tl_new:N \l__ustc_xits_integral_stylistic_set_tl
+\tl_set:Nn \l__ustc_xits_integral_stylistic_set_tl
+  {
+    \ifustc@integral@upright
+      8
+    \fi
+  }
 
-% Libertinus Math
-\newcommand\ustc@libertinus@integral@stylistic@set{%
-  \ifustc@integral@slanted
-    8%
-  \fi
-}
-\newcommand\ustc@set@math@font@libertinus{%
-  \ustc@load@unimath
-  \ustc@set@unimath@style
-  \ustc@set@libertinus@names
-  \ustc@set@xits@names
-  \setmathfont{\ustc@font@name@libertinus@math}[
-    Extension    = .otf,
-    StylisticSet = \ustc@libertinus@integral@stylistic@set,
-  ]%
-  \setmathfont{\ustc@font@name@xits@math}[
-    Extension    = .otf,
-    range        = {\checkmark},
-  ]%
-}
+\cs_new:Npn \__ustc_set_math_font_xits:
+  {
+    \ustc@load@unimath
+    \ustc@set@unimath@style
+    \__ustc_set_xits_names:
+    \exp_args:NV \setmathfont \l__ustc_font_name_xits_math_tl
+      [
+        Extension    = .otf ,
+        Scale        = MatchLowercase ,
+        StylisticSet = \l__ustc_xits_integral_stylistic_set_tl ,
+      ]
+    % 使用 STIX Two Math 的 `\mathcal` 字形
+    \__ustc_set_stix_names:
+    \exp_args:NV \setmathfont \l__ustc_font_name_stix_math_tl
+      [
+        Extension    = .otf ,
+        Scale        = MatchLowercase ,
+        range        = { cal, bfcal } ,
+      ]
+  }
 
 % New Computer Modern Math
-\newcommand\ustc@newcm@integral@stylistic@set{%
-  \ifustc@integral@upright
-    2%
-  \fi
-}
-\newcommand\ustc@set@math@font@newcm{%
-  \ustc@load@unimath
-  \ustc@set@unimath@style
-  \setmathfont{NewCMMath-Book}[
-    Extension    = .otf,
-    StylisticSet = \ustc@newcm@integral@stylistic@set,
-  ]%
-  \setmathfont{NewCMMath-Book}[
-    Extension    = .otf,
-    StylisticSet = 1,
-    range        = {scr,bfscr},
-  ]%
-  \setmathrm{NewCM10}[
-    Extension      = .otf,
-    UprightFont    = *-Book,
-    BoldFont       = *-Bold,
-    ItalicFont     = *-BookItalic,
-    BoldItalicFont = *-BoldItalic,
-  ]%
-  \setmathsf{NewCMSans10}[
-    Extension         = .otf,
-    UprightFont       = *-Book,
-    BoldFont          = *-Bold,
-    ItalicFont        = *-BookOblique,
-    BoldItalicFont    = *-BoldOblique,
-  ]%
-  \setmathtt{NewCMMono10}[
-    Extension           = .otf,
-    UprightFont         = *-Book,
-    ItalicFont          = *-BookItalic,
-    BoldFont            = *-Bold,
-    BoldItalicFont      = *-BoldOblique,
-  ]%
-}
+\tl_new:N \l__ustc_newcm_integral_stylistic_set_tl
+\tl_set:Nn \l__ustc_newcm_integral_stylistic_set_tl
+  {
+    \ifustc@integral@upright
+      2
+    \fi
+  }
+\cs_new:Npn \__ustc_set_math_font_newcm:
+  {
+    \ustc@load@unimath
+    \ustc@set@unimath@style
+    \setmathfont { NewCMMath-Book }
+      [
+        Extension    = .otf ,
+        StylisticSet = \l__ustc_newcm_integral_stylistic_set_tl ,
+      ]
+    \setmathfont { NewCMMath-Book }
+      [
+        Extension    = .otf ,
+        StylisticSet = 1 ,
+        range        = {scr,bfscr} ,
+      ]%
+    \setmathrm { NewCM10 }
+      [
+        Extension      = .otf ,
+        UprightFont    = *-Book ,
+        BoldFont       = *-Bold ,
+        ItalicFont     = *-BookItalic ,
+        BoldItalicFont = *-BoldItalic ,
+      ]
+    \setmathsf { NewCMSans10 }
+      [
+        Extension      = .otf ,
+        UprightFont    = *-Book ,
+        BoldFont       = *-Bold ,
+        ItalicFont     = *-BookOblique ,
+        BoldItalicFont = *-BoldOblique ,
+      ]%
+    \setmathtt { NewCMMono10 }
+      [
+        Extension      = .otf ,
+        UprightFont    = *-Book ,
+        ItalicFont     = *-BookItalic ,
+        BoldFont       = *-Bold ,
+        BoldItalicFont = *-BoldOblique ,
+      ]%
+  }
 
 % Latin Modern Math
-\newcommand\ustc@set@math@font@lm{%
-  \ustc@load@unimath
-  \ustc@set@unimath@style
-  \setmathfont{latinmodern-math}[Extension=.otf]%
-  \setmathrm{lmroman10}[
-    Extension      = .otf,
-    UprightFont    = *-regular,
-    BoldFont       = *-bold,
-    ItalicFont     = *-italic,
-    BoldItalicFont = *-bolditalic,
-  ]%
-  \setmathsf{lmsans10}[
-    Extension      = .otf,
-    UprightFont    = *-regular,
-    BoldFont       = *-bold,
-    ItalicFont     = *-oblique,
-    BoldItalicFont = *-boldoblique,
-  ]%
-  \setmathtt{lmmonolt10}[
-    Extension      = .otf,
-    UprightFont    = *-regular,
-    BoldFont       = *-bold,
-    ItalicFont     = *-oblique,
-    BoldItalicFont = *-boldoblique,
-  ]%
-}
+\cs_new:Npn \__ustc_set_math_font_lm:
+  {
+    \ustc@load@unimath
+    \ustc@set@unimath@style
+    \setmathfont { latinmodern-math } [ Extension = .otf ]
+    \setmathrm { lmroman10 }
+      [
+        Extension      = .otf ,
+        UprightFont    = *-regular ,
+        BoldFont       = *-bold ,
+        ItalicFont     = *-italic ,
+        BoldItalicFont = *-bolditalic ,
+      ]
+    \setmathsf { lmsans10 }
+      [
+        Extension      = .otf ,
+        UprightFont    = *-regular ,
+        BoldFont       = *-bold ,
+        ItalicFont     = *-oblique ,
+        BoldItalicFont = *-boldoblique ,
+      ]
+    \setmathtt { lmmonolt10 }
+      [
+        Extension      = .otf ,
+        UprightFont    = *-regular ,
+        BoldFont       = *-bold ,
+        ItalicFont     = *-oblique ,
+        BoldItalicFont = *-boldoblique ,
+      ]
+  }
 
 % NewTX Math
 % 注意 NewTX Math 是 Type 1 字体，如果正文西文使用了 OpenType 字体时需要小心处理。
-\newcommand\ustc@set@math@font@newtx{%
-  \ifustc@font@newtx\else
-    \let\ustc@save@encodingdefault\encodingdefault
-    \let\ustc@save@rmdefault\rmdefault
-    \let\ustc@save@sfdefault\sfdefault
-    \let\ustc@save@ttdefault\ttdefault
-    \RequirePackage[T1]{fontenc}%
-    \renewcommand{\rmdefault}{ntxtlf}%
-    \renewcommand{\sfdefault}{qhv}%
-    \renewcommand{\ttdefault}{ntxtt}%
-  \fi
-  \ifustc@uppercase@greek@italic
-    \PassOptionsToPackage{slantedGreek}{newtxmath}%
-  \fi
-  \ifustc@integral@upright
-    \PassOptionsToPackage{upint}{newtxmath}%
-  \fi
-  \RequirePackage{newtxmath}
-  \let\ustc@save@leq\leq
-  \let\ustc@save@geq\geq
-  \ifustc@leq@slanted
-    \let\le\leqslant
-    \let\ge\geqslant
-    \let\leq\leqslant
-    \let\geq\geqslant
-  \fi
-  \ifustc@integral@limits@true
-    \let\ilimits@\displaylimits
-  \fi
-  \let\ustc@save@partial\partial
-  \ifustc@partial@upright
-    \let\partial\uppartial
-  \fi
-  \ifustc@math@ellipsis@centered
-    \DeclareRobustCommand\mathellipsis{\mathinner{\cdotp\cdotp\cdotp}}%
-  \else
-    \DeclareRobustCommand\mathellipsis{\mathinner{\ldotp\ldotp\ldotp}}%
-  \fi
-  \let\ustc@save@Re\Re
-  \let\ustc@save@Im\Im
-  \ifustc@real@part@roman
-    \def\Re{\operatorname{Re}}%
-    \def\Im{\operatorname{Im}}%
-  \fi
-  \RequirePackage{bm}%
-  \ifustc@font@newtx\else
-    \let\encodingdefault\ustc@save@encodingdefault
-    \let\rmdefault\ustc@save@rmdefault
-    \let\sfdefault\ustc@save@sfdefault
-    \let\ttdefault\ustc@save@ttdefault
-  \fi
-  \DeclareRobustCommand\symup[1]{{\mathrm{##1}}}%
-  \DeclareRobustCommand\symbf[1]{{\bm{##1}}}%
-  \DeclareRobustCommand\symbfsf[1]{{\bm{##1}}}%
-  \let\increment\upDelta%
-  \renewcommand\ustc@qed{\openbox}%
-}
+\cs_new:Npn \__ustc_set_math_font_newtx:
+  {
+    \ifustc@font@newtx\else
+      \let\ustc@save@encodingdefault\encodingdefault
+      \let\ustc@save@rmdefault\rmdefault
+      \let\ustc@save@sfdefault\sfdefault
+      \let\ustc@save@ttdefault\ttdefault
+      \RequirePackage[T1]{fontenc}%
+      \renewcommand{\rmdefault}{ntxtlf}%
+      \renewcommand{\sfdefault}{qhv}%
+      \renewcommand{\ttdefault}{ntxtt}%
+    \fi
+    \ifustc@uppercase@greek@italic
+      \PassOptionsToPackage{slantedGreek}{newtxmath}%
+    \fi
+    \ifustc@integral@upright
+      \PassOptionsToPackage{upint}{newtxmath}%
+    \fi
+    \RequirePackage{newtxmath}
+    \let\ustc@save@leq\leq
+    \let\ustc@save@geq\geq
+    \ifustc@leq@slanted
+      \let\le\leqslant
+      \let\ge\geqslant
+      \let\leq\leqslant
+      \let\geq\geqslant
+    \fi
+    \ifustc@integral@limits@true
+      \let\ilimits@\displaylimits
+    \fi
+    \let\ustc@save@partial\partial
+    \ifustc@partial@upright
+      \let\partial\uppartial
+    \fi
+    \ifustc@math@ellipsis@centered
+      \DeclareRobustCommand\mathellipsis{\mathinner{\cdotp\cdotp\cdotp}}%
+    \else
+      \DeclareRobustCommand\mathellipsis{\mathinner{\ldotp\ldotp\ldotp}}%
+    \fi
+    \let\ustc@save@Re\Re
+    \let\ustc@save@Im\Im
+    \ifustc@real@part@roman
+      \def\Re{\operatorname{Re}}%
+      \def\Im{\operatorname{Im}}%
+    \fi
+    \RequirePackage{bm}%
+    \ifustc@font@newtx\else
+      \let\encodingdefault\ustc@save@encodingdefault
+      \let\rmdefault\ustc@save@rmdefault
+      \let\sfdefault\ustc@save@sfdefault
+      \let\ttdefault\ustc@save@ttdefault
+    \fi
+    \DeclareRobustCommand\symup[1]{{\mathrm{##1}}}%
+    \DeclareRobustCommand\symbf[1]{{\bm{##1}}}%
+    \DeclareRobustCommand\symbfsf[1]{{\bm{##1}}}%
+    \let\increment\upDelta%
+    \renewcommand\ustc@qed{\openbox}%
+  }
 
 % Computer Modern
 % 使用 LaTeX 默认的 cm 字体
-\newcommand\ustc@set@math@font@cm{%
-  \RequirePackage{amssymb}
-  \let\ustc@save@leq\leq
-  \let\ustc@save@geq\geq
-  \ifustc@leq@slanted
-    \let\le\leqslant
-    \let\ge\geqslant
-    \let\leq\leqslant
-    \let\geq\geqslant
-  \fi
-  \ifustc@integral@limits@true
-    \let\ilimits@\displaylimits
-  \fi
-  \ifustc@math@ellipsis@centered
-    \DeclareRobustCommand\mathellipsis{\mathinner{\cdotp\cdotp\cdotp}}%
-  \else
-    \DeclareRobustCommand\mathellipsis{\mathinner{\ldotp\ldotp\ldotp}}%
-  \fi
-  \let\ustc@save@Re\Re
-  \let\ustc@save@Im\Im
-  \ifustc@real@part@roman
-    \def\Re{\operatorname{Re}}%
-    \def\Im{\operatorname{Im}}%
-  \fi
-  \RequirePackage{bm}%
-  \DeclareRobustCommand\symup[1]{{\mathrm{##1}}}%
-  \DeclareRobustCommand\symbf[1]{{\bm{##1}}}%
-  \DeclareRobustCommand\symbfsf[1]{{\bm{##1}}}%
-  \let\increment\Delta
-  \renewcommand\ustc@qed{\openbox}%
-  \let\uppi\pi
-}
+\cs_new:Npn \__ustc_set_math_font_cm:
+  {
+    \RequirePackage{amssymb}
+    \let\ustc@save@leq\leq
+    \let\ustc@save@geq\geq
+    \ifustc@leq@slanted
+      \let\le\leqslant
+      \let\ge\geqslant
+      \let\leq\leqslant
+      \let\geq\geqslant
+    \fi
+    \ifustc@integral@limits@true
+      \let\ilimits@\displaylimits
+    \fi
+    \ifustc@math@ellipsis@centered
+      \DeclareRobustCommand\mathellipsis{\mathinner{\cdotp\cdotp\cdotp}}%
+    \else
+      \DeclareRobustCommand\mathellipsis{\mathinner{\ldotp\ldotp\ldotp}}%
+    \fi
+    \let\ustc@save@Re\Re
+    \let\ustc@save@Im\Im
+    \ifustc@real@part@roman
+      \def\Re{\operatorname{Re}}%
+      \def\Im{\operatorname{Im}}%
+    \fi
+    \RequirePackage{bm}%
+    \DeclareRobustCommand\symup[1]{{\mathrm{##1}}}%
+    \DeclareRobustCommand\symbf[1]{{\bm{##1}}}%
+    \DeclareRobustCommand\symbfsf[1]{{\bm{##1}}}%
+    \let\increment\Delta
+    \renewcommand\ustc@qed{\openbox}%
+    \let\uppi\pi
+  }
 
 % 不设置数学字体，仅提供兼容支持。
-\newcommand\ustc@set@math@font@none{%
-  \RequirePackage{amssymb}
-  \RequirePackage{bm}%
-  \DeclareRobustCommand\symup[1]{{\mathrm{##1}}}%
-  \DeclareRobustCommand\symbf[1]{{\bm{##1}}}%
-  \DeclareRobustCommand\symbfsf[1]{{\bm{##1}}}%
-  \let\increment\Delta
-  \renewcommand\ustc@qed{\openbox}%
-  \let\uppi\pi
-}
+\cs_new:Npn \__ustc_set_math_font_none:
+  {
+    \RequirePackage{amssymb}
+    \RequirePackage{bm}%
+    \DeclareRobustCommand\symup[1]{{\mathrm{##1}}}%
+    \DeclareRobustCommand\symbf[1]{{\bm{##1}}}%
+    \DeclareRobustCommand\symbfsf[1]{{\bm{##1}}}%
+    \let\increment\Delta
+    \renewcommand\ustc@qed{\openbox}%
+    \let\uppi\pi
+  }
 
-\newcommand\ustc@set@math@font{%
-  \@nameuse{ustc@set@math@font@\ustc@math@font}%
-}
-\ustc@option@hook{math-font}{\g@addto@macro\ustc@setup@hook{\ustc@set@math@font}}
-\newcommand\ustc@set@math@font@auto{%
-  \ifustc@math@font@auto
-    \ustcsetup{math-font=xits}%
-  \fi
-}
-\AtBeginOfPackageFile*{siunitx}{\ustc@set@math@font@auto}
-\AtEndPreamble{%
-  \ustc@set@math@font@auto
-  \ifx\square\@undefined
-    \RequirePackage{amssymb}%
-  \fi
-}
+\cs_new:Npn \__ustc_set_math_font:
+  { \use:c { __ustc_set_math_font_ \ustc@math@font : } }
+\ustc@option@hook { math-font }
+  { \tl_gput_right:Nn \ustc@setup@hook { \__ustc_set_math_font: } }
+\cs_new:Npn \__ustc_set_math_font_auto:
+  {
+    \ifustc@math@font@auto
+      \ustcsetup { math-font = xits }
+    \fi
+  }
+\hook_gput_code:nnn { package / siunitx / before } { . }
+  { \__ustc_set_math_font_auto: }
+\hook_gput_code:nnn { begindocument / before } { . }
+  {
+    \__ustc_set_math_font_auto:
+    \cs_if_exist:NF \square
+      { \RequirePackage { amssymb } }
+  }
+
+\ExplSyntaxOff
 
 
 
