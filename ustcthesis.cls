@@ -1613,7 +1613,14 @@
 \fancypagestyle{blank}{%
   \fancyhf{}%
   \renewcommand\headrulewidth{0pt}%
-  \fancyfoot[C]{\ustc@hf@font\thepage}%
+  \ifustc@degree@bachelor
+    % 本科生frontmatter时空白页不显示页码
+    \if@mainmatter
+      \fancyfoot[C]{\ustc@hf@font\thepage}%
+    \fi
+  \else
+    \fancyfoot[C]{\ustc@hf@font\thepage}%
+  \fi
 }
 
 \newif\ifustc@title@page
