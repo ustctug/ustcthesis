@@ -1623,11 +1623,15 @@
   \if@twoside
     \ifodd\c@page\else
       \hbox{}%
-      \ifustc@title@page
-        % 封面的空白页不显示页码
-        \thispagestyle{empty}%
+      \ifustc@degree@graduate
+        \ifustc@title@page
+          % 封面的空白页不显示页码
+          \thispagestyle{empty}%
+        \else
+          \thispagestyle{blank}%
+        \fi
       \else
-        \thispagestyle{blank}%
+        \thispagestyle{empty}%
       \fi
       \newpage
       \if@twocolumn
