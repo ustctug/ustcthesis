@@ -2516,8 +2516,6 @@
   }
   { }
 
-\ExplSyntaxOff
-
 
 % \subsection{摘要}
 
@@ -2532,60 +2530,74 @@
     \ustc@clist@use{\ustc@keywords@en}{; }%
   \fi
 }
-\newenvironment{abstract}{%
-  \ustcsetup{language=chinese}%
-  \ustc@chapter{摘要}%
-}{
-  \par\null\par
-  \setlength\hangindent{4em}%
-  \noindent
-  \textbf{关键词}：\ustc@keywords@text\par
-  \ustc@reset@main@language
-}
-
-\newbox\ustc@keywords@box
-\newlength\ustc@keywords@width
+\NewDocumentEnvironment { abstract } { }
+  {
+    \ustcsetup { language = chinese }
+    \ustc@chapter { 摘要 }
+  }
+  {
+    \par \null \par
+    \dim_set:Nn \hangindent { 4 em }
+    \noindent
+    \textbf { 关键词 } ：
+    \clist_set:NV \l_tmpa_clist \ustc@keywords
+    \clist_use:Nn \l_tmpa_clist { ； } \par
+    \ustc@reset@main@language
+  }
 
 % 英文摘要环境
-\newcommand\ustc@keywords@label{KEY WORDS}%
-
-\newenvironment{abstract*}{%
-  \ustcsetup{language=english}%
-  \ifustc@degree@graduate
-    \ctexset{
-      chapter = {
-        format = \centering\bfseries\fontsize{16bp}{18.4bp}\selectfont,
-        beforeskip = 9bp,
-        afterskip = 17bp,
-      }
-    }%
-    \ustc@chapter{ABSTRACT}%
-    \ctexset{autoindent = 2em}%
-  \else
-    \begingroup
-      % 本科生的英文摘要使用小二号衬线体
-      \ctexset{chapter/format=\centering\fontsize{18bp}{33bp}\selectfont}%
-      \ustc@chapter{ABSTRACT}%
-    \endgroup
-  \fi
-}{
-  \par\null\par
-  \ifustc@degree@bachelor
-    \renewcommand\ustc@keywords@label{Key Words}%
-  \fi
-  \setlength\hangindent{6.5em}%
-  \noindent
-  \textbf{\ustc@keywords@label}: \ustc@keywords@en@text\par
-  \ustc@reset@main@language
-}
+\NewDocumentEnvironment { abstract* } { }
+  {
+    \ustcsetup { language = english }
+    \ifustc@degree@graduate
+      \ctexset
+        {
+          chapter =
+            {
+              format = \centering \bfseries \fontsize { 16 bp } { 18.4 bp } \selectfont ,
+              beforeskip = 9 bp ,
+              afterskip = 17 bp ,
+            }
+        }%
+      \ustc@chapter { ABSTRACT }
+      \ctexset { autoindent = 2 em }
+    \else
+      \group_begin:
+        % 本科生的英文摘要使用小二号衬线体
+        \ctexset { chapter / format = \centering \fontsize { 18 bp } { 33 bp } \selectfont }
+        \ustc@chapter { ABSTRACT }
+      \group_end:
+    \fi
+  }
+  {
+    \par \null \par
+    \dim_set:Nn \hangindent { 6.5 em }
+    \noindent
+    \ifustc@degree@graduate
+      \textbf { KEY~ WORDS }
+    \else
+      \textbf { Key~ Words }
+    \fi
+    : \space
+    \clist_set:NV \l_tmpa_clist \ustc@keywords@en
+    \ifustc@degree@graduate
+      \clist_use:Nn \l_tmpa_clist { , \space \space }
+    \else
+      \clist_use:Nn \l_tmpa_clist { ; \space \space }
+    \fi
+    \par
+    \ustc@reset@main@language
+  }
 
 % Reserved for compatibility until 2020-07-01.
-\newenvironment{enabstract}{%
-  \ustc@deprecated{'enabsctract' environment}{2020-07-01}{'abstract*'}%
-  \begin{abstract*}%
-}{%
-  \end{abstract*}%
-}
+\NewDocumentEnvironment { enabstract } { }
+  {
+    \ustc@deprecated { 'enabsctract' environment } { 2020-07-01 } { 'abstract*' }
+    \begin { abstract* }
+  }
+  { \end { abstract* } }
+
+\ExplSyntaxOff
 
 
 % \subsection{目录}
