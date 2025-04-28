@@ -2500,21 +2500,23 @@
     \chapter * {#2}
   }
 
-\ExplSyntaxOff
-
 
 % \subsection{创新性说明}
 
-\NewDocumentEnvironment{innovations}{+b}{%
-  \ifustc@degree@doctor
-    \ifustc@degree@type@academic
-      \ustc@chapter{创新性说明}%
-    \else
-      \ustc@chapter{创新性及应用性说明}%
+\NewDocumentEnvironment { innovations } { +b }
+  {
+    \ifustc@degree@doctor
+      \ifustc@degree@type@academic
+        \ustc@chapter { 创新性说明 }
+      \else
+        \ustc@chapter { 创新性及应用性说明 }
+      \fi
+      #1 \par
     \fi
-    #1\par
-  \fi
-}{}
+  }
+  { }
+
+\ExplSyntaxOff
 
 
 % \subsection{摘要}
