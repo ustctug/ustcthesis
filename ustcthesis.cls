@@ -2203,87 +2203,111 @@
 
 % \subsection{原创性声明}
 
+\ExplSyntaxOn
+
 % 定义原创性声明
-\newcommand\ustc@originality{%
-  本人声明所呈交的学位论文，是本人在导师指导下进行研究工作所取得的成果。%
-  除已特别加以标注和致谢的地方外，论文中不包含任何他人已经发表或撰写过的%
-  研究成果。%
-  与我一同工作的同志对本研究所做的贡献均已在论文中作了明确的说明。}
-\newcommand\ustc@authorization{%
-  作为申请学位的条件之一，学位论文著作权拥有者授权中国科学技术大学拥有%
-  学位论文的部分使用权，%
-  即：学校有权按有关规定向国家有关部门或机构送交论文的复印件和电子版，%
-  允许论文被查阅和借阅，可以将学位论文编入《中国学位论文全文数据库》等%
-  有关数据库进行检索，可以采用影印、缩印或扫描等复制手段保存、汇编学位论文。%
-  本人提交的电子文档的内容和纸质论文的内容相一致。\par
-  控阅的学位论文在解除后也遵守此规定。}
+\tl_const:Nn \c__ustc_originality_tl
+  {
+    本人声明所呈交的学位论文，是本人在导师指导下进行研究工作所取得的成果。
+    除已特别加以标注和致谢的地方外，论文中不包含任何他人已经发表或撰写过的
+    研究成果。
+    与我一同工作的同志对本研究所做的贡献均已在论文中作了明确的说明。
+  }
+\tl_const:Nn \c__ustc_authorization_tl
+  {
+    作为申请学位的条件之一，学位论文著作权拥有者授权中国科学技术大学拥有
+    学位论文的部分使用权，
+    即：学校有权按有关规定向国家有关部门或机构送交论文的复印件和电子版，
+    允许论文被查阅和借阅，可以将学位论文编入《中国学位论文全文数据库》等
+    有关数据库进行检索，可以采用影印、缩印或扫描等复制手段保存、汇编学位论文。
+    本人提交的电子文档的内容和纸质论文的内容相一致。\par
+    控阅的学位论文在解除后也遵守此规定。
+  }
 
 % 生成空的下划线
-\newcommand\ustc@underline[2][8em]{\underline{\hb@xt@ #1{\hss#2\hss}}}
+\NewDocumentCommand \__ustc_underline:nn { O { 8 em } m }
+  { \underline { \hbox_to_wd:nn {#1} { \hss #2 \hss } } }
 
-\newcommand\ustc@checkbox{%
-  \makebox[0bp][l]{$\square$}%
-  \raisebox{-0.2ex}{\hspace{0.1em}$\checkmark$}%
-}
+\cs_new:Npn \__ustc_checkbox:
+  {
+    % \hbox_overlap_right:n { $ \square $ }
+    \makebox [ 0 bp ][ l ]{ $ \square $ }
+    \raisebox { -0.2 ex } { \skip_horizontal:n { 0.1 em } $ \checkmark $ }
+  }
 
-\newcommand\copyrightpage{%
-  \begin{titlepage}%
-    \ustc@pdfbookmark{原创性和授权使用声明}%
-    \vspace*{21bp}%
-    {\centering\sffamily\fontsize{16bp}{32bp}\selectfont
-      中国科学技术大学学位论文原创性声明\par}%
-    \vspace{13bp}%
-    \begingroup
-      \renewcommand\CJKglue{\hspace{0bp plus .1pt minus .1pt}}%
-      \ustc@originality\par
-    \endgroup
-    \vspace{37bp}%
-    \noindent
-    作者签名：\ustc@underline{}\hspace{8em}%
-    签字日期：\ustc@underline{}\par
-    \vspace{69bp}%
-    {\centering\sffamily\fontsize{16bp}{32bp}\selectfont
-      中国科学技术大学学位论文授权使用声明\par}%
-    \vspace{13bp}%
-    \begingroup
-      \renewcommand\CJKglue{\hspace{0bp plus .1pt minus .1pt}}%
-      \ustc@authorization\par
-    \endgroup
-    \vspace{12bp}%
-    \ifx\ustc@secret@level\@empty
-      \ustc@checkbox{}公开\quad
-      $\square$ 控阅（\ustc@underline[0.85cm]{}年）\par
-    \else
-      $\square$公开\quad
-      \ustc@checkbox{} 控阅（\ustc@underline[2em]{\ustc@secret@year}年）\par
+\NewDocumentCommand \copyrightpage { }
+  {
+    \ifustc@degree@graduate
+      {
+        \cleardoublepage
+        \thispagestyle { empty }
+        \ustc@pdfbookmark { 原创性和授权使用声明 }
+        \vspace* { 21 bp }
+        \group_begin:
+          \centering \sffamily \fontsize { 16 bp } { 32 bp } \selectfont
+          中国科学技术大学学位论文原创性声明 \par
+        \group_end:
+        \vspace { 13 bp }
+        \group_begin:
+          \xeCJKsetup { CJKglue = \skip_horizontal:n { 0bp plus .1pt minus .1pt } }
+          \tl_use:N \c__ustc_originality_tl \par
+        \group_end:
+        \vspace { 37 bp }
+        \noindent
+        作者签名： \__ustc_underline:nn { } \skip_horizontal:n { 8 em }
+        签字日期： \__ustc_underline:nn { } \par
+        \vspace { 69 bp }
+        \group_begin:
+          \centering \sffamily \fontsize { 16 bp } { 32 bp } \selectfont
+          中国科学技术大学学位论文授权使用声明 \par
+        \group_end:
+        \vspace { 13 bp }
+        \group_begin:
+          \xeCJKsetup { CJKglue = \skip_horizontal:n { 0bp plus .1pt minus .1pt } }
+          \tl_use:N \c__ustc_authorization_tl \par
+        \group_end:
+        \vspace { 12 bp }
+        \tl_if_empty:NTF \ustc@secret@level
+          {
+            \__ustc_checkbox: 公开 \quad
+            $ \square $ 控阅（ \__ustc_underline:nn [ .85 cm ] { } 年） \par
+          }
+          {
+            $ \square $ 公开 \quad
+            \__ustc_checkbox: \space 控阅（
+            \__ustc_underline:nn [ 2em ] { \ustc@secret@year }
+            年） \par
+          }
+        \vspace { 29 bp }
+        \noindent
+        作者签名： \__ustc_underline:nn [ 7.5 em ] { } \skip_horizontal:n { 8.5em }
+        导师签名： \__ustc_underline:nn [ 7.5 em ] { } \par
+        \vspace { 1 em }
+        \noindent
+        签字日期： \__ustc_underline:nn [ 7.5 em ] { } \skip_horizontal:n { 8.5 em }
+        签字日期： \__ustc_underline:nn [ 7.5 em ] { } \par
+        \ifustc@reviewer@true
+          \vspace { 1.5 cm }
+          \skip_horizontal:n { -1 em }
+          评审专家签名：\__ustc_underline:nn { } \skip_horizontal:n { 4.5 em }
+          评审专家签名：\__ustc_underline:nn { } \par
+        \fi
+        \ustc@title@pagetrue
+        \cleardoublepage
+        \ustc@title@pagefalse
+      }
     \fi
-    \vspace{29bp}%
-    \noindent
-    作者签名：\ustc@underline[7.5em]{}\hspace{8.5em}%
-    导师签名：\ustc@underline[7.5em]{}\par
-    \vspace{1em}%
-    \noindent
-    签字日期：\ustc@underline[7.5em]{}\hspace{8.5em}%
-    签字日期：\ustc@underline[7.5em]{}\par
-    \ifustc@reviewer@true
-      \vspace{1.5cm}%
-      \hspace{-1em}%
-      评审专家签名：\ustc@underline{}\hspace{4.5em}%
-      评审专家签名：\ustc@underline{}\par
-    \fi
-  \end{titlepage}%
-  \ustc@title@pagetrue
-  \cleardoublepage
-  \ustc@title@pagefalse
-}
-\ifustc@degree@bachelor
-  \let\copyrightpage\relax
-\fi
+  }
+
 % Reserved for compatibility until 2020-07-01.
-\newcommand\makestatement{%
-  \ustc@deprecated{'\protect\makestatement' command}{2020-07-01}{'\protect\copyrightpage'}%
-  \copyrightpage
-}
+\NewDocumentCommand \makestatement { }
+  {
+    \ustc@deprecated { '\token_to_str:N \makestatement'~ command }
+      { 2020-07-01 } { '\token_to_str:N \copyrightpage' }
+    \copyrightpage
+  }
+
+\ExplSyntaxOff
 
 
 % \subsection{章节标题}
