@@ -24,9 +24,6 @@ checkconfigs = {
 typesetexe = "xelatex"
 unpackexe = "xetex"
 
-checkopts = "-file-line-error -halt-on-error -interaction=nonstopmode"
-typesetopts = "-file-line-error -halt-on-error -interaction=nonstopmode"
-
 lvtext = ".tex"
 
 function update_tag(file, content, tagname, tagdate)

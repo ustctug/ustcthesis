@@ -2307,41 +2307,28 @@
     \copyrightpage
   }
 
-\ExplSyntaxOff
-
 
 % \subsection{章节标题}
 
-% 标题最多允许使用五级。
-\setcounter{secnumdepth}{5}
+% 研究生要求一般不建议使用三级节标题，不得使用三级以下节标题。
+% 本科生允许至四级节标题。
+\setcounter { secnumdepth } { 3 }
 
 % 本科生章题为两字时中间空一字，三字时空半字，四字及以上不空。
-% 这里用 \LaTeX3 的 \cs{\str_count:N} 判断字数。
-% 注意，\pkg{stringstrings} 宏包会导致范数命令 \verb+\|+ 被修改。
-\newcount\ustc@titlelength
-\DeclareRobustCommand\ustc@spaced@title[1]{%
-  \ustc@titlelength=\csname str_count:N\endcsname{#1}%
-  \begingroup
-    \if@mainmatter\else
-      \ifcase\ustc@titlelength
-      \or\or
-        \ziju{1}%
-      \or\or
-        \ziju{0.5}%
+\cs_new_protected:Npn \__ustc_spaced_title:n #1
+  {
+    \int_set:Nn \l_tmpa_int { \exp_args:Ne \str_count:n {#1} }
+    \group_begin:
+      \if@mainmatter\else
+        \int_case:nn { \l_tmpa_int }
+          {
+            { 2 } { \ziju { 1 } }
+            { 4 } { \ziju { 0.5 } }
+          }
       \fi
-    \fi
-    #1%
-  \endgroup
-}
-
-% 五级节标题和脚注需要使用带圈的数字，这里使用 \cs{ustc@circlefont} ：
-\newcommand\ustc@textcircled[1]{%
-  \ifnum\value{#1}<21\relax
-    {\symbol{\numexpr\value{#1} + "245F\relax}}%
-  \else
-    \ustc@error{Cannot display more than 20 footnotes}%
-  \fi
-}
+      #1
+    \group_end:
+  }
 
 % 用 \pkg{ctex} 的接口设置全部章节标题格式。
 
@@ -2349,126 +2336,143 @@
 % 章序号采用阿拉伯数字，章序号与标题之间空一个汉字符，采用黑体三号字，居中书写，单倍行距，段前24磅，段后18磅。
 % 摘要、目录和列于目录中与章平级的其它部分的标题（如参考文献、附录、致谢等）也用这同一种格式。
 % 由于 LaTeX 的排版方式与 Word 不同，为了效果与 Word 模板一致，
-% 将段前、段后分别修正为 7bp 和 19bp。
-\ctexset{
-  chapter = {
-    format      = \centering\heiti\fontsize{16bp}{20.8bp}\selectfont,
-    nameformat  = {},
-    titleformat = {},
-    number      = \thechapter,
-    aftername   = \quad,
-    beforeskip  = 7bp,
-    afterskip   = 19bp,
-    % fixskip     = true,
-  },
-}
+% 将段前、段后分别修正为 7 bp 和 19 bp。
+\ctexset
+  {
+    chapter =
+      {
+        format      = \centering \heiti \fontsize { 16 bp } { 20.8 bp } \selectfont ,
+        nameformat  = { } ,
+        titleformat = { } ,
+        number      = \thechapter ,
+        aftername   = \quad ,
+        beforeskip  = 7 bp ,
+        afterskip   = 19 bp ,
+      } ,
+  }
 
 % 一级节标题，例如：“2.1  实验方法”。
 % 节编号用阿拉伯数字表示，前边数字为上级章节的序号，后一数字为本节的顺序号。
 % 数字间用半角小数点“.”连接。
 % 节标题序号与标题名之间空一个汉字符（下同）。
-% 采用黑体四号（14pt）字居左书写，固定行距20磅，段前24磅，段后6磅。
-\ctexset{
-  section = {
-    format     = \heiti\fontsize{14bp}{20bp}\selectfont,
-    aftername  = \quad,
-    beforeskip = 24bp,
-    afterskip  = 6bp,
-  },
-  %
-  % 二级节标题，例如：“2.1.1  实验装置”。
-  % 采用黑体13pt字居左书写，固定行距20磅，段前12磅，段后6磅。
-  subsection = {
-    format     = \heiti\fontsize{13bp}{20bp}\selectfont,
-    aftername  = \quad,
-    beforeskip = 12bp,
-    afterskip  = 6bp,
-  },
-  %
-  % 三级节标题，例如：“2.1.1.1  实验结果”。
-  % 采用黑体小四号（12pt）字居左书写，固定行距20磅，段前12磅，段后6磅。
-  subsubsection = {
-    format     = \heiti\fontsize{12bp}{20bp}\selectfont,
-    aftername  = \quad,
-    beforeskip = 12bp,
-    afterskip  = 6bp,
-  },
-  %
-  % 研究生要求不得使用三级以下节标题
-}
+% 采用黑体四号（14 pt）字居左书写，固定行距20磅，段前24磅，段后6磅。
+\ctexset
+  {
+    section =
+      {
+        format     = \heiti \fontsize { 14 bp } { 20 bp } \selectfont ,
+        aftername  = \quad ,
+        beforeskip = 24 bp ,
+        afterskip  = 6 bp ,
+      } ,
+    %
+    % 二级节标题，例如：“2.1.1  实验装置”。
+    % 采用黑体13 pt字居左书写，固定行距20磅，段前12磅，段后6磅。
+    subsection =
+      {
+        format     = \heiti \fontsize { 13 bp } { 20 bp } \selectfont ,
+        aftername  = \quad ,
+        beforeskip = 12 bp ,
+        afterskip  = 6 bp ,
+      } ,
+    %
+    % 三级节标题，例如：“2.1.1.1  实验结果”。
+    % 采用黑体小四号（12 pt）字居左书写，固定行距20磅，段前12磅，段后6磅。
+    subsubsection =
+      {
+        format     = \heiti \fontsize { 12 bp } { 20 bp } \selectfont ,
+        aftername  = \quad ,
+        beforeskip = 12 bp ,
+        afterskip  = 6 bp ,
+      } ,
+    %
+    % 研究生要求不得使用三级以下节标题
+  }
 
 \ifustc@degree@bachelor
   \ifustc@main@language@english
-    \ustcsetup{section-style = arabic}
+    \ustcsetup { section-style = arabic }
   \fi
 \fi
 \ustc@option@hook{main-language}{%
   \ifustc@degree@bachelor
     \ifustc@main@language@english
-      \ustcsetup{section-style = arabic}%
+      \ustcsetup { section-style = arabic }
     \fi
   \fi
 }
 
 % 在研究生格式的基础上再设置本科生的章节标题格式。
 \ifustc@degree@bachelor
-  \setcounter{secnumdepth}{4}
-  \ctexset{
-  %
-  % 论文的致谢、目录、摘要和参考文献等标题用小二号（18 bp）黑体字，居中，
-  % 这通过 \cs{if@mainmatter} 区分。
-  % 正文中的标题分章、节、段三级；章、节标题居中，段标题居左，
-  % 分别用三号（16 bp）黑体、小三（15 bp）黑体、四号（14 bp）黑体。
-    chapter = {
-      format = {
-        \centering\sffamily
-        \if@mainmatter
-          \fontsize{16bp}{29.33bp}\selectfont
-        \else
-          \fontsize{18bp}{33bp}\selectfont
-        \fi
-      },
-      titleformat = \ustc@spaced@title,
-    },
-    section = {
-      format = \centering\sffamily\fontsize{15bp}{27.5bp}\selectfont,
-    },
-    subsection = {
-      format    = \sffamily\fontsize{14bp}{25.67bp}\selectfont,
-      indent    = 0bp,
-    },
-    subsubsection = {
-      format    = \rmfamily\fontsize{12bp}{22bp}\selectfont,
-      number    = \arabic{subsubsection},
-      aftername = .\hspace{0.5em},
-      indent    = 1em,
-    },
-    paragraph = {
-      format    = \rmfamily\fontsize{12bp}{22bp}\selectfont,
-      number     = （\arabic{paragraph}）,
-      aftername = {},
-      indent    = 1em,
-      beforeskip = 0bp,
-      afterskip  = 0bp,
-      runin      = false,
-    },
-  }
+  \setcounter { secnumdepth } { 4 }
+  \ctexset
+    {
+      %
+      % 论文的致谢、目录、摘要和参考文献等标题用小二号（18 bp）黑体字，居中，
+      % 这通过 \cs{if@mainmatter} 区分。
+      % 正文中的标题分章、节、段三级；章、节标题居中，段标题居左，
+      % 分别用三号（16 bp）黑体、小三（15 bp）黑体、四号（14 bp）黑体。
+      chapter =
+        {
+          format =
+            {
+              \space
+              \centering \sffamily
+              \if@mainmatter
+                \fontsize { 16 bp } { 29.33 bp } \selectfont
+              \else
+                \fontsize { 18 bp } { 33 bp } \selectfont
+              \fi
+            } ,
+          titleformat = \__ustc_spaced_title:n ,
+        } ,
+      section =
+        {
+          format = \centering \sffamily \fontsize { 15 bp } { 27.5 bp } \selectfont,
+        } ,
+      subsection =
+        {
+          format    = \sffamily \fontsize { 14 bp } { 25.67 bp } \selectfont ,
+          indent    = 0 bp ,
+        } ,
+      subsubsection =
+        {
+          format    = \rmfamily \fontsize { 12 bp } { 22 bp } \selectfont ,
+          number    = \arabic { subsubsection } ,
+          aftername = . \enskip ,
+          indent    = 1 em ,
+        } ,
+      paragraph =
+        {
+          format     = \rmfamily \fontsize { 12 bp } { 22 bp } \selectfont ,
+          number     = （ \arabic { paragraph } ） ,
+          aftername  = { } ,
+          indent     = 1 em ,
+          beforeskip = 0 bp ,
+          afterskip  = 0 bp ,
+          runin      = false ,
+        } ,
+    }
   %
   % 本科生的阿拉伯数字式标题的格式与研究生几乎一致，只有中文数字式需要修改。
   \ifustc@section@style@arabic\else
-    \ctexset{
-      chapter = {
-        number = \chinese{chapter},
-      },
-      section = {
-        name   = {第,节},
-        number = \chinese{section},
-      },
-      subsection = {
-        number    = \chinese{subsection},
-        aftername = {、},
-      },
-    }
+    \ctexset
+      {
+        chapter =
+          {
+            number = \chinese { chapter } ,
+          } ,
+        section =
+          {
+            name   = { 第 , 节 } ,
+            number = \chinese { section } ,
+          } ,
+        subsection =
+          {
+            number    = \chinese { subsection } ,
+            aftername = 、 ,
+          } ,
+      }
   \fi
 \fi
 
@@ -2477,16 +2481,26 @@
 % 然而像摘要、目录、符号说明这样的章节，它们不需要编号、不加入目录，
 % 但是需要修改页眉，并且加入 PDF 标签。
 % 所以我们新定义 \cs{ustc@chapter} 用于处理这些章节。%
-\NewDocumentCommand\ustc@chapter{o m}{%
-  \if@openright\cleardoublepage\else\clearpage\fi
-  \IfValueTF{#1}{%
-    \ustc@pdfbookmark{#1}%
-    \chaptermark{#1}%
-  }{%
-    \ustc@pdfbookmark{#2}%
-    \chaptermark{#2}%
-  }%
-  \chapter*{#2}}
+\NewDocumentCommand \ustc@chapter { o m }
+  {
+    \if@openright
+      \cleardoublepage
+    \else
+      \clearpage
+    \fi
+    \IfValueTF {#1}
+      {
+        \ustc@pdfbookmark {#1}
+        \chaptermark {#1}
+      }
+      {
+        \ustc@pdfbookmark {#2}
+        \chaptermark {#2}
+      }
+    \chapter * {#2}
+  }
+
+\ExplSyntaxOff
 
 
 % \subsection{创新性说明}
@@ -2742,6 +2756,29 @@
 
 % 脚注用带圈的数字：
 \renewcommand\thefootnote{\ustc@textcircled{footnote}}
+
+% 脚注需要使用带圈的数字，这里使用 \cs{ustc@circlefont} ：
+\newcommand\ustc@textcircled[1]{%
+  \ifnum\value{#1}<21\relax
+    {\symbol{\numexpr\value{#1} + "245F\relax}}%
+  \else
+    \ustc@error{Cannot display more than 20 footnotes}%
+  \fi
+}
+
+% \cs_new:Npn \ustc@textcircled #1
+%   {
+%     \exp_args:Nc \int_compare:nNnTF { c@ #1 } < { 21 }
+%       {
+%         \int_set:Nn \l_tmpa_int { \int_use:c { c@ #1 } + "245F }
+%         \char_generate:nn { \l_tmpa_int } { 12 }
+%       }
+%       { \msg_error:nn { ustcthesis } { exceeding-max-footnote-number } }
+%     \fi
+%   }
+
+% \msg_new:nnn { ustcthesis } { exceeding-max-footnote-number }
+%   { Cannot~ display~ more~ than~ 20~ footnotes. }
 
 % LaTeX 默认脚注按章计数，即每章的开始才重置脚注计数器；我们修改为按页计数。
 % 简单的|\@addtoreset{footnote}{page}|并不可靠，
