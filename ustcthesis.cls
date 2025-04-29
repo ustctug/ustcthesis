@@ -2757,67 +2757,57 @@
   }
   { \endlist }
 
-\ExplSyntaxOff
-
 
 % \subsection{正文}
 
 % \cs{sloppy} 可以减少“overfull boxes”。
 \sloppy
 
-% 禁止扩大段间距。（\href{https://github.com/ustctug/ustcthesis/issues/209}{
-%   ustctug/ustcthesis\#209}）
+% 禁止扩大段间距（<https://github.com/ustctug/ustcthesis/issues/209>）。
 \raggedbottom
 
 % 段间距 0 磅。
-\setlength{\parskip}{0bp}
+\skip_set:Nn \parskip { 0 bp }
 
 % 首段缩进。
-\ctexset{autoindent=2}
+\ctexset { autoindent = 2 }
 
-% 首段缩进。
-\let\@afterindentfalse\@afterindenttrue
+% 标题后首段缩进（参考 `indentfirst`）。
+\cs_set_eq:NN \@afterindentfalse \@afterindenttrue
 \@afterindenttrue
 
 % URL 的字体设为保持原样。
-\urlstyle{same}
+\urlstyle { same }
 
 % 使用 \pkg{xurl} 宏包的方法，增加 URL 可断行的位置。
-\def\UrlBreaks{%
-  \do\/%
-  \do\a\do\b\do\c\do\d\do\e\do\f\do\g\do\h\do\i\do\j\do\k\do\l%
-     \do\m\do\n\do\o\do\p\do\q\do\r\do\s\do\t\do\u\do\v\do\w\do\x\do\y\do\z%
-  \do\A\do\B\do\C\do\D\do\E\do\F\do\G\do\H\do\I\do\J\do\K\do\L%
-     \do\M\do\N\do\O\do\P\do\Q\do\R\do\S\do\T\do\U\do\V\do\W\do\X\do\Y\do\Z%
-  \do0\do1\do2\do3\do4\do5\do6\do7\do8\do9\do=\do/\do.\do:%
-  \do\*\do\-\do\~\do\'\do\"\do\-}
-\Urlmuskip=0mu plus 0.1mu
+\cs_set_nopar:Npn \UrlBreaks
+  {
+    \do \. \do \@ \do \\ \do \/ \do \! \do \_ \do \| \do \; \do \> \do \]
+    \do \) \do \, \do \? \do \& \do \' \do + \do \= \do \# \do :
+    \do \a \do \b \do \c \do \d \do \e \do \f \do \g \do \h \do \i \do \j
+    \do \k \do \l \do \m \do \n \do \o \do \p \do \q \do \r \do \s \do \t
+    \do \u \do \v \do \w \do \x \do \y \do \z
+    \do \A \do \B \do \C \do \D \do \E \do \F \do \G \do \H \do \I \do \J
+    \do \K \do \L \do \M \do \N \do \O \do \P \do \Q \do \R \do \S \do \T
+    \do \U \do \V \do \W \do \X \do \Y \do \Z
+    \do 0 \do 1 \do 2 \do 3 \do 4 \do 5 \do 6 \do 7 \do 8 \do 9
+  }
+\muskip_set:Nn \Urlmuskip { 0 mu plus 0.1 mu }
 
 % 脚注用带圈的数字：
-\renewcommand\thefootnote{\ustc@textcircled{footnote}}
+\cs_set_nopar:Npn \thefootnote
+  { \__ustc_circled:n { \c@footnote } }
 
-% 脚注需要使用带圈的数字，这里使用 \cs{ustc@circlefont} ：
-\newcommand\ustc@textcircled[1]{%
-  \ifnum\value{#1}<21\relax
-    {\symbol{\numexpr\value{#1} + "245F\relax}}%
-  \else
-    \ustc@error{Cannot display more than 20 footnotes}%
-  \fi
-}
+% 脚注需要使用带圈的数字
+\cs_new:Npn \__ustc_circled:n #1
+  {
+    \int_compare:nNnTF { #1 } < { 21 }
+      { \char_generate:nn { #1 + "245F } { 12 } }
+      { \msg_error:nn { ustcthesis } { exceeding-max-footnote-number } }
+  }
 
-% \cs_new:Npn \ustc@textcircled #1
-%   {
-%     \exp_args:Nc \int_compare:nNnTF { c@ #1 } < { 21 }
-%       {
-%         \int_set:Nn \l_tmpa_int { \int_use:c { c@ #1 } + "245F }
-%         \char_generate:nn { \l_tmpa_int } { 12 }
-%       }
-%       { \msg_error:nn { ustcthesis } { exceeding-max-footnote-number } }
-%     \fi
-%   }
-
-% \msg_new:nnn { ustcthesis } { exceeding-max-footnote-number }
-%   { Cannot~ display~ more~ than~ 20~ footnotes. }
+\msg_new:nnn { ustcthesis } { exceeding-max-footnote-number }
+  { Cannot~ display~ more~ than~ 20~ footnotes. }
 
 % LaTeX 默认脚注按章计数，即每章的开始才重置脚注计数器；我们修改为按页计数。
 % 简单的|\@addtoreset{footnote}{page}|并不可靠，
@@ -2825,16 +2815,22 @@
 % 所以我们使用 \pkg{footmisc} 宏包。
 
 % 脚注线长为版心宽度的四分之一：
-\renewcommand\footnoterule{%
-  \kern-3\p@
-  \hrule\@width.25\textwidth
-  \kern2.6\p@}
-  %
-  % 注文缩进两字：
-\renewcommand\@makefntext[1]{%
-  \parindent=2em\relax
-  \noindent
-  \hb@xt@ 2em{\hss\@makefnmark}#1}
+\cs_set:Npn \footnoterule
+  {
+    \kern -3 \p@
+    \hrule \@width .25 \textwidth
+    \kern 2.6 \p@
+  }
+
+% 注文缩进两字：
+\cs_set:Npn \@makefntext #1
+  {
+    \dim_set:Nn \parindent { 2 em }
+    \noindent
+    \hbox_to_wd:nn { 2 em } { \hss \@makefnmark } #1
+  }
+
+\ExplSyntaxOff
 
 
 % \subsection{列表}
@@ -3138,7 +3134,7 @@
     \NAT@sort@cites{#3}%
     \NAT@reset@citea
     \@cite{\def\NAT@num{-1}\let\NAT@last@yr\relax\let\NAT@nm\@empty
-      \@for\@citeb:=\NAT@cite@list\do
+      \@for\@citeb:=\NAT@cite@list \do
       {\@safe@activestrue
       \edef\@citeb{\expandafter\@firstofone\@citeb\@empty}%
       \@safe@activesfalse
@@ -3241,7 +3237,7 @@
     \NAT@sort@cites{#3}%
     \NAT@reset@citea
     \@cite{\let\NAT@nm\@empty\let\NAT@year\@empty
-      \@for\@citeb:=\NAT@cite@list\do
+      \@for\@citeb:=\NAT@cite@list \do
       {\@safe@activestrue
       \edef\@citeb{\expandafter\@firstofone\@citeb\@empty}%
       \@safe@activesfalse
