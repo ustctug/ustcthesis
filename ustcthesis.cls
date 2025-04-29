@@ -2862,10 +2862,8 @@
     \__ustc_no_list_sep:
   }
 
-\ExplSyntaxOff
 
-
-% \subsection{浮动体}
+% \subsection{插图和附表}
 
 % 图题采用宋体，加粗，字号 11pt，居中书写，单倍行距，段前6磅，段后0磅，
 % 图序与图名之间空一个汉字符，
@@ -2873,143 +2871,156 @@
 % 表题置于表的上方，采用宋体，加粗，字号11pt，居中书写，单倍行距，段前6磅，段后0磅。
 % 表序与表名之间空一个汉字符。
 
-% 本科生：图全文要分别统一编号或按章编号，标题用小四宋体:
+% 本科生：表格、插图标题用小四宋体，Word 模板中行距为 22 pt。
 
 % 使用 \pkg{caption} 宏包设置图、表的格式：
-\DeclareCaptionFont{ustc}{\ustc@caption@font}
-\newcommand\ustc@caption@font{%
-  \ifustc@degree@bachelor
-    \fontsize{12bp}{14.4bp}\selectfont
-  \else
-    \ifustc@language@chinese
-      \fontsize{11bp}{14.3bp}\selectfont
+\DeclareCaptionFont { ustc } { \__ustc_caption_font: }
+\cs_set:Npn \__ustc_caption_font:
+  {
+    \ifustc@degree@bachelor
+      \fontsize { 12 bp } { 14.4 bp } \selectfont
     \else
-      \fontsize{11bp}{12.65bp}\selectfont
+      \ifustc@language@chinese
+        \fontsize { 11 bp } { 14.3 bp } \selectfont
+      \else
+        \fontsize { 11 bp } { 12.65 bp } \selectfont
+      \fi
     \fi
-  \fi
-}
+  }
 
-\captionsetup{
-  justification  = centerlast,
-  font           = ustc,
-  labelsep       = quad,
-  skip           = 6bp,
-  figureposition = bottom,
-  tableposition  = top,
-}
+\captionsetup
+  {
+    justification  = centerlast ,
+    font           = ustc ,
+    labelsep       = quad ,
+    skip           = 6 bp ,
+    figureposition = bottom ,
+    tableposition  = top ,
+  }
 \ifustc@degree@graduate
-  \captionsetup{font+=bf}
+  \captionsetup{ font += bf }
 \fi
 
 % 若有英文图题，另起一行置于中文图题下方。
-\AtBeginOfPackageFile*{bicaption}{
-  \let\captionmainlanguage\ustc@main@language
-}
-\AtEndOfPackageFile*{bicaption}{
-  \captionsetup[bi-first]{lang = chinese}
-  \captionsetup[bi-second]{
-    lang = english,
-    list = off,
+% \AtBeginOfPackageFile*{bicaption}{
+\hook_gput_code:nnn { package / bicaption / before } { . }
+  { \tl_set_eq:NN \captionmainlanguage \ustc@main@language }
+\hook_gput_code:nnn { package / bicaption / after } { . }
+  {
+    \captionsetup [ bi-first ] { lang = chinese }
+    \captionsetup [ bi-second ]
+      {
+        lang = english ,
+        list = off ,
+      }
+    \cs_set_nopar:Npn \selectcaptionlanguage #1#2
+      { \ustcsetup { language = #2 } }
   }
-  \renewcommand\selectcaptionlanguage[2]{%
-    \ustcsetup{language = #2}%
-  }
-}
 
 % 表单元格中的文字采用 11pt 宋体字，单倍行距，段前3磅，段后3磅。
 % 对于中文，`\arraystretch` 需要设为 1 + (3pt + 3pt) / (11pt * 1.3) ~= 1.42。
 % 对于英文，`\arraystretch` 需要设为 1 + (3pt + 3pt) / (11pt * 1.15) ~= 1.47。
 %
-% 本科生：表格内容用小四宋体或五号宋体选定某种样式后，全文应统一。
-\newcommand\ustc@table@font{%
-  \ifustc@degree@bachelor
-    \ifustc@language@chinese
-      \fontsize{10.5bp}{13.65bp}\selectfont
-      \renewcommand\arraystretch{1.44}%
+% 本科生：表格内容用小四宋体或五号宋体，Word 模板中为 1.3 倍行距。
+\cs_new:Npn \__ustc_table_font:
+  {
+    \ifustc@degree@bachelor
+      \ifustc@language@chinese
+        \fontsize { 10.5 bp } { 13.65 bp } \selectfont
+        \cs_set_nopar:Npn \arraystretch { 1.44 }
+      \else
+        \fontsize { 10.5 bp } { 12.075 bp } \selectfont
+        \cs_set_nopar:Npn \arraystretch { 1.5 }
+      \fi
     \else
-      \fontsize{10.5bp}{12.075bp}\selectfont
-      \renewcommand\arraystretch{1.5}%
-    \fi
-  \else
-    \ifustc@language@chinese
-      \fontsize{11bp}{14.3bp}\selectfont
-      \renewcommand\arraystretch{1.42}%
-    \else
-      \fontsize{11bp}{12.65bp}\selectfont
-      \renewcommand\arraystretch{1.47}%
-    \fi
-  \fi
-}
-
-\patchcmd\@floatboxreset{%
-  \normalsize
-}{%
-  \ustc@table@font
-}{}{\ustc@patch@error{\@floatboxreset}}
-
-% 对 \pkg{longtable} 跨页表格进行相同的设置。
-\AtEndOfPackageFile*{longtable}{
-  \AtBeginEnvironment{longtable}{%
-    \ifdim\f@size pt > 11bp\relax
-      \ustc@table@font
+      \ifustc@language@chinese
+        \fontsize { 11 bp } { 14.3 bp } \selectfont
+        \cs_set_nopar:Npn \arraystretch { 1.42 }
+      \else
+        \fontsize { 11 bp } { 12.65 bp } \selectfont
+        \cs_set_nopar:Npn \arraystretch { 1.47 }
+      \fi
     \fi
   }
-}
+
+\cs_set_nopar:Npn \@floatboxreset
+  {
+    \reset@font
+    \__ustc_table_font:
+    \@setminipage
+  }
+
+% 设置 \pkg{longtable} 跨页表格的默认字号，
+% 并允许用户在 `longtable` 环境外设置更小的字号如 `\small`
+% （<https://github.com/ustctug/ustcthesis/issues/302>）
+\hook_gput_code:nnn { package / longtable / after } { . }
+  {
+    \hook_gput_code:nnn { env / longtable / begin } { . }
+      {
+        \dim_compare:nNnT { \f@size pt } > { 11bp }
+          { \__ustc_table_font: }
+      }
+  }
 
 % 图注、表注使用 `\figurenote` 或 `\tablenote` 命令，与 `apa7.cls` 一致。
 % 图注采用宋体 11pt，单倍行距，段前6磅，段后0磅。
 % 多个图注则须顺序编号，注序左缩进2字，与注文之间空一字符，续行悬挂缩进左对齐，两端对齐。
-\let\ustc@figure@note@font\ustc@caption@font
+\let\ustc@figure@note@font\__ustc_caption_font:
 
-\newcommand\figurenote[1]{%
-  \begingroup
-    \captionsetup{
-      font = ustc,
-      margin = {2em, 0pt},
-      oneside,
-    }%
-    \caption*{#1}
-  \endgroup
-}
-\let\tablenote\figurenote
+\NewDocumentCommand \figurenote { m }
+  {
+    \group_begin:
+      \captionsetup
+        {
+          font = ustc ,
+          margin = { 2 em , 0 pt } ,
+          oneside ,
+        }
+      \caption * { #1 }
+    \group_end:
+  }
+\NewCommandCopy \tablenote \figurenote
 
 % 兼容旧版的 `\note` 命令。
-\newcommand\note[1]{%
-  \ustc@deprecated{'\protect\note' command}{2025-01-05}{'\protect\figurenote'}%
-  \figurenote{#1}%
-}
+\NewDocumentCommand \note { m }
+  {
+    \ustc@deprecated { '\protect\note' command } { 2025-01-05 }
+      { '\protect\figurenote' }
+    \figurenote { #1 }
+  }
 
 % 设置 \pkg{threeparttable} 表注的默认字号。
-\AtEndOfPackageFile*{threeparttable}{
-  \AtBeginEnvironment{tablenotes}{%
-    \ustc@figure@note@font
+\hook_gput_code:nnn { package / threeparttable / after } { . }
+  {
+    \hook_gput_code:nnn { env / threeparttable / begin } { . }
+      { \ustc@figure@note@font }
   }
-}
 
-% 不宜将多个插图连续排版，插图与文字论述段落应穿插排版。
-
-% 修改默认的浮动体描述符为 |h|。
-\def\fps@figure{h}
-\def\fps@table{h}
+% 研究生要求不宜将多个插图连续排版，插图与文字论述段落应穿插排版。
+% 修改默认的图标的位置参数为 |h|。
+\cs_set_nopar:Npn \fps@figure { h }
+\cs_set_nopar:Npn \fps@table { h }
 
 % \LaTeX{} 对放置浮动体的要求比较强，这里按照 UK TeX FAQ 的建议
-% \footnote{\url{https://texfaq.org/FAQ-floats}} 对其适当放宽。
-\renewcommand\topfraction{.85}
-\renewcommand\bottomfraction{.7}
-\renewcommand\textfraction{.15}
-\renewcommand\floatpagefraction{.66}
-\renewcommand\dbltopfraction{.66}
-\renewcommand\dblfloatpagefraction{.66}
-\setcounter{topnumber}{9}
-\setcounter{bottomnumber}{9}
-\setcounter{totalnumber}{20}
-\setcounter{dbltopnumber}{9}
+% <https://texfaq.org/FAQ-floats> 对其适当放宽。
+\cs_set:Npn \topfraction { .85 }
+\cs_set:Npn \bottomfraction { .7 }
+\cs_set:Npn \textfraction { .15 }
+\cs_set:Npn \floatpagefraction { .66 }
+\cs_set:Npn \dbltopfraction { .66 }
+\cs_set:Npn \dblfloatpagefraction { .66 }
+\int_set:Nn \c@topnumber { 9 }
+\int_set:Nn \c@bottomnumber { 9 }
+\int_set:Nn \c@totalnumber { 20 }
+\int_set:Nn \c@dbltopnumber { 9 }
 
 % 插图前后与文字段落之间须留有10磅空行。
 % 插图如果不得不与其它插图或表格连续排版，则它们之间须留有20磅空行。
-\setlength{\floatsep}{20bp}
-\setlength{\textfloatsep}{10bp}
-\setlength{\intextsep}{10bp}
+\skip_set:Nn \floatsep { 20 bp }
+\skip_set:Nn \textfloatsep { 10 bp }
+\skip_set:Nn \intextsep { 10 bp }
+
+\ExplSyntaxOff
 
 % 由于 LaTeX2e kernel 的问题，图表等浮动体与文字前后的距离不一致，需要进行 patch。
 % 参考 \href{https://github.com/tuna/thuthesis/issues/614}{tuna/thuthesis/issues\#614}、
