@@ -2830,31 +2830,39 @@
     \hbox_to_wd:nn { 2 em } { \hss \@makefnmark } #1
   }
 
-\ExplSyntaxOff
-
 
 % \subsection{列表}
 % \label{sec:list}
 
 % 调整列表中各项之间过大的间距。
-\setlength\partopsep{0bp}
-\newcommand\ustc@nolistsep{%
-  \parsep 0\p@ \@plus.2\p@
-  \topsep 0\p@ \@plus.2\p@
-  \itemsep0\p@ \@plus.2\p@
-}
-\def\@listi{\leftmargin\leftmargini
-            \ustc@nolistsep}
-\let\@listI\@listi
+\skip_set:Nn \partopsep { 0bp }
+\cs_new_nopar:Npn \__ustc_no_list_sep:
+  {
+    \skip_set:Nn \parsep { 0 \p@ \@plus .2 \p@ }
+    \skip_set:Nn \topsep { 0 \p@ \@plus .2 \p@ }
+    \skip_set:Nn \itemsep { 0 \p@ \@plus .2 \p@ }
+  }
+\cs_set_nopar:Npn \@listi
+  {
+    \leftmargin\leftmargini
+    \__ustc_no_list_sep:
+  }
+\cs_set_eq:NN \@listI \@listi
 \@listi
-\def\@listii {\leftmargin\leftmarginii
-              \labelwidth\leftmarginii
-              \advance\labelwidth-\labelsep
-              \ustc@nolistsep}
-\def\@listiii{\leftmargin\leftmarginiii
-              \labelwidth\leftmarginiii
-              \advance\labelwidth-\labelsep
-              \ustc@nolistsep}
+\cs_set:Npn \@listii
+  {
+    \skip_set_eq:NN \leftmargin \leftmarginii
+    \skip_set:Nn \labelwidth { \leftmarginii - \labelsep }
+    \__ustc_no_list_sep:
+  }
+\cs_set:Npn \@listiii
+  {
+    \skip_set_eq:NN \leftmargin \leftmarginiii
+    \skip_set:Nn \labelwidth { \leftmarginiii - \labelsep }
+    \__ustc_no_list_sep:
+  }
+
+\ExplSyntaxOff
 
 
 % \subsection{浮动体}
