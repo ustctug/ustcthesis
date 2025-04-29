@@ -2732,31 +2732,32 @@
     \@starttoc { lot }
   }
 
-\ExplSyntaxOff
-
 
 % \subsection{符号说明}
 
 % 研究生规定符号说明另页起，标题字体字号等同论文正文，
-\newenvironment{notation}{%
-  \ustc@chapter{\ustc@notation@name}%
-}{}%
+\NewDocumentEnvironment { notation } { }
+  { \ustc@chapter { \ustc@notation@name } }
+  { }
 
-\newcommand*\notationlabel[1]{#1\hfil}%
-\newenvironment{notationlist}[1]{%
-  \list{}{%
-    \itemsep 3bp%
-    \labelwidth #1\relax%
-    \labelsep 1em%
-    \leftmargin\labelwidth
-    \advance\leftmargin\labelsep
-    \advance\leftmargin 3em%
-    \rightmargin 3em%
-    \let\makelabel\notationlabel
-  }%
-}{%
-  \endlist
-}
+\cs_set_nopar:Npn \notationlabel #1 { #1 \hfil }
+\NewDocumentEnvironment { notationlist } { m }
+  {
+    \list { }
+      {
+        \dim_set:Nn \itemsep { 3 bp }
+        \dim_set:Nn \labelwidth {#1}
+        \dim_set:Nn \labelsep { 1 em }
+        \dim_set_eq:NN \leftmargin \labelwidth
+        \dim_add:Nn \leftmargin { \labelsep }
+        \dim_add:Nn \leftmargin { 3em }
+        \dim_set:Nn \rightmargin { 3em }
+        \cs_set_eq:NN \makelabel \notationlabel
+      }
+  }
+  { \endlist }
+
+\ExplSyntaxOff
 
 
 % \subsection{正文}
