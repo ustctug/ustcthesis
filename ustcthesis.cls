@@ -3055,24 +3055,30 @@
   {}{\ustc@patch@error{\@getpen}}
 
 
-% \subsection{表达式}
+\ExplSyntaxOn
+
+% \subsection{数学史}
 
 % 修改 `amsmath` 的 `\tagform@`
 % \def\tagform@#1{\maketag@@@{(\ignorespaces#1\unskip\@@italiccorr)}}
-\def\tagform@#1{%
-  \ifustc@language@chinese
-    \ifustc@eqn@paren@style@full
-      % 这里的 `\unskip` 是为了 `式~\eqref` 不产生额外的空格。
-      \unskip
-      % \kern 0pt 防止中文左括号与前面文字的距离过窄
-      \maketag@@@{\kern 0pt\relax （\ignorespaces#1\unskip\@@italiccorr）}%
+\cs_set_nopar:Npn \tagform@ #1
+  {
+    \ifustc@language@chinese
+      \ifustc@eqn@paren@style@full
+        % 这里的 `\unskip` 是为了 `式~\eqref` 不产生额外的空格。
+        \unskip
+        % \kern 0pt 防止中文左括号与前面文字的距离过窄
+        \maketag@@@
+          { \kern 0pt \relax （ \ignorespaces #1 \unskip \@@italiccorr ） }
+      \else
+        \maketag@@@ { ( \ignorespaces #1 \unskip \@@italiccorr ) }
+      \fi
     \else
-      \maketag@@@{(\ignorespaces#1\unskip\@@italiccorr)}%
+      \maketag@@@ { ( \ignorespaces #1 \unskip \@@italiccorr ) }
     \fi
-  \else
-    \maketag@@@{(\ignorespaces#1\unskip\@@italiccorr)}%
-  \fi
-}
+  }
+
+\ExplSyntaxOff
 
 % \subsection{参考文献}
 
