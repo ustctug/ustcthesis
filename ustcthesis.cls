@@ -1662,6 +1662,13 @@
     \fi
   }
 
+% 本科生要求目录中正文每章前多空一行，而目录、附录等章则不需要空行，
+% 所以不能简单判断 \cs{if@mainmatter}，需要重新定义 \cs{mainmatter} 等命令。
+\bool_new:N \l__ustc_add_toc_space_bool
+\ifustc@degree@bachelor
+  \bool_set_true:N \l__ustc_add_toc_space_bool
+\fi
+
 % 研究生从“摘要”开始页码用 罗马数字，
 % 而本科生摘要页只有页眉，从目录页才开始编页码。
 \cs_set:Npn \frontmatter
@@ -1673,6 +1680,7 @@
       \pagestyle { plain }
     \else
       \pagestyle { headings }
+      \bool_set_false:N \l__ustc_add_toc_space_bool
     \fi
   }
 
@@ -1684,15 +1692,31 @@
       \pagenumbering { arabic }
     \else
       \clearpage
+      \bool_set_true:N \l__ustc_add_toc_space_bool
     \fi
     \pagestyle { plain }
     \@mainmattertrue
   }
 
-\cs_new_eq:NN \__ustc_save_appendix: \appendix \cs_set_protected:Npn \appendix
+\cs_new_eq:NN \__ustc_save_appendix: \appendix
+\cs_set_protected:Npn \appendix
   {
     \__ustc_save_appendix:
     \@mainmattertrue
+    \bool_set_false:N \l__ustc_add_toc_space_bool
+  }
+
+\cs_set:Npn \backmatter
+  {
+    \if@openright
+      \cleardoublepage
+    \else
+      \clearpage
+    \fi
+    \@mainmatterfalse
+    \ifustc@degree@bachelor
+      \bool_set_false:N \l__ustc_add_toc_space_bool
+    \fi
   }
 
 \ExplSyntaxOff
@@ -2476,6 +2500,24 @@
   \fi
 \fi
 
+% 处理本科生在目录中添加空行。
+\cs_set:Npn \chapter
+  {
+    \if@openright
+      \cleardoublepage
+    \else
+      \clearpage
+    \fi
+    \thispagestyle { \CTEX@chapter@pagestyle }
+    \int_gzero:N \@topnum
+    \@afterindenttrue
+    \ifustc@degree@bachelor
+      \bool_if:NT \l__ustc_add_toc_space_bool
+        { \addtocontents { toc } { \protect \addvspace { 12 bp } } }
+    \fi
+    \secdef \@chapter \@schapter
+  }
+
 % 默认的 \cs{chapter*} 生成的章标题没有编号、不更改页眉，
 % 也不添加进目录或 PDF 书签。
 % 然而像摘要、目录、符号说明这样的章节，它们不需要编号、不加入目录，
@@ -2597,118 +2639,100 @@
   }
   { \end { abstract* } }
 
-\ExplSyntaxOff
-
 
 % \subsection{目录}
 
 % 研究生规定目录另面起；
 % 本科生规定从目录开始编页码，所以必须另页起。
-\renewcommand\tableofcontents{%
-  \ifustc@degree@bachelor
-    \cleardoublepage
-    \pagenumbering{arabic}%
-    \pagestyle{plain}%
-  \fi
-  \ustc@chapter{\contentsname}%
-  \@starttoc{toc}%
-}
+\cs_set:Npn \tableofcontents
+  {
+    \ifustc@degree@bachelor
+      \cleardoublepage
+      \pagenumbering { arabic }
+      \pagestyle { plain }
+    \fi
+    \ustc@chapter { \contentsname }
+    \@starttoc { toc }
+  }
 
 % 下面用 \pkg{titletoc} 宏包设置目录内容的格式。
 % 先定义目录线：
-\newcommand\ustc@leaders{%
-  \hspace{2bp}%
-  \titlerule*[4bp]{.}%
-  \hspace{2bp}%
-}
+\cs_new:Npn \__ustc_leaders:
+  {
+    \skip_horizontal:n { 2 bp }
+    \titlerule* [ 4 bp ] { . }
+    \skip_horizontal:n { 2 bp }
+  }
 
-\contentsmargin{0bp}
+\contentsmargin { 0 bp }
 
 % 目录中的章标题行采用黑体小四号字，固定行距 20 磅，段前 6 磅，段后 0 磅；
 % 其他内容采用宋体小四号字，行距 20 磅，段前、段后均为 0 磅。
 % 章标题行居左书写，一级节标题行缩进 1 个汉字符，二级节标题行缩进 2 个汉字符。
 % 带有序号的各级标题，其序号与题名之间均空一字符，行末右顶格。
 \ifustc@degree@graduate
-  \titlecontents{chapter}
-    [0bp]{\addvspace{6bp}\heiti}
-    {\contentspush{\thecontentslabel\quad}}{}
-    {\bfseries\ustc@leaders\thecontentspage}
-  \titlecontents{section}
-    [1em]{}
-    {\contentspush{\thecontentslabel\quad}}{}
-    {\ustc@leaders\thecontentspage}
-  \titlecontents{subsection}
-    [2em]{}
-    {\contentspush{\thecontentslabel\quad}}{}
-    {\ustc@leaders\thecontentspage}
+  \titlecontents { chapter }
+    [ 0 bp ] { \addvspace { 6 bp } \heiti }
+    { \contentspush { \thecontentslabel \quad } } { }
+    { \bfseries \__ustc_leaders: \thecontentspage }
+  \titlecontents { section }
+    [ 1 em ] { }
+    { \contentspush { \thecontentslabel \quad } } { }
+    { \__ustc_leaders: \thecontentspage }
+  \titlecontents { subsection }
+    [ 2 em ] { }
+    { \contentspush { \thecontentslabel \quad } } { }
+    { \__ustc_leaders: \thecontentspage }
 \else
   % 本科生的目录使用小四宋体（同正文字体），其他同研究生的格式相近。
-  \titlecontents{chapter}
-    [0bp]{}
-    {\contentspush{\thecontentslabel\quad}}{}
-    {\ustc@leaders\thecontentspage}
-  \titlecontents{section}
-    [1em]{}
-    {\contentspush{\thecontentslabel\quad}}{}
-    {\ustc@leaders\thecontentspage}
-  \titlecontents{subsection}
-    [2em]{}
-    {\contentspush{\thecontentslabel
-      \ifustc@section@style@arabic\quad\else 、\fi}}{}
-    {\ustc@leaders\thecontentspage}
+  \titlecontents { chapter }
+    [ 0 bp ] { }
+    { \contentspush { \thecontentslabel \quad } } { }
+    { \__ustc_leaders: \thecontentspage }
+  \titlecontents { section }
+    [ 1 em ] { }
+    { \contentspush { \thecontentslabel \quad } } { }
+    { \__ustc_leaders: \thecontentspage }
+  \titlecontents { subsection }
+    [ 2 em ] { }
+    {
+      \contentspush
+        { \thecontentslabel \ifustc@section@style@arabic \quad \else 、 \fi }
+    } { }
+    { \__ustc_leaders: \thecontentspage }
 \fi
-
-% 本科生要求目录中正文每章前多空一行，而目录、附录等章则不需要空行，
-% 所以不能简单判断 \cs{if@mainmatter}，需要重新定义 \cs{mainmatter} 等命令。
-\newif\ifustc@addtocspace
-\ifustc@degree@bachelor
-  \ustc@addtocspacetrue
-  \g@addto@macro\frontmatter{\ustc@addtocspacefalse}%
-  \g@addto@macro\mainmatter{\ustc@addtocspacetrue}%
-  \g@addto@macro\backmatter{\ustc@addtocspacefalse}%
-  \g@addto@macro\appendix{\ustc@addtocspacefalse}%
-\fi
-
-% 处理本科生在目录中添加空行。
-\renewcommand\chapter{%
-  \if@openright\cleardoublepage\else\clearpage\fi
-  \thispagestyle{\CTEX@chapter@pagestyle}%
-  \global\@topnum\z@
-  \@afterindenttrue
-  \ifustc@degree@bachelor
-    \ifustc@addtocspace
-      \addtocontents{toc}{\protect\addvspace{12bp}}%
-    \fi
-  \fi
-  \secdef\@chapter\@schapter
-}
 
 % 插图和附表清单
-\titlecontents{figure}
-  [0bp]{}
-  {\contentspush{\figurename~\thecontentslabel\quad}}{}
-  {\ustc@leaders\thecontentspage}
+\titlecontents { figure }
+  [ 0 bp ] { }
+  { \contentspush { \figurename \nobreakspace \thecontentslabel \quad } } { }
+  { \__ustc_leaders: \thecontentspage }
 
-\titlecontents{table}
-  [0bp]{}
-  {\contentspush{\tablename~\thecontentslabel\quad}}{}
-  {\ustc@leaders\thecontentspage}
+\titlecontents { table }
+  [ 0 bp ] { }
+  { \contentspush { \tablename \nobreakspace \thecontentslabel \quad } } { }
+  { \__ustc_leaders: \thecontentspage }
 
-\renewcommand\listoffigures{%
-  \ustc@chapter{\listfigurename}%
-  \@starttoc{lof}%
-}
+\cs_set:Npn \listoffigures
+  {
+    \ustc@chapter { \listfigurename }
+    \@starttoc { lof }
+  }
 
-\renewcommand\listoftables{%
-  \ustc@chapter{\listtablename}%
-  \@starttoc{lot}%
-}
+\cs_set:Npn \listoftables
+  {
+    \ustc@chapter { \listtablename }
+    \@starttoc { lot }
+  }
 
-\newcommand\listoffiguresandtables{%
-  \ustc@chapter{\ustc@list@figure@table@name}%
-  \@starttoc{lof}%
-  \@starttoc{lot}%
-}
+\cs_new:Npn \listoffiguresandtables
+  {
+    \ustc@chapter { \ustc@list@figure@table@name }
+    \@starttoc { lof }
+    \@starttoc { lot }
+  }
+
+\ExplSyntaxOff
 
 
 % \subsection{符号说明}
@@ -3638,7 +3662,7 @@
   \titlecontents{algocf}
     [2.3em]{\normalsize}
     {\contentslabel{2.3em}}{}
-    {\ustc@leaders\contentspage}
+    {\__ustc_leaders:\contentspage}
   \contentsuse{algocf}{loa}
 }
 
