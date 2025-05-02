@@ -3078,39 +3078,49 @@
     \fi
   }
 
-\ExplSyntaxOff
-
 % \subsection{参考文献}
 
-\PassOptionsToPackage{compress}{natbib}
+\PassOptionsToPackage { compress } { natbib }
+
+\hook_gput_code:nnn { package / natbib / after } { . }
+  {
+    % 定义几种引用文献的标注样式。
+    \cs_new:Npn \bibstyle@super
+      { \bibpunct { [ } { ] } { , } { s } { , } { \textsuperscript { , } } }
+    \cs_new:Npn \bibstyle@inline
+      { \bibpunct { [ } { ] } { , } { n } { , } { , } }
+    \cs_new:Npn \bibstyle@authoryear
+      { \bibpunct { ( } { ) } { ; } { a } { , } { , } }
+    \cs_new_eq:cN { bibstyle@author-year } \bibstyle@authoryear
+    %
+    % 几种引用样式，与 \file{bst} 文件名保持一致，
+    % 这样在使用 \cs{bibliographystyle} 选择参考文献表的样式时也会设置对应的引用样式。
+    \cs_new_eq:cN { bibstyle@ustcthesis-numerical } \bibstyle@super
+    \cs_new_eq:cN { bibstyle@ustcthesis-authoryear } \bibstyle@authoryear
+    \cs_new_eq:cN { bibstyle@ustcthesis-bachelor } \bibstyle@super
+    %
+    % 如果载入 `natbib` 前设置了 `cite-style`，这里先进行配置。
+    % https://github.com/ustctug/ustcthesis/issues/327
+    \tl_if_empty:NF \ustc@cite@style
+      { \citestyle { \ustc@cite@style } }
+    %
+    % 定义接口 cite-style 切换引用样式。
+    \ustc@option@hook { cite-style } { \citestyle { \ustc@cite@style } }
+    %
+    % 如果文献序号作为叙述文字的一部分，需要临时将文献序号与正文平排
+    \DeclareRobustCommand \inlinecite { \@inlinecite }
+    \cs_new:Npn \@inlinecite #1
+      {
+        \group_begin:
+          \cs_set_eq:NN \@cite \NAT@citenum
+          \citep {#1}
+        \group_end:
+      }
+  }
+
+\ExplSyntaxOff
 
 \AtEndOfPackageFile*{natbib}{
-  % 定义几种引用文献的标注样式。
-  \newcommand\bibstyle@super{\bibpunct{[}{]}{,}{s}{,}{\textsuperscript{,}}}
-  \newcommand\bibstyle@inline{\bibpunct{[}{]}{,}{n}{,}{,}}
-  \newcommand\bibstyle@authoryear{\bibpunct{(}{)}{;}{a}{,}{,}}
-  \@namedef{bibstyle@author-year}{\bibstyle@authoryear}
-  %
-  % 几种引用样式，与 \file{bst} 文件名保持一致，
-  % 这样在使用 \cs{bibliographystyle} 选择参考文献表的样式时也会设置对应的引用样式。
-  \@namedef{bibstyle@ustcthesis-numerical}{\bibstyle@super}
-  \@namedef{bibstyle@ustcthesis-authoryear}{\bibstyle@authoryear}
-  \@namedef{bibstyle@ustcthesis-bachelor}{\bibstyle@super}
-  %
-  % 如果载入 `natbib` 前设置了 `cite-style`，这里先进行配置。
-  % https://github.com/ustctug/ustcthesis/issues/327
-  \ifx\ustc@cite@style\@empty\else
-    \citestyle{\ustc@cite@style}%
-  \fi
-  %
-  % 定义接口 cite-style 切换引用样式。
-  \ustc@option@hook{cite-style}{%
-    \citestyle{\ustc@cite@style}%
-  }
-  %
-  % 如果文献序号作为叙述文字的一部分，需要临时将文献序号与正文平排
-  \DeclareRobustCommand\inlinecite{\@inlinecite}
-  \def\@inlinecite#1{\begingroup\let\@cite\NAT@citenum\citep{#1}\endgroup}
   %
   % 修改引用的样式。
   % 这里在 filehook 中无法使用 \cs{patchcmd}，所以只能手动重定义。
@@ -3153,7 +3163,6 @@
     \endgroup
   }
   %
-  % 在 filehook 中无法使用 \cs{patchcmd}，所以只能手动重定义。
   \def\NAT@citexnum[#1][#2]#3{%
     \NAT@reset@parser
     \NAT@sort@cites{#3}%
@@ -3350,66 +3359,80 @@
         \if\relax\NAT@date\relax\else\NAT@@close\fi
         \if*#2*\else\textsuperscript{#2}\fi
       \fi}{#1}{#2}}
-  %
-  % 为了将参考文献加入目录和 pdf 书签，重新定义 \pkg{natbib} 的 \cmd{bibsection}
-  % 另外如果调用了 \pkg{chapterbib} 或者使用了 \opt{sectionbib} 参数，
-  % 需要使用节标题 \cs{section}。
-  \newcommand\ustc@bib@chapter{%
-    \@mainmatterfalse
-    \chapter{\bibname}%
-  }%
-  \newcommand\ustc@bib@section{%
-    \begingroup
-      \ctexset{section/numbering=false}%
-      \section{\bibname}%
-    \endgroup
-  }%
-  \@ifpackagewith{chapterbib}{sectionbib}{%
-    \ustc@error{The "sectionbib" option cannot be used with chaperbib if natbib loaded}%
-  }{}%
-  \@ifpackageloaded{chapterbib}{%
-    \let\bibsection\ustc@bib@section
-  }{%
-    \@ifxundefined\NAT@sectionbib{%
-      \let\bibsection\ustc@bib@chapter
-    }{%
-      \let\bibsection\ustc@bib@section
-    }%
-  }%
-  %
-  % 参考文献列表格式：宋体 10.5 磅，行距 20 磅，续行缩进两字，左对齐。
-  % 本科生依然是小四宋体。
-  \renewcommand\bibfont{%
-    \ifustc@degree@graduate
-      \fontsize{10.5bp}{20bp}\selectfont
-    \else
-      \normalsize
-    \fi
   }
-  \setlength{\bibsep}{0\p@ \@plus.2\p@}
-  \renewcommand\@biblabel[1]{[#1]\hfill}
-  \setlength{\bibhang}{2em}
-}
+
+\ExplSyntaxOn
+
+\hook_gput_code:nnn { package / natbib / after } { . }
+  {
+    % 为了将参考文献加入目录和 pdf 书签，重新定义 \pkg{natbib} 的 \cmd{bibsection}
+    % 另外如果调用了 \pkg{chapterbib} 或者使用了 \opt{sectionbib} 参数，
+    % 需要使用节标题 \cs{section}。
+    \cs_new:Npn \__ustc_bib_chapter:
+      {
+        \@mainmatterfalse
+        \chapter { \bibname }
+      }
+    \cs_new:Npn \__ustc_bib_section:
+      {
+        \group_begin:
+          \ctexset { section / numbering = false }
+          \section { \bibname }
+        \group_end:
+      }
+    \@ifpackagewith { chapterbib } { sectionbib }
+      { \msg_error:nn { ustcthesis } { sectionbib-before-chapterbib } }
+      { }
+    \msg_new:nnn { ustcthesis } { sectionbib-before-ustcthesis }
+      { The~ 'sectionbib'~ option~ cannot~ be~ used~ with~ chaperbib~ if~ natbib~ loaded }
+    \@ifpackageloaded { chapterbib }
+      { \cs_set_eq:NN \bibsection \__ustc_bib_section: }
+      {
+        \@ifxundefined \NAT@sectionbib
+          { \cs_set_eq:NN \bibsection \__ustc_bib_chapter: }
+          { \cs_set_eq:NN \bibsection \__ustc_bib_section: }
+      }
+    %
+    % 参考文献列表格式：宋体 10.5 磅，行距 20 磅，续行缩进两字，左对齐。
+    % 本科生依然是小四宋体。
+    \cs_set_nopar:Npn \bibfont
+      {
+        \ifustc@degree@graduate
+          \fontsize { 10.5 bp } { 20 bp } \selectfont
+        \else
+          \normalsize
+        \fi
+      }
+    \skip_set:Nn \bibsep { 0 pt plus .2 pt }
+    \cs_set_nopar:Npn \@biblabel #1 { [ #1 ] \hfill }
+    \skip_set:Nn \bibhang { 2 em }
+  }
 
 
 % biblatex 宏包的配置
 
-\AtEndOfPackageFile*{biblatex}{
-  \DeclareRobustCommand\inlinecite{\parencite}
-  \defbibheading{bibliography}[\bibname]{%
-    \@mainmatterfalse
-    \chapter{\bibname}%
+\hook_gput_code:nnn { package / biblatex / after } { . }
+  {
+    \NewDocumentCommand \inlinecite { m } { \parencite }
+    \defbibheading { bibliography } [ \bibname ]
+      {
+        \@mainmatterfalse
+        \chapter { \bibname }
+      }
+    \cs_set_nopar:Npn \bibfont
+      {
+        \ifustc@degree@graduate
+          \fontsize { 10.5 bp } { 20 bp } \selectfont
+        \else
+          \normalsize
+        \fi
+      }
+    \skip_set:Nn \bibitemsep { 0pt plus .2pt }
+    \skip_set:Nn \bibhang { 2 em }
   }
-  \renewcommand\bibfont{%
-    \ifustc@degree@graduate
-      \fontsize{10.5bp}{20bp}\selectfont
-    \else
-      \normalsize
-    \fi
-  }
-  \setlength{\bibitemsep}{0\p@ \@plus.2\p@}
-  \setlength{\bibhang}{2em}
-}
+
+\ExplSyntaxOff
+
 
 % \subsection{附录}
 
