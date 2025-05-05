@@ -1554,15 +1554,15 @@
 
 % 纸张大小：标准A4（21.0cm×29.7cm）尺寸。
 % 页边距：上、下、左、右、装订线的页边距分别为：2.54cm，2.54cm，3.17cm，3.17cm，0cm。装订线位置：左。左右对称页边距。
-% 页眉距边界2.0cm
-% 页脚距边界1.75cm
-% Word 模板中，页眉线是跟版心上边缘重合的，所以 headsep 设为 1pt，防止页眉线与版心内容重叠（#413）。
+% 页眉距边界 2.0cm
+% 页脚距边界 1.5cm
+% headheight 为 14.65 bp ≈ 0.49 cm，headsep 为 2.54 - 1.5 - 0.49 = 0.55 cm。
 \geometry{
   paper      = a4paper,
   vmargin    = 2.54cm,
   hmargin    = 3.17cm,
-  headheight = 0.54cm,
-  headsep    = 1pt,
+  headheight = 0.49cm,
+  headsep    = 0.55cm,
   footskip   = 0.79cm,
 }
 
@@ -1579,7 +1579,7 @@
   % 页眉与该部分的章标题相同，宋体 10.5 磅（五号）居中。
   % 页码：宋体 10.5 磅、页面下脚居中。
   \ifustc@degree@graduate
-    \def\ustc@hf@font{\fontsize{10.5bp}{12bp}\selectfont}
+    \def\ustc@hf@font{\fontsize{10.5bp}{13.65bp}\selectfont}
     \fancyhead[C]{\ustc@hf@font\leftmark}%
     \fancyfoot[C]{\ustc@hf@font\thepage}%
     \let\@mkboth\markboth
@@ -1592,7 +1592,7 @@
     % 本科生要求除封面、扉页外，每面上部加页眉，
     % 用小 5 号字（9 bp）标注“中国科学技术大学本科毕业论文”，居中；
     % 从目录页开始在每面底部居中用小五宋体（9 bp）连续编页码。
-    \def\ustc@hf@font{\fontsize{9bp}{12bp}\selectfont}
+    \def\ustc@hf@font{\fontsize{9bp}{11.7bp}\selectfont}
     \fancyhead[C]{\ustc@hf@font 中国科学技术大学本科毕业论文}%
     \fancyfoot[C]{\ustc@hf@font\thepage}%
     \let\@mkboth\@gobbletwo

@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- 页眉距离边界改为 1.5 cm（[#413](https://github.com/ustctug/ustcthesis/issues/413)）。
+
 ## [4.0.0-beta.8] - 2025-04-16
 
 ### Changed
