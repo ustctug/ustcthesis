@@ -2743,13 +2743,13 @@
 % 表题置于表的上方，采用宋体，加粗，字号11pt，居中书写，单倍行距，段前6磅，段后0磅。
 % 表序与表名之间空一个汉字符。
 
-% 本科生：图全文要分别统一编号或按章编号，标题用小四宋体:
+% 本科生：表格、插图标题用小四宋体，Word 模板中行距为 22 pt。
 
 % 使用 \pkg{caption} 宏包设置图、表的格式：
 \DeclareCaptionFont{ustc}{\ustc@caption@font}
 \newcommand\ustc@caption@font{%
   \ifustc@degree@bachelor
-    \fontsize{12bp}{14.4bp}\selectfont
+    \fontsize{12bp}{22bp}\selectfont
   \else
     \ifustc@language@chinese
       \fontsize{11bp}{14.3bp}\selectfont
