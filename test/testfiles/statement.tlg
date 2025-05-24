@@ -886,7 +886,7 @@ Completed box being shipped out [1]
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 8.17455
-...\hbox(9.636+3.97446)x417.11752, glue set 252.83708fil
+...\hbox(9.636+3.97446)x417.11752, glue set 249.92085fil
 ....\hbox(0.0+0.0)x24.09
 ....\hbox(7.97379+1.9031)x0.0, glue set - 10.96095fil
 .....\mathon
@@ -899,15 +899,17 @@ Completed box being shipped out [1]
 ......\mathon
 ......\TU/XITSMath-Regular(1)/m/n/12.045 glyph#1752
 ......\mathoff
+....\glue 3.01125 plus 1.50562 minus 1.00374
 ....\TU/FandolSong(0)/m/n/12.045 公
 ....\glue 0.0 plus 0.61353
 ....\TU/FandolSong(0)/m/n/12.045 开
 ....\kern -0.00017
 ....\kern 0.00017
 ....\glue 12.045
-....\mathon
-....\TU/XITSMath-Regular(1)/m/n/12.045 glyph#1600
-....\mathoff
+....\hbox(7.97379+1.9031)x10.96095
+.....\mathon
+.....\TU/XITSMath-Regular(1)/m/n/12.045 glyph#1600
+.....\mathoff
 ....\glue 3.01125 plus 1.50562 minus 1.00374
 ....\TU/FandolSong(0)/m/n/12.045 控
 ....\glue 0.0 plus 0.61353
@@ -923,9 +925,9 @@ Completed box being shipped out [1]
 ....\penalty 10000
 ....\glue 0.0
 ....\mathon
-....\vbox(0.0+3.97446)x24.18501
-.....\hbox(0.0+0.0)x24.18501
-......\hbox(0.0+0.0)x24.18501, glue set 12.09251fil
+....\vbox(0.0+3.97446)x24.09
+.....\hbox(0.0+0.0)x24.09
+......\hbox(0.0+0.0)x24.09, glue set 12.045fil
 .......\glue 0.0 plus 1.0fil minus 1.0fil
 .......\glue 0.0 plus 1.0fil minus 1.0fil
 .....\kern2.38467
