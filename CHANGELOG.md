@@ -15,6 +15,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - 本科生表格、插图标题按照 Word 模板使用 22 pt 行距。
 - 本科生表格内容使用 1.5 倍行距。
+- 修正“关键词”的格式。
 
 ## [4.0.0-beta.8] - 2025-04-16
 

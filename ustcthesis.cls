@@ -2478,7 +2478,7 @@
   \par\null\par
   \setlength\hangindent{4em}%
   \noindent
-  \textbf{关键词}：\ustc@keywords@text\par
+  \textbf{关键词：}\ustc@keywords@text\par
   \ustc@reset@main@language
 }
 
@@ -2486,8 +2486,6 @@
 \newlength\ustc@keywords@width
 
 % 英文摘要环境
-\newcommand\ustc@keywords@label{KEY WORDS}%
-
 \newenvironment{abstract*}{%
   \ustcsetup{language=english}%
   \ifustc@degree@graduate
@@ -2509,12 +2507,14 @@
   \fi
 }{
   \par\null\par
-  \ifustc@degree@bachelor
-    \renewcommand\ustc@keywords@label{Key Words}%
-  \fi
   \setlength\hangindent{6.5em}%
   \noindent
-  \textbf{\ustc@keywords@label}: \ustc@keywords@en@text\par
+  \ifustc@degree@bachelor
+    \textbf{Key Words:}\space
+  \else
+    \textbf{KEY WORDS}:\space
+  \fi
+  \ustc@keywords@en@text\par
   \ustc@reset@main@language
 }
 
