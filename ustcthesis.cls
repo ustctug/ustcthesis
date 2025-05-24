@@ -2262,8 +2262,13 @@
 
 % \subsection{章节标题}
 
-% 标题最多允许使用五级。
-\setcounter{secnumdepth}{5}
+% 研究生一般不建议使用三级节标题，不得使用三级以下节标题。
+% 本科生允许至四级节标题。
+\ifustc@degree@bachelor
+  \setcounter{secnumdepth}{4}
+\else
+  \setcounter{secnumdepth}{3}
+\fi
 
 % 本科生章题为两字时中间空一字，三字时空半字，四字及以上不空。
 % 这里用 \LaTeX3 的 \cs{\str_count:N} 判断字数。
