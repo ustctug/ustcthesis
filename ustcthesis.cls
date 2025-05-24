@@ -2791,14 +2791,16 @@
 % 对于英文，`\arraystretch` 需要设为 1 + (3pt + 3pt) / (11pt * 1.15) ~= 1.47。
 %
 % 本科生：表格内容用小四宋体或五号宋体选定某种样式后，全文应统一。
+% Word 示例中为 1.5 倍行距，段前段后 0 磅。
+% `\arraystretch` 需要设为 1。
 \newcommand\ustc@table@font{%
   \ifustc@degree@bachelor
     \ifustc@language@chinese
-      \fontsize{10.5bp}{13.65bp}\selectfont
-      \renewcommand\arraystretch{1.44}%
+      \fontsize{10.5bp}{20.475bp}\selectfont
+      \renewcommand\arraystretch{1}%
     \else
-      \fontsize{10.5bp}{12.075bp}\selectfont
-      \renewcommand\arraystretch{1.5}%
+      \fontsize{10.5bp}{18.1125bp}\selectfont
+      \renewcommand\arraystretch{1}%
     \fi
   \else
     \ifustc@language@chinese
