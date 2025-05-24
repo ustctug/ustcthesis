@@ -2370,7 +2370,7 @@
   % 正文中的标题分章、节、段三级；章、节标题居中，段标题居左，
   % 分别用三号（16 bp）黑体、小三（15 bp）黑体、四号（14 bp）黑体。
     chapter = {
-      format = {
+      format = {%
         \centering\sffamily
         \if@mainmatter
           \fontsize{16bp}{29.33bp}\selectfont
