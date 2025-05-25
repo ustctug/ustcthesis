@@ -18,6 +18,9 @@ fontspec
 ulem
 xecjk
 xetex
+# Dependencies for LuaTeX
+chinese-jfm
+lualatex-math
 #
 # Dependencies for ctex
 cjk

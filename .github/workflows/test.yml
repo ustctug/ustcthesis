@@ -19,8 +19,13 @@ jobs:
         with:
           package_file: .github/tl_packages
 
-      - name: Test thesis
+      - name: Test example
         run: make main
+
+      - name: Test example with LuaTeX
+        run: |
+          make clean
+          latexmk -lualatex main.tex
 
       - name: Test doc
         run: make doc

@@ -1924,7 +1924,11 @@
     \vspace{-7bp}%
     \begingroup
       \sffamily\fontsize{54bp}{70.2bp}\selectfont
-      \renewcommand\CJKglue{\hspace{-5.2bp}}%
+      \ifLuaTeX
+        \ltjsetparameter{kanjiskip = {-5.2bp}}%
+      \else
+        \renewcommand\CJKglue{\hspace{-5.2bp}}%
+      \fi
       \ustc@thesis@name\par
     \endgroup
     \parbox[t][0bp][t]{\textwidth}{%
@@ -2112,7 +2116,11 @@
     \vspace{0.8bp}%
     \begingroup
       \sffamily\fontsize{56bp}{72.8bp}\selectfont
-      \renewcommand\CJKglue{\hspace{6.2bp}}%
+      \ifLuaTeX
+        \ltjsetparameter{kanjiskip = {6.2bp}}%
+      \else
+        \renewcommand\CJKglue{\hspace{6.2bp}}%
+      \fi
       本科毕业论文\par
     \endgroup
     \vspace{52bp}%
@@ -2202,7 +2210,11 @@
       中国科学技术大学学位论文原创性声明\par}%
     \vspace{13bp}%
     \begingroup
-      \renewcommand\CJKglue{\hspace{0bp plus .1pt minus .1pt}}%
+      \ifLuaTeX
+        \ltjsetparameter{kanjiskip = {0bp plus .1pt minus .1pt}}%
+      \else
+        \renewcommand\CJKglue{\hspace{0bp plus .1pt minus .1pt}}%
+      \fi
       \ustc@originality\par
     \endgroup
     \vspace{37bp}%
@@ -2214,7 +2226,11 @@
       中国科学技术大学学位论文授权使用声明\par}%
     \vspace{13bp}%
     \begingroup
-      \renewcommand\CJKglue{\hspace{0bp plus .1pt minus .1pt}}%
+      \ifLuaTeX
+        \ltjsetparameter{kanjiskip = {0bp plus .1pt minus .1pt}}%
+      \else
+        \renewcommand\CJKglue{\hspace{0bp plus .1pt minus .1pt}}%
+      \fi
       \ustc@authorization\par
     \endgroup
     \vspace{12bp}%
