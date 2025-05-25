@@ -386,7 +386,7 @@
 \DeclareComplementaryOption{openany}{openright}
 
 % 兼容旧版本的文档类选项。
-% Reserved for compatibility until 2020-07-01.
+% Deprecated since 2020-07-01.
 \DeclareVoidOption{doctor}{\ustcsetup{degree=doctor}}
 \DeclareVoidOption{master}{\ustcsetup{degree=master}}
 \DeclareVoidOption{bachelor}{\ustcsetup{degree=bachelor}}
@@ -1808,7 +1808,7 @@
 
 % 版本 v3.2 开始使用 \cs{ustcsetup} 设置接口，
 % 兼容旧版本的命令式设置。
-% Reserved for compatibility until 2020-07-01.
+% Deprecated since 2020-07-01.
 \def\ustc@define@term#1#2{%
   \expandafter\gdef\csname #1\endcsname##1{%
     \ustc@deprecated{'\expandafter\protect\csname #1\endcsname' command}{2020-07-01}{'\protect\ustcsetup'}%
@@ -2253,7 +2253,7 @@
 \ifustc@degree@bachelor
   \let\copyrightpage\relax
 \fi
-% Reserved for compatibility until 2020-07-01.
+% Deprecated since 2020-07-01.
 \newcommand\makestatement{%
   \ustc@deprecated{'\protect\makestatement' command}{2020-07-01}{'\protect\copyrightpage'}%
   \copyrightpage
@@ -2518,7 +2518,7 @@
   \ustc@reset@main@language
 }
 
-% Reserved for compatibility until 2020-07-01.
+% Deprecated since 2020-07-01.
 \newenvironment{enabstract}{%
   \ustc@deprecated{'enabsctract' environment}{2020-07-01}{'abstract*'}%
   \begin{abstract*}%
@@ -3310,7 +3310,7 @@
 
 
 % 兼容旧版本中“acknowledgments”的拼法。
-% Reserved for compatibility until 2020-07-01.
+% Deprecated since 2020-07-01.
 \newenvironment{acknowledgments}{%
   \begin{acknowledgements}%
 }{%
