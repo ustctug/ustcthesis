@@ -10,6 +10,29 @@
   doi       = false,
 }
 
+\setlength\biblabelsep{0pt}
+
+% 顺序编码制悬挂缩进 2.5 字符
+\defbibenvironment{bibliography}
+  {\list
+     {\printtext[labelnumberwidth]{%
+        \printfield{labelprefix}%
+        \printfield{labelnumber}}}
+     % {\setlength{\labelwidth}{\labelnumberwidth}%
+     %  \setlength{\leftmargin}{\labelwidth}%
+     {\setlength{\labelwidth}{2.5em}%
+      \setlength{\leftmargin}{2.5em}%
+      \setlength{\labelsep}{\biblabelsep}%
+      \addtolength{\leftmargin}{\labelsep}%
+      \setlength{\itemsep}{\bibitemsep}%
+      \setlength{\parsep}{\bibparsep}}%
+      % 参考文献表的编号居左。
+      % \renewcommand*{\makelabel}[1]{\hss##1}}
+      \renewcommand*{\makelabel}[1]{\hss##1}}
+  {\endlist}
+  {\item}
+
+
 \DeclareFieldFormat{sentencecase}{%
   \iftoggle{bbx:titlelink}{%
     \iffieldundef{url}{#1}{%

@@ -5148,12 +5148,12 @@ Completed box being shipped out [9]
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 10.45909
-...\hbox(8.22673+2.71011)x397.07306, glue set - 0.50313, shifted 20.04446
+...\hbox(8.22673+2.71011)x387.00504, glue set - 0.07979, shifted 30.11249
 ....\hbox(8.14243+1.879)x0.0
 .....\glue 0.0
-.....\glue -14.04446
-.....\glue -6.0
-.....\hbox(8.14243+1.879)x14.04446
+.....\glue -30.11249
+.....\glue 0.0
+.....\hbox(8.14243+1.879)x30.11249, glue set 16.06802fill
 ......\special{color push  Black}
 ......\glue 0.0 plus 1.0fil
 ......\glue 0.0 plus 1.0fil
@@ -5162,7 +5162,7 @@ Completed box being shipped out [9]
 ......\kern 0.0002
 ......\glue 0.0 plus 1.0fill
 ......\special{color pop}
-.....\glue 6.0
+.....\glue 0.0
 ....\penalty 0
 ....\TU/texgyretermes(0)/m/n/12.045 KNUTH
 ....\kern -0.0002
@@ -5213,11 +5213,13 @@ Completed box being shipped out [9]
 ....\TU/texgyretermes(0)/m/n/12.045 [M].
 ....\glue 3.01125 plus 1.50562 minus 1.00374
 ....\glue 1.32495 plus 3.97487 minus 0.84323
-....\TU/texgyretermes(0)/m/n/12.045 Reading,
+....\TU/texgyretermes(0)/m/n/12.045 Read-
 ....\glue(\rightskip) 0.0
-...\penalty 14000
+...\penalty 14100
 ...\glue(\baselineskip) 11.13359
-...\hbox(8.23878+2.6258)x397.07306, glue set 230.61119fil, shifted 20.04446
+...\hbox(8.23878+2.6258)x387.00504, glue set 199.12717fil, shifted 30.11249
+....\TU/texgyretermes(0)/m/n/12.045 ing,
+....\glue 3.01125 plus 1.88202 minus 0.80298
 ....\TU/texgyretermes(0)/m/n/12.045 MA,
 ....\glue 3.01125 plus 1.50562 minus 1.00374
 ....\TU/texgyretermes(0)/m/n/12.045 USA:

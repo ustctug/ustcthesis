@@ -2972,6 +2972,39 @@
   \DeclareRobustCommand\inlinecite{\@inlinecite}
   \def\@inlinecite#1{\begingroup\let\@cite\NAT@citenum\citep{#1}\endgroup}
   %
+  % 参考文献列表格式：宋体 10.5 磅，行距 20 磅，续行缩进两字，左对齐。
+  % 本科生依然是小四宋体。
+  \renewcommand\bibfont{%
+    \ifustc@degree@graduate
+      \fontsize{10.5bp}{20bp}\selectfont
+    \else
+      \normalsize
+    \fi
+  }
+  \setlength{\bibsep}{0\p@ \@plus.2\p@}
+  % 参考文献表的编号居左。
+  \renewcommand\@biblabel[1]{[#1]\hfill}
+  % 顺序编码制悬挂缩进 2.5 字符
+  \renewcommand\NAT@bibsetnum[1]{%
+    % \settowidth\labelwidth{\@biblabel{#1}}%
+    % \setlength{\leftmargin}{\labelwidth}%
+    % \addtolength{\leftmargin}{\labelsep}%
+    \setlength{\leftmargin}{2.5em}%
+    \setlength{\itemindent}{0pt}%
+    \setlength{\labelsep}{0pt}%
+    \setlength{\labelwidth}{2.5em}%
+    \setlength{\itemsep}{\bibsep}
+    \setlength{\parsep}{\z@}%
+    \ifNAT@openbib
+      \addtolength{\leftmargin}{\bibindent}%
+      \setlength{\itemindent}{-\bibindent}%
+      \setlength{\listparindent}{\itemindent}%
+      \setlength{\parsep}{0pt}%
+    \fi
+  }
+  % 著者-出版年制悬挂缩进 2 字。注意这个宽度是加载时设置的，不能使用 em。
+  \setlength{\bibhang}{21bp}
+  %
   % 修改引用的样式。
   % 这里在 filehook 中无法使用 \cs{patchcmd}，所以只能手动重定义。
   %
@@ -3236,19 +3269,6 @@
       \let\bibsection\ustc@bib@section
     }%
   }%
-  %
-  % 参考文献列表格式：宋体 10.5 磅，行距 20 磅，续行缩进两字，左对齐。
-  % 本科生依然是小四宋体。
-  \renewcommand\bibfont{%
-    \ifustc@degree@graduate
-      \fontsize{10.5bp}{20bp}\selectfont
-    \else
-      \normalsize
-    \fi
-  }
-  \setlength{\bibsep}{0\p@ \@plus.2\p@}
-  \renewcommand\@biblabel[1]{[#1]\hfill}
-  \setlength{\bibhang}{2em}
 }
 
 
@@ -3268,7 +3288,7 @@
     \fi
   }
   \setlength{\bibitemsep}{0\p@ \@plus.2\p@}
-  \setlength{\bibhang}{2em}
+  \setlength{\bibhang}{21bp}
 }
 
 % \subsection{附录}

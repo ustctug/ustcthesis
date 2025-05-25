@@ -9,6 +9,16 @@
   doi       = false,
   }
 
+\defbibenvironment{bibliography}
+  {\list
+     {}
+     {\setlength{\leftmargin}{\bibhang}%
+      \setlength{\itemindent}{-\leftmargin}%
+      \setlength{\itemsep}{\bibitemsep}%
+      \setlength{\parsep}{\bibparsep}}}
+  {\endlist}
+  {\item}
+
 \DeclareDelimFormat{nameyeardelim}{\addperiod\space}
 \DeclareDelimFormat[bib,biblist]{nameyeardelim}{\addperiod\space}
 

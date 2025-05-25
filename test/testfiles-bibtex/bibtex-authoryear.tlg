@@ -1091,9 +1091,9 @@ Completed box being shipped out [2]
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 8.8561
-...\hbox(8.19963+1.86545)x393.02753, glue set 173.27519fil, shifted 24.09
-....\hbox(0.0+0.0)x-24.09
-.....\glue -24.09
+...\hbox(8.19963+1.86545)x396.03879, glue set 173.27519fil, shifted 21.07874
+....\hbox(0.0+0.0)x-21.07874
+.....\glue -21.07874
 .....\glue -24.0
 .....\glue -6.0
 .....\hbox(0.0+0.0)x24.0, glue set 24.0fill
@@ -1156,9 +1156,9 @@ Completed box being shipped out [2]
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 9.91507
-...\hbox(8.29448+1.98138)x393.02753, glue set 93.0706fil, shifted 24.09
-....\hbox(0.0+0.0)x-24.09
-.....\glue -24.09
+...\hbox(8.29448+1.98138)x396.03879, glue set 93.0706fil, shifted 21.07874
+....\hbox(0.0+0.0)x-21.07874
+.....\glue -21.07874
 .....\glue -24.0
 .....\glue -6.0
 .....\hbox(0.0+0.0)x24.0, glue set 24.0fill
@@ -1237,9 +1237,9 @@ Completed box being shipped out [2]
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 9.83075
-...\hbox(8.26286+1.94977)x393.02753, glue set 110.04953fil, shifted 24.09
-....\hbox(0.0+0.0)x-24.09
-.....\glue -24.09
+...\hbox(8.26286+1.94977)x396.03879, glue set 110.04953fil, shifted 21.07874
+....\hbox(0.0+0.0)x-21.07874
+.....\glue -21.07874
 .....\glue -24.0
 .....\glue -6.0
 .....\hbox(0.0+0.0)x24.0, glue set 24.0fill
@@ -1312,9 +1312,9 @@ Completed box being shipped out [2]
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 10.87415
-...\hbox(7.25108+2.29756)x393.02753, glue set 0.0939, shifted 24.09
-....\hbox(0.0+0.0)x-24.09
-.....\glue -24.09
+...\hbox(7.25108+2.29756)x396.03879, glue set 0.0939, shifted 21.07874
+....\hbox(0.0+0.0)x-21.07874
+.....\glue -21.07874
 .....\glue -24.0
 .....\glue -6.0
 .....\hbox(0.0+0.0)x24.0, glue set 24.0fill
@@ -1371,7 +1371,7 @@ Completed box being shipped out [2]
 ....\glue(\rightskip) 0.0
 ...\penalty 4150
 ...\glue(\baselineskip) 10.80037
-...\hbox(6.97707+0.11592)x393.02753, glue set 368.14407fil, shifted 24.09
+...\hbox(6.97707+0.11592)x396.03879, glue set 371.15533fil, shifted 21.07874
 ....\TU/texgyretermes(0)/m/n/10.53937 Press.
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil
