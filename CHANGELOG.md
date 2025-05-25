@@ -7,13 +7,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [4.0.0-beta.9] - 2025-05-25
+
 ### Changed
 
+- 本科生参考文献的期刊题名不再使用斜体（[#457](https://github.com/ustctug/ustcthesis/pull/457)）。
 - 页眉距离边界改为 1.5 cm（[#413](https://github.com/ustctug/ustcthesis/issues/413)）。
 - 更新参考文献格式。
 
 ### Fixed
 
+- 本科深的空白页不显示显示页码（[#457](https://github.com/ustctug/ustcthesis/pull/458)）。
 - 本科生表格、插图标题按照 Word 模板使用 22 pt 行距。
 - 本科生表格内容使用 1.5 倍行距。
 - 修正“关键词”的格式。
@@ -441,7 +445,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - 优化图注、算法的行距。
 - 二级以下节标题编号下采用“1.”、“(1)”、“①”。
 
-[Unreleased]: https://github.com/ustctug/ustcthesis/compare/v4.0.0-beta.8...HEAD
+[Unreleased]: https://github.com/ustctug/ustcthesis/compare/v4.0.0-beta.9...HEAD
+[4.0.0-beta.9]: https://github.com/ustctug/ustcthesis/compare/v4.0.0-beta.8...v4.0.0-beta.9
 [4.0.0-beta.8]: https://github.com/ustctug/ustcthesis/compare/v4.0.0-beta.7...v4.0.0-beta.8
 [4.0.0-beta.7]: https://github.com/ustctug/ustcthesis/compare/v4.0.0-beta.6...v4.0.0-beta.7
 [4.0.0-beta.6]: https://github.com/ustctug/ustcthesis/compare/v4.0.0-beta.5...v4.0.0-beta.6
