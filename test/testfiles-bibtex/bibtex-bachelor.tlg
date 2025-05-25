@@ -879,7 +879,7 @@ Completed box being shipped out [2]
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 11.22997
-...\hbox(8.22673+2.61375)x387.00504, glue set 0.01782, shifted 30.11249
+...\hbox(8.22673+2.61375)x387.00504, glue set 0.16972, shifted 30.11249
 ....\hbox(8.14243+1.879)x0.0
 .....\glue 0.0
 .....\glue -30.11249
@@ -895,8 +895,8 @@ Completed box being shipped out [2]
 ......\special{color pop}
 .....\glue 0.0
 ....\penalty 0
-....\TU/texgyretermes(0)/m/n/12.045 HUTSON
-....\glue 3.01125 plus 1.5041 minus 1.00473
+....\TU/texgyretermes(0)/m/n/12.045 Hutson
+....\glue 3.01125 plus 1.50562 minus 1.00374
 ....\TU/texgyretermes(0)/m/n/12.045 J
 ....\kern -0.0002
 ....\kern 0.0002
@@ -917,13 +917,11 @@ Completed box being shipped out [2]
 ....\glue 3.01125 plus 1.50562 minus 1.00374
 ....\TU/texgyretermes(0)/m/n/12.045 intermolecular
 ....\glue 3.01125 plus 1.50562 minus 1.00374
-....\TU/texgyretermes(0)/m/n/12.045 poten-
+....\TU/texgyretermes(0)/m/n/12.045 potential
 ....\glue(\rightskip) 0.0
-...\penalty 4250
+...\penalty 4150
 ...\glue(\baselineskip) 11.22995
-...\hbox(8.23878+2.6258)x387.00504, glue set 14.77449fil, shifted 30.11249
-....\TU/texgyretermes(0)/m/n/12.045 tial
-....\glue 3.01125 plus 1.50562 minus 1.00374
+...\hbox(8.23878+2.6258)x387.00504, glue set 33.17924fil, shifted 30.11249
 ....\TU/texgyretermes(0)/m/n/12.045 of
 ....\glue 3.01125 plus 1.50562 minus 1.00374
 ....\TU/texgyretermes(0)/m/n/12.045 argon-hydrogen

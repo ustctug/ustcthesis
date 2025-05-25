@@ -4,13 +4,13 @@
 %%
 %% The original source files were:
 %%
-%% gbt7714.dtx  (with options: `2015,numerical,italic-journal,no-url,no-doi')
+%% gbt7714.dtx  (with options: `2015,ustc,numerical')
 %% -------------------------------------------------------------------
 %% GB/T 7714 BibTeX Style
 %% https://github.com/zepinglee/gbt7714-bibtex-style
-%% Version: 2024/03/08 v2.1.6
+%% Version: 2025/03/11 v2.1.7
 %% -------------------------------------------------------------------
-%% Copyright (C) 2016--2024 by Zeping Lee <zepinglee AT gmail.com>
+%% Copyright (C) 2016--2025 by Zeping Lee <zepinglee AT gmail.com>
 %% -------------------------------------------------------------------
 %% This file may be distributed and/or modified under the
 %% conditions of the LaTeX Project Public License, either version 1.3c
@@ -64,7 +64,7 @@ FUNCTION {load.config}
   #1 'citation.et.al.use.first :=
   #4 'bibliography.et.al.min :=
   #3 'bibliography.et.al.use.first :=
-  #1 'uppercase.name :=
+  #0 'uppercase.name :=
   #0 'terms.in.macro :=
   #0 'year.after.author :=
   #1 'period.after.author :=
@@ -133,7 +133,7 @@ ENTRY
     year
   }
   { entry.lang entry.is.electronic is.pure.electronic entry.numbered }
-  { label extra.label sort.label short.label short.list entry.mark entry.url }
+  { label extra.label sort.label short.list entry.mark entry.url }
 
 INTEGERS { output.state before.all mid.sentence after.sentence after.block after.slash }
 
@@ -1996,10 +1996,10 @@ FUNCTION {misc}
     { pop$
       booktitle empty$ not
         'incollection
-        { publisher empty$ not
-            'monograph
-            { eprint empty$ not archivePrefix empty$ not or
-                'preprint
+        { eprint empty$ not archivePrefix empty$ not or
+            'preprint
+            { publisher empty$ not
+                'monograph
                 { entry.is.electronic
                     'electronic
                     {
@@ -2202,7 +2202,6 @@ FUNCTION {format.lab.name}
 
 FUNCTION {format.lab.names}
 { 's :=
-  s #1 format.lab.name 'short.label :=
   #1 'nameptr :=
   s num.names$ 'numnames :=
   ""
@@ -2288,8 +2287,7 @@ FUNCTION {editor.key.organization.label}
 }
 
 FUNCTION {calc.short.authors}
-{ "" 'short.label :=
-  type$ "book" =
+{ type$ "book" =
   type$ "inbook" = booktitle empty$ not and
   or
     'author.editor.key.label
@@ -2306,10 +2304,6 @@ FUNCTION {calc.short.authors}
     }
   if$
   'short.list :=
-  short.label empty$
-    { short.list 'short.label := }
-    'skip$
-  if$
 }
 
 FUNCTION {calc.label}
@@ -2331,16 +2325,6 @@ FUNCTION {calc.label}
   if$
   *
   'label :=
-  short.label
-  "("
-  *
-  format.year duplicate$ empty$
-  short.list key field.or.null = or
-     { pop$ "" }
-     'skip$
-  if$
-  *
-  'short.label :=
 }
 
 INTEGERS { seq.num }
