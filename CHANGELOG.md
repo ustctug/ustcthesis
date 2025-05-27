@@ -21,7 +21,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
-- 本科深的空白页不显示显示页码（[#457](https://github.com/ustctug/ustcthesis/pull/458)）。
+- 本科生的空白页不显示页码（[#457](https://github.com/ustctug/ustcthesis/pull/458)）。
 - 本科生表格、插图标题按照 Word 模板使用 22 pt 行距。
 - 本科生表格内容使用 1.5 倍行距。
 - 修正“关键词”的格式。
