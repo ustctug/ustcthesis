@@ -2236,10 +2236,10 @@
     \vspace{12bp}%
     \ifx\ustc@secret@level\@empty
       \ustc@checkbox{} 公开\quad
-      \hbox{$\square$} 控阅（\ustc@underline[2em]{}年）\par
+      $\square$ 控阅（\ustc@underline[2em]{}年）\par
     \else
-      \hbox{$\square$} 公开\quad
-      \hbox{\ustc@checkbox{}} 控阅（\ustc@underline[2em]{\ustc@secret@year}年）\par
+      $\square$ 公开\quad
+      \ustc@checkbox{} 控阅（\ustc@underline[2em]{\ustc@secret@year}年）\par
     \fi
     \vspace{29bp}%
     \noindent
