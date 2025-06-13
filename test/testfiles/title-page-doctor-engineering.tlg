@@ -29,7 +29,7 @@ Completed box being shipped out [1]
 ....\special{color pop}
 ..\glue 15.6491
 ..\glue(\lineskip) 0.0
-..\vbox(700.50723+0.0)x417.11752, glue set 96.91718fil
+..\vbox(700.50723+0.0)x417.11752, glue set 90.91782fil
 ...\write-{}
 ...\write-{}
 ...\glue(\topskip) 12.0
@@ -418,7 +418,6 @@ Completed box being shipped out [1]
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0
 ....\glue(\rightskip) 0.0 plus 1.0fil
-...\glue -6.0
 ...\glue 0.0 plus 1.0fil
 ...\glue 0.0
 ...\glue 0.0 plus 0.0001fil
@@ -465,7 +464,7 @@ Completed box being shipped out [3]
 ....\special{color pop}
 ..\glue 15.6491
 ..\glue(\lineskip) 0.0
-..\vbox(700.50723+0.0)x417.11752, glue set 96.20139fil
+..\vbox(700.50723+0.0)x417.11752, glue set 90.20203fil
 ...\glue(\topskip) 12.0
 ...\hbox(0.0+0.0)x417.11752, glue set 208.55876fil
 ....\glue(\leftskip) 0.0 plus 1.0fil
@@ -716,7 +715,6 @@ Completed box being shipped out [3]
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0
 ....\glue(\rightskip) 0.0 plus 1.0fil
-...\glue -6.0
 ...\glue 0.0 plus 1.0fil
 ...\glue 0.0
 ...\glue 0.0 plus 0.0001fil

@@ -64,13 +64,12 @@ Completed box being shipped out [1]
 ....\special{color pop}
 ..\glue 15.6491
 ..\glue(\lineskip) 0.0
-..\vbox(700.50723+0.0)x417.11752, glue set 621.36783fil
+..\vbox(700.50723+0.0)x417.11752, glue set 615.36847fil
 ...\write-{}
 ...\write-{}
 ...\write-{}
-...\marks1{\__mark_id:n {1}插图清单}
-...\marks2{\__mark_id:n {2}}
-...\mark{{插图清单}{}}
+...\marks1{\__mark_value:nn {1}{插图清单}}
+...\marks2{\__mark_value:nn {2}{}}
 ...\write-{}
 ...\glue(\topskip) 12.0
 ...\rule(0.0+0.0)x*
@@ -167,7 +166,6 @@ Completed box being shipped out [1]
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
 ...\penalty 10000
-...\glue -6.0
 ...\glue 0.0 plus 1.0fil
 ...\glue 0.0
 ...\glue 0.0 plus 0.0001fil
@@ -362,7 +360,7 @@ Completed box being shipped out [1]
 ....\special{color pop}
 ..\glue 15.6491
 ..\glue(\lineskip) 0.0
-..\vbox(700.50723+0.0)x417.11752, glue set 375.83075fil
+..\vbox(700.50723+0.0)x417.11752, glue set 373.50632fil
 ...\glue(\topskip) 2.59285
 ...\hbox(9.40715+2.32468)x417.11752, glue set 171.92953fil
 ....\hbox(0.0+0.0)x24.09
@@ -612,7 +610,6 @@ Completed box being shipped out [1]
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
-...\glue -2.32468
 ...\glue 0.0 plus 1.0fil
 ...\glue 0.0
 ...\glue 0.0 plus 0.0001fil

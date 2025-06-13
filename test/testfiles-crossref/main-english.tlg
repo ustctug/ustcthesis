@@ -65,14 +65,13 @@ Completed box being shipped out [1]
 ....\special{color pop}
 ..\glue 15.6491
 ..\glue(\lineskip) 0.0
-..\vbox(700.50723+0.0)x417.11752, glue set 581.24467fil
+..\vbox(700.50723+0.0)x417.11752, glue set 578.92026fil
 ...\write-{}
 ...\write-{}
 ...\write-{}
 ...\write-{}
-...\marks1{\__mark_id:n {1}创新性说明}
-...\marks2{\__mark_id:n {2}}
-...\mark{{创新性说明}{}}
+...\marks1{\__mark_value:nn {1}{创新性说明}}
+...\marks2{\__mark_value:nn {2}{}}
 ...\write-{}
 ...\glue(\topskip) 12.0
 ...\rule(0.0+0.0)x*
@@ -308,7 +307,6 @@ Completed box being shipped out [1]
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
-...\glue -2.32468
 ...\glue 0.0 plus 1.0fil
 ...\glue 0.0
 ...\glue 0.0 plus 0.0001fil
@@ -404,11 +402,10 @@ Completed box being shipped out [2]
 ....\special{color pop}
 ..\glue 15.6491
 ..\glue(\lineskip) 0.0
-..\vbox(700.50723+0.0)x417.11752, glue set 521.02612fil
+..\vbox(700.50723+0.0)x417.11752, glue set 518.81009fil
 ...\write-{}
-...\marks1{\__mark_id:n {3}摘要}
-...\marks2{\__mark_id:n {4}}
-...\mark{{摘要}{}}
+...\marks1{\__mark_value:nn {3}{摘要}}
+...\marks2{\__mark_value:nn {4}{}}
 ...\write-{}
 ...\glue(\topskip) 12.0
 ...\rule(0.0+0.0)x*
@@ -700,7 +697,6 @@ Completed box being shipped out [2]
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
-...\glue -2.21626
 ...\glue 0.0 plus 1.0fil
 ...\glue 0.0
 ...\glue 0.0 plus 0.0001fil
@@ -794,11 +790,10 @@ Completed box being shipped out [3]
 ....\special{color pop}
 ..\glue 15.6491
 ..\glue(\lineskip) 0.0
-..\vbox(700.50723+0.0)x417.11752, glue set 503.36203fil
+..\vbox(700.50723+0.0)x417.11752, glue set 500.73653fil
 ...\write-{}
-...\marks1{\__mark_id:n {5}ABSTRACT}
-...\marks2{\__mark_id:n {6}}
-...\mark{{ABSTRACT}{}}
+...\marks1{\__mark_value:nn {5}{ABSTRACT}}
+...\marks2{\__mark_value:nn {6}{}}
 ...\write-{}
 ...\glue(\topskip) 12.0
 ...\rule(0.0+0.0)x*
@@ -966,7 +961,6 @@ Completed box being shipped out [3]
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
-...\glue -2.6258
 ...\glue 0.0 plus 1.0fil
 ...\glue 0.0
 ...\glue 0.0 plus 0.0001fil
@@ -1062,11 +1056,10 @@ Completed box being shipped out [4]
 ....\special{color pop}
 ..\glue 15.6491
 ..\glue(\lineskip) 0.0
-..\vbox(700.50723+0.0)x417.11752, glue set 338.34067fil
+..\vbox(700.50723+0.0)x417.11752, glue set 332.34131fil
 ...\write-{}
-...\marks1{\__mark_id:n {7}Contents}
-...\marks2{\__mark_id:n {8}}
-...\mark{{Contents}{}}
+...\marks1{\__mark_value:nn {7}{Contents}}
+...\marks2{\__mark_value:nn {8}{}}
 ...\write-{}
 ...\glue(\topskip) 12.0
 ...\rule(0.0+0.0)x*
@@ -1732,7 +1725,6 @@ Completed box being shipped out [4]
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
 ...\penalty 10000
-...\glue -6.0
 ...\glue 0.0 plus 1.0fil
 ...\glue 0.0
 ...\glue 0.0 plus 0.0001fil
@@ -1838,11 +1830,10 @@ Completed box being shipped out [5]
 ....\special{color pop}
 ..\glue 15.6491
 ..\glue(\lineskip) 0.0
-..\vbox(700.50723+0.0)x417.11752, glue set 581.29712fil
+..\vbox(700.50723+0.0)x417.11752, glue set 575.29776fil
 ...\write-{}
-...\marks1{\__mark_id:n {9}List of Figures and Tables}
-...\marks2{\__mark_id:n {10}}
-...\mark{{List of Figures and Tables}{}}
+...\marks1{\__mark_value:nn {9}{List of Figures and Tables}}
+...\marks2{\__mark_value:nn {10}{}}
 ...\write-{}
 ...\glue(\topskip) 12.0
 ...\rule(0.0+0.0)x*
@@ -2002,7 +1993,6 @@ Completed box being shipped out [5]
 ....\glue(\rightskip) 0.0
 ...\penalty 10000
 ...\glue 10.0
-...\glue -6.0
 ...\glue 0.0 plus 1.0fil
 ...\glue 0.0
 ...\glue 0.0 plus 0.0001fil
@@ -2096,11 +2086,10 @@ Completed box being shipped out [6]
 ....\special{color pop}
 ..\glue 15.6491
 ..\glue(\lineskip) 0.0
-..\vbox(700.50723+0.0)x417.11752, glue set 621.39038fil
+..\vbox(700.50723+0.0)x417.11752, glue set 621.25792fil
 ...\write-{}
-...\marks1{\__mark_id:n {11}Notation}
-...\marks2{\__mark_id:n {12}}
-...\mark{{Notation}{}}
+...\marks1{\__mark_value:nn {11}{Notation}}
+...\marks2{\__mark_value:nn {12}{}}
 ...\write-{}
 ...\glue(\topskip) 12.0
 ...\rule(0.0+0.0)x*
@@ -2130,7 +2119,6 @@ Completed box being shipped out [6]
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
-...\glue -0.13248
 ...\glue 0.0 plus 1.0fil
 ...\glue 0.0
 ...\glue 0.0 plus 0.0001fil
@@ -2233,14 +2221,13 @@ Completed box being shipped out [1]
 ....\special{color pop}
 ..\glue 15.6491
 ..\glue(\lineskip) 0.0
-..\vbox(700.50723+0.0)x417.11752, glue set 292.19562fil
+..\vbox(700.50723+0.0)x417.11752, glue set 290.20842fil
 ...\write-{}
 ...\write-{}
 ...\write2{\pp@pagectr{footnote}{1}{\theabspage }{\thepage }}
 ...\write2{\@writefile{toc}{\protect \contentsline {chapter}{\protect \numberline {Chapter 1}引言}{\thepage }{}\protected@file@percent }}
-...\marks1{\__mark_id:n {13}Chapter 1\hskip 1em\relax 引言}
-...\marks2{\__mark_id:n {14}}
-...\mark{{Chapter 1\hskip 1em\relax 引言}{}}
+...\marks1{\__mark_value:nn {13}{Chapter 1\hskip 1em\relax 引言}}
+...\marks2{\__mark_value:nn {14}{}}
 ...\write2{\@writefile{lof}{\protect \addvspace {10.0pt}}}
 ...\write2{\@writefile{lot}{\protect \addvspace {10.0pt}}}
 ...\glue(\topskip) 12.0
@@ -3223,7 +3210,6 @@ Completed box being shipped out [1]
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
-...\glue -1.98741
 ...\glue 0.0 plus 1.0fil
 ...\glue 0.0
 ...\glue 0.0 plus 0.0001fil
@@ -3357,13 +3343,12 @@ Completed box being shipped out [2]
 ....\special{color pop}
 ..\glue 15.6491
 ..\glue(\lineskip) 0.0
-..\vbox(700.50723+0.0)x417.11752, glue set 80.22864fil
+..\vbox(700.50723+0.0)x417.11752, glue set 77.90422fil
 ...\write-{}
 ...\write2{\pp@pagectr{footnote}{2}{\theabspage }{\thepage }}
 ...\write2{\@writefile{toc}{\protect \contentsline {chapter}{\protect \numberline {Chapter 2}内容要素}{\thepage }{}\protected@file@percent }}
-...\marks1{\__mark_id:n {15}Chapter 2\hskip 1em\relax 内容要素}
-...\marks2{\__mark_id:n {16}}
-...\mark{{Chapter 2\hskip 1em\relax 内容要素}{}}
+...\marks1{\__mark_value:nn {15}{Chapter 2\hskip 1em\relax 内容要素}}
+...\marks2{\__mark_value:nn {16}{}}
 ...\write2{\@writefile{lof}{\protect \addvspace {10.0pt}}}
 ...\write2{\@writefile{lot}{\protect \addvspace {10.0pt}}}
 ...\glue(\topskip) 12.0
@@ -4562,7 +4547,6 @@ Completed box being shipped out [2]
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
-...\glue -2.32468
 ...\glue 0.0 plus 1.0fil
 ...\glue 0.0
 ...\glue 0.0 plus 0.0001fil
@@ -4688,7 +4672,7 @@ Completed box being shipped out [3]
 ....\special{color pop}
 ..\glue 15.6491
 ..\glue(\lineskip) 0.0
-..\vbox(700.50723+0.0)x417.11752, glue set 610.1496fil
+..\vbox(700.50723+0.0)x417.11752, glue set 607.82516fil
 ...\write-{}
 ...\glue(\topskip) 1.92638
 ...\hbox(10.07362+2.34875)x417.11752, glue set 338.8251fil
@@ -4864,7 +4848,6 @@ Completed box being shipped out [3]
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
-...\glue -2.32468
 ...\glue 0.0 plus 1.0fil
 ...\glue 0.0
 ...\glue 0.0 plus 0.0001fil
@@ -4971,9 +4954,8 @@ Completed box being shipped out [4]
 ...\write-{}
 ...\write2{\pp@pagectr{footnote}{3}{\theabspage }{\thepage }}
 ...\write2{\@writefile{toc}{\protect \contentsline {chapter}{\protect \numberline {Chapter 3}引用}{\thepage }{}\protected@file@percent }}
-...\marks1{\__mark_id:n {17}Chapter 3\hskip 1em\relax 引用}
-...\marks2{\__mark_id:n {18}}
-...\mark{{Chapter 3\hskip 1em\relax 引用}{}}
+...\marks1{\__mark_value:nn {17}{Chapter 3\hskip 1em\relax 引用}}
+...\marks2{\__mark_value:nn {18}{}}
 ...\write2{\@writefile{lof}{\protect \addvspace {10.0pt}}}
 ...\write2{\@writefile{lot}{\protect \addvspace {10.0pt}}}
 ...\glue(\topskip) 12.0
@@ -5115,12 +5097,11 @@ Completed box being shipped out [5]
 ....\special{color pop}
 ..\glue 15.6491
 ..\glue(\lineskip) 0.0
-..\vbox(700.50723+0.0)x417.11752, glue set 601.31754fil
+..\vbox(700.50723+0.0)x417.11752, glue set 599.02022fil
 ...\write-{}
 ...\write2{\@writefile{toc}{\protect \contentsline {chapter}{Bibliography}{\thepage }{}\protected@file@percent }}
-...\marks1{\__mark_id:n {19}Bibliography}
-...\marks2{\__mark_id:n {20}}
-...\mark{{Bibliography}{}}
+...\marks1{\__mark_value:nn {19}{Bibliography}}
+...\marks2{\__mark_value:nn {20}{}}
 ...\write2{\@writefile{lof}{\protect \addvspace {10.0pt}}}
 ...\write2{\@writefile{lot}{\protect \addvspace {10.0pt}}}
 ...\glue(\topskip) 12.0
@@ -5227,7 +5208,6 @@ Completed box being shipped out [5]
 ...\penalty -51
 ...\glue 0.0 plus 0.2
 ...\glue 0.0 plus -0.2
-...\glue -2.29756
 ...\glue 0.0 plus 1.0fil
 ...\glue 0.0
 ...\glue 0.0 plus 0.0001fil
@@ -5334,13 +5314,12 @@ Completed box being shipped out [6]
 ....\special{color pop}
 ..\glue 15.6491
 ..\glue(\lineskip) 0.0
-..\vbox(700.50723+0.0)x417.11752, glue set 621.39038fil
+..\vbox(700.50723+0.0)x417.11752, glue set 619.1864fil
 ...\write-{}
 ...\write2{\pp@pagectr{footnote}{4}{\theabspage }{\thepage }}
 ...\write2{\@writefile{toc}{\protect \contentsline {chapter}{\protect \numberline {Appendix A}附录章节}{\thepage }{}\protected@file@percent }}
-...\marks1{\__mark_id:n {21}Appendix A\hskip 1em\relax 附录章节}
-...\marks2{\__mark_id:n {22}}
-...\mark{{Appendix A\hskip 1em\relax 附录章节}{}}
+...\marks1{\__mark_value:nn {21}{Appendix A\hskip 1em\relax 附录章节}}
+...\marks2{\__mark_value:nn {22}{}}
 ...\write2{\@writefile{lof}{\protect \addvspace {10.0pt}}}
 ...\write2{\@writefile{lot}{\protect \addvspace {10.0pt}}}
 ...\glue(\topskip) 12.0
@@ -5395,7 +5374,6 @@ Completed box being shipped out [6]
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
-...\glue -2.20422
 ...\glue 0.0 plus 1.0fil
 ...\glue 0.0
 ...\glue 0.0 plus 0.0001fil
@@ -5489,13 +5467,12 @@ Completed box being shipped out [7]
 ....\special{color pop}
 ..\glue 15.6491
 ..\glue(\lineskip) 0.0
-..\vbox(700.50723+0.0)x417.11752, glue set 621.39038fil
+..\vbox(700.50723+0.0)x417.11752, glue set 619.1864fil
 ...\write-{}
 ...\write-{}
 ...\write2{\@writefile{toc}{\protect \contentsline {chapter}{Acknowledgements}{\thepage }{}\protected@file@percent }}
-...\marks1{\__mark_id:n {23}Acknowledgements}
-...\marks2{\__mark_id:n {24}}
-...\mark{{Acknowledgements}{}}
+...\marks1{\__mark_value:nn {23}{Acknowledgements}}
+...\marks2{\__mark_value:nn {24}{}}
 ...\write2{\@writefile{lof}{\protect \addvspace {10.0pt}}}
 ...\write2{\@writefile{lot}{\protect \addvspace {10.0pt}}}
 ...\glue(\topskip) 12.0
@@ -5539,7 +5516,6 @@ Completed box being shipped out [7]
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
-...\glue -2.20422
 ...\glue 0.0 plus 1.0fil
 ...\glue 0.0
 ...\glue 0.0 plus 0.0001fil
@@ -5636,12 +5612,11 @@ Completed box being shipped out [8]
 ....\special{color pop}
 ..\glue 15.6491
 ..\glue(\lineskip) 0.0
-..\vbox(700.50723+0.0)x417.11752, glue set 338.36322fil
+..\vbox(700.50723+0.0)x417.11752, glue set 336.48444fil
 ...\write-{}
 ...\write2{\@writefile{toc}{\protect \contentsline {chapter}{Research Achievements}{\thepage }{}\protected@file@percent }}
-...\marks1{\__mark_id:n {25}Research Achievements}
-...\marks2{\__mark_id:n {26}}
-...\mark{{Research Achievements}{}}
+...\marks1{\__mark_value:nn {25}{Research Achievements}}
+...\marks2{\__mark_value:nn {26}{}}
 ...\write2{\@writefile{lof}{\protect \addvspace {10.0pt}}}
 ...\write2{\@writefile{lot}{\protect \addvspace {10.0pt}}}
 ...\glue(\topskip) 12.0
@@ -6181,7 +6156,6 @@ Completed box being shipped out [8]
 ....\glue(\rightskip) 0.0
 ...\penalty -51
 ...\glue 3.01125
-...\glue -1.879
 ...\glue 0.0 plus 1.0fil
 ...\glue 0.0
 ...\glue 0.0 plus 0.0001fil

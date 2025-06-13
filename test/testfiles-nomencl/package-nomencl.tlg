@@ -84,13 +84,12 @@ Completed box being shipped out [1]
 ....\special{color pop}
 ..\glue 15.6491
 ..\glue(\lineskip) 0.0
-..\vbox(700.50723+0.0)x417.11752, glue set 541.09897fil
+..\vbox(700.50723+0.0)x417.11752, glue set 538.47346fil
 ...\write-{}
 ...\write-{}
 ...\write-{}
-...\marks1{\__mark_id:n {1}符号说明}
-...\marks2{\__mark_id:n {2}}
-...\mark{{符号说明}{}}
+...\marks1{\__mark_value:nn {1}{符号说明}}
+...\marks2{\__mark_value:nn {2}{}}
 ...\write-{}
 ...\glue(\topskip) 12.0
 ...\rule(0.0+0.0)x*
@@ -299,7 +298,6 @@ Completed box being shipped out [1]
 ....\glue(\rightskip) 0.0
 ...\penalty -51
 ...\glue 0.0 plus 0.2
-...\glue -2.6258
 ...\glue 0.0 plus 1.0fil
 ...\glue 0.0
 ...\glue 0.0 plus 0.0001fil
@@ -497,13 +495,12 @@ Completed box being shipped out [1]
 ....\special{color pop}
 ..\glue 15.6491
 ..\glue(\lineskip) 0.0
-..\vbox(700.50723+0.0)x417.11752, glue set 621.39038fil
+..\vbox(700.50723+0.0)x417.11752, glue set 618.77692fil
 ...\write-{}
 ...\write1{\pp@pagectr{footnote}{1}{\theabspage }{\thepage }}
 ...\write1{\@writefile{toc}{\protect \contentsline {chapter}{\protect \numberline {第1章}Main matter}{\thepage }{}\protected@file@percent }}
-...\marks1{\__mark_id:n {3}第1章\hskip 1em\relax Main matter}
-...\marks2{\__mark_id:n {4}}
-...\mark{{第1章\hskip 1em\relax Main matter}{}}
+...\marks1{\__mark_value:nn {3}{第1章\hskip 1em\relax Main matter}}
+...\marks2{\__mark_value:nn {4}{}}
 ...\write1{\@writefile{lof}{\protect \addvspace {10.0pt}}}
 ...\write1{\@writefile{lot}{\protect \addvspace {10.0pt}}}
 ...\glue(\topskip) 12.0
@@ -558,7 +555,6 @@ Completed box being shipped out [1]
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
-...\glue -2.61375
 ...\glue 0.0 plus 1.0fil
 ...\glue 0.0
 ...\glue 0.0 plus 0.0001fil
