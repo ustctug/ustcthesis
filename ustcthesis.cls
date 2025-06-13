@@ -2198,8 +2198,8 @@
 \newcommand\ustc@underline[2][8em]{\underline{\hb@xt@ #1{\hss#2\hss}}}
 
 \newcommand\ustc@checkbox{%
-  \makebox[0bp][l]{$\square$}%
-  \raisebox{-0.2ex}{\hspace{0.1em}$\checkmark$}%
+  \makebox[0bp][l]{\raisebox{-0.2ex}{\hspace{0.1em}$\checkmark$}}%
+  $\square$%
 }
 
 \newcommand\copyrightpage{%
@@ -2235,11 +2235,11 @@
     \endgroup
     \vspace{12bp}%
     \ifx\ustc@secret@level\@empty
-      \ustc@checkbox{} 公开\quad
-      \hbox{$\square$} 控阅（\ustc@underline[2em]{}年）\par
+      \ustc@checkbox\hbox{}公开\quad
+      $\square$\hbox{}控阅（\ustc@underline[2em]{}年）\par
     \else
-      \hbox{$\square$} 公开\quad
-      \hbox{\ustc@checkbox{}} 控阅（\ustc@underline[2em]{\ustc@secret@year}年）\par
+      $\square$\hbox{}公开\quad
+      \ustc@checkbox\hbox{}控阅（\ustc@underline[2em]{\ustc@secret@year}年）\par
     \fi
     \vspace{29bp}%
     \noindent
