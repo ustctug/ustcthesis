@@ -1,7 +1,7 @@
 This is a generated file for the l3build validation system.
 Don't change this file in any respect.
 File: figures/ustc-name-stxingkai.pdf Graphic file (type pdf)
-<use figures/ustc-name-stxingkai.pdf>
+<figures/ustc-name-stxingkai.pdf>
 Package fontspec Info: 
 (fontspec)             Font family 'FandolHei(0)' created for font 'FandolHei' with options [Extension={.otf},UprightFont={*-Regular},BoldFont={*-Bold}].
 (fontspec)              
@@ -10,7 +10,7 @@ Package fontspec Info:
 (fontspec)             - 'normal' (m/n) with NFSS spec.: <->"[FandolHei-Regular.otf]/OT:language=dflt;"
 (fontspec)             - 'bold' (b/n) with NFSS spec.: <->"[FandolHei-Bold.otf]/OT:language=dflt;"
 File: figures/ustc-badge.pdf Graphic file (type pdf)
-<use figures/ustc-badge.pdf>
+<figures/ustc-badge.pdf>
 LaTeX Font Info:    Font shape `TU/XITSMath-Regular(1)/m/n' will be
 (Font)              scaled to size 16.06pt on input line ....
 LaTeX Font Info:    Font shape `TU/XITSMath-Regular(1)/m/n' will be
@@ -62,18 +62,7 @@ Completed box being shipped out [1]
 ....\glue(\leftskip) 0.0 plus 1.0fil
 ....\hbox(0.0+0.0)x0.0
 ....\hbox(37.13866+0.0)x276.03056
-.....\hbox(37.13875+0.0)x276.03125
-......\hbox(37.13875+0.0)x276.03125
-.......\hbox(37.13875+0.0)x0.0
-........\special{pdf:btrans}
-........\special{x:scale 1 1}
-........\hbox(37.13875+0.0)x0.0, glue set - 276.03125fil
-.........\hbox(37.13875+0.0)x276.03125
-..........\XeTeXpdffile ".../ustc-name-stxingkai.pdf"
-.........\glue 0.0 plus 1.0fil minus 1.0fil
-........\special{pdf:etrans}
-.......\kern 276.03125
-.......\glue 0.0 plus 1.0fil minus 1.0fil
+.....\special{pdf:image pagebox cropbox bbox 0 0 274.99933 36.99991 clip 0 width 276.03056pt (figures/ustc-name-stxingkai.pdf) <</Group<</S/Transparency/K false/I false>>>>}
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0
 ....\glue(\rightskip) 0.0 plus 1.0fil
@@ -111,18 +100,7 @@ Completed box being shipped out [1]
 ....\hbox(0.0+0.0)x0.0
 ....\special{color push cmyk 1 0.8 0 0}
 ....\hbox(126.47249+0.0)x126.46866
-.....\hbox(126.46896+0.0)x126.46896
-......\hbox(126.46896+0.0)x126.46896
-.......\hbox(126.46896+0.0)x0.0
-........\special{pdf:btrans}
-........\special{x:scale 0.31657 0.31657}
-........\hbox(399.4925+0.0)x0.0, glue set - 399.4925fil
-.........\hbox(399.4925+0.0)x399.4925
-..........\XeTeXpdffile ".../ustc-badge.pdf"
-.........\glue 0.0 plus 1.0fil minus 1.0fil
-........\special{pdf:etrans}
-.......\kern 126.46896
-.......\glue 0.0 plus 1.0fil minus 1.0fil
+.....\special{pdf:image pagebox cropbox bbox 0 0 397.99902 397.99902 clip 0 height 126.47249pt (figures/ustc-badge.pdf) <</Group<</S/Transparency/K false/I false>>>>}
 ....\special{color pop}
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0

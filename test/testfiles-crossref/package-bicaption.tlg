@@ -304,7 +304,7 @@ Completed box being shipped out [2]
 ..........\glue(\rightskip) 0.0
 ...\special{color pop}
 File: example-image.pdf Graphic file (type pdf)
-<use example-image.pdf>
+<example-image.pdf>
 Completed box being shipped out [1]
 \vbox(722.98453+4.11038)x435.04271
 .\glue -29.59128
@@ -421,18 +421,7 @@ Completed box being shipped out [1]
 ......\glue(\leftskip) 0.0 plus 1.0fil
 ......\hbox(0.0+0.0)x0.0
 ......\hbox(240.8994+0.0)x321.19922
-.......\hbox(240.9+0.0)x321.20001
-........\hbox(240.9+0.0)x321.20001
-.........\hbox(240.9+0.0)x0.0
-..........\special{pdf:btrans}
-..........\special{x:scale 1 1}
-..........\hbox(240.9+0.0)x0.0, glue set - 321.20001fil
-...........\hbox(240.9+0.0)x321.20001
-............\XeTeXpdffile "../example-image.pdf"
-...........\glue 0.0 plus 1.0fil minus 1.0fil
-..........\special{pdf:etrans}
-.........\kern 321.20001
-.........\glue 0.0 plus 1.0fil minus 1.0fil
+.......\special{pdf:image pagebox cropbox bbox 0 0 319.99922 239.9994 clip 0 width 321.19922pt (example-image.pdf) <</Group<</S/Transparency/K false/I false>>>>}
 ......\penalty 10000
 ......\glue(\parfillskip) 0.0
 ......\glue(\rightskip) 0.0 plus 1.0fil
