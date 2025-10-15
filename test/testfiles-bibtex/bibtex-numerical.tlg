@@ -997,7 +997,7 @@ Completed box being shipped out [2]
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 11.09546
-...\hbox(7.1984+2.29756)x390.7691, glue set 0.04022, shifted 26.34842
+...\hbox(7.1984+2.29756)x390.7691, glue set - 0.02827, shifted 26.34842
 ....\hbox(7.12462+1.64412)x0.0
 .....\glue 0.0
 .....\glue -26.34842
@@ -1026,7 +1026,7 @@ Completed box being shipped out [2]
 ....\glue 2.63484 plus 1.31741 minus 0.87828
 ....\TU/texgyretermes(0)/m/n/10.53937 libraries:
 ....\glue 3.51312 plus 2.63483 minus 0.43913
-....\TU/texgyretermes(0)/m/n/10.53937 Dreams,
+....\TU/texgyretermes(0)/m/n/10.53937 dreams,
 ....\glue 2.63484 plus 1.64676 minus 0.70262
 ....\TU/texgyretermes(0)/m/n/10.53937 madness,
 ....\glue 2.63484 plus 1.64676 minus 0.70262
@@ -1041,12 +1041,12 @@ Completed box being shipped out [2]
 ....\glue 1.15933 plus 3.478 minus 0.73782
 ....\TU/texgyretermes(0)/m/n/10.53937 Chicago:
 ....\glue 3.51312 plus 2.63483 minus 0.43913
-....\TU/texgyretermes(0)/m/n/10.53937 Amer-
+....\TU/texgyretermes(0)/m/n/10.53937 Ameri-
 ....\glue(\rightskip) 0.0
 ...\penalty 4250
 ...\glue(\baselineskip) 10.52635
-...\hbox(7.25108+2.29756)x390.7691, glue set 257.37231fil, shifted 26.34842
-....\TU/texgyretermes(0)/m/n/10.53937 ican
+...\hbox(7.25108+2.29756)x390.7691, glue set 260.30226fil, shifted 26.34842
+....\TU/texgyretermes(0)/m/n/10.53937 can
 ....\glue 2.63484 plus 1.31741 minus 0.87828
 ....\TU/texgyretermes(0)/m/n/10.53937 Library
 ....\glue 2.63484 plus 1.31741 minus 0.87828
@@ -1061,7 +1061,7 @@ Completed box being shipped out [2]
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 10.52635
-...\hbox(7.25108+2.29756)x390.7691, glue set - 0.10938, shifted 26.34842
+...\hbox(7.25108+2.29756)x390.7691, glue set 0.06027, shifted 26.34842
 ....\hbox(7.25108+1.64412)x0.0
 .....\glue 0.0
 .....\glue -26.34842
@@ -1101,7 +1101,7 @@ Completed box being shipped out [2]
 ....\glue 2.63484 plus 1.31741 minus 0.87828
 ....\TU/texgyretermes(0)/m/n/10.53937 persons:
 ....\glue 3.51312 plus 2.63483 minus 0.43913
-....\TU/texgyretermes(0)/m/n/10.53937 National
+....\TU/texgyretermes(0)/m/n/10.53937 national
 ....\glue(\rightskip) 0.0
 ...\penalty 4150
 ...\glue(\baselineskip) 10.57904
@@ -2382,7 +2382,7 @@ Completed box being shipped out [3]
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 11.09546
-...\hbox(7.1984+2.29756)x390.7691, glue set - 0.25714, shifted 26.34842
+...\hbox(7.1984+2.29756)x390.7691, glue set - 0.20654, shifted 26.34842
 ....\hbox(7.12462+1.64412)x0.0
 .....\glue 0.0
 .....\glue -26.34842
@@ -2407,7 +2407,7 @@ Completed box being shipped out [3]
 ....\glue 2.63484 plus 1.31741 minus 0.87828
 ....\TU/texgyretermes(0)/m/n/10.53937 physiology:
 ....\glue 3.51312 plus 2.63483 minus 0.43913
-....\TU/texgyretermes(0)/m/n/10.53937 Plant
+....\TU/texgyretermes(0)/m/n/10.53937 plant
 ....\glue 2.63484 plus 1.31741 minus 0.87828
 ....\TU/texgyretermes(0)/m/n/10.53937 biology
 ....\glue 2.63484 plus 1.31741 minus 0.87828

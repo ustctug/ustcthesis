@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - 修正 LuaTeX 部分符号错误地使用西文字体（[tuna/thuthesis#1022](https://github.com/tuna/thuthesis/issues/1022)）。
 - 修正声明页中错误换行的问题（[#470](https://github.com/ustctug/ustcthesis/issues/470)）。
+- 修正 BibTeX `edition` 为 `1` 的报错（[#476](https://github.com/ustctug/ustcthesis/issues/476)）。
 
 ## [4.0.0-beta.9] - 2025-05-25
 
