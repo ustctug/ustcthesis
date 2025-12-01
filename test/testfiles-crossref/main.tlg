@@ -3318,7 +3318,7 @@ Completed box being shipped out [1]
 ...\special{color pop}
 第2章
 File: figures/ustc-badge.pdf Graphic file (type pdf)
-<figures/ustc-badge.pdf>
+<use figures/ustc-badge.pdf>
 LaTeX Font Info:    Calculating math sizes for size <11.04124> on input line ....
 LaTeX Font Info:    Font shape `TU/XITSMath-Regular(1)/m/n' will be
 (Font)              scaled to size 11.04124pt on input line ....
@@ -3817,7 +3817,18 @@ Completed box being shipped out [2]
 ......\glue(\leftskip) 0.0 plus 1.0fil
 ......\hbox(0.0+0.0)x0.0
 ......\hbox(125.13368+0.0)x125.13652
-.......\special{pdf:image pagebox cropbox bbox 0 0 397.99902 397.99902 clip 0 width 125.13652pt (figures/ustc-badge.pdf) <</Group<</S/Transparency/K false/I false>>>>}
+.......\hbox(125.13399+0.0)x125.13399
+........\hbox(125.13399+0.0)x125.13399
+.........\hbox(125.13399+0.0)x0.0
+..........\special{pdf:btrans}
+..........\special{x:scale 0.31323 0.31323}
+..........\hbox(399.4925+0.0)x0.0, glue set - 399.4925fil
+...........\hbox(399.4925+0.0)x399.4925
+............\XeTeXpdffile ".../ustc-badge.pdf"
+...........\glue 0.0 plus 1.0fil minus 1.0fil
+..........\special{pdf:etrans}
+.........\kern 125.13399
+.........\glue 0.0 plus 1.0fil minus 1.0fil
 ......\penalty 10000
 ......\glue(\parfillskip) 0.0
 ......\glue(\rightskip) 0.0 plus 1.0fil
