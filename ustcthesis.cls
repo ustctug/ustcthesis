@@ -3593,6 +3593,8 @@
 
 % \subsubsection{\pkg{nomencl} 宏包}
 
+\PassOptionsToPackage{notocbasic}{nomencl}
+
 \AtEndOfPackageFile*{nomencl}{
   \let\nomname\ustc@notation@name
   \def\thenomenclature{%
