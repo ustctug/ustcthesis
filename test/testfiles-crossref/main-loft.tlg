@@ -72,7 +72,7 @@ Completed box being shipped out [1]
 ....\special{color pop}
 ..\glue 15.6491
 ..\glue(\lineskip) 0.0
-..\vbox(700.50723+0.0)x417.11752, glue set 364.5703fil
+..\vbox(700.50723+0.0)x417.11752, glue set 394.5671fil
 ...\write-{}
 ...\write-{}
 ...\marks1{\__mark_value:nn {1}{插图和附表清单}}
@@ -283,11 +283,7 @@ Completed box being shipped out [1]
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
 ...\penalty 10000
-...\glue 10.0
-...\glue -16.0
 ...\penalty 0
-...\glue 6.0
-...\glue 10.0
 ...\glue 0.0 plus 0.1
 ...\penalty 10000
 ...\glue(\parskip) 0.0
@@ -443,11 +439,7 @@ Completed box being shipped out [1]
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
 ...\penalty 10000
-...\glue 10.0
-...\glue -16.0
 ...\penalty 0
-...\glue 6.0
-...\glue 10.0
 ...\glue 0.0 plus 0.1
 ...\penalty 10000
 ...\glue(\parskip) 0.0
@@ -603,11 +595,7 @@ Completed box being shipped out [1]
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
 ...\penalty 10000
-...\glue 10.0
-...\glue -16.0
 ...\penalty 0
-...\glue 6.0
-...\glue 10.0
 ...\glue 0.0 plus 0.1
 ...\penalty 10000
 ...\glue(\parskip) 0.0

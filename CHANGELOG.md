@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- 移除图表清单中章之间的空行（[#486](https://github.com/ustctug/ustcthesis/issues/486)）。
+
 ### Fixed
 
 - 修正 LuaTeX 部分符号错误地使用西文字体（[tuna/thuthesis#1022](https://github.com/tuna/thuthesis/issues/1022)）。

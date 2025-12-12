@@ -1554,7 +1554,7 @@ Completed box being shipped out [2]
 ....\special{color pop}
 ..\glue 15.6491
 ..\glue(\lineskip) 0.0
-..\vbox(700.50723+0.0)x417.11752, glue set 558.43657fil
+..\vbox(700.50723+0.0)x417.11752, glue set 578.43443fil
 ...\write-{}
 ...\write-{}
 ...\glue(\topskip) 12.0
@@ -1650,11 +1650,7 @@ Completed box being shipped out [2]
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
 ...\penalty 10000
-...\glue 10.0
-...\glue -16.0
 ...\penalty 0
-...\glue 6.0
-...\glue 10.0
 ...\glue 0.0 plus 0.1
 ...\penalty 10000
 ...\glue(\parskip) 0.0
@@ -1718,7 +1714,6 @@ Completed box being shipped out [2]
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
 ...\penalty 10000
-...\glue 10.0
 ...\glue 0.0 plus 1.0fil
 ...\glue 0.0
 ...\glue 0.0 plus 0.0001fil
@@ -2001,8 +1996,6 @@ Completed box being shipped out [4]
 ...\write2{\@writefile{toc}{\protect \addvspace {12bp}}}
 ...\write2{\pp@pagectr{footnote}{1}{\theabspage }{\thepage }}
 ...\write2{\@writefile{toc}{\protect \contentsline {chapter}{\protect \numberline {第1章}引言}{\thepage }{}\protected@file@percent }}
-...\write2{\@writefile{lof}{\protect \addvspace {10.0pt}}}
-...\write2{\@writefile{lot}{\protect \addvspace {10.0pt}}}
 ...\glue(\topskip) 12.0
 ...\rule(0.0+0.0)x*
 ...\penalty 10000
@@ -3137,8 +3130,6 @@ Completed box being shipped out [5]
 ...\write2{\@writefile{toc}{\protect \addvspace {12bp}}}
 ...\write2{\pp@pagectr{footnote}{2}{\theabspage }{\thepage }}
 ...\write2{\@writefile{toc}{\protect \contentsline {chapter}{\protect \numberline {第2章}内容要素}{\thepage }{}\protected@file@percent }}
-...\write2{\@writefile{lof}{\protect \addvspace {10.0pt}}}
-...\write2{\@writefile{lot}{\protect \addvspace {10.0pt}}}
 ...\glue(\topskip) 12.0
 ...\rule(0.0+0.0)x*
 ...\penalty 10000
@@ -4938,8 +4929,6 @@ Completed box being shipped out [8]
 ...\write2{\@writefile{toc}{\protect \addvspace {12bp}}}
 ...\write2{\pp@pagectr{footnote}{3}{\theabspage }{\thepage }}
 ...\write2{\@writefile{toc}{\protect \contentsline {chapter}{\protect \numberline {第3章}引用}{\thepage }{}\protected@file@percent }}
-...\write2{\@writefile{lof}{\protect \addvspace {10.0pt}}}
-...\write2{\@writefile{lot}{\protect \addvspace {10.0pt}}}
 ...\glue(\topskip) 12.0
 ...\rule(0.0+0.0)x*
 ...\penalty 10000
@@ -5111,8 +5100,6 @@ Completed box being shipped out [9]
 ...\write-{}
 ...\write2{\@writefile{toc}{\protect \addvspace {12bp}}}
 ...\write2{\@writefile{toc}{\protect \contentsline {chapter}{参考文献}{\thepage }{}\protected@file@percent }}
-...\write2{\@writefile{lof}{\protect \addvspace {10.0pt}}}
-...\write2{\@writefile{lot}{\protect \addvspace {10.0pt}}}
 ...\glue(\topskip) 12.0
 ...\rule(0.0+0.0)x*
 ...\penalty 10000
@@ -5349,8 +5336,6 @@ Completed box being shipped out [10]
 ...\write-{}
 ...\write2{\pp@pagectr{footnote}{4}{\theabspage }{\thepage }}
 ...\write2{\@writefile{toc}{\protect \contentsline {chapter}{\protect \numberline {附录 A}附录章节}{\thepage }{}\protected@file@percent }}
-...\write2{\@writefile{lof}{\protect \addvspace {10.0pt}}}
-...\write2{\@writefile{lot}{\protect \addvspace {10.0pt}}}
 ...\glue(\topskip) 12.0
 ...\rule(0.0+0.0)x*
 ...\penalty 10000
@@ -5531,8 +5516,6 @@ Completed box being shipped out [11]
 ...\write-{}
 ...\write-{}
 ...\write2{\@writefile{toc}{\protect \contentsline {chapter}{致谢}{\thepage }{}\protected@file@percent }}
-...\write2{\@writefile{lof}{\protect \addvspace {10.0pt}}}
-...\write2{\@writefile{lot}{\protect \addvspace {10.0pt}}}
 ...\glue(\topskip) 12.0
 ...\rule(0.0+0.0)x*
 ...\penalty 10000

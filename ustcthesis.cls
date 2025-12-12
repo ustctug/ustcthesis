@@ -2324,6 +2324,8 @@
     aftername   = \quad,
     beforeskip  = 7bp,
     afterskip   = 19bp,
+    lofskip      = 0pt,
+    lotskip      = 0pt,
     % fixskip     = true,
   },
 }

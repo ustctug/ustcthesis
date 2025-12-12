@@ -1830,7 +1830,7 @@ Completed box being shipped out [5]
 ....\special{color pop}
 ..\glue 15.6491
 ..\glue(\lineskip) 0.0
-..\vbox(700.50723+0.0)x417.11752, glue set 575.29776fil
+..\vbox(700.50723+0.0)x417.11752, glue set 595.29562fil
 ...\write-{}
 ...\marks1{\__mark_value:nn {9}{List of Figures and Tables}}
 ...\marks2{\__mark_value:nn {10}{}}
@@ -1924,11 +1924,7 @@ Completed box being shipped out [5]
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
 ...\penalty 10000
-...\glue 10.0
-...\glue -16.0
 ...\penalty 0
-...\glue 6.0
-...\glue 10.0
 ...\glue 0.0 plus 0.1
 ...\penalty 10000
 ...\glue(\parskip) 0.0
@@ -1992,7 +1988,6 @@ Completed box being shipped out [5]
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
 ...\penalty 10000
-...\glue 10.0
 ...\glue 0.0 plus 1.0fil
 ...\glue 0.0
 ...\glue 0.0 plus 0.0001fil
@@ -2228,8 +2223,6 @@ Completed box being shipped out [1]
 ...\write2{\@writefile{toc}{\protect \contentsline {chapter}{\protect \numberline {Chapter 1}引言}{\thepage }{}\protected@file@percent }}
 ...\marks1{\__mark_value:nn {13}{Chapter 1\hskip 1em\relax 引言}}
 ...\marks2{\__mark_value:nn {14}{}}
-...\write2{\@writefile{lof}{\protect \addvspace {10.0pt}}}
-...\write2{\@writefile{lot}{\protect \addvspace {10.0pt}}}
 ...\glue(\topskip) 12.0
 ...\rule(0.0+0.0)x*
 ...\penalty 10000
@@ -3349,8 +3342,6 @@ Completed box being shipped out [2]
 ...\write2{\@writefile{toc}{\protect \contentsline {chapter}{\protect \numberline {Chapter 2}内容要素}{\thepage }{}\protected@file@percent }}
 ...\marks1{\__mark_value:nn {15}{Chapter 2\hskip 1em\relax 内容要素}}
 ...\marks2{\__mark_value:nn {16}{}}
-...\write2{\@writefile{lof}{\protect \addvspace {10.0pt}}}
-...\write2{\@writefile{lot}{\protect \addvspace {10.0pt}}}
 ...\glue(\topskip) 12.0
 ...\rule(0.0+0.0)x*
 ...\penalty 10000
@@ -4956,8 +4947,6 @@ Completed box being shipped out [4]
 ...\write2{\@writefile{toc}{\protect \contentsline {chapter}{\protect \numberline {Chapter 3}引用}{\thepage }{}\protected@file@percent }}
 ...\marks1{\__mark_value:nn {17}{Chapter 3\hskip 1em\relax 引用}}
 ...\marks2{\__mark_value:nn {18}{}}
-...\write2{\@writefile{lof}{\protect \addvspace {10.0pt}}}
-...\write2{\@writefile{lot}{\protect \addvspace {10.0pt}}}
 ...\glue(\topskip) 12.0
 ...\rule(0.0+0.0)x*
 ...\penalty 10000
@@ -5102,8 +5091,6 @@ Completed box being shipped out [5]
 ...\write2{\@writefile{toc}{\protect \contentsline {chapter}{Bibliography}{\thepage }{}\protected@file@percent }}
 ...\marks1{\__mark_value:nn {19}{Bibliography}}
 ...\marks2{\__mark_value:nn {20}{}}
-...\write2{\@writefile{lof}{\protect \addvspace {10.0pt}}}
-...\write2{\@writefile{lot}{\protect \addvspace {10.0pt}}}
 ...\glue(\topskip) 12.0
 ...\rule(0.0+0.0)x*
 ...\penalty 10000
@@ -5320,8 +5307,6 @@ Completed box being shipped out [6]
 ...\write2{\@writefile{toc}{\protect \contentsline {chapter}{\protect \numberline {Appendix A}附录章节}{\thepage }{}\protected@file@percent }}
 ...\marks1{\__mark_value:nn {21}{Appendix A\hskip 1em\relax 附录章节}}
 ...\marks2{\__mark_value:nn {22}{}}
-...\write2{\@writefile{lof}{\protect \addvspace {10.0pt}}}
-...\write2{\@writefile{lot}{\protect \addvspace {10.0pt}}}
 ...\glue(\topskip) 12.0
 ...\rule(0.0+0.0)x*
 ...\penalty 10000
@@ -5473,8 +5458,6 @@ Completed box being shipped out [7]
 ...\write2{\@writefile{toc}{\protect \contentsline {chapter}{Acknowledgements}{\thepage }{}\protected@file@percent }}
 ...\marks1{\__mark_value:nn {23}{Acknowledgements}}
 ...\marks2{\__mark_value:nn {24}{}}
-...\write2{\@writefile{lof}{\protect \addvspace {10.0pt}}}
-...\write2{\@writefile{lot}{\protect \addvspace {10.0pt}}}
 ...\glue(\topskip) 12.0
 ...\rule(0.0+0.0)x*
 ...\penalty 10000
@@ -5617,8 +5600,6 @@ Completed box being shipped out [8]
 ...\write2{\@writefile{toc}{\protect \contentsline {chapter}{Research Achievements}{\thepage }{}\protected@file@percent }}
 ...\marks1{\__mark_value:nn {25}{Research Achievements}}
 ...\marks2{\__mark_value:nn {26}{}}
-...\write2{\@writefile{lof}{\protect \addvspace {10.0pt}}}
-...\write2{\@writefile{lot}{\protect \addvspace {10.0pt}}}
 ...\glue(\topskip) 12.0
 ...\rule(0.0+0.0)x*
 ...\penalty 10000
