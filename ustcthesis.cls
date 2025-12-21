@@ -704,11 +704,7 @@
       \ifustc@system@mac
         \ustcsetup{fontset = mac}
       \else
-        \IfFontExistsTF{Noto Serif CJK SC}{
-          \ustcsetup{fontset = ubuntu}
-        }{
-          \ustcsetup{fontset = fandol}
-        }
+        \ustcsetup{fontset = fandol}
       \fi
     }
   \fi
