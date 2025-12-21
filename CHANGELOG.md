@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Removed
+
+- 移除专业学位类型及 `professional-type`、`professional-type*` 选项。
+
 ## [4.0.0-beta.10] - 2025-12-21
 
 ### Changed

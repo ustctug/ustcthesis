@@ -1740,6 +1740,13 @@
   },
 }
 
+\ustc@option@hook{professional-type}{%
+  \ustc@warning{The 'professional-type' option is obsolete.}%
+}
+\ustc@option@hook{professional-type*}{%
+  \ustc@warning{The 'professional-type*' option is obsolete.}%
+}
+
 % 导师一栏可能有多个姓名，所以用 \opt{supervisor} 进行收集，
 % 然后使用本命令来输出要求的格式，
 % 类似于 \LaTeX3 的 \cs{clist\_use:Nn}。
@@ -1867,19 +1874,6 @@
       \fi
     \fi
   \fi
-  \IfFontExistsTF{LiSu}{
-    \setCJKfamilyfont{zhli}{LiSu}
-    \providecommand\lishu{\CJKfamily{zhli}}
-  }{
-    \ifustc@cjk@font@mac
-      \providecommand\lishu{\CJKfamily{zhli}}
-    \else
-      \providecommand\lishu{%
-        \ustc@warning{Font LiSu is not available}%
-        \sffamily
-      }
-    \fi
-  }
 \fi
 
 % 定义校徽颜色
@@ -1931,15 +1925,7 @@
       \fi
       \ustc@thesis@name\par
     \endgroup
-    \parbox[t][0bp][t]{\textwidth}{%
-      \fontsize{26bp}{33.8bp}\selectfont
-      \ifx\ustc@professional@type\@empty
-        \null
-      \else
-        \lishu （\ustc@professional@type ）%
-      \fi
-    }\par
-    \vspace{37bp}%
+    \vspace{51bp}%
     \begingroup
       \ifustc@badge@color@blue
         \color{ustcblue}%
