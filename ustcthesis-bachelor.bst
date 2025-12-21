@@ -2560,7 +2560,29 @@ FUNCTION {electronic}
 }
 
 FUNCTION {preprint}
-{ output.bibitem
+{ url empty$ not
+    { url 'entry.url :=
+      #1 'entry.is.electronic :=
+      #1 'is.pure.electronic :=
+    }
+    { eprint empty$
+        'skip$
+        { archivePrefix empty$
+            { eprinttype field.or.null }
+            { archivePrefix }
+          if$
+          "l" change.case$ duplicate$ "arxiv" =
+            { "https://arxiv.org/abs/" swap$ * eprint * 'entry.url :=
+              #1 'entry.is.electronic :=
+              #1 'is.pure.electronic :=
+            }
+            'pop$
+          if$
+        }
+      if$
+    }
+  if$
+  output.bibitem
   output.translation
   author empty$ not
     { format.authors }
@@ -2622,7 +2644,8 @@ FUNCTION {misc}
     { pop$
       booktitle empty$ not
         'incollection
-        { eprint empty$ not archivePrefix empty$ not or
+        { archivePrefix empty$ not
+          eprinttype empty$ not or
             'preprint
             { publisher empty$ not
                 'monograph
