@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - 移除图表清单中章之间的空行（[#486](https://github.com/ustctug/ustcthesis/issues/486)）。
+- 更新参考文献表的预印本格式（[#488](https://github.com/ustctug/ustcthesis/issues/488)）。
 
 ### Fixed
 

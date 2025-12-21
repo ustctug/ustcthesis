@@ -47,7 +47,6 @@ INTEGERS {
   show.urldate
   show.url
   show.doi
-  show.preprint
   show.note
   show.english.translation
   end.with.period
@@ -94,7 +93,6 @@ FUNCTION {load.config}
   #1 'show.urldate :=
   #0 'show.url :=
   #0 'show.doi :=
-  #1 'show.preprint :=
   #0 'show.note :=
   #0 'show.english.translation :=
   #1 'end.with.period :=
@@ -1692,7 +1690,40 @@ FUNCTION {get.journal.title}
 }
 
 FUNCTION {check.arxiv.preprint}
-{ #1 #5 substring$ purify$ "l" change.case$ "arxiv" =
+{ "l" change.case$
+  duplicate$
+  "arxiv:" 'y :=
+  'x :=
+  y text.length$ 'len :=
+  x text.length$ len - #1 + 'charptr :=
+    { charptr #0 >
+      x charptr len substring$ y = not
+      and
+    }
+    { charptr #1 - 'charptr := }
+  while$
+  charptr #0 >
+    { x charptr #6 + global.max$ substring$ 'x :=
+      x text.length$ #1 + 'len :=
+      #1 'charptr :=
+        { charptr len <
+          x charptr #1 substring$ " " = not and
+          x charptr #1 substring$ "[" = not and
+        }
+        { charptr #1 + 'charptr := }
+      while$
+      x #1 charptr substring$
+      duplicate$ empty$
+        { pop$ }
+        { "https://arxiv.org/abs/" swap$ * 'entry.url :=
+          #1 'entry.is.electronic :=
+          #1 'is.pure.electronic :=
+        }
+      if$
+    }
+    'skip$
+  if$
+  purify$ #1 #5 substring$ "arxiv" =
     { #1 }
     { #0 }
   if$
@@ -2245,35 +2276,18 @@ FUNCTION {check.electronic}
   if$
 }
 
-FUNCTION {format.eprint}
+FUNCTION {format.eprinttype}
 { archivePrefix empty$ not
     { archivePrefix }
     { eprinttype empty$ not
-        { archivePrefix }
-        { "" }
+        { eprinttype }
+        { type$ "article" = get.journal.title check.arxiv.preprint and
+            { "arXiv" }
+            { "" }
+          if$
+        }
       if$
     }
-  if$
-  's :=
-  s empty$ not
-    { s ": \eprint{" *
-      url empty$ not
-        { url }
-        { "https://" s "l" change.case$ * ".org/abs/" * eprint * }
-      if$
-      * "}{" *
-      eprint * "}" *
-    }
-    { eprint }
-  if$
-}
-
-FUNCTION {output.eprint}
-{ show.preprint eprint empty$ not and
-    { new.block
-      format.eprint output
-    }
-    'skip$
   if$
 }
 
@@ -2587,27 +2601,21 @@ FUNCTION {preprint}
     }
     'skip$
   if$
-  format.translators output
-  new.sentence
   format.edition output
   new.block
-  year.after.author not
-    { date empty$
-        { format.date output }
-        'skip$
+  format.eprinttype output
+  date empty$ not
+    { "(" date * ")" * }
+    { year empty$ not
+        { "(" year * ")" * }
+        { "" }
       if$
     }
-    'skip$
   if$
-  format.pages bbl.pages.colon output.after
-  format.editdate "" output.after
+  " " output.after
   format.urldate "" output.after
-  output.eprint
   output.url
-  show.preprint not eprint empty$ or
-    'output.doi
-    'skip$
-  if$
+  output.doi
   new.block
   format.note output
   fin.entry
@@ -2711,6 +2719,8 @@ FUNCTION {online}
 }
 
 FUNCTION {phdthesis} { mastersthesis }
+
+FUNCTION {thesis} { mastersthesis }
 
 FUNCTION {proceedings}
 { "C" set.entry.mark
