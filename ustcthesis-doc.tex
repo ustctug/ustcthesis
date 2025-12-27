@@ -300,6 +300,12 @@ Windows 用户可能无法使用GNU make，使用 |latexmk| 也是一个比较�
   \documentclass[language=english]{ustcthesis}
 \end{latex}
 
+\DescribeOption{review}
+启用盲审模式，即不输出封面的姓名等信息、致谢、科研成果。可选：\opt{false}（默认），\opt{true}。
+\begin{latex}
+  \documentclass[review=true]{ustcthesis}
+\end{latex}
+
 \DescribeOption{output}
 输出 PDF 的类型：
 \begin{itemize}

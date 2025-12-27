@@ -193,6 +193,13 @@
     },
     default = chinese,
   },
+  review = {
+    choices = {
+      false,
+      true,
+    },
+    default = false,
+  },
   system = {
     choices = {
       auto,
@@ -2146,6 +2153,19 @@
   \pagenumbering{Alph}%
   \pagestyle{empty}%
   \ustc@title@pagetrue
+  \ifustc@review@true
+    \ustcsetup{
+      author  = {},
+      author* = {},
+      speciality  = {},
+      speciality* = {},
+      supervisor  = {},
+      supervisor* = {},
+      practice-supervisor  = {},
+      practice-supervisor* = {},
+      student-id = {},
+    }%
+  \fi
   \ifustc@degree@graduate
     \ustc@title@page@graduate@zh
     \ustc@title@page@graduate@en
@@ -3288,44 +3308,49 @@
 % \subsection{附录}
 
 % 定义了一个满足要求的致谢环境：
-\newenvironment{acknowledgements}{%
+\NewDocumentEnvironment{acknowledgements}{+b}{%
   \@mainmatterfalse
   \chapter{\ustc@acknowledgements@name}%
-}{
-  \ifustc@degree@bachelor
-    \par
-    \null\par
-    \begingroup
-      \raggedleft
-      \ustc@date@zh@short\par
-    \endgroup
+  \ifustc@review@true\else
+    #1%
+    \ifustc@degree@bachelor
+      \par
+      \null\par
+      \begingroup
+        \raggedleft
+        \ustc@date@zh@short\par
+      \endgroup
+    \fi
   \fi
-}
+}{}
 
 
 % 兼容旧版本中“acknowledgments”的拼法。
 % Deprecated since 2020-07-01.
-\newenvironment{acknowledgments}{%
+\NewDocumentEnvironment{acknowledgments}{+b}{%
   \begin{acknowledgements}%
-}{%
+    #1%
   \end{acknowledgements}%
-}
+}{}
 
 % 科研成果环境：
 \NewDocumentEnvironment{achievements}{+b}{%
   \ifustc@degree@graduate
     \@mainmatterfalse
     \chapter{\ustc@achievements@name}%
-    \fontsize{12bp}{16bp}\selectfont
-    #1\par
+    \ifustc@review@true\else
+      \fontsize{12bp}{16bp}\selectfont
+      #1\par
+    \fi
   \fi
 }{}
 
 % 兼容旧的接口
-\newenvironment{publications}{%
+\NewDocumentEnvironment{publications}{+b}{%
   \ustc@deprecated{'publications' environment}{2024-12-15}{'achievements'}%
-  \@mainmatterfalse
-  \chapter{\ustc@achievements@name}%
+  \begin{achievements}%
+    #1%
+  \end{achievements}%
 }{}
 
 \newif\ifustc@first@achievement@list
