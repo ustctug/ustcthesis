@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 
 - 修正 arXiv 预印本的 URL 错误（[#490](https://github.com/ustctug/ustcthesis/issues/490)）。
+- 修正了调用 `mathtools` 后 `\eqref` 与前文间距的问题（[tuna/thuthesis#1043](https://github.com/tuna/thuthesis/discussions/1043)）。
 
 ### Removed
 

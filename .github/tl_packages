@@ -64,6 +64,7 @@ xits
 #
 # Dependencies for extra packages
 booktabs
+mathtools
 threeparttable
 siunitx
 #
