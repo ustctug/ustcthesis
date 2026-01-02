@@ -10,7 +10,7 @@
 %% https://github.com/zepinglee/gbt7714-bibtex-style
 %% Version: 2025/06/22 v2.1.8
 %% -------------------------------------------------------------------
-%% Copyright (C) 2016--2025 by Zeping Lee <zepinglee AT gmail.com>
+%% Copyright (C) 2016--2026 by Zeping Lee <zepinglee AT gmail.com>
 %% -------------------------------------------------------------------
 %% This file may be distributed and/or modified under the
 %% conditions of the LaTeX Project Public License, either version 1.3c
@@ -2581,12 +2581,12 @@ FUNCTION {preprint}
             { eprinttype field.or.null }
             { archivePrefix }
           if$
-          "l" change.case$ duplicate$ "arxiv" =
-            { "https://arxiv.org/abs/" swap$ * eprint * 'entry.url :=
+          "l" change.case$ "arxiv" =
+            { "https://arxiv.org/abs/" eprint * 'entry.url :=
               #1 'entry.is.electronic :=
               #1 'is.pure.electronic :=
             }
-            'pop$
+            'skip$
           if$
         }
       if$

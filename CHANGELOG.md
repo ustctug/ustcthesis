@@ -9,7 +9,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-新增选项 `review = true/false` 选择盲审模式（[#489](https://github.com/ustctug/ustcthesis/issues/489)）。
+- 新增选项 `review = true/false` 选择盲审模式（[#489](https://github.com/ustctug/ustcthesis/issues/489)）。
+
+### Fixed
+
+- 修正 arXiv 预印本的 URL 错误（[#490](https://github.com/ustctug/ustcthesis/issues/490)）。
 
 ### Removed
 
