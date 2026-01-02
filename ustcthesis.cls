@@ -1142,21 +1142,10 @@
   \fi
 }
 
-\ifustc@main@language@chinese
-  \ustcsetup{math-style = GB}%
-\else
-  \ustcsetup{math-style = TeX}%
-\fi
+\ustcsetup{math-style = TeX}%
 
 \ustc@set@math@style
 \ustc@option@hook{math-style}{\ustc@set@math@style}
-\ustc@option@hook{main-language}{%
-  \ifustc@main@language@chinese
-    \ustcsetup{math-style = GB}%
-  \else
-    \ustcsetup{math-style = TeX}%
-  \fi
-}
 
 % 针对 \pkg{unicode-math} 逐项配置数学符号。
 

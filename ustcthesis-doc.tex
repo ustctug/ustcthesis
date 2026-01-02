@@ -35,8 +35,8 @@
   \xeCJKsetwidth{‘’“”}{1em}
 }{}
 \unimathsetup{
-  math-style=ISO,
-  bold-style=ISO,
+  math-style=TeX,
+  bold-style=TeX,
 }
 \IfFontExistsTF{xits-math.otf}{
   \setmathfont[
@@ -502,10 +502,10 @@ key-value 的方式填写，如：
 
 \DescribeOption{math-style}
 用户可以通过设置 \opt{math-style} 选择数学符号样式（可选：
-\opt{GB}（中文默认），\opt{TeX}（英文默认）和 \opt{ISO}），比如：
+\opt{TeX}（默认），\opt{GB}（默认）和 \opt{ISO}），比如：
 \begin{latex}
   \ustcsetup{
-    math-style = ISO,
+    math-style = GB,
   }
 \end{latex}
 
