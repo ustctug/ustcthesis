@@ -1,0 +1,67 @@
+\input{regression-test}
+
+\documentclass[doctor, fontset=fandol]{ustcthesis}
+\START
+
+\title{标题}
+\entitle{标题}
+\author{李四}
+\enauthor{李四}
+\major{学科专业}
+\enmajor{Discipline}
+\supervisor{张三\quad 教授}
+\ensupervisor{Prof. Zhang San}
+
+\ustcsetup{
+  advisor  = {张三\quad 教授},
+  advisor* = {Prof. Zhang San},
+  professional-type  = {专业学位类型},
+  professional-type* = {Professional degree type},
+}
+
+
+\OMIT
+\begin{document}
+\TIMO
+
+\makestatement
+
+\frontmatter
+\begin{enabstract}
+  Graduate dissertation is a graduate student in research results of concentrated reflection, represents the level of the graduate research work, is also the main basis of application and corresponding degree granted.\par
+  \dots
+\end{enabstract}
+
+\mainmatter
+
+\chapter{引言}
+
+\begin{figure}[h]
+  \centering
+  \caption{图题置于图的下方}
+  \label{fig:example}
+  \note{若有图注，图注置于图题下方。
+    注文的字数较少且是短语时，末尾不可加标点，多个图注可以在同一行通过自由选取字符空格将各个图注间隔开来；
+    注文的字数较多或者甚至需要用句子说明时，该图注可以独立成行。
+  }
+\end{figure}
+
+
+\backmatter
+\begin{acknowledgments}
+  致谢内容。
+\end{acknowledgments}
+
+\begin{publications}
+
+  \begin{enumerate}
+    \item 发表的论文或科研成果列表。
+    \item 发表的论文或科研成果列表。
+  \end{enumerate}
+
+\end{publications}
+
+
+\clearpage
+\OMIT
+\end{document}
