@@ -1,0 +1,37 @@
+\input{regression-test}
+\documentclass[degree=doctor, fontset=fandol]{ustcthesis}
+
+\ustcsetup{
+  math-style = TeX,
+  math-font = xits,
+}
+\pagestyle{empty}
+\setlength\parindent{0pt}
+
+
+\begin{document}
+\START
+\showoutput
+
+\begin{itemize}
+  \item Greek letters:
+    \begin{equation*}
+      \Gamma \Delta \Theta \Lambda \Xi \Pi \Sigma \Upsilon \Phi \Psi \Omega.
+    \end{equation*}
+  \item Less than or equal: $\le$, $\ge$.
+  \item Integral symbols: $\int$, $\oint$.
+  \item Integral limits:
+    \begin{equation*}
+      \int_0^\infty e^{-x} dx
+    \end{equation*}
+  \item Partial differential symbol $\partial$.
+  \item Ellipsis:
+    \begin{equation*}
+      1, 2, \dots, n \quad 1 + 2 + \dots + n.
+    \end{equation*}
+  \item Real and Imaginary parts: $\Re$ $\Im$
+\end{itemize}
+
+\clearpage
+\OMIT
+\end{document}
