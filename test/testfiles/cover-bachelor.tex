@@ -1,0 +1,23 @@
+\input{regression-test}
+\documentclass[degree=bachelor, fontset=fandol]{ustcthesis}
+
+\ustcsetup{
+  title              = {论文题目第一行\\论文题目第二行},
+  author             = {王小明},
+  speciality         = {数学与应用数学},
+  supervisor         = {李华~教授},
+  student-id         = {PB19000000},  % 学号，本科生需要填写
+  date               = {2023-05-01},  % 默认为今日
+}
+
+\begin{document}
+\START
+\showoutput
+
+\makeatletter
+\ustc@cover
+\makeatother
+
+\clearpage
+\OMIT
+\end{document}

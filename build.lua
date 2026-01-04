@@ -24,6 +24,11 @@ checkconfigs = {
 typesetexe = "xelatex"
 unpackexe = "xetex"
 
+excludetests = {
+  "font-windows",
+  "font-mac",
+}
+
 checkopts = "-file-line-error -halt-on-error -interaction=nonstopmode"
 typesetopts = "-file-line-error -halt-on-error -interaction=nonstopmode"
 

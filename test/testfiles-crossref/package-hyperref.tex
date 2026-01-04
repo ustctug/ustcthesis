@@ -1,0 +1,25 @@
+\input{regression-test}
+\documentclass[degree=doctor, fontset=fandol]{ustcthesis}
+
+\usepackage{booktabs}
+\usepackage{hyperref}
+
+\begin{document}
+\START
+\showoutput
+
+\include{chapters}
+
+\chapter{测试 hyperref}
+
+\autoref{fig:example} 和 \autoref{tab:example}。
+见\autoref{eq:example}，\autopageref{eq:example}。
+
+\ustcsetup{language = english}
+
+\autoref{fig:example} and \autoref{tab:example}.
+See \autoref{eq:example}, \autopageref{eq:example}.
+
+\clearpage
+\OMIT
+\end{document}

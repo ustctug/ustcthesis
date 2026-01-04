@@ -1,0 +1,48 @@
+\input{regression-test.tex}
+\documentclass[degree=doctor, fontset=fandol]{ustcthesis}
+
+\usepackage{algorithm2e}
+
+\pagestyle{empty}
+
+\begin{document}
+
+\chapter{}
+\clearpage
+
+\START
+\showoutput
+
+\begin{algorithm}[htb]
+  \caption{Calculate $y = x^n$}
+  \label{alg1}
+
+  \SetKwInOut{Input}{Input}
+  \SetKwInOut{Output}{Output}
+
+  \Input{$n \geq 0 \vee x \neq 0$}
+  \Output{$y = x^n$}
+
+   $y \leftarrow 1$ \;
+  \eIf{$n < 0$} {
+    $X \leftarrow 1 / x$ \;
+    $N \leftarrow -n$ \;
+  }{
+    $X \leftarrow x$ \;
+    $N \leftarrow n$ \;
+  }
+
+  \While{$N \neq 0$}{
+    \eIf{$N$ is even}{
+      $X \leftarrow X \times X$ \;
+      $N \leftarrow N / 2$ \;
+    }{
+      $y \leftarrow y \times X$ \;
+      $N \leftarrow N - 1$ \;
+    }
+  }
+\end{algorithm}
+
+\clearpage
+\OMIT
+\end{document}
