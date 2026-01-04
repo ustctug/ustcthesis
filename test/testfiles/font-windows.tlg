@@ -1,0 +1,426 @@
+This is a generated file for the l3build validation system.
+Don't change this file in any respect.
+Package fontspec Info: 
+(fontspec)             Could not resolve font "SimHei/I" (it probably doesn't exist).
+Package fontspec Info: 
+(fontspec)             Could not resolve font "SimHei/BI" (it probably doesn't exist).
+Package fontspec Info: 
+(fontspec)             Could not resolve font "SimHei/I" (it probably doesn't exist).
+Package fontspec Info: 
+(fontspec)             Font family 'SimHei(0)' created for font 'SimHei' with options [Script={CJK},AutoFakeBold={3}].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.: <->"SimHei/OT:script=hani;language=dflt;"
+(fontspec)             - 'bold' (b/n) with NFSS spec.: <->"SimHei/OT:script=hani;language=dflt;embolden=3;"
+Package fontspec Info: 
+(fontspec)             Could not resolve font "FangSong/BI" (it probably doesn't exist).
+Package fontspec Info: 
+(fontspec)             Could not resolve font "FangSong/B" (it probably doesn't exist).
+Package fontspec Info: 
+(fontspec)             Could not resolve font "FangSong/I" (it probably doesn't exist).
+LaTeX Font Info:    Font shape `TU/Menlo(0)/m/n' will be
+(Font)              scaled to size 9.888pt on input line ....
+Package fontspec Info: 
+(fontspec)             Font family 'FangSong(0)' created for font 'FangSong' with options [Script={CJK}].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.: <->"FangSong/OT:script=hani;language=dflt;"
+LaTeX Font Info:    Font shape `TU/Menlo(0)/b/n' will be
+(Font)              scaled to size 9.888pt on input line ....
+LaTeX Font Info:    Font shape `TU/Menlo(0)/m/it' will be
+(Font)              scaled to size 9.888pt on input line ....
+LaTeX Font Info:    Font shape `TU/Menlo(0)/b/it' will be
+(Font)              scaled to size 9.888pt on input line ....
+LaTeX Font Warning: Font shape `TU/SimSun(0)/b/it' undefined
+(Font)              using `TU/SimSun(0)/b/n' instead on input line ....
+LaTeX Font Warning: Font shape `TU/SimHei(0)/m/it' undefined
+(Font)              using `TU/SimHei(0)/m/n' instead on input line ....
+LaTeX Font Warning: Font shape `TU/SimHei(0)/b/it' undefined
+(Font)              using `TU/SimHei(0)/b/n' instead on input line ....
+LaTeX Font Warning: Font shape `TU/FangSong(0)/b/n' undefined
+(Font)              using `TU/FangSong(0)/m/n' instead on input line ....
+LaTeX Font Warning: Font shape `TU/FangSong(0)/m/it' undefined
+(Font)              using `TU/FangSong(0)/m/n' instead on input line ....
+LaTeX Font Warning: Font shape `TU/FangSong(0)/b/it' undefined
+(Font)              using `TU/FangSong(0)/b/n' instead on input line ....
+LaTeX Font Info:    Font shape `TU/XITSMath-Regular(1)/m/n' will be
+(Font)              scaled to size 8.97888pt on input line ....
+LaTeX Font Info:    Font shape `TU/XITSMath-Regular(1)/m/n' will be
+(Font)              scaled to size 7.1831pt on input line ....
+LaTeX Font Info:    Font shape `TU/XITSMath-Regular(2)/m/n' will be
+(Font)              scaled to size 11.97295pt on input line ....
+LaTeX Font Info:    Font shape `TU/XITSMath-Regular(2)/m/n' will be
+(Font)              scaled to size 8.9797pt on input line ....
+LaTeX Font Info:    Font shape `TU/XITSMath-Regular(2)/m/n' will be
+(Font)              scaled to size 7.18378pt on input line ....
+LaTeX Font Info:    Font shape `TU/XITSMath-Regular(3)/m/n' will be
+(Font)              scaled to size 11.97055pt on input line ....
+LaTeX Font Info:    Font shape `TU/XITSMath-Regular(3)/m/n' will be
+(Font)              scaled to size 8.97792pt on input line ....
+LaTeX Font Info:    Font shape `TU/XITSMath-Regular(3)/m/n' will be
+(Font)              scaled to size 7.18234pt on input line ....
+LaTeX Font Info:    Font shape `TU/STIXTwoMath-Regular(0)/m/n' will be
+(Font)              scaled to size 8.54219pt on input line ....
+LaTeX Font Info:    Font shape `TU/STIXTwoMath-Regular(0)/m/n' will be
+(Font)              scaled to size 6.83376pt on input line ....
+Completed box being shipped out [1]
+\vbox(722.98453+0.0)x435.04271
+.\glue -29.59128
+.\vbox(752.5758+0.0)x417.11752, shifted 17.92519
+..\vbox(13.942+0.0)x417.11752, glue set 13.942fil
+...\glue 0.0 plus 1.0fil
+...\hbox(0.0+0.0)x417.11752
+....\special{color push  Black}
+....\hbox(0.0+0.0)x417.11752
+....\special{color pop}
+..\glue 15.6491
+..\glue(\lineskip) 0.0
+..\vbox(700.50723+0.0)x417.11752, glue set 524.8434fil
+...\write-{}
+...\glue(\topskip) 3.63672
+...\hbox(8.36328+2.59953)x417.11752, glue set 259.35043fil
+....\hbox(0.0+0.0)x0.0
+....\TU/TimesNewRoman(0)/m/n/12.045 Regular,
+....\kern 0.0
+....\glue 3.01125 plus 1.88202 minus 0.80298
+....\TU/TimesNewRoman(0)/b/n/12.045 Bold
+....\kern -0.0002
+....\kern 0.0002
+....\TU/TimesNewRoman(0)/m/n/12.045 ,
+....\glue 3.01125 plus 1.88202 minus 0.80298
+....\TU/TimesNewRoman(0)/m/it/12.045 Italic
+....\kern -0.0002
+....\kern 0.0002
+....\TU/TimesNewRoman(0)/m/n/12.045 ,
+....\kern 0.0
+....\glue 3.01125 plus 1.88202 minus 0.80298
+....\TU/TimesNewRoman(0)/b/it/12.045 Bold
+....\glue 3.01125 plus 1.50562 minus 1.00374
+....\TU/TimesNewRoman(0)/b/it/12.045 Italic
+....\kern 0.0
+....\kern -0.0002
+....\kern 0.0002
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\glue(\parskip) 0.0
+...\glue(\parskip) 0.0
+...\glue(\baselineskip) 8.70638
+...\hbox(8.76909+1.70558)x417.11752, glue set 137.31834fil
+....\hbox(0.0+0.0)x0.0
+....\TU/Arial(0)/m/n/12.045 Sans
+....\glue 3.34648 plus 1.67323 minus 1.1155
+....\TU/Arial(0)/m/n/12.045 Serif,
+....\kern 0.0
+....\glue 3.34648 plus 2.09154 minus 0.8924
+....\TU/Arial(0)/b/n/12.045 Bold
+....\glue 3.34648 plus 1.67323 minus 1.1155
+....\TU/Arial(0)/b/n/12.045 Sans
+....\kern -0.0002
+....\kern 0.0002
+....\TU/Arial(0)/m/n/12.045 ,
+....\glue 3.34648 plus 2.09154 minus 0.8924
+....\TU/Arial(0)/m/it/12.045 Italic
+....\glue 3.34648 plus 1.67323 minus 1.1155
+....\TU/Arial(0)/m/it/12.045 Sans
+....\kern -0.0002
+....\kern 0.0002
+....\TU/Arial(0)/m/n/12.045 ,
+....\kern 0.0
+....\glue 3.34648 plus 2.09154 minus 0.8924
+....\TU/Arial(0)/b/it/12.045 Bold
+....\glue 3.34648 plus 1.67323 minus 1.1155
+....\TU/Arial(0)/b/it/12.045 Italic
+....\glue 3.34648 plus 1.67323 minus 1.1155
+....\TU/Arial(0)/b/it/12.045 Sans
+....\kern 0.0
+....\kern -0.0002
+....\kern 0.0002
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\glue(\parskip) 0.0
+...\glue(\parskip) 0.0
+...\glue(\baselineskip) 10.33058
+...\hbox(8.03883+2.05676)x417.11752, glue set 24.21431fil
+....\hbox(0.0+0.0)x0.0
+....\TU/Menlo(0)/m/n/12.045 Monospace,
+....\kern 0.0
+....\glue 5.95308
+....\TU/Menlo(0)/b/n/12.045 Bold
+....\glue 5.95308
+....\TU/Menlo(0)/b/n/12.045 Monospace
+....\kern -0.0002
+....\kern 0.0002
+....\TU/Menlo(0)/m/n/12.045 ,
+....\glue 5.95308
+....\TU/Menlo(0)/m/it/12.045 Italic
+....\glue 5.95308
+....\TU/Menlo(0)/m/it/12.045 Monospace
+....\kern -0.0002
+....\kern 0.0002
+....\TU/Menlo(0)/m/n/12.045 ,
+....\kern 0.0
+....\glue 5.95308
+....\TU/Menlo(0)/b/it/12.045 Bold
+....\glue 5.95308
+....\TU/Menlo(0)/b/it/12.045 Italic
+....\glue 5.95308
+....\TU/Menlo(0)/b/it/12.045 Monospace
+....\kern 0.0
+....\kern -0.0002
+....\kern 0.0002
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\glue(\parskip) 0.0
+...\glue(\parskip) 0.0
+...\glue(\baselineskip) 8.09052
+...\hbox(9.92772+1.69382)x417.11752, glue set 236.44255fil
+....\hbox(0.0+0.0)x0.0
+....\TU/SimSun(0)/m/n/12.045 中
+....\glue 0.0 plus 0.61353
+....\TU/SimSun(0)/m/n/12.045 文
+....\glue 0.0 plus 0.61353
+....\TU/SimSun(0)/m/n/12.045 字
+....\glue 0.0 plus 0.61353
+....\TU/SimSun(0)/m/n/12.045 体
+....\penalty 10000
+....\TU/SimSun(0)/m/n/12.045 ，
+....\rule(0.0+0.0)x-8.70439
+....\glue 8.70439 minus 7.24582
+....\glue 0.0 plus 0.61353
+....\TU/SimSun(0)/b/n/12.045 加
+....\glue 0.0 plus 0.61353
+....\TU/SimSun(0)/b/n/12.045 粗
+....\kern 0.0
+....\kern -0.00017
+....\kern 0.00017
+....\penalty 10000
+....\TU/SimSun(0)/m/n/12.045 ，
+....\rule(0.0+0.0)x-8.70439
+....\glue 8.70439 minus 7.24582
+....\glue 0.0 plus 0.61353
+....\TU/SimSun(0)/m/it/12.045 斜
+....\glue 0.0 plus 0.61353
+....\TU/SimSun(0)/m/it/12.045 体
+....\kern 0.0
+....\kern -0.00017
+....\kern 0.00017
+....\penalty 10000
+....\TU/SimSun(0)/m/n/12.045 ，
+....\rule(0.0+0.0)x-8.70439
+....\glue 8.70439 minus 7.24582
+....\glue 0.0 plus 0.61353
+....\TU/SimSun(0)/b/n/12.045 加
+....\glue 0.0 plus 0.61353
+....\TU/SimSun(0)/b/n/12.045 粗
+....\glue 0.0 plus 0.61353
+....\TU/SimSun(0)/b/n/12.045 斜
+....\glue 0.0 plus 0.61353
+....\TU/SimSun(0)/b/n/12.045 体
+....\kern 0.0
+....\kern -0.00017
+....\kern 0.00017
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\glue(\parskip) 0.0
+...\glue(\parskip) 0.0
+...\glue(\baselineskip) 8.50052
+...\hbox(9.88066+1.83496)x417.11752, glue set 115.99257fil
+....\hbox(0.0+0.0)x0.0
+....\TU/SimHei(0)/m/n/12.045 无
+....\glue 0.0 plus 0.61353
+....\TU/SimHei(0)/m/n/12.045 衬
+....\glue 0.0 plus 0.61353
+....\TU/SimHei(0)/m/n/12.045 线
+....\glue 0.0 plus 0.61353
+....\TU/SimHei(0)/m/n/12.045 字
+....\glue 0.0 plus 0.61353
+....\TU/SimHei(0)/m/n/12.045 体
+....\penalty 10000
+....\TU/SimHei(0)/m/n/12.045 ，
+....\rule(0.0+0.0)x-8.70439
+....\glue 8.70439 minus 7.05762
+....\glue 0.0 plus 0.61353
+....\TU/SimHei(0)/b/n/12.045 加
+....\glue 0.0 plus 0.61353
+....\TU/SimHei(0)/b/n/12.045 粗
+....\glue 0.0 plus 0.61353
+....\TU/SimHei(0)/b/n/12.045 无
+....\glue 0.0 plus 0.61353
+....\TU/SimHei(0)/b/n/12.045 衬
+....\glue 0.0 plus 0.61353
+....\TU/SimHei(0)/b/n/12.045 线
+....\kern 0.0
+....\kern -0.00017
+....\kern 0.00017
+....\penalty 10000
+....\TU/SimHei(0)/m/n/12.045 ，
+....\rule(0.0+0.0)x-8.70439
+....\glue 8.70439 minus 7.05762
+....\glue 0.0 plus 0.61353
+....\TU/SimHei(0)/m/n/12.045 斜
+....\glue 0.0 plus 0.61353
+....\TU/SimHei(0)/m/n/12.045 体
+....\glue 0.0 plus 0.61353
+....\TU/SimHei(0)/m/n/12.045 无
+....\glue 0.0 plus 0.61353
+....\TU/SimHei(0)/m/n/12.045 衬
+....\glue 0.0 plus 0.61353
+....\TU/SimHei(0)/m/n/12.045 线
+....\kern 0.0
+....\kern -0.00017
+....\kern 0.00017
+....\penalty 10000
+....\TU/SimHei(0)/m/n/12.045 ，
+....\rule(0.0+0.0)x-8.70439
+....\glue 8.70439 minus 7.05762
+....\glue 0.0 plus 0.61353
+....\TU/SimHei(0)/b/n/12.045 加
+....\glue 0.0 plus 0.61353
+....\TU/SimHei(0)/b/n/12.045 粗
+....\glue 0.0 plus 0.61353
+....\TU/SimHei(0)/b/n/12.045 斜
+....\glue 0.0 plus 0.61353
+....\TU/SimHei(0)/b/n/12.045 体
+....\glue 0.0 plus 0.61353
+....\TU/SimHei(0)/b/n/12.045 无
+....\glue 0.0 plus 0.61353
+....\TU/SimHei(0)/b/n/12.045 衬
+....\glue 0.0 plus 0.61353
+....\TU/SimHei(0)/b/n/12.045 线
+....\kern 0.0
+....\kern -0.00017
+....\kern 0.00017
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\glue(\parskip) 0.0
+...\glue(\parskip) 0.0
+...\glue(\baselineskip) 8.26527
+...\hbox(9.97476+1.31741)x417.11752, glue set 164.17256fil
+....\hbox(0.0+0.0)x0.0
+....\TU/FangSong(0)/b/n/12.045 等
+....\glue 0.0 plus 0.61353
+....\TU/FangSong(0)/b/n/12.045 宽
+....\glue 0.0 plus 0.61353
+....\TU/FangSong(0)/b/n/12.045 字
+....\glue 0.0 plus 0.61353
+....\TU/FangSong(0)/b/n/12.045 体
+....\penalty 10000
+....\TU/FangSong(0)/b/n/12.045 ，
+....\rule(0.0+0.0)x-8.51619
+....\glue 8.51619 minus 6.86942
+....\glue 0.0 plus 0.61353
+....\TU/FangSong(0)/b/n/12.045 加
+....\glue 0.0 plus 0.61353
+....\TU/FangSong(0)/b/n/12.045 粗
+....\glue 0.0 plus 0.61353
+....\TU/FangSong(0)/b/n/12.045 等
+....\glue 0.0 plus 0.61353
+....\TU/FangSong(0)/b/n/12.045 宽
+....\kern 0.0
+....\kern -0.00017
+....\kern 0.00017
+....\penalty 10000
+....\TU/FangSong(0)/b/n/12.045 ，
+....\rule(0.0+0.0)x-8.51619
+....\glue 8.51619 minus 6.86942
+....\glue 0.0 plus 0.61353
+....\TU/FangSong(0)/b/n/12.045 斜
+....\glue 0.0 plus 0.61353
+....\TU/FangSong(0)/b/n/12.045 体
+....\glue 0.0 plus 0.61353
+....\TU/FangSong(0)/b/n/12.045 等
+....\glue 0.0 plus 0.61353
+....\TU/FangSong(0)/b/n/12.045 宽
+....\kern 0.0
+....\kern -0.00017
+....\kern 0.00017
+....\penalty 10000
+....\TU/FangSong(0)/b/n/12.045 ，
+....\rule(0.0+0.0)x-8.51619
+....\glue 8.51619 minus 6.86942
+....\glue 0.0 plus 0.61353
+....\TU/FangSong(0)/b/n/12.045 加
+....\glue 0.0 plus 0.61353
+....\TU/FangSong(0)/b/n/12.045 粗
+....\glue 0.0 plus 0.61353
+....\TU/FangSong(0)/b/n/12.045 斜
+....\glue 0.0 plus 0.61353
+....\TU/FangSong(0)/b/n/12.045 体
+....\glue 0.0 plus 0.61353
+....\TU/FangSong(0)/b/n/12.045 等
+....\glue 0.0 plus 0.61353
+....\TU/FangSong(0)/b/n/12.045 宽
+....\kern 0.0
+....\kern -0.00017
+....\kern 0.00017
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\glue(\parskip) 0.0
+...\glue(\parskip) 0.0
+...\glue(\baselineskip) 18.75758
+...\hbox(0.0+0.0)x417.11752, glue set 417.11752fil
+....\hbox(0.0+0.0)x0.0
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\penalty 10000
+...\glue(\abovedisplayshortskip) 6.02249 plus 3.01125 minus 3.01125
+...\glue(\baselineskip) 3.00616
+...\hbox(17.06883+11.03781)x134.11038, shifted 141.50357, display
+....\TU/STIXTwoMath-Regular(0)/m/n/12.045 glyph#1249
+....\kern0.68338
+....\TU/XITSMath-Regular(1)/m/n/12.045 glyph#41
+....\TU/XITSMath-Regular(1)/m/n/12.045 glyph#3175
+....\kern0.59859
+....\TU/XITSMath-Regular(1)/m/n/12.045 glyph#42
+....\glue(\thickmuskip) 3.3258 plus 3.3258
+....\TU/XITSMath-Regular(1)/m/n/12.045 glyph#62
+....\glue(\thickmuskip) 3.3258 plus 3.3258
+....\hbox(23.9437+3.22043)x7.00352, shifted 7.3684
+.....\TU/XITSMath-Regular(1)/m/n/12.045 glyph#3590
+.....\kern2.15494
+....\vbox(28.10664+0.0)x15.39896, shifted 11.03781
+.....\hbox(3.86092+0.0)x8.81444, shifted 6.58452
+......\TU/XITSMath-Regular(1)/m/n/9.03375 glyph#1167
+.....\kern20.38481
+.....\hbox(3.86092+0.0)x14.96497
+......\TU/XITSMath-Regular(1)/m/n/9.03375 glyph#1155
+......\TU/XITSMath-Regular(1)/m/n/9.03375 glyph#1167
+....\glue(\thinmuskip) 1.99548
+....\TU/XITSMath-Regular(1)/m/n/12.045 glyph#2507
+....\kern1.43661
+....\TU/XITSMath-Regular(1)/m/n/12.045 glyph#41
+....\TU/XITSMath-Regular(1)/m/n/12.045 glyph#2524
+....\TU/XITSMath-Regular(1)/m/n/12.045 glyph#42
+....\TU/XITSMath-Regular(1)/m/n/12.045 glyph#2506
+....\hbox(6.06972+1.64314)x28.66676, shifted -4.78918
+.....\TU/XITSMath-Regular(1)/m/n/9.03375 glyph#1155
+.....\TU/XITSMath-Regular(1)/m/n/9.03375 glyph#51
+.....\TU/XITSMath-Regular(1)/m/n/9.03375 glyph#3177
+.....\kern0.44894
+.....\TU/XITSMath-Regular(1)/m/n/9.03375 glyph#2509
+.....\TU/XITSMath-Regular(1)/m/n/9.03375 glyph#2524
+.....\TU/XITSMath-Regular(1)/m/n/9.03375 glyph#3175
+.....\kern0.44894
+....\glue 1.99548
+....\TU/XITSMath-Regular(1)/m/n/12.045 glyph#2505
+....\kern0.7183
+....\TU/XITSMath-Regular(1)/m/n/12.045 glyph#2524
+...\penalty 0
+...\glue(\belowdisplayshortskip) 6.02249 plus 3.01125 minus 3.01125
+...\glue 0.0 plus 1.0fil
+...\glue 0.0
+...\glue 0.0 plus 0.0001fil
+..\glue(\baselineskip) 22.47748
+..\hbox(0.0+0.0)x417.11752
+...\special{color push  Black}
+...\hbox(0.0+0.0)x417.11752
+...\special{color pop}

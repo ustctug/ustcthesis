@@ -1,0 +1,433 @@
+This is a generated file for the l3build validation system.
+Don't change this file in any respect.
+Package fontspec Info: 
+(fontspec)             Font family 'FandolHei(0)' created for font 'FandolHei' with options [Extension={.otf},UprightFont={*-Regular},BoldFont={*-Bold}].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.: <->"[FandolHei-Regular.otf]/OT:language=dflt;"
+(fontspec)             - 'bold' (b/n) with NFSS spec.: <->"[FandolHei-Bold.otf]/OT:language=dflt;"
+LaTeX Font Warning: Font shape `TU/LibertinusSans(0)/b/it' undefined
+(Font)              using `TU/LibertinusSans(0)/b/n' instead on input line ....
+Package fontspec Info: 
+(fontspec)             Font family 'FandolFang(0)' created for font 'FandolFang' with options [Extension={.otf},UprightFont={*-Regular}].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.: <->"[FandolFang-Regular.otf]/OT:language=dflt;"
+Underfull \hbox (badness 10000) in paragraph at lines ...
+[]\TU/lmmonolt10(0)/m/n/12.045 Monospace, \TU/lmmonolt10(0)/b/n/12.045 Bold Monospace\TU/lmmonolt10(0)/m/n/12.045 , \TU/lmmonolt10(0)/m/it/12.045 Italic Monospace\TU/lmmonolt10(0)/m/n/12.045 , \TU/lmmonolt10(0)/b/it/12.045 Bold Italic
+\hbox(7.37154+2.77034)x417.11752
+.\hbox(0.0+0.0)x0.0
+.\TU/lmmonolt10(0)/m/n/12.045 Monospace,
+.\kern 0.0
+.\glue 6.32362
+.\TU/lmmonolt10(0)/b/n/12.045 Bold
+.\glue 6.32362
+.\TU/lmmonolt10(0)/b/n/12.045 Monospace
+.\kern -0.0002
+.\kern 0.0002
+.\TU/lmmonolt10(0)/m/n/12.045 ,
+.\glue 6.32362
+.\TU/lmmonolt10(0)/m/it/12.045 Italic
+.\glue 6.32362
+.\TU/lmmonolt10(0)/m/it/12.045 Monospace
+.\kern -0.0002
+.\kern 0.0002
+.\TU/lmmonolt10(0)/m/n/12.045 ,
+.\kern 0.0
+.\glue 6.32362
+.\TU/lmmonolt10(0)/b/it/12.045 Bold
+.\glue 6.32362
+.\TU/lmmonolt10(0)/b/it/12.045 Italic
+.\glue(\rightskip) 0.0
+LaTeX Font Warning: Font shape `TU/FandolSong(0)/b/it' undefined
+(Font)              using `TU/FandolSong(0)/b/n' instead on input line ....
+LaTeX Font Warning: Font shape `TU/FandolHei(0)/m/it' undefined
+(Font)              using `TU/FandolHei(0)/m/n' instead on input line ....
+LaTeX Font Warning: Font shape `TU/FandolHei(0)/b/it' undefined
+(Font)              using `TU/FandolHei(0)/b/n' instead on input line ....
+LaTeX Font Warning: Font shape `TU/FandolFang(0)/b/n' undefined
+(Font)              using `TU/FandolFang(0)/m/n' instead on input line ....
+LaTeX Font Warning: Font shape `TU/FandolFang(0)/m/it' undefined
+(Font)              using `TU/FandolFang(0)/m/n' instead on input line ....
+LaTeX Font Warning: Font shape `TU/FandolFang(0)/b/it' undefined
+(Font)              using `TU/FandolFang(0)/b/n' instead on input line ....
+LaTeX Font Info:    Font shape `TU/LibertinusMath-Regular(2)/m/n' will be
+(Font)              scaled to size 12.04628pt on input line ....
+LaTeX Font Info:    Font shape `TU/LibertinusMath-Regular(2)/m/n' will be
+(Font)              scaled to size 9.63702pt on input line ....
+LaTeX Font Info:    Font shape `TU/LibertinusMath-Regular(2)/m/n' will be
+(Font)              scaled to size 7.22777pt on input line ....
+LaTeX Font Info:    Font shape `TU/LibertinusMath-Regular(3)/m/n' will be
+(Font)              scaled to size 12.0437pt on input line ....
+LaTeX Font Info:    Font shape `TU/LibertinusMath-Regular(3)/m/n' will be
+(Font)              scaled to size 9.63496pt on input line ....
+LaTeX Font Info:    Font shape `TU/LibertinusMath-Regular(3)/m/n' will be
+(Font)              scaled to size 7.22623pt on input line ....
+Completed box being shipped out [1]
+\vbox(722.98453+0.0)x435.04271
+.\glue -29.59128
+.\vbox(752.5758+0.0)x417.11752, shifted 17.92519
+..\vbox(13.942+0.0)x417.11752, glue set 13.942fil
+...\glue 0.0 plus 1.0fil
+...\hbox(0.0+0.0)x417.11752
+....\special{color push  Black}
+....\hbox(0.0+0.0)x417.11752
+....\special{color pop}
+..\glue 15.6491
+..\glue(\lineskip) 0.0
+..\vbox(700.50723+0.0)x417.11752, glue set 505.35353fil
+...\write-{}
+...\glue(\topskip) 3.59259
+...\hbox(8.40741+2.8667)x417.11752, glue set 257.32858fil
+....\hbox(0.0+0.0)x0.0
+....\TU/LibertinusSerif(0)/m/n/12.045 Regular,
+....\kern 0.0
+....\glue 3.01125 plus 1.88202 minus 0.80298
+....\TU/LibertinusSerif(0)/b/n/12.045 Bold
+....\kern -0.0002
+....\kern 0.0002
+....\TU/LibertinusSerif(0)/m/n/12.045 ,
+....\glue 3.01125 plus 1.88202 minus 0.80298
+....\TU/LibertinusSerif(0)/m/it/12.045 Italic
+....\kern -0.0002
+....\kern 0.0002
+....\TU/LibertinusSerif(0)/m/n/12.045 ,
+....\kern 0.0
+....\glue 3.01125 plus 1.88202 minus 0.80298
+....\TU/LibertinusSerif(0)/b/it/12.045 Bold
+....\glue 3.01125 plus 1.50562 minus 1.00374
+....\TU/LibertinusSerif(0)/b/it/12.045 Italic
+....\kern 0.61429
+....\kern -0.0002
+....\kern 0.0002
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\glue(\parskip) 0.0
+...\glue(\parskip) 0.0
+...\glue(\baselineskip) 8.80089
+...\hbox(8.40741+1.73447)x417.11752, glue set 164.10033fil
+....\hbox(0.0+0.0)x0.0
+....\TU/LibertinusSans(0)/m/n/12.045 Sans
+....\glue 3.01125 plus 1.50562 minus 1.00374
+....\TU/LibertinusSans(0)/m/n/12.045 Serif,
+....\kern 0.0
+....\glue 3.01125 plus 1.88202 minus 0.80298
+....\TU/LibertinusSans(0)/b/it/12.045 Bold
+....\glue 3.01125 plus 1.50562 minus 1.00374
+....\TU/LibertinusSans(0)/b/it/12.045 Sans
+....\kern -0.0002
+....\kern 0.0002
+....\TU/LibertinusSans(0)/m/n/12.045 ,
+....\glue 3.01125 plus 1.88202 minus 0.80298
+....\TU/LibertinusSans(0)/m/it/12.045 Italic
+....\glue 3.01125 plus 1.50562 minus 1.00374
+....\TU/LibertinusSans(0)/m/it/12.045 Sans
+....\kern -0.0002
+....\kern 0.0002
+....\TU/LibertinusSans(0)/m/n/12.045 ,
+....\kern 0.0
+....\glue 3.01125 plus 1.88202 minus 0.80298
+....\TU/LibertinusSans(0)/b/it/12.045 Bold
+....\glue 3.01125 plus 1.50562 minus 1.00374
+....\TU/LibertinusSans(0)/b/it/12.045 Italic
+....\glue 3.01125 plus 1.50562 minus 1.00374
+....\TU/LibertinusSans(0)/b/it/12.045 Sans
+....\kern 0.0
+....\kern -0.0002
+....\kern 0.0002
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\glue(\parskip) 0.0
+...\glue(\parskip) 0.0
+...\glue(\baselineskip) 10.969
+...\hbox(7.37154+2.77034)x417.11752
+....\hbox(0.0+0.0)x0.0
+....\TU/lmmonolt10(0)/m/n/12.045 Monospace,
+....\kern 0.0
+....\glue 6.32362
+....\TU/lmmonolt10(0)/b/n/12.045 Bold
+....\glue 6.32362
+....\TU/lmmonolt10(0)/b/n/12.045 Monospace
+....\kern -0.0002
+....\kern 0.0002
+....\TU/lmmonolt10(0)/m/n/12.045 ,
+....\glue 6.32362
+....\TU/lmmonolt10(0)/m/it/12.045 Italic
+....\glue 6.32362
+....\TU/lmmonolt10(0)/m/it/12.045 Monospace
+....\kern -0.0002
+....\kern 0.0002
+....\TU/lmmonolt10(0)/m/n/12.045 ,
+....\kern 0.0
+....\glue 6.32362
+....\TU/lmmonolt10(0)/b/it/12.045 Bold
+....\glue 6.32362
+....\TU/lmmonolt10(0)/b/it/12.045 Italic
+....\glue(\rightskip) 0.0
+...\penalty 300
+...\glue(\baselineskip) 9.94516
+...\hbox(7.3595+2.6017)x417.11752, glue set 360.20491fil
+....\TU/lmmonolt10(0)/b/it/12.045 Monospace
+....\kern 0.0
+....\kern -0.0002
+....\kern 0.0002
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\glue(\parskip) 0.0
+...\glue(\parskip) 0.0
+...\glue(\baselineskip) 8.1023
+...\hbox(9.371+2.32468)x417.11752, glue set 236.44255fil
+....\hbox(0.0+0.0)x0.0
+....\TU/FandolSong(0)/m/n/12.045 中
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 文
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 字
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 体
+....\penalty 10000
+....\TU/FandolSong(0)/m/n/12.045 ，
+....\rule(0.0+0.0)x-8.33514
+....\glue 8.33514 minus 6.0225
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/b/n/12.045 加
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/b/n/12.045 粗
+....\kern 0.0
+....\kern -0.00017
+....\kern 0.00017
+....\penalty 10000
+....\TU/FandolSong(0)/m/n/12.045 ，
+....\rule(0.0+0.0)x-8.33514
+....\glue 8.33514 minus 6.0225
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/it/12.045 斜
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/it/12.045 体
+....\kern 0.0
+....\kern -0.00017
+....\kern 0.00017
+....\penalty 10000
+....\TU/FandolSong(0)/m/n/12.045 ，
+....\rule(0.0+0.0)x-8.33514
+....\glue 8.33514 minus 6.0225
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/b/n/12.045 加
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/b/n/12.045 粗
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/b/n/12.045 斜
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/b/n/12.045 体
+....\kern 0.0
+....\kern -0.00017
+....\kern 0.00017
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\glue(\parskip) 0.0
+...\glue(\parskip) 0.0
+...\glue(\baselineskip) 8.35522
+...\hbox(9.3951+2.09581)x417.11752, glue set 115.99257fil
+....\hbox(0.0+0.0)x0.0
+....\TU/FandolHei(0)/m/n/12.045 无
+....\glue 0.0 plus 0.61353
+....\TU/FandolHei(0)/m/n/12.045 衬
+....\glue 0.0 plus 0.61353
+....\TU/FandolHei(0)/m/n/12.045 线
+....\glue 0.0 plus 0.61353
+....\TU/FandolHei(0)/m/n/12.045 字
+....\glue 0.0 plus 0.61353
+....\TU/FandolHei(0)/m/n/12.045 体
+....\penalty 10000
+....\TU/FandolHei(0)/m/n/12.045 ，
+....\rule(0.0+0.0)x-8.52786
+....\glue 8.52786 minus 6.0225
+....\glue 0.0 plus 0.61353
+....\TU/FandolHei(0)/b/n/12.045 加
+....\glue 0.0 plus 0.61353
+....\TU/FandolHei(0)/b/n/12.045 粗
+....\glue 0.0 plus 0.61353
+....\TU/FandolHei(0)/b/n/12.045 无
+....\glue 0.0 plus 0.61353
+....\TU/FandolHei(0)/b/n/12.045 衬
+....\glue 0.0 plus 0.61353
+....\TU/FandolHei(0)/b/n/12.045 线
+....\kern 0.0
+....\kern -0.00017
+....\kern 0.00017
+....\penalty 10000
+....\TU/FandolHei(0)/m/n/12.045 ，
+....\rule(0.0+0.0)x-8.52786
+....\glue 8.52786 minus 6.0225
+....\glue 0.0 plus 0.61353
+....\TU/FandolHei(0)/m/n/12.045 斜
+....\glue 0.0 plus 0.61353
+....\TU/FandolHei(0)/m/n/12.045 体
+....\glue 0.0 plus 0.61353
+....\TU/FandolHei(0)/m/n/12.045 无
+....\glue 0.0 plus 0.61353
+....\TU/FandolHei(0)/m/n/12.045 衬
+....\glue 0.0 plus 0.61353
+....\TU/FandolHei(0)/m/n/12.045 线
+....\kern 0.0
+....\kern -0.00017
+....\kern 0.00017
+....\penalty 10000
+....\TU/FandolHei(0)/m/n/12.045 ，
+....\rule(0.0+0.0)x-8.52786
+....\glue 8.52786 minus 6.0225
+....\glue 0.0 plus 0.61353
+....\TU/FandolHei(0)/b/n/12.045 加
+....\glue 0.0 plus 0.61353
+....\TU/FandolHei(0)/b/n/12.045 粗
+....\glue 0.0 plus 0.61353
+....\TU/FandolHei(0)/b/n/12.045 斜
+....\glue 0.0 plus 0.61353
+....\TU/FandolHei(0)/b/n/12.045 体
+....\glue 0.0 plus 0.61353
+....\TU/FandolHei(0)/b/n/12.045 无
+....\glue 0.0 plus 0.61353
+....\TU/FandolHei(0)/b/n/12.045 衬
+....\glue 0.0 plus 0.61353
+....\TU/FandolHei(0)/b/n/12.045 线
+....\kern 0.0
+....\kern -0.00017
+....\kern 0.00017
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\glue(\parskip) 0.0
+...\glue(\parskip) 0.0
+...\glue(\baselineskip) 8.30705
+...\hbox(9.67213+2.30058)x417.11752, glue set 164.17256fil
+....\hbox(0.0+0.0)x0.0
+....\TU/FandolFang(0)/b/n/12.045 等
+....\glue 0.0 plus 0.61353
+....\TU/FandolFang(0)/b/n/12.045 宽
+....\glue 0.0 plus 0.61353
+....\TU/FandolFang(0)/b/n/12.045 字
+....\glue 0.0 plus 0.61353
+....\TU/FandolFang(0)/b/n/12.045 体
+....\penalty 10000
+....\TU/FandolFang(0)/b/n/12.045 ，
+....\rule(0.0+0.0)x-8.33514
+....\glue 8.33514 minus 6.0225
+....\glue 0.0 plus 0.61353
+....\TU/FandolFang(0)/b/n/12.045 加
+....\glue 0.0 plus 0.61353
+....\TU/FandolFang(0)/b/n/12.045 粗
+....\glue 0.0 plus 0.61353
+....\TU/FandolFang(0)/b/n/12.045 等
+....\glue 0.0 plus 0.61353
+....\TU/FandolFang(0)/b/n/12.045 宽
+....\kern 0.0
+....\kern -0.00017
+....\kern 0.00017
+....\penalty 10000
+....\TU/FandolFang(0)/b/n/12.045 ，
+....\rule(0.0+0.0)x-8.33514
+....\glue 8.33514 minus 6.0225
+....\glue 0.0 plus 0.61353
+....\TU/FandolFang(0)/b/n/12.045 斜
+....\glue 0.0 plus 0.61353
+....\TU/FandolFang(0)/b/n/12.045 体
+....\glue 0.0 plus 0.61353
+....\TU/FandolFang(0)/b/n/12.045 等
+....\glue 0.0 plus 0.61353
+....\TU/FandolFang(0)/b/n/12.045 宽
+....\kern 0.0
+....\kern -0.00017
+....\kern 0.00017
+....\penalty 10000
+....\TU/FandolFang(0)/b/n/12.045 ，
+....\rule(0.0+0.0)x-8.33514
+....\glue 8.33514 minus 6.0225
+....\glue 0.0 plus 0.61353
+....\TU/FandolFang(0)/b/n/12.045 加
+....\glue 0.0 plus 0.61353
+....\TU/FandolFang(0)/b/n/12.045 粗
+....\glue 0.0 plus 0.61353
+....\TU/FandolFang(0)/b/n/12.045 斜
+....\glue 0.0 plus 0.61353
+....\TU/FandolFang(0)/b/n/12.045 体
+....\glue 0.0 plus 0.61353
+....\TU/FandolFang(0)/b/n/12.045 等
+....\glue 0.0 plus 0.61353
+....\TU/FandolFang(0)/b/n/12.045 宽
+....\kern 0.0
+....\kern -0.00017
+....\kern 0.00017
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\glue(\parskip) 0.0
+...\glue(\parskip) 0.0
+...\glue(\baselineskip) 17.77441
+...\hbox(0.0+0.0)x417.11752, glue set 417.11752fil
+....\hbox(0.0+0.0)x0.0
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\penalty 10000
+...\glue(\abovedisplayshortskip) 6.02249 plus 3.01125 minus 3.01125
+...\glue(\baselineskip) 1.74724
+...\hbox(18.32776+10.45477)x134.7378, shifted 141.18987, display
+....\TU/LibertinusMath-Regular(1)/m/n/12.045 glyph#1899
+....\kern2.34877
+....\TU/LibertinusMath-Regular(1)/m/n/12.045 glyph#9
+....\TU/LibertinusMath-Regular(1)/m/n/12.045 glyph#3419
+....\kern1.49358
+....\TU/LibertinusMath-Regular(1)/m/n/12.045 glyph#10
+....\glue(\thickmuskip) 3.34618 plus 3.34618
+....\TU/LibertinusMath-Regular(1)/m/n/12.045 glyph#30
+....\glue(\thickmuskip) 3.34618 plus 3.34618
+....\hbox(19.92242+6.38385)x6.33566, shifted 3.63725
+.....\TU/LibertinusMath-Regular(1)/m/n/12.045 glyph#4368
+.....\kern3.6135
+....\vbox(28.78253+0.0)x15.89351, shifted 10.45477
+.....\hbox(4.25911+0.0)x8.06425, shifted 7.82925
+......\TU/LibertinusMath-Regular(1)/m/n/9.636 glyph#2100
+.....\kern20.26431
+.....\hbox(4.25911+0.0)x14.30838
+......\TU/LibertinusMath-Regular(1)/m/n/9.636 glyph#2088
+......\TU/LibertinusMath-Regular(1)/m/n/9.636 glyph#2100
+....\glue(\thinmuskip) 2.0077
+....\TU/LibertinusMath-Regular(1)/m/n/12.045 glyph#2751
+....\kern2.02356
+....\TU/LibertinusMath-Regular(1)/m/n/12.045 glyph#9
+....\TU/LibertinusMath-Regular(1)/m/n/12.045 glyph#2768
+....\kern0.97565
+....\TU/LibertinusMath-Regular(1)/m/n/12.045 glyph#10
+....\TU/LibertinusMath-Regular(1)/m/n/12.045 glyph#2750
+....\kern0.51793
+....\hbox(6.72594+2.197)x28.8202, shifted -4.51735
+.....\TU/LibertinusMath-Regular(1)/m/n/9.636 glyph#2088
+.....\TU/LibertinusMath-Regular(1)/m/n/9.636 glyph#19
+.....\TU/LibertinusMath-Regular(1)/m/n/9.636 glyph#3421
+.....\kern0.90578
+.....\TU/LibertinusMath-Regular(1)/m/n/9.636 glyph#2753
+.....\TU/LibertinusMath-Regular(1)/m/n/9.636 glyph#2768
+.....\kern0.78052
+.....\TU/LibertinusMath-Regular(1)/m/n/9.636 glyph#3419
+.....\kern1.19487
+....\glue 2.0077
+....\TU/LibertinusMath-Regular(1)/m/n/12.045 glyph#2749
+....\kern0.93951
+....\TU/LibertinusMath-Regular(1)/m/n/12.045 glyph#2768
+....\kern0.97565
+...\penalty 0
+...\glue(\belowdisplayshortskip) 6.02249 plus 3.01125 minus 3.01125
+...\glue 0.0 plus 1.0fil
+...\glue 0.0
+...\glue 0.0 plus 0.0001fil
+..\glue(\baselineskip) 22.47748
+..\hbox(0.0+0.0)x417.11752
+...\special{color push  Black}
+...\hbox(0.0+0.0)x417.11752
+...\special{color pop}
