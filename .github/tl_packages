@@ -3,9 +3,7 @@ l3build
 latexmk
 #
 # Required to build formats
-bibtex
 latex-bin
-makeindex
 tex
 #
 # Assuming a 'basic' font set up, metafont is required to avoid
@@ -13,24 +11,65 @@ tex
 metafont
 mfware
 #
-# Dependencies for xeCJK
+# Dependencies for ustcthesis
+amsmath
+bigfoot  # perpage.sty for footmisc
+caption
+ctex
+enumitem
+fancyhdr
+fontspec
+footmisc
+geometry
+graphics
+multirow
+notoccite
+titlesec
+unicode-math
+url
+#
+# Fonts
+fandol
+libertinus-fonts
+newcomputermodern
+newtx
+stix2-otf
+tex-gyre
+xits
+#
+# Dependencies for ctex
+cjk
+zhnumber
+#
+# Dependencies for XeTeX
 fontspec
 ulem
 xecjk
 xetex
+#
 # Dependencies for LuaTeX
 chinese-jfm
 lualatex-math
+luatex
 #
-# Dependencies for ctex
-cjk
-ctex
-zhnumber
+# Extra packages
+algorithm2e
+amscls  # amsthm.sty
+booktabs
+hyperref
+mathtools
+nomencl
+siunitx
+threeparttable
+tools  # longtable.sty
 #
 # Dependencies for algorithm2e
-algorithm2e
 ifoddpage
 relsize
+#
+# Dependencies for bitex
+bibtex
+natbib
 #
 # Dependencies for biblatex
 biber
@@ -38,35 +77,18 @@ biblatex
 biblatex-gb7714-2015
 xstring
 #
+# Dependencies for hyperref
+hycolor
+infwarerr
+#
 # Dependencies for nomencl
-nomencl
-koma-script
+makeindex
 xkeyval
 #
-# Dependencies for ustcthesis
-bigfoot
-caption
-enumitem
-fancyhdr
-footmisc
-filehook
-natbib
-notoccite
-multirow
-titlesec
-unicode-math
-#
-# Dependencies for fonts
-fandol
-stix2-otf
-tex-gyre
-xits
-#
-# Dependencies for extra packages
-booktabs
-mathtools
-threeparttable
-siunitx
+# Dependencies for newtx
+xpatch
+carlisle  # scalefnt.sty
+oberdiek  # centernot.sty
 #
 # Dependencies for doc
 hypdoc

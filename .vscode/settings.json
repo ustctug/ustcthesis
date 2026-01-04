@@ -1,4 +1,11 @@
 {
+    "files.associations": {
+        "*.cls": "latex-expl3",
+        "*.lvt": "latex-expl3",
+        "*.sty": "latex-expl3",
+        "*.tlg": "latex-expl3",
+        "tl_packages*": "shellscript",
+    },
     "latex-workshop.intellisense.unimathsymbols.enabled": true,
     "latex-workshop.latex.recipes": [
         {

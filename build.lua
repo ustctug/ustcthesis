@@ -29,15 +29,11 @@ excludetests = {
   "font-mac",
 }
 
-checkopts = "-file-line-error -halt-on-error -interaction=nonstopmode"
-typesetopts = "-file-line-error -halt-on-error -interaction=nonstopmode"
-
 lvtext = ".tex"
 
 function update_tag(file, content, tagname, tagdate)
   tagname = string.gsub(tagname, "^v", "")
   local url = "https://github.com/ustctug/ustcthesis"
-  local date = string.gsub(tagdate, "%-", "/")
 
   content = string.gsub(content,
     "Copyright %(C%) (%d%d%d%d)%-%d%d%d%d",
@@ -47,8 +43,8 @@ function update_tag(file, content, tagname, tagdate)
     content = string.gsub(content, "\\newcommand\\ustcthesisversion{[0-9a-z.-]+",
       "\\newcommand\\ustcthesisversion{" .. tagname)
 
-    content = string.gsub(content, "\\ProvidesClass{ustcthesis}%[%d%d%d%d/%d%d/%d%d",
-      "\\ProvidesClass{ustcthesis}[" .. date)
+    content = string.gsub(content, "\\ProvidesExplClass{ustcthesis}{%d%d%d%d%-%d%d%-%d%d",
+      "\\ProvidesExplClass{ustcthesis}{" .. tagdate)
 
   elseif string.match(file, "%-doc.tex") then
     content = string.gsub(content, "v[0-9a-z.-]+\\qquad %d%d%d%d%-%d%d%-%d%d",

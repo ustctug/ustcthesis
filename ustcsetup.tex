@@ -77,16 +77,15 @@
 \graphicspath{{figures/}}
 
 % 数学命令
-\makeatletter
-\newcommand\dif{%  % 微分符号
-  \mathop{}\!%
-  \ifustc@math@style@TeX
-    d%
-  \else
-    \mathrm{d}%
-  \fi
-}
-\makeatother
+\ExplSyntaxOn
+\NewDocumentCommand \dif {}  % 微分符号
+  {
+    \mathop { } \!
+    \str_if_eq:VnTF \l__ustc_math_style_str { TeX }
+      { d }
+      { \mathrm { d } }
+  }
+\ExplSyntaxOff
 \newcommand\eu{{\symup{e}}}
 \newcommand\iu{{\symup{i}}}
 

@@ -85,8 +85,8 @@ Completed box being shipped out [1]
 ........\kern 0.00017
 ........\glue 15.05624
 ........\TU/FandolSong(0)/b/n/15.05624 目
-........\kern -0.00018
-........\kern 0.00018
+........\kern -0.00017
+........\kern 0.00017
 ........\glue 0.0 plus 1.0fil
 ........\glue 0.0
 .......\glue(\tabskip) 0.0
@@ -102,7 +102,6 @@ Completed box being shipped out [1]
 ...........\hbox(0.0+0.0)x0.0
 ...........\rule(11.24194+4.81804)x0.0
 ...........\hbox(11.48792+0.0)x326.21875
-............\special{color push  Black}
 ............\vbox(11.48792+42.67943)x326.21875
 .............\hbox(11.48792+2.52943)x326.21875, glue set 110.41252fil
 ..............\glue(\leftskip) 0.0 plus 1.0fil
@@ -150,7 +149,6 @@ Completed box being shipped out [1]
 ..............\penalty 10000
 ..............\glue(\parfillskip) 0.0
 ..............\glue(\rightskip) 0.0 plus 1.0fil
-............\special{color pop}
 ...........\rule(11.24194+4.81804)x0.0
 ...........\penalty 10000
 ...........\glue(\parfillskip) 0.0 plus 1.0fil
@@ -251,8 +249,8 @@ Completed box being shipped out [1]
 ........\kern 0.00017
 ........\glue 15.05624
 ........\TU/FandolSong(0)/b/n/15.05624 文
-........\kern -0.00018
-........\kern 0.00018
+........\kern -0.00017
+........\kern 0.00017
 ........\glue 0.0 plus 1.0fil
 ........\glue 0.0
 .......\glue(\tabskip) 0.0
@@ -321,8 +319,8 @@ Completed box being shipped out [1]
 ........\kern 0.00017
 ........\glue 15.05624
 ........\TU/FandolSong(0)/b/n/15.05624 目
-........\kern -0.00018
-........\kern 0.00018
+........\kern -0.00017
+........\kern 0.00017
 ........\glue 0.0 plus 1.0fil
 ........\glue 0.0
 .......\glue(\tabskip) 0.0
@@ -447,8 +445,8 @@ Completed box being shipped out [1]
 ........\kern 0.00017
 ........\glue 15.05624
 ........\TU/FandolSong(0)/b/n/15.05624 系
-........\kern -0.00018
-........\kern 0.00018
+........\kern -0.00017
+........\kern 0.00017
 ........\glue 0.0 plus 1.0fil
 ........\glue 0.0
 .......\glue(\tabskip) 0.0
@@ -491,8 +489,8 @@ Completed box being shipped out [1]
 ........\kern 0.00017
 ........\glue 15.05624
 ........\TU/FandolSong(0)/b/n/15.05624 名
-........\kern -0.00018
-........\kern 0.00018
+........\kern -0.00017
+........\kern 0.00017
 ........\glue 0.0 plus 1.0fil
 ........\glue 0.0
 .......\glue(\tabskip) 0.0
@@ -520,8 +518,8 @@ Completed box being shipped out [1]
 ........\kern 0.00017
 ........\glue 15.05624
 ........\TU/FandolSong(0)/b/n/15.05624 号
-........\kern -0.00018
-........\kern 0.00018
+........\kern -0.00017
+........\kern 0.00017
 ........\glue 0.0 plus 1.0fil
 ........\glue 0.0
 .......\glue(\tabskip) 0.0
@@ -574,8 +572,8 @@ Completed box being shipped out [1]
 ........\kern 0.00017
 ........\glue 15.05624
 ........\TU/FandolSong(0)/b/n/15.05624 师
-........\kern -0.00018
-........\kern 0.00018
+........\kern -0.00017
+........\kern 0.00017
 ........\glue 0.0 plus 1.0fil
 ........\glue 0.0
 .......\glue(\tabskip) 0.0
@@ -631,8 +629,8 @@ Completed box being shipped out [1]
 ........\kern 0.00017
 ........\glue 15.05624
 ........\TU/FandolSong(0)/b/n/15.05624 期
-........\kern -0.00018
-........\kern 0.00018
+........\kern -0.00017
+........\kern 0.00017
 ........\glue 0.0 plus 1.0fil
 ........\glue 0.0
 .......\glue(\tabskip) 0.0
@@ -642,20 +640,18 @@ Completed box being shipped out [1]
 ........\glue 0.0 plus 1.0fil
 ........\glue 0.00002
 ........\TU/texgyretermes(0)/b/n/15.05624 2023
-........\kern -0.0002
-........\kern 0.0002
 ........\glue 3.76407 plus 1.88203 minus 1.25468
 ........\TU/FandolSong(0)/b/n/15.05624 年
+........\kern -0.00018
+........\kern 0.00018
 ........\glue 3.76407 plus 1.88203 minus 1.25468
 ........\TU/texgyretermes(0)/b/n/15.05624 5
-........\kern -0.0002
-........\kern 0.0002
 ........\glue 3.76407 plus 1.88203 minus 1.25468
 ........\TU/FandolSong(0)/b/n/15.05624 月
+........\kern -0.00018
+........\kern 0.00018
 ........\glue 3.76407 plus 1.88203 minus 1.25468
 ........\TU/texgyretermes(0)/b/n/15.05624 1
-........\kern -0.0002
-........\kern 0.0002
 ........\glue 3.76407 plus 1.88203 minus 1.25468
 ........\TU/FandolSong(0)/b/n/15.05624 日
 ........\kern -0.00017

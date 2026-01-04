@@ -15,9 +15,12 @@ jobs:
         uses: actions/checkout@v6
 
       - name: Set up TeX Live
-        uses: zauguin/install-texlive@v4
+        uses: TeX-Live/setup-texlive-action@v3
         with:
-          package_file: .github/tl_packages
+          package-file: .github/tl_packages
+        # uses: zauguin/install-texlive@v4
+        # with:
+        #   package_file: .github/tl_packages
 
       - name: Test example
         run: make main
@@ -40,3 +43,36 @@ jobs:
           name: testfiles
           path: build/**/*.diff
           retention-days: 3
+
+  test-historic:
+    if: ${{ !contains(github.event.head_commit.message, 'ci skip') }}
+    name: Test TeX Live ${{ matrix.version }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        version: [2025, 2024, 2023, 2022, 2021]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Set up TeX Live ${{ matrix.version }}
+        uses: TeX-Live/setup-texlive-action@v3
+        with:
+          version: ${{ matrix.version }}
+          package-file: .github/tl_packages
+        # uses: zauguin/install-texlive@v4
+        # with:
+        #   texlive_version: ${{ matrix.version }}
+        #   package_file: .github/tl_packages_${{ matrix.version }}
+
+      - name: Test example
+        run: make main
+
+      - name: Test example with LuaTeX
+        run: |
+          make clean
+          latexmk -lualatex main.tex
+
+      - name: Test doc
+        run: make doc
