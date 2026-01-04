@@ -3,38 +3,40 @@
 
 \RequireCitationStyle{gb7714-2015ay}
 
-\renewrobustcmd{\mkbibleftborder}{%
-  \ifustc@language@chinese
-    （%
-  \else
-    (%
-  \fi
+\ExplSyntaxOn
+\renewrobustcmd  \mkbibleftborder
+  {
+    \bool_if:NTF \l__ustc_language_chinese_bool
+      { （ }
+      { ( }
+  }
+
+\renewrobustcmd \mkbibrightborder
+  {%
+    \bool_if:NTF \l__ustc_language_chinese_bool
+      { ） }
+      { ) }
+  }
+
+\cs_set_nopar:Npn \gbpunctcommacite
+  {
+    \bool_if:NTF \l__ustc_language_chinese_bool
+      { ， }
+      { \addcomma \space }
+  }
+
+\cs_set_nopar:Npn \gbpunctmarkcite
+  {
+    \bool_if:NTF \l__ustc_language_chinese_bool
+      { ， }
+      { \addcomma \space }
 }
-\renewrobustcmd{\mkbibrightborder}{%
-  \ifustc@language@chinese
-    ）%
-  \else
-    )%
-  \fi
+
+\cs_set_nopar:Npn \gbpunctsemicoloncite
+  {
+    \bool_if:NTF \l__ustc_language_chinese_bool
+      { ； }
+      { \addsemicolon \space }
 }
-\def\gbpunctcommacite{%
-  \ifustc@language@chinese
-    ，%
-  \else
-    \addcomma\space
-  \fi
-}
-\def\gbpunctmarkcite{%
-  \ifustc@language@chinese
-    ，%
-  \else
-    \addcomma\space
-  \fi
-}
-\def\gbpunctsemicoloncite{%
-  \ifustc@language@chinese
-    ；%
-  \else
-    \addsemicolon\space
-  \fi
-}
+
+\ExplSyntaxOff
