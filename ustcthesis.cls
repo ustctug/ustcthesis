@@ -1745,9 +1745,12 @@
 \newcommand\ustc@clist@count[1]{%
   \csname clist_count:N\endcsname{#1}%
 }
+\ExplSyntaxOn
 \newcommand\ustc@clist@use[2]{%
-  \csname clist_use:Nn\endcsname{#1}{#2}%
+  \clist_set:Ne \l_tmpa_clist {#1}%
+  \clist_use:Nn \l_tmpa_clist {#2}%
 }
+\ExplSyntaxOff
 \newcommand\ustc@supervisor@names{%
   \ustc@clist@use{\ustc@supervisor}{\quad}%
 }
