@@ -1908,9 +1908,9 @@
       \raggedleft\fangsong\fontsize{14bp}{14bp}\selectfont
       \null\ustc@secret@level
     }\par
-    \vspace{11bp}%
+    \vskip 11bp\relax
     \includegraphics[height=1.3cm]{figures/ustc-name-stxingkai.pdf}\par
-    \vspace{-7bp}%
+    \vskip -7bp\relax
     \begingroup
       \sffamily\fontsize{54bp}{70.2bp}\selectfont
       \ifLuaTeX
@@ -1920,7 +1920,7 @@
       \fi
       \ustc@thesis@name\par
     \endgroup
-    \vspace{51bp}%
+    \vskip 51bp\relax
     \begingroup
       \ifustc@badge@color@blue
         \color{ustcblue}%
@@ -1928,12 +1928,12 @@
       % \hspace{3bp}%
       \includegraphics[height=123bp]{figures/ustc-badge.pdf}\par
     \endgroup
-    \vspace{2.8bp}%
+    \vskip 2.8bp\relax
     \parbox[t][101.3bp][c]{\textwidth}{%
       \centering\sffamily\bfseries\fontsize{26bp}{33.8bp}\selectfont
       \ustc@title
     }\par
-    \vspace{37bp}%
+    \vskip 37bp\relax
     \parbox[t]{\textwidth}{%
       \hspace{45bp}%
       \parbox[t]{368bp}{%
@@ -1973,17 +1973,17 @@
       \raggedleft\fangsong\fontsize{14bp}{14bp}\selectfont
       \null\ustc@secret@level@en
     }\par
-    \vspace{5bp}%
+    \vskip 5bp\relax
     \begingroup
       \fontsize{20bp}{30bp}\selectfont
       University of Science and Technology of China\par
     \endgroup
-    \vspace{30bp}%
+    \vskip 30bp\relax
     \begingroup
       \fontsize{26bp}{30bp}\selectfont
       \ustc@thesis@name@en\par
     \endgroup
-    \vspace{68bp}%
+    \vskip 68bp\relax
     \begingroup
       \ifustc@badge@color@blue
         \color{ustcblue}%
@@ -1991,12 +1991,12 @@
       % \hspace{3bp}%
       \includegraphics[height=123bp]{figures/ustc-badge.pdf}\par
     \endgroup
-    \vspace{10bp}%
+    \vskip 10bp\relax
     \parbox[t][90bp][c]{\textwidth}{%
       \centering\sffamily\bfseries\fontsize{26bp}{30bp}\selectfont
       \ustc@title@en
     }\par
-    \vspace{48bp}%
+    \vskip 48bp\relax
     \parbox[t]{\textwidth}{%
       \hspace{61.5bp}%
       \parbox[t]{352bp}{%
@@ -2094,7 +2094,7 @@
     % \vspace*{68bp}%
     \vspace*{29.5bp}%
     \includegraphics{figures/ustc-name-stxingkai.pdf}\par
-    \vspace{0.8bp}%
+    \vskip 0.8bp\relax
     \begingroup
       \sffamily\fontsize{56bp}{72.8bp}\selectfont
       \ifLuaTeX
@@ -2104,14 +2104,14 @@
       \fi
       本科毕业论文\par
     \endgroup
-    \vspace{52bp}%
+    \vskip 52bp\relax
     \ifustc@badge@color@blue
       \textcolor{ustcblue}{%
         \includegraphics[height=126bp]{figures/ustc-badge.pdf}}%
     \else
       \includegraphics[height=4.1cm]{figures/ustc-badge.pdf}%
     \fi\par
-    \vspace{43bp}%
+    \vskip 43bp\relax
     \parbox[t][115bp][t]{\textwidth}{%
       \centering\sffamily\bfseries\fontsize{26bp}{46.8bp}\selectfont
       \ustc@title\par
@@ -2202,7 +2202,7 @@
     \vspace*{21bp}%
     {\centering\sffamily\fontsize{16bp}{32bp}\selectfont
       中国科学技术大学学位论文原创性声明\par}%
-    \vspace{13bp}%
+    \vskip 13bp\relax
     \begingroup
       \ifLuaTeX
         \ltjsetparameter{kanjiskip = {0bp plus .1pt minus .1pt}}%
@@ -2211,14 +2211,14 @@
       \fi
       \ustc@originality\par
     \endgroup
-    \vspace{37bp}%
+    \vskip 37bp\relax
     \noindent
     作者签名：\ustc@underline{}\hspace{8em}%
     签字日期：\ustc@underline{}\par
-    \vspace{69bp}%
+    \vskip 69bp\relax
     {\centering\sffamily\fontsize{16bp}{32bp}\selectfont
       中国科学技术大学学位论文授权使用声明\par}%
-    \vspace{13bp}%
+    \vskip 13bp\relax
     \begingroup
       \ifLuaTeX
         \ltjsetparameter{kanjiskip = {0bp plus .1pt minus .1pt}}%
@@ -2227,7 +2227,7 @@
       \fi
       \ustc@authorization\par
     \endgroup
-    \vspace{12bp}%
+    \vskip 12bp\relax
     \ifx\ustc@secret@level\@empty
       \ustc@checkbox\hbox{}公开\quad
       $\square$\hbox{}控阅（\ustc@underline[2em]{}年）\par
@@ -2235,16 +2235,16 @@
       $\square$\hbox{}公开\quad
       \ustc@checkbox\hbox{}控阅（\ustc@underline[2em]{\ustc@secret@year}年）\par
     \fi
-    \vspace{29bp}%
+    \vskip 29bp\relax
     \noindent
     作者签名：\ustc@underline[7.5em]{}\hspace{8.5em}%
     导师签名：\ustc@underline[7.5em]{}\par
-    \vspace{1em}%
+    \vskip 1em\relax
     \noindent
     签字日期：\ustc@underline[7.5em]{}\hspace{8.5em}%
     签字日期：\ustc@underline[7.5em]{}\par
     \ifustc@reviewer@true
-      \vspace{1.5cm}%
+      \vskip 1.5cm\relax
       \hspace{-1em}%
       评审专家签名：\ustc@underline{}\hspace{4.5em}%
       评审专家签名：\ustc@underline{}\par
@@ -3364,9 +3364,9 @@
 
 \newenvironment{theachievements}[1][已发表论文]{%
   \ifustc@first@achievement@list
-    \vspace{1bp}%
+    \vskip 1bp\relax
   \else
-    \vspace{19bp}%
+    \vskip 19bp\relax
   \fi
   \global\ustc@first@achievement@listfalse
   \noindent\textbf{#1：}\par
