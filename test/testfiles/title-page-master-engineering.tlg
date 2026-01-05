@@ -43,7 +43,6 @@ Completed box being shipped out [1]
 ....\glue(\parfillskip) 0.0
 ....\glue(\rightskip) 0.0 plus 1.0fil
 ...\glue 11.04124
-...\glue 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\lineskip) 1.0
@@ -67,7 +66,6 @@ Completed box being shipped out [1]
 ....\glue(\parfillskip) 0.0
 ....\glue(\rightskip) 0.0 plus 1.0fil
 ...\glue -7.02625
-...\glue 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 28.07689
@@ -95,7 +93,6 @@ Completed box being shipped out [1]
 ....\glue(\parfillskip) 0.0
 ....\glue(\rightskip) 0.0 plus 1.0fil
 ...\glue 51.19124
-...\glue 0.0
 ...\special{color push cmyk 1 0.8 0 0}
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
@@ -121,7 +118,6 @@ Completed box being shipped out [1]
 ....\glue(\rightskip) 0.0 plus 1.0fil
 ...\special{color pop}
 ...\glue 2.8105
-...\glue 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 20.075
@@ -188,7 +184,6 @@ Completed box being shipped out [1]
 ....\glue(\parfillskip) 0.0
 ....\glue(\rightskip) 0.0 plus 1.0fil
 ...\glue 37.13875
-...\glue 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\lineskip) 1.0
@@ -462,7 +457,6 @@ Completed box being shipped out [3]
 ....\glue(\parfillskip) 0.0
 ....\glue(\rightskip) 0.0 plus 1.0fil
 ...\glue 5.01874
-...\glue 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 16.40126
@@ -488,7 +482,6 @@ Completed box being shipped out [3]
 ....\glue(\parfillskip) 0.0
 ....\glue(\rightskip) 0.0 plus 1.0fil
 ...\glue 30.11249
-...\glue 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 7.91158
@@ -510,7 +503,6 @@ Completed box being shipped out [3]
 ....\glue(\parfillskip) 0.0
 ....\glue(\rightskip) 0.0 plus 1.0fil
 ...\glue 68.25499
-...\glue 0.0
 ...\special{color push cmyk 1 0.8 0 0}
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
@@ -536,7 +528,6 @@ Completed box being shipped out [3]
 ....\glue(\rightskip) 0.0 plus 1.0fil
 ...\special{color pop}
 ...\glue 10.03749
-...\glue 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 20.075
@@ -585,7 +576,6 @@ Completed box being shipped out [3]
 ....\glue(\parfillskip) 0.0
 ....\glue(\rightskip) 0.0 plus 1.0fil
 ...\glue 48.18
-...\glue 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\lineskip) 1.0
