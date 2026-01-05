@@ -1749,10 +1749,10 @@
   \csname clist_use:Nn\endcsname{#1}{#2}%
 }
 \newcommand\ustc@supervisor@names{%
-  \ustc@clist@use{\ustc@supervisor}{\quad}
+  \ustc@clist@use{\ustc@supervisor}{\quad}%
 }
 \newcommand\ustc@practice@supervisor@names{%
-  \ustc@clist@use{\ustc@practice@supervisor}{\quad}
+  \ustc@clist@use{\ustc@practice@supervisor}{\quad}%
 }
 \newcounter{ustc@count}
 \newcommand\ustc@supervisor@en@line{%
