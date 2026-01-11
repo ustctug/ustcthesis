@@ -1727,7 +1727,8 @@
     practice-supervisor* = { } ,
   }
 
-\keys_set:ne { ustc }
+% Compatible with TeX Live 2022
+\exp_args:Nne \keys_set:nn { ustc }
   { date = \the\year-\two@digits{\month}-\two@digits{\day} }
 
 \msg_new:nnn { ustcthesis } { obsolete }
