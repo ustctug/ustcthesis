@@ -3758,7 +3758,7 @@
         \cs_set_nopar:Npn \HyPL@StorePageLabel #1
           {
             \group_begin:
-              \cs_set_nopar:Npe \Hy@tempa { \the \Hy@abspage << #1 >> }
+              \exp_args:NNe \cs_set_nopar:Npn \Hy@tempa { \the \Hy@abspage << #1 >> }
               \immediate \write \@mainaux
                 { \token_to_str:N \HyPL@Entry { \Hy@tempa } }
             \group_end:
