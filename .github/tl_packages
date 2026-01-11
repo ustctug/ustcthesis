@@ -27,6 +27,19 @@ cjk
 ctex
 zhnumber
 #
+# Dependencies for ustcthesis
+bigfoot
+caption
+enumitem
+fancyhdr
+footmisc
+filehook
+natbib
+notoccite
+multirow
+titlesec
+unicode-math
+#
 # Dependencies for algorithm2e
 algorithm2e
 ifoddpage
@@ -43,26 +56,17 @@ nomencl
 koma-script
 xkeyval
 #
-# Dependencies for ustcthesis
-bigfoot
-caption
-enumitem
-fancyhdr
-footmisc
-filehook
-natbib
-notoccite
-multirow
-titlesec
-unicode-math
-#
 # Dependencies for fonts
 fandol
+libertinus-fonts
+newcomputermodern
+newtx
 stix2-otf
 tex-gyre
 xits
 #
 # Dependencies for extra packages
+amscls  # amsthm
 booktabs
 mathtools
 threeparttable
