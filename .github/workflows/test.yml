@@ -59,14 +59,14 @@ jobs:
         uses: zauguin/install-texlive@v4
         with:
           texlive_version: ${{ matrix.version }}
-          package_file: .github/tl_packages
+          package_file: .github/tl_packages_${{ matrix.version }}
 
       - name: Set up TeX Live (${{ matrix.ga }}, ${{ matrix.version }})
         if: ${{ matrix.ga == 'texlive' }}
         uses: TeX-Live/setup-texlive-action@v3
         with:
           version: ${{ matrix.version }}
-          package-file: .github/tl_packages
+          package-file: .github/tl_packages_${{ matrix.version }}
 
       - name: Test example
         run: make main
