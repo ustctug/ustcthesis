@@ -109,7 +109,7 @@
     degree .choices:nn =
       { doctor , master , bachelor }
       {
-        \str_set_eq:NN \l__ustc_degree_str \l_keys_choice_str
+        \str_set:NV \l__ustc_degree_str \l_keys_value_tl
         \str_if_eq:VnTF \l__ustc_degree_str { bachelor }
           { \bool_set_false:N \l__ustc_degree_graduate_bool }
           { \bool_set_true:N \l__ustc_degree_graduate_bool }
@@ -117,12 +117,12 @@
       } ,
     degree-type .choices:nn =
       { academic , professional , engineering }
-      { \str_set_eq:NN \l__ustc_degree_type_str \l_keys_choice_str } ,
+      { \str_set:NV \l__ustc_degree_type_str \l_keys_value_tl } ,
     language .choices:nn =
       { chinese , english }
       {
-        \str_set_eq:NN \l__ustc_language_str \l_keys_choice_str
-        \str_if_eq:VnTF \l_keys_choice_str { chinese }
+        \str_set:NV \l__ustc_language_str \l_keys_value_tl
+        \str_if_eq:VnTF \l__ustc_language_str { chinese }
           { \bool_set_true:N \l__ustc_language_chinese_bool }
           { \bool_set_false:N \l__ustc_language_chinese_bool }
         \l__ustc_language_hook_tl
@@ -131,74 +131,64 @@
     reviewer .bool_set:N = \l__ustc_reviewer_bool ,
     fontset .choices:nn =
       { auto , windows , mac , ubuntu , fandol , none }
-      { \str_set_eq:NN \l__ustc_fontset_str \l_keys_choice_str } ,
+      { \str_set:NV \l__ustc_fontset_str \l_keys_value_tl } ,
     font .choices:nn =
       { auto , times , termes , stix , xits , libertinus , newcm , lm , newtx , none }
       {
-        \str_set_eq:NN \l__ustc_font_str \l_keys_choice_str
+        \str_set:NV \l__ustc_font_str \l_keys_value_tl
         \l__ustc_font_hook_tl
       } ,
     cjk-font .choices:nn =
       { auto , windows , mac , noto , fandol , none }
       {
-        \str_set_eq:NN \l__ustc_cjk_font_str \l_keys_choice_str
+        \str_set:NV \l__ustc_cjk_font_str \l_keys_value_tl
         \l__ustc_cjk_font_hook_tl
       } ,
     math-font .choices:nn =
       { auto , stix , xits , libertinus , newcm , cm , lm , newtx , none }
       {
-        \str_set_eq:NN \l__ustc_math_font_str \l_keys_choice_str
+        \str_set:NV \l__ustc_math_font_str \l_keys_value_tl
         \l__ustc_math_font_hook_tl
       } ,
     math-style .choices:nn =
       { TeX, ISO , GB }
       {
-        \str_set_eq:NN \l__ustc_math_style_str \l_keys_choice_str
+        \str_set:NV \l__ustc_math_style_str \l_keys_value_tl
         \l__ustc_math_style_hook_tl
       } ,
-    uppercase-greek .choices:nn =
-      { italic , upright }
-      {
-        \str_if_eq:VnTF \l_keys_choice_str { italic }
-          { \bool_set_true:N \l__ustc_slanted_greek_bool }
-          { \bool_set_false:N \l__ustc_slanted_greek_bool }
-      } ,
-    less-than-or-equal .choices:nn =
-      { slanted , horizontal }
-      {
-        \str_if_eq:VnTF \l_keys_choice_str { slanted }
-          { \bool_set_true:N \l__ustc_leq_slanted_bool }
-          { \bool_set_false:N \l__ustc_leq_slanted_bool }
-      } ,
-    integral .choices:nn =
-      { upright , slanted }
-      {
-        \str_if_eq:VnTF \l_keys_choice_str { upright }
-          { \bool_set_true:N \l__ustc_integral_upright_bool }
-          { \bool_set_false:N \l__ustc_integral_upright_bool }
-      } ,
+    uppercase-greek .choice: ,
+    uppercase-greek / italic .code:n =
+      { \bool_set_true:N \l__ustc_slanted_greek_bool } ,
+    uppercase-greek / upright .code:n =
+      { \bool_set_false:N \l__ustc_slanted_greek_bool } ,
+    less-than-or-equal .choice: ,
+    less-than-or-equal / slanted .code:n =
+      { \bool_set_true:N \l__ustc_leq_slanted_bool } ,
+    less-than-or-equal / horizontal .code:n =
+      { \bool_set_false:N \l__ustc_leq_slanted_bool } ,
+    integral .choice: ,
+    integral / upright .code:n =
+      { \bool_set_true:N \l__ustc_integral_upright_bool } ,
+    integral / slanted .code:n =
+      { \bool_set_false:N \l__ustc_integral_upright_bool } ,
     integral-limits .bool_set:N = \l__ustc_integral_limits_bool ,
-    partial .choices:nn =
-      { upright , italic }
-      {
-        \str_if_eq:VnTF \l_keys_choice_str { upright }
-          { \bool_set_true:N \l__ustc_partial_upright_bool }
-          { \bool_set_false:N \l__ustc_partial_upright_bool }
-      } ,
+    partial .choice: ,
+    partial / upright .code:n =
+      { \bool_set_true:N \l__ustc_partial_upright_bool } ,
+    partial / italic .code:n =
+      { \bool_set_false:N \l__ustc_partial_upright_bool } ,
     math-ellipsis .choices:nn =
       { centered , lower , AMS }
-      { \str_set_eq:NN \l__ustc_math_ellipsis_str \l_keys_choice_str } ,
-    real-part .choices:nn =
-      { roman , fraktur }
-      {
-        \str_if_eq:VnTF \l_keys_choice_str { roman }
-          { \bool_set_true:N \l__ustc_real_part_roman_bool }
-          { \bool_set_false:N \l__ustc_real_part_roman_bool }
-      } ,
+      { \str_set:NV \l__ustc_math_ellipsis_str \l_keys_value_tl } ,
+    real-part .choice: ,
+    real-part  / roman .code:n =
+      { \bool_set_true:N \l__ustc_real_part_roman_bool } ,
+    real-part  / fraktur .code:n =
+      { \bool_set_false:N \l__ustc_real_part_roman_bool } ,
     cite-style .choices:nn =
       { super , inline , authoryear }
       {
-        \str_set_eq:NN \l__ustc_cite_style_str \l_keys_choice_str
+        \str_set:NV \l__ustc_cite_style_str \l_keys_value_tl
         \l__ustc_cite_style_hook_tl
       } ,
     output .choice: ,
