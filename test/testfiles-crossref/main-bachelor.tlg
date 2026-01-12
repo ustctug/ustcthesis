@@ -5624,10 +5624,14 @@ Completed box being shipped out [11]
 ....\glue(\leftskip) 0.0 plus 1.0fil
 ....\hbox(0.0+0.0)x0.0
 ....\TU/texgyretermes(0)/m/n/12.045 2016
+....\kern -0.0002
+....\kern 0.0002
 ....\glue 3.01125 plus 1.50562 minus 1.00374
 ....\TU/FandolSong(0)/m/n/12.045 年
 ....\glue 3.01125 plus 1.50562 minus 1.00374
 ....\TU/texgyretermes(0)/m/n/12.045 5
+....\kern -0.0002
+....\kern 0.0002
 ....\glue 3.01125 plus 1.50562 minus 1.00374
 ....\TU/FandolSong(0)/m/n/12.045 月
 ....\kern -0.00017

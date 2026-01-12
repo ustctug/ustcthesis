@@ -988,7 +988,7 @@ Completed box being shipped out [3]
 ....\glue(\parskip) 0.0
 ....\glue(\parskip) 0.0
 ....\glue(\baselineskip) 11.73985
-....\hbox(8.33514+2.6258)x417.11752, glue set - 0.10205
+....\hbox(8.33514+2.6258)x417.11752, glue set - 0.69722
 .....\TU/texgyretermes(0)/b/n/12.045 KEY
 .....\glue 3.01125 plus 1.5041 minus 1.00473
 .....\TU/texgyretermes(0)/b/n/12.045 WORDS
@@ -999,41 +999,32 @@ Completed box being shipped out [3]
 .....\glue 3.01125 plus 1.50562 minus 1.00374
 .....\TU/texgyretermes(0)/m/n/12.045 Dissertation,
 .....\glue 3.01125 plus 1.88202 minus 0.80298
-.....\glue 3.01125 plus 1.88202 minus 0.80298
 .....\TU/texgyretermes(0)/m/n/12.045 Keyword
 .....\glue 3.01125 plus 1.50562 minus 1.00374
 .....\TU/texgyretermes(0)/m/n/12.045 2,
-.....\glue 3.01125 plus 1.88202 minus 0.80298
 .....\glue 3.01125 plus 1.88202 minus 0.80298
 .....\TU/texgyretermes(0)/m/n/12.045 Keyword
 .....\glue 3.01125 plus 1.50562 minus 1.00374
 .....\TU/texgyretermes(0)/m/n/12.045 3,
 .....\glue 3.01125 plus 1.88202 minus 0.80298
-.....\glue 3.01125 plus 1.88202 minus 0.80298
 .....\TU/texgyretermes(0)/m/n/12.045 Keyword
 .....\glue 3.01125 plus 1.50562 minus 1.00374
 .....\TU/texgyretermes(0)/m/n/12.045 4,
-.....\glue 3.01125 plus 1.88202 minus 0.80298
 .....\glue 3.01125 plus 1.88202 minus 0.80298
 .....\TU/texgyretermes(0)/m/n/12.045 Keyword
 .....\glue 3.01125 plus 1.50562 minus 1.00374
 .....\TU/texgyretermes(0)/m/n/12.045 5,
 .....\glue 3.01125 plus 1.88202 minus 0.80298
-.....\glue 3.01125 plus 1.88202 minus 0.80298
-.....\TU/texgyretermes(0)/m/n/12.045 Key-
+.....\TU/texgyretermes(0)/m/n/12.045 Keyword
 .....\glue(\rightskip) 0.0
-....\penalty 400
+....\penalty 300
 ....\glue(\baselineskip) 9.21042
-....\hbox(8.23878+2.6258)x338.82504, glue set 181.73419fil, shifted 78.29248
-.....\TU/texgyretermes(0)/m/n/12.045 word
-.....\glue 3.01125 plus 1.50562 minus 1.00374
+....\hbox(8.23878+2.6258)x338.82504, glue set 215.09883fil, shifted 78.29248
 .....\TU/texgyretermes(0)/m/n/12.045 6,
-.....\glue 3.01125 plus 1.88202 minus 0.80298
 .....\glue 3.01125 plus 1.88202 minus 0.80298
 .....\TU/texgyretermes(0)/m/n/12.045 Keyword
 .....\glue 3.01125 plus 1.50562 minus 1.00374
 .....\TU/texgyretermes(0)/m/n/12.045 7,
-.....\glue 3.01125 plus 1.88202 minus 0.80298
 .....\glue 3.01125 plus 1.88202 minus 0.80298
 .....\TU/texgyretermes(0)/m/n/12.045 Keyword
 .....\glue 3.01125 plus 1.50562 minus 1.00374
@@ -6230,7 +6221,6 @@ Completed box being shipped out [8]
 ....\penalty 10000
 ....\glue 19.07124
 ....\glue 1.00374
-....\glue 0.0
 ....\glue(\parskip) 0.0
 ....\glue(\parskip) 0.0
 ....\glue(\baselineskip) 4.04312
@@ -6387,7 +6377,6 @@ Completed box being shipped out [8]
 ....\penalty -51
 ....\glue 3.01125
 ....\glue 19.07124
-....\glue 0.0
 ....\glue(\parskip) 0.0
 ....\glue(\parskip) 0.0
 ....\glue(\baselineskip) 4.90636
@@ -6514,7 +6503,6 @@ Completed box being shipped out [8]
 ....\penalty -51
 ....\glue 3.01125
 ....\glue 19.07124
-....\glue 0.0
 ....\glue(\parskip) 0.0
 ....\glue(\parskip) 0.0
 ....\glue(\baselineskip) 4.96657
@@ -6661,7 +6649,6 @@ Completed box being shipped out [8]
 ....\penalty -51
 ....\glue 3.01125
 ....\glue 19.07124
-....\glue 0.0
 ....\glue(\parskip) 0.0
 ....\glue(\parskip) 0.0
 ....\glue(\baselineskip) 4.88226

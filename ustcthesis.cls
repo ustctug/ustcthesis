@@ -1787,7 +1787,7 @@
   }%
   \expandafter\ustc@@process@date\ustc@@date\@nil
 }
-\newcommand\ustc@date@format@zh@small[3]{\number#1 年 \number#2 月 \number#3 日}
+\newcommand\ustc@date@format@zh@small[3]{{\number#1} 年 {\number#2} 月 {\number#3} 日}
 \newcommand\ustc@date@format@zh@big[3]{\zhdigits{#1}年\zhnumber{#2}月\zhnumber{#3}日}
 \newcommand\ustc@date@month[1]{%
   \ifcase\number#1\or
@@ -1795,7 +1795,7 @@
     July\or August\or September\or October\or November\or December%
   \fi
 }
-\newcommand\ustc@date@format@zh@short[3]{\number#1 年 \number#2 月}
+\newcommand\ustc@date@format@zh@short[3]{{\number#1} 年 {\number#2} 月}
 \newcommand\ustc@date@format@en[3]{\ustc@date@month{#2} \number#3, #1}
 \newcommand\ustc@date@zh@small{\ustc@format@date{\ustc@date@format@zh@small}{\ustc@date}}
 \newcommand\ustc@date@zh@big{\ustc@format@date{\ustc@date@format@zh@big}{\ustc@date}}

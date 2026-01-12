@@ -594,8 +594,8 @@ Completed box being shipped out [1]
 ........\TU/FandolSong(0)/b/n/15.05624 教
 ........\glue 0.0 plus 1.02621
 ........\TU/FandolSong(0)/b/n/15.05624 授
-........\kern -0.00018
-........\kern 0.00018
+........\kern -0.00017
+........\kern 0.00017
 ........\glue 0.0 plus 1.0fil
 ........\glue 0.0
 ........\hbox(0.0+0.0)x0.0
@@ -642,14 +642,20 @@ Completed box being shipped out [1]
 ........\glue 0.0 plus 1.0fil
 ........\glue 0.00002
 ........\TU/texgyretermes(0)/b/n/15.05624 2023
+........\kern -0.0002
+........\kern 0.0002
 ........\glue 3.76407 plus 1.88203 minus 1.25468
 ........\TU/FandolSong(0)/b/n/15.05624 年
 ........\glue 3.76407 plus 1.88203 minus 1.25468
 ........\TU/texgyretermes(0)/b/n/15.05624 5
+........\kern -0.0002
+........\kern 0.0002
 ........\glue 3.76407 plus 1.88203 minus 1.25468
 ........\TU/FandolSong(0)/b/n/15.05624 月
 ........\glue 3.76407 plus 1.88203 minus 1.25468
 ........\TU/texgyretermes(0)/b/n/15.05624 1
+........\kern -0.0002
+........\kern 0.0002
 ........\glue 3.76407 plus 1.88203 minus 1.25468
 ........\TU/FandolSong(0)/b/n/15.05624 日
 ........\kern -0.00017
