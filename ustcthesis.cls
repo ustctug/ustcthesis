@@ -10,11 +10,11 @@
 % version 2008 or later.
 %
 
-\NeedsTeXFormat{LaTeX2e}[2020/10/01]
+\NeedsTeXFormat{LaTeX2e}[2020-10-01]
 
 % 检查 LaTeXe kernel 版本
 \providecommand\IfFormatAtLeastTF{\@ifl@t@r\fmtversion}
-\IfFormatAtLeastTF{2020/10/01}{}
+\IfFormatAtLeastTF{2020-10-01}{}
   {\ClassError{ustcthesis}{TeX Live 2021 or later version is required.}{}}
 
 \newcommand\ustcthesisversion{4.0.0-beta.10}
@@ -95,7 +95,9 @@
 \bool_new:N \l__ustc_badge_color_black_bool
 \bool_new:N \l__ustc_eqn_paren_style_full_bool
 
-\keys_define:nn { ustc }
+% \clist_new:N \l__ustc_unknown_options_clist
+
+\keys_define:nn { ustc / options }
   {
     degree .choices:nn =
       { doctor , master , bachelor }
@@ -106,6 +108,42 @@
           { \bool_set_true:N \l__ustc_degree_graduate_bool }
         \l__ustc_degree_hook_tl
       } ,
+
+    degree-type .code:n = \keys_set:nn { ustc } { degree-type = {#1} } ,
+    language .code:n = \keys_set:nn { ustc } { language = {#1} } ,
+    fontset .choices:nn =
+      { auto , windows , mac , ubuntu , fandol , none }
+      { \str_set:NV \l__ustc_fontset_str \l_keys_choice_tl } ,
+    font .code:n = \keys_set:nn { ustc } { font = {#1} } ,
+    cjk-font .code:n = \keys_set:nn { ustc } { cjk-font = {#1} } ,
+    math-font .code:n = \keys_set:nn { ustc } { math-font = {#1} } ,
+    math-style .code:n = \keys_set:nn { ustc } { math-style = {#1} } ,
+    output .choice: ,
+    output / print .code:n =
+      {
+        \bool_set_false:N \l__ustc_output_electronic_bool
+        \PassOptionsToClass { twoside } { ctexbook }
+      } ,
+    output / electronic .code:n =
+      {
+        \bool_set_true:N \l__ustc_output_electronic_bool
+        \PassOptionsToClass { oneside } { ctexbook }
+      } ,
+    review .bool_set:N = \l__ustc_review_bool ,
+    reviewer .bool_set:N = \l__ustc_reviewer_bool ,
+    section-style .code:n = \keys_set:nn { ustc } { section-style = {#1} } ,
+    cite-style .code:n = \keys_set:nn { ustc } { cite-style = {#1} } ,
+    badge-color .code:n = \keys_set:nn { ustc } { badge-color = {#1} } ,
+    eqn-paren-style .code:n = \keys_set:nn { ustc } { eqn-paren-style = {#1} } ,
+    unknown .code:n =
+      {
+        % \clist_put_right:NV \l__ustc_unknown_options_clist \CurrentOption
+        \PassOptionsToClass { \CurrentOption } { ctexbook }
+      } ,
+  }
+
+\keys_define:nn { ustc }
+  {
     degree-type .choices:nn =
       { academic , professional , engineering }
       { \str_set:NV \l__ustc_degree_type_str \l_keys_choice_tl } ,
@@ -120,9 +158,6 @@
       } ,
     review .bool_set:N = \l__ustc_review_bool ,
     reviewer .bool_set:N = \l__ustc_reviewer_bool ,
-    fontset .choices:nn =
-      { auto , windows , mac , ubuntu , fandol , none }
-      { \str_set:NV \l__ustc_fontset_str \l_keys_choice_tl } ,
     font .choices:nn =
       { auto , times , termes , stix , xits , libertinus , newcm , lm , newtx , cm , none }
       {
@@ -182,11 +217,6 @@
         \str_set:NV \l__ustc_cite_style_str \l_keys_choice_tl
         \l__ustc_cite_style_hook_tl
       } ,
-    output .choice: ,
-    output / print .code:n =
-      { \bool_set_false:N \l__ustc_output_electronic_bool } ,
-    output / electronic .code:n =
-      { \bool_set_true:N \l__ustc_output_electronic_bool } ,
     section-style .choice: ,
     section-style / chinese .code:n =
       { \bool_set_true:N \l__ustc_section_style_chinese_bool } ,
@@ -202,18 +232,21 @@
       { \bool_set_true:N \l__ustc_eqn_paren_style_full_bool } ,
     eqn-paren-style / half .code:n =
       { \bool_set_false:N \l__ustc_eqn_paren_style_full_bool } ,
-    unknown .code:n =
-      { \PassOptionsToClass { \CurrentOption } { ctexbook } } ,
+  }
+
+\keys_set:nn { ustc / options }
+  {
+    degree      = doctor ,
+    fontset     = auto ,
+    output      = print ,
   }
 
 \keys_set:nn { ustc }
   {
-    degree      = doctor ,
     degree-type = academic ,
     language    = chinese ,
     review      = false ,
     reviewer    = false ,
-    fontset     = auto ,
     font        = auto ,
     cjk-font    = auto ,
     math-font   = auto ,
@@ -258,17 +291,14 @@
 % 载入 \cls{ctexbook}。
 % \IfFormatAtLeastTF { 2022-06-01 }
 \cs_if_exist:NTF \ProcessKeyOptions
-  { \ProcessKeyOptions [ ustc ] }
+  { \ProcessKeyOptions [ ustc / options ] }
   {
     \RequirePackage { l3keys2e }
-    \ProcessKeysOptions { ustc }
+    \ProcessKeysOptions { ustc / options }
   }
 
-\keys_set:nn { ustc }
-  { unknown .undefine: }
-
-\bool_if:NT \l__ustc_output_electronic_bool
-  { \PassOptionsToClass { oneside } { ctexbook } }
+% \clist_map_inline:Nn \l__ustc_unknown_options_clist
+%   { \PassOptionsToClass { #1 } { ctexbook } }
 
 \PassOptionsToPackage { no-math } { fontspec }
 
@@ -278,12 +308,12 @@
 % 载入 \cls{ctexbook} 文档类，注意要求为 2.4.9 或更高的版本。
 \LoadClass
   [ UTF8 , a4paper , scheme = plain , zihao = - 4 , fontset = none ]
-  { ctexbook } [ 2017/04/01 ]
+  { ctexbook } [ 2021-03-14 ]
 
 % 建议在模板开始处载入全部宏包，不要轻易改变加载顺序。
 % \pkg{hyperref} 一般在最后加载。
 \RequirePackage { amsmath }
-\RequirePackage { fontspec } [ 2017/03/31 ]
+\RequirePackage { fontspec }
 \RequirePackage { geometry }
 \RequirePackage { graphicx }
 \RequirePackage { fancyhdr }
@@ -604,14 +634,14 @@
 \str_if_eq:VnT \l__ustc_fontset_str { auto }
   {
     \sys_if_platform_windows:TF
-      { \ustcsetup { fontset = windows } }
+      { \keys_set:nn { ustc / options } { fontset = windows } }
       {
         \fontspec_font_if_exist:nTF { SimSun }
-          { \ustcsetup { fontset = windows} }
+          { \keys_set:nn { ustc / options } { fontset = windows} }
           {
             \__ustc_if_platform_mac:TF
-              { \ustcsetup { fontset = mac } }
-              { \ustcsetup { fontset = fandol } }
+              { \keys_set:nn { ustc / options } { fontset = mac } }
+              { \keys_set:nn { ustc / options } { fontset = fandol } }
           }
       }
   }
@@ -1027,28 +1057,14 @@
   {
     \bool_if:NTF \l__ustc_leq_slanted_bool
       {
-        \__ustc_if_preamble:TF
-          {
-            \AtBeginDocument
-              {
-                \cs_set_protected_nopar:Npn \le { \leqslant }
-                \cs_set_protected_nopar:Npn \ge { \geqslant }
-              }
-          }
+        \hook_gput_code:nnn { begindocument } { . }
           {
             \cs_set_protected_nopar:Npn \le { \leqslant }
             \cs_set_protected_nopar:Npn \ge { \geqslant }
           }
       }
       {
-        \__ustc_if_preamble:TF
-          {
-            \AtBeginDocument
-              {
-                \cs_set_protected_nopar:Npn \le { \leq }
-                \cs_set_protected_nopar:Npn \ge { \geq }
-              }
-          }
+        \hook_gput_code:nnn { begindocument } { . }
           {
             \cs_set_protected_nopar:Npn \le { \leq }
             \cs_set_protected_nopar:Npn \ge { \geq }
@@ -1089,14 +1105,14 @@
   {
     \bool_if:NTF \l__ustc_real_part_roman_bool
       {
-        \AtBeginDocument
+        \hook_gput_code:nnn { begindocument } { . }
           {
             \cs_set_protected:Npn \Re { \operatorname { Re } }
             \cs_set_protected:Npn \Im { \operatorname { Im } }
           }
       }
       {
-        \AtBeginDocument
+        \hook_gput_code:nnn { begindocument } { . }
           {
             \cs_set_eq:NN \Re \__ustc_save_real_part:
             \cs_set_eq:NN \Im \__ustc_save_imaginary_part:
@@ -1128,7 +1144,7 @@
       { }
       {
         \RequirePackage { unicode-math }
-        \AtBeginDocument
+        \hook_gput_code:nnn { begindocument } { . }
           {
             \cs_set_eq:NN \__ustc_save_real_part: \Re
             \cs_set_eq:NN \__ustc_save_imaginary_part: \Im
@@ -1139,7 +1155,7 @@
         % 兼容 \pkg{amsfonts} 和 \pkg{amssymb} 中的一些命令。
         \cs_new:Npn \square { \mdlgwhtsquare }
         \cs_new:Npn \blacksquare { \mdlgblksquare }
-        \AtBeginDocument
+        \hook_gput_code:nnn { begindocument } { . }
           { \cs_set:Npn \checkmark { \ensuremath { ✓ } } }
         % 兼容 \pkg{amsthm} 的 \cs{qedsymbol}。
         \cs_set:Npn \__ustc_qed: { \ensuremath { \QED } }
@@ -1151,13 +1167,13 @@
   {
     \__ustc_load_unimath:
     \__ustc_set_unimath_style:
-    \exp_args:NV \setmathfont STIXTwoMath-Regular
+    \setmathfont { STIXTwoMath-Regular }
       [
         Extension    = .otf ,
         Scale        = MatchLowercase ,
         StylisticSet = \__ustc_xits_integral_stylistic_set: ,
       ]
-    \exp_args:NV \setmathfont STIXTwoMath-Regular
+    \setmathfont { STIXTwoMath-Regular }
       [
         Extension    = .otf ,
         Scale        = MatchLowercase ,
@@ -1747,7 +1763,7 @@
 % 定义校徽颜色
 %
 % 推迟定义颜色以避免调用 \pkg{xcolor} 时的警告
-\AtBeginDocument
+\hook_gput_code:nnn { begindocument } { . }
   { \definecolor { ustcblue } { cmyk } { 1 , 0.8 , 0 , 0 } }
 
 % 添加 PDF 书签，在 \pkg{hyperref} 载入后才有效。
@@ -3588,7 +3604,7 @@
       { \hypersetup { hidelinks } }
     %
     % 填写 PDF 元信息。
-    \AtBeginDocument
+    \hook_gput_code:nnn { begindocument } { . }
       {
         \bool_if:NTF \l__ustc_language_chinese_bool
           {
@@ -3623,16 +3639,6 @@
       \cs_set_eq:NN \\ \@empty
       \cs_set_eq:NN \hspace \@gobble
     }
-    %
-    % \pkg{hyperref} 与 \pkg{unicode-math} 存在一些兼容性问题，见
-    % \href{https://github.com/ustctug/ustcthesis/issues/223}{%
-    %   ustctug/ustcthesis\#223}，
-    % \href{https://github.com/ho-tex/hyperref/pull/90}{ho-tex/hyperref\#90} 和
-    % \href{https://github.com/ustctug/ustcthesis/issues/235}{%
-    %   ustctug/ustcthesis/\#235}。
-    \@ifpackagelater { hyperref } { 2019/04/27 }
-      { }
-      { \tl_put_right:Nn \psdmapshortnames { \cs_set_eq:NN \mu \textmu } }
     %
     % 设置中文的 \cs{autoref}。
     % \footnote{\url{https://tex.stackexchange.com/a/66150/82731}}
