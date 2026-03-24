@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - 默认数学符号风格 `math-style` 改为 `TeX`。
+- 中文著者-出版年制引用标注的括号改为全角（[tuna/thuthesis#1054](https://github.com/tuna/thuthesis/issues/1054)）。
 
 ### Fixed
 
