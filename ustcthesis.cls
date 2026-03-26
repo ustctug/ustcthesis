@@ -2171,11 +2171,30 @@
 % \subsection{原创性声明}
 
 % 定义原创性声明
-\newcommand\ustc@originality{%
+\newcommand\statement{%
+  \ifustc@degree@graduate
+    \ustc@statement@graduate
+  \else
+    \ustc@statement@bachelor
+  \fi
+}
+
+% 本科生声明内容
+\newcommand\ustc@originality@bachelor{%
+  本人郑重承诺：所呈交的本科毕业论文，是本人在导师指导下进行研究工作%
+  所取得的成果。除已特别加以标注和致谢的地方外，论文中不包含任何他人已经%
+  发表或撰写过的研究成果。与我一同工作的同志对本研究所做的贡献均已在论文%
+  中作了明确的说明。如出现侵犯他人知识产权的行为，由本人承担相应法律责任。%
+  本人承诺不存在抄袭、伪造、篡改、代写、买卖毕业论文(设计)等违纪行为。}
+
+% 研究生原创性声明内容
+\newcommand\ustc@originality@graduate{%
   本人声明所呈交的学位论文，是本人在导师指导下进行研究工作所取得的成果。%
   除已特别加以标注和致谢的地方外，论文中不包含任何他人已经发表或撰写过的%
   研究成果。%
   与我一同工作的同志对本研究所做的贡献均已在论文中作了明确的说明。}
+
+% 研究生授权使用声明内容
 \newcommand\ustc@authorization{%
   作为申请学位的条件之一，学位论文著作权拥有者授权中国科学技术大学拥有%
   学位论文的部分使用权，%
@@ -2193,7 +2212,7 @@
   $\square$%
 }
 
-\newcommand\copyrightpage{%
+\newcommand\ustc@statement@graduate{%
   \begin{titlepage}%
     \ustc@pdfbookmark{原创性和授权使用声明}%
     \vspace*{21bp}%
@@ -2206,7 +2225,7 @@
       \else
         \renewcommand\CJKglue{\hspace{0bp plus .1pt minus .1pt}}%
       \fi
-      \ustc@originality\par
+      \ustc@originality@graduate\par
     \endgroup
     \vspace{37bp}%
     \noindent
@@ -2251,13 +2270,41 @@
   \cleardoublepage
   \ustc@title@pagefalse
 }
-\ifustc@degree@bachelor
-  \let\copyrightpage\relax
-\fi
-% Deprecated since 2020-07-01.
+
+\newcommand\ustc@statement@bachelor{%
+  \cleardoublepage
+  \ustc@pdfbookmark{学术诚信承诺书}%
+  \thispagestyle{headings}%
+  \vspace*{81bp}%
+  {\centering\sffamily\fontsize{16bp}{20bp}\selectfont
+    中国科学技术大学本科毕业论文学术诚信承诺书\par}%
+  \vskip 18bp%
+  \begingroup
+    \fontsize{12bp}{20bp}\selectfont
+    \ifLuaTeX
+      \ltjsetparameter{kanjiskip = {0bp plus .1pt minus .1pt}}%
+    \else
+      \renewcommand\CJKglue{\hskip 0bp plus .1pt minus .1pt\relax}%
+    \fi
+    \ustc@originality@bachelor\par
+  \endgroup
+  \vskip 38bp%
+  \begingroup
+    \raggedleft
+    作者签名：\ustc@underline[8em]{}\par
+    \vskip 12bp%
+    签字日期：\ustc@underline[8em]{}\par
+  \endgroup
+}
+
+% Deprecated commands
+\newcommand\copyrightpage{%
+  \ustc@deprecated{'\protect\copyrightpage' command}{2026-03-26}{'\protect\statement'}%
+  \statement
+}
 \newcommand\makestatement{%
-  \ustc@deprecated{'\protect\makestatement' command}{2020-07-01}{'\protect\copyrightpage'}%
-  \copyrightpage
+  \ustc@deprecated{'\protect\makestatement' command}{2020-07-01}{'\protect\statement'}%
+  \statement
 }
 
 
