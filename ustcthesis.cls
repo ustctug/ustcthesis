@@ -3134,6 +3134,28 @@
 
 % \subsection{参考文献}
 
+\cs_set_eq:NN \__ustc_save_bib_style:n \bibliographystyle
+
+\prop_const_from_keyval:Nn \c__ustc_bib_style_prop
+  {
+    ustcthesis-numerical = ustcthesis-numeric ,
+  }
+
+\cs_set_nopar:Npn \bibliographystyle #1
+  {
+    \prop_get:NnNTF \c__ustc_bib_style_prop {#1} \l_tmpa_tl
+      {
+        \file_if_exist:nTF { \l_tmpa_tl .bst }
+          {
+            \__ustc_deprecated:nnn { style~ name~ ' #1 ' } { 2026-03-30 }
+              { ' \tl_use:N \l_tmpa_tl ' }
+            \exp_args:NV \__ustc_save_bib_style:n \l_tmpa_tl
+          }
+          { \__ustc_save_bib_style:n {#1} }
+      }
+      { \__ustc_save_bib_style:n {#1} }
+  }
+
 \clist_new:N \g__ustc_bib_files_clist
 
 % \str_set:Ne was not available until 2023-06-05.
@@ -3211,6 +3233,7 @@
     %
     % 几种引用样式，与 \file{bst} 文件名保持一致，
     % 这样在使用 \cs{bibliographystyle} 选择参考文献表的样式时也会设置对应的引用样式。
+    \cs_set_eq:cN { bibstyle@ustcthesis-numeric} \bibstyle@super
     \cs_set_eq:cN { bibstyle@ustcthesis-numerical } \bibstyle@super
     \cs_set_eq:cN { bibstyle@ustcthesis-authoryear } \bibstyle@authoryear
     \cs_set_eq:cN { bibstyle@ustcthesis-bachelor } \bibstyle@super
@@ -3447,7 +3470,7 @@
       }%
         \@ifnum{\NAT@cmprs>\z@}{\NAT@last@yr}{}%
         \ifNAT@swa\else
-          % 将 numerical 式 \cs{citet} 引用的页码置于括号外并改为上标。
+          % 将 numeric 式 \cs{citet} 引用的页码置于括号外并改为上标。
           %
           % \@ifnum{\NAT@ctype=\z@}{%
           %   \if*#2*\else\NAT@cmt#2\fi

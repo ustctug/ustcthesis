@@ -18,10 +18,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - 默认数学符号风格 `math-style` 改为 `TeX`。
 - 中文著者-出版年制引用标注的括号改为全角（[tuna/thuthesis#1054](https://github.com/tuna/thuthesis/issues/1054)）。
 - 研究生的原创性声明命令改为 `\statement`。
+- BibTeX 顺序编码制的样式名称改为 `ustcthesis-numeric.bst`。
 
 ### Deprecated
 
 - 原创性声明命令 `\copyrightpage` 已经过时。
+- BibTeX 样式名称 `ustcthesis-numerical.bst` 已过时。
 
 ### Fixed
 
