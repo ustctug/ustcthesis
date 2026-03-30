@@ -1,4 +1,4 @@
-testfiledir = "./test/testfiles-nomencl"
+testfiledir = "./tests/testfiles-nomencl"
 
 checkruns = 2
 

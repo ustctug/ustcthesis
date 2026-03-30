@@ -5,7 +5,7 @@ ustcthesis-doc.pdf
 
 ## test files:
 build/
-test/**/*.pdf
+tests/**/*.pdf
 
 ## Core latex/pdflatex auxiliary files:
 *.aux

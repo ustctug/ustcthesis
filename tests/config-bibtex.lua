@@ -1,10 +1,10 @@
-testfiledir = "./test/testfiles-biblatex"
+testfiledir = "./tests/testfiles-bibtex"
 
 checkruns = 3
 
 function runtest_tasks(name, run)
   if run == 1 then
-    return "biber --quiet " .. name
+    return "bibtex -terse " .. name
   else
     return ""
   end
