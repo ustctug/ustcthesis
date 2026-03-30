@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - 新增选项 `review = true/false` 选择盲审模式（[#489](https://github.com/ustctug/ustcthesis/issues/489)）。
 - 本科生新增学术诚信承诺书（教务处 2025-09-09 更新，[#496](https://github.com/ustctug/ustcthesis/issues/496)）。
+- 添加 BibTeX 模式的 `\addbibresource` 和 `\printbibliography` 命令。
 
 ### Changed
 

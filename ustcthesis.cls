@@ -3134,6 +3134,68 @@
 
 % \subsection{参考文献}
 
+\clist_new:N \g__ustc_bib_files_clist
+
+% \str_set:Ne was not available until 2023-06-05.
+\cs_if_exist:NF \str_set:Ne
+  { \cs_generate_variant:Nn \str_set:Nn  { Ne } }
+
+\NewDocumentCommand \addbibresource { O { } m }
+  {
+    \tl_if_blank:nF {#1}
+      { \msg_warning:nn { ustcthesis } { add-bib-arg-ignored } }
+    \int_compare:nNnT { \clist_count:n {#2} } > { 1 }
+      { \msg_error:nn { ustcthesis } { multi-bib-files } }
+    \clist_map_inline:nn {#2}
+      {
+        \str_set:Ne \l_tmpa_str {##1}
+        \str_set:Ne \l_tmpb_str { \str_range:Nnn \l_tmpa_str { -4 } { -1 } }
+        \str_if_eq:VnTF \l_tmpb_str { .bib }
+          { \str_set:Ne \l_tmpa_str { \str_range:Nnn \l_tmpa_str { 1 } { -5 } } }
+          { \msg_warning:nn { ustcthesis } { bib-file-extension } }
+        \clist_gput_right:NV \g__ustc_bib_files_clist \l_tmpa_str
+      }
+  }
+
+\NewDocumentCommand \printbibliography { O { } }
+  {
+    \tl_if_blank:nF {#1}
+      { \msg_warning:nn { ustcthesis } { print-bib-arg-ignored } }
+    \exp_args:Ne \bibliography
+      { \clist_use:Nn \g__ustc_bib_files_clist { , } }
+  }
+
+\__ustc_at_begin_package:nn {biblatex}
+  {
+    \cs_undefine:N \addbibresource
+    \cs_undefine:N \printbibliography
+  }
+
+\msg_new:nnn { ustcthesis } { multi-bib-files }
+  {
+    The~ ' \token_to_str:N \addbibresource '~ command~ accepts~ only~ one~
+    .bib~ file.
+  }
+
+\msg_new:nnn { ustcthesis } { bib-file-extension }
+  {
+    The~ extension~ name~ '.bib'~ must~ be~ specified~ in~
+    ' \token_to_str:N \addbibresource '~ command.
+  }
+
+\msg_new:nnn { ustcthesis } { add-bib-arg-ignored }
+  {
+    The~ optional~ argument~ of~ ' \token_to_str:N \addbibresource '~ is~
+    ignored~ when~ used~ with~ BibTeX.
+  }
+
+\msg_new:nnn { ustcthesis } { print-bib-arg-ignored }
+  {
+    The~ optional~ argument~ of~ ' \token_to_str:N \printbibliography '~ is~
+    ignored~ when~ used~ with~ BibTeX.
+  }
+
+
 \PassOptionsToPackage { compress } { natbib }
 
 \__ustc_at_end_package:nn { natbib }
