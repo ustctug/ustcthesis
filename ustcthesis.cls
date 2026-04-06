@@ -1739,6 +1739,20 @@
   \ustc@warning{The 'professional-type*' option is obsolete.}%
 }
 
+\AtBeginDocument{
+  \ifustc@review@true
+    \ustcsetup{
+      author  = {},
+      author* = {},
+      supervisor  = {},
+      supervisor* = {},
+      practice-supervisor  = {},
+      practice-supervisor* = {},
+      student-id = {},
+    }%
+  \fi
+}
+
 % 导师一栏可能有多个姓名，所以用 \opt{supervisor} 进行收集，
 % 然后使用本命令来输出要求的格式，
 % 类似于 \LaTeX3 的 \cs{clist\_use:Nn}。
@@ -2142,19 +2156,6 @@
   \pagenumbering{Alph}%
   \pagestyle{empty}%
   \ustc@title@pagetrue
-  \ifustc@review@true
-    \ustcsetup{
-      author  = {},
-      author* = {},
-      speciality  = {},
-      speciality* = {},
-      supervisor  = {},
-      supervisor* = {},
-      practice-supervisor  = {},
-      practice-supervisor* = {},
-      student-id = {},
-    }%
-  \fi
   \ifustc@degree@graduate
     \ustc@title@page@graduate@zh
     \ustc@title@page@graduate@en
@@ -3361,7 +3362,7 @@
 \NewDocumentEnvironment{acknowledgements}{+b}{%
   \@mainmatterfalse
   \chapter{\ustc@acknowledgements@name}%
-  \ifustc@review@true\else
+  \ifustc@review@false
     #1%
     \ifustc@degree@bachelor
       \par
@@ -3386,9 +3387,20 @@
 % 科研成果环境：
 \NewDocumentEnvironment{achievements}{+b}{%
   \ifustc@degree@graduate
-    \@mainmatterfalse
-    \chapter{\ustc@achievements@name}%
-    \ifustc@review@true\else
+    \ifustc@review@false
+      \@mainmatterfalse
+      \chapter{\ustc@achievements@name}%
+      \fontsize{12bp}{16bp}\selectfont
+      #1\par
+    \fi
+  \fi
+}{}
+
+\NewDocumentEnvironment{achievements*}{+b}{%
+  \ifustc@degree@graduate
+    \ifustc@review@true
+      \@mainmatterfalse
+      \chapter{\ustc@achievements@name}%
       \fontsize{12bp}{16bp}\selectfont
       #1\par
     \fi
@@ -3465,15 +3477,16 @@
   % 填写 PDF 元信息。
   \AtBeginDocument{%
     \ifustc@main@language@chinese
-      \hypersetup{
-        pdftitle  = \ustc@title,
-        pdfauthor = \ustc@author,
-      }%
+      \hypersetup{pdftitle = \ustc@title}
     \else
-      \hypersetup{
-        pdftitle  = \ustc@title@en,
-        pdfauthor = \ustc@author@en,
-      }%
+      \hypersetup{pdftitle = \ustc@title@en}
+    \fi
+    \ifustc@review@false
+      \ifustc@main@language@chinese
+        \hypersetup{pdfauthor = \ustc@author}
+      \else
+        \hypersetup{pdfauthor = \ustc@author@en}
+      \fi
     \fi
   }
   %

@@ -11,12 +11,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - 新增选项 `review = true/false` 选择盲审模式（[#489](https://github.com/ustctug/ustcthesis/issues/489)）。
 - 本科生新增学术诚信承诺书（教务处 2025-09-09 更新，[#496](https://github.com/ustctug/ustcthesis/issues/496)）。
+- 新增 `achievements*` 环境用于输出盲审版的研究成果（[#489](https://github.com/ustctug/ustcthesis/issues/489#issuecomment-4182565581)）。
 
 ### Changed
 
 - 默认数学符号风格 `math-style` 改为 `TeX`。
 - 中文著者-出版年制引用标注的括号改为全角（[tuna/thuthesis#1054](https://github.com/tuna/thuthesis/issues/1054)）。
 - 研究生的原创性声明命令改为 `\statement`。
+- 改进盲审模式 `review = true` 的输出格式（[#489](https://github.com/ustctug/ustcthesis/issues/489#issuecomment-4182565581)）。
 
 ### Deprecated
 
