@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [4.0.0-beta.11] - 2026-04-06
+
 ### Added
 
 - 新增选项 `review = true/false` 选择盲审模式（[#489](https://github.com/ustctug/ustcthesis/issues/489)）。
@@ -484,7 +486,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - 优化图注、算法的行距。
 - 二级以下节标题编号下采用“1.”、“(1)”、“①”。
 
-[Unreleased]: https://github.com/ustctug/ustcthesis/compare/v4.0.0-beta.10...HEAD
+[Unreleased]: https://github.com/ustctug/ustcthesis/compare/v4.0.0-beta.11...HEAD
+[4.0.0-beta.11]: https://github.com/ustctug/ustcthesis/compare/v4.0.0-beta.10...v4.0.0-beta.11
 [4.0.0-beta.10]: https://github.com/ustctug/ustcthesis/compare/v4.0.0-beta.9...v4.0.0-beta.10
 [4.0.0-beta.9]: https://github.com/ustctug/ustcthesis/compare/v4.0.0-beta.8...v4.0.0-beta.9
 [4.0.0-beta.8]: https://github.com/ustctug/ustcthesis/compare/v4.0.0-beta.7...v4.0.0-beta.8
