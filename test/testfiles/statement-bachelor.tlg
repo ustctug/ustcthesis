@@ -102,7 +102,7 @@ Completed box being shipped out [1]
 ....\special{color pop}
 ..\glue 15.6491
 ..\glue(\lineskip) 0.0
-..\vbox(700.50723+0.0)x417.11752, glue set 370.31955fil
+..\vbox(700.50723+0.0)x417.11752, glue set 374.3341fil
 ...\write-{}
 ...\write-{}
 ...\glue(\topskip) 12.0
@@ -557,7 +557,7 @@ Completed box being shipped out [1]
 ...\glue 38.14249
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
-...\glue(\baselineskip) 10.48317
+...\glue(\baselineskip) 8.47568
 ...\hbox(9.38306+3.97446)x417.11752, glue set 260.53255fil
 ....\glue(\leftskip) 0.0 plus 1.0fil
 ....\hbox(0.0+0.0)x0.0
@@ -591,7 +591,7 @@ Completed box being shipped out [1]
 ...\glue 12.045
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
-...\glue(\baselineskip) 8.7852
+...\glue(\baselineskip) 6.77771
 ...\hbox(9.32283+3.97446)x417.11752, glue set 260.53255fil
 ....\glue(\leftskip) 0.0 plus 1.0fil
 ....\hbox(0.0+0.0)x0.0
@@ -625,14 +625,14 @@ Completed box being shipped out [1]
 ...\glue 0.0 plus 1.0fil
 ...\glue 0.0
 ...\glue 0.0 plus 0.0001fil
-..\glue(\baselineskip) 15.85268
-..\hbox(6.6248+0.0)x417.11752
+..\glue(\baselineskip) 16.45493
+..\hbox(6.02255+0.0)x417.11752
 ...\special{color push  Black}
-...\hbox(6.6248+0.0)x417.11752
-....\hbox(6.6248+0.0)x417.11752
-.....\vbox(6.6248+0.0)x417.11752
+...\hbox(6.02255+0.0)x417.11752
+....\hbox(6.02255+0.0)x417.11752
+.....\vbox(6.02255+0.0)x417.11752
 ......\rule(0.0+0.0)x417.11752
-......\glue 6.6248
+......\glue 6.02255
 ......\hbox(0.0+0.0)x417.11752
 .......\hbox(0.0+0.0)x0.0, glue set - 417.11752fil
 ........\vbox(0.0+0.0)x417.11752
