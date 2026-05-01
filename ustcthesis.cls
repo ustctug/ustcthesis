@@ -624,7 +624,7 @@
 
 % 字号
 
-% 正文字号12bp，研究生行距20bp，本科生行距22bp；
+% 正文字号12bp，研究生行距20bp，本科生行距20bp；
 % 其他命令的行距按照相同的的比例设置，如表~\ref{tab:fontsize}。
 % \begin{table}[htb]
 %   \centering
@@ -664,7 +664,7 @@
     % 注意第~\ref{sec:list} 节去掉了列表的间距，所以不再修改 \cs{@listi}。
   \else
     \renewcommand\normalsize{%
-      \@setfontsize\normalsize{12bp}{22bp}%
+      \@setfontsize\normalsize{12bp}{20bp}%
       \abovedisplayskip 6bp \@plus3bp \@minus3bp%
       \abovedisplayshortskip 6bp \@plus3bp \@minus3bp%
       \belowdisplayshortskip \abovedisplayshortskip
@@ -2444,13 +2444,13 @@
       indent    = 0bp,
     },
     subsubsection = {
-      format    = \rmfamily\fontsize{12bp}{22bp}\selectfont,
+      format    = \rmfamily\normalsize,
       number    = \arabic{subsubsection},
       aftername = .\hspace{0.5em},
       indent    = 1em,
     },
     paragraph = {
-      format    = \rmfamily\fontsize{12bp}{22bp}\selectfont,
+      format    = \rmfamily\normalsize,
       number     = （\arabic{paragraph}）,
       aftername = {},
       indent    = 1em,
@@ -2805,7 +2805,7 @@
 \DeclareCaptionFont{ustc}{\ustc@caption@font}
 \newcommand\ustc@caption@font{%
   \ifustc@degree@bachelor
-    \fontsize{12bp}{22bp}\selectfont
+    \normalsize
   \else
     \ifustc@language@chinese
       \fontsize{11bp}{14.3bp}\selectfont
