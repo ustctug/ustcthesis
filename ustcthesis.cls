@@ -2424,7 +2424,7 @@
       titleformat = {},
     },
     section = {
-      format = \centering\sffamily\fontsize{15bp}{27.5bp}\selectfont,
+      format = \sffamily\fontsize{15bp}{27.5bp}\selectfont,
     },
     subsection = {
       format    = \sffamily\fontsize{14bp}{25.67bp}\selectfont,

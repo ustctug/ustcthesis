@@ -2386,8 +2386,7 @@ Completed box being shipped out [4]
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 13.47435
-...\hbox(11.8041+2.66495)x417.11752, glue set 100.2291fil
-....\glue(\leftskip) 0.0 plus 1.0fil
+...\hbox(11.8041+2.66495)x417.11752, glue set 200.45818fil
 ....\hbox(10.67488+0.0)x35.98442
 .....\TU/texgyreheros(0)/m/n/15.05624 1.1
 .....\kern -0.0002
@@ -2419,8 +2418,8 @@ Completed box being shipped out [4]
 ....\kern -0.00017
 ....\kern 0.00017
 ....\penalty 10000
-....\glue(\parfillskip) 0.0
-....\glue(\rightskip) 0.0 plus 1.0fil
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
 ...\write2{\@writefile{toc}{\protect \contentsline {section}{\protect \numberline {1.1}学位论文中的常见问题分析}{\thepage }{}\protected@file@percent }}
 ...\penalty 10000
 ...\glue 6.02249
@@ -3161,8 +3160,7 @@ Completed box being shipped out [5]
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 13.00159
-...\hbox(11.75893+2.71011)x417.11752, glue set 122.81346fil
-....\glue(\leftskip) 0.0 plus 1.0fil
+...\hbox(11.75893+2.71011)x417.11752, glue set 245.6269fil
 ....\hbox(10.67488+0.0)x35.98442
 .....\TU/texgyreheros(0)/m/n/15.05624 2.1
 .....\kern -0.0002
@@ -3190,8 +3188,8 @@ Completed box being shipped out [5]
 ....\kern -0.00017
 ....\kern 0.00017
 ....\penalty 10000
-....\glue(\parfillskip) 0.0
-....\glue(\rightskip) 0.0 plus 1.0fil
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
 ...\write2{\@writefile{toc}{\protect \contentsline {section}{\protect \numberline {2.1}有关图、表和表达式}{\thepage }{}\protected@file@percent }}
 ...\penalty 10000
 ...\penalty 10000
