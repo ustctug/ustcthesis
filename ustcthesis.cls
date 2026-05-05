@@ -2623,43 +2623,18 @@
   % 本科生的目录使用小四宋体（同正文字体），其他同研究生的格式相近。
   \titlecontents{chapter}
     [0bp]{}
-    {\contentspush{\thecontentslabel\quad}}{}
-    {\ustc@leaders\thecontentspage}
+    {\bfseries\contentspush{\thecontentslabel\quad}}{\bfseries}
+    {\mdseries\ustc@leaders\thecontentspage}
   \titlecontents{section}
-    [1em]{}
+    [2em]{}
     {\contentspush{\thecontentslabel\quad}}{}
     {\ustc@leaders\thecontentspage}
   \titlecontents{subsection}
-    [2em]{}
+    [4em]{}
     {\contentspush{\thecontentslabel
       \ifustc@section@style@arabic\quad\else 、\fi}}{}
     {\ustc@leaders\thecontentspage}
 \fi
-
-% 本科生要求目录中正文每章前多空一行，而目录、附录等章则不需要空行，
-% 所以不能简单判断 \cs{if@mainmatter}，需要重新定义 \cs{mainmatter} 等命令。
-\newif\ifustc@addtocspace
-\ifustc@degree@bachelor
-  \ustc@addtocspacetrue
-  \g@addto@macro\frontmatter{\ustc@addtocspacefalse}%
-  \g@addto@macro\mainmatter{\ustc@addtocspacetrue}%
-  \g@addto@macro\backmatter{\ustc@addtocspacefalse}%
-  \g@addto@macro\appendix{\ustc@addtocspacefalse}%
-\fi
-
-% 处理本科生在目录中添加空行。
-\renewcommand\chapter{%
-  \if@openright\cleardoublepage\else\clearpage\fi
-  \thispagestyle{\CTEX@chapter@pagestyle}%
-  \global\@topnum\z@
-  \@afterindenttrue
-  \ifustc@degree@bachelor
-    \ifustc@addtocspace
-      \addtocontents{toc}{\protect\addvspace{12bp}}%
-    \fi
-  \fi
-  \secdef\@chapter\@schapter
-}
 
 % 插图和附表清单
 \titlecontents{figure}
