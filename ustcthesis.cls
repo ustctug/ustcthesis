@@ -576,16 +576,22 @@
 % 所以“acknowledgements”也保持一致。
 \newcommand\ustc@set@chapter@names{%
   \ifustc@main@language@chinese
-    \def\contentsname{目录}%
+    \ifustc@degree@graduate
+      \def\contentsname{目录}%
+      \def\bibname{参考文献}%
+      \def\ustc@acknowledgements@name{致谢}%
+    \else
+      \def\contentsname{目\quad 录}%
+      \def\bibname{参\enspace 考\enspace 文\enspace 献}%
+      \def\ustc@acknowledgements@name{致\quad 谢}%
+    \fi
     \def\listfigurename{插图清单}%
     \def\listtablename{附表清单}%
     \def\ustc@list@figure@table@name{插图和附表清单}%
     \ctexset{
       chapter/name   = {第,章},
     }%
-    \def\bibname{参考文献}%
     \def\appendixname{附录}%
-    \def\ustc@acknowledgements@name{致谢}%
     \def\ustc@achievements@name{在读期间取得的科研成果}%
     \newcommand\ustc@notation@name{符号说明}%
   \else
@@ -1978,7 +1984,7 @@
 \newcommand\ustc@title@page@graduate@en{%
   \ustcsetup{language=english}%
   \begin{titlepage}%
-    \ustc@pdfbookmark{Title page}%
+    \ustc@pdfbookmark{封面}%
     \centering
     \parbox[t][0bp][t]{\textwidth}{%
       \raggedleft\fangsong\fontsize{14bp}{14bp}\selectfont
@@ -2319,25 +2325,6 @@
   \setcounter{secnumdepth}{3}
 \fi
 
-% 本科生章题为两字时中间空一字，三字时空半字，四字及以上不空。
-% 这里用 \LaTeX3 的 \cs{\str_count:N} 判断字数。
-% 注意，\pkg{stringstrings} 宏包会导致范数命令 \verb+\|+ 被修改。
-\newcount\ustc@titlelength
-\DeclareRobustCommand\ustc@spaced@title[1]{%
-  \ustc@titlelength=\csname str_count:N\endcsname{#1}%
-  \begingroup
-    \if@mainmatter\else
-      \ifcase\ustc@titlelength
-      \or\or
-        \ziju{1}%
-      \or\or
-        \ziju{0.5}%
-      \fi
-    \fi
-    #1%
-  \endgroup
-}
-
 % 五级节标题和脚注需要使用带圈的数字，这里使用 \cs{ustc@circlefont} ：
 \newcommand\ustc@textcircled[1]{%
   \ifnum\value{#1}<21\relax
@@ -2434,7 +2421,7 @@
           \fontsize{18bp}{33bp}\selectfont
         \fi
       },
-      titleformat = \ustc@spaced@title,
+      titleformat = {},
     },
     section = {
       format = \centering\sffamily\fontsize{15bp}{27.5bp}\selectfont,
