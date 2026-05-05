@@ -777,7 +777,7 @@ Completed box being shipped out [1]
 ....\special{color pop}
 ..\glue 15.6491
 ..\glue(\lineskip) 0.0
-..\vbox(700.50723+0.0)x417.11752, glue set 346.19151fil
+..\vbox(700.50723+0.0)x417.11752, glue set 382.32265fil
 ...\write-{}
 ...\write-{}
 ...\write-{}
@@ -811,22 +811,22 @@ Completed box being shipped out [1]
 ....\glue(\leftskip) 48.18
 ....\hbox(0.0+0.0)x0.0
 ....\rule(14.05243+6.02255)x0.0
-....\hbox(9.35896+2.21626)x0.0, glue set - 48.18fil
+....\hbox(9.20238+2.15604)x0.0, glue set - 48.18fil
 .....\glue 0.0 plus 1.0fil minus 1.0fil
-.....\hbox(9.35896+2.21626)x48.18
+.....\hbox(9.20238+2.15604)x48.18
 ......\special{color push  Black}
-......\TU/FandolSong(0)/m/n/12.045 第
+......\TU/FandolSong(0)/b/n/12.045 第
 ......\glue 3.01125 plus 1.50562 minus 1.00374
-......\TU/texgyretermes(0)/m/n/12.045 1
+......\TU/texgyretermes(0)/b/n/12.045 1
 ......\glue 3.01125 plus 1.50562 minus 1.00374
-......\TU/FandolSong(0)/m/n/12.045 章
+......\TU/FandolSong(0)/b/n/12.045 章
 ......\kern -0.00017
 ......\kern 0.00017
 ......\glue 12.045
 ......\special{color pop}
-....\TU/FandolSong(0)/m/n/12.045 引
+....\TU/FandolSong(0)/b/n/12.045 引
 ....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 言
+....\TU/FandolSong(0)/b/n/12.045 言
 ....\kern -0.00017
 ....\kern 0.00017
 ....\rule(14.05243+6.02255)x0.0
@@ -858,8 +858,8 @@ Completed box being shipped out [1]
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 0.00002
-...\hbox(14.05243+6.02255)x417.11752, glue set 224.39757fill
-....\glue(\leftskip) 39.14624
+...\hbox(14.05243+6.02255)x417.11752, glue set 212.35257fill
+....\glue(\leftskip) 51.19124
 ....\hbox(0.0+0.0)x0.0
 ....\rule(14.05243+6.02255)x0.0
 ....\hbox(8.14243+0.13248)x0.0, glue set - 27.10124fil
@@ -925,8 +925,8 @@ Completed box being shipped out [1]
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 0.00002
-...\hbox(14.05243+6.02255)x417.11752, glue set 275.5888fill
-....\glue(\leftskip) 60.22499
+...\hbox(14.05243+6.02255)x417.11752, glue set 251.49881fill
+....\glue(\leftskip) 84.31499
 ....\hbox(0.0+0.0)x0.0
 ....\rule(14.05243+6.02255)x0.0
 ....\hbox(8.14243+0.13248)x0.0, glue set - 36.135fil
@@ -974,11 +974,7 @@ Completed box being shipped out [1]
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
 ...\penalty 10000
-...\glue 12.045
-...\glue -18.045
 ...\penalty -300
-...\glue 6.0
-...\glue 12.045
 ...\glue 0.0 plus 0.1
 ...\penalty 10000
 ...\glue(\parskip) 0.0
@@ -988,26 +984,26 @@ Completed box being shipped out [1]
 ....\glue(\leftskip) 48.18
 ....\hbox(0.0+0.0)x0.0
 ....\rule(14.05243+6.02255)x0.0
-....\hbox(9.35896+2.21626)x0.0, glue set - 48.18fil
+....\hbox(9.20238+2.15604)x0.0, glue set - 48.18fil
 .....\glue 0.0 plus 1.0fil minus 1.0fil
-.....\hbox(9.35896+2.21626)x48.18
+.....\hbox(9.20238+2.15604)x48.18
 ......\special{color push  Black}
-......\TU/FandolSong(0)/m/n/12.045 第
+......\TU/FandolSong(0)/b/n/12.045 第
 ......\glue 3.01125 plus 1.50562 minus 1.00374
-......\TU/texgyretermes(0)/m/n/12.045 2
+......\TU/texgyretermes(0)/b/n/12.045 2
 ......\glue 3.01125 plus 1.50562 minus 1.00374
-......\TU/FandolSong(0)/m/n/12.045 章
+......\TU/FandolSong(0)/b/n/12.045 章
 ......\kern -0.00017
 ......\kern 0.00017
 ......\glue 12.045
 ......\special{color pop}
-....\TU/FandolSong(0)/m/n/12.045 内
+....\TU/FandolSong(0)/b/n/12.045 内
 ....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 容
+....\TU/FandolSong(0)/b/n/12.045 容
 ....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 要
+....\TU/FandolSong(0)/b/n/12.045 要
 ....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 素
+....\TU/FandolSong(0)/b/n/12.045 素
 ....\kern -0.00017
 ....\kern 0.00017
 ....\rule(14.05243+6.02255)x0.0
@@ -1039,8 +1035,8 @@ Completed box being shipped out [1]
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 0.00002
-...\hbox(14.05243+6.02255)x417.11752, glue set 260.53256fill
-....\glue(\leftskip) 39.14624
+...\hbox(14.05243+6.02255)x417.11752, glue set 248.48756fill
+....\glue(\leftskip) 51.19124
 ....\hbox(0.0+0.0)x0.0
 ....\rule(14.05243+6.02255)x0.0
 ....\hbox(8.14243+0.13248)x0.0, glue set - 27.10124fil
@@ -1102,8 +1098,8 @@ Completed box being shipped out [1]
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 0.00002
-...\hbox(14.05243+6.02255)x417.11752, glue set 323.7688fill
-....\glue(\leftskip) 60.22499
+...\hbox(14.05243+6.02255)x417.11752, glue set 299.6788fill
+....\glue(\leftskip) 84.31499
 ....\hbox(0.0+0.0)x0.0
 ....\rule(14.05243+6.02255)x0.0
 ....\hbox(8.14243+0.13248)x0.0, glue set - 36.135fil
@@ -1149,8 +1145,8 @@ Completed box being shipped out [1]
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 0.00002
-...\hbox(14.05243+6.02255)x417.11752, glue set 323.7688fill
-....\glue(\leftskip) 60.22499
+...\hbox(14.05243+6.02255)x417.11752, glue set 299.6788fill
+....\glue(\leftskip) 84.31499
 ....\hbox(0.0+0.0)x0.0
 ....\rule(14.05243+6.02255)x0.0
 ....\hbox(8.14243+0.13248)x0.0, glue set - 36.135fil
@@ -1196,8 +1192,8 @@ Completed box being shipped out [1]
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 0.00002
-...\hbox(14.05243+6.02255)x417.11752, glue set 311.7238fill
-....\glue(\leftskip) 60.22499
+...\hbox(14.05243+6.02255)x417.11752, glue set 287.6338fill
+....\glue(\leftskip) 84.31499
 ....\hbox(0.0+0.0)x0.0
 ....\rule(14.05243+6.02255)x0.0
 ....\hbox(8.14243+0.16861)x0.0, glue set - 36.135fil
@@ -1239,11 +1235,7 @@ Completed box being shipped out [1]
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
 ...\penalty 10000
-...\glue 12.045
-...\glue -18.045
 ...\penalty -300
-...\glue 6.0
-...\glue 12.045
 ...\glue 0.0 plus 0.1
 ...\penalty 10000
 ...\glue(\parskip) 0.0
@@ -1253,22 +1245,22 @@ Completed box being shipped out [1]
 ....\glue(\leftskip) 48.18
 ....\hbox(0.0+0.0)x0.0
 ....\rule(14.05243+6.02255)x0.0
-....\hbox(9.35896+2.21626)x0.0, glue set - 48.18fil
+....\hbox(9.20238+2.15604)x0.0, glue set - 48.18fil
 .....\glue 0.0 plus 1.0fil minus 1.0fil
-.....\hbox(9.35896+2.21626)x48.18
+.....\hbox(9.20238+2.15604)x48.18
 ......\special{color push  Black}
-......\TU/FandolSong(0)/m/n/12.045 第
+......\TU/FandolSong(0)/b/n/12.045 第
 ......\glue 3.01125 plus 1.50562 minus 1.00374
-......\TU/texgyretermes(0)/m/n/12.045 3
+......\TU/texgyretermes(0)/b/n/12.045 3
 ......\glue 3.01125 plus 1.50562 minus 1.00374
-......\TU/FandolSong(0)/m/n/12.045 章
+......\TU/FandolSong(0)/b/n/12.045 章
 ......\kern -0.00017
 ......\kern 0.00017
 ......\glue 12.045
 ......\special{color pop}
-....\TU/FandolSong(0)/m/n/12.045 引
+....\TU/FandolSong(0)/b/n/12.045 引
 ....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 用
+....\TU/FandolSong(0)/b/n/12.045 用
 ....\kern -0.00017
 ....\kern 0.00017
 ....\rule(14.05243+6.02255)x0.0
@@ -1294,11 +1286,7 @@ Completed box being shipped out [1]
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
 ...\penalty 10000
-...\glue 12.045
-...\glue -18.045
 ...\penalty 0
-...\glue 6.0
-...\glue 12.045
 ...\glue 0.0 plus 0.1
 ...\penalty 10000
 ...\glue(\parskip) 0.0
@@ -1307,13 +1295,13 @@ Completed box being shipped out [1]
 ...\hbox(14.05243+6.02255)x417.11752, glue set 359.9038fill
 ....\hbox(0.0+0.0)x0.0
 ....\rule(14.05243+6.02255)x0.0
-....\TU/FandolSong(0)/m/n/12.045 参
+....\TU/FandolSong(0)/b/n/12.045 参
 ....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 考
+....\TU/FandolSong(0)/b/n/12.045 考
 ....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 文
+....\TU/FandolSong(0)/b/n/12.045 文
 ....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 献
+....\TU/FandolSong(0)/b/n/12.045 献
 ....\kern -0.00017
 ....\kern 0.00017
 ....\rule(14.05243+6.02255)x0.0
@@ -1349,26 +1337,26 @@ Completed box being shipped out [1]
 ....\glue(\leftskip) 47.84273
 ....\hbox(0.0+0.0)x0.0
 ....\rule(14.05243+6.02255)x0.0
-....\hbox(9.14215+1.99945)x0.0, glue set - 47.84273fil
+....\hbox(8.97353+1.75856)x0.0, glue set - 47.84273fil
 .....\glue 0.0 plus 1.0fil minus 1.0fil
-.....\hbox(9.14215+1.99945)x47.84273
+.....\hbox(8.97353+1.75856)x47.84273
 ......\special{color push  Black}
-......\TU/FandolSong(0)/m/n/12.045 附
+......\TU/FandolSong(0)/b/n/12.045 附
 ......\glue 0.0 plus 0.61353
-......\TU/FandolSong(0)/m/n/12.045 录
+......\TU/FandolSong(0)/b/n/12.045 录
 ......\glue 3.01125 plus 1.5041 minus 1.00473
-......\TU/texgyretermes(0)/m/n/12.045 A
+......\TU/texgyretermes(0)/b/n/12.045 A
 ......\kern -0.0002
 ......\kern 0.0002
 ......\glue 12.045
 ......\special{color pop}
-....\TU/FandolSong(0)/m/n/12.045 附
+....\TU/FandolSong(0)/b/n/12.045 附
 ....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 录
+....\TU/FandolSong(0)/b/n/12.045 录
 ....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 章
+....\TU/FandolSong(0)/b/n/12.045 章
 ....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 节
+....\TU/FandolSong(0)/b/n/12.045 节
 ....\kern -0.00017
 ....\kern 0.00017
 ....\rule(14.05243+6.02255)x0.0
@@ -1403,9 +1391,9 @@ Completed box being shipped out [1]
 ...\hbox(14.05243+6.02255)x417.11752, glue set 377.9713fill
 ....\hbox(0.0+0.0)x0.0
 ....\rule(14.05243+6.02255)x0.0
-....\TU/FandolSong(0)/m/n/12.045 致
+....\TU/FandolSong(0)/b/n/12.045 致
 ....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/m/n/12.045 谢
+....\TU/FandolSong(0)/b/n/12.045 谢
 ....\kern -0.00017
 ....\kern 0.00017
 ....\rule(14.05243+6.02255)x0.0
@@ -1993,7 +1981,6 @@ Completed box being shipped out [4]
 ..\vbox(700.50723+0.0)x417.11752, glue set 268.42937fil
 ...\write-{}
 ...\write-{}
-...\write2{\@writefile{toc}{\protect \addvspace {12bp}}}
 ...\write2{\pp@pagectr{footnote}{1}{\theabspage }{\thepage }}
 ...\write2{\@writefile{toc}{\protect \contentsline {chapter}{\protect \numberline {第1章}引言}{\thepage }{}\protected@file@percent }}
 ...\glue(\topskip) 12.0
@@ -3127,7 +3114,6 @@ Completed box being shipped out [5]
 ..\glue(\lineskip) 0.0
 ..\vbox(700.50723+0.0)x417.11752, glue set 6.00505fil
 ...\write-{}
-...\write2{\@writefile{toc}{\protect \addvspace {12bp}}}
 ...\write2{\pp@pagectr{footnote}{2}{\theabspage }{\thepage }}
 ...\write2{\@writefile{toc}{\protect \contentsline {chapter}{\protect \numberline {第2章}内容要素}{\thepage }{}\protected@file@percent }}
 ...\glue(\topskip) 12.0
@@ -4811,7 +4797,6 @@ Completed box being shipped out [7]
 ..\glue(\lineskip) 0.0
 ..\vbox(700.50723+0.0)x417.11752, glue set 630.89862fil
 ...\write-{}
-...\write2{\@writefile{toc}{\protect \addvspace {12bp}}}
 ...\write2{\pp@pagectr{footnote}{3}{\theabspage }{\thepage }}
 ...\write2{\@writefile{toc}{\protect \contentsline {chapter}{\protect \numberline {第3章}引用}{\thepage }{}\protected@file@percent }}
 ...\glue(\topskip) 12.0
@@ -4983,7 +4968,6 @@ Completed box being shipped out [8]
 ..\glue(\lineskip) 0.0
 ..\vbox(700.50723+0.0)x417.11752, glue set 586.44757fil
 ...\write-{}
-...\write2{\@writefile{toc}{\protect \addvspace {12bp}}}
 ...\write2{\@writefile{toc}{\protect \contentsline {chapter}{参考文献}{\thepage }{}\protected@file@percent }}
 ...\glue(\topskip) 12.0
 ...\rule(0.0+0.0)x*
