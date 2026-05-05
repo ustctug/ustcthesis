@@ -611,7 +611,7 @@ Completed box being shipped out [2]
 ..\vbox(700.50723+0.0)x417.11752, glue set 486.0833fil
 ...\write-{}
 ...\write-{}
-...\write1{\@writefile{toc}{\protect \contentsline {chapter}{参考文献}{\thepage }{}\protected@file@percent }}
+...\write1{\@writefile{toc}{\protect \contentsline {chapter}{参\protect \enspace  考\protect \enspace  文\protect \enspace  献}{\thepage }{}\protected@file@percent }}
 ...\glue(\topskip) 12.0
 ...\rule(0.0+0.0)x*
 ...\penalty 10000
@@ -623,11 +623,17 @@ Completed box being shipped out [2]
 ...\hbox(14.18298+3.39667)x417.11752, glue set 158.87318fil
 ....\glue(\leftskip) 0.0 plus 1.0fil
 ....\TU/FandolHei(0)/m/n/18.06749 参
-....\glue 9.03374 plus 1.40234 minus 0.4979
+....\kern -0.00017
+....\kern 0.00017
+....\kern 9.03374
 ....\TU/FandolHei(0)/m/n/18.06749 考
-....\glue 9.03374 plus 1.40234 minus 0.4979
+....\kern -0.00017
+....\kern 0.00017
+....\kern 9.03374
 ....\TU/FandolHei(0)/m/n/18.06749 文
-....\glue 9.03374 plus 1.40234 minus 0.4979
+....\kern -0.00017
+....\kern 0.00017
+....\kern 9.03374
 ....\TU/FandolHei(0)/m/n/18.06749 献
 ....\kern -0.00017
 ....\kern 0.00017
