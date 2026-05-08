@@ -3465,6 +3465,8 @@
   \pdfstringdefDisableCommands{
     \let\\\@empty
     \let\hspace\@gobble
+    \let\quad\space
+    \let\enspace\space
   }
   %
   % \pkg{hyperref} 与 \pkg{unicode-math} 存在一些兼容性问题，见
