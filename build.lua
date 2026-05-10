@@ -1,4 +1,7 @@
 #!/usr/bin/env texlua
+---@diagnostic disable: lowercase-global
+
+-- Configuration file for use with "l3build"
 
 module = "ustcthesis"
 
@@ -29,37 +32,40 @@ typesetopts = "-file-line-error -halt-on-error -interaction=nonstopmode"
 
 lvtext = ".tex"
 
+local package_repository = "https://github.com/ustctug/ustcthesis"
+local version_pattern = "[%d.]+[%l%d.-]*"
+
 function update_tag(file, content, tagname, tagdate)
-  tagname = string.gsub(tagname, "^v", "")
-  local url = "https://github.com/ustctug/ustcthesis"
+  local version = string.gsub(tagname, "^v", "")
   local date = string.gsub(tagdate, "%-", "/")
 
   content = string.gsub(content,
-    "Copyright %(C%) (%d%d%d%d)%-%d%d%d%d",
+    "Copyright %(Cc%) (%d%d%d%d)%-+%d%d%d%d",
     "Copyright (C) %1-" .. os.date("%Y"))
 
-  if string.match(file, "%.cls$") then
-    content = string.gsub(content, "\\newcommand\\ustcthesisversion{[0-9a-z.-]+",
-      "\\newcommand\\ustcthesisversion{" .. tagname)
+  if file == "CHANGELOG.md" then
+    local previous = string.match(content, "compare/v(" .. version_pattern .. ")%.%.%.HEAD")
+    if version ~= previous then
+      content = string.gsub(content,
+        "## %[Unreleased%]",
+        "## [Unreleased]\n\n## [" .. version .. "] - " .. tagdate)
+      content = string.gsub(content,
+        "v" .. version_pattern .. "%.%.%.HEAD",
+        "v" .. version .. "...HEAD\n[" .. version .. "]: " .. package_repository .. "/compare/v" .. previous
+        .. "...v" .. version)
+    end
+
+  elseif string.match(file, "%.cls$") then
+    content = string.gsub(content, "\\newcommand\\ustcthesisversion{" .. version_pattern,
+      "\\newcommand\\ustcthesisversion{" .. version)
 
     content = string.gsub(content, "\\ProvidesClass{ustcthesis}%[%d%d%d%d/%d%d/%d%d",
       "\\ProvidesClass{ustcthesis}[" .. date)
 
-  elseif string.match(file, "%-doc.tex") then
-    content = string.gsub(content, "v[0-9a-z.-]+\\qquad %d%d%d%d%-%d%d%-%d%d",
-      "v" .. tagname .. "\\qquad " .. tagdate)
+  elseif string.match(file, "%-doc.tex$") then
+    content = string.gsub(content, "v" .. version_pattern .. "\\qquad %d%d%d%d%-%d%d%-%d%d",
+      "v" .. version .. "\\qquad " .. tagdate)
 
-  elseif string.match(file, "CHANGELOG.md") then
-    local previous = string.match(content, "/compare/v([0-9a-z.-]+)%.%.%.HEAD")
-    if tagname == previous then return content end
-    content = string.gsub(content,
-      "## %[Unreleased%]",
-      "## [Unreleased]\n\n## [" .. tagname .. "] - " .. tagdate)
-
-    content = string.gsub(content,
-      previous:gsub("%.", "%%."):gsub("%-", "%%-") .. "%.%.%.HEAD",
-      tagname .. "...HEAD\n[" .. tagname .. "]: " .. url .. "/compare/v"
-      .. previous .. "...v" .. tagname)
   end
   return content
 end

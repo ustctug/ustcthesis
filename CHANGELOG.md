@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [4.0.0] - 2026-05-10
+
 ### Changed
 
 - 本科生的正文行距改为 20 磅（同步教务处 2026-04-24 格式式样更新，[#501](https://github.com/ustctug/ustcthesis/issues/501)）。
@@ -493,7 +495,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - 优化图注、算法的行距。
 - 二级以下节标题编号下采用“1.”、“(1)”、“①”。
 
-[Unreleased]: https://github.com/ustctug/ustcthesis/compare/v4.0.0-beta.11...HEAD
+[Unreleased]: https://github.com/ustctug/ustcthesis/compare/v4.0.0...HEAD
+[4.0.0]: https://github.com/ustctug/ustcthesis/compare/v4.0.0-beta.11...v4.0.0
 [4.0.0-beta.11]: https://github.com/ustctug/ustcthesis/compare/v4.0.0-beta.10...v4.0.0-beta.11
 [4.0.0-beta.10]: https://github.com/ustctug/ustcthesis/compare/v4.0.0-beta.9...v4.0.0-beta.10
 [4.0.0-beta.9]: https://github.com/ustctug/ustcthesis/compare/v4.0.0-beta.8...v4.0.0-beta.9
