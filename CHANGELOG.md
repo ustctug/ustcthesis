@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- 允许 `\statement` 命令使用可选参数 `[file=foo.pdf]` 插入扫描后的 PDF（[#506](https://github.com/ustctug/ustcthesis/issues/506)）。
+
 ## [4.0.0] - 2026-05-10
 
 ### Changed

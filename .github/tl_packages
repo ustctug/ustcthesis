@@ -48,11 +48,12 @@ bigfoot
 caption
 enumitem
 fancyhdr
-footmisc
 filehook
+footmisc
+multirow
 natbib
 notoccite
-multirow
+pdfpages
 titlesec
 unicode-math
 #

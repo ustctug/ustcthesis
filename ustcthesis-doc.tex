@@ -437,6 +437,11 @@ key-value 的方式填写，如：
 声明页由 \cs{statement} 命令生成。模板会根据 \opt{secret-level} 和
 \opt{secret-year} 的内容自动填写。
 
+用户使用 \cs{statement} 命令时也可以添加可选参数 \opt{file}，
+插入签名、扫描后的声明页。
+\begin{latex}
+  \statement[file=figures/scan-statement.pdf]
+\end{latex}
 
 \subsection{摘要和章节}
 \DescribeEnv{abstract}

@@ -449,6 +449,7 @@
 \RequirePackage{url}
 \RequirePackage{notoccite}
 \RequirePackage{multirow}
+\RequirePackage{pdfpages}
 
 % 如果用户在导言区未调用 \pkg{biblatex}，则自动调用 \pkg{natbib}。
 \AtEndPreamble{
@@ -2178,13 +2179,28 @@
 % \subsection{原创性声明}
 
 % 定义原创性声明
-\newcommand\statement{%
+\newcommand\statement[1][]{%
   \ifustc@degree@graduate
-    \ustc@statement@graduate
+    \let\ustc@statement@file\@empty
+    \kvsetkeys{ustc/statement}{#1}%
+    \ifx\ustc@statement@file\@empty
+      \ustc@statement@graduate
+    \else
+      \cleardoublepage
+      \includepdf[pagecommand={%
+        \ustc@pdfbookmark{原创性和授权使用声明}%
+        \thispagestyle{empty}%
+      }]{\ustc@statement@file}%
+    \fi
+    \ustc@title@pagetrue
+    \cleardoublepage
+    \ustc@title@pagefalse
   \else
     \ustc@statement@bachelor
   \fi
 }
+
+\kv@define@key{ustc/statement}{file}{\let\ustc@statement@file\kv@value}%
 
 % 本科生声明内容
 \newcommand\ustc@originality@bachelor{%
@@ -2273,9 +2289,6 @@
       评审专家签名：\ustc@underline{}\par
     \fi
   \end{titlepage}%
-  \ustc@title@pagetrue
-  \cleardoublepage
-  \ustc@title@pagefalse
 }
 
 \newcommand\ustc@statement@bachelor{%
