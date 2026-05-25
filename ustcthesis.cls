@@ -1987,7 +1987,6 @@
 \newcommand\ustc@title@page@graduate@en{%
   \begin{titlepage}%
     \ustcsetup{language=english}%
-    \ustc@pdfbookmark{封面}%
     \centering
     \parbox[t][0bp][t]{\textwidth}{%
       \raggedleft\fangsong\fontsize{14bp}{14bp}\selectfont
