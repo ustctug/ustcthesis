@@ -1609,6 +1609,7 @@
   \fancyfoot[C]{\ustc@hf@font\thepage}%
 }
 
+% 控制下一个 `\cleardoublepage` 的空白页是否还有页眉页脚
 \newif\ifustc@title@page
 
 \def\cleardoublepage{%
@@ -1618,6 +1619,7 @@
       \hbox{}%
       \ifustc@degree@graduate
         \ifustc@title@page
+          \ustc@title@pagefalse
           % 封面的空白页不显示页码
           \thispagestyle{empty}%
         \else
@@ -1918,8 +1920,8 @@
 % 论文题目黑体 26 磅加粗居中，单倍行距；
 % 作者姓名宋体 16 磅，1.5 倍行距；
 \newcommand\ustc@title@page@graduate@zh{%
-  \ustcsetup{language=chinese}%
   \begin{titlepage}%
+    \ustcsetup{language=chinese}%
     \ustc@pdfbookmark{封面}%
     \centering
     \parbox[t][0bp][t]{\textwidth}{%
@@ -1977,14 +1979,14 @@
         \textsf{完成时间：}\quad\ustc@date@zh@big\par
       }%
     }%
+    \ustc@reset@main@language
   \end{titlepage}%
-  \ustc@reset@main@language
 }
 
 % 英文封面
 \newcommand\ustc@title@page@graduate@en{%
-  \ustcsetup{language=english}%
   \begin{titlepage}%
+    \ustcsetup{language=english}%
     \ustc@pdfbookmark{封面}%
     \centering
     \parbox[t][0bp][t]{\textwidth}{%
@@ -2028,8 +2030,8 @@
         Completion date: \ustc@date@en\par
       }%
     }\par
+    \ustc@reset@main@language
   \end{titlepage}%
-  \ustc@reset@main@language
 }
 
 \newbox\ustc@title@box
@@ -2037,6 +2039,7 @@
 % 本科生的外封
 \newcommand\ustc@cover{%
   \begin{titlepage}%
+    \ustcsetup{language=chinese}%
     \ustc@pdfbookmark{Cover}%
     \centering
     \vspace*{0.8cm}%
@@ -2101,6 +2104,7 @@
         \cline{2-4}%
       \end{tabular}%
     \endgroup
+    \ustc@reset@main@language
   \end{titlepage}%
 }
 
@@ -2162,17 +2166,14 @@
 \renewcommand\maketitle{%
   \pagenumbering{Alph}%
   \pagestyle{empty}%
-  \ustc@title@pagetrue
   \ifustc@degree@graduate
     \ustc@title@page@graduate@zh
+    \ustc@title@pagetrue
     \ustc@title@page@graduate@en
   \else
     \ustc@title@page@bachelor
   \fi
-  \cleardoublepage
-  \restoregeometry
-  \pagestyle{plain}%
-  \ustc@title@pagefalse
+  \ustc@title@pagetrue
 }
 
 
@@ -2198,6 +2199,7 @@
   \else
     \ustc@statement@bachelor
   \fi
+  \ustc@title@pagetrue
 }
 
 \kv@define@key{ustc/statement}{file}{\let\ustc@statement@file\kv@value}%
@@ -2292,29 +2294,30 @@
 }
 
 \newcommand\ustc@statement@bachelor{%
-  \cleardoublepage
-  \ustc@pdfbookmark{学术诚信承诺书}%
-  \thispagestyle{headings}%
-  \vspace*{81bp}%
-  {\centering\sffamily\fontsize{16bp}{20bp}\selectfont
-    中国科学技术大学本科毕业论文学术诚信承诺书\par}%
-  \vskip 18bp%
-  \begingroup
-    \fontsize{12bp}{20bp}\selectfont
-    \ifLuaTeX
-      \ltjsetparameter{kanjiskip = {0bp plus .1pt minus .1pt}}%
-    \else
-      \renewcommand\CJKglue{\hskip 0bp plus .1pt minus .1pt\relax}%
-    \fi
-    \ustc@originality@bachelor\par
-  \endgroup
-  \vskip 38bp%
-  \begingroup
-    \raggedleft
-    作者签名：\ustc@underline[8em]{}\par
-    \vskip 12bp%
-    签字日期：\ustc@underline[8em]{}\par
-  \endgroup
+  \begin{titlepage}%
+    \ustc@pdfbookmark{学术诚信承诺书}%
+    \thispagestyle{headings}%
+    \vspace*{81bp}%
+    {\centering\sffamily\fontsize{16bp}{20bp}\selectfont
+      中国科学技术大学本科毕业论文学术诚信承诺书\par}%
+    \vskip 18bp%
+    \begingroup
+      \fontsize{12bp}{20bp}\selectfont
+      \ifLuaTeX
+        \ltjsetparameter{kanjiskip = {0bp plus .1pt minus .1pt}}%
+      \else
+        \renewcommand\CJKglue{\hskip 0bp plus .1pt minus .1pt\relax}%
+      \fi
+      \ustc@originality@bachelor\par
+    \endgroup
+    \vskip 38bp%
+    \begingroup
+      \raggedleft
+      作者签名：\ustc@underline[8em]{}\par
+      \vskip 12bp%
+      签字日期：\ustc@underline[8em]{}\par
+    \endgroup
+  \end{titlepage}%
 }
 
 % Deprecated commands
