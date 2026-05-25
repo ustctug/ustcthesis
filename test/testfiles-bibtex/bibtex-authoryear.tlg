@@ -22,6 +22,16 @@ LaTeX Font Info:    Font shape `TU/STIXTwoMath-Regular(0)/m/n' will be
 (Font)              scaled to size 6.87555pt on input line ....
 Completed box being shipped out [1]
 \vbox(722.98453+0.0)x435.04271
+.\hbox(0.0+0.0)x0.0
+..\kern -72.26999
+..\vbox(0.0+0.0)x0.0, glue set 72.26999fil
+...\kern -72.26999
+...\hbox(0.0+0.0)x0.0
+....\hbox(0.0+0.0)x0.0, shifted 845.04684
+.....\kern 0.0
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+....\glue 0.0 plus 1.0fil minus 1.0fil
+...\glue 0.0 plus 1.0fil minus 1.0fil
 .\glue -29.59128
 .\vbox(752.5758+0.0)x417.11752, shifted 17.92519
 ..\vbox(13.942+0.0)x417.11752, glue set 13.942fil
@@ -1033,6 +1043,19 @@ Completed box being shipped out [1]
 ...\special{color push  Black}
 ...\hbox(0.0+0.0)x417.11752
 ...\special{color pop}
+.\kern -722.98453
+.\hbox(0.0+0.0)x0.0
+..\kern -72.26999
+..\vbox(0.0+0.0)x0.0, glue set 72.26999fil
+...\kern -72.26999
+...\hbox(0.0+0.0)x0.0
+....\hbox(0.0+0.0)x0.0, shifted 845.04684
+.....\kern 0.0
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+....\glue 0.0 plus 1.0fil minus 1.0fil
+...\glue 0.0 plus 1.0fil minus 1.0fil
+.\kern 722.98453
+.\kern 0.0
 (bibtex-authoryear.bbl
 Package fontspec Info: 
 (fontspec)             Font family 'FandolHei(0)' created for font 'FandolHei' with options [Extension={.otf},UprightFont={*-Regular},BoldFont={*-Bold}].
@@ -1044,6 +1067,16 @@ Package fontspec Info:
 )
 Completed box being shipped out [2]
 \vbox(722.98453+0.0)x435.04271
+.\hbox(0.0+0.0)x0.0
+..\kern -72.26999
+..\vbox(0.0+0.0)x0.0, glue set 72.26999fil
+...\kern -72.26999
+...\hbox(0.0+0.0)x0.0
+....\hbox(0.0+0.0)x0.0, shifted 845.04684
+.....\kern 0.0
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+....\glue 0.0 plus 1.0fil minus 1.0fil
+...\glue 0.0 plus 1.0fil minus 1.0fil
 .\glue -29.59128
 .\vbox(752.5758+0.0)x417.11752, shifted 17.92519
 ..\vbox(13.942+0.0)x417.11752, glue set 13.942fil
@@ -1380,3 +1413,16 @@ Completed box being shipped out [2]
 ...\special{color push  Black}
 ...\hbox(0.0+0.0)x417.11752
 ...\special{color pop}
+.\kern -722.98453
+.\hbox(0.0+0.0)x0.0
+..\kern -72.26999
+..\vbox(0.0+0.0)x0.0, glue set 72.26999fil
+...\kern -72.26999
+...\hbox(0.0+0.0)x0.0
+....\hbox(0.0+0.0)x0.0, shifted 845.04684
+.....\kern 0.0
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+....\glue 0.0 plus 1.0fil minus 1.0fil
+...\glue 0.0 plus 1.0fil minus 1.0fil
+.\kern 722.98453
+.\kern 0.0
