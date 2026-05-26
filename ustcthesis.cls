@@ -3687,6 +3687,21 @@
 % \subsubsection{\pkg{siunitx} 宏包}
 
 \AtEndOfPackageFile*{siunitx}{
+  % 兼容 v3.0.0 之前的命令。
+  \@ifpackagelater{siunitx}{2021-05-17}{}{
+    \ifx\unit\@undefined
+      \DeclareRobustCommand\unit{\si}
+    \fi
+    \ifx\qty\@undefined
+      \DeclareRobustCommand\qty{\SI}
+    \fi
+    \ifx\qtylist\@undefined
+      \DeclareRobustCommand\qtylist{\SIlist}
+    \fi
+    \ifx\qtyrange\@undefined
+      \DeclareRobustCommand\qtyrange{\SIrange}
+    \fi
+  }
   \newcommand\ustc@set@siunitx@language{%
     \ifustc@language@chinese
       \sisetup{

@@ -76,13 +76,13 @@
 \begin{itemize}
   \item 为了阅读方便，四位以上的整数或小数推荐采用千分空的分节方式：\num{55235367.34623}。
     四位以内的整数可以不加千分空：\num{1256}。
-  \item 数值与单位符号间留适当空隙：\SI{25.4}{mm}，\SI{5.97e24}{\kilo\gram}，
-    \SI{-273.15}{\degreeCelsius}。 例外：\SI{12.3}{\degree}，\ang{1;2;3}。
-  \item 组合单位默认使用 APS 的格式，即相乘的单位之间留一定空隙： \si{kg.m.s^{-2}}，
-    也可以使用居中的圆点： \si[inter-unit-product = \ensuremath{{}\cdot{}}]{kg.m.s^{-2}}。
+  \item 数值与单位符号间留适当空隙：\qty{25.4}{mm}，\qty{5.97e24}{\kilo\gram}，
+    \qty{-273.15}{\degreeCelsius}。 例外：\qty{12.3}{\degree}，\ang{1;2;3}。
+  \item 组合单位默认使用 APS 的格式，即相乘的单位之间留一定空隙： \unit{kg.m.s^{-2}}，
+    也可以使用居中的圆点： \unit[inter-unit-product = \ensuremath{{}\cdot{}}]{kg.m.s^{-2}}。
     GB 3100—1993 对两者都允许，建议全文统一设置。
-  \item 量值范围使用“～”：\SIrange{10}{15}{mol/L}。
-  \item 注意：词头 \textmu{} 不能写为 u，如：\si{umol} 应为 \si{\micro\mole}、\si{\umol}。
+  \item 量值范围使用“～”：\qtyrange{10}{15}{mol/L}。
+  \item 注意：词头 \textmu{} 不能写为 u，如：\unit{umol} 应为 \unit{\micro\mole}、\unit{\umol}。
 \end{itemize}
 
 
