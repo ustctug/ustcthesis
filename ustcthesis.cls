@@ -3635,34 +3635,29 @@
 \PassOptionsToPackage{algochapter}{algorithm2e}
 
 \AtEndOfPackageFile*{algorithm2e}{
-  \ifustc@language@chinese
-    \SetAlgorithmName{算法}{算法}{算法清单}
-  \else
-    \SetAlgorithmName{Algorithm}{Algorithm}{List of Algorithms}
-  \fi
+  \SetAlgorithmName{\ustc@algorithm@name}{\ustc@algorithm@name}{\ustc@list@algorithm@name}
   %
   % 设置算法环境的格式。
+  \SetAlFnt{\ustc@table@font}
   \SetAlCapSkip{6bp}
-  \SetAlCapFnt{\small}
-  \SetAlCapNameFnt{\small}
-  \ifustc@degree@graduate
-    \SetAlCapNameSty{textbf}
-  \fi
-  \SetAlgoCaptionSeparator{\unskip\hspace*{1em}}
+  \SetAlCapFnt{\ustc@caption@font}
+  \SetAlCapNameFnt{\ustc@caption@font}
+  \SetAlgoCaptionSeparator{\quad}
+  \renewcommand{\algocf@captiontext}[2]{%
+    % \algocf@captionlayout{\AlCapSty{\AlCapFnt #1\algocf@typo\algocf@capseparator}\nobreakspace%
+    \algocf@captionlayout{\AlCapSty{\AlCapFnt #1\algocf@typo\algocf@capseparator}%
+      \AlCapNameSty{\AlCapNameFnt{}#2\endgraf}}}% text of caption
   %
   % 设置算法清单的格式
   \renewcommand\listofalgocfs{%
-    \ifustc@degree@graduate
-      \cleardoublepage
-    \fi
     \ustc@chapter{\listalgorithmcfname}%
     \@starttoc{loa}%
   }
-  \titlecontents{algocf}
-    [2.3em]{\normalsize}
-    {\contentslabel{2.3em}}{}
-    {\ustc@leaders\contentspage}
   \contentsuse{algocf}{loa}
+  \titlecontents{algocf}
+    [0bp]{}
+    {\contentspush{\ustc@algorithm@name~\thecontentslabel\quad}}{}
+    {\ustc@leaders\thecontentspage}
 }
 
 
