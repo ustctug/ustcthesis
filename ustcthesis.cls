@@ -3649,7 +3649,7 @@
   \SetAlgoCaptionSeparator{\quad}
   \renewcommand{\algocf@captiontext}[2]{%
     % \algocf@captionlayout{\AlCapSty{\AlCapFnt #1\algocf@typo\algocf@capseparator}\nobreakspace%
-    \algocf@captionlayout{\AlCapSty{\AlCapFnt #1\algocf@typo\algocf@capseparator}%
+    \algocf@captionlayout{\AlCapSty{\AlCapFnt #1}\algocf@typo\algocf@capseparator\nobreak
       \AlCapNameSty{\AlCapNameFnt{}#2\endgraf}}}% text of caption
   %
   % 设置算法清单的格式

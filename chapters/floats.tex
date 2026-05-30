@@ -77,26 +77,29 @@
 
 \section{算法环境}
 
-模板中使用 \pkg{algorithm2e} 宏包实现算法环境。关于该宏包的具体用法，
-请阅读宏包的官方文档。
+模板中使用 \pkg{algorithms} 宏包实现算法环境。
+关于该宏包的具体用法，请阅读宏包的官方文档。
+用户也可以使用 \pkg{algorithmicx} 和 \pkg{algorithm2e} 等宏包。
 
 \begin{algorithm}
-  \SetAlgoLined
-  \KwData{this text}
-  \KwResult{how to write algorithm with \LaTeX2e }
+  \caption{欧几里得算法}
+  \label{alg:euclid}
+  \begin{algorithmic}
+    \renewcommand{\algorithmicrequire}{\textbf{输入：}}
+    \renewcommand{\algorithmicensure}{\textbf{输出：}}
+    \REQUIRE 两个非负整数 $a$ 和 $b$
+    \ENSURE $a$ 和 $b$ 的最大公约数 $\gcd(a, b)$
 
-  initialization\;
-  \While{not at end of this document}{
-    read current\;
-    \eIf{understand}{
-      go to next section\;
-      current section becomes this one\;
-    }{
-      go back to the beginning of current section\;
-    }
-  }
-  \caption{算法示例1}
-  \label{algo:algorithm1}
+    \WHILE{$b \neq 0$}
+      \IF{$a > b$}
+        \STATE $a \gets a - b$
+      \ELSE
+        \STATE $b \gets b - a$
+      \ENDIF
+    \ENDWHILE
+
+    \RETURN $a$
+  \end{algorithmic}
 \end{algorithm}
 
 注意，我们可以在论文中插入算法，但是插入大段的代码是愚蠢的。

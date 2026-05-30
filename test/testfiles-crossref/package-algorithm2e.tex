@@ -20,33 +20,25 @@
 
 \TIMO
 \begin{algorithm}
-  \caption{计算 $y = x^n$}
-  \label{alg1}
   \SetKwInOut{Input}{输入}
   \SetKwInOut{Output}{输出}
 
-  \Input{$n \geq 0 \vee x \neq 0$}
-  \Output{$y = x^n$}
+  \Input{两个非负整数 $a$ 和 $b$}
+  \Output{$a$ 和 $b$ 的最大公约数 $\gcd(a, b)$}
+  \BlankLine
 
-  $y \leftarrow 1$\;
-  \eIf{$n < 0$}{
-    $X \leftarrow 1 / x$\;
-    $N \leftarrow -n$\;
-  }{
-    $X \leftarrow x$\;
-    $N \leftarrow n$\;
-  }
-
-  \While{$N \neq 0$}{
-    \eIf{$N$ is even}{
-      $X \leftarrow X \times X$\;
-      $N \leftarrow N / 2$\;
+  \While{$b \neq 0$}{
+    \eIf{$a > b$}{
+      $a \gets a - b$\;
     }{
-      % \tcp*{$N$ is odd}
-      $y \leftarrow y \times X$\;
-      $N \leftarrow N - 1$\;
+      $b \gets b - a$\;
     }
   }
+
+  \Return $a$\;
+
+  \caption{欧几里得算法}
+  \label{alg:euclid}
 \end{algorithm}
 
 \clearpage

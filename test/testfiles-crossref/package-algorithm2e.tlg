@@ -7,28 +7,7 @@ Package fontspec Info:
 (fontspec)              
 (fontspec)             - 'normal' (m/n) with NFSS spec.: <->"[FandolHei-Regular.otf]/OT:language=dflt;"
 (fontspec)             - 'bold' (b/n) with NFSS spec.: <->"[FandolHei-Bold.otf]/OT:language=dflt;"
-(package-algorithm2e.loa
-LaTeX Font Info:    Font shape `TU/XITSMath-Regular(1)/m/n' will be
-(Font)              scaled to size 9.03375pt on input line ....
-LaTeX Font Info:    Font shape `TU/XITSMath-Regular(1)/m/n' will be
-(Font)              scaled to size 7.227pt on input line ....
-LaTeX Font Info:    Font shape `TU/XITSMath-Regular(2)/m/n' will be
-(Font)              scaled to size 12.0461pt on input line ....
-LaTeX Font Info:    Font shape `TU/XITSMath-Regular(2)/m/n' will be
-(Font)              scaled to size 9.03458pt on input line ....
-LaTeX Font Info:    Font shape `TU/XITSMath-Regular(2)/m/n' will be
-(Font)              scaled to size 7.22766pt on input line ....
-LaTeX Font Info:    Font shape `TU/XITSMath-Regular(3)/m/n' will be
-(Font)              scaled to size 12.0437pt on input line ....
-LaTeX Font Info:    Font shape `TU/XITSMath-Regular(3)/m/n' will be
-(Font)              scaled to size 9.03278pt on input line ....
-LaTeX Font Info:    Font shape `TU/XITSMath-Regular(3)/m/n' will be
-(Font)              scaled to size 7.22623pt on input line ....
-LaTeX Font Info:    Font shape `TU/STIXTwoMath-Regular(0)/m/n' will be
-(Font)              scaled to size 8.59444pt on input line ....
-LaTeX Font Info:    Font shape `TU/STIXTwoMath-Regular(0)/m/n' will be
-(Font)              scaled to size 6.87555pt on input line ....
-)
+(package-algorithm2e.loa)
 \tf@loa=\write...
 Completed box being shipped out [1]
 \vbox(722.98453+4.11038)x435.04271
@@ -132,7 +111,7 @@ Completed box being shipped out [1]
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 3.09967
-...\hbox(14.05243+6.02255)x417.11752, glue set 294.24818fill
+...\hbox(14.05243+6.02255)x417.11752, glue set 281.61131fill
 ....\glue(\leftskip) 54.20248
 ....\hbox(0.0+0.0)x0.0
 ....\rule(14.05243+6.02255)x0.0
@@ -152,20 +131,19 @@ Completed box being shipped out [1]
 ......\kern 0.0002
 ......\glue 12.045
 ......\special{color pop}
-....\TU/FandolSong(0)/m/n/12.045 计
+....\TU/FandolSong(0)/m/n/12.045 欧
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 几
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 里
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 得
 ....\glue 0.0 plus 0.61353
 ....\TU/FandolSong(0)/m/n/12.045 算
-....\glue 3.01125 plus 1.50562 minus 1.00374
-....\mathon
-....\TU/XITSMath-Regular(1)/m/n/12.045 glyph#2525
-....\glue(\thickmuskip) 3.3461 plus 3.3461
-....\TU/XITSMath-Regular(1)/m/n/12.045 glyph#62
-....\penalty 500
-....\glue(\thickmuskip) 3.3461 plus 3.3461
-....\TU/XITSMath-Regular(1)/m/n/12.045 glyph#2524
-....\hbox(3.98389+0.07227)x4.98978, shifted -4.81844
-.....\TU/XITSMath-Regular(1)/m/n/9.03375 glyph#2514
-....\mathoff
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 法
+....\kern -0.00017
+....\kern 0.00017
 ....\rule(14.05243+6.02255)x0.0
 ....\kern 0.0
 ....\glue 2.00749
@@ -340,28 +318,23 @@ Completed box being shipped out [2]
 ....\special{color pop}
 ..\glue 15.6491
 ..\glue(\lineskip) 0.0
-..\vbox(700.50723+0.0)x417.11752, glue set 390.85379fil
+..\vbox(700.50723+0.0)x417.11752, glue set 519.032fil
 ...\write-{}
 ...\glue(\topskip) 0.0
-...\vbox(299.5742+0.0)x417.11752
+...\vbox(171.38231+0.0)x417.11752
 ....\special{color push  Black}
-....\vbox(299.5742+0.0)x417.11752
+....\vbox(171.38231+0.0)x417.11752
 .....\glue 3.0 plus 1.0 minus 1.0
 .....\glue 0.0
-.....\vbox(0.0+293.5742)x417.11752
-......\hbox(0.0+276.10669)x417.11752
+.....\vbox(8.61217+156.77014)x417.11752
+......\hbox(8.61217+139.45723)x417.11752
 .......\special{color push  Black}
-.......\vbox(0.0+276.10669)x417.11752
-........\hbox(0.0+276.10669)x417.11752, glue set 16.56186fill
+.......\vbox(8.61217+139.45723)x417.11752
+........\hbox(8.61217+139.45723)x417.11752, glue set 16.56186fill
 .........\hbox(0.0+0.0)x24.09, glue set 24.09fill
 ..........\glue 0.0 plus 1.0fill
-.........\vbox(0.0+276.10669)x376.46567
-..........\write1{\@writefile{loa}{\protect \contentsline {algocf}{\protect \numberline {1.1}{\ignorespaces 计算 $y = x^n$}}{\thepage }{}\protected@file@percent }}
-..........\write1{\providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}}
-..........\write1{\newlabel{alg1}{{1.1}{\thepage }{}{algocf.1.1}{}}}
-..........\glue(\parskip) 0.0
-..........\glue(\parskip) 0.0
-..........\hbox(8.43552+1.877)x376.46567, glue set 143.09804fil
+.........\vbox(8.61217+139.45723)x376.46567
+..........\hbox(8.61217+1.99844)x376.46567, glue set 125.82219fil
 ...........\hbox(0.0+0.0)x0.0
 ...........\vbox(8.43552+1.877)x25.75922
 ............\hbox(8.43552+1.877)x25.75922
@@ -381,31 +354,34 @@ Completed box being shipped out [2]
 .............\glue(\rightskip) 0.0
 ...........\penalty 10000
 ...........\glue 2.76031 plus 1.38016 minus 0.9201
+...........\TU/FandolSong(0)/m/n/11.04124 两
+...........\glue 0.0 plus 0.56093
+...........\TU/FandolSong(0)/m/n/11.04124 个
+...........\glue 0.0 plus 0.56093
+...........\TU/FandolSong(0)/m/n/11.04124 非
+...........\glue 0.0 plus 0.56093
+...........\TU/FandolSong(0)/m/n/11.04124 负
+...........\glue 0.0 plus 0.56093
+...........\TU/FandolSong(0)/m/n/11.04124 整
+...........\glue 0.0 plus 0.56093
+...........\TU/FandolSong(0)/m/n/11.04124 数
+...........\glue 2.76031 plus 1.38016 minus 0.9201
 ...........\mathon
-...........\TU/XITSMath-Regular(1)/m/n/11.04124 glyph#2514
-...........\glue(\thickmuskip) 3.06725 plus 3.06725
-...........\TU/XITSMath-Regular(1)/m/n/11.04124 glyph#1238
-...........\penalty 500
-...........\glue(\thickmuskip) 3.06725 plus 3.06725
-...........\TU/XITSMath-Regular(1)/m/n/11.04124 glyph#49
-...........\glue(\medmuskip) 2.4538 plus 1.2269 minus 2.4538
-...........\TU/XITSMath-Regular(1)/m/n/11.04124 glyph#1177
-...........\penalty 700
-...........\glue(\medmuskip) 2.4538 plus 1.2269 minus 2.4538
-...........\TU/XITSMath-Regular(1)/m/n/11.04124 glyph#2524
-...........\glue(\thickmuskip) 3.06725 plus 3.06725
-...........\TU/XITSMath-Regular(1)/m/n/11.04124 glyph#1233
-...........\penalty 500
-...........\glue(\thickmuskip) 3.06725 plus 3.06725
-...........\TU/XITSMath-Regular(1)/m/n/11.04124 glyph#49
+...........\TU/XITSMath-Regular(1)/m/n/11.04124 glyph#2502
+...........\mathoff
+...........\glue 2.76031 plus 1.38016 minus 0.9201
+...........\TU/FandolSong(0)/m/n/11.04124 和
+...........\glue 2.76031 plus 1.38016 minus 0.9201
+...........\mathon
+...........\TU/XITSMath-Regular(1)/m/n/11.04124 glyph#2503
 ...........\mathoff
 ...........\penalty 10000
 ...........\glue(\parfillskip) 0.0 plus 1.0fil
 ...........\glue(\rightskip) 0.0 plus 1.0fil
 ..........\glue(\parskip) 0.0
 ..........\glue(\parskip) 0.0
-..........\glue(\baselineskip) 4.0411
-..........\hbox(8.43552+2.02055)x376.46567, glue set 159.17902fil
+..........\glue(\baselineskip) 3.74301
+..........\hbox(8.61217+2.407)x376.46567, glue set 105.12714fil
 ...........\hbox(0.0+0.0)x0.0
 ...........\vbox(8.43552+1.877)x25.75922
 ............\hbox(8.43552+1.877)x25.75922
@@ -426,190 +402,48 @@ Completed box being shipped out [2]
 ...........\penalty 10000
 ...........\glue 2.76031 plus 1.38016 minus 0.9201
 ...........\mathon
-...........\TU/XITSMath-Regular(1)/m/n/11.04124 glyph#2525
-...........\glue(\thickmuskip) 3.06725 plus 3.06725
-...........\TU/XITSMath-Regular(1)/m/n/11.04124 glyph#62
-...........\penalty 500
-...........\glue(\thickmuskip) 3.06725 plus 3.06725
-...........\TU/XITSMath-Regular(1)/m/n/11.04124 glyph#2524
-...........\hbox(3.40842+0.06183)x4.34123, shifted -4.4169
-............\TU/XITSMath-Regular(1)/m/n/7.72884 glyph#2514
-...........\mathoff
-...........\penalty 10000
-...........\glue(\parfillskip) 0.0 plus 1.0fil
-...........\glue(\rightskip) 0.0 plus 1.0fil
-..........\glue(\parskip) 0.0
-..........\glue(\parskip) 0.0
-..........\glue(\baselineskip) 2.28558
-..........\hbox(10.04749+4.30612)x376.46567, glue set 346.04042fill
-...........\hbox(0.0+0.0)x0.0
-...........\mathon
-...........\TU/XITSMath-Regular(1)/m/n/11.04124 glyph#2525
-...........\glue(\thickmuskip) 3.06725 plus 3.06725
-...........\TU/XITSMath-Regular(1)/m/n/11.04124 glyph#1034
-...........\penalty 500
-...........\glue(\thickmuskip) 3.06725 plus 3.06725
-...........\TU/XITSMath-Regular(1)/m/n/11.04124 glyph#50
-...........\mathoff
-...........\TU/texgyretermes(0)/m/n/11.04124 ;
-...........\kern -0.0002
-...........\kern 0.0002
-...........\glue 0.0 plus 1.0fill
-...........\rule(10.04749+4.30612)x0.0
-...........\penalty 10000
-...........\glue(\parfillskip) 0.0 plus 1.0fil
-...........\glue(\rightskip) 0.0 plus 1.0fil
-..........\glue(\parskip) 0.0
-..........\glue(\parskip) 0.0
-..........\glue(\baselineskip) 0.00002
-..........\hbox(10.04749+4.30612)x376.46567, glue set 159.00887fil
-...........\hbox(0.0+0.0)x0.0
-...........\TU/texgyretermes(0)/b/n/11.04124 if
-...........\kern 0.61832
-...........\kern -0.0002
-...........\kern 0.0002
-...........\glue 2.76031 plus 1.38016 minus 0.9201
-...........\mathon
-...........\TU/XITSMath-Regular(1)/m/n/11.04124 glyph#2514
-...........\glue(\thickmuskip) 3.06725 plus 3.06725
-...........\TU/XITSMath-Regular(1)/m/n/11.04124 glyph#61
-...........\penalty 500
-...........\glue(\thickmuskip) 3.06725 plus 3.06725
-...........\TU/XITSMath-Regular(1)/m/n/11.04124 glyph#49
+...........\TU/XITSMath-Regular(1)/m/n/11.04124 glyph#2502
 ...........\mathoff
 ...........\glue 2.76031 plus 1.38016 minus 0.9201
-...........\TU/texgyretermes(0)/b/n/11.04124 then
-...........\kern 0.0
-...........\kern -0.0002
-...........\kern 0.0002
-...........\rule(10.04749+4.30612)x0.0
+...........\TU/FandolSong(0)/m/n/11.04124 和
+...........\glue 2.76031 plus 1.38016 minus 0.9201
+...........\mathon
+...........\TU/XITSMath-Regular(1)/m/n/11.04124 glyph#2503
+...........\mathoff
+...........\glue 2.76031 plus 1.38016 minus 0.9201
+...........\TU/FandolSong(0)/m/n/11.04124 的
+...........\glue 0.0 plus 0.56093
+...........\TU/FandolSong(0)/m/n/11.04124 最
+...........\glue 0.0 plus 0.56093
+...........\TU/FandolSong(0)/m/n/11.04124 大
+...........\glue 0.0 plus 0.56093
+...........\TU/FandolSong(0)/m/n/11.04124 公
+...........\glue 0.0 plus 0.56093
+...........\TU/FandolSong(0)/m/n/11.04124 约
+...........\glue 0.0 plus 0.56093
+...........\TU/FandolSong(0)/m/n/11.04124 数
+...........\glue 2.76031 plus 1.38016 minus 0.9201
+...........\mathon
+...........\hbox(7.54117+2.407)x15.94357
+............\kern 0.0
+............\TU/texgyretermes(0)/m/n/11.04124 glyph#60
+............\TU/texgyretermes(0)/m/n/11.04124 glyph#44
+............\TU/texgyretermes(0)/m/n/11.04124 glyph#48
+...........\TU/XITSMath-Regular(1)/m/n/11.04124 glyph#41
+...........\TU/XITSMath-Regular(1)/m/n/11.04124 glyph#2502
+...........\TU/XITSMath-Regular(1)/m/n/11.04124 glyph#45
+...........\glue(\thinmuskip) 1.84035
+...........\TU/XITSMath-Regular(1)/m/n/11.04124 glyph#2503
+...........\TU/XITSMath-Regular(1)/m/n/11.04124 glyph#42
+...........\mathoff
 ...........\penalty 10000
 ...........\glue(\parfillskip) 0.0 plus 1.0fil
 ...........\glue(\rightskip) 0.0 plus 1.0fil
-..........\hbox(10.04749+18.65974)x370.44318, shifted 6.02249
-...........\rule(*+*)x0.4
-...........\vbox(10.04749+18.65974)x370.04318
-............\vbox(10.04749+18.65974)x357.99818, shifted 12.045
-.............\hbox(10.04749+4.30612)x357.99818, glue set 314.52219fill
-..............\hbox(0.0+0.0)x0.0
-..............\mathon
-..............\TU/XITSMath-Regular(1)/m/n/11.04124 glyph#2499
-..............\kern0.66248
-..............\glue(\thickmuskip) 3.06725 plus 3.06725
-..............\TU/XITSMath-Regular(1)/m/n/11.04124 glyph#1034
-..............\penalty 500
-..............\glue(\thickmuskip) 3.06725 plus 3.06725
-..............\TU/XITSMath-Regular(1)/m/n/11.04124 glyph#50
-..............\TU/XITSMath-Regular(1)/m/n/11.04124 glyph#48
-..............\TU/XITSMath-Regular(1)/m/n/11.04124 glyph#2524
-..............\mathoff
-..............\TU/texgyretermes(0)/m/n/11.04124 ;
-..............\kern -0.0002
-..............\kern 0.0002
-..............\glue 0.0 plus 1.0fill
-..............\rule(10.04749+4.30612)x0.0
-..............\penalty 10000
-..............\glue(\parfillskip) 0.0 plus 1.0fil
-..............\glue(\rightskip) 0.0 plus 1.0fil
-.............\glue(\parskip) 0.0
-.............\glue(\parskip) 0.0
-.............\glue(\baselineskip) 0.00002
-.............\hbox(10.04749+4.30612)x357.99818, glue set 315.12946fill
-..............\hbox(0.0+0.0)x0.0
-..............\mathon
-..............\TU/XITSMath-Regular(1)/m/n/11.04124 glyph#2489
-..............\kern0.99371
-..............\glue(\thickmuskip) 3.06725 plus 3.06725
-..............\TU/XITSMath-Regular(1)/m/n/11.04124 glyph#1034
-..............\penalty 500
-..............\glue(\thickmuskip) 3.06725 plus 3.06725
-..............\TU/XITSMath-Regular(1)/m/n/11.04124 glyph#1155
-..............\TU/XITSMath-Regular(1)/m/n/11.04124 glyph#2514
-..............\mathoff
-..............\TU/texgyretermes(0)/m/n/11.04124 ;
-..............\kern -0.0002
-..............\kern 0.0002
-..............\glue 0.0 plus 1.0fill
-..............\rule(10.04749+4.30612)x0.0
-..............\penalty 10000
-..............\glue(\parfillskip) 0.0 plus 1.0fil
-..............\glue(\rightskip) 0.0 plus 1.0fil
+..........\glue 4.96857
 ..........\glue(\parskip) 0.0
 ..........\glue(\parskip) 0.0
-..........\glue(\lineskip) 1.0
-..........\hbox(10.04749+4.30612)x376.46567, glue set 179.64827fil
-...........\hbox(0.0+0.0)x0.0
-...........\TU/texgyretermes(0)/b/n/11.04124 else
-...........\kern 0.0
-...........\kern -0.0002
-...........\kern 0.0002
-...........\rule(10.04749+4.30612)x0.0
-...........\rule(10.04749+4.30612)x0.0
-...........\penalty 10000
-...........\glue(\parfillskip) 0.0 plus 1.0fil
-...........\glue(\rightskip) 0.0 plus 1.0fil
-..........\hbox(10.04749+18.65974)x370.44318, shifted 6.02249
-...........\rule(*+*)x0.4
-...........\vbox(10.04749+18.65974)x370.04318
-............\vbox(10.04749+18.65974)x357.99818, shifted 12.045
-.............\hbox(10.04749+4.30612)x357.99818, glue set 323.11229fill
-..............\hbox(0.0+0.0)x0.0
-..............\mathon
-..............\TU/XITSMath-Regular(1)/m/n/11.04124 glyph#2499
-..............\kern0.66248
-..............\glue(\thickmuskip) 3.06725 plus 3.06725
-..............\TU/XITSMath-Regular(1)/m/n/11.04124 glyph#1034
-..............\penalty 500
-..............\glue(\thickmuskip) 3.06725 plus 3.06725
-..............\TU/XITSMath-Regular(1)/m/n/11.04124 glyph#2524
-..............\mathoff
-..............\TU/texgyretermes(0)/m/n/11.04124 ;
-..............\kern -0.0002
-..............\kern 0.0002
-..............\glue 0.0 plus 1.0fill
-..............\rule(10.04749+4.30612)x0.0
-..............\penalty 10000
-..............\glue(\parfillskip) 0.0 plus 1.0fil
-..............\glue(\rightskip) 0.0 plus 1.0fil
-.............\glue(\parskip) 0.0
-.............\glue(\parskip) 0.0
-.............\glue(\baselineskip) 0.00002
-.............\hbox(10.04749+4.30612)x357.99818, glue set 322.6927fill
-..............\hbox(0.0+0.0)x0.0
-..............\mathon
-..............\TU/XITSMath-Regular(1)/m/n/11.04124 glyph#2489
-..............\kern0.99371
-..............\glue(\thickmuskip) 3.06725 plus 3.06725
-..............\TU/XITSMath-Regular(1)/m/n/11.04124 glyph#1034
-..............\penalty 500
-..............\glue(\thickmuskip) 3.06725 plus 3.06725
-..............\TU/XITSMath-Regular(1)/m/n/11.04124 glyph#2514
-..............\mathoff
-..............\TU/texgyretermes(0)/m/n/11.04124 ;
-..............\kern -0.0002
-..............\kern 0.0002
-..............\glue 0.0 plus 1.0fill
-..............\rule(10.04749+4.30612)x0.0
-..............\penalty 10000
-..............\glue(\parfillskip) 0.0 plus 1.0fil
-..............\glue(\rightskip) 0.0 plus 1.0fil
-..........\glue(\parskip) 0.0
-..........\glue(\parskip) 0.0
-..........\glue(\lineskip) 1.0
-..........\hbox(10.04749+4.30612)x376.46567, glue set 179.64275fil
-...........\hbox(0.0+0.0)x0.0
-...........\TU/texgyretermes(0)/b/n/11.04124 end
-...........\kern 0.0
-...........\kern -0.0002
-...........\kern 0.0002
-...........\rule(10.04749+4.30612)x0.0
-...........\penalty 10000
-...........\glue(\parfillskip) 0.0 plus 1.0fil
-...........\glue(\rightskip) 0.0 plus 1.0fil
-..........\glue(\parskip) 0.0
-..........\glue(\parskip) 0.0
-..........\glue(\baselineskip) 0.00002
-..........\hbox(10.04749+4.30612)x376.46567, glue set 152.26266fil
+..........\glue(\baselineskip) 1.89914
+..........\hbox(10.04749+4.30612)x376.46567, glue set 154.86288fil
 ...........\hbox(0.0+0.0)x0.0
 ...........\TU/texgyretermes(0)/b/n/11.04124 while
 ...........\kern 0.0
@@ -617,8 +451,7 @@ Completed box being shipped out [2]
 ...........\kern 0.0002
 ...........\glue 2.76031 plus 1.38016 minus 0.9201
 ...........\mathon
-...........\TU/XITSMath-Regular(1)/m/n/11.04124 glyph#2489
-...........\kern0.99371
+...........\TU/XITSMath-Regular(1)/m/n/11.04124 glyph#2503
 ...........\glue(\thickmuskip) 3.06725 plus 3.06725
 ...........\TU/XITSMath-Regular(1)/m/n/11.04124 glyph#1233
 ...........\penalty 500
@@ -635,11 +468,11 @@ Completed box being shipped out [2]
 ...........\penalty 10000
 ...........\glue(\parfillskip) 0.0 plus 1.0fil
 ...........\glue(\rightskip) 0.0 plus 1.0fil
-..........\hbox(10.04749+92.4278)x370.44318, shifted 6.02249
+..........\hbox(10.04749+61.72058)x370.44318, shifted 6.02249
 ...........\rule(*+*)x0.4
-...........\vbox(10.04749+92.4278)x370.04318
-............\vbox(10.04749+92.4278)x357.99818, shifted 12.045
-.............\hbox(10.04749+4.30612)x357.99818, glue set 140.54242fil
+...........\vbox(10.04749+61.72058)x370.04318
+............\vbox(10.04749+61.72058)x357.99818, shifted 12.045
+.............\hbox(10.04749+4.30612)x357.99818, glue set 149.91315fil
 ..............\hbox(0.0+0.0)x0.0
 ..............\TU/texgyretermes(0)/b/n/11.04124 if
 ..............\kern 0.61832
@@ -647,16 +480,13 @@ Completed box being shipped out [2]
 ..............\kern 0.0002
 ..............\glue 2.76031 plus 1.38016 minus 0.9201
 ..............\mathon
-..............\TU/XITSMath-Regular(1)/m/n/11.04124 glyph#2489
-..............\kern0.99371
+..............\TU/XITSMath-Regular(1)/m/n/11.04124 glyph#2502
+..............\glue(\thickmuskip) 3.06725 plus 3.06725
+..............\TU/XITSMath-Regular(1)/m/n/11.04124 glyph#63
+..............\penalty 500
+..............\glue(\thickmuskip) 3.06725 plus 3.06725
+..............\TU/XITSMath-Regular(1)/m/n/11.04124 glyph#2503
 ..............\mathoff
-..............\glue 2.76031 plus 1.38016 minus 0.9201
-..............\TU/texgyretermes(0)/m/it/11.04124 is
-..............\glue 2.76031 plus 1.38016 minus 0.9201
-..............\TU/texgyretermes(0)/m/it/11.04124 even
-..............\kern 0.0
-..............\kern -0.0002
-..............\kern 0.0002
 ..............\glue 2.76031 plus 1.38016 minus 0.9201
 ..............\TU/texgyretermes(0)/b/n/11.04124 then
 ..............\kern 0.0
@@ -666,52 +496,24 @@ Completed box being shipped out [2]
 ..............\penalty 10000
 ..............\glue(\parfillskip) 0.0 plus 1.0fil
 ..............\glue(\rightskip) 0.0 plus 1.0fil
-.............\hbox(10.04749+18.65974)x351.9757, shifted 6.02249
+.............\hbox(10.04749+4.30612)x351.9757, shifted 6.02249
 ..............\rule(*+*)x0.4
-..............\vbox(10.04749+18.65974)x351.5757
-...............\vbox(10.04749+18.65974)x339.5307, shifted 12.045
-................\hbox(10.04749+4.30612)x339.5307, glue set 279.97339fill
+..............\vbox(10.04749+4.30612)x351.5757
+...............\vbox(10.04749+4.30612)x339.5307, shifted 12.045
+................\hbox(10.04749+4.30612)x339.5307, glue set 291.35689fill
 .................\hbox(0.0+0.0)x0.0
 .................\mathon
-.................\TU/XITSMath-Regular(1)/m/n/11.04124 glyph#2499
-.................\kern0.66248
+.................\TU/XITSMath-Regular(1)/m/n/11.04124 glyph#2502
 .................\glue(\thickmuskip) 3.06725 plus 3.06725
 .................\TU/XITSMath-Regular(1)/m/n/11.04124 glyph#1034
 .................\penalty 500
 .................\glue(\thickmuskip) 3.06725 plus 3.06725
-.................\TU/XITSMath-Regular(1)/m/n/11.04124 glyph#2499
-.................\kern0.66248
+.................\TU/XITSMath-Regular(1)/m/n/11.04124 glyph#2502
 .................\glue(\medmuskip) 2.4538 plus 1.2269 minus 2.4538
-.................\TU/XITSMath-Regular(1)/m/n/11.04124 glyph#183
+.................\TU/XITSMath-Regular(1)/m/n/11.04124 glyph#1155
 .................\penalty 700
 .................\glue(\medmuskip) 2.4538 plus 1.2269 minus 2.4538
-.................\TU/XITSMath-Regular(1)/m/n/11.04124 glyph#2499
-.................\kern0.66248
-.................\mathoff
-.................\TU/texgyretermes(0)/m/n/11.04124 ;
-.................\kern -0.0002
-.................\kern 0.0002
-.................\glue 0.0 plus 1.0fill
-.................\rule(10.04749+4.30612)x0.0
-.................\penalty 10000
-.................\glue(\parfillskip) 0.0 plus 1.0fil
-.................\glue(\rightskip) 0.0 plus 1.0fil
-................\glue(\parskip) 0.0
-................\glue(\parskip) 0.0
-................\glue(\baselineskip) 0.00002
-................\hbox(10.04749+4.30612)x339.5307, glue set 290.7328fill
-.................\hbox(0.0+0.0)x0.0
-.................\mathon
-.................\TU/XITSMath-Regular(1)/m/n/11.04124 glyph#2489
-.................\kern0.99371
-.................\glue(\thickmuskip) 3.06725 plus 3.06725
-.................\TU/XITSMath-Regular(1)/m/n/11.04124 glyph#1034
-.................\penalty 500
-.................\glue(\thickmuskip) 3.06725 plus 3.06725
-.................\TU/XITSMath-Regular(1)/m/n/11.04124 glyph#2489
-.................\kern0.99371
-.................\TU/XITSMath-Regular(1)/m/n/11.04124 glyph#48
-.................\TU/XITSMath-Regular(1)/m/n/11.04124 glyph#51
+.................\TU/XITSMath-Regular(1)/m/n/11.04124 glyph#2503
 .................\mathoff
 .................\TU/texgyretermes(0)/m/n/11.04124 ;
 .................\kern -0.0002
@@ -723,7 +525,7 @@ Completed box being shipped out [2]
 .................\glue(\rightskip) 0.0 plus 1.0fil
 .............\glue(\parskip) 0.0
 .............\glue(\parskip) 0.0
-.............\glue(\lineskip) 1.0
+.............\glue(\baselineskip) 0.00002
 .............\hbox(10.04749+4.30612)x357.99818, glue set 170.41454fil
 ..............\hbox(0.0+0.0)x0.0
 ..............\TU/texgyretermes(0)/b/n/11.04124 else
@@ -735,53 +537,24 @@ Completed box being shipped out [2]
 ..............\penalty 10000
 ..............\glue(\parfillskip) 0.0 plus 1.0fil
 ..............\glue(\rightskip) 0.0 plus 1.0fil
-.............\hbox(10.04749+18.65974)x351.9757, shifted 6.02249
+.............\hbox(10.04749+4.30612)x351.9757, shifted 6.02249
 ..............\rule(*+*)x0.4
-..............\vbox(10.04749+18.65974)x351.5757
-...............\vbox(10.04749+18.65974)x339.5307, shifted 12.045
-................\hbox(10.04749+4.30612)x339.5307, glue set 287.79059fill
+..............\vbox(10.04749+4.30612)x351.5757
+...............\vbox(10.04749+4.30612)x339.5307, shifted 12.045
+................\hbox(10.04749+4.30612)x339.5307, glue set 291.7102fill
 .................\hbox(0.0+0.0)x0.0
 .................\mathon
-.................\TU/XITSMath-Regular(1)/m/n/11.04124 glyph#2525
+.................\TU/XITSMath-Regular(1)/m/n/11.04124 glyph#2503
 .................\glue(\thickmuskip) 3.06725 plus 3.06725
 .................\TU/XITSMath-Regular(1)/m/n/11.04124 glyph#1034
 .................\penalty 500
 .................\glue(\thickmuskip) 3.06725 plus 3.06725
-.................\TU/XITSMath-Regular(1)/m/n/11.04124 glyph#2525
-.................\glue(\medmuskip) 2.4538 plus 1.2269 minus 2.4538
-.................\TU/XITSMath-Regular(1)/m/n/11.04124 glyph#183
-.................\penalty 700
-.................\glue(\medmuskip) 2.4538 plus 1.2269 minus 2.4538
-.................\TU/XITSMath-Regular(1)/m/n/11.04124 glyph#2499
-.................\kern0.66248
-.................\mathoff
-.................\TU/texgyretermes(0)/m/n/11.04124 ;
-.................\kern -0.0002
-.................\kern 0.0002
-.................\glue 0.0 plus 1.0fill
-.................\rule(10.04749+4.30612)x0.0
-.................\penalty 10000
-.................\glue(\parfillskip) 0.0 plus 1.0fil
-.................\glue(\rightskip) 0.0 plus 1.0fil
-................\glue(\parskip) 0.0
-................\glue(\parskip) 0.0
-................\glue(\baselineskip) 0.00002
-................\hbox(10.04749+4.30612)x339.5307, glue set 281.33144fill
-.................\hbox(0.0+0.0)x0.0
-.................\mathon
-.................\TU/XITSMath-Regular(1)/m/n/11.04124 glyph#2489
-.................\kern0.99371
-.................\glue(\thickmuskip) 3.06725 plus 3.06725
-.................\TU/XITSMath-Regular(1)/m/n/11.04124 glyph#1034
-.................\penalty 500
-.................\glue(\thickmuskip) 3.06725 plus 3.06725
-.................\TU/XITSMath-Regular(1)/m/n/11.04124 glyph#2489
-.................\kern0.99371
+.................\TU/XITSMath-Regular(1)/m/n/11.04124 glyph#2503
 .................\glue(\medmuskip) 2.4538 plus 1.2269 minus 2.4538
 .................\TU/XITSMath-Regular(1)/m/n/11.04124 glyph#1155
 .................\penalty 700
 .................\glue(\medmuskip) 2.4538 plus 1.2269 minus 2.4538
-.................\TU/XITSMath-Regular(1)/m/n/11.04124 glyph#50
+.................\TU/XITSMath-Regular(1)/m/n/11.04124 glyph#2502
 .................\mathoff
 .................\TU/texgyretermes(0)/m/n/11.04124 ;
 .................\kern -0.0002
@@ -793,7 +566,7 @@ Completed box being shipped out [2]
 .................\glue(\rightskip) 0.0 plus 1.0fil
 .............\glue(\parskip) 0.0
 .............\glue(\parskip) 0.0
-.............\glue(\lineskip) 1.0
+.............\glue(\baselineskip) 0.00002
 .............\hbox(10.04749+4.30612)x357.99818, glue set 170.40901fil
 ..............\hbox(0.0+0.0)x0.0
 ..............\TU/texgyretermes(0)/b/n/11.04124 end
@@ -818,15 +591,39 @@ Completed box being shipped out [2]
 ...........\penalty 10000
 ...........\glue(\parfillskip) 0.0 plus 1.0fil
 ...........\glue(\rightskip) 0.0 plus 1.0fil
+..........\glue(\parskip) 0.0
+..........\glue(\parskip) 0.0
+..........\glue(\baselineskip) 0.00002
+..........\hbox(10.04749+4.30612)x376.46567, glue set 334.65247fill
+...........\hbox(0.0+0.0)x0.0
+...........\TU/texgyretermes(0)/b/n/11.04124 return
+...........\kern 0.0
+...........\kern -0.0002
+...........\kern 0.0002
+...........\glue 2.76031 plus 1.38016 minus 0.9201
+...........\mathon
+...........\TU/XITSMath-Regular(1)/m/n/11.04124 glyph#2502
+...........\mathoff
+...........\TU/texgyretermes(0)/m/n/11.04124 ;
+...........\kern -0.0002
+...........\kern 0.0002
+...........\glue 0.0 plus 1.0fill
+...........\rule(10.04749+4.30612)x0.0
+...........\penalty 10000
+...........\glue(\parfillskip) 0.0 plus 1.0fil
+...........\glue(\rightskip) 0.0 plus 1.0fil
+..........\write1{\@writefile{loa}{\protect \contentsline {algocf}{\protect \numberline {1.1}{\ignorespaces 欧几里得算法}}{\thepage }{}\protected@file@percent }}
+..........\write1{\providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}}
+..........\write1{\newlabel{alg:euclid}{{1.1}{\thepage }{}{algocf.1.1}{}}}
 .........\glue 0.0 plus 1.0fill
 .......\special{color pop}
 ......\glue 6.02249
 ......\glue(\lineskip) 1.0
-......\hbox(8.42447+2.02055)x400.55566
+......\hbox(8.42447+1.86595)x400.55566
 .......\special{color push  Black}
-.......\hbox(8.42447+2.02055)x400.55566, glue set 152.36005fil
+.......\hbox(8.42447+1.86595)x400.55566, glue set 141.80942fil
 ........\glue 0.0 plus 1.0fil
-........\hbox(8.42447+2.02055)x95.83559
+........\hbox(8.42447+1.86595)x116.93683
 .........\special{color push  Black}
 .........\TU/FandolSong(0)/b/n/11.04124 算
 .........\glue 0.0 plus 0.37827
@@ -837,20 +634,24 @@ Completed box being shipped out [2]
 .........\glue 2.76031 plus 1.38016 minus 0.9201
 .........\TU/texgyretermes(0)/b/n/11.04124 1.1
 .........\kern 0.0
-.........\glue 2.76031 plus 1.38016 minus 0.9201
-.........\TU/FandolSong(0)/b/n/11.04124 计
+.........\kern -0.0002
+.........\kern 0.0002
+.........\glue 12.045
+.........\penalty 10000
+.........\TU/FandolSong(0)/b/n/11.04124 欧
+.........\glue 0.0 plus 0.37827
+.........\TU/FandolSong(0)/b/n/11.04124 几
+.........\glue 0.0 plus 0.37827
+.........\TU/FandolSong(0)/b/n/11.04124 里
+.........\glue 0.0 plus 0.37827
+.........\TU/FandolSong(0)/b/n/11.04124 得
 .........\glue 0.0 plus 0.37827
 .........\TU/FandolSong(0)/b/n/11.04124 算
-.........\glue 2.76031 plus 1.38016 minus 0.9201
-.........\mathon
-.........\TU/XITSMath-Regular(1)/m/n/11.04124 glyph#2525
-.........\glue(\thickmuskip) 3.06725 plus 3.06725
-.........\TU/XITSMath-Regular(1)/m/n/11.04124 glyph#62
-.........\glue(\thickmuskip) 3.06725 plus 3.06725
-.........\TU/XITSMath-Regular(1)/m/n/11.04124 glyph#2524
-.........\hbox(3.40842+0.06183)x4.34123, shifted -4.4169
-..........\TU/XITSMath-Regular(1)/m/n/7.72884 glyph#2514
-.........\mathoff
+.........\glue 0.0 plus 0.37827
+.........\TU/FandolSong(0)/b/n/11.04124 法
+.........\kern 0.0
+.........\kern -0.00017
+.........\kern 0.00017
 .........\special{color pop}
 ........\glue 0.0 plus 1.0fil
 .......\special{color pop}
