@@ -589,17 +589,19 @@
     \def\listfigurename{插图清单}%
     \def\listtablename{附表清单}%
     \def\ustc@list@figure@table@name{插图和附表清单}%
+    \def\ustc@list@algorithm@name{算法清单}%
     \ctexset{
       chapter/name   = {第,章},
     }%
     \def\appendixname{附录}%
     \def\ustc@achievements@name{在读期间取得的科研成果}%
-    \newcommand\ustc@notation@name{符号说明}%
+    \def\ustc@notation@name{符号说明}%
   \else
     \def\contentsname{Contents}%
     \def\listfigurename{List of Figures}%
     \def\listtablename{List of Tables}%
     \def\ustc@list@figure@table@name{List of Figures and Tables}%
+    \def\ustc@list@algorithm@name{List of Algorithms}%
     \ctexset{
       chapter/name   = {\chaptername\space},
     }%
@@ -618,9 +620,11 @@
   \ifustc@language@chinese
     \def\figurename{图}%
     \def\tablename{表}%
+    \def\ustc@algorithm@name{算法}%
   \else
     \def\figurename{Figure}%
     \def\tablename{Table}%
+    \def\ustc@algorithm@name{Algorithm}%
   \fi
 }
 \ustc@set@names
@@ -2779,8 +2783,13 @@
 % 本科生：表格、插图标题用小四宋体，Word 模板中行距为 22 pt。
 
 % 使用 \pkg{caption} 宏包设置图、表的格式：
-\DeclareCaptionFont{ustc}{\ustc@caption@font}
 \newcommand\ustc@caption@font{%
+  \ifustc@degree@graduate
+    \bfseries
+  \fi
+  \ustc@figure@note@font
+}
+\newcommand\ustc@figure@note@font{%
   \ifustc@degree@bachelor
     \normalsize
   \else
@@ -2791,6 +2800,8 @@
     \fi
   \fi
 }
+\DeclareCaptionFont{ustc}{\ustc@caption@font}
+\DeclareCaptionFont{figurenote}{\ustc@figure@note@font}
 
 \captionsetup{
   justification  = centerlast,
@@ -2800,9 +2811,6 @@
   figureposition = bottom,
   tableposition  = top,
 }
-\ifustc@degree@graduate
-  \captionsetup{font+=bf}
-\fi
 
 % 若有英文图题，另起一行置于中文图题下方。
 \AtBeginOfPackageFile*{bicaption}{
@@ -2864,12 +2872,12 @@
 % 图注、表注使用 `\figurenote` 或 `\tablenote` 命令，与 `apa7.cls` 一致。
 % 图注采用宋体 11pt，单倍行距，段前6磅，段后0磅。
 % 多个图注则须顺序编号，注序左缩进2字，与注文之间空一字符，续行悬挂缩进左对齐，两端对齐。
-\let\ustc@figure@note@font\ustc@caption@font
+% \let\ustc@figure@note@font\ustc@caption@font
 
 \newcommand\figurenote[1]{%
   \begingroup
     \captionsetup{
-      font = ustc,
+      font = figurenote,
       margin = {2em, 0pt},
       oneside,
     }%
@@ -3528,6 +3536,34 @@
       \endgroup
     }
   \fi
+}
+
+
+% \subsubsection{algorithms: algorithm 和 algorithmic 宏包}
+
+% 按章节编号。
+\PassOptionsToPackage{chapter}{algorithm}
+
+\AtEndOfPackageFile*{algorithm}{
+  \floatname{algorithm}{\ustc@algorithm@name}
+  %
+  % 设置算法环境的格式。
+  \captionsetup[algorithm]{
+    font = ustc,
+    labelsep = quad,
+  }
+  %
+  % 设置算法清单的格式
+  \renewcommand\listalgorithmname{\ustc@list@algorithm@name}
+  \renewcommand\listofalgorithms{%
+    \ustc@chapter{\listalgorithmname}%
+    \@starttoc{loa}%
+  }
+  \contentsuse{algorithm}{loa}
+  \titlecontents{algorithm}
+    [0bp]{}
+    {\contentspush{\ustc@algorithm@name~\thecontentslabel\quad}}{}
+    {\ustc@leaders\thecontentspage}
 }
 
 

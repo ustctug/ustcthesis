@@ -27,6 +27,9 @@ cjk
 ctex
 zhnumber
 #
+# Dependencies for algorithms
+float
+#
 # Dependencies for algorithm2e
 algorithm2e
 ifoddpage
@@ -64,6 +67,7 @@ tex-gyre
 xits
 #
 # Dependencies for extra packages
+algorithms
 booktabs
 mathtools
 threeparttable
