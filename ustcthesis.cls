@@ -637,7 +637,7 @@
 
 % 正文字号12bp，研究生行距20bp，本科生行距20bp；
 % 其他命令的行距按照相同的的比例设置，如表~\ref{tab:fontsize}。
-% \begin{table}[htb]
+% \begin{table}
 %   \centering
 %   \caption{标准字体命令与字号、行距的对应}
 %   \label{tab:fontsize}
@@ -2901,22 +2901,23 @@
 
 % 不宜将多个插图连续排版，插图与文字论述段落应穿插排版。
 
-% 修改默认的浮动体描述符为 |h|。
-\def\fps@figure{h}
-\def\fps@table{h}
+% 修改默认的浮动体描述符为 |htbp|。
+% 根据 <https://texfaq.org/FAQ-floats> 的建议，不应删除 `p`。''
+\def\fps@figure{htbp}
+\def\fps@table{htbp}
 
 % \LaTeX{} 对放置浮动体的要求比较强，这里按照 UK TeX FAQ 的建议
 % \footnote{\url{https://texfaq.org/FAQ-floats}} 对其适当放宽。
-\renewcommand\topfraction{.85}
-\renewcommand\bottomfraction{.7}
-\renewcommand\textfraction{.15}
-\renewcommand\floatpagefraction{.66}
-\renewcommand\dbltopfraction{.66}
-\renewcommand\dblfloatpagefraction{.66}
-\setcounter{topnumber}{9}
-\setcounter{bottomnumber}{9}
-\setcounter{totalnumber}{20}
-\setcounter{dbltopnumber}{9}
+\renewcommand\topfraction{.85}  % .7
+\renewcommand\bottomfraction{.7}  % .3
+\renewcommand\textfraction{.15}  % .2
+\renewcommand\floatpagefraction{.66}  % .5
+\renewcommand\dbltopfraction{.66}  % .7
+\renewcommand\dblfloatpagefraction{.66}  % .5
+\setcounter{topnumber}{9}  % 2
+\setcounter{bottomnumber}{9}  % 1
+\setcounter{totalnumber}{20}  % 3
+\setcounter{dbltopnumber}{9}  % 2
 
 % 插图前后与文字段落之间须留有10磅空行。
 % 插图如果不得不与其它插图或表格连续排版，则它们之间须留有20磅空行。
