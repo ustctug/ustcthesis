@@ -2,8 +2,8 @@ test="$(basename $1 .tex)";
 baseline_dir="test/baseline";
 diff_dir="test/diff";
 baseline_path="$baseline_dir/$test.pdf";
-for config in main crossref nomencl bibtex biblatex; do
-    if [[ "$config" == "main" ]]; then
+for config in build crossref nomencl bibtex biblatex; do
+    if [[ "$config" == "build" ]]; then
         test_dir="test/testfiles";
         build_dir="build/test";
     else
@@ -12,7 +12,7 @@ for config in main crossref nomencl bibtex biblatex; do
     fi
     file_path="$test_dir/$test.tex";
     if [ -f "$file_path" ]; then
-        if [[ "$config" == "main" ]]; then
+        if [[ "$config" == "build" ]]; then
             l3build save --halt-on-error "$test" || exit 1;
         else
             l3build save --halt-on-error --config "test/config-$config" "$test" || exit 1;
