@@ -23,6 +23,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Deprecated
 
 - `author*`、`speciality*`、`supervisor*`、`practice-supervisor*` 等设置封面英文信息的选项已过时。
+- 本科生的参考文献样式 `ustcthesis-bachelor` 已过时，现在同研究生一致。
 
 ## [4.1.0] - 2026-05-30
 

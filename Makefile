@@ -1,7 +1,7 @@
 MAIN = main
 NAME = ustcthesis
 CLSFILES = $(NAME).cls
-BSTFILES = $(NAME)-numeric.bst $(NAME)-authoryear.bst $(NAME)-bachelor.bst
+BSTFILES = $(NAME)-numeric.bst $(NAME)-authoryear.bst
 
 SHELL = bash
 LATEXMK = latexmk -xelatex

@@ -3196,6 +3196,7 @@
 \prop_const_from_keyval:Nn \c__ustc_bib_style_prop
   {
     ustcthesis-numerical = ustcthesis-numeric ,
+    ustcthesis-bachelor = ustcthesis-numeric ,
   }
 
 \cs_set_nopar:Npn \bibliographystyle #1
@@ -3613,6 +3614,15 @@
   {
     \cs_undefine:N \addbibresource
     \cs_undefine:N \printbibliography
+    %
+    % `style=ustcthesis-bachelor` 已过时，
+    \IfPackageLoadedWithOptionsTF { biblatex } { style=ustcthesis-bachelor }
+      {
+        \__ustc_deprecated:nnn { biblatex~ style~ "ustcthesis-bachelor" }
+          { 2026-06-17 } { "style=ustcthesis-numeric" }
+        \PassOptionsToPackage { style = ustcthesis-numeric } { biblatex }
+      }
+      { }
     %
     % `citestyle=ustcthesis-inline` 已过时，
     % 改为 `citestyle=ustcthesis-numeric, autocite=inline`
