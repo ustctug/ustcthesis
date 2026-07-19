@@ -1,0 +1,160 @@
+% !TEX root = ../main.tex
+
+\chapter{插图和表格}
+
+\section{插图}
+
+插图一般由图、图题、图注构成。插图中的术语、符号、单位等应与正文表述所用一致。
+图序与图名合称图题，例如：“图~\ref{fig:example}\quad 2010年至2024年西藏地区年平均气温分布”。
+“图~\ref{fig:example}”是图序，是“第二章第1个图”的序号，依次类推。
+
+图中标注的文字采用 9～10.5\,pt，以能够清晰阅读为标准。
+专用名词、代号、单位等可采用外文表示，坐标轴题名、词组、描述性的词语均须采用中文。
+
+\begin{figure}
+  \centering
+  \begingroup
+    \color{ustcblue}
+    \includegraphics[width=.2\textwidth]{ustc-logo.pdf}
+  \endgroup
+  \bicaption{图题置于图的下方}{The English caption}
+  \label{fig:example}
+  \figurenote{
+    若有图注，图注置于图题下方。若有英文图题，则只需在英文图题下方给出英文图注。
+    多个图注则须顺序编号，注序左缩进2个字符，与注文之间空1个字符。
+    注文的字数较少且是短语时，末尾不可加标点，多个图注可以在同一行通过自由选取
+    字符空格将各个图注间隔开来，下一行与首行序号左对齐；
+    注文的字数较多或者甚至需要用句子说明时，该图注可以独立成行，续行悬挂缩进左对齐。
+  }
+\end{figure}
+
+图题置于图的下方。若有英文图题，另起一行置于中文图题下方。
+图序与图名之间空一个汉字符，图名末尾不可加标点。
+
+\begin{figure}
+  \centering
+  \subcaptionbox{}{\includegraphics[width=.4\textwidth]{ustc-name.pdf}}
+  \subcaptionbox{}{\color{ustcblue}\includegraphics[width=.2\textwidth]{ustc-logo.pdf}}
+  \caption{插图由两个以上的分图组成}
+  \label{fig:subfigures}
+  \figurenote{%
+    (a) 校名 (b) 校徽
+    % 如果插图中的图是由两个以上的分图组成时，则各分图要求分别以(a)、(b)、(c)……作为分图序，
+    % 与分图名一起构成分图题。
+    % 将分图题按图注处理，分图题的格式与图注同。
+  }
+\end{figure}
+
+不宜将多个插图连续排版，插图与文字论述段落应穿插排版。
+插图如果不得不与其它插图或表格连续排版，则它们之间须留有20磅空行。
+插图不允许跨页。
+
+
+\section{表格}
+
+表格一般由表、表题、表注构成。
+表序与表名合称表题，表名末尾不可加标点。
+例如：“表~\ref{tab:example}\quad 实验方式”，“表~\ref{tab:example}”是表序，
+是“第二章第1个表”的序号，依次类推。
+表题置于表的上方。
+若有英文表题，另起一行置于中文表题下方。
+
+\begin{table}
+  \centering
+  \bicaption{表题置于表的上方}{The English caption}
+  \label{tab:example}
+  \begin{tabular}{lc}
+    \toprule
+    文件名                  & 说明                        \\
+    \midrule
+    \file{ustcthesis.cls}   & 模板                        \\
+    \file{ustcthesis-*.bst} & BibTeX 参考文献样式         \\
+    \file{ustcthesis-*.bbx} & \pkg{biblatex} 参考文献样式 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+若表格有附注，则表注置于表的下方。
+推荐使用 \pkg{threeparttable} 宏包实现带表注的表格。
+
+\begin{table}
+  \centering
+  \begin{threeparttable}
+    \caption{带表注的表格}
+    \label{tab:table-with-notes}
+    \begin{tabular}{lc}
+      \toprule
+      文件名                  & 说明                        \\
+      \midrule
+      \file{ustcthesis.cls}   & 模板                        \\
+      \file{ustcthesis-*.bst}\tnote{1} & BibTeX 参考文献样式         \\
+      \file{ustcthesis-*.bbx}\tnote{2} & \pkg{biblatex} 参考文献样式 \\
+      \bottomrule
+    \end{tabular}
+    \begin{tablenotes}[online]
+      \item[1] 若表格有附注，则表注置于表的下方。
+      \item[2] 多个表注则须顺序编号，注序左缩进2字，与注文之间空一字符，续行悬挂缩进左对齐，两端对齐。
+      注文若是短语，末尾不可加标点。
+    \end{tablenotes}
+  \end{threeparttable}
+\end{table}
+
+当表格较大而不能在一页内打印时，可以“续表”的形式另页打印，格式同前，
+只需在另页的表序前加“续”字即可，例如“续表 2.1 实验方式”。
+续表均应重复给出横表头。
+推荐使用 \pkg{longtable} 宏包，例如表~\ref{tab:long-table}。
+
+\begin{longtable}{cccc}
+    \caption{跨页长表格的表题}
+    \label{tab:long-table} \\
+    \toprule
+    表头 1 & 表头 2 & 表头 3 & 表头 4 \\
+    \midrule
+  \endfirsthead
+    \caption*{续表~\thetable\quad 跨页长表格的表题} \\
+    \toprule
+    表头 1 & 表头 2 & 表头 3 & 表头 4 \\
+    \midrule
+  \endhead
+    \bottomrule
+  \endfoot
+  Row 1  & & & \\
+  Row 2  & & & \\
+  Row 3  & & & \\
+  Row 4  & & & \\
+  Row 5  & & & \\
+  Row 6  & & & \\
+  Row 7  & & & \\
+  Row 8  & & & \\
+  Row 9  & & & \\
+  Row 10 & & & \\
+\end{longtable}
+
+不宜将多个表格连续排版，表格与文字论述段落应穿插排版。
+
+
+\section{算法环境}
+
+模板示例使用 \pkg{algorithms} 宏包实现算法环境。
+用户也可以使用 \pkg{algorithmicx} 或 \pkg{algorithm2e} 等宏包。
+
+\begin{algorithm}
+  \caption{欧几里得算法}
+  \label{alg:euclid}
+  \begin{algorithmic}
+    \renewcommand{\algorithmicrequire}{\textbf{输入：}}
+    \renewcommand{\algorithmicensure}{\textbf{输出：}}
+    \REQUIRE 两个非负整数 $a$ 和 $b$
+    \ENSURE $a$ 和 $b$ 的最大公约数 $\gcd(a, b)$
+
+    \WHILE{$b \neq 0$}
+      \IF{$a > b$}
+        \STATE $a \gets a - b$
+      \ELSE
+        \STATE $b \gets b - a$
+      \ENDIF
+    \ENDWHILE
+
+    \RETURN $a$
+  \end{algorithmic}
+\end{algorithm}
