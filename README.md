@@ -34,54 +34,43 @@
 
 - Overleaf 模板 <https://www.overleaf.com/latex/templates/latex-template-for-ustc-thesis/qbfkwzbrfhbr>
 
-- 研究生院网站（版本较旧，不推荐）：<https://gradschool.ustc.edu.cn/column/65>
+- 研究生院网站（版本可能较旧）：<https://gradschool.ustc.edu.cn/column/65>
 
 
 ## 编译文档
 
 - 编译模板的使用说明文档 `ustcthesis-doc.pdf`：
-   ```
-   latexmk -xelatex ustcthesis-doc.tex
-   ```
+  ```
+  latexmk -xelatex ustcthesis-doc.tex
+  ```
 - 编译论文 `main.pdf`：
-   ```
-   latexmk -xelatex main.tex
-   ```
+  ```
+  latexmk -xelatex main.tex
+  ```
 - 如需清理论文编译过程中的临时文件，可以：
-   ```
-   latexmk -c
-   ```
+  ```
+  latexmk -c
+  ```
 
 - 以上编译过程也可以用 `make` 工具：
-   ```
-   make doc        # 编译生成 ustcthesis-doc.pdf
-   make            # 编译生成论文 main.pdf
-   make clean      # 删除编译过程中生成的临时文件
-   ```
+  ```
+  make doc        # 编译生成 ustcthesis-doc.pdf
+  make            # 编译生成论文 main.pdf
+  make clean      # 删除编译过程中生成的临时文件
+  ```
 
 ## 反馈问题
 
 如果发现模板有问题，请按照以下步骤操作：
 
 1. 阅读学校的标准，判断是否符合学校的要求；
-2. 阅读 [常见问题 FAQ](https://github.com/ustctug/ustcthesis/wiki/常见问题)；
-3. 将 TeX 发行版和宏包升级到最新，并且将模板升级到 Github 上最新版本，
-查看问题是否已经修复；
+2. 将模板升级到 Github 上最新版本，查看问题是否已经修复；
+3. 在 [GitHub Issues](https://github.com/ustctug/ustcthesis/issues)
+  中搜索该问题的关键词；
 4. 在 [GitHub Issues](https://github.com/ustctug/ustcthesis/issues)
-中搜索该问题的关键词；
-5. 在 [GitHub Issues](https://github.com/ustctug/ustcthesis/issues)
-中提出新 issue，并回答以下问题：
-    - 使用了什么版本的 TeX Live / MacTeX / MiKTeX ？
-    - 具体的问题是什么？
-    - 正确的结果应该是什么样的？
-    - 是否应该附上相关源码或者截图？
-
-如果导师或者院系在格式上有额外的要求，请将老师的邮件转发给模板作者。
-作者会考虑增加接口以便修改格式。
-
-
-## 更多资料
-
-- [LaTeX 新手入门指南](https://github.com/ustctug/ustcthesis/wiki/新手指南)
-- [常见问题 FAQ](https://github.com/ustctug/ustcthesis/wiki/常见问题)
-- [参与开发](https://github.com/ustctug/ustcthesis/wiki/参与开发)
+  中提出新 issue，或者联系模板作者 Zeping Lee <zepinglee@gmail.com>，
+  并提供以下信息：
+  - 使用了什么版本的 TeX Live / MacTeX / MiKTeX ？
+  - 具体的问题是什么？
+  - 预期的结果应该是什么样的？
+  - 在必要时附上相关源码或者截图

@@ -9,6 +9,9 @@
 % and version 1.3c or later is part of all distributions of LaTeX
 % version 2008 or later.
 %
+% Template maintainer: Zeping Lee <zepinglee@gmail.com>
+% Repository: <https://github.com/ustctug/ustcthesis>
+%
 
 \NeedsTeXFormat{LaTeX2e}[2020-10-01]
 
