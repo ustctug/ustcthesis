@@ -1,0 +1,14 @@
+\input{regression-test}
+\documentclass[degree=doctor, fontset=fandol]{ustcthesis}
+
+\input{info}
+
+\begin{document}
+\START
+\showoutput
+
+\declarationofaiusage[purpose=none]
+
+\clearpage
+\OMIT
+\end{document}

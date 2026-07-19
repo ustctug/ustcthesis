@@ -1,0 +1,1012 @@
+This is a generated file for the l3build validation system.
+Don't change this file in any respect.
+Package fontspec Info: 
+(fontspec)             Font family 'FandolHei(0)' created for font 'FandolHei' with options [Extension={.otf},UprightFont={*-Regular},BoldFont={*-Bold}].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.: <->"[FandolHei-Regular.otf]/OT:language=dflt;"
+(fontspec)             - 'bold' (b/n) with NFSS spec.: <->"[FandolHei-Bold.otf]/OT:language=dflt;"
+LaTeX Font Info:    Font shape `TU/XITSMath-Regular(1)/m/n' will be
+(Font)              scaled to size 9.03375pt on input line ....
+LaTeX Font Info:    Font shape `TU/XITSMath-Regular(1)/m/n' will be
+(Font)              scaled to size 7.227pt on input line ....
+LaTeX Font Info:    Font shape `TU/XITSMath-Regular(2)/m/n' will be
+(Font)              scaled to size 12.0461pt on input line ....
+LaTeX Font Info:    Font shape `TU/XITSMath-Regular(2)/m/n' will be
+(Font)              scaled to size 9.03458pt on input line ....
+LaTeX Font Info:    Font shape `TU/XITSMath-Regular(2)/m/n' will be
+(Font)              scaled to size 7.22766pt on input line ....
+LaTeX Font Info:    Font shape `TU/XITSMath-Regular(3)/m/n' will be
+(Font)              scaled to size 12.0437pt on input line ....
+LaTeX Font Info:    Font shape `TU/XITSMath-Regular(3)/m/n' will be
+(Font)              scaled to size 9.03278pt on input line ....
+LaTeX Font Info:    Font shape `TU/XITSMath-Regular(3)/m/n' will be
+(Font)              scaled to size 7.22623pt on input line ....
+LaTeX Font Info:    Font shape `TU/STIXTwoMath-Regular(0)/m/n' will be
+(Font)              scaled to size 8.59444pt on input line ....
+LaTeX Font Info:    Font shape `TU/STIXTwoMath-Regular(0)/m/n' will be
+(Font)              scaled to size 6.87555pt on input line ....
+Completed box being shipped out [1]
+\vbox(722.98453+0.0)x435.04271
+.\hbox(0.0+0.0)x0.0
+..\kern -72.26999
+..\vbox(0.0+0.0)x0.0, glue set 72.26999fil
+...\kern -72.26999
+...\hbox(0.0+0.0)x0.0
+....\hbox(0.0+0.0)x0.0, shifted 845.04684
+.....\kern 0.0
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+....\glue 0.0 plus 1.0fil minus 1.0fil
+...\glue 0.0 plus 1.0fil minus 1.0fil
+.\glue -29.59128
+.\vbox(752.5758+0.0)x417.11752, shifted 17.92519
+..\vbox(13.942+0.0)x417.11752, glue set 13.942fil
+...\glue 0.0 plus 1.0fil
+...\hbox(0.0+0.0)x417.11752
+....\special{color push  Black}
+....\hbox(0.0+0.0)x417.11752
+....\special{color pop}
+..\glue 15.6491
+..\glue(\lineskip) 0.0
+..\vbox(700.50723+0.0)x417.11752, glue set 253.09407fil
+...\write-{}
+...\write-{}
+...\write-{}
+...\glue(\topskip) 12.0
+...\rule(0.0+0.0)x*
+...\penalty 10000
+...\glue 7.02625
+...\glue 0.0
+...\glue(\parskip) 0.0
+...\glue(\parskip) 0.0
+...\glue(\baselineskip) 8.03
+...\hbox(12.84799+3.21199)x417.11752, glue set 7.80879fil
+....\glue(\leftskip) 0.0 plus 1.0fil
+....\TU/FandolHei(0)/m/n/16.06 研
+....\glue 0.0 plus 1.37729
+....\TU/FandolHei(0)/m/n/16.06 究
+....\glue 0.0 plus 1.37729
+....\TU/FandolHei(0)/m/n/16.06 生
+....\glue 0.0 plus 1.37729
+....\TU/FandolHei(0)/m/n/16.06 学
+....\glue 0.0 plus 1.37729
+....\TU/FandolHei(0)/m/n/16.06 位
+....\glue 0.0 plus 1.37729
+....\TU/FandolHei(0)/m/n/16.06 论
+....\glue 0.0 plus 1.37729
+....\TU/FandolHei(0)/m/n/16.06 文
+....\glue 0.0 plus 1.37729
+....\glue 10.02144 minus 8.03
+....\rule(0.0+0.0)x-10.02144
+....\TU/FandolHei(0)/m/n/16.06 （实
+....\glue 0.0 plus 1.37729
+....\TU/FandolHei(0)/m/n/16.06 践
+....\glue 0.0 plus 1.37729
+....\TU/FandolHei(0)/m/n/16.06 成
+....\glue 0.0 plus 1.37729
+....\TU/FandolHei(0)/m/n/16.06 果
+....\glue 0.0 plus 1.37729
+....\TU/FandolHei(0)/m/n/16.06 报
+....\glue 0.0 plus 1.37729
+....\TU/FandolHei(0)/m/n/16.06 告
+....\penalty 10000
+....\TU/FandolHei(0)/m/n/16.06 ）
+....\rule(0.0+0.0)x-10.02144
+....\glue 10.02144 minus 8.03
+....\glue 0.0 plus 1.37729
+....\TU/FandolHei(0)/m/n/16.06 使
+....\glue 0.0 plus 1.37729
+....\TU/FandolHei(0)/m/n/16.06 用
+....\glue 0.0 plus 1.37729
+....\TU/FandolHei(0)/m/n/16.06 人
+....\glue 0.0 plus 1.37729
+....\TU/FandolHei(0)/m/n/16.06 工
+....\glue 0.0 plus 1.37729
+....\TU/FandolHei(0)/m/n/16.06 智
+....\glue 0.0 plus 1.37729
+....\TU/FandolHei(0)/m/n/16.06 能
+....\glue 0.0 plus 1.37729
+....\TU/FandolHei(0)/m/n/16.06 工
+....\glue 0.0 plus 1.37729
+....\TU/FandolHei(0)/m/n/16.06 具
+....\glue 0.0 plus 1.37729
+....\TU/FandolHei(0)/m/n/16.06 声
+....\glue 0.0 plus 1.37729
+....\TU/FandolHei(0)/m/n/16.06 明
+....\kern -0.00017
+....\kern 0.00017
+....\penalty 10000
+....\glue(\parfillskip) 0.0
+....\glue(\rightskip) 0.0 plus 1.0fil
+...\penalty 10000
+...\glue 19.07124
+...\glue(\parskip) 0.0
+...\glue(\parskip) 0.0
+...\glue(\baselineskip) 7.227
+...\hbox(9.636+2.40898)x417.11752, glue set - 0.2467
+....\hbox(0.0+0.0)x24.09
+....\TU/FandolSong(0)/m/n/12.045 本
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 学
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 位
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 论
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 文
+....\glue 0.0 plus 0.61353
+....\glue 7.63654 minus 6.0225
+....\rule(0.0+0.0)x-7.63654
+....\TU/FandolSong(0)/m/n/12.045 （实
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 践
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 成
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 果
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 报
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 告
+....\penalty 10000
+....\TU/FandolSong(0)/m/n/12.045 ）
+....\rule(0.0+0.0)x-7.63654
+....\glue 7.63654 minus 6.0225
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 的
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 研
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 究
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 与
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 撰
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 写
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 过
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 程
+....\penalty 10000
+....\TU/FandolSong(0)/m/n/12.045 ，
+....\rule(0.0+0.0)x-8.33514
+....\glue 8.33514 minus 6.0225
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 使
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 用
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 了
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 生
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 成
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 式
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 人
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 工
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 智
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 能
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 辅
+....\glue(\rightskip) 0.0
+...\penalty 10150
+...\glue(\baselineskip) 8.17456
+...\hbox(9.49146+2.15604)x417.11752, glue set 256.88292fil
+....\TU/FandolSong(0)/m/n/12.045 助
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 工
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 具
+....\penalty 10000
+....\TU/FandolSong(0)/m/n/12.045 。
+....\rule(0.0+0.0)x-7.75697
+....\glue 7.75697 minus 6.02249
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 现
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 按
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 照
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 要
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 求
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 披
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 露
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 如
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 下
+....\penalty 10000
+....\TU/FandolSong(0)/m/n/12.045 ：
+....\rule(0.0+0.0)x-8.39537
+....\kern 0.00052
+....\kern -0.00052
+....\kern -0.99649
+....\kern 0.99649
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\glue 12.045
+...\glue(\parskip) 0.0
+...\glue(\parskip) 0.0
+...\glue(\baselineskip) 8.76476
+...\hbox(9.1542+1.98741)x417.11752, glue set 193.78328fil
+....\hbox(0.0+0.0)x24.09
+....\TU/texgyretermes(0)/b/n/12.045 1.
+....\kern -0.0002
+....\kern 0.0002
+....\glue 6.02249
+....\TU/FandolSong(0)/b/n/12.045 使
+....\glue 0.25093
+....\TU/FandolSong(0)/b/n/12.045 用
+....\glue 0.25093
+....\TU/FandolSong(0)/b/n/12.045 的
+....\glue 0.25093
+....\TU/FandolSong(0)/b/n/12.045 人
+....\glue 0.25093
+....\TU/FandolSong(0)/b/n/12.045 工
+....\glue 0.25093
+....\TU/FandolSong(0)/b/n/12.045 智
+....\glue 0.25093
+....\TU/FandolSong(0)/b/n/12.045 能
+....\glue 0.25093
+....\TU/FandolSong(0)/b/n/12.045 工
+....\glue 0.25093
+....\TU/FandolSong(0)/b/n/12.045 具
+....\glue 0.25093
+....\TU/FandolSong(0)/b/n/12.045 的
+....\glue 0.25093
+....\TU/FandolSong(0)/b/n/12.045 部
+....\glue 0.25093
+....\TU/FandolSong(0)/b/n/12.045 分
+....\glue 0.25093
+....\TU/FandolSong(0)/b/n/12.045 和
+....\glue 0.25093
+....\TU/FandolSong(0)/b/n/12.045 用
+....\glue 0.25093
+....\TU/FandolSong(0)/b/n/12.045 途
+....\kern 0.0
+....\kern -0.00017
+....\kern 0.00017
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\glue(\parskip) 0.0
+...\glue(\parskip) 0.0
+...\glue(\baselineskip) 8.45158
+...\hbox(9.636+3.97446)x417.11752, glue set 57.38164fil
+....\hbox(0.0+0.0)x24.09
+....\TU/FandolSong(0)/m/n/12.045 具
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 体
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 用
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 途
+....\penalty 10000
+....\TU/FandolSong(0)/m/n/12.045 ：
+....\rule(0.0+0.0)x-8.39537
+....\kern 0.00052
+....\kern -0.00052
+....\kern -0.99649
+....\kern 0.99649
+....\glue 8.39537 minus 6.0225
+....\mathon
+....\vbox(0.0+3.97446)x42.15747
+.....\hbox(0.0+0.0)x42.15747
+......\glue 21.07874
+......\glue 21.07874
+.....\kern2.38467
+.....\rule(0.79489+0.0)x*
+....\mathoff
+....\glue 7.63654 minus 6.0225
+....\rule(0.0+0.0)x-7.63654
+....\TU/FandolSong(0)/m/n/12.045 （例
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 如
+....\penalty 10000
+....\TU/FandolSong(0)/m/n/12.045 ：
+....\rule(0.0+0.0)x-8.39537
+....\glue 8.39537 minus 6.0225
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 文
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 献
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 检
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 索
+....\penalty 10000
+....\TU/FandolSong(0)/m/n/12.045 、
+....\rule(0.0+0.0)x-7.85333
+....\glue 7.85333 minus 6.02249
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 语
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 言
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 润
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 色
+....\penalty 10000
+....\TU/FandolSong(0)/m/n/12.045 、
+....\rule(0.0+0.0)x-7.85333
+....\glue 7.85333 minus 6.02249
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 数
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 据
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 处
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 理
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 等
+....\penalty 10000
+....\TU/FandolSong(0)/m/n/12.045 ）
+....\rule(0.0+0.0)x-7.63654
+....\kern 0.00047
+....\kern -0.00047
+....\kern -0.99623
+....\kern 0.99623
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\glue 12.045
+...\glue(\parskip) 0.0
+...\glue(\parskip) 0.0
+...\glue(\baselineskip) 6.8018
+...\hbox(9.29874+1.98741)x417.11752, glue set 267.55885fil
+....\hbox(0.0+0.0)x24.09
+....\TU/texgyretermes(0)/b/n/12.045 2.
+....\kern -0.0002
+....\kern 0.0002
+....\glue 6.02249
+....\TU/FandolSong(0)/b/n/12.045 使
+....\glue 0.25093
+....\TU/FandolSong(0)/b/n/12.045 用
+....\glue 0.25093
+....\TU/FandolSong(0)/b/n/12.045 边
+....\glue 0.25093
+....\TU/FandolSong(0)/b/n/12.045 界
+....\glue 0.25093
+....\TU/FandolSong(0)/b/n/12.045 与
+....\glue 0.25093
+....\TU/FandolSong(0)/b/n/12.045 责
+....\glue 0.25093
+....\TU/FandolSong(0)/b/n/12.045 任
+....\glue 0.25093
+....\TU/FandolSong(0)/b/n/12.045 说
+....\glue 0.25093
+....\TU/FandolSong(0)/b/n/12.045 明
+....\kern 0.0
+....\kern -0.00017
+....\kern 0.00017
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\glue(\parskip) 0.0
+...\glue(\parskip) 0.0
+...\glue(\baselineskip) 8.45158
+...\hbox(9.636+2.40898)x417.11752, glue set - 0.14803
+....\hbox(0.0+0.0)x24.09
+....\TU/FandolSong(0)/m/n/12.045 本
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 学
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 位
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 论
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 文
+....\glue 0.0 plus 0.61353
+....\glue 7.63654 minus 6.0225
+....\rule(0.0+0.0)x-7.63654
+....\TU/FandolSong(0)/m/n/12.045 （实
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 践
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 成
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 果
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 报
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 告
+....\penalty 10000
+....\TU/FandolSong(0)/m/n/12.045 ）
+....\rule(0.0+0.0)x-7.63654
+....\glue 7.63654 minus 6.0225
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 的
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 核
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 心
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 观
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 点
+....\penalty 10000
+....\TU/FandolSong(0)/m/n/12.045 、
+....\rule(0.0+0.0)x-7.85333
+....\glue 7.85333 minus 6.02249
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 研
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 究
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 设
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 计
+....\penalty 10000
+....\TU/FandolSong(0)/m/n/12.045 、
+....\rule(0.0+0.0)x-7.85333
+....\glue 7.85333 minus 6.02249
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 实
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 验
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 方
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 案
+....\penalty 10000
+....\TU/FandolSong(0)/m/n/12.045 、
+....\rule(0.0+0.0)x-7.85333
+....\glue 7.85333 minus 6.02249
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 论
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 证
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 过
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 程
+....\glue(\rightskip) 0.0
+...\penalty 150
+...\glue(\baselineskip) 8.28296
+...\hbox(9.38306+2.32468)x417.11752, glue set - 0.2467
+....\TU/FandolSong(0)/m/n/12.045 均
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 由
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 本
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 人
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 独
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 立
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 完
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 成
+....\penalty 10000
+....\TU/FandolSong(0)/m/n/12.045 ；
+....\rule(0.0+0.0)x-8.32309
+....\glue 8.32309 minus 6.02249
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 人
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 工
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 智
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 能
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 生
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 成
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 内
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 容
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 均
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 经
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 过
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 本
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 人
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 人
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 工
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 审
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 核
+....\penalty 10000
+....\TU/FandolSong(0)/m/n/12.045 、
+....\rule(0.0+0.0)x-7.85333
+....\glue 7.85333 minus 6.02249
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 修
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 改
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 与
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 验
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 证
+....\penalty 10000
+....\TU/FandolSong(0)/m/n/12.045 ，
+....\rule(0.0+0.0)x-8.33514
+....\glue 8.33514 minus 6.0225
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 并
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 对
+....\glue(\rightskip) 0.0
+...\glue(\baselineskip) 8.34317
+...\hbox(9.40715+2.2283)x417.11752, glue set 0.41225
+....\TU/FandolSong(0)/m/n/12.045 其
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 内
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 容
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 负
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 责
+....\penalty 10000
+....\TU/FandolSong(0)/m/n/12.045 。
+....\rule(0.0+0.0)x-7.75697
+....\glue 7.75697 minus 6.02249
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 本
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 人
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 对
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 论
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 文
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 全
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 部
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 内
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 容
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 的
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 原
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 创
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 性
+....\penalty 10000
+....\TU/FandolSong(0)/m/n/12.045 、
+....\rule(0.0+0.0)x-7.85333
+....\glue 7.85333 minus 6.02249
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 真
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 实
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 性
+....\penalty 10000
+....\TU/FandolSong(0)/m/n/12.045 、
+....\rule(0.0+0.0)x-7.85333
+....\glue 7.85333 minus 6.02249
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 学
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 术
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 规
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 范
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 性
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 承
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 担
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 全
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 部
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 责
+....\glue(\rightskip) 0.0
+...\penalty 150
+...\glue(\baselineskip) 8.4275
+...\hbox(9.41919+2.32468)x417.11752, glue set 147.83954fil
+....\TU/FandolSong(0)/m/n/12.045 任
+....\penalty 10000
+....\TU/FandolSong(0)/m/n/12.045 ，
+....\rule(0.0+0.0)x-8.33514
+....\glue 8.33514 minus 6.0225
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 不
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 存
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 在
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 由
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 人
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 工
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 智
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 能
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 代
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 写
+....\penalty 10000
+....\TU/FandolSong(0)/m/n/12.045 、
+....\rule(0.0+0.0)x-7.85333
+....\glue 7.85333 minus 6.02249
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 伪
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 造
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 等
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 学
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 术
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 不
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 端
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 行
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 为
+....\penalty 10000
+....\TU/FandolSong(0)/m/n/12.045 。
+....\rule(0.0+0.0)x-7.75697
+....\kern 0.00047
+....\kern -0.00047
+....\kern -0.18753
+....\kern 0.18753
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\glue 12.045
+...\glue(\parskip) 0.0
+...\glue(\parskip) 0.0
+...\glue(\baselineskip) 8.6443
+...\hbox(9.10602+1.86696)x417.11752, glue set 353.63036fil
+....\hbox(0.0+0.0)x24.09
+....\TU/texgyretermes(0)/b/n/12.045 3.
+....\kern -0.0002
+....\kern 0.0002
+....\glue 6.02249
+....\TU/FandolSong(0)/b/n/12.045 承
+....\glue 0.25093
+....\TU/FandolSong(0)/b/n/12.045 诺
+....\kern 0.0
+....\kern -0.00017
+....\kern 0.00017
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\glue(\parskip) 0.0
+...\glue(\parskip) 0.0
+...\glue(\baselineskip) 8.57204
+...\hbox(9.636+2.40898)x417.11752, glue set - 0.37006
+....\hbox(0.0+0.0)x24.09
+....\TU/FandolSong(0)/m/n/12.045 本
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 人
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 承
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 诺
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 人
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 工
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 智
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 能
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 工
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 具
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 在
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 学
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 位
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 论
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 文
+....\glue 0.0 plus 0.61353
+....\glue 7.63654 minus 6.0225
+....\rule(0.0+0.0)x-7.63654
+....\TU/FandolSong(0)/m/n/12.045 （实
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 践
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 成
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 果
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 报
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 告
+....\penalty 10000
+....\TU/FandolSong(0)/m/n/12.045 ）
+....\rule(0.0+0.0)x-7.63654
+....\glue 7.63654 minus 6.0225
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 中
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 的
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 使
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 用
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 符
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 合
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 国
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 家
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 相
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 关
+....\glue(\rightskip) 0.0
+...\penalty 150
+...\glue(\baselineskip) 8.1625
+...\hbox(9.50351+2.32468)x417.11752, glue set - 0.2467
+....\TU/FandolSong(0)/m/n/12.045 法
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 律
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 法
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 规
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 及
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 学
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 校
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 具
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 体
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 细
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 则
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 要
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 求
+....\penalty 10000
+....\TU/FandolSong(0)/m/n/12.045 ，
+....\rule(0.0+0.0)x-8.33514
+....\glue 8.33514 minus 6.0225
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 不
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 存
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 在
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 不
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 当
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 使
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 用
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 行
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 为
+....\penalty 10000
+....\TU/FandolSong(0)/m/n/12.045 ，
+....\rule(0.0+0.0)x-8.33514
+....\glue 8.33514 minus 6.0225
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 愿
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 意
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 接
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 受
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 审
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 查
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 与
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 监
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 督
+....\penalty 10000
+....\TU/FandolSong(0)/m/n/12.045 ，
+....\rule(0.0+0.0)x-8.33514
+....\glue 8.33514 minus 6.0225
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 并
+....\glue(\rightskip) 0.0
+...\penalty 150
+...\glue(\baselineskip) 8.34317
+...\hbox(9.40715+2.19217)x417.11752, glue set 280.33452fil
+....\TU/FandolSong(0)/m/n/12.045 独
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 立
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 承
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 担
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 相
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 应
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 责
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 任
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 和
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 后
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 果
+....\penalty 10000
+....\TU/FandolSong(0)/m/n/12.045 。
+....\rule(0.0+0.0)x-7.75697
+....\kern 0.00047
+....\kern -0.00047
+....\kern -0.18753
+....\kern 0.18753
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\glue 47.17624
+...\glue(\parskip) 0.0
+...\glue(\parskip) 0.0
+...\glue(\baselineskip) 8.49977
+...\hbox(9.38306+3.97446)x417.11752, glue set 284.32137fil
+....\glue(\leftskip) 0.0 plus 1.0fil
+....\hbox(0.0+0.0)x0.0
+....\TU/FandolSong(0)/m/n/12.045 作
+....\glue 0.50186
+....\TU/FandolSong(0)/m/n/12.045 者
+....\glue 0.50186
+....\TU/FandolSong(0)/m/n/12.045 签
+....\glue 0.50186
+....\TU/FandolSong(0)/m/n/12.045 名
+....\penalty 10000
+....\TU/FandolSong(0)/m/n/12.045 ：
+....\rule(0.0+0.0)x-8.39537
+....\kern 0.00052
+....\kern -0.00052
+....\kern -0.99649
+....\kern 0.99649
+....\glue 8.39537 minus 6.0225
+....\glue 1.20456
+....\mathon
+....\vbox(0.0+3.97446)x69.86102
+.....\hbox(0.0+0.0)x69.86102
+......\hbox(0.0+0.0)x69.86102, glue set 34.93051fil
+.......\glue 0.0 plus 1.0fil minus 1.0fil
+.......\glue 0.0 plus 1.0fil minus 1.0fil
+.....\kern2.38467
+.....\rule(0.79489+0.0)x*
+....\mathoff
+....\penalty 10000
+....\glue(\parfillskip) 0.0
+....\glue(\rightskip) 0.0
+...\glue(\parskip) 0.0
+...\glue(\parskip) 0.0
+...\glue(\baselineskip) 6.77771
+...\hbox(9.32283+3.97446)x417.11752, glue set 285.32529fil
+....\glue(\leftskip) 0.0 plus 1.0fil
+....\hbox(0.0+0.0)x0.0
+....\TU/FandolSong(0)/m/n/12.045 日
+....\glue 0.50186
+....\TU/FandolSong(0)/m/n/12.045 期
+....\penalty 10000
+....\TU/FandolSong(0)/m/n/12.045 ：
+....\rule(0.0+0.0)x-8.39537
+....\kern 0.00052
+....\kern -0.00052
+....\kern -0.99649
+....\kern 0.99649
+....\glue 8.39537 minus 6.0225
+....\glue 1.80667
+....\mathon
+....\vbox(0.0+3.97446)x25.89667
+.....\hbox(0.0+0.0)x25.89667
+......\hbox(0.0+0.0)x25.89667, glue set 12.94833fil
+.......\glue 0.0 plus 1.0fil minus 1.0fil
+.......\glue 0.0 plus 1.0fil minus 1.0fil
+.....\kern2.38467
+.....\rule(0.79489+0.0)x*
+....\mathoff
+....\hbox(0.0+0.0)x0.0
+....\TU/FandolSong(0)/m/n/12.045 年
+....\kern -0.00017
+....\kern 0.00017
+....\mathon
+....\vbox(0.0+3.97446)x15.65852
+.....\hbox(0.0+0.0)x15.65852
+......\hbox(0.0+0.0)x15.65852, glue set 7.82927fil
+.......\glue 0.0 plus 1.0fil minus 1.0fil
+.......\glue 0.0 plus 1.0fil minus 1.0fil
+.....\kern2.38467
+.....\rule(0.79489+0.0)x*
+....\mathoff
+....\hbox(0.0+0.0)x0.0
+....\TU/FandolSong(0)/m/n/12.045 月
+....\kern -0.00017
+....\kern 0.00017
+....\mathon
+....\vbox(0.0+3.97446)x15.65852
+.....\hbox(0.0+0.0)x15.65852
+......\hbox(0.0+0.0)x15.65852, glue set 7.82927fil
+.......\glue 0.0 plus 1.0fil minus 1.0fil
+.......\glue 0.0 plus 1.0fil minus 1.0fil
+.....\kern2.38467
+.....\rule(0.79489+0.0)x*
+....\mathoff
+....\hbox(0.0+0.0)x0.0
+....\TU/FandolSong(0)/m/n/12.045 日
+....\kern -0.00017
+....\kern 0.00017
+....\penalty 10000
+....\glue(\parfillskip) 0.0
+....\glue(\rightskip) 0.0
+...\glue 0.0 plus 1.0fil
+...\glue 0.0
+...\glue 0.0 plus 0.0001fil
+..\glue(\baselineskip) 22.47748
+..\hbox(0.0+0.0)x417.11752
+...\special{color push  Black}
+...\hbox(0.0+0.0)x417.11752
+...\special{color pop}
+.\kern -722.98453
+.\hbox(0.0+0.0)x0.0
+..\kern -72.26999
+..\vbox(0.0+0.0)x0.0, glue set 72.26999fil
+...\kern -72.26999
+...\hbox(0.0+0.0)x0.0
+....\hbox(0.0+0.0)x0.0, shifted 845.04684
+.....\kern 0.0
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+....\glue 0.0 plus 1.0fil minus 1.0fil
+...\glue 0.0 plus 1.0fil minus 1.0fil
+.\kern 722.98453
+.\kern 0.0

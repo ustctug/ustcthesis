@@ -2314,6 +2314,137 @@
   }
 
 
+% \subsection{使用人工智能工具声明}
+
+\str_new:N \l__ustc_ai_usage_purpose_str
+\tl_new:N \l__ustc_ai_usage_file_tl
+
+\NewDocumentCommand \declarationofaiusage { O { } }
+  {
+    \bool_if:NT \l__ustc_degree_graduate_bool
+      {
+        \str_set:Nn \l__ustc_ai_usage_purpose_str { none }
+        \tl_clear:N \l__ustc_ai_usage_file_tl
+        \keys_set:nn { ustc/ai-usage } {#1}
+        \tl_if_empty:NTF \l__ustc_ai_usage_file_tl
+          {
+            \str_if_eq:VnTF \l__ustc_ai_usage_purpose_str { none }
+              { \__ustc_declaration_of_ai_usage_none: }
+              {
+                \exp_args:NV \__ustc_declaration_of_ai_usage:n
+                  \l__ustc_ai_usage_purpose_str
+              }
+          }
+          {
+            \cleardoublepage
+            \str_if_eq:VnTF \l__ustc_ai_usage_purpose_str { none }
+              { \__ustc_pdf_bookmark:n { 未使用人工智能工具声明 } }
+              { \__ustc_pdf_bookmark:n { 使用人工智能工具声明  } }
+            \includepdf [ pagecommand = { \thispagestyle { empty } } ]
+              { \tl_use:N \l__ustc_ai_usage_file_tl }
+            \bool_gset_true:N \g__ustc_title_page_bool
+          }
+      }
+  }
+
+\keys_define:nn { ustc/ai-usage }
+  {
+    purpose .str_set:N = \l__ustc_ai_usage_purpose_str ,
+    file .str_set:N = \l__ustc_ai_usage_file_tl ,
+  }
+
+\cs_new:Npn \__ustc_set_cjk_space:n #1
+  {
+    \sys_if_engine_xetex:TF
+      { \cs_set_protected:Npn \CJKglue { \skip_horizontal:n {#1} } }
+      {
+        \sys_if_engine_luatex:T
+          { \ltjsetparameter { kanjiskip = {#1} } }
+      }
+  }
+
+\cs_new:Npn \__ustc_declaration_of_ai_usage:n #1
+  {
+    \begin { titlepage }
+      \__ustc_pdf_bookmark:n { 使用人工智能工具声明 }
+      \chapter * { 研究生学位论文（实践成果报告）使用人工智能工具声明 }
+      \thispagestyle { empty }
+      本学位论文（实践成果报告）的研究与撰写过程，使用了生成式人工智能辅助工具。
+      现按照要求披露如下：\par
+      \skip_vertical:n { 12 bp }
+      \group_begin:
+        \__ustc_set_cjk_space:n { 0.25 bp }
+        \textbf { 1. \enskip 使用的人工智能工具的部分和用途 } \par
+      \group_end:
+      具体用途：
+      \underline { \skip_horizontal:n { 1.75 em } #1 \skip_horizontal:n { 1.75 em } }
+      （例如：文献检索、语言润色、数据处理等） \par
+      \skip_vertical:n { 12 bp }
+      \group_begin:
+        \__ustc_set_cjk_space:n { 0.25 bp }
+        \textbf { 2. \enskip 使用边界与责任说明 } \par
+      \group_end:
+      本学位论文（实践成果报告）的核心观点、研究设计、实验方案、论证过程均由本人独立完成；
+      人工智能生成内容均经过本人人工审核、修改与验证，并对其内容负责。
+      本人对论文全部内容的原创性、真实性、学术规范性承担全部责任，
+      不存在由人工智能代写、伪造等学术不端行为。 \par
+      \skip_vertical:n { 12 bp }
+      \group_begin:
+        \__ustc_set_cjk_space:n { 0.25 bp }
+        \textbf { 3. \enskip 承诺 } \par
+      \group_end:
+      本人承诺人工智能工具在学位论文（实践成果报告）中的使用符合国家相关法律法规
+      及学校具体细则要求，不存在不当使用行为，愿意接受审查与监督，并独立承担相应
+      责任和后果。 \par
+      \skip_vertical:n { 47 bp }
+      \group_begin:
+        \raggedleft
+        \__ustc_set_cjk_space:n { .5 bp }
+        作者签名： \skip_horizontal:n { 0.1 em }
+        \__ustc_underline:nn { 5.8 em } { } \par
+        日期： \skip_horizontal:n { .15 em }
+        \__ustc_underline:nn { 2.15 em } { }
+        \hbox:n { } 年
+        \__ustc_underline:nn { 1.3 em } { }
+        \hbox:n { } 月
+        \__ustc_underline:nn { 1.3 em } { }
+        \hbox:n { } 日 \par
+      \group_end:
+    \end { titlepage }
+  }
+
+\cs_new:Npn \__ustc_declaration_of_ai_usage_none:
+  {
+    \begin { titlepage }
+      \__ustc_pdf_bookmark:n { 未使用人工智能工具声明 }
+      \chapter * { 研究生学位论文（实践成果报告）未使用人工智能工具声明 }
+      \thispagestyle { empty }
+      \group_begin:
+        \__ustc_set_cjk_space:n { \c_zero_dim plus 1 bp minus 1 bp }
+        本学位论文（实践成果报告）的研究与撰写过程未使用任何生成式人工智能工具
+        （指能够根据提示自动生成文本、代码、图表等内容的大模型及其衍生工具）。 \par
+        \skip_vertical:n { 12 bp }
+        所有内容均基于个人研究、文献阅读及实验数据完成，本人承诺符合学术诚信要求，
+        论文中不存在任何人工智能辅助生成内容。
+        违反本声明所产生的责任与后果，由本人独立承担。 \par
+      \group_end:
+      \skip_vertical:n { 47 bp }
+      \group_begin:
+        \raggedleft
+        \__ustc_set_cjk_space:n { .5 bp }
+        作者签名： \skip_horizontal:n { 0.1 em }
+        \__ustc_underline:nn { 5.8 em } { } \par
+        日期： \skip_horizontal:n { .15 em }
+        \__ustc_underline:nn { 2.15 em } { }
+        \hbox:n { } 年
+        \__ustc_underline:nn { 1.3 em } { }
+        \hbox:n { } 月
+        \__ustc_underline:nn { 1.3 em } { }
+        \hbox:n { } 日 \par
+      \group_end:
+    \end { titlepage }
+  }
+
 % \subsection{章节标题}
 
 % 研究生一般不建议使用三级节标题，不得使用三级以下节标题。

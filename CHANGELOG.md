@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- 添加“使用人工智能工具声明” `\declarationofaiusage`。
 - 添加 BibTeX 模式的 `\addbibresource` 和 `\printbibliography` 命令。
 - BibTeX 顺序编码制的样式名称改为 `ustcthesis-numeric.bst`。
 - `biblatex-numeric` 添加 `inline = true / false` 选项控制格式为上标或行内。
