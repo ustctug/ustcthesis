@@ -24,6 +24,7 @@ geometry
 graphics
 multirow
 notoccite
+pdflscape  # pdfpages
 pdfpages
 titlesec
 unicode-math
