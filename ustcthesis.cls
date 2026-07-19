@@ -779,13 +779,13 @@
   {
     \setCJKmainfont { SimSun }
       [
-        AutoFakeBold = 3 ,
+        AutoFakeBold = true ,
         ItalicFont   = KaiTi ,
       ]
-    \setCJKsansfont { SimHei } [ AutoFakeBold = 3 ]
+    \setCJKsansfont { SimHei } [ AutoFakeBold = true ]
     \setCJKmonofont { FangSong }
-    \setCJKfamilyfont { zhsong } { SimSun } [ AutoFakeBold = 3 ]
-    \setCJKfamilyfont { zhhei } { SimHei } [ AutoFakeBold = 3 ]
+    \setCJKfamilyfont { zhsong } { SimSun } [ AutoFakeBold = true ]
+    \setCJKfamilyfont { zhhei } { SimHei } [ AutoFakeBold = true ]
     \setCJKfamilyfont { zhkai } { KaiTi }
     \setCJKfamilyfont { zhfs } { FangSong }
   }
