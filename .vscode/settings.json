@@ -1,7 +1,8 @@
 {
     "files.associations": {
+        "*.cls": "latex-expl3",
         "*.lvt": "latex",
-        "*.tlg": "latex",
+        "*.tlg": "latex-expl3",
         "*latexmkrc": "perl",
         "tl_packages*": "shellscript"
     },

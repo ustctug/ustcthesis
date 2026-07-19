@@ -11,7 +11,7 @@ testsuppdir = "./tests/support"
 demofiles = {"main.tex", "bib", "chapters"}
 installfiles = {"*.cls", "*.bst", "*.bbx", "*.cbx", "figures"}
 sourcefiles = {"*.cls", "*.bst", "*.bbx", "*.cbx", "figures"}
-tagfiles = {"*.cls", "ustcthesis-doc.tex", "CHANGELOG.md", "main.tex"}
+tagfiles = {"*.cls", "ustcthesis-doc.tex", "CHANGELOG.md"}
 
 checkengines = {"xetex"}
 stdengine = "xetex"
@@ -41,7 +41,6 @@ local version_pattern = "[%d.]+[%l%d.-]*"
 
 function update_tag(file, content, tagname, tagdate)
   local version = string.gsub(tagname, "^v", "")
-  local date = string.gsub(tagdate, "%-", "/")
 
   content = string.gsub(content,
     "Copyright %(Cc%) (%d%d%d%d)%-+%d%d%d%d",
@@ -63,8 +62,8 @@ function update_tag(file, content, tagname, tagdate)
     content = string.gsub(content, "\\newcommand\\ustcthesisversion{" .. version_pattern,
       "\\newcommand\\ustcthesisversion{" .. version)
 
-    content = string.gsub(content, "\\ProvidesClass{ustcthesis}%[%d%d%d%d/%d%d/%d%d",
-      "\\ProvidesClass{ustcthesis}[" .. date)
+    content = string.gsub(content, "\\ProvidesExplClass{ustcthesis}{%d%d%d%d%-%d%d%-%d%d",
+      "\\ProvidesExplClass{ustcthesis}{" .. tagdate)
 
   elseif string.match(file, "%-doc.tex$") then
     content = string.gsub(content, "v" .. version_pattern .. "\\qquad %d%d%d%d%-%d%d%-%d%d",
