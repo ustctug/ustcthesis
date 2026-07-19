@@ -3280,18 +3280,16 @@
     \chapter { \tl_use:N \l__ustc_acknowledgments_name_tl }
     \bool_if:NF \l__ustc_review_bool
       {
-        #1
-        \str_if_eq:VnT \l__ustc_degree_str { bachelor }
-          {
-            \par
-            \null \par
-            \group_begin:
-              \raggedleft
-              \int_use:N \l__ustc_year_int ~年~
-              \int_use:N \l__ustc_month_int ~月
-              \par
-            \group_end:
-          }
+        #1 \par
+        \null \par
+        \group_begin:
+          \raggedleft
+          \int_use:N \l__ustc_year_int ~年~
+          \int_use:N \l__ustc_month_int ~月
+          \bool_if:NT \l__ustc_degree_graduate_bool
+            { \hspace * { 4 em } }
+          \par
+        \group_end:
       }
   }
   { }
