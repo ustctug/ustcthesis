@@ -6,32 +6,82 @@
 
 \pagestyle{empty}
 
+\begin{filecontents}[noheader, overwrite]{\jobname.bib}
+@article{doe1984,
+  author  = {Doe, John},
+  title   = {Title},
+  journal = {Journal},
+  year    = {1984},
+}
+
+@article{doe1985,
+  author  = {Doe, John and Smith, Jane and Brown, Bob},
+  title   = {Title},
+  journal = {Journal},
+  year    = {1985},
+}
+
+@article{doe1986,
+  author  = {Doe, John},
+  title   = {Title},
+  journal = {Journal},
+  year    = {1986},
+}
+\end{filecontents}
+
+
 \begin{document}
 \START
 \showoutput
 
-引用\citet{sunliguang2016jidi}测试\par
-引用\citet[42]{sunliguang2016jidi}测试\par
-引用\citep{liyongchi2016zhangliang}测试\par
-引用\citep[42]{liyongchi2016zhangliang}测试\par
-引用\citep[见][]{liujingshuang2014shidi}测试\par
-引用\citep[见][42]{liujingshuang2014shidi}测试\par
+% 9.2.1.1 顺序编码制是按正文中引用的文献出现的先后顺序连续编码，将序号置于方括号中。
+引用\citep{zhang1984}测试\par
+引用\citet{zhang1984}测试\par
 
-Citation \citet{crawford1995future} test\par
-Citation \citet[42]{crawford1995future} test\par
-Citation\citep{crawford1995future} test\par
-Citation\citep[42]{crawford1995future} test\par
-Citation \citep[see][]{ifla1977names} test\par
-Citation \citep[see][42]{ifla1977names} test\par
+% 9.2.1.2 同一处引用多篇文献时，应将各篇文献的序号在方括号内全部列出，各序号间用“,”。
+% 如遇连续序号，起讫序号 间用短横线连接。
+引用\citep{zhang1984, zhang1985}测试\par
+引用\citep{zhang1986, zhang1984}测试\par
+引用\citet{zhang1984, zhang1985}测试\par
+引用\citet{zhang1986, zhang1984}测试\par
 
-引用\citep{sunliguang2016jidi}测试\par
-引用\citep{liyongchi2016zhangliang,liujingshuang2014shidi}测试\par
-引用\citep{crawford1995future,ifla1977names,chenggenwei1999hongshui}测试\par
+% 9.2.1.3 多次引用同一著者的同一文献时，在正文中标注首次引用的文献序号，
+% 并在序号的“[]”外著录引文页码。
+引用\citep[42]{zhang1984}测试\par
+引用\citet[42]{zhang1984}测试\par
+
+% 《GB/T 7714—2025〈信息与文献参考文献著录规则〉的修订亮点、规则新点及实施疑点》3.6.6)
+% 序号也可作为行文语句的组成部分。
+引用\parencite[42]{zhang1984}测试\par
+
+% 英文测试
+\null\par
+\ustcsetup{language = english}
+
+% 9.2.1.1 顺序编码制是按正文中引用的文献出现的先后顺序连续编码，将序号置于方括号中。
+Citation\citep{doe1984} test\par
+Citation \citet{doe1984} test\par
+
+% 9.2.1.2 同一处引用多篇文献时，应将各篇文献的序号在方括号内全部列出，各序号间用“,”。
+% 如遇连续序号，起讫序号 间用短横线连接。
+Citation\citep{doe1984, doe1985} test\par
+Citation\citep{doe1986, doe1984} test\par
+Citation \citet{doe1984, doe1985} test\par
+Citation \citet{doe1986, doe1984} test\par
+
+% 9.2.1.3 多次引用同一著者的同一文献时，在正文中标注首次引用的文献序号，
+% 并在序号的“[]”外著录引文页码。
+Citation\citep[42]{doe1984} test\par
+Citation \citet[42]{doe1984} test\par
+
+% 《GB/T 7714—2025〈信息与文献参考文献著录规则〉的修订亮点、规则新点及实施疑点》3.6.6)
+% 序号也可作为行文语句的组成部分。
+Citation \parencite[42]{doe1984} test\par
 
 \nocite{*}
 
 \backmatter
-\bibliography{refs-numeric}
+\bibliography{references, \jobname}
 
 \clearpage
 \OMIT

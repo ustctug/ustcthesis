@@ -1,6 +1,9 @@
+supportdir = "."
 testfiledir = "./tests/testfiles-biblatex"
 
-checkruns = 3
+checksuppfiles = {"*.bib"}
+
+checkruns = 2
 
 function runtest_tasks(name, run)
   if run == 1 then

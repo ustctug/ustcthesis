@@ -48,6 +48,6 @@ zip : main doc
 	ln -sf . $(NAME)
 	zip -r $(NAME)-v$(VERSION).zip $(NAME)/{*.md,LICENSE,\
 	$(NAME)-doc.tex,$(NAME)-doc.pdf,$(NAME).cls,*.bst,*.bbx,*.cbx,figures,\
-	$(MAIN).tex,ustcsetup.tex,chapters,bib,$(MAIN).pdf,\
+	$(MAIN).tex,ustcsetup.tex,references.bib,chapters/*.tex,$(MAIN).pdf,\
 	latexmkrc,Makefile}
 	rm $(NAME)

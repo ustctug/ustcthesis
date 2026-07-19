@@ -1,4 +1,7 @@
+supportdir = "."
 testfiledir = "./tests/testfiles-bibtex"
+
+checksuppfiles = {"*.bib"}
 
 checkruns = 3
 

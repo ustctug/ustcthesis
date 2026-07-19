@@ -6,8 +6,10 @@
 \DeclareBibliographyOption[boolean]{inline}[true]{%
   \ifstrequal{#1}{true}
     {\let\cite\parencite
+     \let\citep\parencite
      \ExecuteBibliographyOptions{autocite=inline}}
     {\let\cite\supercite
+     \let\citep\supercite
      \ExecuteBibliographyOptions{autocite=superscript}}%
 }
 

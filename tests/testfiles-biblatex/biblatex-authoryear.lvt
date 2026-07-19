@@ -2,37 +2,131 @@
 \documentclass[degree=doctor, fontset=fandol]{ustcthesis}
 
 \usepackage[style=ustcthesis-authoryear]{biblatex}
-\addbibresource{refs-authoryear.bib}
+\addbibresource{references.bib}
+\addbibresource{\jobname.bib}
 
 \pagestyle{empty}
+
+\begin{filecontents}[noheader, overwrite]{\jobname.bib}
+@article{zhang1986a,
+  author  = {张三},
+  key     = {zhang1 san1},
+  title   = {题名甲},
+  journal = {期刊},
+  year    = {1986},
+}
+
+@article{zhang1986b,
+  author  = {张三},
+  key     = {zhang1 san1},
+  title   = {题名乙},
+  journal = {期刊},
+  year    = {1986},
+}
+
+@article{doe1984,
+  author  = {Doe, John},
+  title   = {Title},
+  journal = {Journal},
+  year    = {1984},
+}
+
+@article{doe1985,
+  author  = {Doe, John and Smith, Jane and Brown, Bob},
+  title   = {Title},
+  journal = {Journal},
+  year    = {1985},
+}
+
+@article{doe1986a,
+  author  = {Doe, John},
+  title   = {Title A},
+  journal = {Journal},
+  year    = {1986},
+}
+
+@article{doe1986b,
+  author  = {Doe, John},
+  title   = {Title B},
+  journal = {Journal},
+  year    = {1986},
+}
+\end{filecontents}
+
 
 \begin{document}
 \START
 \showoutput
 
-\ustcsetup{language = chinese}
-引用\citet{yangzongying1996dianzi}测试\par
-引用\citet[42]{yangzongying1996dianzi}测试\par
-引用\citep{yangzongying1996dianzi}测试\par
-引用\citep[42]{yangzongying1996dianzi}测试\par
-引用\citep[见][]{yangzongying1996dianzi}测试\par
-引用\citep[见][42]{yangzongying1996dianzi}测试\par
-引用\citet*{yangzongying1996dianzi}测试\par
-引用\citep*{yangzongying1996dianzi}测试\par
+% 9.3.1.1 正文引用的文献采用著者-出版年制时，各篇文献的标注内容应由责任者姓氏与出版年构成，
+% 并置于“（）“内。
+引用\citep{zhang1984}测试\par
+% 倘若正文中已提及责任者姓名，则在其后的“（）“内只著录出版年。
+引用\citet{zhang1984}测试\par
+引用\citeauthor{zhang1984}测试\par
+引用\parencite*{zhang1984}测试\par
 
+% 9.3.1.2 正文中引用多责任者文献时，对欧美责任者只需标注第一个责任者的姓，其后附“et al.“；
+% 对于中国责任者应标注第一责任者的姓名，其后附”等”字。
+引用\citep{zhang1985}测试\par
+引用\citet{zhang1985}测试\par
+
+% 9.3.1.3 著录同一责任者在同一年出版的多篇文献时，在正文中标注责任者与出版年，
+% 出版年后应用小写字母 a, b, c……区别，并置于“（）”内。
+引用\citep{zhang1986a}、\citep{zhang1986b}测试\par
+引用\citet{zhang1986a}、\citet{zhang1986b}测试\par
+
+% 9.3.1.4 多次引用同一责任者的同一文献，在正文中标注责任者与出版年，
+% 并在“（）“外以角标的形式著录引文页码。
+引用\citep[42]{zhang1984}测试\par
+引用\citet[42]{zhang1984}测试\par
+引用\parencite*[42]{zhang1984}测试\par
+
+% 同一处引用多篇文献
+引用\citep{zhang1985, zhang1984}测试\par
+引用\citet{zhang1985, zhang1984}测试\par
+引用\citep{zhang1986a, zhang1984}测试\par
+引用\citet{zhang1986a, zhang1984}测试\par
+
+引用\citep[参见][42]{zhang1984}测试\par
+引用\citet[参见][42]{zhang1984}测试\par
+
+% 英文测试
+\null\par
 \ustcsetup{language = english}
-Citation \cite{baker1995future} test\par
-Citation \cite{baker1995future} test\par
-Citation \cite{baker1995future} test\par
 
-Citation \citet{baker1995future} test\par
-Citation \citet[42]{baker1995future} test\par
-Citation \citep{baker1995future} test\par
-Citation \citep[42]{baker1995future} test\par
-Citation \citep[see][]{baker1995future} test\par
-Citation \citep[see][42]{baker1995future} test\par
-Citation \citet*{baker1995future} test\par
-Citation \citep*{baker1995future} test\par
+% 9.3.1.1 正文引用的文献采用著者-出版年制时，各篇文献的标注内容应由责任者姓氏与出版年构成，
+% 并置于“（）“内。
+Citation \citep{doe1984} test\par
+% 倘若正文中已提及责任者姓名，则在其后的“（）“内只著录出版年。
+Citation \citet{doe1984} test\par
+Citation \citeauthor{doe1984} test\par
+Citation \parencite*{doe1984} test\par
+
+% 9.3.1.2 正文中引用多责任者文献时，对欧美责任者只需标注第一个责任者的姓，其后附“et al.“；
+% 对于中国责任者应标注第一责任者的姓名，其后附”等”字。
+Citation \citep{doe1985} test\par
+Citation \citet{doe1985} test\par
+
+% 9.3.1.3 著录同一责任者在同一年出版的多篇文献时，在正文中标注责任者与出版年，
+% 出版年后应用小写字母 a, b, c……区别，并置于“（）”内。
+Citation \citep{doe1986a} and \citep{doe1986b} test\par
+Citation \citet{doe1986a} and \citet{doe1986b} test\par
+
+% 9.3.1.4 多次引用同一责任者的同一文献，在正文中标注责任者与出版年，
+% 并在“（）“外以角标的形式著录引文页码。
+Citation \citep[42]{doe1984} test\par
+Citation \citet[42]{doe1984} test\par
+Citation \parencite*[42]{doe1984} test\par
+
+% 同一处引用多篇文献
+Citation \citep{doe1985, doe1984} test\par
+Citation \citet{doe1985, doe1984} test\par
+Citation \citep{doe1986a, doe1984} test\par
+Citation \citet{doe1986a, doe1984} test\par
+
+Citation \citep[see][42]{doe1984} test\par
+Citation \citet[see][42]{doe1984} test\par
 
 \nocite{*}
 

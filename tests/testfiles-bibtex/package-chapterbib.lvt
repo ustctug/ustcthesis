@@ -3,22 +3,23 @@
 
 \begin{filecontents}[noheader, overwrite]{\jobname-chapter-1.tex}
 \chapter{Foo}
-\cite{sunliguang2016jidi, liyongchi2016zhangliang}\par
+\cite{zhang1984, zhang1985}\par
 \bibliographystyle{ustcthesis-numeric}
-\bibliography{refs-numeric}
+\bibliography{references}
 \end{filecontents}
 
 \begin{filecontents}[noheader, overwrite]{\jobname-chapter-2.tex}
 \chapter{Foo}
-\cite{sunliguang2016jidi, liujingshuang2014shidi}\par
+\cite{zhang1984, zhang1986}\par
 \bibliographystyle{ustcthesis-numeric}
-\bibliography{refs-numeric}
+\bibliography{references}
 \end{filecontents}
 
 \usepackage[sort, sectionbib]{natbib}
 \bibliographystyle{ustcthesis-numeric}
 
 \usepackage{chapterbib}
+\usepackage{hyperref}
 
 
 \pagestyle{empty}
