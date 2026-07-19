@@ -2,3 +2,36 @@
   citation style]
 
 \RequireCitationStyle{gb7714-2015}
+
+\DeclareBibliographyOption[boolean]{inline}[true]{%
+  \ifstrequal{#1}{true}
+    {\let\cite\parencite
+     \ExecuteBibliographyOptions{autocite=inline}}
+    {\let\cite\supercite
+     \ExecuteBibliographyOptions{autocite=superscript}}%
+}
+
+\ExecuteBibliographyOptions{inline=false}
+
+\DeclareCiteCommand{\supercite}[\mkbibsuperscript]
+  {[\usebibmacro{cite:init}%
+   \let\multicitedelim=\supercitedelim
+   \let\multicitesubentrydelim=\supercitesubentrydelim
+   \let\multiciterangedelim=\superciterangedelim
+   \let\multicitesubentryrangedelim=\supercitesubentryrangedelim
+   \usebibmacro{prenote}}
+  {\usebibmacro{citeindex}%
+   \usebibmacro{cite:comp}}
+  {}
+  {\usebibmacro{cite:dump}]%
+   \printfield{postnote}}
+
+\DeclareCiteCommand{\parencite}%[\mkbibbrackets]
+  {[\usebibmacro{cite:init}%]
+   \usebibmacro{prenote}}%
+  {\usebibmacro{citeindex}%
+   \usebibmacro{cite:comp}}
+  {}
+  {%[
+  \usebibmacro{cite:dump}]%
+   \mkbibsuperscript{\printfield{postnote}}}

@@ -1,10 +1,7 @@
 \input{regression-test}
 \documentclass[degree=doctor, fontset=fandol]{ustcthesis}
 
-\usepackage[
-  bibstyle  = ustcthesis-numeric,
-  citestyle = ustcthesis-inline,
-]{biblatex}
+\usepackage[style=ustcthesis-numeric, inline=true]{biblatex}
 \addbibresource{refs-numeric.bib}
 
 \pagestyle{empty}

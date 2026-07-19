@@ -3533,6 +3533,17 @@
   {
     \cs_undefine:N \addbibresource
     \cs_undefine:N \printbibliography
+    %
+    % `citestyle=ustcthesis-inline` 已过时，
+    % 改为 `citestyle=ustcthesis-numeric, autocite=inline`
+    \IfPackageLoadedWithOptionsTF { biblatex } { citestyle=ustcthesis-inline }
+      {
+        \__ustc_deprecated:nnn { citestyle~ "ustcthesis-inline" }
+          { 2026-03-30 } { "style=ustcthesis-numeric,~ inline=true" }
+        \PassOptionsToPackage { citestyle = ustcthesis-numeric, inline = true }
+          { biblatex }
+      }
+      { }
   }
 
 \__ustc_at_end_package:nn { biblatex }

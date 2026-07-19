@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - 添加 BibTeX 模式的 `\addbibresource` 和 `\printbibliography` 命令。
 - BibTeX 顺序编码制的样式名称改为 `ustcthesis-numeric.bst`。
+- `biblatex-numeric` 添加 `inline = true / false` 选项控制格式为上标或行内。
 
 ## [4.1.0] - 2026-05-30
 
@@ -54,6 +55,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - 原创性声明命令 `\copyrightpage` 已经过时。
 - BibTeX 样式名称 `ustcthesis-numerical.bst` 已过时。
+- Biblatex 引用样式 `biblatex-inline` 已过时。
 
 ### Fixed
 
