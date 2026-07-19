@@ -2019,13 +2019,13 @@
           作者姓名： &
             \makebox [ 238 bp ] { \tl_use:N \l__ustc_author_tl } \\
           \cline { 2 - 2 }
-          学 \quad \quad 号： &
+          学 \qquad 号： &
             \makebox [ 238 bp ] { \tl_use:N \l__ustc_student_id_tl } \\
           \cline { 2 - 2 }
-          专 \quad \quad 业： &
+          专 \qquad 业： &
             \makebox [ 238 bp ] { \tl_use:N \l__ustc_speciality_tl } \\
           \cline { 2 - 2 }
-          导 \hspace { 2 em } 师： &
+          导 \qquad 师： &
             \makebox [ 238 bp ]
               { \clist_use:Nn \l__ustc_supervisor_clist { \quad } } \\
           \cline { 2 - 2 }
@@ -2485,7 +2485,7 @@
           {
             format    = \normalsize ,
             number    = \arabic { subsubsection } ,
-            aftername = . \hspace { 0.5 em } ,
+            aftername = . \enskip ,
             indent    = 1 em ,
           } ,
         paragraph =
