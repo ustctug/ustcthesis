@@ -18,6 +18,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - “学科专业”的选项改为 `discipline`。
 - 章节标题中的英文和数字改用无衬线字体（Arial）。
+- 参考文献格式改为 GB/T 7714—2025 版。
 
 ### Deprecated
 

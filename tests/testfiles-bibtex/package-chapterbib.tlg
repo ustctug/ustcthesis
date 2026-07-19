@@ -142,8 +142,8 @@ Completed box being shipped out [1]
 ...\glue 6.02249
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
-...\glue(\baselineskip) 9.00166
-...\hbox(8.43149+2.10786)x390.7691, glue set - 0.16731, shifted 26.34842
+...\glue(\baselineskip) 9.2019
+...\hbox(8.23125+1.86545)x390.7691, glue set 0.06609, shifted 26.34842
 ....\hbox(7.12462+1.64412)x0.0
 .....\glue 0.0
 .....\glue -26.34842
@@ -184,11 +184,8 @@ Completed box being shipped out [1]
 ....\TU/FandolSong(0)/m/n/10.53937 热
 ....\glue 0.0 plus 0.44923
 ....\TU/FandolSong(0)/m/n/10.53937 点
-....\penalty 10000
-....\TU/FandolSong(0)/m/n/10.53937 ：
-....\rule(0.0+0.0)x-7.34593
-....\glue 7.34593 minus 5.26968
-....\glue 0.0 plus 0.44923
+....\TU/texgyretermes(0)/m/n/10.53937 :
+....\glue 3.51312 plus 2.63483 minus 0.43913
 ....\TU/FandolSong(0)/m/n/10.53937 顶
 ....\glue 0.0 plus 0.44923
 ....\TU/FandolSong(0)/m/n/10.53937 级
@@ -208,28 +205,17 @@ Completed box being shipped out [1]
 ....\TU/FandolSong(0)/m/n/10.53937 汇
 ....\glue 0.0 plus 0.44923
 ....\TU/FandolSong(0)/m/n/10.53937 编
-....\glue 0.0 plus 0.44923
-....\glue 6.68196 minus 5.26968
-....\rule(0.0+0.0)x-6.68196
-....\TU/FandolSong(0)/m/n/10.53937 （
-....\penalty 10000
-....\glue 0.0
-....\TU/texgyretermes(0)/m/n/10.53937 1999
+....\glue 2.63484 plus 1.31741 minus 0.87828
+....\TU/texgyretermes(0)/m/n/10.53937 (1999
 ....\penalty 0
 ....\glue 0.0
 ....\rule(0.0+0.0)x0.0
 ....\TU/FandolSong(0)/m/n/10.53937 —
 ....\rule(0.0+0.0)x0.0
 ....\glue 0.0
-....\TU/texgyretermes(0)/m/n/10.53937 2010
-....\penalty 10000
-....\TU/FandolSong(0)/m/n/10.53937 ）
-....\rule(0.0+0.0)x-6.68196
-....\kern 0.00041
-....\kern -0.00041
-....\kern -0.99623
-....\kern 0.99623
-....\glue 6.68196 minus 5.26968
+....\TU/texgyretermes(0)/m/n/10.53937 2010)
+....\kern -0.0002
+....\kern 0.0002
 ....\penalty 0
 ....\TU/texgyretermes(0)/m/n/10.53937 [M].
 ....\glue 2.63484 plus 1.31741 minus 0.87828
@@ -242,12 +228,12 @@ Completed box being shipped out [1]
 ....\TU/FandolSong(0)/m/n/10.53937 中
 ....\glue 0.0 plus 0.44923
 ....\TU/FandolSong(0)/m/n/10.53937 国
+....\glue 0.0 plus 0.44923
+....\TU/FandolSong(0)/m/n/10.53937 科
 ....\glue(\rightskip) 0.0
 ...\penalty 14000
-...\glue(\baselineskip) 9.77805
-...\hbox(8.18909+1.79167)x390.7691, glue set 244.67941fil, shifted 26.34842
-....\TU/FandolSong(0)/m/n/10.53937 科
-....\glue 0.0 plus 0.44923
+...\glue(\baselineskip) 10.02046
+...\hbox(8.18909+1.79167)x390.7691, glue set 255.21878fil, shifted 26.34842
 ....\TU/FandolSong(0)/m/n/10.53937 学
 ....\glue 0.0 plus 0.44923
 ....\TU/FandolSong(0)/m/n/10.53937 技
@@ -518,8 +504,8 @@ Completed box being shipped out [2]
 ...\glue 6.02249
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
-...\glue(\baselineskip) 9.00166
-...\hbox(8.43149+2.10786)x390.7691, glue set - 0.16731, shifted 26.34842
+...\glue(\baselineskip) 9.2019
+...\hbox(8.23125+1.86545)x390.7691, glue set 0.06609, shifted 26.34842
 ....\hbox(7.12462+1.64412)x0.0
 .....\glue 0.0
 .....\glue -26.34842
@@ -560,11 +546,8 @@ Completed box being shipped out [2]
 ....\TU/FandolSong(0)/m/n/10.53937 热
 ....\glue 0.0 plus 0.44923
 ....\TU/FandolSong(0)/m/n/10.53937 点
-....\penalty 10000
-....\TU/FandolSong(0)/m/n/10.53937 ：
-....\rule(0.0+0.0)x-7.34593
-....\glue 7.34593 minus 5.26968
-....\glue 0.0 plus 0.44923
+....\TU/texgyretermes(0)/m/n/10.53937 :
+....\glue 3.51312 plus 2.63483 minus 0.43913
 ....\TU/FandolSong(0)/m/n/10.53937 顶
 ....\glue 0.0 plus 0.44923
 ....\TU/FandolSong(0)/m/n/10.53937 级
@@ -584,28 +567,17 @@ Completed box being shipped out [2]
 ....\TU/FandolSong(0)/m/n/10.53937 汇
 ....\glue 0.0 plus 0.44923
 ....\TU/FandolSong(0)/m/n/10.53937 编
-....\glue 0.0 plus 0.44923
-....\glue 6.68196 minus 5.26968
-....\rule(0.0+0.0)x-6.68196
-....\TU/FandolSong(0)/m/n/10.53937 （
-....\penalty 10000
-....\glue 0.0
-....\TU/texgyretermes(0)/m/n/10.53937 1999
+....\glue 2.63484 plus 1.31741 minus 0.87828
+....\TU/texgyretermes(0)/m/n/10.53937 (1999
 ....\penalty 0
 ....\glue 0.0
 ....\rule(0.0+0.0)x0.0
 ....\TU/FandolSong(0)/m/n/10.53937 —
 ....\rule(0.0+0.0)x0.0
 ....\glue 0.0
-....\TU/texgyretermes(0)/m/n/10.53937 2010
-....\penalty 10000
-....\TU/FandolSong(0)/m/n/10.53937 ）
-....\rule(0.0+0.0)x-6.68196
-....\kern 0.00041
-....\kern -0.00041
-....\kern -0.99623
-....\kern 0.99623
-....\glue 6.68196 minus 5.26968
+....\TU/texgyretermes(0)/m/n/10.53937 2010)
+....\kern -0.0002
+....\kern 0.0002
 ....\penalty 0
 ....\TU/texgyretermes(0)/m/n/10.53937 [M].
 ....\glue 2.63484 plus 1.31741 minus 0.87828
@@ -618,12 +590,12 @@ Completed box being shipped out [2]
 ....\TU/FandolSong(0)/m/n/10.53937 中
 ....\glue 0.0 plus 0.44923
 ....\TU/FandolSong(0)/m/n/10.53937 国
+....\glue 0.0 plus 0.44923
+....\TU/FandolSong(0)/m/n/10.53937 科
 ....\glue(\rightskip) 0.0
 ...\penalty 14000
-...\glue(\baselineskip) 9.77805
-...\hbox(8.18909+1.79167)x390.7691, glue set 244.67941fil, shifted 26.34842
-....\TU/FandolSong(0)/m/n/10.53937 科
-....\glue 0.0 plus 0.44923
+...\glue(\baselineskip) 10.02046
+...\hbox(8.18909+1.79167)x390.7691, glue set 255.21878fil, shifted 26.34842
 ....\TU/FandolSong(0)/m/n/10.53937 学
 ....\glue 0.0 plus 0.44923
 ....\TU/FandolSong(0)/m/n/10.53937 技
