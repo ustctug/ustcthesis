@@ -1792,6 +1792,7 @@
             {
               % 1.5 行 = 16 bp * 1.3 * 1.5
               \fontsize { 16 bp } { 31.2 bp } \selectfont
+              \skip_set:Nn \hangindent { 6 em }
               \textsf { 论文题名： } \quad
               \tl_use:N \l__ustc_title_tl \par
               \textsf { 学生姓名： } \quad
@@ -1858,10 +1859,42 @@
         学位） \par
       \group_end:
       \skip_vertical:n { 45 bp }
+      % 如果题名过长，需要调整字体大小
+      \dim_set:Nn \l_tmpa_dim { 26 bp }  % 原始字号
+      \dim_set:Nn \l_tmpb_dim { 33.8 bp }  % 原始行距
+      \vbox_set:Nn \l_tmpb_box
+        {
+          \parbox [ t ] { \textwidth }
+            {
+              \centering
+              \heiti \bfseries
+              \fontsize { \l_tmpa_dim } { \l_tmpb_dim } \selectfont
+              \tl_use:N \l__ustc_title_tl \par
+              \tl_use:N \l__ustc_title_en_tl \par
+            }
+        }
+      \dim_while_do:nNnn
+        { \box_ht:N \l_tmpb_box + \box_dp:N \l_tmpb_box } > { 150 bp }
+        {
+          \dim_add:Nn \l_tmpa_dim { - 1 bp }
+          \dim_set:Nn \l_tmpb_dim { 1.3 \l_tmpa_dim }
+          \vbox_set:Nn \l_tmpb_box
+            {
+              \parbox [ t ] { \textwidth }
+                {
+                  \centering
+                  \heiti \bfseries
+                  \fontsize { \l_tmpa_dim } { \l_tmpb_dim } \selectfont
+                  \tl_use:N \l__ustc_title_tl \par
+                  \tl_use:N \l__ustc_title_en_tl \par
+                }
+            }
+        }
       \parbox [ t ] [ 166 bp ] { \textwidth }
         {
           \centering
-          \heiti \bfseries \fontsize { 26 bp } { 33.8 bp } \selectfont
+          \heiti \bfseries
+          \fontsize { \l_tmpa_dim } { \l_tmpb_dim } \selectfont
           \tl_use:N \l__ustc_title_tl \par
           \tl_use:N \l__ustc_title_en_tl \par
         } \par
