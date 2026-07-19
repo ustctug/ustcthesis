@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- 添加 BibTeX 模式的 `\addbibresource` 和 `\printbibliography` 命令。
+
 ## [4.1.0] - 2026-05-30
 
 ### Added
