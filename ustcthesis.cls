@@ -428,7 +428,7 @@
 \tl_new:N \l__ustc_list_algorithm_name_tl
 \tl_new:N \l__ustc_notation_name_tl
 \tl_new:N \l__ustc_algorithm_name_tl
-\tl_new:N \l__ustc_acknowledgements_name_tl
+\tl_new:N \l__ustc_acknowledgments_name_tl
 \tl_new:N \l__ustc_achievements_name_tl
 
 \cs_new:Npn \__ustc_set_chapter_names:
@@ -439,12 +439,12 @@
           {
             \cs_set:Npn \contentsname { 目录 }
             \tl_set:Nn \bibname { 参考文献 }
-            \tl_set:Nn \l__ustc_acknowledgements_name_tl { 致谢 }
+            \tl_set:Nn \l__ustc_acknowledgments_name_tl { 致谢 }
           }
           {
             \cs_set:Npn \contentsname { 目 \quad 录 }
             \tl_set:Nn \bibname { 参 \enspace 考 \enspace 文 \enspace 献 }
-            \tl_set:Nn \l__ustc_acknowledgements_name_tl { 致 \quad 谢 }
+            \tl_set:Nn \l__ustc_acknowledgments_name_tl { 致 \quad 谢 }
           }
         \ctexset { chapter / name = { 第 , 章 } }
         \cs_set:Npn \listfigurename { 插图清单 }
@@ -467,7 +467,7 @@
         \tl_set:Nn \l__ustc_notation_name_tl { Notation }
         \cs_set:Npn \bibname { Bibliography }
         \cs_set:Npn \appendixname { Appendix }
-        \tl_set:Nn \l__ustc_acknowledgements_name_tl { Acknowledgements }
+        \tl_set:Nn \l__ustc_acknowledgments_name_tl { Acknowledgments }
         \tl_set:Nn \l__ustc_achievements_name_tl { Research~ Achievements }
       }
   }
@@ -3274,10 +3274,10 @@
 % \subsection{致谢}
 
 % 致谢环境。盲审版的内容为空。
-\NewDocumentEnvironment { acknowledgements } { +b }
+\NewDocumentEnvironment { acknowledgments } { +b }
   {
     \@mainmatterfalse
-    \chapter { \tl_use:N \l__ustc_acknowledgements_name_tl }
+    \chapter { \tl_use:N \l__ustc_acknowledgments_name_tl }
     \bool_if:NF \l__ustc_review_bool
       {
         #1
@@ -3296,15 +3296,10 @@
   }
   { }
 
-% 兼容旧版本中“acknowledgments”的拼法。
-% Deprecated since 2020-07-01.
-\NewDocumentEnvironment { acknowledgments } { }
-  {
-    \__ustc_deprecated:nnn { "acknowledgments"~ environment } { 2020-07-01 }
-      { "acknowledgements" }
-    \begin { acknowledgements }
-  }
-  { \end { acknowledgements } }
+% 兼容旧版本中“acknowledgements”的英式拼法。
+\NewDocumentEnvironment { acknowledgements } { }
+  { \begin { acknowledgments } }
+  { \end { acknowledgments } }
 
 
 % \subsection{科研成果}
