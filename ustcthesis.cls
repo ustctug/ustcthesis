@@ -2133,12 +2133,12 @@
       本科毕业论文\par
     \endgroup
     \vskip 52bp\relax
-    \ifustc@badge@color@blue
-      \textcolor{ustcblue}{%
-        \includegraphics[height=126bp]{figures/ustc-badge.pdf}}%
-    \else
-      \includegraphics[height=4.1cm]{figures/ustc-badge.pdf}%
-    \fi\par
+    \begingroup
+      \ifustc@badge@color@blue
+        \color{ustcblue}%
+      \fi
+      \includegraphics[height=126bp]{figures/ustc-badge.pdf}\par
+    \endgroup
     \vskip 43bp\relax
     \parbox[t][115bp][t]{\textwidth}{%
       \centering\sffamily\bfseries\fontsize{26bp}{46.8bp}\selectfont
