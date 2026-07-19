@@ -426,7 +426,7 @@ FUNCTION {bbl.sine.loco.sine.nomine}
   if$
 }
 
-FUNCTION {default.self.tokens} { ":,-'–—?.!" }
+FUNCTION {default.self.tokens} { ":,-'’–—?.!()[]" }
 
 FUNCTION {latin.upper} { "ÀÁÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØÙÚÛÜÝÞŸĀĂĄĆĈĊČĎĐĒĔĖĘĚĜĞĠĢĤĦĨĪĬĮİIĴĶĹĻĽĿŁŃŅŇŊŌŎŐŒŔŖŘŚŜŞŠŢŤŦŨŪŬŮŰŲŴŶŸŹŻŽ" }
 
@@ -983,21 +983,18 @@ FUNCTION {is.tex.str.in.title.case}
       duplicate$ "" =
         { pop$ pop$ #0 }
         { split.first.char.from.str is.upper
-            { duplicate$ "" =  % single-letter word
-                { pop$ pop$ #1 }
-                { duplicate$ is.all.lower
-                    { empty$
-                        { duplicate$ "" =
-                            { pop$ #0 }
-                            'is.all.lower
-                          if$
-                        }
+            { duplicate$
+              is.all.lower
+                { empty$
+                    { duplicate$ "" =
+                        { pop$ #1 }
                         'is.all.lower
                       if$
                     }
-                    { pop$ pop$ #0 }
+                    'is.all.lower
                   if$
                 }
+                { pop$ pop$ #0 }
               if$
             }
             { pop$ pop$ #0}
@@ -1210,7 +1207,6 @@ FUNCTION {self.tokens}
 FUNCTION {tokenize.by}
 { 'b :=
   's :=
-
   s "" =
     { "" "" }
     { s split.first.char.from.str
@@ -1246,8 +1242,7 @@ FUNCTION {tokenize}
 
 FUNCTION {smart.sentence.case}
 { tokenize 's :=
-
-  { s "" = not }
+    { s "" = not }
     { s skip.inter.token.chars 's := * s
       tokenize swap$
       duplicate$ ":" =
@@ -1256,7 +1251,11 @@ FUNCTION {smart.sentence.case}
           tokenize swap$
           control.capitalize.subtitle
             'skip$
-            { lower.token.if.in.title.case }
+            { duplicate$ "A" =
+                { pop$ "a" }
+                'lower.token.if.in.title.case
+              if$
+            }
           if$
         }
         'lower.token.if.in.title.case
