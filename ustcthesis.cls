@@ -2633,6 +2633,7 @@
 
 \NewDocumentEnvironment { innovations } { +b }
   {
+    \cleardoublepage
     \str_if_eq:VnT \l__ustc_degree_str { doctor }
       {
         \str_if_eq:VnTF \l__ustc_degree_type_str { academic }
@@ -2640,6 +2641,7 @@
           { \__ustc_chapter:w { 创新性及应用性说明 } }
         #1 \par
       }
+    \bool_gset_true:N \g__ustc_title_page_bool
   }
   { }
 
