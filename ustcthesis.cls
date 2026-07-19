@@ -2768,9 +2768,9 @@
 \bool_if:NTF \l__ustc_degree_graduate_bool
   {
     \titlecontents { chapter }
-      [ \c_zero_dim ] { \addvspace { 6 bp } \heiti }
+      [ \c_zero_dim ] { \addvspace { 6 bp } \sffamily }
       { \contentspush { \thecontentslabel \quad } } { }
-      { \bfseries \__ustc_leaders: \thecontentspage }
+      { \rmfamily \__ustc_leaders: \thecontentspage }
     \titlecontents { section }
       [ 1 em ] { }
       { \contentspush { \thecontentslabel \quad } } { }
