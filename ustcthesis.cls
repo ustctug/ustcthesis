@@ -4185,44 +4185,42 @@
           {
             \sisetup
               {
-                list-final-separator = { ~和 \nobreakspace } ,
-                  % TODO: change to latest version
-                  % {
-                  %   \TextOrMath { \space } { \  }
-                  %   \text { 和 }
-                  %   \TextOrMath { \space } { \  }
-                  % } ,
-                list-pair-separator = { ~和~ } ,
-                  % {
-                  %   \TextOrMath { \space } { \  }
-                  %   \text { 和 }
-                  %   \TextOrMath { \space } { \  }
-                  % } ,
-                range-phrase = { ～ } ,
-                  % { \text { ～ } } ,
+                list-final-separator =
+                  {
+                    \TextOrMath { \space } { \  }
+                    \text { 和 }
+                    \TextOrMath { \space } { \  }
+                  } ,
+                list-pair-separator =
+                  {
+                    \TextOrMath { \space } { \  }
+                    \text { 和 }
+                    \TextOrMath { \space } { \  }
+                  } ,
+                range-phrase = { \text { ～ } } ,
               }
           }
           {
             \sisetup
               {
-                list-final-separator = { ,~ and~ } ,
-                  % {
-                  %   \TextOrMath { \space } { \  }
-                  %   \text { \GetTranslation { and } }
-                  %   \TextOrMath { \space } { \ }
-                  % } ,
-                list-pair-separator = { ~ and~ } ,
-                  % {
-                  %   \TextOrMath { \space } { \  }
-                  %   \text { \GetTranslation { and } }
-                  %   \TextOrMath { \space } { \  }
-                  % } ,
-                range-phrase               = { ~to~ } ,
-                  % {
-                  %   \TextOrMath { \space } { \  }
-                  %   \text { to }
-                  %   \TextOrMath { \space } { \  }
-                  % } ,
+                list-final-separator =
+                  {
+                    \TextOrMath { \space } { \  }
+                    \text { and }
+                    \TextOrMath { \space } { \  }
+                  } ,
+                list-pair-separator =
+                  {
+                    \TextOrMath { \space } { \  }
+                    \text { and }
+                    \TextOrMath { \space } { \  }
+                  } ,
+                range-phrase =
+                  {
+                    \TextOrMath { \space } { \  }
+                    \text { to }
+                    \TextOrMath { \space } { \  }
+                  } ,
               }
           }
       }
