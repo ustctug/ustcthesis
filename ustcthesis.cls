@@ -3622,11 +3622,14 @@
   \renewenvironment{proof}[1][\ustc@proof@name]{\par
     \pushQED{\qed}%
     \normalfont \topsep6\p@\@plus6\p@\relax
+    \labelsep 1em\relax
     \trivlist
-      \item\relax\hskip2em\relax
-      \textbf{#1}
-      \hskip1em\ignorespaces
-    }{%
+    \item[\hskip\labelsep
+          % \itshape
+          \sffamily
+      % #1\@addpunct{.}]\ignorespaces
+      #1]\ignorespaces
+  }{%
     \popQED\endtrivlist\@endpefalse
   }
   \renewcommand\qedsymbol{\ustc@qed}

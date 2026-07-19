@@ -294,24 +294,22 @@ Completed box being shipped out [1]
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 8.295
-...\hbox(9.45532+2.32468)x417.11752, glue set - 0.2467
-....\hbox(0.0+0.0)x0.0
+...\hbox(9.45532+2.32468)x417.11752, glue set - 0.45204
+....\hbox(8.9374+1.95128)x36.135
 .....\glue 0.0
 .....\glue 0.0
-.....\glue -6.0
-.....\hbox(0.0+0.0)x0.0
+.....\glue -12.045
+.....\hbox(8.9374+1.95128)x36.135
 ......\special{color push  Black}
+......\glue 12.045
+......\TU/FandolHei(0)/m/n/12.045 证
+......\glue 0.0 plus 0.61353
+......\TU/FandolHei(0)/m/n/12.045 明
 ......\special{color pop}
-.....\glue 6.0
+......\kern -0.00017
+......\kern 0.00017
+.....\glue 12.045
 ....\penalty 0
-....\glue 24.09
-....\TU/FandolSong(0)/b/n/12.045 证
-....\glue 0.0 plus 0.61353
-....\TU/FandolSong(0)/b/n/12.045 明
-....\kern 0.0
-....\kern -0.00018
-....\kern 0.00018
-....\glue 12.045
 ....\TU/FandolSong(0)/m/n/12.045 劳
 ....\glue 0.0 plus 0.61353
 ....\TU/FandolSong(0)/m/n/12.045 仑
@@ -377,18 +375,17 @@ Completed box being shipped out [1]
 ....\TU/FandolSong(0)/m/n/12.045 次
 ....\glue 0.0 plus 0.61353
 ....\TU/FandolSong(0)/m/n/12.045 回
-....\glue(\rightskip) 0.0
-...\penalty 150
-...\glue(\baselineskip) 8.24681
-...\hbox(9.50351+2.32468)x417.11752, glue set - 0.18503
+....\glue 0.0 plus 0.61353
 ....\TU/FandolSong(0)/m/n/12.045 总
 ....\glue 0.0 plus 0.61353
 ....\TU/FandolSong(0)/m/n/12.045 般
 ....\penalty 10000
 ....\TU/FandolSong(0)/m/n/12.045 ，
 ....\rule(0.0+0.0)x-8.33514
-....\glue 8.33514 minus 6.0225
-....\glue 0.0 plus 0.61353
+....\glue(\rightskip) 0.0
+...\penalty 150
+...\glue(\baselineskip) 8.24681
+...\hbox(9.50351+2.32468)x417.11752, glue set - 0.2467
 ....\TU/FandolSong(0)/m/n/12.045 段
 ....\glue 0.0 plus 0.61353
 ....\TU/FandolSong(0)/m/n/12.045 然
@@ -458,16 +455,16 @@ Completed box being shipped out [1]
 ....\TU/FandolSong(0)/m/n/12.045 器
 ....\glue 0.0 plus 0.61353
 ....\TU/FandolSong(0)/m/n/12.045 程
-....\glue(\rightskip) 0.0
-...\penalty 150
-...\glue(\baselineskip) 8.2709
-...\hbox(9.47942+2.32468)x417.11752, glue set 249.68fill
+....\glue 0.0 plus 0.61353
 ....\TU/FandolSong(0)/m/n/12.045 办
 ....\glue 0.0 plus 0.61353
 ....\TU/FandolSong(0)/m/n/12.045 管
 ....\glue 0.0 plus 0.61353
 ....\TU/FandolSong(0)/m/n/12.045 据
-....\glue 0.0 plus 0.61353
+....\glue(\rightskip) 0.0
+...\penalty 150
+...\glue(\baselineskip) 8.2709
+...\hbox(9.47942+2.32468)x417.11752, glue set 285.81499fill
 ....\TU/FandolSong(0)/m/n/12.045 家
 ....\glue 0.0 plus 0.61353
 ....\TU/FandolSong(0)/m/n/12.045 元
