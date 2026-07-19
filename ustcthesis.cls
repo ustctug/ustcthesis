@@ -2195,9 +2195,6 @@
         \thispagestyle{empty}%
       }]{\ustc@statement@file}%
     \fi
-    \ustc@title@pagetrue
-    \cleardoublepage
-    \ustc@title@pagefalse
   \else
     \ustc@statement@bachelor
   \fi
