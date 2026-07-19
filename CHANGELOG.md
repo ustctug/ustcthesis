@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - 添加 BibTeX 模式的 `\addbibresource` 和 `\printbibliography` 命令。
+- BibTeX 顺序编码制的样式名称改为 `ustcthesis-numeric.bst`。
 
 ## [4.1.0] - 2026-05-30
 
@@ -52,6 +53,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Deprecated
 
 - 原创性声明命令 `\copyrightpage` 已经过时。
+- BibTeX 样式名称 `ustcthesis-numerical.bst` 已过时。
 
 ### Fixed
 

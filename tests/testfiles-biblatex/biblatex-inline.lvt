@@ -5,7 +5,7 @@
   bibstyle  = ustcthesis-numeric,
   citestyle = ustcthesis-inline,
 ]{biblatex}
-\addbibresource{refs-numerical.bib}
+\addbibresource{refs-numeric.bib}
 
 \pagestyle{empty}
 

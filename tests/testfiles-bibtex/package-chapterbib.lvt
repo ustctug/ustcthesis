@@ -4,19 +4,19 @@
 \begin{filecontents}[noheader, overwrite]{\jobname-chapter-1.tex}
 \chapter{Foo}
 \cite{sunliguang2016jidi, liyongchi2016zhangliang}\par
-\bibliographystyle{ustcthesis-numerical}
-\bibliography{refs-numerical}
+\bibliographystyle{ustcthesis-numeric}
+\bibliography{refs-numeric}
 \end{filecontents}
 
 \begin{filecontents}[noheader, overwrite]{\jobname-chapter-2.tex}
 \chapter{Foo}
 \cite{sunliguang2016jidi, liujingshuang2014shidi}\par
-\bibliographystyle{ustcthesis-numerical}
-\bibliography{refs-numerical}
+\bibliographystyle{ustcthesis-numeric}
+\bibliography{refs-numeric}
 \end{filecontents}
 
 \usepackage[sort, sectionbib]{natbib}
-\bibliographystyle{ustcthesis-numerical}
+\bibliographystyle{ustcthesis-numeric}
 
 \usepackage{chapterbib}
 
