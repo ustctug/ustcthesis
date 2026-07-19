@@ -404,23 +404,29 @@ key-value 的方式填写，如：
     title* = {Thesis English Title},
   }
 \end{latex}
-模板提供的选项见表~\ref{tab:covercmds}，
+模板提供的选项见表~\ref{tab:title-page-options}，
 \begin{table}
   \centering\small
-  \caption{录入封面信息的命令}
-  \label{tab:covercmds}
-  \begin{tabular}{lll}
+  \caption{录入封面信息的选项}
+  \label{tab:title-page-options}
+  \begin{tabular}{ll}
     \toprule
-    命令               & 命令（英文）        & 说明          \\
+    选项                      & 说明             \\
     \midrule
-    \opt{title}        & \opt{title*}        & 论文标题      \\
-    \opt{author}       & \opt{author*}       & 作者姓名      \\
-    \opt{speciality}   & \opt{speciality*}   & 学科专业      \\
-    \opt{supervisor}   & \opt{supervisor*}   & 导师      \\
-    \opt{practice-supervisor} & \opt{practice-supervisor*} & 实践导师 \\
-    \opt{date}         & -                   & 完成时间      \\
-    \opt{secret-level} & \opt{secret-level*} & 密级          \\
-    \opt{secret-year}  & -                   & 保密/控阅年限 \\
+    \opt{title}               & 论文题名（中文） \\
+    \opt{title*}              & 论文题名（英文） \\
+    \opt{author}              & 学生姓名         \\
+    \opt{supervisor}          & 导师             \\
+    \opt{practice-supervisor} & 实践导师         \\
+    \opt{date}                & 提交日期         \\
+    \opt{clc}                 & 中图分类号       \\
+    \opt{udc}                 & UDC 分类号       \\
+    \opt{student-id}          & 学号             \\
+    \opt{department}          & 院系             \\
+    \opt{discipline}          & 学科专业         \\
+    \opt{research-direction}  & 研究方向         \\
+    \opt{secret-level}        & 密级             \\
+    \opt{secret-year}         & 保密/控阅年限    \\
     \bottomrule
   \end{tabular}
 \end{table}
@@ -431,7 +437,7 @@ key-value 的方式填写，如：
   \item 其中带 |*| 后缀的选项用于设置英文封面。
   \item 导师姓名 \opt{supervisor} 允许多个姓名，使用“,”（西文逗号 U+002C）隔开。
   \item 专业/工程学位需要填写实践导师 \opt{practice-supervisor}。
-  \item 完成时间 \opt{date} 应使用 ISO 格式（yyyy-mm-dd），默认为当前日期。
+  \item 提交日期 \opt{date} 应使用 ISO 格式（yyyy-mm-dd），默认为当前日期。
 \end{itemize}
 
 \DescribeMacro{\statement}

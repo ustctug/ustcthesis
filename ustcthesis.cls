@@ -424,8 +424,6 @@
 % 根据语言设置各章节的名称，只有在导言区设置 \option{language} 时会修改，
 % 而在正文局部切换语言时则不变。
 
-% 由于《撰写手册》中的“speciality”一词使用的是英式拼法，
-% 所以“acknowledgements”也保持一致。
 \tl_new:N \l__ustc_list_figure_table_name_tl
 \tl_new:N \l__ustc_list_algorithm_name_tl
 \tl_new:N \l__ustc_notation_name_tl
@@ -1520,20 +1518,19 @@
 \tl_new:N \l__ustc_title_tl
 \tl_new:N \l__ustc_title_en_tl
 \tl_new:N \l__ustc_author_tl
-\tl_new:N \l__ustc_author_en_tl
-\tl_new:N \l__ustc_speciality_tl
-\tl_new:N \l__ustc_speciality_en_tl
 \clist_new:N \l__ustc_supervisor_clist
-\clist_new:N \l__ustc_supervisor_en_clist
 \clist_new:N \l__ustc_practice_supervisor_clist
-\clist_new:N \l__ustc_practice_supervisor_en_clist
 \int_new:N \l__ustc_year_int
 \int_new:N \l__ustc_month_int
 \int_new:N \l__ustc_day_int
-\tl_new:N \l__ustc_department_tl
+\tl_new:N \l__ustc_clc_tl
+\tl_new:N \l__ustc_udc_tl
+\tl_new:N \l__ustc_school_code_tl
 \tl_new:N \l__ustc_student_id_tl
+\tl_new:N \l__ustc_department_tl
+\tl_new:N \l__ustc_discipline_tl
+\tl_new:N \l__ustc_research_direction_tl
 \tl_new:N \l__ustc_secret_level_tl
-\tl_new:N \l__ustc_secret_level_en_tl
 \tl_new:N \l__ustc_secret_year_tl
 \clist_new:N \l__ustc_keywords_clist
 \clist_new:N \l__ustc_keywords_en_clist
@@ -1543,28 +1540,39 @@
     title  .tl_set:N = \l__ustc_title_tl ,
     title* .tl_set:N = \l__ustc_title_en_tl ,
     author  .tl_set:N = \l__ustc_author_tl ,
-    author* .tl_set:N = \l__ustc_author_en_tl ,
-    speciality  .tl_set:N = \l__ustc_speciality_tl ,
-    speciality* .tl_set:N = \l__ustc_speciality_en_tl ,
     supervisor  .clist_set:N = \l__ustc_supervisor_clist ,
-    supervisor* .clist_set:N = \l__ustc_supervisor_en_clist ,
     practice-supervisor  .clist_set:N = \l__ustc_practice_supervisor_clist ,
-    practice-supervisor* .clist_set:N = \l__ustc_practice_supervisor_en_clist ,
+    date .code:n = { \__ustc_set_date:n {#1} } ,
+    clc .tl_set:N = \l__ustc_clc_tl ,
+    udc .tl_set:N = \l__ustc_udc_tl ,
+    school-code .tl_set:N = \l__ustc_school_code_tl ,
+    student-id .tl_set:N = \l__ustc_student_id_tl ,
+    department .tl_set:N = \l__ustc_department_tl ,
+    discipline .tl_set:N = \l__ustc_discipline_tl ,
+    research-direction .tl_set:N = \l__ustc_research_direction_tl ,
+    secret-level .tl_set:N = \l__ustc_secret_level_tl ,
+    secret-year .tl_set:N = \l__ustc_secret_year_tl ,
+    keywords  .clist_set:N = \l__ustc_keywords_clist ,
+    keywords* .clist_set:N = \l__ustc_keywords_en_clist ,
+  }
+
+\keys_define:nn { ustc }
+  {
+    % Deprecated since 2026-06-09
+    speciality .code:n =
+      {
+        \__ustc_deprecated:nnn { "speciality"~ option }
+          { 2026-06-09 } { "discipline" }
+        \tl_set:Nn \l__ustc_discipline_tl {#1}
+      } ,
     % Deprecated since 2025-01-04
     advisor  .code:n =
       {
-        \clist_set:Nn \l__ustc_practice_supervisor_clist {#1}
         \__ustc_deprecated:nnn { "advisor"~ option }
           { 2025-01-04 } { "practice-supervisor" }
+        \clist_set:Nn \l__ustc_practice_supervisor_clist {#1}
       } ,
-    advisor* .code:n =
-      {
-        \clist_set:Nn \l__ustc_practice_supervisor_en_clist {#1}
-        \__ustc_deprecated:nnn { "advisor*"~ option }
-          { 2025-01-04 } { "practice-supervisor*" }
-      } ,
-    date .code:n = { \__ustc_set_date:n {#1} } ,
-    % Deprecated since 2025-01-04
+    % Obsolete since 2025-01-04
     professional-type  .code:n =
       {
         \msg_warning:nnnn { ustcthesis } { obsolete }
@@ -1575,13 +1583,23 @@
         \msg_warning:nnnn { ustcthesis } { obsolete }
           { "professional-type*"~ option } { 2025-01-04 }
       } ,
-    department .tl_set:N = \l__ustc_department_tl ,
-    student-id .tl_set:N = \l__ustc_student_id_tl ,
-    secret-level  .tl_set:N = \l__ustc_secret_level_tl ,
-    secret-level* .tl_set:N = \l__ustc_secret_level_en_tl ,
-    secret-year .tl_set:N = \l__ustc_secret_year_tl ,
-    keywords  .clist_set:N = \l__ustc_keywords_clist ,
-    keywords* .clist_set:N = \l__ustc_keywords_en_clist ,
+  }
+
+% Obsolete since 2026-06-09
+\clist_map_inline:nn
+  {
+    author* , speciality* , supervisor* , practice-supervisor* , advisor* ,
+    secret-level*
+  }
+  {
+    \keys_define:nn { ustc }
+      {
+        #1 .code:n =
+          {
+            \msg_warning:nnnn { ustcthesis } { obsolete }
+              { " #1 "~ option } { 2026-06-09 }
+          }
+      }
   }
 
 % \tl_set:Ne was not available until 2023-06-05.
@@ -1616,22 +1634,25 @@
 
 \keys_set:nn { ustc }
   {
-    title  = 论文题目 ,
-    title* = Title ,
-    author  = 作者姓名 ,
-    author* = Author~ Name ,
-    speciality  = 专业 ,
-    speciality* = Speciality ,
-    supervisor  = 导师 ,
-    supervisor* = Supervisor~ Name ,
-    practice-supervisor  = { } ,
-    practice-supervisor* = { } ,
+    title  = 论文题名 ,
+    title* = Title of the Thesis ,
+    author = 学生姓名 ,
+    supervisor = 导师姓名 ,
+    practice-supervisor = { } ,
     date =
       {
         \int_use:N \c_sys_year_int -
         \int_use:N \c_sys_month_int -
         \int_use:N \c_sys_day_int
       } ,
+    clc = { } ,
+    udc = { } ,
+    school-code = 10358 ,
+    student-id = { } ,
+    department = 院系 ,
+    discipline = 学科专业 ,
+    research-direction = 研究方向 ,
+    secret-level = { } ,
   }
 
 % 版本 v3.2 开始使用 \cs{ustcsetup} 设置接口，
@@ -1649,11 +1670,18 @@
 \__ustc_def_info_cmd:nn { title } { title }
 \__ustc_def_info_cmd:nn { entitle } { title* }
 \__ustc_def_info_cmd:nn { author } { author }
-\__ustc_def_info_cmd:nn { enauthor } { author* }
-\__ustc_def_info_cmd:nn { major } { speciality }
-\__ustc_def_info_cmd:nn { enmajor } { speciality* }
+\__ustc_def_info_cmd:nn { major } { discipline }
 \__ustc_def_info_cmd:nn { supervisor } { supervisor }
-\__ustc_def_info_cmd:nn { ensupervisor } { supervisor* }
+
+\clist_map_inline:nn { enauthor , enmajor , ensupervisor }
+  {
+    \cs_set:cpn {#1} ##1
+      {
+        \msg_warning:nnee { ustcthesis } { obsolete }
+          { " \iow_char:N \\ #1 "~ command } { 2026-06-09 }
+      }
+  }
+
 \cs_new:Npn \cosupervisor #1
   {
     \__ustc_deprecated:nnn { " \token_to_str:N \cosupervisor "~ command }
@@ -1663,14 +1691,11 @@
   }
 \cs_new:Npn \encosupervisor #1
   {
-    \__ustc_deprecated:nnn { " \token_to_str:N \encosupervisor "~ command }
-      { 2020-07-01 }
-      { " \token_to_str:N \ustcsetup "~ with "supervisor*"~ option }
-    \clist_put_right:Nn \l__ustc_supervisor_en_clist {#1}
+    \msg_warning:nnnn { ustcthesis } { obsolete }
+      { " \token_to_str:N \encosupervisor "~ command } { 2026-06-09 }
   }
 
 \tl_clear_new:N \l__ustc_date_text_tl
-\tl_clear_new:N \l__ustc_date_en_text_tl
 
 \cs_set:Npn \date #1
   {
@@ -1680,9 +1705,8 @@
   }
 \cs_new:Npn \endate #1
   {
-    \__ustc_deprecated:nnn { " \token_to_str:N \endate "~ command }
-      { 2020-07-01 } { " \token_to_str:N \ustcsetup "~ with "date"~ option }
-    \tl_set:Nn \l__ustc_date_en_text_tl {#1}
+    \msg_warning:nnnn { ustcthesis } { obsolete }
+      { " \token_to_str:N \endate "~ command } { 2026-06-09 }
   }
 \__ustc_def_info_cmd:nn { professionaltype } { professional-type }
 \__ustc_def_info_cmd:nn { enprofessionaltype } { professional-type* }
@@ -1719,18 +1743,15 @@
         \ustcsetup
           {
             author  = { } ,
-            author* = { } ,
             supervisor  = { } ,
-            supervisor* = { } ,
             practice-supervisor  = { } ,
-            practice-supervisor* = { } ,
             student-id = { } ,
           }
       }
     \bool_if:NTF \l__ustc_degree_graduate_bool
       {
-        \__ustc_title_page_graduate_zh:
-        \__ustc_title_page_graduate_en:
+        \__ustc_cover_graduate:
+        \__ustc_title_page_graduate:
       }
       { \__ustc_title_page_bachelor: }
   }
@@ -1740,87 +1761,47 @@
 % 论文类型黑体 56 磅；
 % 论文题目黑体 26 磅加粗居中，单倍行距；
 % 作者姓名宋体 16 磅，1.5 倍行距；
-\cs_new:Npn \__ustc_title_page_graduate_zh:
+\cs_new:Npn \__ustc_cover_graduate:
   {
     \begin { titlepage }
       \ustcsetup { language = chinese }
       \__ustc_pdf_bookmark:n { 封面 }
       \centering
-      \parbox [ t ] [ 0 bp ] [ t ] { \textwidth }
-        {
-          \raggedleft \fangsong
-          \fontsize { 14 bp } { 14 bp } \selectfont
-          \null \tl_use:N \l__ustc_secret_level_tl
-        }
-      \par
-      \skip_vertical:n { 11 bp }
-      \includegraphics [ height = 1.3 cm ]
-        { figures/ustc-name-stxingkai.pdf } \par
-      \skip_vertical:n { - 7 bp }
+      \vspace * { - 10 bp }
+      \includegraphics [ width = 296 bp ] { figures/ustc-name.pdf } \par
+      \skip_vertical:n { - 3.5 bp }
       \group_begin:
         \sffamily \fontsize { 54 bp } { 70.2 bp } \selectfont
-        \sys_if_engine_xetex:TF
-          { \cs_set_protected:Npn \CJKglue { \skip_horizontal:n { - 5.2 bp } } }
-          {
-            \sys_if_engine_luatex:T
-              { \ltjsetparameter { kanjiskip = { - 5.2 bp } } }
-          }
+        \__ustc_set_cjk_space:n { - 5.2 bp }
         \__ustc_thesis_name: \par
       \group_end:
-      \skip_vertical:n { 51 bp }
+      \skip_vertical:n { 83 bp }
       \group_begin:
         \bool_if:NF \l__ustc_badge_color_black_bool
           { \color { ustcblue } }
-        \includegraphics [ height = 123 bp ] { figures/ustc-logo.pdf } \par
+        \includegraphics [ height = 178 bp ] { figures/ustc-logo.pdf } \par
       \group_end:
-      \skip_vertical:n { 2.8 bp }
-      \parbox [ t ] [ 101.3 bp ] [ c ] { \textwidth }
-        {
-          \centering \sffamily \bfseries
-          \fontsize { 26 bp } { 33.8 bp } \selectfont
-          \tl_use:N \l__ustc_title_tl
-        }
-      \par
-      \skip_vertical:n { 37 bp }
+      \skip_vertical:n { 70 bp }
       \parbox [ t ] { \textwidth }
         {
-          \skip_horizontal:n { 45 bp }
+          \skip_horizontal:n { 48 bp }
           \parbox [ t ] { 368 bp }
             {
               % 1.5 行 = 16 bp * 1.3 * 1.5
               \fontsize { 16 bp } { 31.2 bp } \selectfont
-              \textsf { 作者姓名： } \quad
+              \textsf { 论文题名： } \quad
+              \tl_use:N \l__ustc_title_tl \par
+              \textsf { 学生姓名： } \quad
               \tl_use:N \l__ustc_author_tl \par
-              \str_if_eq:VnTF \l__ustc_degree_type_str { engineering }
+              \textsf { 导 \qquad 师： } \quad
+              \clist_use:Nn \l__ustc_supervisor_clist { \quad } \par
+              \clist_if_empty:NF \l__ustc_practice_supervisor_clist
                 {
-                  % 工程硕士的封面是“类别领域”，而工程博士的是“学科专业”
-                  \str_if_eq:VnTF \l__ustc_degree_str { master }
-                    {
-                      \textsf { 类别领域： } \quad
-                      \tl_use:N \l__ustc_speciality_tl \par
-                    }
-                    {
-                      \textsf { 学科专业： } \quad
-                      \tl_use:N \l__ustc_speciality_tl \par
-                    }
-                }
-                {
-                  \textsf { 学科专业： } \quad
-                  \tl_use:N \l__ustc_speciality_tl \par
-                }
-              \clist_if_empty:NTF \l__ustc_practice_supervisor_clist
-                {
-                  \textsf { 导 \skip_horizontal:n { 2 em } 师： } \quad
-                  \clist_use:Nn \l__ustc_supervisor_clist { \quad } \par
-                }
-                {
-                  \textsf { 校内导师： } \quad
-                  \clist_use:Nn \l__ustc_supervisor_clist { \quad } \par
                   \textsf { 实践导师： } \quad
                   \clist_use:Nn \l__ustc_practice_supervisor_clist { \quad }
                   \par
                 }
-              \textsf { 完成时间： } \quad \__ustc_format_date_zh: \par
+              \textsf { 提交日期： } \quad \__ustc_format_date_zh: \par
             }
         }
       \__ustc_reset_main_language:
@@ -1828,66 +1809,93 @@
   }
 
 % 英文封面
-\cs_set:Npn \__ustc_title_page_graduate_en:
+\cs_set:Npn \__ustc_title_page_graduate:
   {
     \begin { titlepage }
-      \ustcsetup { language = english }
-      \__ustc_pdf_bookmark:n { Title~ page }
+      \ustcsetup { language = chinese }
+      \__ustc_pdf_bookmark:n { 题名页 }
       \centering
-      \parbox [ t ] [ 0 bp ] [ t ] { \textwidth }
-        {
-          \raggedleft \fangsong
-          \fontsize { 14 bp } { 14 bp } \selectfont
-          \null \tl_use:N \l__ustc_secret_level_en_tl
-        }
-      \par
-      \skip_vertical:n { 5 bp }
-      \group_begin:
-        \fontsize { 20 bp } { 30 bp } \selectfont
-        University~ of~ Science~ and~ Technology~ of~ China\par
-      \group_end:
-      \skip_vertical:n { 30 bp }
-      \group_begin:
-        \fontsize { 26 bp } { 30 bp } \selectfont
-        \__ustc_thesis_name_en: \par
-      \group_end:
-      \skip_vertical:n { 68 bp }
-      \group_begin:
-        \bool_if:NF \l__ustc_badge_color_black_bool
-          { \color { ustcblue } }
-        % \skip_horizontal:n { 3 bp }
-        \includegraphics [ height = 123 bp ] { figures/ustc-logo.pdf } \par
-      \group_end:
-      \skip_vertical:n { 10 bp }
-      \parbox [ t ] [ 90 bp ] [ c ] { \textwidth }
-        {
-          \centering \sffamily \bfseries
-          \fontsize { 26 bp } { 30 bp } \selectfont
-          \tl_use:N \l__ustc_title_en_tl
-        }
-      \par
-      \skip_vertical:n { 48 bp }
+      \vspace * { \c_zero_dim }
       \parbox [ t ] { \textwidth }
         {
-          \skip_horizontal:n { 61.5 bp }
-          \parbox [ t ] { 352 bp }
-            {
-              \fontsize { 16 bp } { 30 bp } \selectfont
-              Author:~       \tl_use:N \l__ustc_author_en_tl \par
-              Speciality:~   \tl_use:N \l__ustc_speciality_en_tl \par
-              \__ustc_print_supervisors_en: \par
-              \clist_if_empty:NF \l__ustc_practice_supervisor_en_clist
-                { \__ustc_print_practice_supervisors_en: \par }
-              Completion~ date:~
-              \tl_if_empty:NTF \l__ustc_date_en_text_tl
-                { \__ustc_format_date_en: }
-                { \tl_use:N \l__ustc_date_en_text_tl }
-              \par
-            }
-      }
+          \hspace * { 5.4 bp }
+          \fontsize { 12 bp } { 15.6 bp } \selectfont
+          \__ustc_set_cjk_space:n { 1 bp }
+          中图分类号 \kern .2 em \relax ： \enskip
+          \__ustc_underline:nn { 2.5 em } { \tl_use:N \l__ustc_clc_tl } \hfill
+          \__ustc_set_cjk_space:n { 3.2 bp }
+          学校代码： \enskip
+          \__ustc_underline:nn { 2.5 em } { \tl_use:N \l__ustc_school_code_tl }
+          \hspace * { 5.4 bp } \par
+          \skip_vertical:n { 6 bp }
+          \hspace * { 5.4 bp }
+          \__ustc_set_cjk_space:n { 1 bp }
+          UDC 分类号： \enskip
+          \__ustc_underline:nn { 2.5 em } { \tl_use:N \l__ustc_udc_tl } \hfill
+          密 \skip_horizontal:n { 33.7 bp } 级： \enskip
+          \__ustc_underline:nn { 2.5 em } { \tl_use:N \l__ustc_secret_level_tl }
+          \hspace * { 5.4 bp } \par
+        }
       \par
+      \skip_vertical:n { 34 bp }
+      \includegraphics [ width = 296 bp ] { figures/ustc-name.pdf } \par
+      \skip_vertical:n { - .5 bp }
+      \group_begin:
+        \fontsize { 24 bp } { 31.2 bp } \selectfont
+        \__ustc_set_cjk_space:n { 19.2 bp }
+        \__ustc_thesis_name: \par
+      \group_end:
+      \skip_vertical:n { 5 bp }
+      \group_begin:
+        \fontsize { 24 bp } { 31.2 bp } \selectfont
+        （
+        \str_if_eq:VnTF \l__ustc_degree_type_str { academic }
+          { 学术 }
+          { 专业 }
+        学位） \par
+      \group_end:
+      \skip_vertical:n { 45 bp }
+      \parbox [ t ] [ 166 bp ] { \textwidth }
+        {
+          \centering
+          \heiti \bfseries \fontsize { 26 bp } { 33.8 bp } \selectfont
+          \tl_use:N \l__ustc_title_tl \par
+          \tl_use:N \l__ustc_title_en_tl \par
+        } \par
+      \parbox [ t ] { \textwidth }
+        {
+          \skip_horizontal:n { 43.5 bp }
+          \parbox [ t ] { 368 bp }
+            {
+              \fontsize { 16 bp } { 26.8 bp } \selectfont
+              \cs_set:Npn \__ustc_info_item:n ##1
+                { \textsf { \__ustc_spread_text:nn { 7em } {##1} ： } }
+              \__ustc_info_item:n { 学生姓名 } \tl_use:N \l__ustc_author_tl \par
+              \__ustc_info_item:n { 学号 } \tl_use:N \l__ustc_student_id_tl \par
+              \__ustc_info_item:n { 导师姓名 }
+                \clist_use:Nn \l__ustc_supervisor_clist { \quad } \par
+              \clist_if_empty:NF \l__ustc_practice_supervisor_clist
+                {
+                  \__ustc_info_item:n { 实践导师姓名 }
+                  \clist_use:Nn \l__ustc_practice_supervisor_clist { \quad }
+                  \par
+                }
+              \__ustc_info_item:n { 院系 } \tl_use:N \l__ustc_department_tl \par
+              \__ustc_info_item:n { 学科专业 } \tl_use:N \l__ustc_discipline_tl \par
+              \__ustc_info_item:n { 研究方向 } \tl_use:N \l__ustc_research_direction_tl \par
+              \__ustc_info_item:n { 论文提交日期 } \__ustc_format_date_zh: \par
+            }
+        }
       \__ustc_reset_main_language:
     \end { titlepage }
+  }
+
+\cs_new:Npn \__ustc_spread_text:nn #1#2
+  {
+    \group_begin:
+      \__ustc_set_cjk_space:n { \c_zero_dim plus 2 filll minus 1 filll }
+      \hbox_to_wd:nn {#1} {#2}
+    \group_end:
   }
 
 % 本科生的外封，用于学校制本厂统一印制彩色外封
@@ -2023,7 +2031,7 @@
             \makebox [ 238 bp ] { \tl_use:N \l__ustc_student_id_tl } \\
           \cline { 2 - 2 }
           专 \qquad 业： &
-            \makebox [ 238 bp ] { \tl_use:N \l__ustc_speciality_tl } \\
+            \makebox [ 238 bp ] { \tl_use:N \l__ustc_discipline_tl } \\
           \cline { 2 - 2 }
           导 \qquad 师： &
             \makebox [ 238 bp ]
@@ -2066,11 +2074,6 @@
 % 定义一些常量。
 \cs_set:Nn \__ustc_thesis_name:
   {
-    \str_case:Vn \l__ustc_degree_type_str
-      {
-        { professional } { 专业 }
-        { engineering }  { 工程 }
-      }
     \str_case:Vn \l__ustc_degree_str
       {
         { doctor }   { 博士 }
@@ -2088,26 +2091,6 @@
 \hook_gput_code:nnn { begindocument } { . }
   { \definecolor { ustcblue } { cmyk } { 1 , 0.8 , 0 , 0 } }
 
-% 导师姓名
-\cs_new:Npn \__ustc_print_supervisors_en:
-  {
-    \int_compare:nNnTF { \clist_count:N \l__ustc_supervisor_en_clist } > { 1 }
-      { Supervisors: }
-      { Supervisor: }
-    \space
-    \clist_use:Nn \l__ustc_supervisor_en_clist { ,~ }
-  }
-
-\cs_new:Npn \__ustc_print_practice_supervisors_en:
-  {
-    \int_compare:nNnTF { \clist_count:N \l__ustc_practice_supervisor_en_clist }
-        > { 1 }
-      { Practice~ supervisors: }
-      { Practice~ supervisor: }
-    \space
-    \clist_use:Nn \l__ustc_practice_supervisor_en_clist { ,~ }
-  }
-
 % 处理日期格式
 \cs_new:Npn \__ustc_format_date_zh:
   {
@@ -2122,29 +2105,23 @@
 
 \cs_new:Npn \__ustc_format_date_en:
   {
-    \tl_if_empty:NTF \l__ustc_date_en_text_tl
+    \int_case:nn { \l__ustc_month_int }
       {
-        \int_case:nn { \l__ustc_month_int }
-          {
-            { 1 } { January }
-            { 2 } { February }
-            { 3 } { March }
-            { 4 } { April }
-            { 5 } { May }
-            { 6 } { June }
-            { 7 } { July }
-            { 8 } { August }
-            { 9 } { September }
-            { 10 } { October }
-            { 11 } { November }
-            { 12 } { December }
-          } ~
-        \int_use:N \l__ustc_day_int , ~
-        \int_use:N \l__ustc_year_int
-      }
-      {
-        \tl_use:N \l__ustc_date_en_text_tl
-      }
+        { 1 } { January }
+        { 2 } { February }
+        { 3 } { March }
+        { 4 } { April }
+        { 5 } { May }
+        { 6 } { June }
+        { 7 } { July }
+        { 8 } { August }
+        { 9 } { September }
+        { 10 } { October }
+        { 11 } { November }
+        { 12 } { December }
+      } ~
+    \int_use:N \l__ustc_day_int , ~
+    \int_use:N \l__ustc_year_int
   }
 
 \cs_new:Npn \__ustc_format_date_zh_arabic:
@@ -3627,11 +3604,7 @@
           { \hypersetup { pdftitle  = \l__ustc_title_tl } }
           { \hypersetup { pdftitle  = \l__ustc_title_en_tl } }
         \bool_if:NF \l__ustc_review_bool
-          {
-            \bool_if:NTF \l__ustc_main_language_chinese_bool
-              { \hypersetup { pdfauthor = \l__ustc_author_tl } }
-              { \hypersetup { pdfauthor = \l__ustc_author_en_tl } }
-          }
+          { \hypersetup { pdfauthor = \l__ustc_author_tl } }
       }
     %
     % 添加 PDF 书签

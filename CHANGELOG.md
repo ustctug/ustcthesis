@@ -13,6 +13,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - BibTeX 顺序编码制的样式名称改为 `ustcthesis-numeric.bst`。
 - `biblatex-numeric` 添加 `inline = true / false` 选项控制格式为上标或行内。
 
+### Changed
+
+- “学科专业”的选项改为 `discipline`。
+
+### Deprecated
+
+- `author*`、`speciality*`、`supervisor*`、`practice-supervisor*` 等设置封面英文信息的选项已过时。
+
 ## [4.1.0] - 2026-05-30
 
 ### Added

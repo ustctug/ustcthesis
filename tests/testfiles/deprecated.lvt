@@ -3,6 +3,29 @@
 \documentclass[doctor, fontset=fandol]{ustcthesis}
 \START
 
+% Deprecated since 2026-06-09
+\ustcsetup{
+  speciality  = {专业},
+}
+
+% Obsolete since 2026-06-09
+\ustcsetup{
+  author* = {Li Si},
+  speciality* = {Discipline},
+  supervisor* = {Prof. Zhang San},
+  practice-supervisor* = {Prof. Zhang San},
+  secret-level* = {Secret},
+}
+
+% Deprecated since 2025-01-04
+\ustcsetup{
+  advisor  = {张三\quad 教授},
+  advisor* = {Prof. Zhang San},
+  professional-type  = {专业学位类型},
+  professional-type* = {Professional degree type},
+}
+
+% Deprecated since 2020-07-01
 \title{标题}
 \entitle{标题}
 \author{李四}
@@ -11,14 +34,6 @@
 \enmajor{Discipline}
 \supervisor{张三\quad 教授}
 \ensupervisor{Prof. Zhang San}
-
-\ustcsetup{
-  advisor  = {张三\quad 教授},
-  advisor* = {Prof. Zhang San},
-  professional-type  = {专业学位类型},
-  professional-type* = {Professional degree type},
-}
-
 
 \OMIT
 \begin{document}

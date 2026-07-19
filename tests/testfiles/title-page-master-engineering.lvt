@@ -4,8 +4,7 @@
 \input{info}
 
 \ustcsetup{
-  practice-supervisor  = {XXX~教授, XXX~教授},
-  practice-supervisor* = {Prof.~XXX, Prof.~XXX},
+  practice-supervisor = {洪专~教授, 李实~教授},
 }
 
 \begin{document}
