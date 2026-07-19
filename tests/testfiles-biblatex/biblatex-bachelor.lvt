@@ -1,5 +1,5 @@
 \input{regression-test}
-\documentclass[degree=bachelor,fontset=fandol]{ustcthesis}
+\documentclass[degree=bachelor, fontset=fandol]{ustcthesis}
 
 \usepackage[style=ustcthesis-bachelor]{biblatex}
 \addbibresource{refs-bachelor.bib}

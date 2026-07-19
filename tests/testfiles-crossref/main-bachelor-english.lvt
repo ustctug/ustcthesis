@@ -1,5 +1,5 @@
 \input{regression-test}
-\documentclass[degree=bachelor,language=english,fontset=fandol]{ustcthesis}
+\documentclass[degree=bachelor, language=english, fontset=fandol]{ustcthesis}
 
 \usepackage{booktabs}
 

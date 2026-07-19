@@ -1,5 +1,5 @@
 \input{regression-test}
-\documentclass[degree=doctor,fontset=fandol]{ustcthesis}
+\documentclass[degree=doctor, fontset=fandol]{ustcthesis}
 
 \pagestyle{empty}
 \setlength{\parindent}{0pt}
