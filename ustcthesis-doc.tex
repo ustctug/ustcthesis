@@ -440,14 +440,14 @@ key-value 的方式填写，如：
   \item 提交日期 \opt{date} 应使用 ISO 格式（yyyy-mm-dd），默认为当前日期。
 \end{itemize}
 
-\DescribeMacro{\statement}
-声明页由 \cs{statement} 命令生成。模板会根据 \opt{secret-level} 和
+\DescribeMacro{\declarationoforiginality}
+声明页由 \cs{declarationoforiginality} 命令生成。模板会根据 \opt{secret-level} 和
 \opt{secret-year} 的内容自动填写。
 
-用户使用 \cs{statement} 命令时也可以添加可选参数 \opt{file}，
+用户使用 \cs{declarationoforiginality} 命令时也可以添加可选参数 \opt{file}，
 插入签名、扫描后的声明页。
 \begin{latex}
-  \statement[file=figures/scan-statement.pdf]
+  \declarationoforiginality[file=figures/scan-statement.pdf]
 \end{latex}
 
 \subsection{摘要和章节}

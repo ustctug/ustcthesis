@@ -1469,7 +1469,6 @@
                 {
                   % 封面的空白页不显示页码
                   \thispagestyle { empty }
-                  \bool_gset_false:N \g__ustc_title_page_bool
                 }
                 { \thispagestyle { blank } }
             }
@@ -1480,6 +1479,7 @@
             \newpage
           \fi
         }
+      \bool_gset_false:N \g__ustc_title_page_bool
     \fi
   }
 
@@ -2135,44 +2135,40 @@
 % \subsection{原创性声明}
 
 % 定义原创性声明
-\tl_new:N \l__ustc_statement_file_tl
+\tl_new:N \l__ustc_originality_file_tl
 
-\NewDocumentCommand \statement { O { } }
+\NewDocumentCommand \declarationoforiginality { O { } }
   {
-    \tl_clear:N \l__ustc_statement_file_tl
-    \keys_set:nn { ustc/statement } {#1}
-    \tl_if_empty:NTF \l__ustc_statement_file_tl
+    \tl_clear:N \l__ustc_originality_file_tl
+    \keys_set:nn { ustc/originality } {#1}
+    \tl_if_empty:NTF \l__ustc_originality_file_tl
       {
         \bool_if:NTF \l__ustc_degree_graduate_bool
-          { \__ustc_statement_graduate: }
-          { \__ustc_statement_bachelor: }
+          { \__ustc_declaration_of_originality_graduate: }
+          { \__ustc_declaration_of_originality_bachelor: }
       }
       {
         \cleardoublepage
-        \includepdf
-          [
-            pagecommand =
-              {
-                \__ustc_pdf_bookmark:n { 原创性和授权使用声明 }
-                \thispagestyle { empty }
-              }
-          ]
-          { \tl_use:N \l__ustc_statement_file_tl }
+        \__ustc_pdf_bookmark:n { 原创性和使用授权声明 }
+        \includepdf [ pagecommand = { \thispagestyle { empty } } ]
+          { \tl_use:N \l__ustc_originality_file_tl }
+        \bool_gset_true:N \g__ustc_title_page_bool
       }
   }
 
-\keys_define:nn { ustc/statement }
+\keys_define:nn { ustc/originality }
   {
-    file .tl_set:N = \l__ustc_statement_file_tl ,
+    file .tl_set:N = \l__ustc_originality_file_tl ,
   }
 
-\cs_new:Npn \__ustc_statement_graduate:
+\cs_new:Npn \__ustc_declaration_of_originality_graduate:
   {
     \begin { titlepage }
-      \__ustc_pdf_bookmark:n { 原创性和授权使用声明 }
-      \vspace * { 21 bp }
+      \__ustc_pdf_bookmark:n { 原创性和使用授权声明 }
+      \chapter * { 中国科学技术大学学位论文原创性声明 }
+      \thispagestyle { empty }
       \__ustc_originality_graduate:
-      \skip_vertical:n { 69 bp }
+      \skip_vertical:n { 76 bp }
       \__ustc_authorization_graduate:
     \end { titlepage }
   }
@@ -2181,27 +2177,23 @@
 \cs_new:Npn \__ustc_originality_graduate:
   {
     \group_begin:
-      \centering \sffamily \fontsize { 16 bp } { 32 bp } \selectfont
-      中国科学技术大学学位论文原创性声明 \par
+      \__ustc_set_cjk_space:n { \c_zero_dim plus .1 pt minus .1 pt }
+      \tl_use:N \c__ustc_originality_graduate_tl \par
     \group_end:
-    \skip_vertical:n { 13 bp }
-    \__ustc_shrinkable_text:n
-      { \tl_use:N \c__ustc_statement_graduate_tl \par }
-    \skip_vertical:n { 37 bp }
+    \skip_vertical:n { 38 bp }
     \noindent
-    作者签名： \__ustc_underline:nn { 8 em } { } \hspace { 8 em }
+    作者签名： \__ustc_underline:nn { 8 em } { } \skip_horizontal:n { 8 em }
     签字日期： \__ustc_underline:nn { 8 em } { } \par
   }
 
-% 授权使用声明
+% 使用授权声明
 \cs_new:Npn \__ustc_authorization_graduate:
   {
+    \@makechapterhead { 中国科学技术大学学位论文使用授权声明 }
     \group_begin:
-      \centering \sffamily \fontsize { 16 bp } { 32 bp } \selectfont
-      中国科学技术大学学位论文授权使用声明 \par
+      \__ustc_set_cjk_space:n { \c_zero_dim plus .1 pt minus .1 pt }
+      \tl_use:N \c__ustc_authorization_tl \par
     \group_end:
-    \skip_vertical:n { 13 bp }
-    \__ustc_shrinkable_text:n { \tl_use:N \c__ustc_authorization_tl \par }
     \skip_vertical:n { 12 bp }
     \tl_if_empty:NTF \l__ustc_secret_level_tl
       {
@@ -2237,34 +2229,30 @@
       }
   }
 
-\cs_new:Npn \__ustc_statement_bachelor:
+\cs_new:Npn \__ustc_declaration_of_originality_bachelor:
   {
     \begin { titlepage }
-      \thispagestyle { headings }
       \__ustc_pdf_bookmark:n { 学术诚信承诺书 }
-      \vspace * { 81 bp }
-      \group_begin:
-        \centering \sffamily \fontsize { 16 bp } { 20 bp } \selectfont
-        中国科学技术大学本科毕业论文学术诚信承诺书 \par
-      \group_end:
-      \skip_vertical:n { 18 bp }
+      \ctexset { chapter / beforeskip = 72 bp }
+      \chapter * { 中国科学技术大学本科毕业论文学术诚信承诺书 }
+      \thispagestyle { headings }
       \group_begin:
         \fontsize { 12 bp } { 20 bp } \selectfont
-        \__ustc_shrinkable_text:n
-          { \tl_use:N \c__ustc_statement_bachelor_tl \par }
+        \__ustc_set_cjk_space:n { \c_zero_dim plus .1 pt minus .1 pt }
+        \tl_use:N \c__ustc_originality_bachelor_tl \par
       \group_end:
       \skip_vertical:n { 38 bp }
       \group_begin:
         \raggedleft
         作者签名： \__ustc_underline:nn { 8 em } { } \par
-        \skip_vertical:n { 12 bp }
+        \skip_vertical:n { 16 bp }
         签字日期： \__ustc_underline:nn { 8 em } { } \par
       \group_end:
     \end { titlepage }
   }
 
 % 研究生原创性声明内容
-\tl_const:Nn \c__ustc_statement_graduate_tl
+\tl_const:Nn \c__ustc_originality_graduate_tl
   {
     本人声明所呈交的学位论文，是本人在导师指导下进行研究工作所取得的成果。
     除已特别加以标注和致谢的地方外，论文中不包含任何他人已经发表或撰写过的
@@ -2272,20 +2260,20 @@
     与我一同工作的同志对本研究所做的贡献均已在论文中作了明确的说明。
   }
 
-% 研究生授权使用声明内容
+% 研究生使用授权声明内容
 \tl_const:Nn \c__ustc_authorization_tl
   {
-    作为申请学位的条件之一，学位论文著作权拥有者授权中国科学技术大学拥有
-    学位论文的部分使用权，
+    作为申请学位的条件之一，学位论文著作权拥有者授权中国科学技术大学拥有学位论文的部分使用权，
     即：学校有权按有关规定向国家有关部门或机构送交论文的复印件和电子版，
-    允许论文被查阅和借阅，可以将学位论文编入《中国学位论文全文数据库》等
-    有关数据库进行检索，可以采用影印、缩印或扫描等复制手段保存、汇编学位论文。
-    本人提交的电子文档的内容和纸质论文的内容相一致。\par
-    控阅的学位论文在解除后也遵守此规定。
+    允许论文被查阅和借阅，可以将学位论文编入《中国学位论文全文数据库》等有关数据库进行检索，
+    可以采用影印、缩印或扫描等复制手段保存、汇编学位论文。
+    本人提交的电子文档的内容和纸质论文的内容相一致，
+    如因不符而引起的学术声誉损失由本人自负。 \par
+    控阅的学位论文在解除控阅后也遵守此规定。
   }
 
 % 本科生声明内容
-\tl_const:Nn \c__ustc_statement_bachelor_tl
+\tl_const:Nn \c__ustc_originality_bachelor_tl
   {
     本人郑重承诺：所呈交的本科毕业论文，是本人在导师指导下进行研究工作
     所取得的成果。除已特别加以标注和致谢的地方外，论文中不包含任何他人已经
@@ -2307,33 +2295,22 @@
     $\square$
   }
 
-\cs_new:Npn \__ustc_shrinkable_text:n #1
-  {
-    \group_begin:
-      \skip_set:Nn \l_tmpa_skip { 0 pt plus .1 pt minus .1 pt }
-      \sys_if_engine_xetex:TF
-        { \cs_set_protected:Npn \CJKglue { \skip_horizontal:N \l_tmpa_skip } }
-        {
-          \sys_if_engine_luatex:T
-            { \ltjsetparameter { kanjiskip = \l_tmpa_skip } }
-        }
-      #1
-    \group_end:
-  }
-
 % Deprecated commands
+\NewDocumentCommand \statement { }
+  { \declarationoforiginality }
+
 \NewDocumentCommand \copyrightpage { }
   {
     \__ustc_deprecated:nnn { " \token_to_str:N \copyrightpage "~ command }
-      { 2026-03-26 } { " \token_to_str:N \statement " }
-    \statement
+      { 2026-03-26 } { " \token_to_str:N \declarationoforiginality " }
+    \declarationoforiginality
   }
 
 \NewDocumentCommand \makestatement { }
   {
     \__ustc_deprecated:nnn { " \token_to_str:N \makestatement "~ command }
-      { 2020-07-01 } { " \token_to_str:N \statement " }
-    \statement
+      { 2020-07-01 } { " \token_to_str:N \declarationoforiginality " }
+    \declarationoforiginality
   }
 
 

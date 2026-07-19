@@ -1,5 +1,5 @@
 \input{regression-test}
-\documentclass[degree=bachelor, fontset=fandol]{ustcthesis}
+\documentclass[degree=doctor, fontset=fandol]{ustcthesis}
 
 \input{info}
 
@@ -7,7 +7,7 @@
 \START
 \showoutput
 
-\statement
+\declarationoforiginality
 
 \clearpage
 \OMIT

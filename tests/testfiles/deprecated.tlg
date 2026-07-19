@@ -26,7 +26,7 @@ Class ustcthesis Warning: The "\supervisor" command is deprecated since ....-..-
 (ustcthesis)              Use "\ustcsetup" with "supervisor" option instead.
 Class ustcthesis Warning: The "\ensupervisor" command is no longer required and is obsolete since ....-..-...
 Class ustcthesis Warning: The "\copyrightpage" command is deprecated since ....-..-...
-(ustcthesis)              Use "\statement" instead.
+(ustcthesis)              Use "\declarationoforiginality" instead.
 Package fontspec Info: 
 (fontspec)             Font family 'FandolHei(0)' created for font 'FandolHei' with options [Extension={.otf},UprightFont={*-Regular},BoldFont={*-Bold}].
 (fontspec)              
@@ -57,9 +57,10 @@ LaTeX Font Info:    Font shape `TU/STIXTwoMath-Regular(0)/m/n' will be
 [1
 ]
 Class ustcthesis Warning: The "\makestatement" command is deprecated since ....-..-...
-(ustcthesis)              Use "\statement" instead.
+(ustcthesis)              Use "\declarationoforiginality" instead.
 [2
-] [3] [4
+] [3
+] [4
 ]
 Class ustcthesis Warning: The "enabsctract" environment is deprecated since ....-..-...
 (ustcthesis)              Use "abstract*" instead.
