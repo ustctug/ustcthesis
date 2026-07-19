@@ -1,39 +1,203 @@
-\ProvidesFile{ustcthesis-numeric.cbx}[2021/01/19 v1.0 USTCThesis biblatex
-  citation style]
+%%
+%% This is file `ustcthesis-numeric.cbx',
+%% generated with the docstrip utility.
+%%
+%% The original source files were:
+%%
+%% gbt7714-cbx.dtx  (with options: `2025,ustc,numeric')
+%% ---------------------------------------------------------------
+%% biblatex-gbt7714 - A biblatex implementation of Chinese
+%%   National Standard GB/T 7714 citation style
+%% Copyright (C) 2026 Zeping Lee <zepinglee AT gmail DOT com>
+%% Repository: <https://github.com/zepinglee/gbt7714>
+%% It may be distributed and/or modified under the conditions of
+%% the LaTeX Project Public License (LPPL), either version 1.3c of
+%% this license or (at your option) any later version.  The latest
+%% version of this license is in the file:
+%%    <https://www.latex-project.org/lppl.txt>
+%% ---------------------------------------------------------------
 
-\RequireCitationStyle{gb7714-2025}
+\ProvidesFile{ustcthesis-numeric.cbx}[2025-07-01 v5.0.0 GB/T 7714 numeric citation style (USTC variant)]
+
+\RequireCitationStyle{numeric-comp}
+
+\newbool{cbx:superscript}
+\booltrue{cbx:superscript}
 
 \DeclareBibliographyOption[boolean]{inline}[true]{%
   \ifstrequal{#1}{true}
-    {\let\cite\parencite
-     \let\citep\parencite
-     \ExecuteBibliographyOptions{autocite=inline}}
-    {\let\cite\supercite
-     \let\citep\supercite
-     \ExecuteBibliographyOptions{autocite=superscript}}%
+    {\boolfalse{cbx:superscript}%
+     \letcs\autocite{blx@acite@inline}%
+     \letcs\autocites{blx@macite@inline}%
+     \letcs\cite{blx@acite@inline}%
+     \letcs\cites{blx@macite@inline}}
+    {\booltrue{cbx:superscript}%
+     \letcs\autocite{blx@acite@superscript}%
+     \letcs\autocites{blx@macite@superscript}%
+     \letcs\cite{blx@acite@superscript}%
+     \letcs\cites{blx@macite@superscript}}}
+
+
+\ExecuteBibliographyOptions{
+  autocite     = superscript,
+  maxcitenames = 1,
+  mincitenames = 1,
+  parentracker = false,
 }
 
-\ExecuteBibliographyOptions{inline=false}
 
-\DeclareCiteCommand{\supercite}[\mkbibsuperscript]
-  {[\usebibmacro{cite:init}%
+\DeclareFieldFormat{postnote}{\mkautorange{#1}}
+
+\DeclareFieldFormat{superscript}{\mkbibsuperscript{#1}}
+\DeclareFieldFormat{textcitesuperscript}{%
+  \ifbool{cbx:superscript}
+    {\mkbibsuperscript{#1}}
+    {#1}}
+
+\renewbibmacro*{prenote}{%
+  \iffieldundef{prenote}
+    {}
+    {\printfield{prenote}%
+     \setunit{\printdelim{prenotedelim}}}}
+
+\renewbibmacro*{postnote}{%
+  \iffieldundef{postnote}
+    {}
+    % {\setunit{\printdelim{postnotedelim}}%
+    {\setunit{}%
+     \printfield{postnote}}}
+
+\renewbibmacro*{cite:dump}{%
+  \usebibmacro{cite:dump:inset}%
+  % dump labelnumber (+labelprefix)
+  \ifnumgreater{\value{cbx@tempcnta}}{0}
+    % {\ifnumgreater{\value{cbx@tempcnta}}{1}
+    {\ifnumgreater{\value{cbx@tempcnta}}{0}
+       {\setunit{\multiciterangedelim}}
+       {\setunit{\multicitedelim}}%
+     \usebibmacro{cite:print:last:labelnumber}%
+     \global\undef\cbx@lastprefix}
+    {}%
+  \setcounter{cbx@tempcnta}{0}%
+}
+
+\DeclareCiteCommand{\cite}[\mkbibsuperscript]
+  % {\usebibmacro{cite:init}%
+  {\printtext{\bibopenbracket}\usebibmacro{cite:init}%
    \let\multicitedelim=\supercitedelim
    \let\multicitesubentrydelim=\supercitesubentrydelim
    \let\multiciterangedelim=\superciterangedelim
    \let\multicitesubentryrangedelim=\supercitesubentryrangedelim
+   \iffieldundef{prenote}
+     {}
+     {\BibliographyWarning{Ignoring prenote argument}}%
+   % \iffieldundef{postnote}
+   %   {}
+   %   {\BibliographyWarning{Ignoring postnote argument}}}
+  }
+  {\usebibmacro{citeindex}%
+   \usebibmacro{cite:comp}}
+  {}
+  % {\usebibmacro{cite:dump}}
+  {\usebibmacro{cite:dump}%
+   \printtext{\bibclosebracket}%
+   \usebibmacro{postnote}}
+
+\DeclareCiteCommand{\parencite}%[\mkbibbrackets]
+  % {\usebibmacro{cite:init}%
+  {\printtext{\bibopenbracket}\usebibmacro{cite:init}%
    \usebibmacro{prenote}}
   {\usebibmacro{citeindex}%
    \usebibmacro{cite:comp}}
   {}
-  {\usebibmacro{cite:dump}]%
-   \printfield{postnote}}
+  {\usebibmacro{cite:dump}%
+   % \usebibmacro{postnote}}
+   \printtext{\bibclosebracket}%
+   \iffieldundef{postnote}
+     {}
+     {\printtext[superscript]{\usebibmacro{postnote}}}}
 
-\DeclareCiteCommand{\parencite}%[\mkbibbrackets]
-  {[\usebibmacro{cite:init}%]
-   \usebibmacro{prenote}}%
+\renewbibmacro*{textcite}{%
+  \iffieldequals{namehash}{\cbx@lasthash}
+    % {\usebibmacro{cite:comp}}
+    {\printtext[textcitesuperscript]{\usebibmacro{cite:comp}}}
+    {\usebibmacro{cite:dump}%
+     \ifbool{cbx:parens}
+       % {\printtext{\bibclosebracket}\global\boolfalse{cbx:parens}}
+       % 使用上标
+       {\printtext[textcitesuperscript]{\bibclosebracket}\global\boolfalse{cbx:parens}}
+       {}%
+     \iffirstcitekey
+       {}
+       {\setunit{\textcitedelim}}%
+     \usebibmacro{cite:init}%
+     \ifnameundef{labelname}
+       {\printfield[citetitle]{labeltitle}}
+       {\printnames{labelname}}%
+     \setunit*{\printdelim{namelabeldelim}}%
+     % \printtext{\bibopenbracket}\global\booltrue{cbx:parens}%
+     % \ifnumequal{\value{citecount}}{1}
+     %   {\usebibmacro{prenote}}
+     %   {}%
+     % \usebibmacro{cite:comp}%
+     %
+     % 使用上标
+     \printtext[textcitesuperscript]{\bibopenbracket\global\booltrue{cbx:parens}%
+       \ifnumequal{\value{citecount}}{1}
+         {\usebibmacro{prenote}}
+         {}%
+       \usebibmacro{cite:comp}}%
+     \stepcounter{textcitecount}%
+     \savefield{namehash}{\cbx@lasthash}}}
+
+\DeclareCiteCommand{\supercite}[\mkbibsuperscript]
+  % {\usebibmacro{cite:init}%
+  {\printtext{\bibopenbracket}\usebibmacro{cite:init}%
+   \let\multicitedelim=\supercitedelim
+   \let\multicitesubentrydelim=\supercitesubentrydelim
+   \let\multiciterangedelim=\superciterangedelim
+   \let\multicitesubentryrangedelim=\supercitesubentryrangedelim
+   \iffieldundef{prenote}
+     {}
+     {\BibliographyWarning{Ignoring prenote argument}}%
+   % \iffieldundef{postnote}
+   %   {}
+   %   {\BibliographyWarning{Ignoring postnote argument}}}
+  }
   {\usebibmacro{citeindex}%
    \usebibmacro{cite:comp}}
   {}
-  {%[
-  \usebibmacro{cite:dump}]%
-   \mkbibsuperscript{\printfield{postnote}}}
+  % {\usebibmacro{cite:dump}}
+  {\usebibmacro{cite:dump}%
+   \printtext{\bibclosebracket}%
+   \usebibmacro{postnote}}
+
+\DeclareCiteCommand{\cbx@textcite}
+  {\usebibmacro{cite:init}}
+  {\usebibmacro{citeindex}%
+   \usebibmacro{textcite}}
+  {}
+  % {\usebibmacro{cite:dump}%
+  %  \usebibmacro{postnote}%
+  %  \ifbool{cbx:parens}
+  %    {\bibclosebracket\global\boolfalse{cbx:parens}}
+  %    {}}
+  {\printtext[textcitesuperscript]{\usebibmacro{cite:dump}%
+     \ifbool{cbx:parens}
+       {\bibclosebracket\global\boolfalse{cbx:parens}}
+       {}}%
+   \iffieldundef{postnote}
+     {}
+     {\printtext[superscript]{\usebibmacro{postnote}}}}
+
+\providerobustcmd*{\citet}{%
+  \@ifstar
+    {\AtNextCite{\AtEachCitekey{\defcounter{maxnames}{999}}}%
+     \textcite}
+    {\textcite}}
+
+\providerobustcmd*{\citep}{%
+  \@ifstar
+    {\AtNextCite{\AtEachCitekey{\defcounter{maxnames}{999}}}%
+     \cite}
+    {\cite}}

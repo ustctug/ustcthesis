@@ -1,42 +1,183 @@
-\ProvidesFile{ustcthesis-authoryear.cbx}[2021/01/19 v1.0 USTCThesis biblatex
-  citation style]
+%%
+%% This is file `ustcthesis-authoryear.cbx',
+%% generated with the docstrip utility.
+%%
+%% The original source files were:
+%%
+%% gbt7714-cbx.dtx  (with options: `2025,ustc,authoryear')
+%% ---------------------------------------------------------------
+%% biblatex-gbt7714 - A biblatex implementation of Chinese
+%%   National Standard GB/T 7714 citation style
+%% Copyright (C) 2026 Zeping Lee <zepinglee AT gmail DOT com>
+%% Repository: <https://github.com/zepinglee/gbt7714>
+%% It may be distributed and/or modified under the conditions of
+%% the LaTeX Project Public License (LPPL), either version 1.3c of
+%% this license or (at your option) any later version.  The latest
+%% version of this license is in the file:
+%%    <https://www.latex-project.org/lppl.txt>
+%% ---------------------------------------------------------------
 
-\RequireCitationStyle{gb7714-2025ay}
+\ProvidesFile{ustcthesis-authoryear.cbx}[2025-07-01 v5.0.0 GB/T 7714 author-year citation style (USTC variant)]
 
-\ExplSyntaxOn
-\renewrobustcmd \mkbibleftborder
-  {
-    \bool_if:NTF \l__ustc_language_chinese_bool
-      { （ }
-      { ( }
-  }
+\RequireCitationStyle{authoryear-comp}
 
-\renewrobustcmd \mkbibrightborder
-  {%
-    \bool_if:NTF \l__ustc_language_chinese_bool
-      { ） }
-      { ) }
-  }
+\newtoggle{cbx:punctfull}
+\toggletrue{cbx:punctfull}
+\DeclareBibliographyOption[string]{citepunct}{%
+  \ifcsdef{blx@opt@cite@punct@#1}
+    {\csuse{blx@opt@cite@punct@#1}}
+    {\blx@err@invopt{citepunct=#1}{}}}
 
-\cs_set_nopar:Npn \gbpunctcommacite
-  {
-    \bool_if:NTF \l__ustc_language_chinese_bool
-      { ， }
-      { \addcomma \space }
-  }
+\def\blx@opt@cite@punct@full{\toggletrue{cbx:punctfull}}
+\def\blx@opt@cite@punct@half{\togglefalse{cbx:punctfull}}
 
-\cs_set_nopar:Npn \gbpunctmarkcite
-  {
-    \bool_if:NTF \l__ustc_language_chinese_bool
-      { ， }
-      { \addcomma \space }
+\ExecuteBibliographyOptions{
+  maxcitenames = 1,
+  mincitenames = 1,
+  parentracker = false,
 }
 
-\cs_set_nopar:Npn \gbpunctsemicoloncite
-  {
-    \bool_if:NTF \l__ustc_language_chinese_bool
-      { ； }
-      { \addsemicolon \space }
-}
+\newcommand*{\bibciteleftparen}{\blx@postpunct\iftoggle{cbx:punctfull}{（}{(}}
+\newcommand*{\bibciterightparen}{\blx@postpunct\iftoggle{cbx:punctfull}{）}{)}\midsentence}
 
-\ExplSyntaxOff
+\protected\def\bibciteopenparen{\bibciteleftparen}%
+\protected\def\bibcitecloseparen{\bibciterightparen}%
+
+\renewcommand*{\multicitedelim}{\addcomma\space}
+
+\DeclareDelimFormat{prenotedelim}{\iftoggle{cbx:punctfull}{}{\addspace}}
+
+\DeclareDelimFormat{nameyeardelim}{\addcitecomma}
+\DeclareDelimFormat[textcite]{nameyeardelim}{\iftoggle{cbx:punctfull}{}{\addspace}}
+\DeclareDelimFormat{nonameyeardelim}{\addcitecomma}
+\DeclareDelimFormat[textcite]{nonameyeardelim}{\iftoggle{cbx:punctfull}{}{\addspace}}
+
+\newrobustcmd*{\addcitecomma}{\iftoggle{cbx:punctfull}{\addfullcomma}{\addcomma\space}}
+
+\DeclareFieldFormat{postnote}{\mkautorange{#1}}
+
+\DeclareFieldFormat{superscript}{\mkbibsuperscript{#1}}
+
+\renewbibmacro*{prenote}{%
+  \iffieldundef{prenote}
+    {}
+    {\printfield{prenote}%
+     \setunit{\printdelim{prenotedelim}}}}
+
+\renewbibmacro*{postnote}{%
+  \iffieldundef{postnote}
+    {}
+    % {\setunit{\printdelim{postnotedelim}}%
+    {\setunit{}%
+     \printfield{postnote}}}
+
+
+\renewbibmacro*{textcite}{%
+  \iffieldequals{namehash}{\cbx@lasthash}
+    {\iffieldundef{shorthand}
+       {\ifboolexpr{test {\iffieldequals{labelyear}{\cbx@lastyear}}
+                    and (test {\ifnumequal{\value{multicitecount}}{0}}
+                         or test {\iffieldundef{postnote}})}
+          {\setunit{\addcomma}%
+           \usebibmacro{cite:extradate}}
+          {\setunit{\compcitedelim}%
+           \usebibmacro{cite:labeldate+extradate}%
+           \savefield{labelyear}{\cbx@lastyear}}}
+       {\setunit{\compcitedelim}%
+        \usebibmacro{cite:shorthand}%
+        \global\undef\cbx@lastyear}}
+    {\ifnameundef{labelname}
+       {\iffieldundef{shorthand}
+          {\usebibmacro{cite:label}%
+           \setunit{%
+             \global\booltrue{cbx:parens}%
+             % \printdelim{nonameyeardelim}\bibopenparen}%
+             \printdelim{nonameyeardelim}\bibciteopenparen}%
+           \ifnumequal{\value{citecount}}{1}
+             {\usebibmacro{prenote}}
+             {}%
+           \usebibmacro{cite:labeldate+extradate}}
+          {\usebibmacro{cite:shorthand}}}
+       {\printnames{labelname}%
+        \setunit{%
+          \global\booltrue{cbx:parens}%
+          % \printdelim{nameyeardelim}\bibopenparen}%
+          \printdelim{nameyeardelim}\bibciteopenparen}%
+        \ifnumequal{\value{citecount}}{1}
+          {\usebibmacro{prenote}}
+          {}%
+        \iffieldundef{shorthand}
+          {\iffieldundef{labelyear}
+             {\usebibmacro{cite:label}}
+             {\usebibmacro{cite:labeldate+extradate}}%
+           \savefield{labelyear}{\cbx@lastyear}}
+          {\usebibmacro{cite:shorthand}%
+           \global\undef\cbx@lastyear}}%
+     \stepcounter{textcitecount}%
+     \savefield{namehash}{\cbx@lasthash}}%
+  \setunit{%
+    \ifbool{cbx:parens}
+      % {\bibcloseparen\global\boolfalse{cbx:parens}}
+      {\bibcitecloseparen\global\boolfalse{cbx:parens}}
+      {}%
+    \textcitedelim}}
+
+\renewbibmacro*{textcite:postnote}{%
+  \setunit{}%
+  \printtext{%
+    \ifbool{cbx:parens}
+      {\bibcitecloseparen\global\boolfalse{cbx:parens}}
+      {}}%
+  % \usebibmacro{postnote}%
+  \iffieldundef{postnote}
+    {}
+    {\printtext[superscript]{\usebibmacro{postnote}}}}
+  % \ifnumequal{\value{multicitecount}}{\value{multicitetotal}}
+  %   {\setunit{}%
+  %    \printtext{%
+  %      \ifbool{cbx:parens}
+  %        {\bibcloseparen\global\boolfalse{cbx:parens}}
+  %        {}}}
+  %   {\setunit{%
+  %      \ifbool{cbx:parens}
+  %        {\bibcloseparen\global\boolfalse{cbx:parens}}
+  %        {}%
+  %      \textcitedelim}}}
+
+\DeclareCiteCommand{\parencite}%[\mkbibparens]
+  % {\usebibmacro{cite:init}%
+  {\printtext{\bibciteopenparen}\usebibmacro{cite:init}%
+   \usebibmacro{prenote}}
+  {\usebibmacro{citeindex}%
+   \usebibmacro{cite}}
+  {}
+  % {\usebibmacro{postnote}}
+  {\setunit{}\printtext{\bibcitecloseparen}%
+   \iffieldundef{postnote}
+     {}
+     {\printtext[superscript]{\usebibmacro{postnote}}}}
+
+\DeclareCiteCommand*{\parencite}%[\mkbibparens]
+  % {\usebibmacro{cite:init}%
+  {\printtext{\bibciteopenparen}\usebibmacro{cite:init}%
+   \usebibmacro{prenote}}
+  {\usebibmacro{citeindex}%
+   \usebibmacro{citeyear}}
+  {}
+  % {\usebibmacro{postnote}}
+  {\setunit{}\printtext{\bibcitecloseparen}%
+   \iffieldundef{postnote}
+     {}
+     {\printtext[superscript]{\usebibmacro{postnote}}}}
+
+\providerobustcmd*{\citet}{%
+  \@ifstar
+    {\AtNextCite{\AtEachCitekey{\defcounter{maxnames}{999}}}%
+     \textcite}
+    {\textcite}}
+
+\providerobustcmd*{\citep}{%
+  \@ifstar
+    {\AtNextCite{\AtEachCitekey{\defcounter{maxnames}{999}}}%
+     \parencite}
+    {\parencite}}

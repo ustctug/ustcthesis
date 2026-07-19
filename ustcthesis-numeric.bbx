@@ -1,106 +1,1541 @@
-\ProvidesFile{ustcthesis-numeric.bbx}[2021/01/19 v1.0 USTCThesis biblatex
-  bibliography style]
+%%
+%% This is file `ustcthesis-numeric.bbx',
+%% generated with the docstrip utility.
+%%
+%% The original source files were:
+%%
+%% gbt7714-bbx.dtx  (with options: `2025,ustc,numeric')
+%% ---------------------------------------------------------------
+%% biblatex-gbt7714 - A biblatex implementation of Chinese
+%%   National Standard GB/T 7714 citation style
+%% Copyright (C) 2026 Zeping Lee <zepinglee AT gmail DOT com>
+%% Repository: <https://github.com/zepinglee/gbt7714>
+%% It may be distributed and/or modified under the conditions of
+%% the LaTeX Project Public License (LPPL), either version 1.3c of
+%% this license or (at your option) any later version.  The latest
+%% version of this license is in the file:
+%%    <https://www.latex-project.org/lppl.txt>
+%% ---------------------------------------------------------------
 
-\RequireBibliographyStyle{gb7714-2025}
+\ProvidesFile{ustcthesis-numeric.bbx}[2025-07-01 v5.0.0 GB/T 7714 numeric bibliography style (USTC variant)]
+
+\RequireBiber[3]
+
+\RequireBibliographyStyle{numeric}
+
+\AtBeginBibliography{%
+  \urlstyle{same}%
+}
+
+\newtoggle{bbx:punctGB}
+\DeclareBibliographyOption[string]{bibpunct}[GB]{%
+  \ifcsdef{blx@opt@bib@punct@#1}
+    {\csuse{blx@opt@bib@punct@#1}}
+    {\blx@err@invopt{bibpunct=#1}{}}}
+
+\def\blx@opt@bib@punct@GB{\toggletrue{bbx:punctGB}}
+\def\blx@opt@bib@punct@half{\togglefalse{bbx:punctGB}}
 
 \ExecuteBibliographyOptions{
-  gbalign   = left,
-  gbnamefmt = lowercase,
-  gbpub     = false,
-  url       = false,
-  doi       = false,
+  sorting     = none,
+  maxbibnames = 3,
+  minbibnames = 3,
+  date        = year,
+  urldate     = iso,
+  seconds     = true,
+  url         = false,
+  doi         = false,
+  giveninits  = true,
+  bibpunct    = half,
 }
 
-\setlength\biblabelsep{0pt}
+\newrobustcmd*{\addfullcomma}{，}
+\newrobustcmd*{\addcommaspace}{\iftoggle{bbx:punctGB}{\addfullcomma}{\addcomma\space}}
+\newrobustcmd*{\addcomma@bibnamedelimd}
+  {\iftoggle{bbx:punctGB}{\addfullcomma\penalty\value{lownamepenalty}}{\addcomma\bibnamedelimd}}
 
-% 顺序编码制悬挂缩进 2.5 字符
-\defbibenvironment{bibliography}
-  {\list
-     {\printtext[labelnumberwidth]{%
-        \printfield{labelprefix}%
-        \printfield{labelnumber}}}
-     % {\setlength{\labelwidth}{\labelnumberwidth}%
-     %  \setlength{\leftmargin}{\labelwidth}%
-     {\setlength{\labelwidth}{2.5em}%
-      \setlength{\leftmargin}{2.5em}%
-      \setlength{\labelsep}{\biblabelsep}%
-      \addtolength{\leftmargin}{\labelsep}%
-      \setlength{\itemsep}{\bibitemsep}%
-      \setlength{\parsep}{\bibparsep}}%
-      % 参考文献表的编号居左。
-      % \renewcommand*{\makelabel}[1]{\hss##1}}
-      \renewcommand*{\makelabel}[1]{\hss##1}}
-  {\endlist}
-  {\item}
+\newrobustcmd*{\addfullcolon}{\iftoggle{bbx:punctGB}{：}{\addcolon}}
+\newrobustcmd*{\addcolonspace}{\iftoggle{bbx:punctGB}{：}{\addcolon\space}}
 
+\newrobustcmd*{\addfullsemicolon}{\iftoggle{bbx:punctGB}{；}{\addsemicolon}}
+\newrobustcmd*{\addsemicolonspace}{\iftoggle{bbx:punctGB}{；}{\addsemicolon\space}}
 
-\DeclareFieldFormat{sentencecase}{%
-  \iftoggle{bbx:titlelink}{%
-    \iffieldundef{url}{#1}{%
-      \href{\thefield{url}}{\MakeSentenceCase*{#1}}%
-    }%
-  }{%
-    \MakeSentenceCase{#1}%
-  }%
+\newrobustcmd*{\addfullexclam}{\iftoggle{bbx:punctGB}{！}{\addexclam}}
+\newrobustcmd*{\addexclamspace}{\iftoggle{bbx:punctGB}{！}{\addexclam\space}}
+
+\newrobustcmd*{\addfullquestion}{\iftoggle{bbx:punctGB}{？}{\addquestion}}
+\newrobustcmd*{\addquestionspace}{\iftoggle{bbx:punctGB}{？}{\addquestion\space}}
+
+\newrobustcmd*{\adddoubleslash}{%
+  \unspace//\penalty\hyphenpenalty\hskip\z@skip}
+
+\newrobustcmd*{\addhalfspace}{%
+  \iftoggle{bbx:punctGB}{}{\addspace}}
+
+\renewrobustcmd*{\bibinitperiod}{}
+\renewrobustcmd*{\bibinithyphendelim}{\mbox{-}}
+
+\renewrobustcmd*{\bibdaterangesep}{\iftoggle{bbx:punctGB}{—}{\hyphen}\penalty\hyphenpenalty}
+
+\renewrobustcmd*{\bibrangedash}{-}
+
+\renewcommand*{\bibleftparen}{\blx@postpunct\iftoggle{bbx:punctGB}{\unspace （}{(}}
+\renewcommand*{\bibrightparen}{\blx@postpunct\iftoggle{bbx:punctGB}{）}{)}\midsentence}
+\newcommand*{\addrightparenspace}{\blx@postpunct\iftoggle{bbx:punctGB}{）}{)\space}\midsentence}
+
+\DeclareDatamodelEntrytypes{
+  archive,
+  map,
+  preprint}
+
+\DeclareDatamodelFields[type=field, datatype=literal]{
+  % 用于语言
+  sortlang,
+  % 专利的申请号
+  applicationnumber,
+  % 地图的尺寸
+  dimensions,
+  % 地图的比例尺
+  scale,
+  % 文献类型标识
+  entrytypeid,
+  % 文献载体标识
+  entrymediumid}
+
+\DeclareDatamodelFields[type=field, datatype=verbatim]{
+  % 科技资源标识服务平台（Common Science and Technology Resources, CSTR）
+  cstr}
+
+\DeclareStyleSourcemap{
+  \maps{
+    % 默认 \DeclareDriverSourcemap 中的内容放在前面
+    \map{
+      \step[typesource=conference, typetarget=inproceedings]
+      \step[typesource=electronic, typetarget=online]
+      \step[typesource=www,        typetarget=online]
+    }
+    \map{
+      \step[typesource=mastersthesis, typetarget=thesis, final]
+      \step[fieldset=type,            fieldvalue=mathesis]
+    }
+    \map{
+      \step[typesource=phdthesis, typetarget=thesis, final]
+      \step[fieldset=type,        fieldvalue=phdthesis]
+    }
+    \map{
+      \step[typesource=techreport, typetarget=report, final]
+      \step[fieldset=type,         fieldvalue=techreport]
+    }
+    \map{
+      \step[fieldsource=hyphenation,   fieldtarget=langid]
+      \step[fieldsource=address,       fieldtarget=location]
+      \step[fieldsource=school,        fieldtarget=institution]
+      \step[fieldsource=annote,        fieldtarget=annotation]
+      \step[fieldsource=archiveprefix, fieldtarget=eprinttype]
+      \step[fieldsource=journal,       fieldtarget=journaltitle]
+      \step[fieldsource=primaryclass,  fieldtarget=eprintclass]
+      \step[fieldsource=key,           fieldtarget=sortkey]
+      \step[fieldsource=pdf,           fieldtarget=file]
+    }
+    %
+    % 设置语言
+    \map[foreach={title, booktitle, journaltitle, maintitle}]{
+      \step[notfield=langid, final]
+      \step[fieldsource=\regexp{$MAPLOOP}, match=\regexp{[\x{4e00}-\x{9fff}]}, final]
+      \step[fieldset=langid, fieldvalue=chinese]
+    }
+    \map{
+      \step[fieldsource=langid, match=\regexp{^(.+)$}, replace=\regexp{\L$1}, final]
+    }
+    \map{
+      \step[fieldset=langid, fieldvalue=english]
+    }
+    %
+    % 将 biblatex 的文献类型整理为 GB/T 7714 定义的文献类型
+    \map{
+      \step[typesource=booklet, typetarget=book]
+      \step[typesource=image, typetarget=misc]
+      \step[typesource=jurisdiction, typetarget=archive]
+      \step[typesource=legal, typetarget=archive]
+      \step[typesource=legislation, typetarget=archive]
+      \step[typesource=letter, typetarget=archive]
+      \step[typesource=manual, typetarget=report]
+      \step[typesource=unpublished, typetarget=misc]
+      \step[typesource=video, typetarget=misc]
+    }
+    %
+    % 处理 howpublished 的 URL
+    \map{
+      \step[fieldsource=howpublished, match=\regexp{^\\url\{([^\}]+)\}$}, final]
+      \step[fieldset=url, fieldvalue={$1}]
+      \step[fieldset=howpublished, null]
+    }
+    %
+    % 处理预印本
+    \map{
+      \pertype{article}
+      \step[notfield=journaltitle, final]
+      \step[fieldsource=eprint, final]
+      \step[typesource=article, typetarget=preprint]
+    }
+    \map{
+      \pertype{article}
+      \step[fieldsource=journaltitle, matchi={arXiv}, final]
+      \step[typesource=article, typetarget=preprint]
+    }
+    \map{
+      \step[fieldsource=eprint, final]
+      \step[typesource=misc, typetarget=preprint]
+      \step[typesource=online, typetarget=preprint]
+    }
+    %
+    % 处理含有 URL 的 @misc
+    \map{
+      \step[fieldsource=url, final]
+      \step[typesource=misc, typetarget=online]
+    }
+    %
+    % 补充文献类型标识 entrytypeid
+    \map{
+      \pertype{archive}
+      \step[fieldset=entrytypeid, fieldvalue=A]
+    }
+    \map{
+      \pertype{article}
+      \step[fieldsource=entrysubtype, match=\regexp{(^(.+)$)}, replace=\regexp{\L$1}, final]
+      \step[fieldsource=entrysubtype, match=\regexp{newspaper}, final]
+      \step[fieldset=entrytypeid, fieldvalue=N]
+    }
+    \map[overwrite]{
+      \step[typesource=newspaper, typetarget=article, final]
+      \step[fieldset=entrysubtype, fieldvalue=newspaper]
+      \step[fieldset=entrytypeid, fieldvalue=N]
+    }
+    \map{
+      \pertype{article}
+      \step[fieldset=entrytypeid, fieldvalue=J]
+    }
+    \map{
+      \pertype{book}
+      \step[fieldset=entrytypeid, fieldvalue=M]
+    }
+    % \map{
+    %   \pertype{bookinbook}
+    %   \step[typesource=bookinbook, typetarget=book, final]
+    %   \step[fieldset=entrytypeid, fieldvalue=M]
+    % }
+    \map{
+      \pertype{collection}
+      \step[typesource=collection, typetarget=book, final]
+      \step[fieldset=entrytypeid, fieldvalue=G]
+    }
+    \map{
+      \pertype{dataset}
+      \step[fieldset=entrytypeid, fieldvalue=DS]
+    }
+    \map{
+      \pertype{inbook}
+      \step[fieldset=entrytypeid, fieldvalue=M]
+    }
+    \map{
+      \pertype{incollection}
+      \step[fieldset=entrytypeid, fieldvalue=M]
+    }
+    \map{
+      \pertype{inproceedings}
+      \step[fieldset=entrytypeid, fieldvalue=C]
+    }
+    % \map{
+    %   \pertype{inreference}
+    %   \step[typesource=inreference, typetarget=incollection, final]
+    %   \step[fieldset=entrytypeid, fieldvalue=M]
+    % }
+    \map{
+      \pertype{map}
+      \step[fieldset=entrytypeid, fieldvalue=CM]
+      \step[fieldsource=booktitle, final]
+      \step[typesource=map, typetarget=incollection]
+    }
+    % \map{
+    %   \pertype{mvcollection}
+    %   \step[typesource=mvcollection, typetarget=book, final]
+    %   \step[fieldset=entrytypeid, fieldvalue=G]
+    % }
+    % \map{
+    %   \pertype{mvreference}
+    %   \step[typesource=mvreference, typetarget=book, final]
+    %   \step[fieldset=entrytypeid, fieldvalue=M]
+    % }
+    % \map{
+    %   \pertype{mvproceedings}
+    %   \step[typesource=mvproceedings, typetarget=collection, final]
+    %   \step[fieldset=entrytypeid, fieldvalue=C]
+    % }
+    % \map{
+    %   \pertype{mvbook}
+    %   \step[typesource=mvbook, typetarget=book, final]
+    %   \step[fieldset=entrytypeid, fieldvalue=M]
+    % }
+    \map{
+      \pertype{online}
+      \step[fieldset=entrytypeid, fieldvalue=EB]
+    }
+    \map{
+      \pertype{patent}
+      \step[fieldset=entrytypeid, fieldvalue=P]
+    }
+    \map{
+      \pertype{periodical}
+      \step[fieldset=entrytypeid, fieldvalue=J]
+    }
+    \map{
+      \pertype{preprint}
+      \step[fieldset=entrytypeid, fieldvalue=PP]
+    }
+    \map{
+      \pertype{proceedings}
+      \step[typesource=proceedings, typetarget=book]
+      \step[fieldset=entrytypeid, fieldvalue=C]
+    }
+    % \map{
+    %   \pertype{reference}
+    %   \step[typesource=reference, typetarget=book, final]
+    %   \step[fieldset=entrytypeid, fieldvalue=M]
+    % }
+    \map{
+      \pertype{report}
+      \step[fieldset=entrytypeid, fieldvalue=R]
+    }
+    \map{
+      \pertype{software}
+      \step[fieldset=entrytypeid, fieldvalue=CP]
+      \step[fieldsource=url, final]
+      \step[typesource=software, typetarget=online]
+    }
+    \map{
+      \pertype{standard}
+      \step[fieldset=entrytypeid, fieldvalue=S]
+    }
+    % \map{
+    %   \pertype{suppbook}
+    %   \step[typesource=suppbook, typetarget=book, final]
+    %   \step[fieldset=entrytypeid, fieldvalue=M]
+    % }
+    % \map{
+    %   \pertype{suppcollection}
+    %   \step[typesource=suppcollection, typetarget=book, final]
+    %   \step[fieldset=entrytypeid, fieldvalue=M]
+    % }
+    % \map{
+    %   \pertype{suppperiodical}
+    %   \step[typesource=suppperiodical, typetarget=book, final]
+    %   \step[fieldset=entrytypeid, fieldvalue=J]
+    % }
+    \map{
+      \pertype{thesis}
+      \step[fieldset=entrytypeid, fieldvalue=D]
+    }
+    \map{
+      \step[notfield=entrytypeid, final]
+      \step[fieldsource=URL, final]
+      \step[fieldset=entrytypeid, fieldvalue=EB]
+    }
+    \map{
+      \step[fieldset=entrytypeid, fieldvalue=Z]
+    }
+    %
+    % 处理文献载体标识
+    % 兼容 `medium`
+    \map{
+      \step[fieldsource=medium, match=\regexp{^([A-Z][A-Z])$}, final]
+      \step[fieldset=entrymediumid, fieldvalue={$1}]
+      \step[fieldset=medium, null]
+    }
+    %
+    % 专利优先使用申请者/所有者
+    \map[overwrite]{
+      \pertype{patent}
+      \step[fieldsource=holder, final]
+      \step[fieldset=author, origfieldval]
+      \step[fieldset=holder, null]
+    }
+    %
+    % 兼容拆分后的姓名格式：`张, 三`
+    \map[foreach={author, editor, translator}]{
+      \step[fieldsource=\regexp{$MAPLOOP}, match=\regexp{([\x{4e00}-\x{9fff}]),\s*([\x{4e00}-\x{9fff}])}, replace=\regexp{$1$2}]
+    }
+    %
+    % 专利优先使用申请号
+    \map[overwrite]{
+      \pertype{patent}
+      \step[fieldsource=applicationnumber, final]
+      \step[fieldset=number, origfieldval]
+      \step[fieldset=applicationnumber, null]
+    }
+    %
+    % 地图的尺寸
+    \map{
+      \pertype{map}
+      \step[fieldsource=dimensions, match=\regexp{(\d+[A-Za-z]]+)x(\d+[A-Za-z]+)}, replace=\regexp{$1×$2}]
+      \step[fieldsource=dimensions, match=\regexp{(\d+)([A-Za-z]+)}, replace=\regexp{$1\\,$2}]
+    }
+    %
+    % 连续出版物的年份、年卷期
+    \map{
+      \pertype{periodical}
+      \step[fieldsource=volume, match=\regexp{-+}, replace=\regexp{\\bibdaterangesep\x20}]
+      \step[fieldsource=volume, match=\regexp{–}, replace=\regexp{\\bibdaterangesep\x20}]
+      \step[fieldsource=volume, match=\regexp{—}, replace=\regexp{\\bibdaterangesep\x20}]
+    }
+    % 检查 CSTR 和 DOI 是否包含在 URL 中，若包含则删除 CSTR 和 DOI 字段
+    \map{
+      \step[fieldsource=cstr, match=\regexp{(.+)}, final]
+      \step[fieldsource=url, match=\regexp{$1}, final]
+      \step[fieldset=cstr, null]
+    }
+    \map{
+      \step[fieldsource=doi, match=\regexp{(.+)}, final]
+      \step[fieldsource=url, match=\regexp{$1}, final]
+      \step[fieldset=doi, null]
+    }
+    %
+    % 处理标题内的全角/半角标点
+    \map[overwrite, foreach={author, title, translator, editor, subtitle, volume, booktitle, journaltitle, eventtitle, location, publisher, institution, year, pages}]{
+      \step[fieldsource=\regexp{$MAPLOOP}, match=\regexp{\(}, replace=\regexp{\\bibleftparen\x20}]
+      \step[fieldsource=\regexp{$MAPLOOP}, match=\regexp{（}, replace=\regexp{\\addspace\\bibleftparen\x20}]
+      \step[fieldsource=\regexp{$MAPLOOP}, match=\regexp{(\)|）)([,.:;?!—–-，。：；？！])}, replace=\regexp{\\bibrightparen\x20$2}]
+      \step[fieldsource=\regexp{$MAPLOOP}, match=\regexp{(\)\s+|）)}, replace=\regexp{\\addrightparenspace\x20}]
+      \step[fieldsource=\regexp{$MAPLOOP}, match=\regexp{\)}, replace=\regexp{\\bibrightparen\x20}]
+      \step[fieldsource=\regexp{$MAPLOOP}, match=\regexp{，}, replace=\regexp{\\addcommaspace\x20}]
+      % \step[fieldsource=\regexp{$MAPLOOP}, match=\regexp{．}, replace={\adddotspace\x20}]
+      % \step[fieldsource=\regexp{$MAPLOOP}, match=\regexp{;\s*}, replace={；}]
+      \step[fieldsource=\regexp{$MAPLOOP}, match=\regexp{(:\s+|：)}, replace=\regexp{\\addcolonspace\x20}]
+      \step[fieldsource=\regexp{$MAPLOOP}, match=\regexp{:}, replace=\regexp{\\addfullcolon\x20}]
+      \step[fieldsource=\regexp{$MAPLOOP}, match=\regexp{(;\s+|；)}, replace=\regexp{\\addsemicolonspace\x20}]
+      \step[fieldsource=\regexp{$MAPLOOP}, match=\regexp{;}, replace=\regexp{\\addfullsemicolon\x20}]
+      \step[fieldsource=\regexp{$MAPLOOP}, match=\regexp{(!\s+|！)}, replace=\regexp{\\addexclamspace\x20}]
+      \step[fieldsource=\regexp{$MAPLOOP}, match=\regexp{!}, replace=\regexp{\\addfullexclam\x20}]
+      \step[fieldsource=\regexp{$MAPLOOP}, match=\regexp{(\?\s+|？)}, replace=\regexp{\\addquestionspace\x20}]
+      \step[fieldsource=\regexp{$MAPLOOP}, match=\regexp{\?}, replace=\regexp{\\addfullquestion\x20}]
+    }
+    \map[overwrite, foreach={title, subtitle, volume, booktitle, journaltitle, eventtitle, location, publisher, institution, year, pages}]{
+      \step[fieldsource=\regexp{$MAPLOOP}, match=\regexp{,\s+}, replace=\regexp{\\addcommaspace\x20}]
+      \step[fieldsource=\regexp{$MAPLOOP}, match=\regexp{,}, replace=\regexp{\\addcomma\x20}]
+    }
+    %
+    % 中、西文混用的标点（兼容 xeCJK）
+    \map[overwrite, foreach={author, title, subtitle, volume, translator, editor, booktitle, journaltitle, eventtitle, location, publisher, institution}]{
+      \step[fieldsource=langid, notmatch=\regexp{^(chinese|japanese|korean)}, final]
+      \step[fieldsource=\regexp{$MAPLOOP}, match={–}, replace={--}]
+      \step[fieldsource=\regexp{$MAPLOOP}, match={—}, replace={---}]
+      \step[fieldsource=\regexp{$MAPLOOP}, match={‘}, replace={`}]
+      \step[fieldsource=\regexp{$MAPLOOP}, match={’}, replace={'}]
+      \step[fieldsource=\regexp{$MAPLOOP}, match={“}, replace={``}]
+      \step[fieldsource=\regexp{$MAPLOOP}, match={”}, replace={''}]
+    }
+    %
+  }
 }
 
-%
-%   重设title的输出
-%
-%   20180425，v1.0k，为标题增加字体控制命令，Hu Zhenzhen
-%   原理方法:将文献类型标识符输出出去，原输出来自biblatex.def文件
-%   利用toggle做标识符是否输出的判断
-\renewbibmacro*{title}{%
-  \ifboolexpr{%
-    test{\iffieldundef{title}}%
-    and
-    test{\iffieldundef{subtitle}}%
-  }%
-    {}%
-    {\printtext[title]{\bibtitlefont%增加字体控制命令
-       \printfield[sentencecase]{title}%
-       \ifboolexpr{test {\iffieldundef{subtitle}}}%这里增加了对子标题的判断，解决不判断多一个点的问题
-       {}{\setunit{\subtitlepunct}%
-       \printfield[sentencecase]{subtitle}}%
-       \iffieldundef{titleaddon}{}%判断一下titleaddon，否则直接加可能多一个空格
-        {\setunit{\subtitlepunct}\printfield{titleaddon}}%
-        \iftoggle{bbx:gbtype}{%
-         \iffieldundef{entrysubtype}{\printfield[gbtypeflag]{usera}}%在标题后直接给出文献标识字母，判断一下，是否是报纸和标准
-        {\iffieldequalstr{entrysubtype}{standard}{\printfield[gbtypeflags]{usera}}%判断是否为标准
-                                         {\iffieldequalstr{entrysubtype}{news}{\printfield[gbtypeflagn]{usera}}%判断是否为报纸
-                                                                      {\printfield[gbtypeflag]{usera}}}%其它
-        }}{}%
-     %\iffieldundef{booktitle}{\newunit}{}%当title是析出时，不要标点
-     %\newunit
-}%
-}}
+\DeclareDelimFormat{multinamedelim}{\addcommaspace}
+\DeclareDelimFormat[bib,biblist]{finalnamedelim}{%
+  % \ifnumgreater{\value{liststop}}{2}{\finalandcomma}{}%
+  % \addspace\bibstring{and}\space}
+  \printdelim{multinamedelim}}
 
-\renewbibmacro*{maintitle}{%
+\DeclareDelimFormat[bib,biblist]{andothersdelim}{%
+  \iftoggle{bbx:punctGB}
+    {}
+    {\addspace}}
+
+\DeclareDelimFormat{translatortypedelim}{\addcommaspace}
+
+\DeclareDelimFormat[bib,biblist]{nameyeardelim}{\addcommaspace}
+\DeclareDelimFormat[bib,biblist]{nonameyeardelim}{\addcommaspace}
+
+\renewcommand*{\subtitlepunct}{\addcolonspace}
+\renewcommand*{\bibpagespunct}{\addcolonspace}
+
+\renewcommand*{\bibeidpunct}{\addcolonspace}
+
+\renewcommand*{\revsdnamepunct}{}
+
+\setcounter{biburllcpenalty}{250}
+\setcounter{biburlucpenalty}{250}
+\setcounter{biburlnumpenalty}{250}
+
+\DeclareFieldFormat{doi}{%
+  DOI\addcolon\allowbreak
+  \ifhyperref
+    {\href{https://doi.org/#1}{\nolinkurl{#1}}}
+    {\nolinkurl{#1}}}
+
+\DeclareFieldFormat{cstr}{%
+  CSTR\addcolon\allowbreak
+  \ifhyperref
+    {\href{https://www.cstr.cn/CSTR:#1}{\nolinkurl{#1}}}
+    {\nolinkurl{#1}}}
+
+\DeclareFieldFormat{edition}{%
+  \ifinteger{#1}
+    {\iffieldequalstr{langid}{chinese}
+       {#1 版}
+       {\mkbibordedition{#1}~\bibstring{edition}}}
+    {#1\isdot}}
+
+\DeclareFieldFormat{journaltitle}{#1\isdot}
+\DeclareFieldFormat{issuetitle}{#1}
+\DeclareFieldFormat{maintitle}{#1}
+\DeclareFieldFormat{booktitle}{#1}
+
+\DeclareFieldFormat{pages}{#1}
+
+\DeclareFieldFormat*{title}{#1}
+
+\DeclareFieldFormat{url}{\url{#1}}
+\DeclareFieldFormat{urldate}{\mkbibbrackets{#1}}
+\DeclareFieldFormat{version}{\bibstring{version}#1}
+\DeclareFieldFormat{volume}{%
   \ifboolexpr{
-    test {\iffieldundef{maintitle}}
+    test {\iffieldnum{volume}}
+    or
+    test {\iffieldnums{volume}}
+  }
+    {\iffieldequalstr{langid}{chinese}
+       {第~#1 卷}
+       {\bibstring{volume}~#1}}
+    {#1\isdot}}
+\DeclareFieldFormat[article,periodical]{volume}{#1}% volume of a journal
+
+\DeclareFieldFormat{titlecase}{\MakeSentenceCase*{#1}}
+\DeclareFieldAlias{titlecase:title}{titlecase}
+\DeclareFieldAlias{titlecase:booktitle}{titlecase}
+\DeclareFieldFormat{titlecase:journaltitle}{#1}
+\DeclareFieldAlias[periodical]{titlecase:title}{titlecase:journaltitle}
+
+\newcommand*{\bbx@colon@search}[2]{%
+  \bbx@colon@search@auxi\empty#2: \stop{#1}%
+}
+\long\def\bbx@colon@search@auxi#1: #2\stop#3{%
+  \expandafter\bbx@colon@search@auxii\expandafter{#1}{#3}%
+  \ifblank{#2}
+    {}
+    {%
+      : %
+      \bbx@colon@search@auxi\empty#2\stop{#3}%
+    }%
+}
+\newcommand\bbx@colon@search@auxii[2]{#2{#1}}
+
+\DeclareNameFormat{family-given}{%
+  \ifgiveninits
+    {\ifbibnamepinyin{\namepartfamily}{\namepartgiven}{\namepartprefix}{\namepartsuffix}
+       {\togglefalse{abx@bool@giveninits}%
+        \letcs\namepartgiveni{l_gbt_pinyin_inits_tl}}
+       {}}
+    {}%
+  \ifgiveninits
+    {\usebibmacro{name:family-given}
+      {\namepartfamily}
+      {\namepartgiveni}
+      {\namepartprefix}
+      {\namepartsuffix}}
+    {\usebibmacro{name:family-given}
+      {\namepartfamily}
+      {\namepartgiven}
+      {\namepartprefix}
+      {\namepartsuffix}}%
+  \usebibmacro{name:andothers}}
+
+\DeclareNameAlias{default}{family-given}
+
+\renewbibmacro*{name:family-given}[4]{%
+  \ifuseprefix
+    {\usebibmacro{name:delim}{#3#1}%
+     \usebibmacro{name:hook}{#3#1}%
+     \mkbibcompletenamefamilygiven{%
+       \ifdefvoid{#3}
+         {}
+         {\ifcapital
+            {\mkbibnameprefix{\MakeCapital{#3}}\isdot}
+            {\mkbibnameprefix{#3}\isdot}%
+          \ifprefchar{}{\bibnamedelimc}}%
+       \mkbibnamefamily{#1}\isdot
+      %  \ifdefvoid{#4}
+      %    {}
+      %    {\bibnamedelimd\mkbibnamesuffix{#4}\isdot}%
+      %  \ifdefvoid{#2}
+      %    {}
+      %    {\revsdnamepunct\bibnamedelimd\mkbibnamegiven{#2}\isdot}}}
+       \ifdefvoid{#2}
+         {}
+         {\revsdnamepunct\bibnamedelimd\mkbibnamegiven{#2}\isdot}%
+       \ifdefvoid{#4}
+         {}
+         {\addcomma@bibnamedelimd\mkbibnamesuffix{#4}\isdot}}}
+    {\usebibmacro{name:delim}{#1}%
+     \usebibmacro{name:hook}{#1}%
+     \mkbibcompletenamefamilygiven{%
+       \mkbibnamefamily{#1}\isdot
+       \ifboolexpe{%
+         test {\ifdefvoid{#2}}
+         and
+         test {\ifdefvoid{#3}}}
+         {}
+         {\revsdnamepunct}%
+       \ifdefvoid{#2}
+         {}
+         {\bibnamedelimd\mkbibnamegiven{#2}\isdot}%
+       \ifdefvoid{#3}
+         {}
+         {\bibnamedelimd\mkbibnameprefix{#3}\isdot}}%
+       \ifdefvoid{#4}
+         {}
+         {\addcomma@bibnamedelimd\mkbibnamesuffix{#4}\isdot}}}
+
+\renewbibmacro*{name:andothers}{%
+  \ifboolexpr{
+    test {\ifnumequal{\value{listcount}}{\value{liststop}}}
     and
-    test {\iffieldundef{mainsubtitle}}
+    test \ifmorenames
+  }
+    {%
+     \ifnumgreater{\value{liststop}}{1}
+       {\finalandcomma}
+       {}%
+     \printdelim{andothersdelim}%
+     \iffieldequalstr{langid}{chinese}
+       {等}
+       {\bibstring{andothers}}}%
+    {}}
+
+\DeclareSortingTemplate{GB}{
+  \sort{
+    \field{sortlang}
+  }
+  \sort{
+    \field{presort}
+  }
+  \sort[final]{
+    \field{sortkey}
+  }
+  \sort{
+    \field{sortname}
+    \field{author}
+    \field{editor}
+    % \field{translator}
+    % \field{sorttitle}
+    % \field{title}
+  }
+  \sort{
+    \field{sortyear}
+    \field{year}
+    \field{urlyear}
+  }
+  \sort{
+    \field{sorttitle}
+    \field{title}
+  }
+  \sort{
+    \field{volume}
+    \literal{0}
+  }
+}
+
+\renewbibmacro*{editor}{%
+  \ifboolexpr{
+    test \ifuseeditor
+    and
+    not test {\ifnameundef{editor}}
+  }
+    {\printnames{editor}%
+     % \setunit{\printdelim{editortypedelim}}%
+     % \usebibmacro{editorstrg}%
+     \clearname{editor}}
+    {}}
+
+\renewbibmacro*{translator}{%
+  \ifnameundef{translator}
+    {}
+    {\printnames{translator}%
+     \setunit{\printdelim{translatortypedelim}}%
+     \usebibmacro{translatorstrg}%
+     \clearname{translator}}}
+
+\renewbibmacro*{translatorstrg}{%
+  \printtext[translatortype]{%
+    \iffieldequalstr{langid}{chinese}
+      {译}
+      {\ifboolexpr{
+         test {\ifnumgreater{\value{translator}}{1}}
+         or
+         test {\ifandothers{translator}}
+       }
+         {\bibstring{translators}}
+         {\bibstring{translator}}}}}
+
+\newbibmacro*{in:editor}{%
+  \ifnameundef{editor}
+    {}
+    {%
+     % \usebibmacro{bytypestrg}{editor}{editor}%
+     % \setunit{\addspace}%
+     \printnames[byeditor]{editor}%
+     \newunit}}
+  % \usebibmacro{byeditorx}%
+
+\renewbibmacro*{title}{%
+  \ifboolexpr{
+    test {\iffieldundef{title}}
+    and
+    test {\iffieldundef{subtitle}}
   }
     {}
-    {\printtext[maintitle]{%
-       % 在 maintitle+title 使用 sentence case，但是在 maintitle+booktitle 使用 title case
-       \printfield[titlecase]{maintitle}%
-       \iffieldundef{booktitle}{%
-         \printfield[sentencecase]{maintitle}%
-       }{%
-         \printfield[titlecase]{maintitle}%
-       }%
+    {\printtext[title]{%
+       \printfield[titlecase:title]{title}%
        \setunit{\subtitlepunct}%
-       % \printfield[titlecase]{mainsubtitle}%
-       \iffieldundef{booktitle}{%
-         \printfield[sentencecase]{maintitle}%
-       }{%
-         \printfield[titlecase]{maintitle}%
-       }%
-      }%
-     \newunit}%
-  \printfield{maintitleaddon}}
+       \printfield[titlecase:title]{subtitle}}%
+     \ifboolexpr{
+       not test {\iffieldundef{volume}}
+       and
+       test {\iffieldundef{maintitle}}
+       and
+       test {\iffieldundef{booktitle}}
+       and
+       not test {\ifentrytype{article}}
+       and
+       not test {\ifentrytype{periodical}}
+     }
+       {\setunit{\subtitlepunct}%
+        \printfield{volume}}
+       {}%
+     \ifboolexpr{
+       test {\iffieldequalstr{entrytypeid}{R}}
+       or
+       test {\iffieldequalstr{entrytypeid}{P}}
+       or
+       test {\iffieldequalstr{entrytypeid}{A}}
+       and
+       not test {\iffieldundef{number}}
+     }
+       {\setunit*{\subtitlepunct}%
+        \printfield{number}}
+       {}%
+     \ifboolexpr{
+       test {\ifentrytype{map}}
+       and
+       not test {\iffieldundef{scale}}
+     }
+       {\newunit
+        \printfield{scale}}
+       {}%
+     \setunit*{\addhpthinspace}%
+     \usebibmacro{entrytypeid}}}
 
-% 斜线默认使用原字体，不再使用等宽字体
-% <https://github.com/tuna/thuthesis/discussions/1018>
-\def\SlashFont{}
+\newbibmacro*{entrytypeid}{%
+  \printtext[brackets]{%
+    \iffieldundef{entrytypeid}
+      {\printtext{Z}}
+      {\printfield{entrytypeid}}%
+    \setunit{/}%  \addslash is breakable
+    \iffieldundef{entrymediumid}
+      {\ifboolexpr{
+         (not test {\iffieldundef{url}}
+          and
+          test {\iftoggle{bbx:url}})
+         or
+         (not test {\iffieldundef{cstr}}
+          or
+          not test {\iffieldundef{doi}}
+          and
+          test {\iftoggle{bbx:doi}})
+       }
+         {\printtext{OL}}
+         {}}
+      {\printfield{entrymediumid}}}}
+
+\renewbibmacro*{booktitle}{%
+  \ifboolexpr{
+    test {\iffieldundef{booktitle}}
+    and
+    test {\iffieldundef{booksubtitle}}
+  }
+    {}
+    {\printtext[booktitle]{%
+       \printfield[titlecase:booktitle]{booktitle}%
+       \setunit{\subtitlepunct}%
+       \printfield[titlecase:booktitle]{booksubtitle}}%
+     \iffieldundef{maintitle}
+       {\setunit{\addcolonspace}%
+        \printfield{volume}%
+        \printfield{part}}
+       {}%
+    \newunit}}
+
+\renewbibmacro*{journal}{%
+  \ifboolexpr{
+    test {\iffieldundef{journaltitle}}
+    and
+    test {\iffieldundef{journalsubtitle}}
+  }
+    {}
+    {\printtext[journaltitle]{%
+       \printfield[titlecase:journaltitle]{journaltitle}%
+       \setunit{\subtitlepunct}%
+       \printfield[titlecase:journaltitle]{journalsubtitle}}%
+     \newunit}}
+
+\newbibmacro*{fulldate}{%
+  \mkdaterangeiso{}%
+}
+
+\ExecuteBibliographyOptions[preprint]{url=true}
+
+\DeclareBibliographyDriver{article}{%
+  \usebibmacro{bibindex}%
+  \usebibmacro{begentry}%
+  \usebibmacro{author}%
+  \setunit{\printdelim{nametitledelim}}\newblock
+  \usebibmacro{title}%
+  \newunit\newblock
+  \usebibmacro{translator}%
+  \newunit\newblock
+  \usebibmacro{journal+volume+issue+pages}%
+  \newunit\newblock
+  \usebibmacro{url+pid}%
+  \setunit{\bibpagerefpunct}\newblock
+  \usebibmacro{pageref}%
+  \newunit\newblock
+  \iftoggle{bbx:related}
+    {\usebibmacro{related:init}%
+     \usebibmacro{related}}
+    {}%
+  \usebibmacro{finentry}}
+
+\DeclareBibliographyDriver{archive}{%
+  \usebibmacro{bibindex}%
+  \usebibmacro{begentry}%
+  \usebibmacro{author/editor}%
+  \setunit{\printdelim{nametitledelim}}\newblock
+  \usebibmacro{maintitle+title}%
+  \newunit\newblock
+  \usebibmacro{translator}%
+  \newunit\newblock
+  \printfield{edition}%
+  \newunit\newblock
+  \usebibmacro{institution+location+fulldate}%
+  \usebibmacro{pages}%
+  \newunit\newblock
+  \usebibmacro{url+pid}%
+  \setunit{\bibpagerefpunct}\newblock
+  \usebibmacro{pageref}%
+  \newunit\newblock
+  \iftoggle{bbx:related}
+    {\usebibmacro{related:init}%
+     \usebibmacro{related}}
+    {}%
+  \usebibmacro{finentry}}
+
+\DeclareBibliographyDriver{book}{%
+  \usebibmacro{bibindex}%
+  \usebibmacro{begentry}%
+  \usebibmacro{author/editor}%
+  \setunit{\printdelim{nametitledelim}}\newblock
+  \usebibmacro{maintitle+title}%
+  \newunit\newblock
+  \usebibmacro{translator}%
+  \newunit\newblock
+  \printfield{edition}%
+  \newunit\newblock
+  \usebibmacro{publisher+location+date}%
+  \usebibmacro{pages}%
+  \newunit\newblock
+  \usebibmacro{url+pid}%
+  \setunit{\bibpagerefpunct}\newblock
+  \usebibmacro{pageref}%
+  \newunit\newblock
+  \iftoggle{bbx:related}
+    {\usebibmacro{related:init}%
+     \usebibmacro{related}}
+    {}%
+  \usebibmacro{finentry}}
+
+\DeclareBibliographyDriver{collection}{%
+  \usebibmacro{bibindex}%
+  \usebibmacro{begentry}%
+  \usebibmacro{editor}%
+  \setunit{\printdelim{nametitledelim}}\newblock
+  \usebibmacro{maintitle+title}%
+  \newunit\newblock
+  \usebibmacro{translator}%
+  \newunit\newblock
+  \printfield{edition}%
+  \newunit\newblock
+  \usebibmacro{publisher+location+date}%
+  \usebibmacro{pages}%
+  \newunit\newblock
+  \usebibmacro{url+pid}%
+  \setunit{\bibpagerefpunct}\newblock
+  \usebibmacro{pageref}%
+  \newunit\newblock
+  \iftoggle{bbx:related}
+    {\usebibmacro{related:init}%
+     \usebibmacro{related}}
+    {}%
+  \usebibmacro{finentry}}
+
+\DeclareBibliographyDriver{inbook}{%
+  \usebibmacro{bibindex}%
+  \usebibmacro{begentry}%
+  \usebibmacro{author}%
+  \setunit{\printdelim{nametitledelim}}\newblock
+  \usebibmacro{title}%
+  \newunit
+  \usebibmacro{translator}%
+  \setunit{\adddoubleslash}%
+  \ifnameundef{bookauthor}
+    {\ifnameundef{editor}
+       {}
+       {\usebibmacro{in:editor}%
+        \newunit\newblock}}
+    {\printnames{bookauthor}%
+     \newunit\newblock}%
+  \usebibmacro{maintitle+booktitle}%
+  \newunit\newblock
+  \printfield{edition}%
+  \newunit\newblock
+  \usebibmacro{publisher+location+date}%
+  \usebibmacro{pages}%
+  \newunit\newblock
+  \usebibmacro{url+pid}%
+  \setunit{\bibpagerefpunct}\newblock
+  \usebibmacro{pageref}%
+  \newunit\newblock
+  \iftoggle{bbx:related}
+    {\usebibmacro{related:init}%
+     \usebibmacro{related}}
+    {}%
+  \usebibmacro{finentry}}
+
+\DeclareBibliographyDriver{incollection}{%
+  \usebibmacro{bibindex}%
+  \usebibmacro{begentry}%
+  \usebibmacro{author}%
+  \setunit{\printdelim{nametitledelim}}\newblock
+  \usebibmacro{title}%
+  \newunit
+  \usebibmacro{translator}%
+  \setunit{\adddoubleslash}%
+  \ifnameundef{editor}
+    {}
+    {\usebibmacro{in:editor}%
+     \newunit\newblock}%
+  \usebibmacro{maintitle+booktitle}%
+  \newunit\newblock
+  \printfield{edition}%
+  \newunit\newblock
+  \usebibmacro{publisher+location+date}%
+  \usebibmacro{pages}%
+  \newunit\newblock
+  \usebibmacro{url+pid}%
+  \setunit{\bibpagerefpunct}\newblock
+  \usebibmacro{pageref}%
+  \newunit\newblock
+  \iftoggle{bbx:related}
+    {\usebibmacro{related:init}%
+     \usebibmacro{related}}
+    {}%
+  \usebibmacro{finentry}}
+
+\DeclareBibliographyDriver{inproceedings}{%
+  \usebibmacro{bibindex}%
+  \usebibmacro{begentry}%
+  \usebibmacro{author}%
+  \setunit{\printdelim{nametitledelim}}\newblock
+  \usebibmacro{title}%
+  \newunit
+  \usebibmacro{translator}%
+  \setunit{\adddoubleslash}%
+  \iffieldundef{booktitle}
+    {\printfield{eventtitle}%
+     \setunit*{\addcommaspace}%
+     \usebibmacro{date}}
+    {\ifnameundef{editor}
+       {}
+       {\usebibmacro{in:editor}%
+        \newunit\newblock}%
+     \usebibmacro{maintitle+booktitle}
+     \newunit\newblock
+     \printfield{edition}%
+     \newunit\newblock
+     \usebibmacro{publisher+location+date}}%
+  \usebibmacro{pages}%
+  \newunit\newblock
+  \usebibmacro{url+pid}%
+  \setunit{\bibpagerefpunct}\newblock
+  \usebibmacro{pageref}%
+  \newunit\newblock
+  \iftoggle{bbx:related}
+    {\usebibmacro{related:init}%
+     \usebibmacro{related}}
+    {}%
+  \usebibmacro{finentry}}
+
+\DeclareBibliographyDriver{dataset}{%
+  \usebibmacro{bibindex}%
+  \usebibmacro{begentry}%
+  \usebibmacro{author/editor}%
+  \setunit{\printdelim{nametitledelim}}\newblock
+  \usebibmacro{title}%
+  \newunit\newblock
+  \usebibmacro{translator}%
+  \newunit\newblock
+  \printfield{version}%
+  \newunit\newblock
+  \printlist{publisher}%
+  \iffieldundef{year}
+    {}
+    {\setunit*{\addhalfspace}%
+     \printtext[parens]{\usebibmacro{fulldate}}}%
+  \iffieldundef{urlyear}
+    {}
+    {\setunit*{\addhalfspace}%
+     \usebibmacro{urldate}}%
+  \newunit\newblock
+  \usebibmacro{url+pid}%
+  \setunit{\bibpagerefpunct}\newblock
+  \usebibmacro{pageref}%
+  \newunit\newblock
+  \iftoggle{bbx:related}
+    {\usebibmacro{related:init}%
+     \usebibmacro{related}}
+    {}%
+  \usebibmacro{finentry}}
+
+\DeclareBibliographyDriver{map}{%
+  \usebibmacro{bibindex}%
+  \usebibmacro{begentry}%
+  \usebibmacro{author/editor}%
+  \setunit{\printdelim{nametitledelim}}\newblock
+  \usebibmacro{maintitle+title}%
+  \newunit\newblock
+  \usebibmacro{translator}%
+  \newunit\newblock
+  \printfield{edition}%
+  \newunit\newblock
+  \usebibmacro{publisher+location+date}%
+  \usebibmacro{pages}%
+  \newunit\newblock
+  \usebibmacro{url+pid}%
+  \newunit\newblock
+  \printfield{dimensions}%
+  \setunit{\bibpagerefpunct}\newblock
+  \usebibmacro{pageref}%
+  \newunit\newblock
+  \iftoggle{bbx:related}
+    {\usebibmacro{related:init}%
+     \usebibmacro{related}}
+    {}%
+  \usebibmacro{finentry}}
+
+\DeclareBibliographyDriver{misc}{%
+  \usebibmacro{bibindex}%
+  \usebibmacro{begentry}%
+  \usebibmacro{author/editor}%
+  \setunit{\printdelim{nametitledelim}}\newblock
+  \usebibmacro{title}%
+  \newunit\newblock
+  \usebibmacro{translator}%
+  \newunit\newblock
+  \printfield{howpublished}%
+  \newunit\newblock
+  \printfield{type}%
+  \newunit
+  \printfield{version}%
+  \newunit\newblock
+  \usebibmacro{organization+location+date}%
+  \newunit\newblock
+  \usebibmacro{url+pid}%
+  \setunit{\bibpagerefpunct}\newblock
+  \usebibmacro{pageref}%
+  \newunit\newblock
+  \iftoggle{bbx:related}
+    {\usebibmacro{related:init}%
+     \usebibmacro{related}}
+    {}%
+  \usebibmacro{finentry}}
+
+\DeclareBibliographyDriver{online}{%
+  \usebibmacro{bibindex}%
+  \usebibmacro{begentry}%
+  \usebibmacro{author}%
+  \setunit{\printdelim{nametitledelim}}\newblock
+  \usebibmacro{title}%
+  \newunit\newblock
+  \iffieldundef{year}
+    {}
+    {\printtext[parens]{\usebibmacro{fulldate}}%
+     \setunit{\addhalfspace}}%
+  \iffieldundef{urlyear}
+    {}
+    {\usebibmacro{urldate}}%
+  \newunit\newblock
+  \usebibmacro{url}%
+  \setunit{\bibpagerefpunct}\newblock
+  \usebibmacro{pageref}%
+  \newunit\newblock
+  \iftoggle{bbx:related}
+    {\usebibmacro{related:init}%
+     \usebibmacro{related}}
+    {}%
+  \usebibmacro{finentry}}
+
+\DeclareBibliographyDriver{patent}{%
+  \usebibmacro{bibindex}%
+  \usebibmacro{begentry}%
+  \usebibmacro{author}%
+  \setunit{\printdelim{nametitledelim}}\newblock
+  \usebibmacro{title}%
+  \newunit\newblock
+  \usebibmacro{fulldate}%
+  \usebibmacro{pages}%
+  \newunit\newblock
+  \usebibmacro{url+pid}%
+  \setunit{\bibpagerefpunct}\newblock
+  \usebibmacro{pageref}%
+  \newunit\newblock
+  \iftoggle{bbx:related}
+    {\usebibmacro{related:init}%
+     \usebibmacro{related}}
+    {}%
+  \usebibmacro{finentry}}
+
+\DeclareBibliographyDriver{periodical}{%
+  \usebibmacro{bibindex}%
+  \usebibmacro{begentry}%
+  \usebibmacro{editor}%
+  \setunit{\printdelim{nametitledelim}}\newblock
+  \usebibmacro{title}%
+  \newunit\newblock
+  \printfield{volume}%
+  \newunit\newblock
+  \usebibmacro{publisher+location+date}%
+  \newunit\newblock
+  \usebibmacro{url+pid}%
+  \setunit{\bibpagerefpunct}\newblock
+  \usebibmacro{pageref}%
+  \newunit\newblock
+  \iftoggle{bbx:related}
+    {\usebibmacro{related:init}%
+     \usebibmacro{related}}
+    {}%
+  \usebibmacro{finentry}}
+
+\DeclareBibliographyDriver{preprint}{%
+  \usebibmacro{bibindex}%
+  \usebibmacro{begentry}%
+  \usebibmacro{author/editor}%
+  \setunit{\printdelim{nametitledelim}}\newblock
+  \usebibmacro{title}%
+  \newunit\newblock
+  \printfield{version}%
+  \newunit\newblock
+  \printfield{eprinttype}%
+  \iffieldundef{year}
+    {}
+    {\setunit*{\addhalfspace}%
+     \printtext[parens]{\usebibmacro{fulldate}}}%
+  \iffieldundef{urlyear}
+    {}
+    {\setunit*{\addhalfspace}%
+     \usebibmacro{urldate}}%
+  \newunit\newblock
+  \usebibmacro{url+pid}%
+  \setunit{\bibpagerefpunct}\newblock
+  \usebibmacro{pageref}%
+  \newunit\newblock
+  \iftoggle{bbx:related}
+    {\usebibmacro{related:init}%
+     \usebibmacro{related}}
+    {}%
+  \usebibmacro{finentry}}
+
+\DeclareBibliographyDriver{report}{%
+  \usebibmacro{bibindex}%
+  \usebibmacro{begentry}%
+  \usebibmacro{author}%
+  \setunit{\printdelim{nametitledelim}}\newblock
+  \usebibmacro{title}%
+  \newunit\newblock
+  \usebibmacro{translator}%
+  \newunit\newblock
+  \iflistundef{institution}
+    {\usebibmacro{fulldate}}
+    {\usebibmacro{institution+location+date}}%
+  \usebibmacro{pages}%
+  \newunit\newblock
+  \usebibmacro{url+pid}%
+  \setunit{\bibpagerefpunct}\newblock
+  \usebibmacro{pageref}%
+  \newunit\newblock
+  \iftoggle{bbx:related}
+    {\usebibmacro{related:init}%
+     \usebibmacro{related}}
+    {}%
+  \usebibmacro{finentry}}
+
+\DeclareBibliographyDriver{standard}{%
+  \usebibmacro{bibindex}%
+  \usebibmacro{begentry}%
+  \printfield{number}%
+  \iffieldequalstr{langid}{chinese}
+    {\setunit*{\quad}}
+    {\setunit*{\addspace}}%
+  \usebibmacro{maintitle+title}%
+  \newunit\newblock
+  \usebibmacro{url+pid}%
+  \setunit{\bibpagerefpunct}\newblock
+  \usebibmacro{pageref}%
+  \newunit\newblock
+  \iftoggle{bbx:related}
+    {\usebibmacro{related:init}%
+     \usebibmacro{related}}
+    {}%
+  \usebibmacro{finentry}}
+
+\DeclareBibliographyDriver{thesis}{%
+  \usebibmacro{bibindex}%
+  \usebibmacro{begentry}%
+  \usebibmacro{author}%
+  \setunit{\printdelim{nametitledelim}}\newblock
+  \usebibmacro{title}%
+  \newunit\newblock
+  \usebibmacro{institution+location+date}%
+  \usebibmacro{pages}%
+  \newunit\newblock
+  \usebibmacro{url+pid}%
+  \setunit{\bibpagerefpunct}\newblock
+  \usebibmacro{pageref}%
+  \newunit\newblock
+  \iftoggle{bbx:related}
+    {\usebibmacro{related:init}%
+     \usebibmacro{related}}
+    {}%
+  \usebibmacro{finentry}}
+
+\DeclareBibliographyDriver{shorthand}{%
+  \usedriver
+    {\DeclareNameAlias{sortname}{default}}
+    {\thefield{entrytype}}%
+  \finentry}
+
+\DeclareBibliographyDriver{set}{%
+  \entryset{}{}%
+  \newunit\newblock
+  \usebibmacro{setpageref}%
+  \finentry}
+
+\renewbibmacro*{maintitle+title}{%
+  \iffieldsequal{maintitle}{title}
+    {\clearfield{maintitle}%
+     \clearfield{mainsubtitle}%
+     \clearfield{maintitleaddon}}
+    {\iffieldundef{maintitle}
+       {}
+       {\usebibmacro{maintitle}%
+        \setunit{\addcolonspace}%
+        \ifboolexpr{
+          test {\iffieldundef{volume}}
+          and
+          test {\iffieldundef{part}}
+        }
+          {}
+          {% 中国科学技术史：第2卷 科学思想史
+           \printfield{volume}%
+           \printfield{part}%
+           \setunit{\quad}}}}%
+  \usebibmacro{title}%
+  \newunit}
+
+\renewbibmacro*{maintitle+booktitle}{%
+  \iffieldundef{maintitle}
+    {}
+    {\usebibmacro{maintitle}%
+     \newunit\newblock
+     \setunit{\addcolonspace}%
+     \ifboolexpr{
+       test {\iffieldundef{volume}}
+       and
+       test {\iffieldundef{part}}
+     }
+       {}
+       {% 中国科学技术史：第2卷 科学思想史
+         \printfield{volume}%
+         \printfield{part}%
+         \setunit{\quad}}}%
+  \usebibmacro{booktitle}%
+  \newunit}
+
+\newbibmacro*{journal+volume+issue+pages}{%
+  \usebibmacro{journal}%
+  \setunit*{\addcommaspace}%
+  \iffieldequalstr{entrysubtype}{newspaper}
+    {\usebibmacro{fulldate}%
+     \setunit*{}%
+     \printfield[parens]{pages}}
+    {\ifboolexpr{
+       test {\iffieldundef{volume}}
+       and
+       test {\iffieldundef{number}}
+     }
+       {% 在线出版日期
+        \usebibmacro{fulldate}}
+       {\usebibmacro{date}%
+        \iffieldundef{volume}
+          {}
+          {\setunit*{\addcommaspace}%
+           \printfield{volume}}%
+        \iffieldundef{number}
+          {}
+          {\setunit*{}%
+           \printfield[parens]{number}}}%
+     \iffieldundef{pages}
+       {\setunit*{\bibeidpunct}%
+        \printfield{eid}}
+       {\setunit*{\bibpagespunct}%
+        \printfield{pages}}}%
+  \newunit}
+
+\renewbibmacro*{publisher+location+date}{%
+  \printlist{location}%
+  \iflistundef{publisher}
+    {\setunit*{\addcommaspace}}
+    {\setunit*{\addcolonspace}}%
+  \printlist{publisher}%
+  \setunit*{\addcommaspace}%
+  \usebibmacro{date}%
+  \newunit}
+
+\renewbibmacro*{institution+location+date}{%
+  \printlist{location}%
+  \iflistundef{institution}
+    {\setunit*{\addcommaspace}}
+    {\setunit*{\addcolonspace}}%
+  \printlist{institution}%
+  \setunit*{\addcommaspace}%
+  \usebibmacro{date}%
+  \newunit}
+
+\newbibmacro*{institution+location+fulldate}{%
+  \printlist{location}%
+  \iflistundef{institution}
+    {\setunit*{\addcommaspace}}
+    {\setunit*{\addcolonspace}}%
+  \printlist{institution}%
+  \setunit*{\addcommaspace}%
+  \usebibmacro{fulldate}%
+  \newunit}
+
+\newbibmacro*{pages}{%
+  \setunit*{\bibpagespunct}%
+  \printfield{pages}}
+
+\newbibmacro*{url+pid}{%
+  \newunit\newblock
+  \iftoggle{bbx:url}
+    {\usebibmacro{url}}
+    {}%
+  \newunit\newblock
+  \iftoggle{bbx:doi}
+    {\iffieldundef{cstr}
+       {\printfield{doi}}
+       {\printfield{cstr}}}
+    {}}
+
+
+\DefineBibliographyExtras{english}{
+  \protected\def\bibrangedash{%
+    -\penalty\hyphenpenalty}% breakable dash
+  \def\finalandcomma{\iftoggle{bbx:punctGB}{\addfullcomma}{\addcomma}}%
+}
+
+\DefineBibliographyStrings{english}{
+  volume           = {v\adddot},
+  version          = {V},
+}
+
+\ExplSyntaxOn
+
+
+\NewDocumentCommand \ifbibnamepinyin { m m m m }
+  {
+    \__gbt_if_pinyin_name:nnnnTF {#1} {#2} {#3} {#4}
+      { \@firstoftwo }
+      { \@secondoftwo }
+  }
+
+\prg_new_protected_conditional:Npnn \__gbt_if_pinyin_name:nnnn #1#2#3#4 { TF }
+  {
+    \exp_args:Ne \str_if_empty:nTF { #3 #4 }
+      {
+        \__gbt_if_pinyin_family_name:nTF {#1}
+          {
+            % Given name
+            \__gbt_if_pinyin_words:nTF {#2}
+              { \prg_return_true: }
+              {
+                \__gbt_if_pinyin_words_with_delim:nnTF {#2} { ' }
+                  { \prg_return_true: }
+                  { \prg_return_false: }
+              }
+          }
+          { \prg_return_false: }
+      }
+      { \prg_return_false: }
+  }
+
+\prg_new_protected_conditional:Npnn \__gbt_if_pinyin_family_name:n #1 { TF }
+  {
+    \__gbt_if_pinyin_words:nTF {#1}
+      { \prg_return_true: }
+      {
+        \__gbt_if_pinyin_words_with_delim:nnTF {#1} { - }
+          { \prg_return_true: }
+          { \prg_return_false: }
+      }
+  }
+
+\tl_new:N \l_gbt_pinyin_inits_tl
+
+\prg_new_protected_conditional:Npnn \__gbt_if_pinyin_words:n #1 { TF }
+  {
+    \str_set:Ne \l_tmpa_str { \str_lowercase:f {#1} }
+    \bool_set_false:N \l_tmpa_bool
+    \int_step_inline:nn { \str_count:N \l_tmpa_str }
+      {
+        \str_set:Ne \l_tmpb_str { \str_range:Nnn \l_tmpa_str { 1 } { ##1 - 1 } }
+        \tl_set:Nn \l_gbt_pinyin_inits_tl { }
+        \str_if_empty:NF \l_tmpb_str
+          {
+            \tl_set:Ne \l_gbt_pinyin_inits_tl
+              { \str_uppercase:f { \str_head:N \l_tmpa_str } }
+            \tl_put_right:Nn \l_gbt_pinyin_inits_tl { \bibinitperiod }
+          }
+        \bool_lazy_or:nnT
+          { \str_if_empty_p:N \l_tmpb_str }
+          { \prop_if_in_p:NV \l__gbt_pinyin_prop \l_tmpb_str }
+          {
+            \str_set:Ne \l_tmpb_str
+              { \str_range:Nnn \l_tmpa_str { ##1 } { - 1 } }
+            \prop_if_in:NVT \l__gbt_pinyin_prop \l_tmpb_str
+              {
+                \bool_set_true:N \l_tmpa_bool
+                \str_if_empty:NF \l_gbt_pinyin_inits_tl
+                  { \tl_put_right:Nn \l_gbt_pinyin_inits_tl { \bibinitdelim } }
+                \tl_put_right:Ne \l_gbt_pinyin_inits_tl
+                  { \str_uppercase:f { \str_head:N \l_tmpb_str } }
+                \tl_put_right:Nn \l_gbt_pinyin_inits_tl { \bibinitperiod }
+                \prg_break:
+              }
+          }
+      }
+    \bool_if:NTF \l_tmpa_bool
+      { \prg_return_true: }
+      {
+        \tl_clear:N \l_gbt_pinyin_inits_tl
+        \prg_return_false:
+      }
+  }
+
+\prg_new_protected_conditional:Npnn \__gbt_if_pinyin_words_with_delim:nn #1#2
+  { TF }
+  {
+    \str_set:Ne \l_tmpa_str { \str_lowercase:f {#1} }
+    \str_replace_all:Nnn \l_tmpa_str { ’ } { ' }
+    \bool_set_false:N \l_tmpa_bool
+    \str_if_in:NnT \l_tmpa_str { #2 }
+      {
+        \int_set:Nn \l_tmpa_int { 1 }
+        \str_map_inline:Nn \l_tmpa_str
+          {
+            \str_if_eq:nnTF {##1} { #2 }
+              { \str_map_break: }
+              { \int_incr:N \l_tmpa_int }
+          }
+        \str_set:Ne \l_tmpb_str
+          { \str_range:Nnn \l_tmpa_str { 1 } { \l_tmpa_int - 1 } }
+        \prop_if_in:NVT \l__gbt_pinyin_prop \l_tmpb_str
+          {
+            \tl_set:Ne \l_gbt_pinyin_inits_tl
+              { \str_uppercase:f { \str_head:N \l_tmpb_str } }
+            \tl_put_right:Nn \l_gbt_pinyin_inits_tl { \bibinitperiod }
+            \str_set:Ne \l_tmpb_str
+              { \str_range:Nnn \l_tmpa_str { \l_tmpa_int + 1 } { - 1 } }
+            \prop_if_in:NVT \l__gbt_pinyin_prop \l_tmpb_str
+              {
+                \bool_set_true:N \l_tmpa_bool
+                \tl_put_right:Nn \l_gbt_pinyin_inits_tl { \bibinitdelim }
+                \tl_put_right:Ne \l_gbt_pinyin_inits_tl
+                  { \str_uppercase:f { \str_head:N \l_tmpb_str } }
+                \tl_put_right:Nn \l_gbt_pinyin_inits_tl { \bibinitperiod }
+              }
+          }
+      }
+    \bool_if:NTF \l_tmpa_bool
+      { \prg_return_true: }
+      {
+        \tl_clear:N \l_gbt_pinyin_inits_tl
+        \prg_return_false:
+      }
+  }
+
+\clist_set:Nn \l_tmpa_clist {
+  a, ai, an, ang, ao,
+  ba, bai, ban, bang, bao, bei, ben, beng, bi, bian, biao, bie, bin, bing, bo,
+  bu,
+  ca, cai, can, cang, cao, ce, cen, ceng, cha, chai,chan, chang, chao, che,
+  chen, cheng, chi, chong, chou, chu, chuai, chuan, chuang, chui, chun, chuo,
+  ci, cong, cou, cu, cuan, cui, cun, cuo,
+  da, dai, dan, dang, dao, de, dei, deng, di, dia, dian, diao, die, ding, diu,
+  dong, dou, du, duan, dui, dun, duo,
+  e, ei, en, eng, er,
+  fa, fan, fang, fei, fen, feng, fo, fou, fu,
+  ga, gai, gan, gang, gao, ge, gei, gen, geng, gong, gou, gu, gua, guai, guan,
+  guang, gui, gun, guo,
+  ha, hai, han, hang, hao, he, hei, hen, heng, hong, hou, hu, hua, huai, huan,
+  huang, hui, hun, huo,
+  ji, jia, jian, jiang, jiao, jie, jin, jing, jiong, jiu, ju, juan, jue, jun,
+  ka, kai, kan, kang, kao, ke, ken, keng, kong, kou, ku, kua, kuai, kuan,
+  kuang, kui, kun, kuo,
+  la, lai, lan, lang, lao, le, lei, leng, li, lia, lian, liang, liao, lie, lin,
+  ling, liu, long, lou, lu, luan, lun, luo, lü, lüe, lyu, lyue,
+  ma, mai, man, mang, mao, me, mei, men, meng, mi, mian, miao, mie, min, ming,
+  miu, mo, mou, mu,
+  na, nai, nan, nang, nao, ne, nei, nen, neng, ni, nian, niang, niao, nie, nin,
+  ning, niu, nong, nu, nuan, nuo, nü, nüe, nyu, nyue,
+  o, ou,
+  pa, pai, pan, pang, pao, pei, pen, peng, pi, pian, piao, pie, pin, ping, po,
+  pou, pu, qi, qia, qian, qiang, qiao, qie, qin, qing, qiong, qiu, qu, quan,
+  que, qun,
+  ran, rang, rao, re, ren, reng, ri, rong, rou, ru, ruan, rui, run, ruo,
+  sa, sai, san, sang, sao, se, sen, seng, sha, shai, shan, shang, shao, she,
+  shei, shen, sheng, shi, shou, shu, shua, shuai, shuan, shuang, shui, shun,
+  shuo, si, song, sou, su, suan, sui, sun, suo,
+  ta, tai, tan, tang, tao, te, teng, ti, tian, tiao, tie, ting, tong, tou, tu,
+  tuan, tui, tun, tuo,
+  wa, wai, wan, wang, wei, wen, weng, wo, wu,
+  xi, xia, xian, xiang, xiao, xie, xin, xing, xiong, xiu, xu, xuan, xue, xun,
+  ya, yan, yang, yao, ye, yi, yin, ying, yong, you, yu, yuan, yue, yun,
+  za, zai, zan, zang, zao, ze, zei, zen, zeng, zha, zhai, zhan, zhang, zhao,
+  zhe, zhei, zhen, zheng, zhi, zhong, zhou, zhu, zhua, zhuai, zhuan, zhuang,
+  zhui, zhun, zhuo, zi, zong, zou, zu, zuan, zui, zun, zuo
+}
+
+\cs_if_exist:NTF \prop_new_linked:N
+  { \prop_new_linked:N \l__gbt_pinyin_prop }
+  { \prop_new:N \l__gbt_pinyin_prop }
+
+\clist_map_inline:Nn \l_tmpa_clist
+  { \prop_put:Nnn \l__gbt_pinyin_prop {#1} { true } }
+
+\ExplSyntaxOff

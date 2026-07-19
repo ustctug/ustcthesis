@@ -58,7 +58,6 @@ algorithms
 amscls  # amsthm
 biber
 biblatex
-biblatex-gb7714-2015
 bibtex
 booktabs
 cite  # chapterbib
@@ -74,7 +73,6 @@ siunitx
 threeparttable
 tools  # longtable
 xkeyval  # nomencl
-xstring  # biblatex-gb7714-2015
 #
 # Dependencies for documentation
 hypdoc
