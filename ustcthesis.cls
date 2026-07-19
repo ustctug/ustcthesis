@@ -2881,20 +2881,86 @@
 % URL 的字体设为保持原样。
 \urlstyle { same }
 
-% 使用 \pkg{xurl} 宏包的方法，增加 URL 可断行的位置。
+% 设置参考文献表的 URL 断行
+% 参考 `biblatex` 的 \biburlsetup
+% <https://github.com/plk/biblatex/blob/dev/tex/latex/biblatex/biblatex.def>
+\mathchardef \UrlBigBreakPenalty = 100 \relax
+\mathchardef \UrlBreakPenalty = 200 \relax
+
+\int_new:N \l__ustc_url_num_penalty_int
+\int_new:N \l__ustc_url_uc_penalty_int
+\int_new:N \l__ustc_url_lc_penalty_int
+
+\int_set:Nn \l__ustc_url_num_penalty_int { 250 }
+\int_set:Nn \l__ustc_url_uc_penalty_int { 250 }
+\int_set:Nn \l__ustc_url_lc_penalty_int { 250 }
+
+\muskip_set:Nn \Urlmuskip { 0 mu plus 3 mu }
+
+\cs_set_nopar:Npn \UrlBigBreaks { \do \: \do \- }
 \cs_set_nopar:Npn \UrlBreaks
   {
-    \do \. \do \@ \do \\ \do \/ \do \! \do \_ \do \| \do \; \do \> \do \]
-    \do \) \do \, \do \? \do \& \do \' \do + \do \= \do \# \do :
-    \do \a \do \b \do \c \do \d \do \e \do \f \do \g \do \h \do \i \do \j
-    \do \k \do \l \do \m \do \n \do \o \do \p \do \q \do \r \do \s \do \t
-    \do \u \do \v \do \w \do \x \do \y \do \z
-    \do \A \do \B \do \C \do \D \do \E \do \F \do \G \do \H \do \I \do \J
-    \do \K \do \L \do \M \do \N \do \O \do \P \do \Q \do \R \do \S \do \T
-    \do \U \do \V \do \W \do \X \do \Y \do \Z
-    \do 0 \do 1 \do 2 \do 3 \do 4 \do 5 \do 6 \do 7 \do 8 \do 9
+    \do \. \do \@ \do \/ \do \\ \do \! \do \_ \do \| \do \; \do \> \do \]
+    \do \) \do \} \do \, \do \? \do \' \do \+ \do \= \do \# \do \$ \do \&
+    \do \* \do \^ \do \"
   }
-\muskip_set:Nn \Urlmuskip { 0 mu plus 0.1 mu }
+\int_compare:nNnT { \l__ustc_url_num_penalty_int } > { 0 }
+  {
+    \clist_map_inline:nn
+      { \1 , \2 , \3 , \4 , \5 , \6 , \7 , \8 , \9 , \0 }
+      {
+        \tl_put_right:Nn \UrlSpecials
+          {
+            \do #1
+              {
+                \mathchar `#1
+                \mskip 0 mu \relax
+                \penalty \l__ustc_url_num_penalty_int
+              }
+          }
+      }
+  }
+\int_compare:nNnT { \l__ustc_url_uc_penalty_int } > { 0 }
+  {
+    \clist_map_inline:nn
+      {
+        \A , \B , \C , \D , \E , \F , \G , \H , \I , \J ,
+        \K , \L , \M , \N , \O , \P , \Q , \R , \S , \T ,
+        \U , \V , \W , \X , \Y , \Z
+      }
+      {
+        \tl_put_right:Nn \UrlSpecials
+          {
+            \do #1
+              {
+                \mathchar `#1
+                \mskip 0 mu \relax
+                \penalty \l__ustc_url_uc_penalty_int
+              }
+          }
+      }
+  }
+\int_compare:nNnT { \l__ustc_url_lc_penalty_int } > { 0 }
+  {
+    \clist_map_inline:nn
+      {
+        \a , \b , \c , \d , \e , \f , \g , \h , \i , \j ,
+        \k , \l , \m , \n , \o , \p , \q , \r , \s , \t ,
+        \u , \v , \w , \x , \y , \z
+      }
+      {
+        \tl_put_right:Nn \UrlSpecials
+          {
+            \do #1
+              {
+                \mathchar `#1
+                \mskip 0 mu \relax
+                \penalty \l__ustc_url_lc_penalty_int
+              }
+          }
+      }
+  }
+\cs_set_eq:NN \do \exp_not:N
 
 % 脚注用带圈的数字：
 \cs_set_nopar:Npn \thefootnote { \__ustc_circled:N \c@footnote }
@@ -3644,6 +3710,10 @@
     \defbibheading { bibliography } [ \bibname ] { \__ustc_bib_heading:n {#1} }
     \cs_if_exist:NF \inlinecite
       { \newrobustcmd * { \inlinecite } { \parencite } }
+    %
+    \setcounter { biburlnumpenalty } { 250 }
+    \setcounter { biburlucpenalty } { 250 }
+    \setcounter { biburllcpenalty } { 250 }
   }
 
 

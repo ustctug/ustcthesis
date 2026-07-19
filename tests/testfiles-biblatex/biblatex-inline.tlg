@@ -3297,7 +3297,7 @@ Completed box being shipped out [3]
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 9.48296
-...\hbox(8.29448+2.28705)x390.7691, glue set - 0.17845, shifted 26.34842
+...\hbox(8.29448+2.28705)x390.7691, glue set - 0.73697, shifted 26.34842
 ....\hbox(7.12462+1.64412)x0.0
 .....\glue 0.0
 .....\glue -26.34842
@@ -3412,23 +3412,23 @@ Completed box being shipped out [3]
 ....\mathon
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#64
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#106
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#106
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#85
 ....\glue 0.0
+....\penalty 250
+....\glue(\thickmuskip) 0.0 plus 1.75671
+....\TU/texgyretermes(0)/m/n/10.53937 glyph#45
 ....\penalty 100
 ....\glue(\rightskip) 0.0
 ...\penalty 300
 ...\glue(\baselineskip) 10.58955
-...\hbox(7.1984+2.29758)x390.7691, glue set 205.07602fil, shifted 26.34842
-....\TU/texgyretermes(0)/m/n/10.53937 glyph#45
-....\penalty 100
-....\glue(\thickmuskip) 0.0 plus 1.75671
+...\hbox(7.1984+2.29758)x390.7691, glue set 208.00597fil, shifted 26.34842
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#103
 ....\glue(\medmuskip) 0.0 plus 1.75671
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#103
@@ -3436,118 +3436,118 @@ Completed box being shipped out [3]
 ....\glue(\medmuskip) 0.0 plus 1.75671
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#115
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#115
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#115
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\glue(\medmuskip) 0.0 plus 1.75671
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#89
 ....\penalty 200
 ....\glue(\medmuskip) 0.0 plus 1.75671
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#78
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#99
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#106
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#97
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#99
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\glue(\medmuskip) 0.0 plus 1.75671
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#89
 ....\penalty 200
 ....\glue(\medmuskip) 0.0 plus 1.75671
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#44
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#78
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\glue(\medmuskip) 0.0 plus 1.75671
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#103
 ....\penalty 200
 ....\glue(\medmuskip) 0.0 plus 1.75671
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#117
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#67
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#29
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#78
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#60
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#117
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#67
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#35
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#59
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\glue(\medmuskip) 0.0 plus 1.75671
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#89
 ....\penalty 200
 ....\glue(\medmuskip) 0.0 plus 1.75671
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#29
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#99
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#85
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#117
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\glue(\medmuskip) 0.0 plus 1.75671
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#93
 ....\penalty 200
 ....\glue(\medmuskip) 0.0 plus 1.75671
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#67
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#48
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\glue(\medmuskip) 0.0 plus 1.75671
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#53
 ....\penalty 200
 ....\glue(\medmuskip) 0.0 plus 1.75671
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#58
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#83
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#101
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#122
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#101
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\mathoff
 ....\TU/texgyretermes(0)/m/n/10.53937 .
 ....\kern -0.0002
@@ -3639,7 +3639,7 @@ Completed box being shipped out [3]
 ....\glue(\rightskip) 0.0
 ...\penalty 200
 ...\glue(\baselineskip) 10.57904
-...\hbox(7.1984+2.29756)x390.7691, glue set 0.08858, shifted 26.34842
+...\hbox(7.1984+2.29756)x390.7691, glue set 0.26598, shifted 26.34842
 ....\TU/texgyretermes(0)/m/n/10.53937 fire
 ....\glue 2.63484 plus 1.31741 minus 0.87828
 ....\TU/texgyretermes(0)/m/n/10.53937 management:
@@ -3691,19 +3691,19 @@ Completed box being shipped out [3]
 ....\mathon
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#64
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#106
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#106
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#85
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#99
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\glue(\thickmuskip) 0.0 plus 1.75671
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#45
 ....\penalty 100
@@ -3715,133 +3715,132 @@ Completed box being shipped out [3]
 ....\glue(\medmuskip) 0.0 plus 1.75671
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#115
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#115
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#115
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\glue(\medmuskip) 0.0 plus 1.75671
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#89
 ....\penalty 200
-....\glue(\medmuskip) 0.0 plus 1.75671
-....\TU/texgyretermes(0)/m/n/10.53937 glyph#56
-....\glue 0.0
-....\penalty 100
 ....\glue(\rightskip) 0.0
 ...\penalty 200
 ...\glue(\baselineskip) 10.56851
-...\hbox(7.20892+2.29758)x390.7691, glue set 234.43866fil, shifted 26.34842
+...\hbox(7.20892+2.29758)x390.7691, glue set 230.92905fil, shifted 26.34842
+....\TU/texgyretermes(0)/m/n/10.53937 glyph#56
+....\glue 0.0
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#99
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\glue(\medmuskip) 0.0 plus 1.75671
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#89
 ....\penalty 200
 ....\glue(\medmuskip) 0.0 plus 1.75671
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#110
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#99
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#48
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#29
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\glue(\medmuskip) 0.0 plus 1.75671
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#89
 ....\penalty 200
 ....\glue(\medmuskip) 0.0 plus 1.75671
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#60
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#82
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#113
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\glue(\medmuskip) 0.0 plus 1.75671
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#103
 ....\penalty 200
 ....\glue(\medmuskip) 0.0 plus 1.75671
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#97
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#76
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\glue(\medmuskip) 0.0 plus 1.75671
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#103
 ....\penalty 200
 ....\glue(\medmuskip) 0.0 plus 1.75671
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#85
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#110
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#36
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#99
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\glue(\medmuskip) 0.0 plus 1.75671
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#103
 ....\penalty 200
 ....\glue(\medmuskip) 0.0 plus 1.75671
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#97
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#76
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#97
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#99
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\glue(\medmuskip) 0.0 plus 1.75671
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#111
 ....\penalty 200
 ....\glue(\medmuskip) 0.0 plus 1.75671
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#60
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#106
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#97
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#108
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#102
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#108
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\glue(\medmuskip) 0.0 plus 1.75671
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#89
 ....\penalty 200
 ....\glue(\medmuskip) 0.0 plus 1.75671
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#85
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#48
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#56
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\mathoff
 ....\TU/texgyretermes(0)/m/n/10.53937 .
 ....\kern -0.0002
@@ -4237,7 +4236,7 @@ Completed box being shipped out [3]
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 9.49348
-...\hbox(8.28395+2.28705)x390.7691, glue set - 0.24103, shifted 26.34842
+...\hbox(8.28395+2.28705)x390.7691, glue set 0.40985, shifted 26.34842
 ....\hbox(7.25108+1.64412)x0.0
 .....\glue 0.0
 .....\glue -26.34842
@@ -4345,16 +4344,16 @@ Completed box being shipped out [3]
 ....\mathon
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#64
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#106
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#106
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#85
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\glue(\thickmuskip) 0.0 plus 1.75671
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#45
 ....\penalty 100
@@ -4366,151 +4365,150 @@ Completed box being shipped out [3]
 ....\glue(\medmuskip) 0.0 plus 1.75671
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#64
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#82
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#76
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#51
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\glue(\medmuskip) 0.0 plus 1.75671
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#89
 ....\penalty 200
-....\glue(\medmuskip) 0.0 plus 1.75671
-....\TU/texgyretermes(0)/m/n/10.53937 glyph#44
-....\glue 0.0
-....\penalty 100
-....\TU/texgyretermes(0)/m/n/10.53937 glyph#29
-....\glue 0.0
-....\penalty 100
 ....\glue(\rightskip) 0.0
 ...\penalty 300
 ...\glue(\baselineskip) 10.53687
-...\hbox(7.25108+2.63509)x390.7691, glue set 87.18513fil, shifted 26.34842
+...\hbox(7.25108+2.63509)x390.7691, glue set 77.82619fil, shifted 26.34842
+....\TU/texgyretermes(0)/m/n/10.53937 glyph#44
+....\glue 0.0
+....\penalty 250
+....\TU/texgyretermes(0)/m/n/10.53937 glyph#29
+....\glue 0.0
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#73
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#67
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#99
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\glue(\medmuskip) 0.0 plus 1.75671
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#89
 ....\penalty 200
 ....\glue(\medmuskip) 0.0 plus 1.75671
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#51
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#48
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#110
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\glue(\medmuskip) 0.0 plus 1.75671
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#89
 ....\penalty 200
 ....\glue(\medmuskip) 0.0 plus 1.75671
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#44
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#78
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\glue(\medmuskip) 0.0 plus 1.75671
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#103
 ....\penalty 200
 ....\glue(\medmuskip) 0.0 plus 1.75671
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#85
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#29
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#60
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#51
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#99
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\glue(\medmuskip) 0.0 plus 1.75671
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#103
 ....\penalty 200
 ....\glue(\medmuskip) 0.0 plus 1.75671
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#73
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#67
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#99
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#106
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\glue(\medmuskip) 0.0 plus 1.75671
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#89
 ....\penalty 200
 ....\glue(\medmuskip) 0.0 plus 1.75671
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#64
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#106
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#76
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#73
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\glue(\medmuskip) 0.0 plus 1.75671
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#93
 ....\penalty 200
 ....\glue(\medmuskip) 0.0 plus 1.75671
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#67
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#48
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\glue(\medmuskip) 0.0 plus 1.75671
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#53
 ....\penalty 200
 ....\glue(\medmuskip) 0.0 plus 1.75671
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#58
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#83
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#122
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#83
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#51
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#83
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#52
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#58
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\glue(\thickmuskip) 0.0 plus 1.75671
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#65
 ....\hbox(0.0+0.0)x0.5, shifted 2.63509
@@ -4519,16 +4517,16 @@ Completed box being shipped out [3]
 ....\glue(\thickmuskip) 0.0 plus 1.75671
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#101
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#56
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#102
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#58
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\glue(\thickmuskip) 0.0 plus 1.75671
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#65
 ....\hbox(0.0+0.0)x0.5, shifted 2.63509
@@ -4537,16 +4535,16 @@ Completed box being shipped out [3]
 ....\glue(\thickmuskip) 0.0 plus 1.75671
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#58
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#101
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#79
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#52
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\glue(\thickmuskip) 0.0 plus 1.75671
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#65
 ....\hbox(0.0+0.0)x0.5, shifted 2.63509
@@ -4555,16 +4553,16 @@ Completed box being shipped out [3]
 ....\glue(\thickmuskip) 0.0 plus 1.75671
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#29
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#57
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#51
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#83
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\glue(\thickmuskip) 0.0 plus 1.75671
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#65
 ....\hbox(0.0+0.0)x0.5, shifted 2.63509
@@ -4573,40 +4571,40 @@ Completed box being shipped out [3]
 ....\glue(\thickmuskip) 0.0 plus 1.75671
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#52
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#51
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#107
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#101
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#29
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#29
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#102
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#79
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#79
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#58
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#56
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#44
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\mathoff
 ....\TU/texgyretermes(0)/m/n/10.53937 .
 ....\kern -0.0002
@@ -4720,7 +4718,7 @@ Completed box being shipped out [3]
 ....\glue(\rightskip) 0.0
 ...\penalty 300
 ...\glue(\baselineskip) 10.52635
-...\hbox(7.25108+2.29758)x390.7691, glue set 0.05072, shifted 26.34842
+...\hbox(7.25108+2.29758)x390.7691, glue set 0.2687, shifted 26.34842
 ....\TU/texgyretermes(0)/m/n/10.53937 02
 ....\kern -0.0002
 ....\kern 0.0002
@@ -4733,19 +4731,19 @@ Completed box being shipped out [3]
 ....\mathon
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#64
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#106
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#106
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#85
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#99
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\glue(\thickmuskip) 0.0 plus 1.75671
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#45
 ....\penalty 100
@@ -4757,122 +4755,122 @@ Completed box being shipped out [3]
 ....\glue(\medmuskip) 0.0 plus 1.75671
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#29
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#97
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#92
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#110
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#67
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#113
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#82
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\glue(\medmuskip) 0.0 plus 1.75671
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#89
 ....\penalty 200
 ....\glue(\medmuskip) 0.0 plus 1.75671
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#85
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#106
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\glue(\medmuskip) 0.0 plus 1.75671
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#103
 ....\penalty 200
 ....\glue(\medmuskip) 0.0 plus 1.75671
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#115
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#29
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#119
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#36
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#29
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#44
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#71
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\glue(\medmuskip) 0.0 plus 1.75671
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#103
 ....\penalty 200
 ....\glue(\medmuskip) 0.0 plus 1.75671
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#108
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#122
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#83
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#79
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#122
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#79
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#122
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#57
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#108
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#83
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#122
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#101
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#107
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#83
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\glue(\medmuskip) 0.0 plus 1.75671
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#103
 ....\penalty 200
 ....\glue(\medmuskip) 0.0 plus 1.75671
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#64
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#106
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#106
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#85
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\glue(\thickmuskip) 0.0 plus 1.75671
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#45
 ....\penalty 100
@@ -4884,156 +4882,155 @@ Completed box being shipped out [3]
 ....\glue(\medmuskip) 0.0 plus 1.75671
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#85
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#110
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#36
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#73
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#67
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#44
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#82
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\glue(\medmuskip) 0.0 plus 1.75671
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#89
 ....\penalty 200
 ....\glue(\medmuskip) 0.0 plus 1.75671
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#85
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#106
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\glue(\medmuskip) 0.0 plus 1.75671
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#103
 ....\penalty 200
 ....\glue(\medmuskip) 0.0 plus 1.75671
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#108
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#122
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#83
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#79
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\glue(\medmuskip) 0.0 plus 1.75671
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#103
 ....\penalty 200
 ....\glue(\medmuskip) 0.0 plus 1.75671
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#122
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#101
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\glue(\medmuskip) 0.0 plus 1.75671
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#103
 ....\penalty 200
 ....\glue(\medmuskip) 0.0 plus 1.75671
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#83
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#107
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\glue(\medmuskip) 0.0 plus 1.75671
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#103
 ....\penalty 200
 ....\glue(\medmuskip) 0.0 plus 1.75671
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#99
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#82
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#44
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#67
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#51
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#48
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#29
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#48
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#51
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\glue(\medmuskip) 0.0 plus 1.75671
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#103
 ....\penalty 200
-....\glue(\medmuskip) 0.0 plus 1.75671
-....\TU/texgyretermes(0)/m/n/10.53937 glyph#78
-....\glue 0.0
-....\penalty 100
-....\TU/texgyretermes(0)/m/n/10.53937 glyph#82
-....\glue 0.0
-....\penalty 100
 ....\glue(\rightskip) 0.0
 ...\penalty 200
 ...\glue(\baselineskip) 10.57903
-...\hbox(7.1984+2.63509)x390.7691, glue set 165.42938fil, shifted 26.34842
+...\hbox(7.1984+2.63509)x390.7691, glue set 154.89001fil, shifted 26.34842
+....\TU/texgyretermes(0)/m/n/10.53937 glyph#78
+....\glue 0.0
+....\penalty 250
+....\TU/texgyretermes(0)/m/n/10.53937 glyph#82
+....\glue 0.0
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#106
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#67
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#44
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#67
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#29
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\glue(\medmuskip) 0.0 plus 1.75671
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#103
 ....\penalty 200
 ....\glue(\medmuskip) 0.0 plus 1.75671
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#85
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#82
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#48
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#44
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#29
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#99
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#106
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\glue(\thickmuskip) 0.0 plus 1.75671
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#65
 ....\hbox(0.0+0.0)x0.5, shifted 2.63509
@@ -5042,31 +5039,31 @@ Completed box being shipped out [3]
 ....\glue(\thickmuskip) 0.0 plus 1.75671
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#64
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#67
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#99
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#106
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#82
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#97
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#67
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#29
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#99
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\glue(\thickmuskip) 0.0 plus 1.75671
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#65
 ....\hbox(0.0+0.0)x0.5, shifted 2.63509
@@ -5075,28 +5072,28 @@ Completed box being shipped out [3]
 ....\glue(\thickmuskip) 0.0 plus 1.75671
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#85
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#82
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#97
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#106
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#110
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#60
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#29
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#73
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\glue(\thickmuskip) 0.0 plus 1.75671
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#65
 ....\hbox(0.0+0.0)x0.5, shifted 2.63509
@@ -5105,34 +5102,34 @@ Completed box being shipped out [3]
 ....\glue(\thickmuskip) 0.0 plus 1.75671
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#44
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#110
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#67
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#48
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#29
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#48
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#82
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#97
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#51
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#99
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\glue(\thickmuskip) 0.0 plus 1.75671
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#65
 ....\hbox(0.0+0.0)x0.5, shifted 2.63509
@@ -5141,25 +5138,25 @@ Completed box being shipped out [3]
 ....\glue(\thickmuskip) 0.0 plus 1.75671
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#83
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#52
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#101
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#79
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#101
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#107
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#83
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\mathoff
 ....\TU/texgyretermes(0)/m/n/10.53937 .
 ....\kern -0.0002
@@ -5335,7 +5332,7 @@ Completed box being shipped out [3]
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 10.71605
-...\hbox(7.25108+2.28705)x390.7691, glue set 0.25311, shifted 26.34842
+...\hbox(7.25108+2.28705)x390.7691, glue set 0.09393, shifted 26.34842
 ....\hbox(7.12462+1.64412)x0.0
 .....\glue 0.0
 .....\glue -26.34842
@@ -5435,19 +5432,19 @@ Completed box being shipped out [3]
 ....\mathon
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#64
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#106
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#106
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#85
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#99
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\glue(\thickmuskip) 0.0 plus 1.75671
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#45
 ....\penalty 100
@@ -5459,142 +5456,142 @@ Completed box being shipped out [3]
 ....\glue(\medmuskip) 0.0 plus 1.75671
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#115
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#115
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#115
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
+....\glue(\medmuskip) 0.0 plus 1.75671
+....\TU/texgyretermes(0)/m/n/10.53937 glyph#89
+....\penalty 200
 ....\glue(\rightskip) 0.0
 ...\penalty 300
 ...\glue(\baselineskip) 10.53687
-...\hbox(7.25108+2.29758)x390.7691, glue set 220.32648fil, shifted 26.34842
-....\TU/texgyretermes(0)/m/n/10.53937 glyph#89
-....\penalty 200
-....\glue(\medmuskip) 0.0 plus 1.75671
+...\hbox(7.25108+2.29758)x390.7691, glue set 222.96132fil, shifted 26.34842
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#36
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#51
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#99
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#99
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#82
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#56
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#64
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#29
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#97
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#48
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#115
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#67
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#44
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#71
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\glue(\medmuskip) 0.0 plus 1.75671
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#89
 ....\penalty 200
 ....\glue(\medmuskip) 0.0 plus 1.75671
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#82
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#97
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#60
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\glue(\medmuskip) 0.0 plus 1.75671
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#103
 ....\penalty 200
 ....\glue(\medmuskip) 0.0 plus 1.75671
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#73
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#51
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#106
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#106
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#51
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#97
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\glue(\medmuskip) 0.0 plus 1.75671
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#89
 ....\penalty 200
 ....\glue(\medmuskip) 0.0 plus 1.75671
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#69
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#99
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#85
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\glue(\medmuskip) 0.0 plus 1.75671
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#93
 ....\penalty 200
 ....\glue(\medmuskip) 0.0 plus 1.75671
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#73
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#51
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#106
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#106
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#51
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#97
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\glue(\medmuskip) 0.0 plus 1.75671
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#53
 ....\penalty 200
 ....\glue(\medmuskip) 0.0 plus 1.75671
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#108
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#57
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\mathoff
 ....\TU/texgyretermes(0)/m/n/10.53937 .
 ....\kern -0.0002
@@ -5964,19 +5961,19 @@ Completed box being shipped out [3]
 ....\mathon
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#64
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#106
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#106
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#85
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#99
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\glue(\thickmuskip) 0.0 plus 1.75671
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#45
 ....\penalty 100
@@ -5988,194 +5985,194 @@ Completed box being shipped out [3]
 ....\glue(\medmuskip) 0.0 plus 1.75671
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#115
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#115
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#115
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\glue(\medmuskip) 0.0 plus 1.75671
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#89
 ....\penalty 200
 ....\glue(\medmuskip) 0.0 plus 1.75671
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#78
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#36
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#99
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#48
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#44
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\glue(\medmuskip) 0.0 plus 1.75671
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#89
 ....\penalty 200
 ....\glue(\medmuskip) 0.0 plus 1.75671
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#44
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#78
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\glue(\medmuskip) 0.0 plus 1.75671
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#103
 ....\penalty 200
 ....\glue(\medmuskip) 0.0 plus 1.75671
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#60
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#51
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#78
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#51
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#97
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#29
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#73
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\glue(\medmuskip) 0.0 plus 1.75671
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#103
 ....\penalty 200
 ....\glue(\medmuskip) 0.0 plus 1.75671
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#48
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#29
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#106
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#29
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#72
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#67
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#78
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\glue(\rightskip) 0.0
 ...\penalty 200
 ...\glue(\baselineskip) 10.5685
 ...\hbox(7.20892+2.28705)x390.7691, glue set 240.86768fil, shifted 26.34842
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#71
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#99
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\glue(\medmuskip) 0.0 plus 1.75671
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#103
 ....\penalty 200
 ....\glue(\medmuskip) 0.0 plus 1.75671
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#43
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#98
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#105
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#96
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\glue(\thickmuskip) 0.0 plus 1.75671
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#45
 ....\penalty 100
 ....\glue(\thickmuskip) 0.0 plus 1.75671
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#83
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#102
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#102
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#102
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#102
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\glue(\medmuskip) 0.0 plus 1.75671
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#89
 ....\penalty 200
 ....\glue(\medmuskip) 0.0 plus 1.75671
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#83
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#83
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\glue(\medmuskip) 0.0 plus 1.75671
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#89
 ....\penalty 200
 ....\glue(\medmuskip) 0.0 plus 1.75671
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#78
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#36
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#99
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#48
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#44
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\glue(\medmuskip) 0.0 plus 1.75671
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#89
 ....\penalty 200
 ....\glue(\medmuskip) 0.0 plus 1.75671
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#106
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#56
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#85
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#36
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#115
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#106
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#92
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#56
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\mathoff
 ....\TU/texgyretermes(0)/m/n/10.53937 .
 ....\kern -0.0002
@@ -6303,19 +6300,19 @@ Completed box being shipped out [3]
 ....\mathon
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#64
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#106
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#106
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#85
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#99
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\glue(\thickmuskip) 0.0 plus 1.75671
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#45
 ....\penalty 100
@@ -6327,76 +6324,76 @@ Completed box being shipped out [3]
 ....\glue(\medmuskip) 0.0 plus 1.75671
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#60
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#64
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#48
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#117
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\glue(\medmuskip) 0.0 plus 1.75671
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#89
 ....\penalty 200
 ....\glue(\medmuskip) 0.0 plus 1.75671
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#64
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#51
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#29
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#73
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#106
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#64
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#48
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#29
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#106
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#29
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\glue(\medmuskip) 0.0 plus 1.75671
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#89
 ....\penalty 200
 ....\glue(\medmuskip) 0.0 plus 1.75671
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#82
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#97
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#60
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\glue(\medmuskip) 0.0 plus 1.75671
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#103
 ....\penalty 200
 ....\glue(\medmuskip) 0.0 plus 1.75671
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#60
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#36
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#48
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\glue(\thickmuskip) 0.0 plus 1.75671
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#65
 ....\hbox(0.0+0.0)x0.5, shifted 2.63509
@@ -6405,16 +6402,16 @@ Completed box being shipped out [3]
 ....\glue(\thickmuskip) 0.0 plus 1.75671
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#108
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#122
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#83
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#79
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\mathoff
 ....\TU/texgyretermes(0)/m/n/10.53937 .
 ....\kern -0.0002
@@ -6558,19 +6555,19 @@ Completed box being shipped out [3]
 ....\mathon
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#64
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#106
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#106
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#85
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#99
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\glue(\thickmuskip) 0.0 plus 1.75671
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#45
 ....\penalty 100
@@ -6582,83 +6579,83 @@ Completed box being shipped out [3]
 ....\glue(\medmuskip) 0.0 plus 1.75671
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#121
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#99
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#119
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#119
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#36
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\glue(\medmuskip) 0.0 plus 1.75671
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#89
 ....\penalty 200
 ....\glue(\medmuskip) 0.0 plus 1.75671
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#44
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#78
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\glue(\medmuskip) 0.0 plus 1.75671
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#103
 ....\penalty 200
 ....\glue(\medmuskip) 0.0 plus 1.75671
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#29
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#36
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#99
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\glue(\medmuskip) 0.0 plus 1.75671
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#103
 ....\penalty 200
 ....\glue(\medmuskip) 0.0 plus 1.75671
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#108
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#122
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#108
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#58
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#122
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#52
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\glue(\medmuskip) 0.0 plus 1.75671
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#89
 ....\penalty 200
 ....\glue(\medmuskip) 0.0 plus 1.75671
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#122
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#83
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#122
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#79
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#102
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\mathoff
 ....\TU/texgyretermes(0)/m/n/10.53937 .
 ....\glue 2.63484 plus 1.32532 minus 0.87303
@@ -6741,7 +6738,7 @@ Completed box being shipped out [3]
 ....\glue(\rightskip) 0.0
 ...\penalty 200
 ...\glue(\baselineskip) 10.56851
-...\hbox(7.20892+2.29758)x390.7691, glue set 0.1653, shifted 26.34842
+...\hbox(7.20892+2.29758)x390.7691, glue set 0.4234, shifted 26.34842
 ....\TU/texgyretermes(0)/m/n/10.53937 in
 ....\glue 2.63484 plus 1.31741 minus 0.87828
 ....\TU/texgyretermes(0)/m/n/10.53937 an
@@ -6823,19 +6820,19 @@ Completed box being shipped out [3]
 ....\mathon
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#64
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#106
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#106
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#85
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#99
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\glue(\thickmuskip) 0.0 plus 1.75671
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#45
 ....\penalty 100
@@ -6847,33 +6844,29 @@ Completed box being shipped out [3]
 ....\glue(\medmuskip) 0.0 plus 1.75671
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#48
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#82
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#67
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\glue(\medmuskip) 0.0 plus 1.75671
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#89
 ....\penalty 200
 ....\glue(\medmuskip) 0.0 plus 1.75671
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#82
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#97
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#60
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\glue(\medmuskip) 0.0 plus 1.75671
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#103
 ....\penalty 200
-....\glue(\medmuskip) 0.0 plus 1.75671
-....\TU/texgyretermes(0)/m/n/10.53937 glyph#83
-....\glue 0.0
-....\penalty 100
 ....\glue(\rightskip) 0.0
 ...\glue -2.29758
 ...\glue 0.0 plus 0.0001fil
@@ -6919,80 +6912,83 @@ Completed box being shipped out [4]
 ..\glue(\lineskip) 0.0
 ..\vbox(700.50723+0.0)x417.11752, glue set 686.14691fil
 ...\glue(\topskip) 4.74892
-...\hbox(7.25108+2.28703)x390.7691, glue set 215.7104fil, shifted 26.34842
+...\hbox(7.25108+2.28703)x390.7691, glue set 210.44072fil, shifted 26.34842
+....\TU/texgyretermes(0)/m/n/10.53937 glyph#83
+....\glue 0.0
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#122
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\glue(\medmuskip) 0.0 plus 1.75671
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#89
 ....\penalty 200
 ....\glue(\medmuskip) 0.0 plus 1.75671
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#58
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#52
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#57
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#57
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#122
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\glue(\medmuskip) 0.0 plus 1.75671
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#103
 ....\penalty 200
 ....\glue(\medmuskip) 0.0 plus 1.75671
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#29
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#97
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#116
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#67
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#113
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\glue(\medmuskip) 0.0 plus 1.75671
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#89
 ....\penalty 200
 ....\glue(\medmuskip) 0.0 plus 1.75671
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#83
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#83
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#83
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#108
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\glue(\medmuskip) 0.0 plus 1.75671
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#89
 ....\penalty 200
 ....\glue(\medmuskip) 0.0 plus 1.75671
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#102
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#83
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#107
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\TU/texgyretermes(0)/m/n/10.53937 glyph#102
 ....\glue 0.0
-....\penalty 100
+....\penalty 250
 ....\mathoff
 ....\TU/texgyretermes(0)/m/n/10.53937 .
 ....\glue 2.63484 plus 1.32532 minus 0.87303
