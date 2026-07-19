@@ -941,10 +941,10 @@ Completed box being shipped out [3]
 ....\glue 0.0
 ....\glue(\parskip) 0.0
 ....\glue(\parskip) 0.0
-....\glue(\baselineskip) 7.35545
-....\hbox(11.11353+0.30513)x417.11752, glue set 165.55812fil
+....\glue(\baselineskip) 6.56853
+....\hbox(11.90045+0.1927)x417.11752, glue set 164.723fil
 .....\glue(\leftskip) 0.0 plus 1.0fil
-.....\TU/texgyretermes(0)/b/n/16.06 ABSTRACT
+.....\TU/texgyreheros(0)/b/n/16.06 ABSTRACT
 .....\kern -0.0002
 .....\kern 0.0002
 .....\penalty 10000
@@ -954,7 +954,7 @@ Completed box being shipped out [3]
 ....\glue 17.06374
 ....\glue(\parskip) 0.0
 ....\glue(\parskip) 0.0
-....\glue(\baselineskip) 11.54314
+....\glue(\baselineskip) 11.65556
 ....\hbox(8.22673+2.6258)x417.11752, glue set 0.27924
 .....\hbox(0.0+0.0)x24.09
 .....\TU/texgyretermes(0)/m/n/12.045 Graduate
@@ -981,7 +981,7 @@ Completed box being shipped out [3]
 .....\glue 3.01125 plus 1.50562 minus 1.00374
 .....\TU/texgyretermes(0)/m/n/12.045 re-
 .....\glue(\rightskip) 0.0
-....\penalty 10100
+....\penalty 250
 ....\glue(\baselineskip) 9.22247
 ....\hbox(8.22673+2.6258)x417.11752, glue set 0.71335
 .....\TU/texgyretermes(0)/m/n/12.045 flection,
@@ -1045,10 +1045,8 @@ Completed box being shipped out [3]
 ....\glue(\parskip) 0.0
 ....\glue(\parskip) 0.0
 ....\glue(\baselineskip) 11.73985
-....\hbox(8.33514+2.6258)x417.11752, glue set - 0.83916
-.....\TU/texgyretermes(0)/b/n/12.045 KEY
-.....\glue 3.01125 plus 1.5041 minus 1.00473
-.....\TU/texgyretermes(0)/b/n/12.045 WORDS
+....\hbox(8.33514+2.6258)x417.11752, glue set - 0.58504
+.....\TU/texgyretermes(0)/b/n/12.045 KEYWORDS
 .....\kern 0.0
 .....\kern -0.0002
 .....\kern 0.0002

@@ -2671,21 +2671,22 @@
     \ustcsetup { language = english }
     \bool_if:NTF \l__ustc_degree_graduate_bool
       {
-        \ctexset
-          {
-            chapter =
-              {
-                format =
-                  {
-                    \centering \bfseries
-                    \fontsize { 16 bp } { 18.4 bp } \selectfont
-                  } ,
-                beforeskip = 9 bp ,
-                afterskip  = 17 bp ,
-              }
-          }
-        \__ustc_chapter:w { ABSTRACT }
-        \ctexset { autoindent = 2 em }
+        \group_begin:
+          \ctexset
+            {
+              chapter =
+                {
+                  format =
+                    {
+                      \centering \sffamily \bfseries
+                      \fontsize { 16 bp } { 18.4 bp } \selectfont
+                    } ,
+                  beforeskip = 9 bp ,
+                  afterskip  = 17 bp ,
+                }
+            }
+          \__ustc_chapter:w { ABSTRACT }
+        \group_end:
       }
       {
         \group_begin:
@@ -2698,23 +2699,26 @@
           \__ustc_chapter:w { ABSTRACT }
         \group_end:
       }
+    \ctexset { autoindent = 2 em }
   }
   {
     \par \null \par
-    \dim_set:Nn \hangindent { 6.5 em }
-    \noindent
-    \bool_if:NTF \l__ustc_degree_graduate_bool
-      { \textbf { KEY~ WORDS } : }
-      { \textbf { Key~ Words: } }
-    \space
-    \clist_if_empty:NTF \l__ustc_keywords_en_clist
-      { \tl_use:N \l__ustc_keywords_en_text_tl }
-      {
-        \bool_if:NTF \l__ustc_degree_graduate_bool
-          { \clist_use:Nn \l__ustc_keywords_en_clist { ,~ } }
-          { \clist_use:Nn \l__ustc_keywords_en_clist { ;~ } }
-      }
-    \par
+    \group_begin:
+      \dim_set:Nn \hangindent { 6.5 em }
+      \noindent
+      \bool_if:NTF \l__ustc_degree_graduate_bool
+        { \textbf { KEYWORDS } : }
+        { \textbf { Key~ Words: } }
+      \space
+      \clist_if_empty:NTF \l__ustc_keywords_en_clist
+        { \tl_use:N \l__ustc_keywords_en_text_tl }
+        {
+          \bool_if:NTF \l__ustc_degree_graduate_bool
+            { \clist_use:Nn \l__ustc_keywords_en_clist { ,~ } }
+            { \clist_use:Nn \l__ustc_keywords_en_clist { ;~ } }
+        }
+      \par
+    \group_end:
     \__ustc_reset_main_language:
   }
 
