@@ -388,10 +388,6 @@
   setkeys = \kvsetkeys,
 }
 
-% 设置默认 \option{openany}。
-\DeclareBoolOption[false]{openright}
-\DeclareComplementaryOption{openany}{openright}
-
 % 兼容旧版本的文档类选项。
 % Deprecated since 2020-07-01.
 \DeclareVoidOption{doctor}{\ustcsetup{degree=doctor}}
@@ -412,44 +408,41 @@
 \DeclareVoidOption{colorlogo}{\ustcsetup{badge-color=blue}}
 \DeclareVoidOption{bwlogo}{\ustcsetup{badge-color=black}}
 
-% 载入 \cls{ctexbook}。
+% 处理选项。
 \DeclareDefaultOption{\PassOptionsToClass{\CurrentOption}{ctexbook}}
+
+\PassOptionsToClass{openany}{ctexbook}
+
 \ProcessKeyvalOptions*
+
+\ifustc@output@electronic
+  \PassOptionsToClass{oneside}{ctexbook}
+\fi
+\PassOptionsToPackage{no-math}{fontspec}
 
 
 % \subsection{加载文档类和宏包}
-
-\ifustc@openright
-  \PassOptionsToClass{openright}{book}
-\else
-  \PassOptionsToClass{openany}{book}
-\fi
-
-\ifustc@output@electronic
-  \PassOptionsToClass{oneside}{book}
-\fi
-\PassOptionsToPackage{no-math}{fontspec}
 
 % 载入 \cls{ctexbook} 文档类，注意要求为 2.4.9 或更高的版本。
 \LoadClass[UTF8,a4paper,scheme=plain,zihao=-4,fontset=none]{ctexbook}[2017/04/01]
 
 % 建议在模板开始处载入全部宏包，不要轻易改变加载顺序。
-% \pkg{hyperref} 一般在最后加载。
-\RequirePackage{etoolbox}
+% \pkg{hyperref} 在导言区的最后由用户手动载入。
 \RequirePackage{amsmath}
+\RequirePackage{caption}
+\RequirePackage{color}
+\RequirePackage{enumitem}
+\RequirePackage{etoolbox}
+\RequirePackage{fancyhdr}
+\RequirePackage{filehook}
 \RequirePackage{fontspec}[2017/03/31]
+\RequirePackage[perpage]{footmisc}
 \RequirePackage{geometry}
 \RequirePackage{graphicx}
-\RequirePackage{fancyhdr}
-\RequirePackage{color}
-\RequirePackage{titletoc}
-\RequirePackage{caption}
-\RequirePackage{enumitem}
-\RequirePackage[perpage]{footmisc}
-\RequirePackage{url}
 \RequirePackage{notoccite}
-\RequirePackage{multirow}
 \RequirePackage{pdfpages}
+\RequirePackage{titletoc}
+\RequirePackage{url}
 
 % 如果用户在导言区未调用 \pkg{biblatex}，则自动调用 \pkg{natbib}。
 \AtEndPreamble{
@@ -457,54 +450,6 @@
     \RequirePackage{natbib}
   }
 }
-
-% 对冲突的宏包报错。
-\RequirePackage{filehook}
-\newcommand\ustc@package@conflict[2]{
-  \AtEndOfPackageFile*{#1}{%
-    \AtBeginOfPackageFile*{#2}{%
-      \ustc@error{The "#2" package is incompatible with "#1"}%
-    }%
-  }%
-}
-
-\ustc@package@conflict{biblatex}{bibunits}
-\ustc@package@conflict{biblatex}{chapterbib}
-\ustc@package@conflict{biblatex}{cite}
-\ustc@package@conflict{biblatex}{multibib}
-\ustc@package@conflict{biblatex}{natbib}
-
-\ustc@package@conflict{bibunits}{biblatex}
-\ustc@package@conflict{bibunits}{chapterbib}
-\ustc@package@conflict{bibunits}{multibib}
-
-\ustc@package@conflict{unicode-math}{amscd}
-\ustc@package@conflict{unicode-math}{amsfonts}
-\ustc@package@conflict{unicode-math}{amssymb}
-\ustc@package@conflict{unicode-math}{bbm}
-\ustc@package@conflict{unicode-math}{bm}
-\ustc@package@conflict{unicode-math}{eucal}
-\ustc@package@conflict{unicode-math}{eufrak}
-\ustc@package@conflict{unicode-math}{mathrsfs}
-\ustc@package@conflict{unicode-math}{newtxmath}
-\ustc@package@conflict{unicode-math}{upgreek}
-
-\ustc@package@conflict{natbib}{biblatex}
-\ustc@package@conflict{natbib}{cite}
-
-\ustc@package@conflict{newtxmath}{amsfonts}
-\ustc@package@conflict{newtxmath}{amssymb}
-\ustc@package@conflict{newtxmath}{unicode-math}
-\ustc@package@conflict{newtxmath}{upgreek}
-
-
-% \pkg{amsthm} 需要在 \pkg{newtx} 前载入，参考 \pkg{newtx} 的文档。
-\AtBeginOfPackageFile*{amsthm}{
-  \@ifpackageloaded{newtxmath}{
-    \ustc@error{The "amsthm" package should be loaded before setting "newtxmath"}
-  }{}
-}%
-
 
 
 % \subsection{处理语言}
@@ -662,33 +607,19 @@
 % 表达式的行距根据需要采用，段前6磅、段后6磅。
 %
 % 注意重定义 \normalsize 应在 \pkg{unicode-math} 的 \cs{setmathfont} 前。
-\newcommand\ustc@set@font@size{%
-  \ifustc@degree@graduate
-    \renewcommand\normalsize{%
-      \@setfontsize\normalsize{12bp}{20bp}%
-      \abovedisplayskip 6bp \@plus3bp \@minus3bp%
-      \abovedisplayshortskip 6bp \@plus3bp \@minus3bp%
-      \belowdisplayshortskip \abovedisplayshortskip
-      \belowdisplayskip \abovedisplayskip
-      \let\@listi\@listI}%
-    %
-    % 注意第~\ref{sec:list} 节去掉了列表的间距，所以不再修改 \cs{@listi}。
-  \else
-    \renewcommand\normalsize{%
-      \@setfontsize\normalsize{12bp}{20bp}%
-      \abovedisplayskip 6bp \@plus3bp \@minus3bp%
-      \abovedisplayshortskip 6bp \@plus3bp \@minus3bp%
-      \belowdisplayshortskip \abovedisplayshortskip
-      \belowdisplayskip \abovedisplayskip
-      \let\@listi\@listI}%
-  \fi
-  \normalsize
-  \ifx\MakeRobust\@undefined \else
-      \MakeRobust\normalsize
-  \fi
-}
-\ustc@set@font@size
-\ustc@option@hook{degree}{\ustc@set@font@size}
+\renewcommand\normalsize{%
+  \@setfontsize\normalsize{12bp}{20bp}%
+  \abovedisplayskip 6bp \@plus3bp \@minus3bp%
+  \abovedisplayshortskip 6bp \@plus3bp \@minus3bp%
+  \belowdisplayshortskip \abovedisplayshortskip
+  \belowdisplayskip \abovedisplayskip
+  %
+  % 注意第~\ref{sec:list} 节去掉了列表的间距，所以不再修改 \cs{@listi}。
+  \let\@listi\@listI}%
+\normalsize
+\ifx\MakeRobust\@undefined \else
+    \MakeRobust\normalsize
+\fi
 
 % 设置行距的倍数为 1。
 \linespread{1}\selectfont
@@ -1748,83 +1679,6 @@
   \ustc@warning{The 'professional-type*' option is obsolete.}%
 }
 
-\AtBeginDocument{
-  \ifustc@review@true
-    \ustcsetup{
-      author  = {},
-      author* = {},
-      supervisor  = {},
-      supervisor* = {},
-      practice-supervisor  = {},
-      practice-supervisor* = {},
-      student-id = {},
-    }%
-  \fi
-}
-
-% 导师一栏可能有多个姓名，所以用 \opt{supervisor} 进行收集，
-% 然后使用本命令来输出要求的格式，
-% 类似于 \LaTeX3 的 \cs{clist\_use:Nn}。
-\newcommand\ustc@clist@count[1]{%
-  \csname clist_count:N\endcsname{#1}%
-}
-\ExplSyntaxOn
-\newcommand\ustc@clist@use[2]{%
-  \clist_set:No \l_tmpa_clist {#1}%
-  \clist_use:Nn \l_tmpa_clist {#2}%
-}
-\ExplSyntaxOff
-\newcommand\ustc@supervisor@names{%
-  \ustc@clist@use{\ustc@supervisor}{\quad}%
-}
-\newcommand\ustc@practice@supervisor@names{%
-  \ustc@clist@use{\ustc@practice@supervisor}{\quad}%
-}
-\newcounter{ustc@count}
-\newcommand\ustc@supervisor@en@line{%
-  \setcounter{ustc@count}{\ustc@clist@count{\ustc@supervisor@en}}%
-  \ifnum\c@ustc@count>1\relax
-    Supervisors:%
-  \else
-    Supervisor:%
-  \fi
-  \space\ustc@clist@use{\ustc@supervisor@en}{, }%
-}
-\newcommand\ustc@practice@supervisor@en@line{%
-  \setcounter{ustc@count}{\ustc@clist@count{\ustc@practice@supervisor@en}}%
-  \ifnum\c@ustc@count>1\relax
-    Practice supervisors:%
-  \else
-    Practice supervisor:%
-  \fi
-  \space\ustc@clist@use{\ustc@practice@supervisor@en}{, }%
-}
-
-% 输出日期的给定格式：\cs{ustc@format@date}\marg{format}\marg{date}，
-% 其中格式 \meta{format} 接受三个参数分别对应年、月、日，
-% \meta{date} 是 ISO 格式的日期（yyyy-mm-dd）。
-\newcommand\ustc@format@date[2]{%
-  \edef\ustc@@date{#2}%
-  \def\ustc@@process@date##1-##2-##3\@nil{%
-    #1{##1}{##2}{##3}%
-  }%
-  \expandafter\ustc@@process@date\ustc@@date\@nil
-}
-\newcommand\ustc@date@format@zh@small[3]{\number#1 年 \number#2 月 \number#3 日}
-\newcommand\ustc@date@format@zh@big[3]{\zhdigits{#1}年\zhnumber{#2}月\zhnumber{#3}日}
-\newcommand\ustc@date@month[1]{%
-  \ifcase\number#1\or
-    January\or February\or March\or April\or May\or June\or
-    July\or August\or September\or October\or November\or December%
-  \fi
-}
-\newcommand\ustc@date@format@zh@short[3]{\number#1 年 \number#2 月}
-\newcommand\ustc@date@format@en[3]{\ustc@date@month{#2} \number#3, #1}
-\newcommand\ustc@date@zh@small{\ustc@format@date{\ustc@date@format@zh@small}{\ustc@date}}
-\newcommand\ustc@date@zh@big{\ustc@format@date{\ustc@date@format@zh@big}{\ustc@date}}
-\newcommand\ustc@date@zh@short{\ustc@format@date{\ustc@date@format@zh@short}{\ustc@date}}
-\newcommand\ustc@date@en{\ustc@format@date{\ustc@date@format@en}{\ustc@date}}
-
 % 版本 v3.2 开始使用 \cs{ustcsetup} 设置接口，
 % 兼容旧版本的命令式设置。
 % Deprecated since 2020-07-01.
@@ -1858,63 +1712,31 @@
 \gdef\keywords#1{\renewcommand\ustc@keywords@text{#1}}
 \gdef\enkeywords#1{\renewcommand\ustc@keywords@en@text{#1}}
 
-% 定义一些常量。
-\ifustc@degree@doctor
-  \newcommand\ustc@thesis@name{博士学位论文}
-  \newcommand\ustc@thesis@name@en{A dissertation for doctor's degree}
-\else
-  \ifustc@degree@master
-    \newcommand\ustc@thesis@name{硕士学位论文}
-    \newcommand\ustc@thesis@name@en{A dissertation for master's degree}
-  \else
-    \newcommand\ustc@thesis@name{学士学位论文}
-    \newcommand\ustc@thesis@name@en{A dissertation for bachelor's degree}
-  \fi
-\fi
-\ifustc@degree@type@academic
-\else
-  \ifustc@degree@doctor
-    \ifustc@degree@type@professional
-      \renewcommand\ustc@thesis@name{专业博士学位论文}
-    \else
-      \ifustc@degree@type@engineering
-        \renewcommand\ustc@thesis@name{工程博士学位论文}
-      \fi
-    \fi
-  \else
-    \ifustc@degree@master
-      \ifustc@degree@type@professional
-        \renewcommand\ustc@thesis@name{专业硕士学位论文}
-      \else
-        \ifustc@degree@type@engineering
-          \renewcommand\ustc@thesis@name{工程硕士学位论文}
-        \fi
-      \fi
-    \fi
-  \fi
-\fi
 
-% 定义校徽颜色
-%
-% 推迟定义颜色以避免调用 \pkg{xcolor} 时的警告
-\AtBeginDocument{
-  \definecolor{ustcblue}{cmyk}{1,0.8,0,0}
-}
-
-% 添加 PDF 书签，在 \pkg{hyperref} 载入后才有效。
-\newcommand\ustc@pdfbookmark{\@gobble}
-
-% 重定义 \env{titlepage} 环境，不修改页码。
-\renewenvironment{titlepage}{%
-  \cleardoublepage
-  \if@twocolumn
-    \@restonecoltrue\onecolumn
-  \else
-    \@restonecolfalse\newpage
+% 重新定义 \cs{maketitle}，调用 \cs{ustc@makezhtitle}, \cs{ustc@makeentitle}
+% 分别生成中、英文封面。
+\renewcommand\maketitle{%
+  \pagenumbering{Alph}%
+  \pagestyle{empty}%
+  \ifustc@review@true
+    \ustcsetup{
+      author  = {},
+      author* = {},
+      supervisor  = {},
+      supervisor* = {},
+      practice-supervisor  = {},
+      practice-supervisor* = {},
+      student-id = {},
+    }%
   \fi
-  \thispagestyle{empty}%
-}{%
-  \if@restonecol\twocolumn \else \newpage \fi
+  \ifustc@degree@graduate
+    \ustc@title@page@graduate@zh
+    \ustc@title@pagetrue
+    \ustc@title@page@graduate@en
+  \else
+    \ustc@title@page@bachelor
+  \fi
+  \ustc@title@pagetrue
 }
 
 % 中文封面：
@@ -2038,7 +1860,7 @@
 
 \newbox\ustc@title@box
 
-% 本科生的外封
+% 本科生的外封，用于学校制本厂统一印制彩色外封
 \newcommand\ustc@cover{%
   \begin{titlepage}%
     \ustcsetup{language=chinese}%
@@ -2145,7 +1967,6 @@
       \heiti\fontsize{16bp}{31.7bp}\selectfont
       \setlength\tabcolsep{0bp}%
       \setlength\arrayrulewidth{0.5pt}%
-      \setlength\ustc@title@page@item@width{238bp}%
       \begin{tabular}{p{90bp}c}%
         作者姓名： & \makebox[238bp]{\ustc@author} \\
         \cline{2-2}%
@@ -2161,22 +1982,128 @@
     \endgroup
   \end{titlepage}%
 }
-\newlength\ustc@title@page@item@width
 
-% 重新定义 \cs{maketitle}，调用 \cs{ustc@makezhtitle}, \cs{ustc@makeentitle}
-% 分别生成中、英文封面。
-\renewcommand\maketitle{%
-  \pagenumbering{Alph}%
-  \pagestyle{empty}%
-  \ifustc@degree@graduate
-    \ustc@title@page@graduate@zh
-    \ustc@title@pagetrue
-    \ustc@title@page@graduate@en
+% 重定义 \env{titlepage} 环境，不修改页码。
+\renewenvironment{titlepage}{%
+  \cleardoublepage
+  \if@twocolumn
+    \@restonecoltrue\onecolumn
   \else
-    \ustc@title@page@bachelor
+    \@restonecolfalse\newpage
   \fi
-  \ustc@title@pagetrue
+  \thispagestyle{empty}%
+}{%
+  \if@restonecol\twocolumn \else \newpage \fi
 }
+
+% 添加 PDF 书签，在 \pkg{hyperref} 载入后才有效。
+\newcommand\ustc@pdfbookmark{\@gobble}
+
+% 定义一些常量。
+\ifustc@degree@doctor
+  \newcommand\ustc@thesis@name{博士学位论文}
+  \newcommand\ustc@thesis@name@en{A dissertation for doctor's degree}
+\else
+  \ifustc@degree@master
+    \newcommand\ustc@thesis@name{硕士学位论文}
+    \newcommand\ustc@thesis@name@en{A dissertation for master's degree}
+  \else
+    \newcommand\ustc@thesis@name{学士学位论文}
+    \newcommand\ustc@thesis@name@en{A dissertation for bachelor's degree}
+  \fi
+\fi
+\ifustc@degree@type@academic
+\else
+  \ifustc@degree@doctor
+    \ifustc@degree@type@professional
+      \renewcommand\ustc@thesis@name{专业博士学位论文}
+    \else
+      \ifustc@degree@type@engineering
+        \renewcommand\ustc@thesis@name{工程博士学位论文}
+      \fi
+    \fi
+  \else
+    \ifustc@degree@master
+      \ifustc@degree@type@professional
+        \renewcommand\ustc@thesis@name{专业硕士学位论文}
+      \else
+        \ifustc@degree@type@engineering
+          \renewcommand\ustc@thesis@name{工程硕士学位论文}
+        \fi
+      \fi
+    \fi
+  \fi
+\fi
+
+% 定义校徽颜色
+%
+% 推迟定义颜色以避免调用 \pkg{xcolor} 时的警告
+\AtBeginDocument{
+  \definecolor{ustcblue}{cmyk}{1,0.8,0,0}
+}
+
+% 导师一栏可能有多个姓名，所以用 \opt{supervisor} 进行收集，
+% 然后使用本命令来输出要求的格式，
+% 类似于 \LaTeX3 的 \cs{clist\_use:Nn}。
+\newcommand\ustc@clist@count[1]{%
+  \csname clist_count:N\endcsname{#1}%
+}
+\ExplSyntaxOn
+\newcommand\ustc@clist@use[2]{%
+  \clist_set:No \l_tmpa_clist {#1}%
+  \clist_use:Nn \l_tmpa_clist {#2}%
+}
+\ExplSyntaxOff
+\newcommand\ustc@supervisor@names{%
+  \ustc@clist@use{\ustc@supervisor}{\quad}%
+}
+\newcommand\ustc@practice@supervisor@names{%
+  \ustc@clist@use{\ustc@practice@supervisor}{\quad}%
+}
+\newcounter{ustc@count}
+\newcommand\ustc@supervisor@en@line{%
+  \setcounter{ustc@count}{\ustc@clist@count{\ustc@supervisor@en}}%
+  \ifnum\c@ustc@count>1\relax
+    Supervisors:%
+  \else
+    Supervisor:%
+  \fi
+  \space\ustc@clist@use{\ustc@supervisor@en}{, }%
+}
+\newcommand\ustc@practice@supervisor@en@line{%
+  \setcounter{ustc@count}{\ustc@clist@count{\ustc@practice@supervisor@en}}%
+  \ifnum\c@ustc@count>1\relax
+    Practice supervisors:%
+  \else
+    Practice supervisor:%
+  \fi
+  \space\ustc@clist@use{\ustc@practice@supervisor@en}{, }%
+}
+
+% 输出日期的给定格式：\cs{ustc@format@date}\marg{format}\marg{date}，
+% 其中格式 \meta{format} 接受三个参数分别对应年、月、日，
+% \meta{date} 是 ISO 格式的日期（yyyy-mm-dd）。
+\newcommand\ustc@format@date[2]{%
+  \edef\ustc@@date{#2}%
+  \def\ustc@@process@date##1-##2-##3\@nil{%
+    #1{##1}{##2}{##3}%
+  }%
+  \expandafter\ustc@@process@date\ustc@@date\@nil
+}
+\newcommand\ustc@date@format@zh@small[3]{\number#1 年 \number#2 月 \number#3 日}
+\newcommand\ustc@date@format@zh@big[3]{\zhdigits{#1}年\zhnumber{#2}月\zhnumber{#3}日}
+\newcommand\ustc@date@month[1]{%
+  \ifcase\number#1\or
+    January\or February\or March\or April\or May\or June\or
+    July\or August\or September\or October\or November\or December%
+  \fi
+}
+\newcommand\ustc@date@format@zh@short[3]{\number#1 年 \number#2 月}
+\newcommand\ustc@date@format@en[3]{\ustc@date@month{#2} \number#3, #1}
+\newcommand\ustc@date@zh@small{\ustc@format@date{\ustc@date@format@zh@small}{\ustc@date}}
+\newcommand\ustc@date@zh@big{\ustc@format@date{\ustc@date@format@zh@big}{\ustc@date}}
+\newcommand\ustc@date@zh@short{\ustc@format@date{\ustc@date@format@zh@short}{\ustc@date}}
+\newcommand\ustc@date@en{\ustc@format@date{\ustc@date@format@en}{\ustc@date}}
 
 
 % \subsection{原创性声明}
@@ -2203,93 +2130,70 @@
 
 \kv@define@key{ustc/statement}{file}{\let\ustc@statement@file\kv@value}%
 
-% 本科生声明内容
-\newcommand\ustc@originality@bachelor{%
-  本人郑重承诺：所呈交的本科毕业论文，是本人在导师指导下进行研究工作%
-  所取得的成果。除已特别加以标注和致谢的地方外，论文中不包含任何他人已经%
-  发表或撰写过的研究成果。与我一同工作的同志对本研究所做的贡献均已在论文%
-  中作了明确的说明。如出现侵犯他人知识产权的行为，由本人承担相应法律责任。%
-  本人承诺不存在抄袭、伪造、篡改、代写、买卖毕业论文(设计)等违纪行为。}
-
-% 研究生原创性声明内容
-\newcommand\ustc@originality@graduate{%
-  本人声明所呈交的学位论文，是本人在导师指导下进行研究工作所取得的成果。%
-  除已特别加以标注和致谢的地方外，论文中不包含任何他人已经发表或撰写过的%
-  研究成果。%
-  与我一同工作的同志对本研究所做的贡献均已在论文中作了明确的说明。}
-
-% 研究生授权使用声明内容
-\newcommand\ustc@authorization{%
-  作为申请学位的条件之一，学位论文著作权拥有者授权中国科学技术大学拥有%
-  学位论文的部分使用权，%
-  即：学校有权按有关规定向国家有关部门或机构送交论文的复印件和电子版，%
-  允许论文被查阅和借阅，可以将学位论文编入《中国学位论文全文数据库》等%
-  有关数据库进行检索，可以采用影印、缩印或扫描等复制手段保存、汇编学位论文。%
-  本人提交的电子文档的内容和纸质论文的内容相一致。\par
-  控阅的学位论文在解除后也遵守此规定。}
-
-% 生成空的下划线
-\newcommand\ustc@underline[2][8em]{\underline{\hb@xt@ #1{\hss#2\hss}}}
-
-\newcommand\ustc@checkbox{%
-  \makebox[0bp][l]{\raisebox{-0.2ex}{\hspace{0.1em}$\checkmark$}}%
-  $\square$%
-}
-
 \newcommand\ustc@statement@graduate{%
   \begin{titlepage}%
     \ustc@pdfbookmark{原创性和授权使用声明}%
     \vspace*{21bp}%
-    {\centering\sffamily\fontsize{16bp}{32bp}\selectfont
-      中国科学技术大学学位论文原创性声明\par}%
-    \vskip 13bp\relax
-    \begingroup
-      \ifLuaTeX
-        \ltjsetparameter{kanjiskip = {0bp plus .1pt minus .1pt}}%
-      \else
-        \renewcommand\CJKglue{\hspace{0bp plus .1pt minus .1pt}}%
-      \fi
-      \ustc@originality@graduate\par
-    \endgroup
-    \vskip 37bp\relax
-    \noindent
-    作者签名：\ustc@underline{}\hspace{8em}%
-    签字日期：\ustc@underline{}\par
+    \ustc@originality@graduate
     \vskip 69bp\relax
-    {\centering\sffamily\fontsize{16bp}{32bp}\selectfont
-      中国科学技术大学学位论文授权使用声明\par}%
-    \vskip 13bp\relax
-    \begingroup
-      \ifLuaTeX
-        \ltjsetparameter{kanjiskip = {0bp plus .1pt minus .1pt}}%
-      \else
-        \renewcommand\CJKglue{\hspace{0bp plus .1pt minus .1pt}}%
-      \fi
-      \ustc@authorization\par
-    \endgroup
-    \vskip 12bp\relax
-    \ifx\ustc@secret@level\@empty
-      \ustc@checkbox\hbox{}公开\quad
-      $\square$\hbox{}控阅（\ustc@underline[2em]{}年）\par
-    \else
-      $\square$\hbox{}公开\quad
-      \ustc@checkbox\hbox{}控阅（\ustc@underline[2em]{\ustc@secret@year}年）\par
-    \fi
-    \vskip 29bp\relax
-    \noindent
-    作者签名：\ustc@underline[7.5em]{}\hspace{8.5em}%
-    导师签名：\ustc@underline[7.5em]{}\par
-    \vskip 1em\relax
-    \noindent
-    签字日期：\ustc@underline[7.5em]{}\hspace{8.5em}%
-    签字日期：\ustc@underline[7.5em]{}\par
-    \ifustc@reviewer@true
-      \vskip 1.5cm\relax
-      \hspace{-1em}%
-      评审专家签名：\ustc@underline{}\hspace{4.5em}%
-      评审专家签名：\ustc@underline{}\par
-    \fi
+    \ustc@authorization@graduate
   \end{titlepage}%
+}
+
+% 原创性声明
+\newcommand\ustc@originality@graduate{%
+  {\centering\sffamily\fontsize{16bp}{32bp}\selectfont
+    中国科学技术大学学位论文原创性声明\par}%
+  \vskip 13bp\relax
+  \begingroup
+    \ifLuaTeX
+      \ltjsetparameter{kanjiskip = {0bp plus .1pt minus .1pt}}%
+    \else
+      \renewcommand\CJKglue{\hspace{0bp plus .1pt minus .1pt}}%
+    \fi
+    \ustc@originality@text@graduate\par
+  \endgroup
+  \vskip 37bp\relax
+  \noindent
+  作者签名：\ustc@underline{}\hspace{8em}%
+  签字日期：\ustc@underline{}\par
+}
+
+% 授权使用声明
+\newcommand\ustc@authorization@graduate{%
+  {\centering\sffamily\fontsize{16bp}{32bp}\selectfont
+    中国科学技术大学学位论文授权使用声明\par}%
+  \vskip 13bp\relax
+  \begingroup
+    \ifLuaTeX
+      \ltjsetparameter{kanjiskip = {0bp plus .1pt minus .1pt}}%
+    \else
+      \renewcommand\CJKglue{\hspace{0bp plus .1pt minus .1pt}}%
+    \fi
+    \ustc@authorization@text\par
+  \endgroup
+  \vskip 12bp\relax
+  \ifx\ustc@secret@level\@empty
+    \ustc@checkbox\hbox{}公开\quad
+    $\square$\hbox{}控阅（\ustc@underline[2em]{}年）\par
+  \else
+    $\square$\hbox{}公开\quad
+    \ustc@checkbox\hbox{}控阅（\ustc@underline[2em]{\ustc@secret@year}年）\par
+  \fi
+  \vskip 29bp\relax
+  \noindent
+  作者签名：\ustc@underline[7.5em]{}\hspace{8.5em}%
+  导师签名：\ustc@underline[7.5em]{}\par
+  \vskip 1em\relax
+  \noindent
+  签字日期：\ustc@underline[7.5em]{}\hspace{8.5em}%
+  签字日期：\ustc@underline[7.5em]{}\par
+  \ifustc@reviewer@true
+    \vskip 1.5cm\relax
+    \hspace{-1em}%
+    评审专家签名：\ustc@underline{}\hspace{4.5em}%
+    评审专家签名：\ustc@underline{}\par
+  \fi
 }
 
 \newcommand\ustc@statement@bachelor{%
@@ -2307,7 +2211,7 @@
       \else
         \renewcommand\CJKglue{\hskip 0bp plus .1pt minus .1pt\relax}%
       \fi
-      \ustc@originality@bachelor\par
+      \ustc@originality@text@bachelor\par
     \endgroup
     \vskip 38bp%
     \begingroup
@@ -2317,6 +2221,39 @@
       签字日期：\ustc@underline[8em]{}\par
     \endgroup
   \end{titlepage}%
+}
+
+% 研究生原创性声明内容
+\newcommand\ustc@originality@text@graduate{%
+  本人声明所呈交的学位论文，是本人在导师指导下进行研究工作所取得的成果。%
+  除已特别加以标注和致谢的地方外，论文中不包含任何他人已经发表或撰写过的%
+  研究成果。%
+  与我一同工作的同志对本研究所做的贡献均已在论文中作了明确的说明。}
+
+% 研究生授权使用声明内容
+\newcommand\ustc@authorization@text{%
+  作为申请学位的条件之一，学位论文著作权拥有者授权中国科学技术大学拥有%
+  学位论文的部分使用权，%
+  即：学校有权按有关规定向国家有关部门或机构送交论文的复印件和电子版，%
+  允许论文被查阅和借阅，可以将学位论文编入《中国学位论文全文数据库》等%
+  有关数据库进行检索，可以采用影印、缩印或扫描等复制手段保存、汇编学位论文。%
+  本人提交的电子文档的内容和纸质论文的内容相一致。\par
+  控阅的学位论文在解除后也遵守此规定。}
+
+% 本科生声明内容
+\newcommand\ustc@originality@text@bachelor{%
+  本人郑重承诺：所呈交的本科毕业论文，是本人在导师指导下进行研究工作%
+  所取得的成果。除已特别加以标注和致谢的地方外，论文中不包含任何他人已经%
+  发表或撰写过的研究成果。与我一同工作的同志对本研究所做的贡献均已在论文%
+  中作了明确的说明。如出现侵犯他人知识产权的行为，由本人承担相应法律责任。%
+  本人承诺不存在抄袭、伪造、篡改、代写、买卖毕业论文(设计)等违纪行为。}
+
+% 生成空的下划线
+\newcommand\ustc@underline[2][8em]{\underline{\hb@xt@ #1{\hss#2\hss}}}
+
+\newcommand\ustc@checkbox{%
+  \makebox[0bp][l]{\raisebox{-0.2ex}{\hspace{0.1em}$\checkmark$}}%
+  $\square$%
 }
 
 % Deprecated commands
@@ -2808,21 +2745,6 @@
   tableposition  = top,
 }
 
-% 若有英文图题，另起一行置于中文图题下方。
-\AtBeginOfPackageFile*{bicaption}{
-  \let\captionmainlanguage\ustc@main@language
-}
-\AtEndOfPackageFile*{bicaption}{
-  \captionsetup[bi-first]{lang = chinese}
-  \captionsetup[bi-second]{
-    lang = english,
-    list = off,
-  }
-  \renewcommand\selectcaptionlanguage[2]{%
-    \ustcsetup{language = #2}%
-  }
-}
-
 % 表单元格中的文字采用 11pt 宋体字，单倍行距，段前3磅，段后3磅。
 % 对于中文，`\arraystretch` 需要设为 1 + (3pt + 3pt) / (11pt * 1.3) ~= 1.42。
 % 对于英文，`\arraystretch` 需要设为 1 + (3pt + 3pt) / (11pt * 1.15) ~= 1.47。
@@ -2850,20 +2772,12 @@
   \fi
 }
 
+% 设置表格的默认字号
 \patchcmd\@floatboxreset{%
   \normalsize
 }{%
   \ustc@table@font
 }{}{\ustc@patch@error{\@floatboxreset}}
-
-% 对 \pkg{longtable} 跨页表格进行相同的设置。
-\AtEndOfPackageFile*{longtable}{
-  \AtBeginEnvironment{longtable}{%
-    \ifdim\f@size pt > 11bp\relax
-      \ustc@table@font
-    \fi
-  }
-}
 
 % 图注、表注使用 `\figurenote` 或 `\tablenote` 命令，与 `apa7.cls` 一致。
 % 图注采用宋体 11pt，单倍行距，段前6磅，段后0磅。
@@ -2888,17 +2802,10 @@
   \figurenote{#1}%
 }
 
-% 设置 \pkg{threeparttable} 表注的默认字号。
-\AtEndOfPackageFile*{threeparttable}{
-  \AtBeginEnvironment{tablenotes}{%
-    \ustc@figure@note@font
-  }
-}
-
 % 不宜将多个插图连续排版，插图与文字论述段落应穿插排版。
 
 % 修改默认的浮动体描述符为 |htbp|。
-% 根据 <https://texfaq.org/FAQ-floats> 的建议，不应删除 `p`。''
+% 根据 <https://texfaq.org/FAQ-floats> 的建议，不应删除 `p`。
 \def\fps@figure{htbp}
 \def\fps@table{htbp}
 
@@ -2987,7 +2894,506 @@
   \fi
 }
 
+
 % \subsection{参考文献}
+
+% 参考文献列表格式：宋体 10.5 磅，行距 20 磅，续行缩进两字，左对齐。
+% 本科生依然是小四宋体。
+\newcommand\ustc@bib@font{%
+  \ifustc@degree@graduate
+    \fontsize{10.5bp}{20bp}\selectfont
+  \else
+    \normalsize
+  \fi
+}
+
+\newcommand\ustc@bib@heading[1]{%
+  \@mainmatterfalse
+  \chapter{#1}%
+}
+
+
+% \subsection{附录}
+
+% 定义了一个满足要求的致谢环境：
+\NewDocumentEnvironment{acknowledgements}{+b}{%
+  \@mainmatterfalse
+  \chapter{\ustc@acknowledgements@name}%
+  \ifustc@review@false
+    #1%
+    \ifustc@degree@bachelor
+      \par
+      \null\par
+      \begingroup
+        \raggedleft
+        \ustc@date@zh@short\par
+      \endgroup
+    \fi
+  \fi
+}{}
+
+
+% 兼容旧版本中“acknowledgments”的拼法。
+% Deprecated since 2020-07-01.
+\NewDocumentEnvironment{acknowledgments}{}{%
+  \begin{acknowledgements}%
+}{%
+  \end{acknowledgements}%
+}
+
+% 科研成果环境：
+\NewDocumentEnvironment{achievements}{+b}{%
+  \ifustc@degree@graduate
+    \ifustc@review@false
+      \@mainmatterfalse
+      \chapter{\ustc@achievements@name}%
+      \fontsize{12bp}{16bp}\selectfont
+      #1\par
+    \fi
+  \fi
+}{}
+
+\NewDocumentEnvironment{achievements*}{+b}{%
+  \ifustc@degree@graduate
+    \ifustc@review@true
+      \@mainmatterfalse
+      \chapter{\ustc@achievements@name}%
+      \fontsize{12bp}{16bp}\selectfont
+      #1\par
+    \fi
+  \fi
+}{}
+
+% 兼容旧的接口
+\NewDocumentEnvironment{publications}{}{%
+  \ustc@deprecated{'publications' environment}{2024-12-15}{'achievements'}%
+  \begin{achievements}%
+}{%
+  \end{achievements}%
+}
+
+\newif\ifustc@first@achievement@list
+\ustc@first@achievement@listtrue
+
+\newenvironment{theachievements}[1][已发表论文]{%
+  \ifustc@first@achievement@list
+    \vskip 1bp\relax
+  \else
+    \vskip 19bp\relax
+  \fi
+  \global\ustc@first@achievement@listfalse
+  \noindent\textbf{#1：}\par
+  \begin{achievementlist}
+}{%
+  \end{achievementlist}
+}
+
+\newlist{achievementlist}{enumerate}{1}
+\setlist[achievementlist]{
+  topsep     = 3bp,
+  partopsep  = 0bp,
+  itemsep    = 0bp,
+  parsep     = 3bp,
+  leftmargin = 21bp,
+  itemindent = 0bp,
+  labelsep   = 0bp,
+  labelwidth = 21bp,
+  align      = left,
+  label      = [\arabic*],
+}
+
+
+
+% \subsection{其他宏包的设置}
+
+% 这些宏包并非格式要求，但是为了方便同学们使用，在这里进行简单设置。
+
+% 对冲突的宏包报错。
+\newcommand\ustc@package@conflict[2]{
+  \AtEndOfPackageFile*{#1}{%
+    \AtBeginOfPackageFile*{#2}{%
+      \ustc@error{The "#2" package is incompatible with "#1"}%
+    }%
+  }%
+}
+
+\ustc@package@conflict{biblatex}{bibunits}
+\ustc@package@conflict{biblatex}{chapterbib}
+\ustc@package@conflict{biblatex}{cite}
+\ustc@package@conflict{biblatex}{multibib}
+\ustc@package@conflict{biblatex}{natbib}
+
+\ustc@package@conflict{bibunits}{biblatex}
+\ustc@package@conflict{bibunits}{chapterbib}
+\ustc@package@conflict{bibunits}{multibib}
+
+\ustc@package@conflict{natbib}{biblatex}
+\ustc@package@conflict{natbib}{cite}
+
+\ustc@package@conflict{newtxmath}{amsfonts}
+\ustc@package@conflict{newtxmath}{amssymb}
+\ustc@package@conflict{newtxmath}{unicode-math}
+\ustc@package@conflict{newtxmath}{upgreek}
+
+\ustc@package@conflict{unicode-math}{amscd}
+\ustc@package@conflict{unicode-math}{amsfonts}
+\ustc@package@conflict{unicode-math}{amssymb}
+\ustc@package@conflict{unicode-math}{bbm}
+\ustc@package@conflict{unicode-math}{bm}
+\ustc@package@conflict{unicode-math}{eucal}
+\ustc@package@conflict{unicode-math}{eufrak}
+\ustc@package@conflict{unicode-math}{mathrsfs}
+\ustc@package@conflict{unicode-math}{newtxmath}
+\ustc@package@conflict{unicode-math}{upgreek}
+
+
+% \subsubsection{\pkg{algorithm2e} 宏包}
+
+% 按章节编号。
+\PassOptionsToPackage{algochapter}{algorithm2e}
+
+\AtEndOfPackageFile*{algorithm2e}{
+  \SetAlgorithmName{\ustc@algorithm@name}{\ustc@algorithm@name}{\ustc@list@algorithm@name}
+  %
+  % 设置算法环境的格式。
+  \SetAlFnt{\ustc@table@font}
+  \SetAlCapSkip{6bp}
+  \SetAlCapFnt{\ustc@caption@font}
+  \SetAlCapNameFnt{\ustc@caption@font}
+  \SetAlgoCaptionSeparator{\quad}
+  \renewcommand{\algocf@captiontext}[2]{%
+    % \algocf@captionlayout{\AlCapSty{\AlCapFnt #1\algocf@typo\algocf@capseparator}\nobreakspace%
+    \algocf@captionlayout{\AlCapSty{\AlCapFnt #1}\algocf@typo\algocf@capseparator\nobreak
+      \AlCapNameSty{\AlCapNameFnt{}#2\endgraf}}}% text of caption
+  %
+  % 设置算法清单的格式
+  \renewcommand\listofalgocfs{%
+    \ustc@chapter{\listalgorithmcfname}%
+    \@starttoc{loa}%
+  }
+  \contentsuse{algocf}{loa}
+  \titlecontents{algocf}
+    [0bp]{}
+    {\contentspush{\ustc@algorithm@name~\thecontentslabel\quad}}{}
+    {\ustc@leaders\thecontentspage}
+}
+
+
+% \subsubsection{\pkg{algorithms}: algorithm 和 algorithmic 宏包}
+
+% 按章节编号。
+\PassOptionsToPackage{chapter}{algorithm}
+
+\AtEndOfPackageFile*{algorithm}{
+  \floatname{algorithm}{\ustc@algorithm@name}
+  %
+  % 设置算法环境的格式。
+  \captionsetup[algorithm]{
+    font = ustc,
+    labelsep = quad,
+  }
+  %
+  % 设置算法清单的格式
+  \renewcommand\listalgorithmname{\ustc@list@algorithm@name}
+  \renewcommand\listofalgorithms{%
+    \ustc@chapter{\listalgorithmname}%
+    \@starttoc{loa}%
+  }
+  \contentsuse{algorithm}{loa}
+  \titlecontents{algorithm}
+    [0bp]{}
+    {\contentspush{\ustc@algorithm@name~\thecontentslabel\quad}}{}
+    {\ustc@leaders\thecontentspage}
+}
+
+
+% \subsubsection{\pkg{amsthm} 宏包}
+
+% \pkg{amsthm} 需要在 \pkg{newtx} 前载入，参考 \pkg{newtx} 的文档。
+\AtBeginOfPackageFile*{amsthm}{
+  \@ifpackageloaded{newtxmath}{
+    \ustc@error{The "amsthm" package should be loaded before setting "newtxmath"}
+  }{}
+}%
+
+\AtEndOfPackageFile*{amsthm}{
+  \newtheoremstyle{ustcplain}
+    {}{}
+    {}{2em}
+    {\bfseries}{}
+    {1em}{}
+  \theoremstyle{ustcplain}
+  % 定义新的定理
+  \ifustc@language@chinese
+    \newcommand\ustc@assertion@name{断言}
+    \newcommand\ustc@assumption@name{假设}
+    \newcommand\ustc@axiom@name{公理}
+    \newcommand\ustc@corollary@name{推论}
+    \newcommand\ustc@definition@name{定义}
+    \newcommand\ustc@example@name{例}
+    \newcommand\ustc@lemma@name{引理}
+    \newcommand\ustc@proof@name{证明}
+    \newcommand\ustc@proposition@name{命题}
+    \newcommand\ustc@remark@name{注}
+    \newcommand\ustc@theorem@name{定理}
+  \else
+    \newcommand\ustc@assertion@name{Assertion}
+    \newcommand\ustc@assumption@name{Assumption}
+    \newcommand\ustc@axiom@name{Axiom}
+    \newcommand\ustc@corollary@name{Corollary}
+    \newcommand\ustc@definition@name{Definition}
+    \newcommand\ustc@example@name{Example}
+    \newcommand\ustc@lemma@name{Lemma}
+    \newcommand\ustc@proof@name{Proof}
+    \newcommand\ustc@proposition@name{Proposition}
+    \newcommand\ustc@remark@name{Remark}
+    \newcommand\ustc@theorem@name{Theorem}
+  \fi
+  \newtheorem{theorem}             {\ustc@theorem@name}    [chapter]
+  \newtheorem{assertion}  [theorem]{\ustc@assertion@name}
+  \newtheorem{axiom}      [theorem]{\ustc@axiom@name}
+  \newtheorem{corollary}  [theorem]{\ustc@corollary@name}
+  \newtheorem{lemma}      [theorem]{\ustc@lemma@name}
+  \newtheorem{proposition}[theorem]{\ustc@proposition@name}
+  \newtheorem{assumption}          {\ustc@assumption@name} [chapter]
+  \newtheorem{definition}          {\ustc@definition@name} [chapter]
+  \newtheorem{example}             {\ustc@example@name}    [chapter]
+  \newtheorem*{remark}             {\ustc@remark@name}
+  % \pkg{amsthm} 单独定义了 proof 环境，这里重新定义以满足格式要求。
+  % 原本模仿 \pkg{amsthm} 写成 |\item[\hskip\labelsep\hskip2em #1\hskip1em]|，
+  % 但是却会多出一些间隙。
+  \renewenvironment{proof}[1][\ustc@proof@name]{\par
+    \pushQED{\qed}%
+    \normalfont \topsep6\p@\@plus6\p@\relax
+    \labelsep 1em\relax
+    \trivlist
+    \item[\hskip\labelsep
+          % \itshape
+          \sffamily
+      % #1\@addpunct{.}]\ignorespaces
+      #1]\ignorespaces
+  }{%
+    \popQED\endtrivlist\@endpefalse
+  }
+  \renewcommand\qedsymbol{\ustc@qed}
+}
+
+
+% \subsubsection{\pkg{biblatex} 宏包}
+
+\AtEndOfPackageFile*{biblatex}{
+  \renewcommand\bibfont{\ustc@bib@font}
+  \setlength{\bibhang}{21bp}
+  \setlength{\bibitemsep}{0\p@ \@plus.2\p@}
+  \defbibheading{bibliography}[\bibname]{\ustc@bib@heading{#1}}
+  \DeclareRobustCommand\inlinecite{\parencite}
+}
+
+
+% \subsubsection{\pkg{bicaption} 宏包}
+
+% 若有英文图题，另起一行置于中文图题下方。
+\AtBeginOfPackageFile*{bicaption}{
+  \let\captionmainlanguage\ustc@main@language
+}
+\AtEndOfPackageFile*{bicaption}{
+  \captionsetup[bi-first]{lang = chinese}
+  \captionsetup[bi-second]{
+    lang = english,
+    list = off,
+  }
+  \renewcommand\selectcaptionlanguage[2]{%
+    \ustcsetup{language = #2}%
+  }
+}
+
+
+% \subsubsection{\pkg{chapterbib} 宏包}
+
+\AtEndOfPackageFile*{chapterbib}{
+  \@ifpackagewith{chapterbib}{sectionbib}{%
+    \ustc@error{The "sectionbib" option cannot be used with chaperbib if natbib loaded}%
+  }{}%
+  \@ifpackageloaded{natbib}{%
+    \renewcommand\bibsection{\ustc@bib@heading@section}
+  }{}
+}
+
+
+% \subsubsection{\pkg{hyperref} 宏包}
+
+\AtEndOfPackageFile*{hyperref}{
+  \hypersetup{
+    bookmarksnumbered  = true,
+    bookmarksopen      = true,
+    bookmarksopenlevel = 1,
+    linktoc            = all,
+    unicode            = true,
+    psdextra           = true,
+  }
+  %
+  % 如果为 \opt{pdf} 样式，设置 hyperlink 颜色
+  \ifustc@output@electronic
+    \hypersetup{
+      colorlinks = true,
+      allcolors  = blue,
+    }
+  \else
+    \hypersetup{hidelinks}
+  \fi
+  %
+  % 填写 PDF 元信息。
+  \AtBeginDocument{%
+    \ifustc@main@language@chinese
+      \hypersetup{pdftitle = \ustc@title}
+    \else
+      \hypersetup{pdftitle = \ustc@title@en}
+    \fi
+    \ifustc@review@false
+      \ifustc@main@language@chinese
+        \hypersetup{pdfauthor = \ustc@author}
+      \else
+        \hypersetup{pdfauthor = \ustc@author@en}
+      \fi
+    \fi
+  }
+  %
+  % 添加 PDF 书签
+  %
+  \newcounter{ustc@bookmarknumber}
+  \renewcommand\ustc@pdfbookmark[1]{%
+    \phantomsection
+    \stepcounter{ustc@bookmarknumber}%
+    \pdfbookmark[0]{#1}{ustcchapter.\theustc@bookmarknumber}%
+  }
+  %
+  % 在 PDF 字符串中去掉换行，以减少 \pkg{hyperref} 的警告信息。
+  \pdfstringdefDisableCommands{
+    \let\\\@empty
+    \let\hspace\@gobble
+    \let\quad\space
+    \let\enspace\space
+  }
+  %
+  % \pkg{hyperref} 与 \pkg{unicode-math} 存在一些兼容性问题，见
+  % \href{https://github.com/ustctug/ustcthesis/issues/223}{%
+  %   ustctug/ustcthesis\#223}，
+  % \href{https://github.com/ho-tex/hyperref/pull/90}{ho-tex/hyperref\#90} 和
+  % \href{https://github.com/ustctug/ustcthesis/issues/235}{%
+  %   ustctug/ustcthesis/\#235}。
+  \@ifpackagelater{hyperref}{2019/04/27}{}{%
+    \g@addto@macro\psdmapshortnames{\let\mu\textmu}%
+  }
+  %
+  % 设置中文的 \cs{autoref}。
+  % \footnote{\url{https://tex.stackexchange.com/a/66150/82731}}
+  \newcommand\ustc@set@hyperref@autoref@names{%
+    \ifustc@language@chinese
+      \def\equationautorefname~##1\null{%
+        \ifustc@eqn@paren@style@full
+          公式\nobreak\tagform@{##1}\null
+        \else
+          公式\nobreakspace\tagform@{##1}\null
+        \fi
+      }%
+      \def\footnoteautorefname{脚注}%
+      \def\itemautorefname~##1\null{第~##1 项\null}%
+      \def\figureautorefname{图}%
+      \def\tableautorefname{表}%
+      \def\partautorefname~##1\null{第~##1 部分\null}%
+      \def\appendixautorefname{附录}%
+      \def\chapterautorefname~##1\null{第~##1 章\null}%
+      \def\sectionautorefname~##1\null{第~##1 节\null}%
+      \def\subsectionautorefname~##1\null{第~##1 节\null}%
+      \def\subsubsectionautorefname~##1\null{第~##1 节\null}%
+      \def\paragraphautorefname~##1\null{第~##1 段\null}%
+      \def\subparagraphautorefname~##1\null{第~##1 段\null}%
+      \def\theoremautorefname{定理}%
+      \def\HyRef@autopageref##1{\hyperref[{##1}]{第~\pageref*{##1} 页}}%
+    \else
+      \def\equationautorefname~##1\null{Equation~\tagform@{##1}\null}%
+      \def\footnoteautorefname{footnote}%
+      \def\itemautorefname{item}%
+      \def\figureautorefname{Figure}%
+      \def\tableautorefname{Table}%
+      \def\partautorefname{Part}%
+      \def\appendixautorefname{Appendix}%
+      \def\chapterautorefname{chapter}%
+      \def\sectionautorefname{section}%
+      \def\subsectionautorefname{subsection}%
+      \def\subsubsectionautorefname{subsubsection}%
+      \def\paragraphautorefname{paragraph}%
+      \def\subparagraphautorefname{subparagraph}%
+      \def\theoremautorefname{Theorem}%
+      \def\HyRef@autopageref##1{\hyperref[{##1}]{\HyRef@autopagerefname\pageref*{##1}}}%
+    \fi
+  }
+  \ustc@set@hyperref@autoref@names
+  \ustc@option@hook{language}{\ustc@set@hyperref@autoref@names}
+  %
+  % 本科生需要在 \tableofcontents 处切换 \pagenumbering，
+  % 在使用了 notoccite 后会导致 PDF 书签的页码有误（#293），
+  % 所以需要补充 https://tex.stackexchange.com/a/593839/82731 的 patch。
+  % LuaTeX 不需要这个 patch。
+  \ifXeTeX
+    \def\HyPL@StorePageLabel#1{%
+      \begingroup
+        \edef\Hy@tempa{\the\Hy@abspage<<#1>>}%
+        \immediate\write\@mainaux{%
+          \string\HyPL@Entry{\Hy@tempa}%
+        }%
+      \endgroup
+    }
+  \fi
+}
+
+
+% \subsubsection{\pkg{longtable} 宏包}
+
+% 设置跨页表格 \pkg{longtable} 的默认字号。
+\AtEndOfPackageFile*{longtable}{
+  \AtBeginEnvironment{longtable}{%
+    \ifdim\f@size pt > 11bp\relax
+      \ustc@table@font
+    \fi
+  }
+}
+
+
+% \subsubsection{\pkg{mathtools} 宏包}
+
+% \pkg{mathtools} 会修改 \pkg{unicode-math} 的 `\underbrace` 和 `\overbrace`，
+% 需要还原为 `\LaTeXunderbrace` 和 `\LaTeXoverbrace`，
+% 参考 \url{https://tex.stackexchange.com/q/521394/82731}。
+%
+% \pkg{mathtools} 的 `showonlyrefs` 选项修改了 `\eqref`，
+% 需要重新处理括号与前后文字的空白。
+% 见 <https://github.com/tuna/thuthesis/issues/1043>。
+\AtEndOfPackageFile*{mathtools}{
+  \@ifpackageloaded{unicode-math}{
+    \let\underbrace\LaTeXunderbrace
+    \let\overbrace\LaTeXoverbrace
+  }{}
+  \expandafter\def\csname MT_extended_eqref:n\endcsname#1{%
+    \ifustc@language@chinese
+      \ifustc@eqn@paren@style@full
+        \unskip
+      \fi
+    \fi
+    \protected@write\@auxout{}
+      {\string\MT@newlabel{#1}}%
+    \textup{\let\df@label\@empty\csname MT_prev_tagform:n\endcsname{\ref{#1}}}%
+    \ifustc@language@chinese
+      \ifustc@eqn@paren@style@full
+        \ignorespaces
+      \fi
+    \fi
+  }
+  \expandafter\MakeRobust\csname MT_extended_eqref:n\endcsname
+}
+
+
+% \subsubsection{\pkg{nomencl} 宏包}
 
 \PassOptionsToPackage{compress}{natbib}
 
@@ -3016,18 +3422,18 @@
   }
   %
   % 如果文献序号作为叙述文字的一部分，需要临时将文献序号与正文平排
-  \DeclareRobustCommand\inlinecite{\@inlinecite}
-  \def\@inlinecite#1{\begingroup\let\@cite\NAT@citenum\citep{#1}\endgroup}
+  \DeclareRobustCommand\inlinecite
+    {\begingroup
+      \NAT@superfalse
+      \NAT@swatrue\let\NAT@ctype\z@\NAT@partrue
+          \@ifstar{\NAT@fulltrue\NAT@citetp}{\NAT@fullfalse\NAT@citetp}}
+  \DeclareRobustCommand\parencite
+    {\begingroup
+      \NAT@superfalse
+      \NAT@swatrue\let\NAT@ctype\z@\NAT@partrue
+          \@ifstar{\NAT@fulltrue\NAT@citetp}{\NAT@fullfalse\NAT@citetp}}
   %
-  % 参考文献列表格式：宋体 10.5 磅，行距 20 磅，续行缩进两字，左对齐。
-  % 本科生依然是小四宋体。
-  \renewcommand\bibfont{%
-    \ifustc@degree@graduate
-      \fontsize{10.5bp}{20bp}\selectfont
-    \else
-      \normalsize
-    \fi
-  }
+  \renewcommand\bibfont{\ustc@bib@font}
   \setlength{\bibsep}{0\p@ \@plus.2\p@}
   % 参考文献表的编号居左。
   \renewcommand\@biblabel[1]{[#1]\hfill}
@@ -3294,430 +3700,24 @@
   % 为了将参考文献加入目录和 pdf 书签，重新定义 \pkg{natbib} 的 \cmd{bibsection}
   % 另外如果调用了 \pkg{chapterbib} 或者使用了 \opt{sectionbib} 参数，
   % 需要使用节标题 \cs{section}。
-  \newcommand\ustc@bib@chapter{%
-    \@mainmatterfalse
-    \chapter{\bibname}%
-  }%
-  \newcommand\ustc@bib@section{%
+
+  \newcommand\ustc@bib@heading@section{%
     \begingroup
       \ctexset{section/numbering=false}%
       \section{\bibname}%
     \endgroup
   }%
-  \@ifpackagewith{chapterbib}{sectionbib}{%
-    \ustc@error{The "sectionbib" option cannot be used with chaperbib if natbib loaded}%
-  }{}%
   \@ifpackageloaded{chapterbib}{%
-    \let\bibsection\ustc@bib@section
+    \renewcommand\bibsection{\ustc@bib@heading@section}
   }{%
     \@ifxundefined\NAT@sectionbib{%
-      \let\bibsection\ustc@bib@chapter
+      \renewcommand\bibsection{\ustc@bib@heading{\bibname}}
     }{%
-      \let\bibsection\ustc@bib@section
+      \renewcommand\bibsection{\ustc@bib@heading@section}
     }%
   }%
 }
 
-
-% biblatex 宏包的配置
-
-\AtEndOfPackageFile*{biblatex}{
-  \DeclareRobustCommand\inlinecite{\parencite}
-  \defbibheading{bibliography}[\bibname]{%
-    \@mainmatterfalse
-    \chapter{\bibname}%
-  }
-  \renewcommand\bibfont{%
-    \ifustc@degree@graduate
-      \fontsize{10.5bp}{20bp}\selectfont
-    \else
-      \normalsize
-    \fi
-  }
-  \setlength{\bibitemsep}{0\p@ \@plus.2\p@}
-  \setlength{\bibhang}{21bp}
-}
-
-% \subsection{附录}
-
-% 定义了一个满足要求的致谢环境：
-\NewDocumentEnvironment{acknowledgements}{+b}{%
-  \@mainmatterfalse
-  \chapter{\ustc@acknowledgements@name}%
-  \ifustc@review@false
-    #1%
-    \ifustc@degree@bachelor
-      \par
-      \null\par
-      \begingroup
-        \raggedleft
-        \ustc@date@zh@short\par
-      \endgroup
-    \fi
-  \fi
-}{}
-
-
-% 兼容旧版本中“acknowledgments”的拼法。
-% Deprecated since 2020-07-01.
-\NewDocumentEnvironment{acknowledgments}{+b}{%
-  \begin{acknowledgements}%
-    #1%
-  \end{acknowledgements}%
-}{}
-
-% 科研成果环境：
-\NewDocumentEnvironment{achievements}{+b}{%
-  \ifustc@degree@graduate
-    \ifustc@review@false
-      \@mainmatterfalse
-      \chapter{\ustc@achievements@name}%
-      \fontsize{12bp}{16bp}\selectfont
-      #1\par
-    \fi
-  \fi
-}{}
-
-\NewDocumentEnvironment{achievements*}{+b}{%
-  \ifustc@degree@graduate
-    \ifustc@review@true
-      \@mainmatterfalse
-      \chapter{\ustc@achievements@name}%
-      \fontsize{12bp}{16bp}\selectfont
-      #1\par
-    \fi
-  \fi
-}{}
-
-% 兼容旧的接口
-\NewDocumentEnvironment{publications}{+b}{%
-  \ustc@deprecated{'publications' environment}{2024-12-15}{'achievements'}%
-  \begin{achievements}%
-    #1%
-  \end{achievements}%
-}{}
-
-\newif\ifustc@first@achievement@list
-\ustc@first@achievement@listtrue
-
-\newenvironment{theachievements}[1][已发表论文]{%
-  \ifustc@first@achievement@list
-    \vskip 1bp\relax
-  \else
-    \vskip 19bp\relax
-  \fi
-  \global\ustc@first@achievement@listfalse
-  \noindent\textbf{#1：}\par
-  \begin{achievementlist}
-}{%
-  \end{achievementlist}
-}
-
-\newlist{achievementlist}{enumerate}{1}
-\setlist[achievementlist]{
-  topsep     = 3bp,
-  partopsep  = 0bp,
-  itemsep    = 0bp,
-  parsep     = 3bp,
-  leftmargin = 21bp,
-  itemindent = 0bp,
-  labelsep   = 0bp,
-  labelwidth = 21bp,
-  align      = left,
-  label      = [\arabic*],
-}
-
-
-
-% \subsection{其他宏包的设置}
-
-% 这些宏包并非格式要求，但是为了方便同学们使用，在这里进行简单设置。
-
-
-% \subsubsection{\pkg{hyperref} 宏包}
-
-\AtEndOfPackageFile*{hyperref}{
-  \hypersetup{
-    bookmarksnumbered  = true,
-    bookmarksopen      = true,
-    bookmarksopenlevel = 1,
-    linktoc            = all,
-    unicode            = true,
-    psdextra           = true,
-  }
-  %
-  % 如果为 \opt{pdf} 样式，设置 hyperlink 颜色
-  \ifustc@output@electronic
-    \hypersetup{
-      colorlinks = true,
-      allcolors  = blue,
-    }
-  \else
-    \hypersetup{hidelinks}
-  \fi
-  %
-  % 填写 PDF 元信息。
-  \AtBeginDocument{%
-    \ifustc@main@language@chinese
-      \hypersetup{pdftitle = \ustc@title}
-    \else
-      \hypersetup{pdftitle = \ustc@title@en}
-    \fi
-    \ifustc@review@false
-      \ifustc@main@language@chinese
-        \hypersetup{pdfauthor = \ustc@author}
-      \else
-        \hypersetup{pdfauthor = \ustc@author@en}
-      \fi
-    \fi
-  }
-  %
-  % 添加 PDF 书签
-  %
-  \newcounter{ustc@bookmarknumber}
-  \renewcommand\ustc@pdfbookmark[1]{%
-    \phantomsection
-    \stepcounter{ustc@bookmarknumber}%
-    \pdfbookmark[0]{#1}{ustcchapter.\theustc@bookmarknumber}%
-  }
-  %
-  % 在 PDF 字符串中去掉换行，以减少 \pkg{hyperref} 的警告信息。
-  \pdfstringdefDisableCommands{
-    \let\\\@empty
-    \let\hspace\@gobble
-    \let\quad\space
-    \let\enspace\space
-  }
-  %
-  % \pkg{hyperref} 与 \pkg{unicode-math} 存在一些兼容性问题，见
-  % \href{https://github.com/ustctug/ustcthesis/issues/223}{%
-  %   ustctug/ustcthesis\#223}，
-  % \href{https://github.com/ho-tex/hyperref/pull/90}{ho-tex/hyperref\#90} 和
-  % \href{https://github.com/ustctug/ustcthesis/issues/235}{%
-  %   ustctug/ustcthesis/\#235}。
-  \@ifpackagelater{hyperref}{2019/04/27}{}{%
-    \g@addto@macro\psdmapshortnames{\let\mu\textmu}%
-  }
-  %
-  % 设置中文的 \cs{autoref}。
-  % \footnote{\url{https://tex.stackexchange.com/a/66150/82731}}
-  \newcommand\ustc@set@hyperref@autoref@names{%
-    \ifustc@language@chinese
-      \def\equationautorefname~##1\null{%
-        \ifustc@eqn@paren@style@full
-          公式\nobreak\tagform@{##1}\null
-        \else
-          公式\nobreakspace\tagform@{##1}\null
-        \fi
-      }%
-      \def\footnoteautorefname{脚注}%
-      \def\itemautorefname~##1\null{第~##1 项\null}%
-      \def\figureautorefname{图}%
-      \def\tableautorefname{表}%
-      \def\partautorefname~##1\null{第~##1 部分\null}%
-      \def\appendixautorefname{附录}%
-      \def\chapterautorefname~##1\null{第~##1 章\null}%
-      \def\sectionautorefname~##1\null{第~##1 节\null}%
-      \def\subsectionautorefname~##1\null{第~##1 节\null}%
-      \def\subsubsectionautorefname~##1\null{第~##1 节\null}%
-      \def\paragraphautorefname~##1\null{第~##1 段\null}%
-      \def\subparagraphautorefname~##1\null{第~##1 段\null}%
-      \def\theoremautorefname{定理}%
-      \def\HyRef@autopageref##1{\hyperref[{##1}]{第~\pageref*{##1} 页}}%
-    \else
-      \def\equationautorefname~##1\null{Equation~\tagform@{##1}\null}%
-      \def\footnoteautorefname{footnote}%
-      \def\itemautorefname{item}%
-      \def\figureautorefname{Figure}%
-      \def\tableautorefname{Table}%
-      \def\partautorefname{Part}%
-      \def\appendixautorefname{Appendix}%
-      \def\chapterautorefname{chapter}%
-      \def\sectionautorefname{section}%
-      \def\subsectionautorefname{subsection}%
-      \def\subsubsectionautorefname{subsubsection}%
-      \def\paragraphautorefname{paragraph}%
-      \def\subparagraphautorefname{subparagraph}%
-      \def\theoremautorefname{Theorem}%
-      \def\HyRef@autopageref##1{\hyperref[{##1}]{\HyRef@autopagerefname\pageref*{##1}}}%
-    \fi
-  }
-  \ustc@set@hyperref@autoref@names
-  \ustc@option@hook{language}{\ustc@set@hyperref@autoref@names}
-  %
-  % 本科生需要在 \tableofcontents 处切换 \pagenumbering，
-  % 在使用了 notoccite 后会导致 PDF 书签的页码有误（#293），
-  % 所以需要补充 https://tex.stackexchange.com/a/593839/82731 的 patch。
-  % LuaTeX 不需要这个 patch。
-  \ifXeTeX
-    \def\HyPL@StorePageLabel#1{%
-      \begingroup
-        \edef\Hy@tempa{\the\Hy@abspage<<#1>>}%
-        \immediate\write\@mainaux{%
-          \string\HyPL@Entry{\Hy@tempa}%
-        }%
-      \endgroup
-    }
-  \fi
-}
-
-
-% \subsubsection{algorithms: algorithm 和 algorithmic 宏包}
-
-% 按章节编号。
-\PassOptionsToPackage{chapter}{algorithm}
-
-\AtEndOfPackageFile*{algorithm}{
-  \floatname{algorithm}{\ustc@algorithm@name}
-  %
-  % 设置算法环境的格式。
-  \captionsetup[algorithm]{
-    font = ustc,
-    labelsep = quad,
-  }
-  %
-  % 设置算法清单的格式
-  \renewcommand\listalgorithmname{\ustc@list@algorithm@name}
-  \renewcommand\listofalgorithms{%
-    \ustc@chapter{\listalgorithmname}%
-    \@starttoc{loa}%
-  }
-  \contentsuse{algorithm}{loa}
-  \titlecontents{algorithm}
-    [0bp]{}
-    {\contentspush{\ustc@algorithm@name~\thecontentslabel\quad}}{}
-    {\ustc@leaders\thecontentspage}
-}
-
-
-% \subsubsection{\pkg{amsthm} 宏包}
-
-\AtEndOfPackageFile*{amsthm}{
-  \newtheoremstyle{ustcplain}
-    {}{}
-    {}{2em}
-    {\bfseries}{}
-    {1em}{}
-  \theoremstyle{ustcplain}
-  % 定义新的定理
-  \ifustc@language@chinese
-    \newcommand\ustc@assertion@name{断言}
-    \newcommand\ustc@assumption@name{假设}
-    \newcommand\ustc@axiom@name{公理}
-    \newcommand\ustc@corollary@name{推论}
-    \newcommand\ustc@definition@name{定义}
-    \newcommand\ustc@example@name{例}
-    \newcommand\ustc@lemma@name{引理}
-    \newcommand\ustc@proof@name{证明}
-    \newcommand\ustc@proposition@name{命题}
-    \newcommand\ustc@remark@name{注}
-    \newcommand\ustc@theorem@name{定理}
-  \else
-    \newcommand\ustc@assertion@name{Assertion}
-    \newcommand\ustc@assumption@name{Assumption}
-    \newcommand\ustc@axiom@name{Axiom}
-    \newcommand\ustc@corollary@name{Corollary}
-    \newcommand\ustc@definition@name{Definition}
-    \newcommand\ustc@example@name{Example}
-    \newcommand\ustc@lemma@name{Lemma}
-    \newcommand\ustc@proof@name{Proof}
-    \newcommand\ustc@proposition@name{Proposition}
-    \newcommand\ustc@remark@name{Remark}
-    \newcommand\ustc@theorem@name{Theorem}
-  \fi
-  \newtheorem{theorem}             {\ustc@theorem@name}    [chapter]
-  \newtheorem{assertion}  [theorem]{\ustc@assertion@name}
-  \newtheorem{axiom}      [theorem]{\ustc@axiom@name}
-  \newtheorem{corollary}  [theorem]{\ustc@corollary@name}
-  \newtheorem{lemma}      [theorem]{\ustc@lemma@name}
-  \newtheorem{proposition}[theorem]{\ustc@proposition@name}
-  \newtheorem{assumption}          {\ustc@assumption@name} [chapter]
-  \newtheorem{definition}          {\ustc@definition@name} [chapter]
-  \newtheorem{example}             {\ustc@example@name}    [chapter]
-  \newtheorem*{remark}             {\ustc@remark@name}
-  % \pkg{amsthm} 单独定义了 proof 环境，这里重新定义以满足格式要求。
-  % 原本模仿 \pkg{amsthm} 写成 |\item[\hskip\labelsep\hskip2em #1\hskip1em]|，
-  % 但是却会多出一些间隙。
-  \renewenvironment{proof}[1][\ustc@proof@name]{\par
-    \pushQED{\qed}%
-    \normalfont \topsep6\p@\@plus6\p@\relax
-    \labelsep 1em\relax
-    \trivlist
-    \item[\hskip\labelsep
-          % \itshape
-          \sffamily
-      % #1\@addpunct{.}]\ignorespaces
-      #1]\ignorespaces
-  }{%
-    \popQED\endtrivlist\@endpefalse
-  }
-  \renewcommand\qedsymbol{\ustc@qed}
-}
-
-
-% \subsubsection{\pkg{algorithm2e} 宏包}
-
-% 按章节编号。
-\PassOptionsToPackage{algochapter}{algorithm2e}
-
-\AtEndOfPackageFile*{algorithm2e}{
-  \SetAlgorithmName{\ustc@algorithm@name}{\ustc@algorithm@name}{\ustc@list@algorithm@name}
-  %
-  % 设置算法环境的格式。
-  \SetAlFnt{\ustc@table@font}
-  \SetAlCapSkip{6bp}
-  \SetAlCapFnt{\ustc@caption@font}
-  \SetAlCapNameFnt{\ustc@caption@font}
-  \SetAlgoCaptionSeparator{\quad}
-  \renewcommand{\algocf@captiontext}[2]{%
-    % \algocf@captionlayout{\AlCapSty{\AlCapFnt #1\algocf@typo\algocf@capseparator}\nobreakspace%
-    \algocf@captionlayout{\AlCapSty{\AlCapFnt #1}\algocf@typo\algocf@capseparator\nobreak
-      \AlCapNameSty{\AlCapNameFnt{}#2\endgraf}}}% text of caption
-  %
-  % 设置算法清单的格式
-  \renewcommand\listofalgocfs{%
-    \ustc@chapter{\listalgorithmcfname}%
-    \@starttoc{loa}%
-  }
-  \contentsuse{algocf}{loa}
-  \titlecontents{algocf}
-    [0bp]{}
-    {\contentspush{\ustc@algorithm@name~\thecontentslabel\quad}}{}
-    {\ustc@leaders\thecontentspage}
-}
-
-
-% \subsubsection{\pkg{mathtools} 宏包}
-
-% \pkg{mathtools} 会修改 \pkg{unicode-math} 的 `\underbrace` 和 `\overbrace`，
-% 需要还原为 `\LaTeXunderbrace` 和 `\LaTeXoverbrace`，
-% 参考 \url{https://tex.stackexchange.com/q/521394/82731}。
-%
-% \pkg{mathtools} 的 `showonlyrefs` 选项修改了 `\eqref`，
-% 需要重新处理括号与前后文字的空白。
-% 见 <https://github.com/tuna/thuthesis/issues/1043>。
-\AtEndOfPackageFile*{mathtools}{
-  \@ifpackageloaded{unicode-math}{
-    \let\underbrace\LaTeXunderbrace
-    \let\overbrace\LaTeXoverbrace
-  }{}
-  \expandafter\def\csname MT_extended_eqref:n\endcsname#1{%
-    \ifustc@language@chinese
-      \ifustc@eqn@paren@style@full
-        \unskip
-      \fi
-    \fi
-    \protected@write\@auxout{}
-      {\string\MT@newlabel{#1}}%
-    \textup{\let\df@label\@empty\csname MT_prev_tagform:n\endcsname{\ref{#1}}}%
-    \ifustc@language@chinese
-      \ifustc@eqn@paren@style@full
-        \ignorespaces
-      \fi
-    \fi
-  }
-  \expandafter\MakeRobust\csname MT_extended_eqref:n\endcsname
-}
 
 % \subsubsection{\pkg{nomencl} 宏包}
 
@@ -3778,18 +3778,12 @@
   \ustc@option@hook{language}{\ustc@set@siunitx@language}
 }
 
-% \subsubsection{\pkg{chapterbib} 宏包}
 
-\AtEndOfPackageFile*{chapterbib}{
-  \@ifpackageloaded{natbib}{%
-    \@ifpackagewith{chapterbib}{sectionbib}{%
-      \ustc@error{The "sectionbib" option cannot be used with chaperbib if natbib loaded}%
-    }{}%
-    \renewcommand\bibsection{%
-      \begingroup
-        \ctexset{section/numbering=false}%
-        \section{\bibname}%
-      \endgroup
-    }
-  }{}
+% \subsubsection{\pkg{threeparttable} 宏包}
+
+% 设置 \pkg{threeparttable} 表注的默认字号。
+\AtEndOfPackageFile*{threeparttable}{
+  \AtBeginEnvironment{tablenotes}{%
+    \ustc@figure@note@font
+  }
 }
