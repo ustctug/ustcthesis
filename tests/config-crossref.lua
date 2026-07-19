@@ -1,3 +1,3 @@
-testfiledir = "./test/testfiles-crossref"
+testfiledir = "./tests/testfiles-crossref"
 
 checkruns = 2

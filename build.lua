@@ -5,8 +5,8 @@
 
 module = "ustcthesis"
 
-testfiledir = "./test/testfiles"
-testsuppdir = "./test/support"
+testfiledir = "./tests/testfiles"
+testsuppdir = "./tests/support"
 
 demofiles = {"main.tex", "bib", "chapters"}
 installfiles = {"*.cls", "*.bst", "*.bbx", "*.cbx", "figures"}
@@ -18,19 +18,17 @@ stdengine = "xetex"
 
 checkconfigs = {
   "build",
-  "test/config-crossref",
-  "test/config-nomencl",
-  "test/config-bibtex",
-  "test/config-biblatex",
+  "tests/config-crossref",
+  "tests/config-nomencl",
+  "tests/config-bibtex",
+  "tests/config-biblatex",
 }
 
 typesetexe = "xelatex"
 unpackexe = "xetex"
 
-checkopts = "-file-line-error -halt-on-error -interaction=nonstopmode"
-typesetopts = "-file-line-error -halt-on-error -interaction=nonstopmode"
-
-lvtext = ".tex"
+checkopts = "-file-line-error -interaction=nonstopmode"
+typesetopts = "-file-line-error -interaction=nonstopmode"
 
 local package_repository = "https://github.com/ustctug/ustcthesis"
 local version_pattern = "[%d.]+[%l%d.-]*"

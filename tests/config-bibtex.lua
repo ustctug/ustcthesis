@@ -1,4 +1,4 @@
-testfiledir = "./test/testfiles-bibtex"
+testfiledir = "./tests/testfiles-bibtex"
 
 checkruns = 3
 

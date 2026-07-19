@@ -29,7 +29,7 @@ test:
 	l3build check
 
 save:
-	bash test/save.sh
+	bash tests/save.sh
 
 clean : FORCE_MAKE
 	$(LATEXMK) -c $(MAIN).tex $(NAME)-doc.tex
