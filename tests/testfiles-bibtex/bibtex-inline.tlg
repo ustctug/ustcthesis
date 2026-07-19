@@ -324,6 +324,7 @@ Completed box being shipped out [1]
 .....\TU/texgyretermes(0)/m/n/12.045 ]
 .....\kern -0.0002
 .....\kern 0.0002
+....\penalty 10000
 ....\hbox(6.10681+0.0)x9.03375, shifted -4.818
 .....\special{color push  Black}
 .....\TU/texgyretermes(0)/m/n/9.03375 42
@@ -602,6 +603,7 @@ Completed box being shipped out [1]
 .....\TU/texgyretermes(0)/m/n/12.045 ]
 .....\kern -0.0002
 .....\kern 0.0002
+....\penalty 10000
 ....\hbox(6.10681+0.0)x9.03375, shifted -4.818
 .....\special{color push  Black}
 .....\TU/texgyretermes(0)/m/n/9.03375 42

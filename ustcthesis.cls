@@ -3959,21 +3959,63 @@
 
 \__ustc_at_end_package:nn { natbib }
   {
+    % 控制正文引用标注的符号全角/半角
+    \newif \ifustc@cite@punct@full
+    \bool_if:NTF \l__ustc_language_chinese_bool
+      { \ustc@cite@punct@fulltrue }
+      { \ustc@cite@punct@fullfalse }
+    \tl_put_right:Nn \l__ustc_language_hook_tl
+      {
+        \bool_if:NTF \l__ustc_language_chinese_bool
+          { \ustc@cite@punct@fulltrue }
+          { \ustc@cite@punct@fullfalse }
+      }
+    % 默认使用顺序编码制
+    \NAT@numberstrue
+    \NAT@supertrue
+    \cs_gset_nopar:Npn \NAT@open { [ }
+    \cs_gset_nopar:Npn \NAT@close { ] }
+    \cs_gset_nopar:Npn \NAT@sep { , }
+    \cs_gset_nopar:Npn \NAT@aysep { , }
+    \cs_gset_nopar:Npn \NAT@yrsep { \textsuperscript { , } }
+    %
     % 定义几种引用文献的标注样式。
     \cs_new:Npn \bibstyle@super
-      { \bibpunct { [ } { ] } { , } { s } { , } { \textsuperscript { , } } }
+      {
+        \bibpunct { [ } { ] } { , } { s } { , } { \textsuperscript { , } }
+        \cs_gset_nopar:Npn \NAT@spacechar { \  }
+      }
     \cs_new:Npn \bibstyle@inline
-      { \bibpunct { [ } { ] } { , } { n } { , } { , } }
+      {
+        \bibpunct { [ } { ] } { , } { n } { , } { , }
+        \cs_gset_nopar:Npn \NAT@spacechar { \  }
+      }
     \cs_new:Npn \bibstyle@authoryear
-      { \bibpunct { ( } { ) } { ; } { a } { , } { , } }
-    \cs_set_eq:cN { bibstyle@author-year } \bibstyle@authoryear
+      {
+        \bibpunct
+          % \NAT@cmt: The delimiter preceding a post-note
+          [ \ifustc@cite@punct@full ， \else ,~ \fi ]
+          { \ifustc@cite@punct@full （ \else ( \fi }
+          { \ifustc@cite@punct@full ） \else ) \fi }
+          % \NAT@sep: The delimiter between multiple cites
+          { \ifustc@cite@punct@full ； \else ; \fi }
+          { a }
+          % \NAT@aysep: The delimiter between author and year
+          { \ifustc@cite@punct@full ， \else , \fi }
+          % \NAT@yrsep: The delimiter between years with same author
+          { \ifustc@cite@punct@full ， \else , \fi }
+        \cs_gset_nopar:Npn \NAT@spacechar
+          { \ifustc@cite@punct@full \else \  \fi }
+      }
+    \cs_set:cpn { bibstyle@author-year } { \bibstyle@authoryear }
     %
     % 几种引用样式，与 \file{bst} 文件名保持一致，
     % 这样在使用 \cs{bibliographystyle} 选择参考文献表的样式时也会设置对应的引用样式。
-    \cs_set_eq:cN { bibstyle@ustcthesis-numeric } \bibstyle@super
-    \cs_set_eq:cN { bibstyle@ustcthesis-numerical } \bibstyle@super
-    \cs_set_eq:cN { bibstyle@ustcthesis-authoryear } \bibstyle@authoryear
-    \cs_set_eq:cN { bibstyle@ustcthesis-bachelor } \bibstyle@super
+    \cs_set:cpn { bibstyle@ustcthesis-numeric } { \bibstyle@super }
+    \cs_set:cpn { bibstyle@ustcthesis-authoryear } { \foo \bibstyle@authoryear }
+    % 兼容过时的样式名称
+    \cs_set:cpn { bibstyle@ustcthesis-numerical } { \bibstyle@super }
+    \cs_set:cpn { bibstyle@ustcthesis-bachelor } { \bibstyle@super }
     %
     % 如果载入 `natbib` 前设置了 `cite-style`，这里先进行配置。
     % https://github.com/ustctug/ustcthesis/issues/327
@@ -3988,10 +4030,47 @@
     \DeclareRobustCommand \parencite
       {
         \begingroup
-        \NAT@superfalse
         \NAT@swatrue
-        \let \NAT@ctype \z@
+        \cs_set_eq:NN \NAT@ctype \z@
         \NAT@partrue
+        \NAT@superfalse
+        \cs_set_eq:NN \NAT@mbox \mbox
+        \cs_set_eq:NN \@cite \NAT@citenum
+        \cs_set_eq:NN \NAT@space \NAT@spacechar
+        \cs_set_eq:NN \NAT@super@kern \relax
+        \@ifstar
+          { \NAT@fulltrue \NAT@citetp }
+          { \NAT@fullfalse \NAT@citetp }
+      }
+    %
+    % 兼容 RevTeX 的 \cs{onlinecite} 命令。
+    \DeclareRobustCommand \onlinecite
+      {
+        \begingroup
+        \NAT@swatrue
+        \cs_set_eq:NN \NAT@ctype \z@
+        \NAT@partrue
+        \NAT@superfalse
+        \cs_set_eq:NN \NAT@mbox \mbox
+        \cs_set_eq:NN \@cite \NAT@citenum
+        \cs_set_eq:NN \NAT@space \NAT@spacechar
+        \cs_set_eq:NN \NAT@super@kern \relax
+        \@ifstar
+          { \NAT@fulltrue \NAT@citetp }
+          { \NAT@fullfalse \NAT@citetp }
+      }
+    %
+    \DeclareRobustCommand \inlinecite
+      {
+        \begingroup
+        \NAT@swatrue
+        \cs_set_eq:NN \NAT@ctype \z@
+        \NAT@partrue
+        \NAT@superfalse
+        \cs_set_eq:NN \NAT@mbox \mbox
+        \cs_set_eq:NN \@cite \NAT@citenum
+        \cs_set_eq:NN \NAT@space \NAT@spacechar
+        \cs_set_eq:NN \NAT@super@kern \relax
         \@ifstar
           { \NAT@fulltrue \NAT@citetp }
           { \NAT@fullfalse \NAT@citetp }
@@ -4023,8 +4102,8 @@
     % 著者-出版年制悬挂缩进 2 字。注意这个宽度是加载时设置的，不能使用 em。
     \skip_set:Nn \bibhang { 21 bp }
     %
-    % 修改引用的样式。
-    % 这里在 filehook 中无法使用 \cs{patchcmd}，所以只能手动重定义。
+    \cs_new_nopar:Npn \bibrangedash { - }
+    \cs_new_nopar:Npn \multiciterangedelim { \bibrangedash }
     %
     % 将 super 式 \cs{citep} 引用的页码置于括号外。
     \cs_set:Npn \NAT@citesuper #1#2#3
@@ -4041,8 +4120,6 @@
               \NAT@@open #1 \NAT@@close
               \if * #3 * \else #3 \fi
             }
-          % TODO: remove this
-          \kern \p@
         \else
           #1
         \fi
@@ -4076,7 +4153,10 @@
           \if * #2 * \else #2 \NAT@spacechar \fi
           % #1\if*#3*\else\NAT@cmt#3\fi\NAT@@close\else#1\fi\endgroup}
           #1 \NAT@@close
-          \if * #3 * \else \textsuperscript{#3} \fi
+          \if * #3 * \else
+            \unskip \kern \p@
+            \textsuperscript {#3}
+          \fi
         \else
           #1
         \fi
@@ -4194,7 +4274,8 @@
           \NAT@mbox{\NAT@@close}%
           \@ifnum{\NAT@ctype=\z@}{%
             \if*#2*\else
-              \textsuperscript{#2}%
+              % 仿照 super 模式的 \NAT@mbox
+              \unskip\nobreak\textsuperscript{#2}%
             \fi
           }{}%
           \NAT@super@kern
@@ -4237,7 +4318,14 @@
                 year\MessageBreak without distinguishing extra
                 letter,\MessageBreak appears as question mark}\fi
                 \NAT@hyper@{\NAT@exlab}%
-              \else\unskip\NAT@spacechar
+              \else
+                % \unskip
+                %
+                % 如果用全角符号，\unksip 会破坏“（张三，1984，1985）” 年份之间逗号后的空白
+                \ifustc@cite@punct@full\else
+                  \unskip
+                \fi
+                \NAT@spacechar
                 \NAT@hyper@{\NAT@date}%
               \fi
           \else
@@ -4268,7 +4356,13 @@
                 letter,\MessageBreak appears as question mark}\fi
                 \NAT@hyper@{\NAT@exlab}%
               \else
-                \unskip\NAT@spacechar
+                % \unskip
+                %
+                % 如果用全角符号，\unksip 会破坏“张三（1984，1985）” 年份之间逗号后的空白
+                \ifustc@cite@punct@full\else
+                  \unskip
+                \fi
+                \NAT@spacechar
                 \NAT@hyper@{\NAT@date}%
               \fi
           \else
@@ -4294,8 +4388,13 @@
         % 将 author-year 式 \cs{citet} 引用的页码置于括号外并改为上标。
         %
         % \if*#2*\else\NAT@cmt#2\fi
-        \if\relax\NAT@date\relax\else\NAT@@close\fi
-        \if*#2*\else\textsuperscript{#2}\fi
+        \if\relax\NAT@date\relax\else
+          \NAT@@close
+        \fi
+        \if*#2*\else
+          \unskip\kern\p@
+          \textsuperscript{#2}%
+        \fi
       \fi}{#1}{#2}}
 }
 \ExplSyntaxOn

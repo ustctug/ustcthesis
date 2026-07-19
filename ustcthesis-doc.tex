@@ -641,7 +641,7 @@ key-value 的方式填写，如：
 \begin{enumerate}
   \item 上标样式（\opt{super}）， 如“张教授\textsuperscript{[2-3]}认为……
     形成了多种物理模型\textsuperscript{[7,9,11-13]}”。
-  \item 与正文平排（\opt{inline}），文献序号作为叙述文字的一部分，
+  \item 与正文平排（\opt{inline}），文献序号作为行文语句的组成部分，
     如“张教授\textsuperscript{[4]}认为……根据文献[4]\textsuperscript{101-105}”。
 \end{enumerate}
 
@@ -651,7 +651,7 @@ key-value 的方式填写，如：
     cite-style = inline,
   }
 \end{latex}
-或者使用 \cs{inlinecite} 在局部与正文平排。
+或者使用 \cs{parencite} 在局部序号也可作为行文语句的组成部分。
 
 著者-出版年制的文献引用标注也有两种主要模式：
 \begin{enumerate}

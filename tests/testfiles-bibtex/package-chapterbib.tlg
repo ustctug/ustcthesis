@@ -116,7 +116,7 @@ Completed box being shipped out [1]
 ....\glue(\parskip) 0.0
 ....\glue(\parskip) 0.0
 ....\glue(\baselineskip) 6.30759
-....\hbox(10.9248+0.0)x417.11752, glue set 373.46906fil
+....\hbox(10.9248+0.0)x417.11752, glue set 374.46906fil
 .....\hbox(0.0+0.0)x24.09
 .....\hbox(6.10681+1.40926)x18.05847, shifted -4.818
 ......\special{color push  Black}
@@ -144,7 +144,6 @@ Completed box being shipped out [1]
 .....\penalty 10000
 .....\glue 0.5
 .....\kern 0.0
-.....\kern 1.0
 .....\penalty 10000
 .....\glue(\parfillskip) 0.0 plus 1.0fil
 .....\glue(\rightskip) 0.0
@@ -388,7 +387,7 @@ Completed box being shipped out [2]
 ....\glue(\parskip) 0.0
 ....\glue(\parskip) 0.0
 ....\glue(\baselineskip) 6.30759
-....\hbox(10.9248+0.0)x417.11752, glue set 373.46906fil
+....\hbox(10.9248+0.0)x417.11752, glue set 374.46906fil
 .....\hbox(0.0+0.0)x24.09
 .....\hbox(6.10681+1.40926)x18.05847, shifted -4.818
 ......\special{color push  Black}
@@ -416,7 +415,6 @@ Completed box being shipped out [2]
 .....\penalty 10000
 .....\glue 0.5
 .....\kern 0.0
-.....\kern 1.0
 .....\penalty 10000
 .....\glue(\parfillskip) 0.0 plus 1.0fil
 .....\glue(\rightskip) 0.0
