@@ -15,6 +15,9 @@
 \autoref{fig:example} 和 \autoref{tab:example}。
 见\autoref{eq:example}，\autopageref{eq:example}。
 
+\ustcsetup{eqn-paren-style = half}
+见\autoref{eq:example}。
+
 \ustcsetup{language = english}
 
 \autoref{fig:example} and \autoref{tab:example}.

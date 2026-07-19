@@ -747,11 +747,7 @@
 \newcommand\ustc@set@font@times{%
   \setmainfont{Times New Roman}%
   \setsansfont{Arial}%
-  \ifustc@system@mac
-    \setmonofont{Menlo}[Scale = MatchLowercase]%
-  \else
-    \setmonofont{Courier New}[Scale = MatchLowercase]%
-  \fi
+  \setmonofont{Courier New}[Scale = MatchLowercase]%
 }
 
 % TeX Gyre Termes
@@ -3508,23 +3504,49 @@
   %
   % 设置中文的 \cs{autoref}。
   % \footnote{\url{https://tex.stackexchange.com/a/66150/82731}}
-  \ifustc@language@chinese
-    \def\equationautorefname~#1\null{公式~(#1)\null}
-    \def\footnoteautorefname{脚注}
-    \def\itemautorefname~#1\null{第~#1~项\null}
-    \def\figureautorefname{图}
-    \def\tableautorefname{表}
-    \def\partautorefname~#1\null{第~#1~部分\null}
-    \def\appendixautorefname{附录}
-    \def\chapterautorefname~#1\null{第~#1~章\null}
-    \def\sectionautorefname~#1\null{第~#1~节\null}
-    \def\subsectionautorefname~#1\null{第~#1~小节\null}
-    \def\subsubsectionautorefname~#1\null{第~#1~小小节\null}
-    \def\paragraphautorefname~#1\null{第~#1~段\null}
-    \def\subparagraphautorefname~#1\null{第~#1~小段\null}
-    \def\theoremautorefname{定理}
-    \def\HyRef@autopageref#1{\hyperref[{#1}]{第~\pageref*{#1} 页}}
-  \fi
+  \newcommand\ustc@set@hyperref@autoref@names{%
+    \ifustc@language@chinese
+      \def\equationautorefname~##1\null{%
+        \ifustc@eqn@paren@style@full
+          公式\nobreak\tagform@{##1}\null
+        \else
+          公式\nobreakspace\tagform@{##1}\null
+        \fi
+      }%
+      \def\footnoteautorefname{脚注}%
+      \def\itemautorefname~##1\null{第~##1 项\null}%
+      \def\figureautorefname{图}%
+      \def\tableautorefname{表}%
+      \def\partautorefname~##1\null{第~##1 部分\null}%
+      \def\appendixautorefname{附录}%
+      \def\chapterautorefname~##1\null{第~##1 章\null}%
+      \def\sectionautorefname~##1\null{第~##1 节\null}%
+      \def\subsectionautorefname~##1\null{第~##1 节\null}%
+      \def\subsubsectionautorefname~##1\null{第~##1 节\null}%
+      \def\paragraphautorefname~##1\null{第~##1 段\null}%
+      \def\subparagraphautorefname~##1\null{第~##1 段\null}%
+      \def\theoremautorefname{定理}%
+      \def\HyRef@autopageref##1{\hyperref[{##1}]{第~\pageref*{##1} 页}}%
+    \else
+      \def\equationautorefname~##1\null{Equation~\tagform@{##1}\null}%
+      \def\footnoteautorefname{footnote}%
+      \def\itemautorefname{item}%
+      \def\figureautorefname{Figure}%
+      \def\tableautorefname{Table}%
+      \def\partautorefname{Part}%
+      \def\appendixautorefname{Appendix}%
+      \def\chapterautorefname{chapter}%
+      \def\sectionautorefname{section}%
+      \def\subsectionautorefname{subsection}%
+      \def\subsubsectionautorefname{subsubsection}%
+      \def\paragraphautorefname{paragraph}%
+      \def\subparagraphautorefname{subparagraph}%
+      \def\theoremautorefname{Theorem}%
+      \def\HyRef@autopageref##1{\hyperref[{##1}]{\HyRef@autopagerefname\pageref*{##1}}}%
+    \fi
+  }
+  \ustc@set@hyperref@autoref@names
+  \ustc@option@hook{language}{\ustc@set@hyperref@autoref@names}
   %
   % 本科生需要在 \tableofcontents 处切换 \pagenumbering，
   % 在使用了 notoccite 后会导致 PDF 书签的页码有误（#293），

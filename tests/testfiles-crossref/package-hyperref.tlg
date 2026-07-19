@@ -7230,7 +7230,7 @@ Completed box being shipped out [9]
 .....\special{color pop}
 ...\glue 15.6491
 ...\glue(\lineskip) 0.0
-...\vbox(700.50723+0.0)x417.11752, glue set 599.18582fil
+...\vbox(700.50723+0.0)x417.11752, glue set 578.61917fil
 ....\write-{}
 ....\write-{}
 ....\write-{}
@@ -7263,8 +7263,8 @@ Completed box being shipped out [9]
 ....\glue 19.07124
 ....\glue(\parskip) 0.0
 ....\glue(\parskip) 0.0
-....\glue(\baselineskip) 7.21497
-....\hbox(9.35896+2.32468)x417.11752, glue set 191.00883fil
+....\glue(\baselineskip) 6.93793
+....\hbox(9.636+2.40898)x417.11752, glue set 177.95206fil
 .....\hbox(0.0+0.0)x24.09
 .....\special{pdf:bann<</Type/Annot/Subtype/Link/Border[0 0 0]/H/I/C[1 0 0]/A<</S/GoTo/D(figure.caption.13)>>>>}
 .....\TU/FandolSong(0)/m/n/12.045 图
@@ -7305,10 +7305,29 @@ Completed box being shipped out [9]
 .....\kern -0.00017
 .....\kern 0.00017
 .....\penalty 10000
-.....\glue 3.01125 plus 1.50562 minus 1.00374
-.....\TU/texgyretermes(0)/m/n/12.045 (2.1)
-.....\kern -0.0002
-.....\kern 0.0002
+.....\hbox(9.636+2.40898)x39.14624
+......\kern 0.0
+......\glue 7.63654 minus 6.0225
+......\rule(0.0+0.0)x-7.63654
+......\TU/FandolSong(0)/m/n/12.045 （
+......\kern 0.00009
+......\kern -0.00009
+......\kern -0.99622
+......\kern 0.99622
+......\penalty 10000
+......\glue 0.0
+......\TU/texgyretermes(0)/m/n/12.045 2.1
+......\kern -0.0002
+......\kern 0.0002
+......\penalty 10000
+......\TU/FandolSong(0)/m/n/12.045 ）
+......\rule(0.0+0.0)x-7.63654
+......\kern 0.00047
+......\kern -0.00047
+......\kern -0.99623
+......\kern 0.99623
+......\glue 7.63654 minus 6.0225
+......\penalty 0
 .....\hbox(0.0+0.0)x0.0
 .....\special{pdf:eann}
 .....\penalty 10000
@@ -7346,13 +7365,47 @@ Completed box being shipped out [9]
 .....\glue(\rightskip) 0.0
 ....\glue(\parskip) 0.0
 ....\glue(\parskip) 0.0
-....\glue(\baselineskip) 8.39136
-....\hbox(9.35896+2.13194)x417.11752, glue set 186.60844fil
+....\glue(\baselineskip) 8.36728
+....\hbox(9.29874+2.13194)x417.11752, glue set 326.51505fil
 .....\hbox(0.0+0.0)x24.09
-.....\special{pdf:bann<</Type/Annot/Subtype/Link/Border[0 0 0]/H/I/C[1 0 0]/A<</S/GoTo/D(figure.caption.13)>>>>}
-.....\TU/FandolSong(0)/m/n/12.045 图
+.....\TU/FandolSong(0)/m/n/12.045 见
+.....\special{pdf:bann<</Type/Annot/Subtype/Link/Border[0 0 0]/H/I/C[1 0 0]/A<</S/GoTo/D(equation.2.1)>>>>}
+.....\glue 0.0 plus 0.61353
+.....\TU/FandolSong(0)/m/n/12.045 公
+.....\glue 0.0 plus 0.61353
+.....\TU/FandolSong(0)/m/n/12.045 式
 .....\kern -0.00017
 .....\kern 0.00017
+.....\penalty 10000
+.....\glue 3.01125 plus 1.50562 minus 1.00374
+.....\hbox(8.14243+2.13194)x23.07822
+......\TU/texgyretermes(0)/m/n/12.045 (2.1
+......\kern -0.0002
+......\kern 0.0002
+......\TU/texgyretermes(0)/m/n/12.045 )
+......\kern -0.0002
+......\kern 0.0002
+.....\hbox(0.0+0.0)x0.0
+.....\special{pdf:eann}
+.....\penalty 10000
+.....\TU/FandolSong(0)/m/n/12.045 。
+.....\rule(0.0+0.0)x-7.75697
+.....\kern 0.00047
+.....\kern -0.00047
+.....\kern -0.18753
+.....\kern 0.18753
+.....\penalty 10000
+.....\glue(\parfillskip) 0.0 plus 1.0fil
+.....\glue(\rightskip) 0.0
+....\glue(\parskip) 0.0
+....\glue(\parskip) 0.0
+....\glue(\baselineskip) 9.71632
+....\hbox(8.22673+2.6258)x417.11752, glue set 138.2839fil
+.....\hbox(0.0+0.0)x24.09
+.....\special{pdf:bann<</Type/Annot/Subtype/Link/Border[0 0 0]/H/I/C[1 0 0]/A<</S/GoTo/D(figure.caption.13)>>>>}
+.....\TU/texgyretermes(0)/m/n/12.045 Figure
+.....\kern -0.0002
+.....\kern 0.0002
 .....\penalty 10000
 .....\glue 3.01125 plus 1.50562 minus 1.00374
 .....\TU/texgyretermes(0)/m/n/12.045 2.1
@@ -7364,9 +7417,9 @@ Completed box being shipped out [9]
 .....\TU/texgyretermes(0)/m/n/12.045 and
 .....\glue 3.01125 plus 1.50562 minus 1.00374
 .....\special{pdf:bann<</Type/Annot/Subtype/Link/Border[0 0 0]/H/I/C[1 0 0]/A<</S/GoTo/D(table.caption.14)>>>>}
-.....\TU/FandolSong(0)/m/n/12.045 表
-.....\kern -0.00017
-.....\kern 0.00017
+.....\TU/texgyretermes(0)/m/n/12.045 Table
+.....\kern -0.0002
+.....\kern 0.0002
 .....\penalty 10000
 .....\glue 3.01125 plus 1.50562 minus 1.00374
 .....\TU/texgyretermes(0)/m/n/12.045 2.1
@@ -7379,34 +7432,32 @@ Completed box being shipped out [9]
 .....\TU/texgyretermes(0)/m/n/12.045 See
 .....\glue 3.01125 plus 1.50562 minus 1.00374
 .....\special{pdf:bann<</Type/Annot/Subtype/Link/Border[0 0 0]/H/I/C[1 0 0]/A<</S/GoTo/D(equation.2.1)>>>>}
-.....\TU/FandolSong(0)/m/n/12.045 公
-.....\glue 0.0 plus 0.61353
-.....\TU/FandolSong(0)/m/n/12.045 式
-.....\kern -0.00017
-.....\kern 0.00017
-.....\penalty 10000
-.....\glue 3.01125 plus 1.50562 minus 1.00374
-.....\TU/texgyretermes(0)/m/n/12.045 (2.1)
+.....\TU/texgyretermes(0)/m/n/12.045 Equation
 .....\kern -0.0002
 .....\kern 0.0002
+.....\penalty 10000
+.....\glue 3.01125 plus 1.50562 minus 1.00374
+.....\hbox(8.14243+2.13194)x23.07822
+......\TU/texgyretermes(0)/m/n/12.045 (2.1
+......\kern -0.0002
+......\kern 0.0002
+......\TU/texgyretermes(0)/m/n/12.045 )
+......\kern -0.0002
+......\kern 0.0002
 .....\hbox(0.0+0.0)x0.0
 .....\special{pdf:eann}
 .....\TU/texgyretermes(0)/m/n/12.045 ,
 .....\glue 3.01125 plus 1.88202 minus 0.80298
 .....\special{pdf:bann<</Type/Annot/Subtype/Link/Border[0 0 0]/H/I/C[1 0 0]/A<</S/GoTo/D(equation.2.1)>>>>}
-.....\TU/FandolSong(0)/m/n/12.045 第
-.....\kern -0.00017
-.....\kern 0.00017
+.....\TU/texgyretermes(0)/m/n/12.045 page
+.....\kern -0.0002
+.....\kern 0.0002
 .....\penalty 10000
 .....\glue 3.01125 plus 1.50562 minus 1.00374
 .....\TU/texgyretermes(0)/m/n/12.045 3
 .....\kern -0.0002
 .....\kern 0.0002
 .....\hbox(0.0+0.0)x0.0
-.....\glue 3.01125 plus 1.50562 minus 1.00374
-.....\TU/FandolSong(0)/m/n/12.045 页
-.....\kern -0.00017
-.....\kern 0.00017
 .....\special{pdf:eann}
 .....\TU/texgyretermes(0)/m/n/12.045 .
 .....\penalty 10000
