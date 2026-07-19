@@ -8,7 +8,7 @@
 %% -------------------------------------------------------------------
 %% GB/T 7714 BibTeX Style
 %% https://github.com/zepinglee/gbt7714-bibtex-style
-%% Version: 2026-06-14 v2.3.1
+%% Version: 2026-07-01 v3.0.0
 %% -------------------------------------------------------------------
 %% Copyright (C) 2016-2026 by Zeping Lee <zepinglee AT gmail DOT com>
 %% -------------------------------------------------------------------
@@ -2426,7 +2426,7 @@ FUNCTION {get.journal.title}
         }
         { shortjournal empty$ control.journal.dots not and
             'remove.dots
-            { duplicate$ shortjournal = control.journal.dots not and
+            { duplicate$ shortjournal field.or.null = control.journal.dots not and
                 'remove.dots
                 'skip$
               if$
