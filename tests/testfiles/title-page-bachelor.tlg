@@ -9,8 +9,8 @@ Package fontspec Info:
 (fontspec)              
 (fontspec)             - 'normal' (m/n) with NFSS spec.: <->"[FandolHei-Regular.otf]/OT:language=dflt;"
 (fontspec)             - 'bold' (b/n) with NFSS spec.: <->"[FandolHei-Bold.otf]/OT:language=dflt;"
-File: figures/ustc-badge.pdf Graphic file (type pdf)
-<use figures/ustc-badge.pdf>
+File: figures/ustc-logo.pdf Graphic file (type pdf)
+<use figures/ustc-logo.pdf>
 LaTeX Font Info:    Font shape `TU/XITSMath-Regular(1)/m/n' will be
 (Font)              scaled to size 16.06pt on input line ....
 LaTeX Font Info:    Font shape `TU/XITSMath-Regular(1)/m/n' will be
@@ -126,7 +126,7 @@ Completed box being shipped out [1]
 ........\special{x:scale 0.31657 0.31657}
 ........\hbox(399.4925+0.0)x0.0, glue set - 399.4925fil
 .........\hbox(399.4925+0.0)x399.4925
-..........\XeTeXpdffile ".../ustc-badge.pdf"
+..........\XeTeXpdffile ".../ustc-logo.pdf"
 .........\glue 0.0 plus 1.0fil minus 1.0fil
 ........\special{pdf:etrans}
 .......\kern 126.46896

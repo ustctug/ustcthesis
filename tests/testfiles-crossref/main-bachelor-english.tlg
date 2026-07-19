@@ -3111,8 +3111,8 @@ Completed box being shipped out [4]
 .\kern 726.50772
 .\kern 0.0
 Chapter 2
-File: figures/ustc-badge.pdf Graphic file (type pdf)
-<use figures/ustc-badge.pdf>
+File: figures/ustc-logo.pdf Graphic file (type pdf)
+<use figures/ustc-logo.pdf>
 LaTeX Font Info:    Font shape `TU/XITSMath-Regular(1)/m/n' will be
 (Font)              scaled to size 10.53937pt on input line ....
 LaTeX Font Info:    Font shape `TU/XITSMath-Regular(1)/m/n' will be
@@ -3603,7 +3603,7 @@ Completed box being shipped out [5]
 ..........\special{x:scale 0.31323 0.31323}
 ..........\hbox(399.4925+0.0)x0.0, glue set - 399.4925fil
 ...........\hbox(399.4925+0.0)x399.4925
-............\XeTeXpdffile ".../ustc-badge.pdf"
+............\XeTeXpdffile ".../ustc-logo.pdf"
 ...........\glue 0.0 plus 1.0fil minus 1.0fil
 ..........\special{pdf:etrans}
 .........\kern 125.13399

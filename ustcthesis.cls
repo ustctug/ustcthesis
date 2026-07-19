@@ -1771,7 +1771,7 @@
       \group_begin:
         \bool_if:NF \l__ustc_badge_color_black_bool
           { \color { ustcblue } }
-        \includegraphics [ height = 123 bp ] { figures/ustc-badge.pdf } \par
+        \includegraphics [ height = 123 bp ] { figures/ustc-logo.pdf } \par
       \group_end:
       \skip_vertical:n { 2.8 bp }
       \parbox [ t ] [ 101.3 bp ] [ c ] { \textwidth }
@@ -1856,7 +1856,7 @@
         \bool_if:NF \l__ustc_badge_color_black_bool
           { \color { ustcblue } }
         % \skip_horizontal:n { 3 bp }
-        \includegraphics [ height = 123 bp ] { figures/ustc-badge.pdf } \par
+        \includegraphics [ height = 123 bp ] { figures/ustc-logo.pdf } \par
       \group_end:
       \skip_vertical:n { 10 bp }
       \parbox [ t ] [ 90 bp ] [ c ] { \textwidth }
@@ -1999,7 +1999,7 @@
       \group_begin:
         \bool_if:NF \l__ustc_badge_color_black_bool
           { \color { ustcblue } }
-        \includegraphics [ height = 126 bp ] { figures/ustc-badge.pdf } \par
+        \includegraphics [ height = 126 bp ] { figures/ustc-logo.pdf } \par
       \group_end:
       \par
       \skip_vertical:n { 43 bp }

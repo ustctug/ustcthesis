@@ -3462,8 +3462,8 @@ Completed box being shipped out [1]
 .\kern 727.09491
 .\kern 0.0
 第2章
-File: figures/ustc-badge.pdf Graphic file (type pdf)
-<use figures/ustc-badge.pdf>
+File: figures/ustc-logo.pdf Graphic file (type pdf)
+<use figures/ustc-logo.pdf>
 LaTeX Font Info:    Calculating math sizes for size <11.04124> on input line ....
 LaTeX Font Info:    Font shape `TU/XITSMath-Regular(1)/m/n' will be
 (Font)              scaled to size 11.04124pt on input line ....
@@ -3978,7 +3978,7 @@ Completed box being shipped out [2]
 ..........\special{x:scale 0.31323 0.31323}
 ..........\hbox(399.4925+0.0)x0.0, glue set - 399.4925fil
 ...........\hbox(399.4925+0.0)x399.4925
-............\XeTeXpdffile ".../ustc-badge.pdf"
+............\XeTeXpdffile ".../ustc-logo.pdf"
 ...........\glue 0.0 plus 1.0fil minus 1.0fil
 ..........\special{pdf:etrans}
 .........\kern 125.13399
