@@ -1,80 +1,83 @@
 # The test framework itself
 l3build
-latexmk
 #
 # Required to build formats
-bibtex
 latex-bin
-makeindex
 tex
 #
 # Assuming a 'basic' font set up, metafont is required to avoid
 # warnings with some packages and errors with others
 metafont
 mfware
-#
-# Dependencies for xeCJK
-fontspec
-ulem
-xecjk
-xetex
-# Dependencies for LuaTeX
-chinese-jfm
-lualatex-math
-#
-# Dependencies for ctex
-cjk
-ctex
-zhnumber
-#
-# Dependencies for algorithms
-float
-#
-# Dependencies for algorithm2e
-algorithm2e
-ifoddpage
-relsize
-#
-# Dependencies for biblatex
-biber
-biblatex
-biblatex-gb7714-2015
-xstring
-#
-# Dependencies for nomencl
-nomencl
-koma-script
-xkeyval
-#
 # Dependencies for ustcthesis
-bigfoot
+amsmath
+bigfoot  # footmisc, perpage
 caption
+cjk  # ctex
+ctex
 enumitem
 fancyhdr
 filehook
+fontspec
 footmisc
+geometry
+graphics
 multirow
-natbib
 notoccite
 pdfpages
 titlesec
 unicode-math
+url
+zhnumber  # ctex
 #
-# Dependencies for fonts
+# Fonts
 fandol
+libertinus-fonts
+newcomputermodern
+newtx
+xpatch  # newtx
+carlisle  # newtx
+oberdiek  # newtx
 stix2-otf
 tex-gyre
 xits
 #
-# Dependencies for extra packages
-algorithms
-booktabs
-mathtools
-threeparttable
-siunitx
+# Dependencies for XeTeX
+ulem
+xecjk
+xetex
 #
-# Dependencies for doc
+# Dependencies for LuaTeX
+chinese-jfm
+lualatex-math
+#
+# Dependencies for extra packages
+algorithm2e
+algorithms
+amscls  # amsthm
+biber
+biblatex
+biblatex-gb7714-2015
+bibtex
+booktabs
+cite  # chapterbib
+float  # algorithms
+hyperref
+ifoddpage  # algorithm2e
+makeindex  # nomencl
+mathtools
+natbib  # bibtex
+nomencl
+relsize  # algorithm2e
+siunitx
+threeparttable
+tools  # longtable
+xkeyval  # nomencl
+xstring  # biblatex-gb7714-2015
+#
+# Dependencies for documentation
 hypdoc
+latexmk
 listings
 xcolor
 #

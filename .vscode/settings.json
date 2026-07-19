@@ -1,4 +1,10 @@
 {
+    "files.associations": {
+        "*.lvt": "latex",
+        "*.tlg": "latex",
+        "*latexmkrc": "perl",
+        "tl_packages*": "shellscript"
+    },
     "latex-workshop.intellisense.unimathsymbols.enabled": true,
     "latex-workshop.latex.build.enableMagicComments": false,
     "latex-workshop.latex.recipes": [

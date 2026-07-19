@@ -1,0 +1,35 @@
+\input{regression-test}
+\documentclass[degree=doctor, fontset=fandol]{ustcthesis}
+
+\begin{filecontents}[noheader, overwrite]{\jobname-chapter-1.tex}
+\chapter{Foo}
+\cite{sunliguang2016jidi, liyongchi2016zhangliang}\par
+\bibliographystyle{ustcthesis-numerical}
+\bibliography{refs-numerical}
+\end{filecontents}
+
+\begin{filecontents}[noheader, overwrite]{\jobname-chapter-2.tex}
+\chapter{Foo}
+\cite{sunliguang2016jidi, liujingshuang2014shidi}\par
+\bibliographystyle{ustcthesis-numerical}
+\bibliography{refs-numerical}
+\end{filecontents}
+
+\usepackage[sort, sectionbib]{natbib}
+\bibliographystyle{ustcthesis-numerical}
+
+\usepackage{chapterbib}
+
+
+\pagestyle{empty}
+
+\begin{document}
+\START
+\showoutput
+
+\include{\jobname-chapter-1}
+\include{\jobname-chapter-2}
+
+\clearpage
+\OMIT
+\end{document}

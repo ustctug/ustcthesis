@@ -1,0 +1,26 @@
+\input{regression-test}
+\documentclass[degree=doctor, fontset=fandol]{ustcthesis}
+
+\pagestyle{empty}
+\setlength\parindent{0pt}
+
+
+\begin{document}
+\START
+\showoutput
+
+\textrm{Regular, \textbf{Bold}, \textit{Italic}, \textbf{\textit{Bold Italic}}}\par
+\textsf{Sans Serif, \textbf{Bold Sans}, \textit{Italic Sans}, \textbf{\textit{Bold Italic Sans}}}\par
+\texttt{Monospace, \textbf{Bold Monospace}, \textit{Italic Monospace}, \textbf{\textit{Bold Italic Monospace}}}\par
+
+\textrm{中文字体，\textbf{加粗}，\textit{斜体}，\textbf{\textit{加粗斜体}}}\par
+\textsf{无衬线字体，\textbf{加粗无衬线}，\textit{斜体无衬线}，\textbf{\textit{加粗斜体无衬线}}}\par
+\texttt{等宽字体，\textbf{加粗等宽}，\textit{斜体等宽}，\textbf{\textit{加粗斜体等宽}}}\par
+
+\begin{equation*}
+  \mathcal{F}(\xi) = \int_{-\infty}^{\infty} f(x) e^{-2\pi i x \xi} \, dx
+\end{equation*}
+
+\clearpage
+\OMIT
+\end{document}
