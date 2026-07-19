@@ -154,9 +154,9 @@ Completed box being shipped out [1]
 ......\hbox(1.2045+0.13248)x3.01125
 .......\special{color push  Black}
 .......\TU/texgyretermes(0)/m/n/12.045 .
+.......\special{color pop}
 .......\kern -0.0002
 .......\kern 0.0002
-.......\special{color pop}
 ....\kern 0.0
 ....\glue 2.00749
 ....\TU/texgyretermes(0)/m/n/12.045 2
@@ -388,9 +388,9 @@ Completed box being shipped out [2]
 ........\glue 0.0 plus 1.0fil
 ........\TU/texgyretermes(0)/b/n/11.04124 Require:
 ........\kern 0.0
+........\special{color pop}
 ........\kern -0.0002
 ........\kern 0.0002
-........\special{color pop}
 .......\glue 5.52061
 ......\penalty 0
 ......\TU/FandolSong(0)/m/n/11.04124 两
@@ -434,9 +434,9 @@ Completed box being shipped out [2]
 ........\glue 0.0 plus 1.0fil
 ........\TU/texgyretermes(0)/b/n/11.04124 Ensure:
 ........\kern 0.0
+........\special{color pop}
 ........\kern -0.0002
 ........\kern 0.0002
-........\special{color pop}
 .......\glue 5.52061
 ......\penalty 0
 ......\mathon

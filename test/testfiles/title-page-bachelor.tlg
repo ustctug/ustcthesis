@@ -199,13 +199,12 @@ Completed box being shipped out [1]
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\lineskip) 1.0
-...\hbox(83.56248+75.53175)x417.11752, glue set 38.92502fil
+...\hbox(82.55836+76.53587)x417.11752, glue set 38.92502fil
 ....\glue(\leftskip) 0.0 plus 1.0fil
 ....\hbox(0.0+0.0)x0.0
 ....\glue 10.03749
-....\hbox(83.56248+75.53175)x329.23
-.....\mathon
-.....\vbox(83.56248+75.53175)x329.23
+....\hbox(82.55836+76.53587)x329.23
+.....\vbox(82.55836+76.53587)x329.23
 ......\hbox(22.2731+9.54575)x329.23
 .......\glue(\tabskip) 0.0
 .......\hbox(22.2731+9.54575)x90.3375
@@ -506,7 +505,6 @@ Completed box being shipped out [1]
 .........\rule(0.5+0.0)x*
 .......\glue(\tabskip) 0.0
 ......\glue -0.5
-.....\mathoff
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0
 ....\glue(\rightskip) 0.0 plus 1.0fil

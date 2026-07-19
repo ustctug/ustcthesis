@@ -588,7 +588,7 @@ Completed box being shipped out [1]
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 9.2586
-...\hbox(7.97379+2.61375)x417.11752, glue set 313.39809fil
+...\hbox(7.97379+2.61375)x417.11752, glue set 321.42807fil
 ....\hbox(0.0+0.0)x24.09
 ....\TU/texgyretermes(0)/m/n/12.045 Lorem
 ....\glue 3.01125 plus 1.50562 minus 1.00374
@@ -596,16 +596,23 @@ Completed box being shipped out [1]
 ....\glue 4.01498 plus 4.51685 minus 0.33458
 ....\write3{\nomenclatureentry{a$a$@[{$a$}]\begingroup The number of angels per unit area\protect \nomeqref {1.0}|nompageref}{\thepage }}
 ....\penalty 10000
-....\glue 0.0
+....\glue -0.00002
+....\glue 0.00002
 ....\write3{\nomenclatureentry{a$N$@[{$N$}]\begingroup The number of angels per needle point\protect \nomeqref {1.0}|nompageref}{\thepage }}
-....\glue 4.01498 plus 4.51685 minus 0.33458
+....\penalty 10000
+....\glue -0.00002
+....\glue 0.00002
 ....\write3{\nomenclatureentry{a$A$@[{$A$}]\begingroup The area of the needle point\protect \nomeqref {1.0}|nompageref}{\thepage }}
 ....\penalty 10000
-....\glue 0.0
+....\glue -0.00002
+....\glue 0.00002
 ....\write3{\nomenclatureentry{a$\sigma$@[{$\sigma$}]\begingroup The total mass of angels per unit area\protect \nomeqref {1.0}|nompageref}{\thepage }}
-....\glue 4.01498 plus 4.51685 minus 0.33458
+....\penalty 10000
+....\glue -0.00002
+....\glue 0.00002
 ....\write3{\nomenclatureentry{a$m$@[{$m$}]\begingroup The mass of one angel\protect \nomeqref {1.0}|nompageref}{\thepage }}
 ....\penalty 10000
+....\glue -0.00002
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
@@ -666,3 +673,4 @@ Completed box being shipped out [1]
 ...\glue 0.0 plus 1.0fil minus 1.0fil
 .\kern 727.09491
 .\kern 0.0
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.

@@ -143,9 +143,9 @@ Completed box being shipped out [1]
 ......\hbox(1.2045+0.13248)x3.01125
 .......\special{color push  Black}
 .......\TU/texgyretermes(0)/m/n/12.045 .
+.......\special{color pop}
 .......\kern -0.0002
 .......\kern 0.0002
-.......\special{color pop}
 ....\kern 0.0
 ....\glue 2.00749
 ....\TU/texgyretermes(0)/m/n/12.045 1
@@ -215,9 +215,9 @@ Completed box being shipped out [1]
 ......\hbox(1.2045+0.13248)x3.01125
 .......\special{color push  Black}
 .......\TU/texgyretermes(0)/m/n/12.045 .
+.......\special{color pop}
 .......\kern -0.0002
 .......\kern 0.0002
-.......\special{color pop}
 ....\kern 0.0
 ....\glue 2.00749
 ....\TU/texgyretermes(0)/m/n/12.045 1
@@ -267,9 +267,9 @@ Completed box being shipped out [1]
 ......\hbox(1.2045+0.13248)x3.01125
 .......\special{color push  Black}
 .......\TU/texgyretermes(0)/m/n/12.045 .
+.......\special{color pop}
 .......\kern -0.0002
 .......\kern 0.0002
-.......\special{color pop}
 ....\kern 0.0
 ....\glue 2.00749
 ....\TU/texgyretermes(0)/m/n/12.045 1
@@ -319,9 +319,9 @@ Completed box being shipped out [1]
 ......\hbox(1.2045+0.13248)x3.01125
 .......\special{color push  Black}
 .......\TU/texgyretermes(0)/m/n/12.045 .
+.......\special{color pop}
 .......\kern -0.0002
 .......\kern 0.0002
-.......\special{color pop}
 ....\kern 0.0
 ....\glue 2.00749
 ....\TU/texgyretermes(0)/m/n/12.045 2
@@ -371,9 +371,9 @@ Completed box being shipped out [1]
 ......\hbox(1.2045+0.13248)x3.01125
 .......\special{color push  Black}
 .......\TU/texgyretermes(0)/m/n/12.045 .
+.......\special{color pop}
 .......\kern -0.0002
 .......\kern 0.0002
-.......\special{color pop}
 ....\kern 0.0
 ....\glue 2.00749
 ....\TU/texgyretermes(0)/m/n/12.045 2
@@ -423,9 +423,9 @@ Completed box being shipped out [1]
 ......\hbox(1.2045+0.13248)x3.01125
 .......\special{color push  Black}
 .......\TU/texgyretermes(0)/m/n/12.045 .
+.......\special{color pop}
 .......\kern -0.0002
 .......\kern 0.0002
-.......\special{color pop}
 ....\kern 0.0
 ....\glue 2.00749
 ....\TU/texgyretermes(0)/m/n/12.045 2

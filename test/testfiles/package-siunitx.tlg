@@ -190,7 +190,7 @@ Completed box being shipped out [1]
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 6.50363
-...\hbox(10.94557+1.97536)x417.11752, glue set 266.22275fil
+...\hbox(10.94557+1.97536)x417.11752, glue set 269.234fil
 ....\hbox(0.0+0.0)x24.09
 ....\mathon
 ....\TU/XITSMath-Regular(1)/m/n/12.045 glyph#50
@@ -225,7 +225,6 @@ Completed box being shipped out [1]
 ....\TU/FandolSong(0)/m/n/12.045 和
 ....\kern -0.00018
 ....\kern 0.00018
-....\glue 3.01125 plus 1.50562 minus 1.00374
 ....\mathon
 ....\TU/XITSMath-Regular(1)/m/n/12.045 glyph#51
 ....\TU/XITSMath-Regular(1)/m/n/12.045 glyph#49
@@ -264,7 +263,7 @@ Completed box being shipped out [1]
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 8.99362
-...\hbox(9.10602+1.97536)x417.11752, glue set 291.30266fil
+...\hbox(9.10602+1.97536)x417.11752, glue set 294.3139fil
 ....\hbox(0.0+0.0)x24.09
 ....\mathon
 ....\TU/XITSMath-Regular(1)/m/n/12.045 glyph#49
@@ -283,7 +282,6 @@ Completed box being shipped out [1]
 ....\TU/FandolSong(0)/m/n/12.045 和
 ....\kern -0.00018
 ....\kern 0.00018
-....\glue 3.01125 plus 1.50562 minus 1.00374
 ....\mathon
 ....\TU/XITSMath-Regular(1)/m/n/12.045 glyph#49
 ....\TU/XITSMath-Regular(1)/m/n/12.045 glyph#47
@@ -364,16 +362,14 @@ Completed box being shipped out [1]
 ....\TU/XITSMath-Regular(1)/m/n/12.045 glyph#50
 ....\TU/XITSMath-Regular(1)/m/n/12.045 glyph#49
 ....\mathoff
-....\penalty 10000
-....\glue 3.34851 minus 1.67426
-....\rule(0.0+0.0)x-3.34851
+....\penalty 0
 ....\TU/FandolSong(0)/m/n/12.045 ～
 ....\rule(0.0+0.0)x-3.34851
 ....\kern 0.0002
 ....\kern -0.0002
 ....\kern -0.99753
 ....\kern 0.99753
-....\glue 3.34851 minus 1.67426
+....\glue 3.34851
 ....\mathon
 ....\TU/XITSMath-Regular(1)/m/n/12.045 glyph#51
 ....\TU/XITSMath-Regular(1)/m/n/12.045 glyph#49
@@ -397,16 +393,14 @@ Completed box being shipped out [1]
 .....\TU/XITSMath-Regular(1)/m/n/12.045 glyph#144
 .....\TU/texgyretermes(0)/m/n/12.045 glyph#43
 ....\mathoff
-....\penalty 10000
-....\glue 3.34851 minus 1.67426
-....\rule(0.0+0.0)x-3.34851
+....\penalty 0
 ....\TU/FandolSong(0)/m/n/12.045 ～
 ....\rule(0.0+0.0)x-3.34851
 ....\kern 0.0002
 ....\kern -0.0002
 ....\kern -0.99753
 ....\kern 0.99753
-....\glue 3.34851 minus 1.67426
+....\glue 3.34851
 ....\mathon
 ....\TU/XITSMath-Regular(1)/m/n/12.045 glyph#51
 ....\TU/XITSMath-Regular(1)/m/n/12.045 glyph#49
