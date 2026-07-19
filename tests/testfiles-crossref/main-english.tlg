@@ -3952,7 +3952,6 @@ Completed box being shipped out [2]
 ......\glue 22.08249
 ......\vbox(34.28299+3.80925)x395.03503
 .......\hbox(8.88815+2.13095)x395.03503, glue set - 0.11093
-........\glue(\leftskip) 0.0 plus 1.0fil
 ........\hbox(0.0+0.0)x0.0
 ........\rule(8.88815+*)x0.0
 ........\penalty 10000
@@ -4036,11 +4035,10 @@ Completed box being shipped out [2]
 ........\glue 7.64055 minus 5.52063
 ........\glue 0.0 plus 0.59492
 ........\TU/FandolSong(0)/m/n/11.04124 多
-........\glue(\rightskip) 0.0 plus -1.0fil
+........\glue(\rightskip) 0.0
 .......\penalty 10000
 .......\glue(\baselineskip) 1.94325
 .......\hbox(8.62321+2.07574)x395.03503, glue set 0.43762
-........\glue(\leftskip) 0.0 plus 1.0fil
 ........\TU/FandolSong(0)/m/n/11.04124 个
 ........\glue 0.0 plus 0.59492
 ........\TU/FandolSong(0)/m/n/11.04124 图
@@ -4112,11 +4110,10 @@ Completed box being shipped out [2]
 ........\TU/FandolSong(0)/m/n/11.04124 数
 ........\glue 0.0 plus 0.59492
 ........\TU/FandolSong(0)/m/n/11.04124 较
-........\glue(\rightskip) 0.0 plus -1.0fil
+........\glue(\rightskip) 0.0
 .......\penalty 150
 .......\glue(\baselineskip) 2.03159
-.......\hbox(8.59009+3.80925)x395.03503, glue set 68.57787fil
-........\glue(\leftskip) 0.0 plus 1.0fil
+.......\hbox(8.59009+3.80925)x395.03503, glue set 137.15573fil
 ........\TU/FandolSong(0)/m/n/11.04124 多
 ........\glue 0.0 plus 0.59492
 ........\TU/FandolSong(0)/m/n/11.04124 或
@@ -4174,8 +4171,8 @@ Completed box being shipped out [2]
 ........\penalty 10000
 ........\rule(0.0+3.80925)x0.0
 ........\penalty 10000
-........\glue(\parfillskip) 0.0 plus 2.0fil
-........\glue(\rightskip) 0.0 plus -1.0fil
+........\glue(\parfillskip) 0.0 plus 1.0fil
+........\glue(\rightskip) 0.0
 ......\penalty 10000
 ......\glue(\parfillskip) 0.0 plus 1.0fil
 ......\glue(\rightskip) 0.0

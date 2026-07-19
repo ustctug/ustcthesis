@@ -3805,7 +3805,6 @@ Completed box being shipped out [5]
 ......\glue 21.07874
 ......\vbox(54.20242+6.02255)x396.03879
 .......\hbox(14.05243+2.32468)x396.03879, glue set - 0.08005
-........\glue(\leftskip) 0.0 plus 1.0fil
 ........\hbox(0.0+0.0)x0.0
 ........\rule(14.05243+*)x0.0
 ........\penalty 10000
@@ -3881,11 +3880,10 @@ Completed box being shipped out [5]
 ........\TU/FandolSong(0)/m/n/12.045 加
 ........\glue 0.0 plus 0.75479
 ........\TU/FandolSong(0)/m/n/12.045 标
-........\glue(\rightskip) 0.0 plus -1.0fil
+........\glue(\rightskip) 0.0
 .......\penalty 10000
 .......\glue(\baselineskip) 8.34317
 .......\hbox(9.40715+2.32468)x396.03879, glue set - 0.12006
-........\glue(\leftskip) 0.0 plus 1.0fil
 ........\TU/FandolSong(0)/m/n/12.045 点
 ........\penalty 10000
 ........\TU/FandolSong(0)/m/n/12.045 ，
@@ -3955,11 +3953,10 @@ Completed box being shipped out [5]
 ........\glue 8.32309 minus 6.02249
 ........\glue 0.0 plus 0.75479
 ........\TU/FandolSong(0)/m/n/12.045 注
-........\glue(\rightskip) 0.0 plus -1.0fil
+........\glue(\rightskip) 0.0
 .......\penalty 150
 .......\glue(\baselineskip) 8.35522
-.......\hbox(9.3951+6.02255)x396.03879, glue set 27.2454fil
-........\glue(\leftskip) 0.0 plus 1.0fil
+.......\hbox(9.3951+6.02255)x396.03879, glue set 54.49081fil
 ........\TU/FandolSong(0)/m/n/12.045 文
 ........\glue 0.0 plus 0.75479
 ........\TU/FandolSong(0)/m/n/12.045 的
@@ -4027,8 +4024,8 @@ Completed box being shipped out [5]
 ........\penalty 10000
 ........\rule(0.0+6.02255)x0.0
 ........\penalty 10000
-........\glue(\parfillskip) 0.0 plus 2.0fil
-........\glue(\rightskip) 0.0 plus -1.0fil
+........\glue(\parfillskip) 0.0 plus 1.0fil
+........\glue(\rightskip) 0.0
 ......\penalty 10000
 ......\glue(\parfillskip) 0.0 plus 1.0fil
 ......\glue(\rightskip) 0.0

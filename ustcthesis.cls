@@ -3156,6 +3156,7 @@
     \group_begin:
       \captionsetup
         {
+          justification = justified ,
           font = caption ,
           margin = { 2 em , \c_zero_dim } ,
           oneside ,
