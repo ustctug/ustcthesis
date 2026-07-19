@@ -2430,12 +2430,12 @@ Completed box being shipped out [1]
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 8.31908
-...\hbox(12.55891+2.8426)x417.11752, glue set 160.37877fil
+...\hbox(12.55891+2.8426)x417.11752, glue set 159.47942fil
 ....\glue(\leftskip) 0.0 plus 1.0fil
 ....\TU/FandolHei(0)/m/n/16.06 第
-....\glue 4.015 plus 2.00749 minus 1.33833
-....\TU/texgyretermes(0)/m/n/16.06 1
-....\glue 4.015 plus 2.00749 minus 1.33833
+....\glue 4.46468 plus 2.23233 minus 1.48822
+....\TU/texgyreheros(0)/m/n/16.06 1
+....\glue 4.46468 plus 2.23233 minus 1.48822
 ....\TU/FandolHei(0)/m/n/16.06 章
 ....\kern -0.00017
 ....\kern 0.00017
@@ -2815,9 +2815,9 @@ Completed box being shipped out [1]
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 6.73317
-...\hbox(11.01715+2.48727)x417.11752, glue set 216.86954fil
-....\hbox(9.49948+0.15456)x31.6181
-.....\TU/texgyretermes(0)/m/n/14.05249 1.1
+...\hbox(11.01715+2.48727)x417.11752, glue set 214.90219fil
+....\hbox(9.96321+0.0)x33.58545
+.....\TU/texgyreheros(0)/m/n/14.05249 1.1
 .....\kern -0.0002
 .....\kern 0.0002
 .....\glue 14.05249
@@ -2972,9 +2972,9 @@ Completed box being shipped out [1]
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 7.82024
-...\hbox(10.08667+2.19217)x417.11752, glue set 299.6789fil
-....\hbox(8.82095+0.14352)x39.14621
-.....\TU/texgyretermes(0)/m/n/13.04874 1.1.1
+...\hbox(10.08667+2.19217)x417.11752, glue set 296.75598fil
+....\hbox(9.25156+0.0)x42.06912
+.....\TU/texgyreheros(0)/m/n/13.04874 1.1.1
 .....\kern -0.0002
 .....\kern 0.0002
 .....\glue 13.04874
@@ -3576,12 +3576,12 @@ Completed box being shipped out [2]
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 8.31908
-...\hbox(12.55891+2.8426)x417.11752, glue set 144.31877fil
+...\hbox(12.55891+2.8426)x417.11752, glue set 143.41942fil
 ....\glue(\leftskip) 0.0 plus 1.0fil
 ....\TU/FandolHei(0)/m/n/16.06 第
-....\glue 4.015 plus 2.00749 minus 1.33833
-....\TU/texgyretermes(0)/m/n/16.06 2
-....\glue 4.015 plus 2.00749 minus 1.33833
+....\glue 4.46468 plus 2.23233 minus 1.48822
+....\TU/texgyreheros(0)/m/n/16.06 2
+....\glue 4.46468 plus 2.23233 minus 1.48822
 ....\TU/FandolHei(0)/m/n/16.06 章
 ....\kern -0.00017
 ....\kern 0.00017
@@ -3603,9 +3603,9 @@ Completed box being shipped out [2]
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 6.2574
-...\hbox(10.97499+2.52943)x417.11752, glue set 259.02701fil
-....\hbox(9.49948+0.15456)x31.6181
-.....\TU/texgyretermes(0)/m/n/14.05249 2.1
+...\hbox(10.97499+2.52943)x417.11752, glue set 257.05966fil
+....\hbox(9.96321+0.0)x33.58545
+.....\TU/texgyreheros(0)/m/n/14.05249 2.1
 .....\kern -0.0002
 .....\kern 0.0002
 .....\glue 14.05249
@@ -3898,9 +3898,9 @@ Completed box being shipped out [2]
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 7.77507
-...\hbox(9.89095+2.07474)x417.11752, glue set 351.87384fil
-....\hbox(8.82095+0.14352)x39.14621
-.....\TU/texgyretermes(0)/m/n/13.04874 2.1.1
+...\hbox(9.89095+2.07474)x417.11752, glue set 348.95093fil
+....\hbox(9.25156+0.0)x42.06912
+.....\TU/texgyreheros(0)/m/n/13.04874 2.1.1
 .....\kern -0.0002
 .....\kern 0.0002
 .....\glue 13.04874
@@ -4356,9 +4356,9 @@ Completed box being shipped out [2]
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 7.61145
-...\hbox(10.13887+2.34875)x417.11752, glue set 351.87384fil
-....\hbox(8.82095+0.14352)x39.14621
-.....\TU/texgyretermes(0)/m/n/13.04874 2.1.2
+...\hbox(10.13887+2.34875)x417.11752, glue set 348.95093fil
+....\hbox(9.25156+0.0)x42.06912
+.....\TU/texgyreheros(0)/m/n/13.04874 2.1.2
 .....\kern -0.0002
 .....\kern 0.0002
 .....\glue 13.04874
@@ -4948,9 +4948,9 @@ Completed box being shipped out [3]
 ..\vbox(700.50723+0.0)x417.11752, glue set 607.82516fil
 ...\write-{}
 ...\glue(\topskip) 1.92638
-...\hbox(10.07362+2.34875)x417.11752, glue set 338.8251fil
-....\hbox(8.82095+0.18266)x39.14621
-.....\TU/texgyretermes(0)/m/n/13.04874 2.1.3
+...\hbox(10.07362+2.34875)x417.11752, glue set 335.90219fil
+....\hbox(9.25156+0.19571)x42.06912
+.....\TU/texgyreheros(0)/m/n/13.04874 2.1.3
 .....\kern -0.0002
 .....\kern 0.0002
 .....\glue 13.04874
@@ -5278,12 +5278,12 @@ Completed box being shipped out [4]
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 8.31908
-...\hbox(12.55891+2.8426)x417.11752, glue set 160.37877fil
+...\hbox(12.55891+2.8426)x417.11752, glue set 159.47942fil
 ....\glue(\leftskip) 0.0 plus 1.0fil
 ....\TU/FandolHei(0)/m/n/16.06 第
-....\glue 4.015 plus 2.00749 minus 1.33833
-....\TU/texgyretermes(0)/m/n/16.06 3
-....\glue 4.015 plus 2.00749 minus 1.33833
+....\glue 4.46468 plus 2.23233 minus 1.48822
+....\TU/texgyreheros(0)/m/n/16.06 3
+....\glue 4.46468 plus 2.23233 minus 1.48822
 ....\TU/FandolHei(0)/m/n/16.06 章
 ....\kern -0.00017
 ....\kern 0.00017
@@ -5703,13 +5703,13 @@ Completed box being shipped out [6]
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 8.31908
-...\hbox(12.55891+2.7623)x417.11752, glue set 144.54361fil
+...\hbox(12.55891+2.7623)x417.11752, glue set 144.76042fil
 ....\glue(\leftskip) 0.0 plus 1.0fil
 ....\TU/FandolHei(0)/m/n/16.06 附
 ....\glue 0.0 plus 1.37729
 ....\TU/FandolHei(0)/m/n/16.06 录
-....\glue 4.015 plus 2.00749 minus 1.33833
-....\TU/texgyretermes(0)/m/n/16.06 A
+....\glue 4.46468 plus 2.23233 minus 1.48822
+....\TU/texgyreheros(0)/m/n/16.06 A
 ....\kern -0.0002
 ....\kern 0.0002
 ....\glue 16.06

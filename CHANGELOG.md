@@ -16,6 +16,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - “学科专业”的选项改为 `discipline`。
+- 章节标题中的英文和数字改用无衬线字体（Arial）。
 
 ### Deprecated
 

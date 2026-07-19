@@ -2346,18 +2346,17 @@
   { \setcounter { secnumdepth } { 3 } }
 
 % 用 \pkg{ctex} 的接口设置全部章节标题格式。
-
-% 各章标题，例如：“第1章  引言”。
-% 章序号采用阿拉伯数字，章序号与标题之间空一个汉字符，采用黑体三号字，居中书写，单倍行距，段前24磅，段后18磅。
-% 摘要、目录和列于目录中与章平级的其它部分的标题（如参考文献、附录、致谢等）也用这同一种格式。
-% 由于 LaTeX 的排版方式与 Word 不同，为了效果与 Word 模板一致，
-% 将段前、段后分别修正为 7 bp 和 19 bp。
 \ctexset
   {
+    % 各章标题，例如：“第1章  引言”。
+    % 序号采用阿拉伯数字，章序号与标题之间空一个汉字符，采用三号字，中文采用黑体，
+    % 英文和数字采用 Arial 体，居中书写，单倍行距，段前 24 磅，段后 18 磅。
+    % 由于 LaTeX 的排版方式与 Word 不同，为了效果与 Word 模板一致，
+    % 将段前、段后分别修正为 7 bp 和 19 bp。
     chapter =
       {
         format      =
-          { \centering \heiti \fontsize { 16 bp } { 20.8 bp } \selectfont } ,
+          { \centering \sffamily \fontsize { 16 bp } { 20.8 bp } \selectfont } ,
         nameformat  = { } ,
         titleformat = { } ,
         number      = \thechapter ,
@@ -2368,44 +2367,41 @@
         lotskip     = \c_zero_skip ,
         % fixskip     = true ,
       } ,
-  }
-
-% 一级节标题，例如：“2.1  实验方法”。
-% 节编号用阿拉伯数字表示，前边数字为上级章节的序号，后一数字为本节的顺序号。
-% 数字间用半角小数点“.”连接。
-% 节标题序号与标题名之间空一个汉字符（下同）。
-% 采用黑体四号（14 pt）字居左书写，固定行距20磅，段前24磅，段后6磅。
-\ctexset
-  {
+    %
+    % 一级节标题，例如：“2.1  实验方法”。
+    % 节编号用阿拉伯数字表示，前边数字为上级章节的序号，后一数字为本节的顺序号。
+    % 数字间用半角小数点“.”连接。节标题序号与标题名之间空一个汉字符（下同）。
+    % 采用四号（14 pt）字，中文采用黑体，英文和数字采用 Arial 体，居左书写，
+    % 固定行距 20 磅，段前 24 磅，段后 6 磅。
     section =
       {
-        format     = \heiti \fontsize { 14 bp } { 20 bp } \selectfont ,
+        format     = \sffamily \fontsize { 14 bp } { 20 bp } \selectfont ,
         aftername  = \quad ,
         beforeskip = 24 bp ,
         afterskip  = 6 bp ,
       } ,
     %
     % 二级节标题，例如：“2.1.1  实验装置”。
-    % 采用黑体13 pt字居左书写，固定行距20磅，段前12磅，段后6磅。
+    % 采用 13 pt 字居左书写，中文采用黑体，英文和数字采用 Arial 体，
+    % 固定行距 20 磅，段前 12 磅，段后 6 磅。
     subsection =
       {
-        format     = \heiti \fontsize { 13 bp } { 20 bp } \selectfont ,
+        format     = \sffamily \fontsize { 13 bp } { 20 bp } \selectfont ,
         aftername  = \quad ,
         beforeskip = 12 bp ,
         afterskip  = 6 bp ,
       } ,
     %
     % 三级节标题，例如：“2.1.1.1  实验结果”。
-    % 采用黑体小四号（12 pt）字居左书写，固定行距20磅，段前12磅，段后6磅。
+    % 采用小四号（12 pt）字，中文采用黑体，英文和数字采用 Arial 体，
+    % 居左书写，固定行距 20 磅，段前 12 磅，段后 6 磅。
     subsubsection =
       {
-        format     = \heiti \fontsize { 12 bp } { 20 bp } \selectfont ,
+        format     = \sffamily \fontsize { 12 bp } { 20 bp } \selectfont ,
         aftername  = \quad ,
         beforeskip = 12 bp ,
         afterskip  = 6 bp ,
       } ,
-    %
-    % 研究生要求不得使用三级以下节标题
   }
 
 \str_if_eq:VnT \l__ustc_degree_str { bachelor }
