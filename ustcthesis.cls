@@ -2887,7 +2887,7 @@
         \dim_set:Nn \itemsep { 3 bp }
         \dim_set:Nn \labelwidth {#1}
         \dim_set:Nn \labelsep { 1 em }
-        \dim_set_eq:Nn \leftmargin { \labelwidth + \labelsep + 3 em }
+        \dim_set:Nn \leftmargin { \labelwidth + \labelsep + 3 em }
         \dim_set:Nn \rightmargin { 3 em }
         \cs_set_eq:NN \makelabel \notationlabel
       }

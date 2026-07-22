@@ -14,11 +14,24 @@
 \mainmatter
 \chapter{Main matter}
 Lorem ipsum.
-\nomenclature{$a$}{The number of angels per unit area}
-\nomenclature{$N$}{The number of angels per needle point}
-\nomenclature{$A$}{The area of the needle point}
-\nomenclature{$\sigma$}{The total mass of angels per unit area}
-\nomenclature{$m$}{The mass of one angel}
+\nomenclature{$a$, $c_1$, $c_2$}{临时替换变量}
+\nomenclature{$D_{\text{m}}$}{预混通道外径 (mm)}
+\nomenclature{Ga}{空气质量流量 (kg/s)}
+\nomenclature{Ma}{进口空气马赫数，$\text{Ma} = \nu_2 / \gamma R T_2$}
+\nomenclature{$\gamma$}{比热比=1.4}
+\nomenclature{$\delta$}{总压损失系数，$\delta = \increment p_{2-3} / p_2$ (\%)}
+\nomenclature{$\varphi_{\text{LLO}}$}{贫燃着火极限}
+\nomenclature{CFD}{计算流体力学 (Computational Fluid Dynamics)}
+\nomenclature{DFT}{密度泛函理论 (Density Functional Theory)}
+\nomenclature{LBO}{贫燃熄火极限 (Lean Blowout Value)}
+\nomenclature{ONIOM}{分层算法 (Our own N-layered Integrated molecular Orbital and molecular Mechanics)}
+\nomenclature{PES}{势能面 (Potential Energy Surface)}
+\nomenclature{PIV}{颗粒图像速度仪 (Particle Image Velocimetry)}
+\nomenclature{SCF}{自洽场 (Self-Consistent Field)}
+\nomenclature{SCRF}{自洽反应场 (Self-Consistent Reaction Field)}
+\nomenclature{TS}{过渡态 (Transition State)}
+\nomenclature{TST}{过渡态理论 (Transition State Theory)}
+\nomenclature{ZPE}{零点振动能 (Zero Vibration Energy)}
 
 \clearpage
 \OMIT
