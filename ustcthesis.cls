@@ -116,13 +116,12 @@
 \bool_new:N \l__ustc_badge_color_black_bool
 \bool_new:N \l__ustc_eqn_paren_style_full_bool
 
-% 使用 `\l_keys_choice_tl` 兼容 LaTeX3 2025-09-29 前的版本。
 \keys_define:nn { ustc }
   {
     degree .choices:nn =
       { doctor , master , bachelor }
       {
-        \str_set:NV \l__ustc_degree_str \l_keys_choice_tl
+        \str_set:Nn \l__ustc_degree_str {#1}
         \str_if_eq:VnTF \l__ustc_degree_str { bachelor }
           { \bool_set_false:N \l__ustc_degree_graduate_bool }
           { \bool_set_true:N \l__ustc_degree_graduate_bool }
@@ -130,7 +129,7 @@
       } ,
     fontset .choices:nn =
       { auto , windows , mac , ubuntu , fandol , none }
-      { \str_set:NV \l__ustc_fontset_str \l_keys_choice_tl } ,
+      { \str_set:Nn \l__ustc_fontset_str {#1} } ,
     output .choice: ,
     output / print .code:n =
       { \bool_set_false:N \l__ustc_output_electronic_bool } ,
@@ -138,11 +137,11 @@
       { \bool_set_true:N \l__ustc_output_electronic_bool } ,
     degree-type .choices:nn =
       { academic , professional , engineering }
-      { \str_set:NV \l__ustc_degree_type_str \l_keys_choice_tl } ,
+      { \str_set:Nn \l__ustc_degree_type_str {#1} } ,
     language .choices:nn =
       { chinese , english }
       {
-        \str_set:NV \l__ustc_language_str \l_keys_choice_tl
+        \str_set:Nn \l__ustc_language_str {#1}
         \str_if_eq:VnTF \l__ustc_language_str { chinese }
           { \bool_set_true:N \l__ustc_language_chinese_bool }
           { \bool_set_false:N \l__ustc_language_chinese_bool }
@@ -156,25 +155,25 @@
         cm , none
       }
       {
-        \str_set:NV \l__ustc_font_str \l_keys_choice_tl
+        \str_set:Nn \l__ustc_font_str {#1}
         \tl_use:N \l__ustc_font_hook_tl
       } ,
     cjk-font .choices:nn =
       { auto , windows , mac , noto , fandol , none }
       {
-        \str_set:NV \l__ustc_cjk_font_str \l_keys_choice_tl
+        \str_set:Nn \l__ustc_cjk_font_str {#1}
         \tl_use:N \l__ustc_cjk_font_hook_tl
       } ,
     math-font .choices:nn =
       { auto , stix , xits , libertinus , newcm , cm , lm , newtx , none }
       {
-        \str_set:NV \l__ustc_math_font_str \l_keys_choice_tl
+        \str_set:Nn \l__ustc_math_font_str {#1}
         \tl_use:N \l__ustc_math_font_hook_tl
       } ,
     math-style .choices:nn =
       { TeX, ISO , GB }
       {
-        \str_set:NV \l__ustc_math_style_str \l_keys_choice_tl
+        \str_set:Nn \l__ustc_math_style_str {#1}
         \tl_use:N \l__ustc_math_style_hook_tl
       } ,
     uppercase-greek .choice: ,
@@ -200,7 +199,7 @@
       { \bool_set_false:N \l__ustc_partial_upright_bool } ,
     math-ellipsis .choices:nn =
       { centered , lower , AMS }
-      { \str_set:NV \l__ustc_math_ellipsis_str \l_keys_choice_tl } ,
+      { \str_set:Nn \l__ustc_math_ellipsis_str {#1} } ,
     real-part .choice: ,
     real-part / roman .code:n =
       { \bool_set_true:N \l__ustc_real_part_roman_bool } ,
@@ -209,7 +208,7 @@
     cite-style .choices:nn =
       { super , inline , authoryear }
       {
-        \str_set:NV \l__ustc_cite_style_str \l_keys_choice_tl
+        \str_set:Nn \l__ustc_cite_style_str {#1}
         \tl_use:N \l__ustc_cite_style_hook_tl
       } ,
     section-style .choice: ,
@@ -1943,7 +1942,7 @@
 \cs_new:Npn \__ustc_cover:
   {
     \begin { titlepage }
-      \ustcsetup{language=chinese}%
+      \ustcsetup { language = chinese }
       \__ustc_pdf_bookmark:n { Cover }
       \centering
       \vspace * { 0.8 cm }
@@ -2036,7 +2035,7 @@
       \skip_vertical:n { 0.8 bp }
       \group_begin:
         \sffamily \fontsize { 56 bp } { 72.8 bp } \selectfont
-        \__ustc_set_cjk_space:n { 6.2 bp}
+        \__ustc_set_cjk_space:n { 6.2 bp }
         本科毕业论文\par
       \group_end:
       \skip_vertical:n { 52 bp }
@@ -2118,8 +2117,6 @@
       }
     学位论文
   }
-\cs_set:Npn \__ustc_thesis_name_en:
-  { A~ dissertation~ for~ \str_use:N \l__ustc_degree_str 's~ degree }
 
 % 定义校徽颜色
 %
@@ -2137,27 +2134,6 @@
         \exp_args:Ne \zhnumber { \int_use:N \l__ustc_day_int } 日
       }
       { \tl_use:N \l__ustc_date_text_tl }
-  }
-
-\cs_new:Npn \__ustc_format_date_en:
-  {
-    \int_case:nn { \l__ustc_month_int }
-      {
-        { 1 } { January }
-        { 2 } { February }
-        { 3 } { March }
-        { 4 } { April }
-        { 5 } { May }
-        { 6 } { June }
-        { 7 } { July }
-        { 8 } { August }
-        { 9 } { September }
-        { 10 } { October }
-        { 11 } { November }
-        { 12 } { December }
-      } ~
-    \int_use:N \l__ustc_day_int , ~
-    \int_use:N \l__ustc_year_int
   }
 
 \cs_new:Npn \__ustc_format_date_zh_arabic:
