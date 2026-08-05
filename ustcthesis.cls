@@ -2462,8 +2462,8 @@
 % 研究生一般不建议使用三级节标题，不得使用三级以下节标题。
 % 本科生允许至四级节标题。
 \bool_if:NTF \l__ustc_degree_graduate_bool
-  { \setcounter { secnumdepth } { 4 } }
   { \setcounter { secnumdepth } { 3 } }
+  { \setcounter { secnumdepth } { 4 } }
 
 % 用 \pkg{ctex} 的接口设置全部章节标题格式。
 \ctexset
