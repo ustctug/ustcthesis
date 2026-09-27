@@ -246,6 +246,8 @@ Completed box being shipped out [1]
 .........\kern -0.00017
 .........\kern 0.00017
 .........\glue 0.0 plus 1.0fil minus 1.0fil
+........\kern -0.00017
+........\kern 0.00017
 ........\glue 0.0 plus 1.0fil
 ........\glue 0.0
 .......\glue(\tabskip) 0.0
@@ -298,6 +300,8 @@ Completed box being shipped out [1]
 .........\kern -0.0002
 .........\kern 0.0002
 .........\glue 0.0 plus 1.0fil minus 1.0fil
+........\kern -0.0002
+........\kern 0.0002
 ........\glue 0.0 plus 1.0fil
 ........\glue 0.0
 .......\glue(\tabskip) 0.0
@@ -362,6 +366,8 @@ Completed box being shipped out [1]
 .........\kern -0.00017
 .........\kern 0.00017
 .........\glue 0.0 plus 1.0fil minus 1.0fil
+........\kern -0.00017
+........\kern 0.00017
 ........\glue 0.0 plus 1.0fil
 ........\glue 0.0
 .......\glue(\tabskip) 0.0
@@ -423,6 +429,8 @@ Completed box being shipped out [1]
 .........\kern -0.00017
 .........\kern 0.00017
 .........\glue 0.0 plus 1.0fil minus 1.0fil
+........\kern -0.00017
+........\kern 0.00017
 ........\glue 0.0 plus 1.0fil
 ........\glue 0.0
 .......\glue(\tabskip) 0.0
@@ -487,6 +495,8 @@ Completed box being shipped out [1]
 .........\kern -0.00017
 .........\kern 0.00017
 .........\glue 0.0 plus 1.0fil minus 1.0fil
+........\kern -0.00017
+........\kern 0.00017
 ........\glue 0.0 plus 1.0fil
 ........\glue 0.0
 .......\glue(\tabskip) 0.0

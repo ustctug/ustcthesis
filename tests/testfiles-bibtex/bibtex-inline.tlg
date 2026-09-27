@@ -56,6 +56,8 @@ Completed box being shipped out [1]
 .....\TU/texgyretermes(0)/m/n/12.045 1
 .....\kern -0.0002
 .....\kern 0.0002
+....\kern -0.0002
+....\kern 0.0002
 ....\TU/texgyretermes(0)/m/n/12.045 ]
 ....\glue 3.01125 plus 1.50562 minus 1.00374
 ....\TU/FandolSong(0)/m/n/12.045 测
@@ -69,7 +71,7 @@ Completed box being shipped out [1]
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 8.72862
-...\hbox(9.20238+2.144)x417.11752, glue set 303.70181fil
+...\hbox(9.20238+2.144)x417.11752, glue set 300.69057fil
 ....\hbox(0.0+0.0)x24.09
 ....\TU/FandolSong(0)/m/n/12.045 引
 ....\glue 0.0 plus 0.61353
@@ -78,8 +80,6 @@ Completed box being shipped out [1]
 ....\TU/FandolSong(0)/m/n/12.045 张
 ....\glue 0.0 plus 0.61353
 ....\TU/FandolSong(0)/m/n/12.045 三
-....\kern -0.00017
-....\kern 0.00017
 ....\glue 3.01125 plus 1.50562 minus 1.00374
 ....\hbox(7.97379+1.879)x4.01099
 .....\TU/texgyretermes(0)/m/n/12.045 [
@@ -91,6 +91,7 @@ Completed box being shipped out [1]
 .....\TU/texgyretermes(0)/m/n/12.045 ]
 .....\kern -0.0002
 .....\kern 0.0002
+....\glue 3.01125 plus 1.50562 minus 1.00374
 ....\TU/FandolSong(0)/m/n/12.045 测
 ....\glue 0.0 plus 0.61353
 ....\TU/FandolSong(0)/m/n/12.045 试
@@ -113,6 +114,8 @@ Completed box being shipped out [1]
 .....\TU/texgyretermes(0)/m/n/12.045 1
 .....\kern -0.0002
 .....\kern 0.0002
+....\kern -0.0002
+....\kern 0.0002
 ....\TU/texgyretermes(0)/m/n/12.045 -
 ....\discretionary
 ....\kern -0.00023
@@ -122,6 +125,8 @@ Completed box being shipped out [1]
 .....\TU/texgyretermes(0)/m/n/12.045 2
 .....\kern -0.0002
 .....\kern 0.0002
+....\kern -0.0002
+....\kern 0.0002
 ....\TU/texgyretermes(0)/m/n/12.045 ]
 ....\glue 3.01125 plus 1.50562 minus 1.00374
 ....\TU/FandolSong(0)/m/n/12.045 测
@@ -146,6 +151,8 @@ Completed box being shipped out [1]
 .....\TU/texgyretermes(0)/m/n/12.045 1
 .....\kern -0.0002
 .....\kern 0.0002
+....\kern -0.0002
+....\kern 0.0002
 ....\TU/texgyretermes(0)/m/n/12.045 ,
 ....\kern -0.0002
 ....\kern 0.0002
@@ -155,6 +162,8 @@ Completed box being shipped out [1]
 .....\TU/texgyretermes(0)/m/n/12.045 3
 .....\kern -0.0002
 .....\kern 0.0002
+....\kern -0.0002
+....\kern 0.0002
 ....\TU/texgyretermes(0)/m/n/12.045 ]
 ....\glue 3.01125 plus 1.50562 minus 1.00374
 ....\TU/FandolSong(0)/m/n/12.045 测
@@ -168,7 +177,7 @@ Completed box being shipped out [1]
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 8.51181
-...\hbox(9.41919+2.144)x417.11752, glue set 241.47736fil
+...\hbox(9.41919+2.144)x417.11752, glue set 238.46611fil
 ....\hbox(0.0+0.0)x24.09
 ....\TU/FandolSong(0)/m/n/12.045 引
 ....\glue 0.0 plus 0.61353
@@ -177,8 +186,6 @@ Completed box being shipped out [1]
 ....\TU/FandolSong(0)/m/n/12.045 张
 ....\glue 0.0 plus 0.61353
 ....\TU/FandolSong(0)/m/n/12.045 三
-....\kern -0.00017
-....\kern 0.00017
 ....\glue 3.01125 plus 1.50562 minus 1.00374
 ....\hbox(7.97379+1.879)x4.01099
 .....\TU/texgyretermes(0)/m/n/12.045 [
@@ -190,6 +197,8 @@ Completed box being shipped out [1]
 .....\TU/texgyretermes(0)/m/n/12.045 ]
 .....\kern -0.0002
 .....\kern 0.0002
+....\kern -0.0002
+....\kern 0.0002
 ....\TU/texgyretermes(0)/m/n/12.045 ,
 ....\kern -0.0002
 ....\kern 0.0002
@@ -202,8 +211,6 @@ Completed box being shipped out [1]
 ....\kern 0.00017
 ....\glue 3.01125 plus 1.50562 minus 1.00374
 ....\TU/FandolSong(0)/m/n/12.045 等
-....\kern -0.00017
-....\kern 0.00017
 ....\glue 3.01125 plus 1.50562 minus 1.00374
 ....\hbox(7.97379+1.879)x4.01099
 .....\TU/texgyretermes(0)/m/n/12.045 [
@@ -215,6 +222,7 @@ Completed box being shipped out [1]
 .....\TU/texgyretermes(0)/m/n/12.045 ]
 .....\kern -0.0002
 .....\kern 0.0002
+....\glue 3.01125 plus 1.50562 minus 1.00374
 ....\TU/FandolSong(0)/m/n/12.045 测
 ....\glue 0.0 plus 0.61353
 ....\TU/FandolSong(0)/m/n/12.045 试
@@ -226,7 +234,7 @@ Completed box being shipped out [1]
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 8.72862
-...\hbox(9.20238+2.144)x417.11752, glue set 291.65681fil
+...\hbox(9.20238+2.144)x417.11752, glue set 288.64557fil
 ....\hbox(0.0+0.0)x24.09
 ....\TU/FandolSong(0)/m/n/12.045 引
 ....\glue 0.0 plus 0.61353
@@ -235,8 +243,6 @@ Completed box being shipped out [1]
 ....\TU/FandolSong(0)/m/n/12.045 张
 ....\glue 0.0 plus 0.61353
 ....\TU/FandolSong(0)/m/n/12.045 三
-....\kern -0.00017
-....\kern 0.00017
 ....\glue 3.01125 plus 1.50562 minus 1.00374
 ....\hbox(7.97379+1.879)x4.01099
 .....\TU/texgyretermes(0)/m/n/12.045 [
@@ -244,6 +250,8 @@ Completed box being shipped out [1]
 .....\TU/texgyretermes(0)/m/n/12.045 1
 .....\kern -0.0002
 .....\kern 0.0002
+....\kern -0.0002
+....\kern 0.0002
 ....\TU/texgyretermes(0)/m/n/12.045 ,
 ....\kern -0.0002
 ....\kern 0.0002
@@ -257,6 +265,7 @@ Completed box being shipped out [1]
 .....\TU/texgyretermes(0)/m/n/12.045 ]
 .....\kern -0.0002
 .....\kern 0.0002
+....\glue 3.01125 plus 1.50562 minus 1.00374
 ....\TU/FandolSong(0)/m/n/12.045 测
 ....\glue 0.0 plus 0.61353
 ....\TU/FandolSong(0)/m/n/12.045 试
@@ -279,15 +288,17 @@ Completed box being shipped out [1]
 .....\TU/texgyretermes(0)/m/n/12.045 1
 .....\kern -0.0002
 .....\kern 0.0002
+....\kern -0.0002
+....\kern 0.0002
 ....\TU/texgyretermes(0)/m/n/12.045 ]
 ....\kern -0.0002
 ....\kern 0.0002
 ....\hbox(6.10681+0.0)x9.03375, shifted -4.818
 .....\special{color push  Black}
 .....\TU/texgyretermes(0)/m/n/9.03375 42
-.....\special{color pop}
 .....\kern -0.0002
 .....\kern 0.0002
+.....\special{color pop}
 ....\penalty 10000
 ....\glue 0.5
 ....\kern 0.0
@@ -311,8 +322,6 @@ Completed box being shipped out [1]
 ....\TU/FandolSong(0)/m/n/12.045 张
 ....\glue 0.0 plus 0.61353
 ....\TU/FandolSong(0)/m/n/12.045 三
-....\kern -0.00017
-....\kern 0.00017
 ....\glue 3.01125 plus 1.50562 minus 1.00374
 ....\hbox(7.97379+1.879)x4.01099
 .....\TU/texgyretermes(0)/m/n/12.045 [
@@ -324,13 +333,15 @@ Completed box being shipped out [1]
 .....\TU/texgyretermes(0)/m/n/12.045 ]
 .....\kern -0.0002
 .....\kern 0.0002
+....\kern -0.0002
+....\kern 0.0002
 ....\penalty 10000
 ....\hbox(6.10681+0.0)x9.03375, shifted -4.818
 .....\special{color push  Black}
 .....\TU/texgyretermes(0)/m/n/9.03375 42
-.....\special{color pop}
 .....\kern -0.0002
 .....\kern 0.0002
+.....\special{color pop}
 ....\penalty 10000
 ....\glue 0.5
 ....\kern 0.0
@@ -357,6 +368,8 @@ Completed box being shipped out [1]
 .....\TU/texgyretermes(0)/m/n/12.045 4
 .....\kern -0.0002
 .....\kern 0.0002
+....\kern -0.0002
+....\kern 0.0002
 ....\TU/texgyretermes(0)/m/n/12.045 ]
 ....\kern -0.0002
 ....\kern 0.0002
@@ -375,8 +388,6 @@ Completed box being shipped out [1]
 ....\TU/texgyretermes(0)/m/n/12.045 Citation
 ....\glue 3.01125 plus 1.50562 minus 1.00374
 ....\TU/texgyretermes(0)/m/n/12.045 Doe
-....\kern -0.0002
-....\kern 0.0002
 ....\glue 3.01125 plus 1.50562 minus 1.00374
 ....\hbox(7.97379+1.879)x4.01099
 .....\TU/texgyretermes(0)/m/n/12.045 [
@@ -388,6 +399,8 @@ Completed box being shipped out [1]
 .....\TU/texgyretermes(0)/m/n/12.045 ]
 .....\kern -0.0002
 .....\kern 0.0002
+....\kern -0.0002
+....\kern 0.0002
 ....\glue 3.01125 plus 1.50562 minus 1.00374
 ....\TU/texgyretermes(0)/m/n/12.045 test
 ....\kern -0.0002
@@ -408,6 +421,8 @@ Completed box being shipped out [1]
 .....\TU/texgyretermes(0)/m/n/12.045 4
 .....\kern -0.0002
 .....\kern 0.0002
+....\kern -0.0002
+....\kern 0.0002
 ....\TU/texgyretermes(0)/m/n/12.045 -
 ....\discretionary
 ....\kern -0.00023
@@ -417,6 +432,8 @@ Completed box being shipped out [1]
 .....\TU/texgyretermes(0)/m/n/12.045 5
 .....\kern -0.0002
 .....\kern 0.0002
+....\kern -0.0002
+....\kern 0.0002
 ....\TU/texgyretermes(0)/m/n/12.045 ]
 ....\kern -0.0002
 ....\kern 0.0002
@@ -440,6 +457,8 @@ Completed box being shipped out [1]
 .....\TU/texgyretermes(0)/m/n/12.045 4
 .....\kern -0.0002
 .....\kern 0.0002
+....\kern -0.0002
+....\kern 0.0002
 ....\TU/texgyretermes(0)/m/n/12.045 ,
 ....\kern -0.0002
 ....\kern 0.0002
@@ -449,6 +468,8 @@ Completed box being shipped out [1]
 .....\TU/texgyretermes(0)/m/n/12.045 6
 .....\kern -0.0002
 .....\kern 0.0002
+....\kern -0.0002
+....\kern 0.0002
 ....\TU/texgyretermes(0)/m/n/12.045 ]
 ....\kern -0.0002
 ....\kern 0.0002
@@ -467,8 +488,6 @@ Completed box being shipped out [1]
 ....\TU/texgyretermes(0)/m/n/12.045 Citation
 ....\glue 3.01125 plus 1.50562 minus 1.00374
 ....\TU/texgyretermes(0)/m/n/12.045 Doe
-....\kern -0.0002
-....\kern 0.0002
 ....\glue 3.01125 plus 1.50562 minus 1.00374
 ....\hbox(7.97379+1.879)x4.01099
 .....\TU/texgyretermes(0)/m/n/12.045 [
@@ -480,6 +499,8 @@ Completed box being shipped out [1]
 .....\TU/texgyretermes(0)/m/n/12.045 ]
 .....\kern -0.0002
 .....\kern 0.0002
+....\kern -0.0002
+....\kern 0.0002
 ....\TU/texgyretermes(0)/m/n/12.045 ,
 ....\kern -0.0002
 ....\kern 0.0002
@@ -506,6 +527,8 @@ Completed box being shipped out [1]
 .....\TU/texgyretermes(0)/m/n/12.045 ]
 .....\kern -0.0002
 .....\kern 0.0002
+....\kern -0.0002
+....\kern 0.0002
 ....\glue 3.01125 plus 1.50562 minus 1.00374
 ....\TU/texgyretermes(0)/m/n/12.045 test
 ....\kern -0.0002
@@ -521,8 +544,6 @@ Completed box being shipped out [1]
 ....\TU/texgyretermes(0)/m/n/12.045 Citation
 ....\glue 3.01125 plus 1.50562 minus 1.00374
 ....\TU/texgyretermes(0)/m/n/12.045 Doe
-....\kern -0.0002
-....\kern 0.0002
 ....\glue 3.01125 plus 1.50562 minus 1.00374
 ....\hbox(7.97379+1.879)x4.01099
 .....\TU/texgyretermes(0)/m/n/12.045 [
@@ -530,6 +551,8 @@ Completed box being shipped out [1]
 .....\TU/texgyretermes(0)/m/n/12.045 4
 .....\kern -0.0002
 .....\kern 0.0002
+....\kern -0.0002
+....\kern 0.0002
 ....\TU/texgyretermes(0)/m/n/12.045 ,
 ....\kern -0.0002
 ....\kern 0.0002
@@ -543,6 +566,8 @@ Completed box being shipped out [1]
 .....\TU/texgyretermes(0)/m/n/12.045 ]
 .....\kern -0.0002
 .....\kern 0.0002
+....\kern -0.0002
+....\kern 0.0002
 ....\glue 3.01125 plus 1.50562 minus 1.00374
 ....\TU/texgyretermes(0)/m/n/12.045 test
 ....\kern -0.0002
@@ -563,15 +588,17 @@ Completed box being shipped out [1]
 .....\TU/texgyretermes(0)/m/n/12.045 4
 .....\kern -0.0002
 .....\kern 0.0002
+....\kern -0.0002
+....\kern 0.0002
 ....\TU/texgyretermes(0)/m/n/12.045 ]
 ....\kern -0.0002
 ....\kern 0.0002
 ....\hbox(6.10681+0.0)x9.03375, shifted -4.818
 .....\special{color push  Black}
 .....\TU/texgyretermes(0)/m/n/9.03375 42
-.....\special{color pop}
 .....\kern -0.0002
 .....\kern 0.0002
+.....\special{color pop}
 ....\penalty 10000
 ....\glue 0.5
 ....\kern 0.0
@@ -590,8 +617,6 @@ Completed box being shipped out [1]
 ....\TU/texgyretermes(0)/m/n/12.045 Citation
 ....\glue 3.01125 plus 1.50562 minus 1.00374
 ....\TU/texgyretermes(0)/m/n/12.045 Doe
-....\kern -0.0002
-....\kern 0.0002
 ....\glue 3.01125 plus 1.50562 minus 1.00374
 ....\hbox(7.97379+1.879)x4.01099
 .....\TU/texgyretermes(0)/m/n/12.045 [
@@ -603,13 +628,15 @@ Completed box being shipped out [1]
 .....\TU/texgyretermes(0)/m/n/12.045 ]
 .....\kern -0.0002
 .....\kern 0.0002
+....\kern -0.0002
+....\kern 0.0002
 ....\penalty 10000
 ....\hbox(6.10681+0.0)x9.03375, shifted -4.818
 .....\special{color push  Black}
 .....\TU/texgyretermes(0)/m/n/9.03375 42
-.....\special{color pop}
 .....\kern -0.0002
 .....\kern 0.0002
+.....\special{color pop}
 ....\penalty 10000
 ....\glue 0.5
 ....\kern 0.0
@@ -3245,6 +3272,8 @@ Completed box being shipped out [3]
 ....\glue 0.0
 ....\penalty 250
 ....\mathoff
+....\kern -0.0002
+....\kern 0.0002
 ....\TU/texgyretermes(0)/m/n/10.53937 .
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil
@@ -3738,6 +3767,8 @@ Completed box being shipped out [3]
 ....\glue 0.0
 ....\penalty 250
 ....\mathoff
+....\kern -0.0002
+....\kern 0.0002
 ....\TU/texgyretermes(0)/m/n/10.53937 .
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil
@@ -4465,6 +4496,8 @@ Completed box being shipped out [3]
 ....\glue 0.0
 ....\penalty 250
 ....\mathoff
+....\kern -0.0002
+....\kern 0.0002
 ....\TU/texgyretermes(0)/m/n/10.53937 .
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil
@@ -4683,6 +4716,8 @@ Completed box being shipped out [3]
 ....\glue 0.0
 ....\penalty 250
 ....\mathoff
+....\kern -0.0002
+....\kern 0.0002
 ....\TU/texgyretermes(0)/m/n/10.53937 .
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil

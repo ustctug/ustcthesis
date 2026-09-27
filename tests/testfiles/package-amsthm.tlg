@@ -88,7 +88,7 @@ Completed box being shipped out [1]
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 7.77707
-...\hbox(9.45532+2.32468)x417.11752, glue set - 0.11519
+...\hbox(9.45532+2.32468)x417.11752, glue set 0.09291
 ....\special{color push  Black}
 ....\hbox(0.0+0.0)x24.09
 ....\TU/FandolSong(0)/b/n/12.045 定
@@ -102,7 +102,6 @@ Completed box being shipped out [1]
 ....\kern 0.0002
 ....\glue 12.045
 ....\special{color pop}
-....\glue 3.912 plus 1.956 minus 1.304
 ....\TU/FandolSong(0)/m/n/12.045 劳
 ....\glue 0.0 plus 0.61353
 ....\TU/FandolSong(0)/m/n/12.045 仑
@@ -305,9 +304,9 @@ Completed box being shipped out [1]
 ......\TU/FandolHei(0)/m/n/12.045 证
 ......\glue 0.0 plus 0.61353
 ......\TU/FandolHei(0)/m/n/12.045 明
-......\special{color pop}
 ......\kern -0.00017
 ......\kern 0.00017
+......\special{color pop}
 .....\glue 12.045
 ....\penalty 0
 ....\TU/FandolSong(0)/m/n/12.045 劳
@@ -512,7 +511,7 @@ Completed box being shipped out [1]
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 8.295
-...\hbox(9.45532+2.32468)x417.11752, glue set - 0.11519
+...\hbox(9.45532+2.32468)x417.11752, glue set 0.09291
 ....\special{color push  Black}
 ....\hbox(0.0+0.0)x24.09
 ....\TU/FandolSong(0)/b/n/12.045 假
@@ -526,7 +525,6 @@ Completed box being shipped out [1]
 ....\kern 0.0002
 ....\glue 12.045
 ....\special{color pop}
-....\glue 3.912 plus 1.956 minus 1.304
 ....\TU/FandolSong(0)/m/n/12.045 劳
 ....\glue 0.0 plus 0.61353
 ....\TU/FandolSong(0)/m/n/12.045 仑
@@ -719,7 +717,7 @@ Completed box being shipped out [1]
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 8.295
-...\hbox(9.45532+2.32468)x417.11752, glue set - 0.11519
+...\hbox(9.45532+2.32468)x417.11752, glue set 0.09291
 ....\special{color push  Black}
 ....\hbox(0.0+0.0)x24.09
 ....\TU/FandolSong(0)/b/n/12.045 公
@@ -733,7 +731,6 @@ Completed box being shipped out [1]
 ....\kern 0.0002
 ....\glue 12.045
 ....\special{color pop}
-....\glue 3.912 plus 1.956 minus 1.304
 ....\TU/FandolSong(0)/m/n/12.045 劳
 ....\glue 0.0 plus 0.61353
 ....\TU/FandolSong(0)/m/n/12.045 仑
@@ -926,7 +923,7 @@ Completed box being shipped out [1]
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 8.295
-...\hbox(9.45532+2.32468)x417.11752, glue set - 0.11519
+...\hbox(9.45532+2.32468)x417.11752, glue set 0.09291
 ....\special{color push  Black}
 ....\hbox(0.0+0.0)x24.09
 ....\TU/FandolSong(0)/b/n/12.045 推
@@ -940,7 +937,6 @@ Completed box being shipped out [1]
 ....\kern 0.0002
 ....\glue 12.045
 ....\special{color pop}
-....\glue 3.912 plus 1.956 minus 1.304
 ....\TU/FandolSong(0)/m/n/12.045 劳
 ....\glue 0.0 plus 0.61353
 ....\TU/FandolSong(0)/m/n/12.045 仑
@@ -1133,7 +1129,7 @@ Completed box being shipped out [1]
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 8.295
-...\hbox(9.45532+2.32468)x417.11752, glue set - 0.11519
+...\hbox(9.45532+2.32468)x417.11752, glue set 0.09291
 ....\special{color push  Black}
 ....\hbox(0.0+0.0)x24.09
 ....\TU/FandolSong(0)/b/n/12.045 定
@@ -1147,7 +1143,6 @@ Completed box being shipped out [1]
 ....\kern 0.0002
 ....\glue 12.045
 ....\special{color pop}
-....\glue 3.912 plus 1.956 minus 1.304
 ....\TU/FandolSong(0)/m/n/12.045 劳
 ....\glue 0.0 plus 0.61353
 ....\TU/FandolSong(0)/m/n/12.045 仑
@@ -1340,7 +1335,7 @@ Completed box being shipped out [1]
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 8.295
-...\hbox(9.45532+2.32468)x417.11752, glue set - 0.11519
+...\hbox(9.45532+2.32468)x417.11752, glue set 0.09291
 ....\special{color push  Black}
 ....\hbox(0.0+0.0)x24.09
 ....\TU/FandolSong(0)/b/n/12.045 例
@@ -1352,7 +1347,6 @@ Completed box being shipped out [1]
 ....\kern 0.0002
 ....\glue 12.045
 ....\special{color pop}
-....\glue 3.912 plus 1.956 minus 1.304
 ....\TU/FandolSong(0)/m/n/12.045 劳
 ....\glue 0.0 plus 0.61353
 ....\TU/FandolSong(0)/m/n/12.045 仑
@@ -1546,7 +1540,7 @@ Completed box being shipped out [1]
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 8.295
-...\hbox(9.45532+2.32468)x417.11752, glue set - 0.11519
+...\hbox(9.45532+2.32468)x417.11752, glue set 0.09291
 ....\special{color push  Black}
 ....\hbox(0.0+0.0)x24.09
 ....\TU/FandolSong(0)/b/n/12.045 引
@@ -1560,7 +1554,6 @@ Completed box being shipped out [1]
 ....\kern 0.0002
 ....\glue 12.045
 ....\special{color pop}
-....\glue 3.912 plus 1.956 minus 1.304
 ....\TU/FandolSong(0)/m/n/12.045 劳
 ....\glue 0.0 plus 0.61353
 ....\TU/FandolSong(0)/m/n/12.045 仑
@@ -1753,7 +1746,7 @@ Completed box being shipped out [1]
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 8.295
-...\hbox(9.45532+2.32468)x417.11752, glue set - 0.11519
+...\hbox(9.45532+2.32468)x417.11752, glue set 0.09291
 ....\special{color push  Black}
 ....\hbox(0.0+0.0)x24.09
 ....\TU/FandolSong(0)/b/n/12.045 命
@@ -1767,7 +1760,6 @@ Completed box being shipped out [1]
 ....\kern 0.0002
 ....\glue 12.045
 ....\special{color pop}
-....\glue 3.912 plus 1.956 minus 1.304
 ....\TU/FandolSong(0)/m/n/12.045 劳
 ....\glue 0.0 plus 0.61353
 ....\TU/FandolSong(0)/m/n/12.045 仑
@@ -1968,7 +1960,6 @@ Completed box being shipped out [1]
 ....\kern 0.00017
 ....\glue 12.045
 ....\special{color pop}
-....\glue 0.0 plus 0.61353
 ....\TU/FandolSong(0)/m/n/12.045 劳
 ....\glue 0.0 plus 0.61353
 ....\TU/FandolSong(0)/m/n/12.045 仑

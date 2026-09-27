@@ -7,12 +7,12 @@ Package fontspec Info:
 Package fontspec Info: 
 (fontspec)             Could not resolve font "SimHei/I" (it probably doesn't exist).
 Package fontspec Info: 
-(fontspec)             Font family 'SimHei(0)' created for font 'SimHei' with options [Script={CJK},AutoFakeBold={3}].
+(fontspec)             Font family 'SimHei(0)' created for font 'SimHei' with options [Script={CJK},AutoFakeBold={4}].
 (fontspec)              
 (fontspec)              This font family consists of the following NFSS series/shapes:
 (fontspec)              
 (fontspec)             - 'normal' (m/n) with NFSS spec.: <->"SimHei/OT:script=hani;language=dflt;"
-(fontspec)             - 'bold' (b/n) with NFSS spec.: <->"SimHei/OT:script=hani;language=dflt;embolden=3;"
+(fontspec)             - 'bold' (b/n) with NFSS spec.: <->"SimHei/OT:script=hani;language=dflt;embolden=4;"
 Package fontspec Info: 
 (fontspec)             Could not resolve font "FangSong/BI" (it probably doesn't exist).
 Package fontspec Info: 
@@ -474,4 +474,3 @@ Completed box being shipped out [1]
 ...\glue 0.0 plus 1.0fil minus 1.0fil
 .\kern 722.98453
 .\kern 0.0
-LaTeX Font Warning: Some font shapes were not available, defaults substituted.

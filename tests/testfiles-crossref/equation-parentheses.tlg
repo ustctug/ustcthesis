@@ -78,9 +78,9 @@ Completed box being shipped out [1]
 .....\penalty 10000
 .....\glue 0.0
 .....\TU/texgyretermes(0)/m/n/12.045 3.1
+.....\hbox(0.0+0.0)x0.0
 .....\kern -0.0002
 .....\kern 0.0002
-.....\hbox(0.0+0.0)x0.0
 .....\penalty 10000
 .....\TU/FandolSong(0)/m/n/12.045 ）
 .....\rule(0.0+0.0)x-7.63654
@@ -90,6 +90,8 @@ Completed box being shipped out [1]
 .....\kern 0.99623
 .....\glue 7.63654 minus 6.0225
 .....\penalty 0
+....\kern -0.0002
+....\kern 0.0002
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
@@ -99,9 +101,6 @@ Completed box being shipped out [1]
 ...\hbox(9.636+2.40898)x417.11752, glue set 365.92628fil
 ....\hbox(0.0+0.0)x0.0
 ....\TU/FandolSong(0)/m/n/12.045 式
-....\kern 0.0
-....\kern -0.00018
-....\kern 0.00018
 ....\hbox(9.636+2.40898)x39.14624
 .....\kern 0.0
 .....\glue 7.63654 minus 6.0225
@@ -114,9 +113,9 @@ Completed box being shipped out [1]
 .....\penalty 10000
 .....\glue 0.0
 .....\TU/texgyretermes(0)/m/n/12.045 3.1
+.....\hbox(0.0+0.0)x0.0
 .....\kern -0.0002
 .....\kern 0.0002
-.....\hbox(0.0+0.0)x0.0
 .....\penalty 10000
 .....\TU/FandolSong(0)/m/n/12.045 ）
 .....\rule(0.0+0.0)x-7.63654
@@ -126,6 +125,8 @@ Completed box being shipped out [1]
 .....\kern 0.99623
 .....\glue 7.63654 minus 6.0225
 .....\penalty 0
+....\kern -0.0002
+....\kern 0.0002
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
@@ -135,9 +136,6 @@ Completed box being shipped out [1]
 ...\hbox(9.636+2.40898)x417.11752, glue set 365.92628fil
 ....\hbox(0.0+0.0)x0.0
 ....\TU/FandolSong(0)/m/n/12.045 式
-....\kern 0.0
-....\kern -0.00017
-....\kern 0.00017
 ....\hbox(9.636+2.40898)x39.14624
 .....\kern 0.0
 .....\glue 7.63654 minus 6.0225
@@ -150,9 +148,9 @@ Completed box being shipped out [1]
 .....\penalty 10000
 .....\glue 0.0
 .....\TU/texgyretermes(0)/m/n/12.045 3.1
+.....\hbox(0.0+0.0)x0.0
 .....\kern -0.0002
 .....\kern 0.0002
-.....\hbox(0.0+0.0)x0.0
 .....\penalty 10000
 .....\TU/FandolSong(0)/m/n/12.045 ）
 .....\rule(0.0+0.0)x-7.63654
@@ -162,6 +160,8 @@ Completed box being shipped out [1]
 .....\kern 0.99623
 .....\glue 7.63654 minus 6.0225
 .....\penalty 0
+....\kern -0.0002
+....\kern 0.0002
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
@@ -177,52 +177,56 @@ Completed box being shipped out [1]
 ....\glue 3.01125 plus 1.50562 minus 1.00374
 ....\hbox(8.14243+2.13194)x23.07822
 .....\TU/texgyretermes(0)/m/n/12.045 (3.1
+.....\hbox(0.0+0.0)x0.0
 .....\kern -0.0002
 .....\kern 0.0002
-.....\hbox(0.0+0.0)x0.0
 .....\TU/texgyretermes(0)/m/n/12.045 )
 .....\kern -0.0002
 .....\kern 0.0002
+....\kern -0.0002
+....\kern 0.0002
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 8.64432
-...\hbox(9.29874+2.13194)x417.11752, glue set 381.99431fil
+...\hbox(9.29874+2.13194)x417.11752, glue set 378.98306fil
 ....\hbox(0.0+0.0)x0.0
 ....\TU/FandolSong(0)/m/n/12.045 式
 ....\kern 0.0
-....\kern -0.00018
-....\kern 0.00018
+....\glue 3.01125 plus 1.50562 minus 1.00374
 ....\hbox(8.14243+2.13194)x23.07822
 .....\TU/texgyretermes(0)/m/n/12.045 (3.1
+.....\hbox(0.0+0.0)x0.0
 .....\kern -0.0002
 .....\kern 0.0002
-.....\hbox(0.0+0.0)x0.0
 .....\TU/texgyretermes(0)/m/n/12.045 )
 .....\kern -0.0002
 .....\kern 0.0002
+....\kern -0.0002
+....\kern 0.0002
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 8.64432
-...\hbox(9.29874+2.13194)x417.11752, glue set 381.99431fil
+...\hbox(9.29874+2.13194)x417.11752, glue set 378.98306fil
 ....\hbox(0.0+0.0)x0.0
 ....\TU/FandolSong(0)/m/n/12.045 式
 ....\kern 0.0
-....\kern -0.00017
-....\kern 0.00017
+....\glue 3.01125 plus 1.50562 minus 1.00374
 ....\hbox(8.14243+2.13194)x23.07822
 .....\TU/texgyretermes(0)/m/n/12.045 (3.1
+.....\hbox(0.0+0.0)x0.0
 .....\kern -0.0002
 .....\kern 0.0002
-.....\hbox(0.0+0.0)x0.0
 .....\TU/texgyretermes(0)/m/n/12.045 )
 .....\kern -0.0002
 .....\kern 0.0002
+....\kern -0.0002
+....\kern 0.0002
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
@@ -238,12 +242,14 @@ Completed box being shipped out [1]
 ....\glue 3.01125 plus 1.50562 minus 1.00374
 ....\hbox(8.14243+2.13194)x23.07822
 .....\TU/texgyretermes(0)/m/n/12.045 (3.1
+.....\hbox(0.0+0.0)x0.0
 .....\kern -0.0002
 .....\kern 0.0002
-.....\hbox(0.0+0.0)x0.0
 .....\TU/texgyretermes(0)/m/n/12.045 )
 .....\kern -0.0002
 .....\kern 0.0002
+....\kern -0.0002
+....\kern 0.0002
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
@@ -257,12 +263,14 @@ Completed box being shipped out [1]
 ....\glue 3.01125 plus 1.50562 minus 1.00374
 ....\hbox(8.14243+2.13194)x23.07822
 .....\TU/texgyretermes(0)/m/n/12.045 (3.1
+.....\hbox(0.0+0.0)x0.0
 .....\kern -0.0002
 .....\kern 0.0002
-.....\hbox(0.0+0.0)x0.0
 .....\TU/texgyretermes(0)/m/n/12.045 )
 .....\kern -0.0002
 .....\kern 0.0002
+....\kern -0.0002
+....\kern 0.0002
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
@@ -272,17 +280,16 @@ Completed box being shipped out [1]
 ...\hbox(8.14243+2.61375)x417.11752, glue set 352.67679fil
 ....\hbox(0.0+0.0)x0.0
 ....\TU/texgyretermes(0)/m/n/12.045 equation
-....\kern 0.0
-....\kern -0.0002
-....\kern 0.0002
 ....\hbox(8.14243+2.13194)x23.07822
 .....\TU/texgyretermes(0)/m/n/12.045 (3.1
+.....\hbox(0.0+0.0)x0.0
 .....\kern -0.0002
 .....\kern 0.0002
-.....\hbox(0.0+0.0)x0.0
 .....\TU/texgyretermes(0)/m/n/12.045 )
 .....\kern -0.0002
 .....\kern 0.0002
+....\kern -0.0002
+....\kern 0.0002
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0

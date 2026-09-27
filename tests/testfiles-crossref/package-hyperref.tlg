@@ -1283,6 +1283,8 @@ Completed box being shipped out [4]
 .....\kern -0.00017
 .....\kern 0.00017
 .....\special{pdf:eann}
+.....\kern -0.00017
+.....\kern 0.00017
 .....\rule(14.05243+6.02255)x0.0
 .....\kern 0.0
 .....\glue 2.00749
@@ -1294,9 +1296,9 @@ Completed box being shipped out [4]
 .......\hbox(1.2045+0.13248)x3.01125
 ........\special{color push  Black}
 ........\TU/texgyretermes(0)/m/n/12.045 .
-........\special{color pop}
 ........\kern -0.0002
 ........\kern 0.0002
+........\special{color pop}
 .....\kern 0.0
 .....\glue 2.00749
 .....\special{pdf:bann<</Type/Annot/Subtype/Link/Border[0 0 0]/H/I/C[1 0 0]/A<</S/GoTo/D(chapter.1)>>>>}
@@ -1304,6 +1306,8 @@ Completed box being shipped out [4]
 .....\kern -0.0002
 .....\kern 0.0002
 .....\special{pdf:eann}
+.....\kern -0.0002
+.....\kern 0.0002
 .....\penalty 10000
 .....\glue(\parfillskip) 0.0 plus 1.0fil
 .....\glue(\rightskip) 0.0
@@ -1354,6 +1358,8 @@ Completed box being shipped out [4]
 .....\kern -0.00017
 .....\kern 0.00017
 .....\special{pdf:eann}
+.....\kern -0.00017
+.....\kern 0.00017
 .....\rule(14.05243+6.02255)x0.0
 .....\kern 0.0
 .....\glue 2.00749
@@ -1365,9 +1371,9 @@ Completed box being shipped out [4]
 .......\hbox(1.2045+0.13248)x3.01125
 ........\special{color push  Black}
 ........\TU/texgyretermes(0)/m/n/12.045 .
-........\special{color pop}
 ........\kern -0.0002
 ........\kern 0.0002
+........\special{color pop}
 .....\kern 0.0
 .....\glue 2.00749
 .....\special{pdf:bann<</Type/Annot/Subtype/Link/Border[0 0 0]/H/I/C[1 0 0]/A<</S/GoTo/D(section.1.1)>>>>}
@@ -1375,6 +1381,8 @@ Completed box being shipped out [4]
 .....\kern -0.0002
 .....\kern 0.0002
 .....\special{pdf:eann}
+.....\kern -0.0002
+.....\kern 0.0002
 .....\penalty 10000
 .....\glue(\parfillskip) 0.0 plus 1.0fil
 .....\glue(\rightskip) 0.0
@@ -1413,6 +1421,8 @@ Completed box being shipped out [4]
 .....\kern -0.00017
 .....\kern 0.00017
 .....\special{pdf:eann}
+.....\kern -0.00017
+.....\kern 0.00017
 .....\rule(14.05243+6.02255)x0.0
 .....\kern 0.0
 .....\glue 2.00749
@@ -1424,9 +1434,9 @@ Completed box being shipped out [4]
 .......\hbox(1.2045+0.13248)x3.01125
 ........\special{color push  Black}
 ........\TU/texgyretermes(0)/m/n/12.045 .
-........\special{color pop}
 ........\kern -0.0002
 ........\kern 0.0002
+........\special{color pop}
 .....\kern 0.0
 .....\glue 2.00749
 .....\special{pdf:bann<</Type/Annot/Subtype/Link/Border[0 0 0]/H/I/C[1 0 0]/A<</S/GoTo/D(subsection.1.1.1)>>>>}
@@ -1434,6 +1444,8 @@ Completed box being shipped out [4]
 .....\kern -0.0002
 .....\kern 0.0002
 .....\special{pdf:eann}
+.....\kern -0.0002
+.....\kern 0.0002
 .....\penalty 10000
 .....\glue(\parfillskip) 0.0 plus 1.0fil
 .....\glue(\rightskip) 0.0
@@ -1473,6 +1485,8 @@ Completed box being shipped out [4]
 .....\kern -0.00017
 .....\kern 0.00017
 .....\special{pdf:eann}
+.....\kern -0.00017
+.....\kern 0.00017
 .....\rule(14.05243+6.02255)x0.0
 .....\kern 0.0
 .....\glue 2.00749
@@ -1484,9 +1498,9 @@ Completed box being shipped out [4]
 .......\hbox(1.2045+0.13248)x3.01125
 ........\special{color push  Black}
 ........\TU/texgyretermes(0)/m/n/12.045 .
-........\special{color pop}
 ........\kern -0.0002
 ........\kern 0.0002
+........\special{color pop}
 .....\kern 0.0
 .....\glue 2.00749
 .....\special{pdf:bann<</Type/Annot/Subtype/Link/Border[0 0 0]/H/I/C[1 0 0]/A<</S/GoTo/D(chapter.2)>>>>}
@@ -1494,6 +1508,8 @@ Completed box being shipped out [4]
 .....\kern -0.0002
 .....\kern 0.0002
 .....\special{pdf:eann}
+.....\kern -0.0002
+.....\kern 0.0002
 .....\penalty 10000
 .....\glue(\parfillskip) 0.0 plus 1.0fil
 .....\glue(\rightskip) 0.0
@@ -1540,6 +1556,8 @@ Completed box being shipped out [4]
 .....\kern -0.00017
 .....\kern 0.00017
 .....\special{pdf:eann}
+.....\kern -0.00017
+.....\kern 0.00017
 .....\rule(14.05243+6.02255)x0.0
 .....\kern 0.0
 .....\glue 2.00749
@@ -1551,9 +1569,9 @@ Completed box being shipped out [4]
 .......\hbox(1.2045+0.13248)x3.01125
 ........\special{color push  Black}
 ........\TU/texgyretermes(0)/m/n/12.045 .
-........\special{color pop}
 ........\kern -0.0002
 ........\kern 0.0002
+........\special{color pop}
 .....\kern 0.0
 .....\glue 2.00749
 .....\special{pdf:bann<</Type/Annot/Subtype/Link/Border[0 0 0]/H/I/C[1 0 0]/A<</S/GoTo/D(section.2.1)>>>>}
@@ -1561,6 +1579,8 @@ Completed box being shipped out [4]
 .....\kern -0.0002
 .....\kern 0.0002
 .....\special{pdf:eann}
+.....\kern -0.0002
+.....\kern 0.0002
 .....\penalty 10000
 .....\glue(\parfillskip) 0.0 plus 1.0fil
 .....\glue(\rightskip) 0.0
@@ -1591,6 +1611,8 @@ Completed box being shipped out [4]
 .....\kern -0.00017
 .....\kern 0.00017
 .....\special{pdf:eann}
+.....\kern -0.00017
+.....\kern 0.00017
 .....\rule(14.05243+6.02255)x0.0
 .....\kern 0.0
 .....\glue 2.00749
@@ -1602,9 +1624,9 @@ Completed box being shipped out [4]
 .......\hbox(1.2045+0.13248)x3.01125
 ........\special{color push  Black}
 ........\TU/texgyretermes(0)/m/n/12.045 .
-........\special{color pop}
 ........\kern -0.0002
 ........\kern 0.0002
+........\special{color pop}
 .....\kern 0.0
 .....\glue 2.00749
 .....\special{pdf:bann<</Type/Annot/Subtype/Link/Border[0 0 0]/H/I/C[1 0 0]/A<</S/GoTo/D(subsection.2.1.1)>>>>}
@@ -1612,6 +1634,8 @@ Completed box being shipped out [4]
 .....\kern -0.0002
 .....\kern 0.0002
 .....\special{pdf:eann}
+.....\kern -0.0002
+.....\kern 0.0002
 .....\penalty 10000
 .....\glue(\parfillskip) 0.0 plus 1.0fil
 .....\glue(\rightskip) 0.0
@@ -1642,6 +1666,8 @@ Completed box being shipped out [4]
 .....\kern -0.00017
 .....\kern 0.00017
 .....\special{pdf:eann}
+.....\kern -0.00017
+.....\kern 0.00017
 .....\rule(14.05243+6.02255)x0.0
 .....\kern 0.0
 .....\glue 2.00749
@@ -1653,9 +1679,9 @@ Completed box being shipped out [4]
 .......\hbox(1.2045+0.13248)x3.01125
 ........\special{color push  Black}
 ........\TU/texgyretermes(0)/m/n/12.045 .
-........\special{color pop}
 ........\kern -0.0002
 ........\kern 0.0002
+........\special{color pop}
 .....\kern 0.0
 .....\glue 2.00749
 .....\special{pdf:bann<</Type/Annot/Subtype/Link/Border[0 0 0]/H/I/C[1 0 0]/A<</S/GoTo/D(subsection.2.1.2)>>>>}
@@ -1663,6 +1689,8 @@ Completed box being shipped out [4]
 .....\kern -0.0002
 .....\kern 0.0002
 .....\special{pdf:eann}
+.....\kern -0.0002
+.....\kern 0.0002
 .....\penalty 10000
 .....\glue(\parfillskip) 0.0 plus 1.0fil
 .....\glue(\rightskip) 0.0
@@ -1695,6 +1723,8 @@ Completed box being shipped out [4]
 .....\kern -0.00017
 .....\kern 0.00017
 .....\special{pdf:eann}
+.....\kern -0.00017
+.....\kern 0.00017
 .....\rule(14.05243+6.02255)x0.0
 .....\kern 0.0
 .....\glue 2.00749
@@ -1706,9 +1736,9 @@ Completed box being shipped out [4]
 .......\hbox(1.2045+0.13248)x3.01125
 ........\special{color push  Black}
 ........\TU/texgyretermes(0)/m/n/12.045 .
-........\special{color pop}
 ........\kern -0.0002
 ........\kern 0.0002
+........\special{color pop}
 .....\kern 0.0
 .....\glue 2.00749
 .....\special{pdf:bann<</Type/Annot/Subtype/Link/Border[0 0 0]/H/I/C[1 0 0]/A<</S/GoTo/D(subsection.2.1.3)>>>>}
@@ -1716,6 +1746,8 @@ Completed box being shipped out [4]
 .....\kern -0.0002
 .....\kern 0.0002
 .....\special{pdf:eann}
+.....\kern -0.0002
+.....\kern 0.0002
 .....\penalty 10000
 .....\glue(\parfillskip) 0.0 plus 1.0fil
 .....\glue(\rightskip) 0.0
@@ -1751,6 +1783,8 @@ Completed box being shipped out [4]
 .....\kern -0.00017
 .....\kern 0.00017
 .....\special{pdf:eann}
+.....\kern -0.00017
+.....\kern 0.00017
 .....\rule(14.05243+6.02255)x0.0
 .....\kern 0.0
 .....\glue 2.00749
@@ -1762,9 +1796,9 @@ Completed box being shipped out [4]
 .......\hbox(1.2045+0.13248)x3.01125
 ........\special{color push  Black}
 ........\TU/texgyretermes(0)/m/n/12.045 .
-........\special{color pop}
 ........\kern -0.0002
 ........\kern 0.0002
+........\special{color pop}
 .....\kern 0.0
 .....\glue 2.00749
 .....\special{pdf:bann<</Type/Annot/Subtype/Link/Border[0 0 0]/H/I/C[1 0 0]/A<</S/GoTo/D(chapter.3)>>>>}
@@ -1772,6 +1806,8 @@ Completed box being shipped out [4]
 .....\kern -0.0002
 .....\kern 0.0002
 .....\special{pdf:eann}
+.....\kern -0.0002
+.....\kern 0.0002
 .....\penalty 10000
 .....\glue(\parfillskip) 0.0 plus 1.0fil
 .....\glue(\rightskip) 0.0
@@ -1797,6 +1833,8 @@ Completed box being shipped out [4]
 .....\kern -0.00017
 .....\kern 0.00017
 .....\special{pdf:eann}
+.....\kern -0.00017
+.....\kern 0.00017
 .....\rule(14.05243+6.02255)x0.0
 .....\kern 0.0
 .....\glue 2.00749
@@ -1808,9 +1846,9 @@ Completed box being shipped out [4]
 .......\hbox(1.2045+0.13248)x3.01125
 ........\special{color push  Black}
 ........\TU/texgyretermes(0)/m/n/12.045 .
-........\special{color pop}
 ........\kern -0.0002
 ........\kern 0.0002
+........\special{color pop}
 .....\kern 0.0
 .....\glue 2.00749
 .....\special{pdf:bann<</Type/Annot/Subtype/Link/Border[0 0 0]/H/I/C[1 0 0]/A<</S/GoTo/D(chapter*.15)>>>>}
@@ -1818,6 +1856,8 @@ Completed box being shipped out [4]
 .....\kern -0.0002
 .....\kern 0.0002
 .....\special{pdf:eann}
+.....\kern -0.0002
+.....\kern 0.0002
 .....\penalty 10000
 .....\glue(\parfillskip) 0.0 plus 1.0fil
 .....\glue(\rightskip) 0.0
@@ -1857,6 +1897,8 @@ Completed box being shipped out [4]
 .....\kern -0.00017
 .....\kern 0.00017
 .....\special{pdf:eann}
+.....\kern -0.00017
+.....\kern 0.00017
 .....\rule(14.05243+6.02255)x0.0
 .....\kern 0.0
 .....\glue 2.00749
@@ -1868,9 +1910,9 @@ Completed box being shipped out [4]
 .......\hbox(1.2045+0.13248)x3.01125
 ........\special{color push  Black}
 ........\TU/texgyretermes(0)/m/n/12.045 .
-........\special{color pop}
 ........\kern -0.0002
 ........\kern 0.0002
+........\special{color pop}
 .....\kern 0.0
 .....\glue 2.00749
 .....\special{pdf:bann<</Type/Annot/Subtype/Link/Border[0 0 0]/H/I/C[1 0 0]/A<</S/GoTo/D(appendix.A)>>>>}
@@ -1878,6 +1920,8 @@ Completed box being shipped out [4]
 .....\kern -0.0002
 .....\kern 0.0002
 .....\special{pdf:eann}
+.....\kern -0.0002
+.....\kern 0.0002
 .....\penalty 10000
 .....\glue(\parfillskip) 0.0 plus 1.0fil
 .....\glue(\rightskip) 0.0
@@ -1899,6 +1943,8 @@ Completed box being shipped out [4]
 .....\kern -0.00017
 .....\kern 0.00017
 .....\special{pdf:eann}
+.....\kern -0.00017
+.....\kern 0.00017
 .....\rule(14.05243+6.02255)x0.0
 .....\kern 0.0
 .....\glue 2.00749
@@ -1910,9 +1956,9 @@ Completed box being shipped out [4]
 .......\hbox(1.2045+0.13248)x3.01125
 ........\special{color push  Black}
 ........\TU/texgyretermes(0)/m/n/12.045 .
-........\special{color pop}
 ........\kern -0.0002
 ........\kern 0.0002
+........\special{color pop}
 .....\kern 0.0
 .....\glue 2.00749
 .....\special{pdf:bann<</Type/Annot/Subtype/Link/Border[0 0 0]/H/I/C[1 0 0]/A<</S/GoTo/D(appendix*.16)>>>>}
@@ -1920,6 +1966,8 @@ Completed box being shipped out [4]
 .....\kern -0.0002
 .....\kern 0.0002
 .....\special{pdf:eann}
+.....\kern -0.0002
+.....\kern 0.0002
 .....\penalty 10000
 .....\glue(\parfillskip) 0.0 plus 1.0fil
 .....\glue(\rightskip) 0.0
@@ -1959,6 +2007,8 @@ Completed box being shipped out [4]
 .....\kern -0.00017
 .....\kern 0.00017
 .....\special{pdf:eann}
+.....\kern -0.00017
+.....\kern 0.00017
 .....\rule(14.05243+6.02255)x0.0
 .....\kern 0.0
 .....\glue 2.00749
@@ -1970,9 +2020,9 @@ Completed box being shipped out [4]
 .......\hbox(1.2045+0.13248)x3.01125
 ........\special{color push  Black}
 ........\TU/texgyretermes(0)/m/n/12.045 .
-........\special{color pop}
 ........\kern -0.0002
 ........\kern 0.0002
+........\special{color pop}
 .....\kern 0.0
 .....\glue 2.00749
 .....\special{pdf:bann<</Type/Annot/Subtype/Link/Border[0 0 0]/H/I/C[1 0 0]/A<</S/GoTo/D(appendix*.17)>>>>}
@@ -1980,6 +2030,8 @@ Completed box being shipped out [4]
 .....\kern -0.0002
 .....\kern 0.0002
 .....\special{pdf:eann}
+.....\kern -0.0002
+.....\kern 0.0002
 .....\penalty 10000
 .....\glue(\parfillskip) 0.0 plus 1.0fil
 .....\glue(\rightskip) 0.0
@@ -2003,6 +2055,8 @@ Completed box being shipped out [4]
 .....\kern -0.0002
 .....\kern 0.0002
 .....\special{pdf:eann}
+.....\kern -0.0002
+.....\kern 0.0002
 .....\rule(14.05243+6.02255)x0.0
 .....\kern 0.0
 .....\glue 2.00749
@@ -2014,9 +2068,9 @@ Completed box being shipped out [4]
 .......\hbox(1.2045+0.13248)x3.01125
 ........\special{color push  Black}
 ........\TU/texgyretermes(0)/m/n/12.045 .
-........\special{color pop}
 ........\kern -0.0002
 ........\kern 0.0002
+........\special{color pop}
 .....\kern 0.0
 .....\glue 2.00749
 .....\special{pdf:bann<</Type/Annot/Subtype/Link/Border[0 0 0]/H/I/C[1 0 0]/A<</S/GoTo/D(appendix*.18)>>>>}
@@ -2024,6 +2078,8 @@ Completed box being shipped out [4]
 .....\kern -0.0002
 .....\kern 0.0002
 .....\special{pdf:eann}
+.....\kern -0.0002
+.....\kern 0.0002
 .....\penalty 10000
 .....\glue(\parfillskip) 0.0 plus 1.0fil
 .....\glue(\rightskip) 0.0
@@ -2255,6 +2311,8 @@ Completed box being shipped out [5]
 .....\kern -0.00017
 .....\kern 0.00017
 .....\special{pdf:eann}
+.....\kern -0.00017
+.....\kern 0.00017
 .....\rule(14.05243+6.02255)x0.0
 .....\kern 0.0
 .....\glue 2.00749
@@ -2266,9 +2324,9 @@ Completed box being shipped out [5]
 .......\hbox(1.2045+0.13248)x3.01125
 ........\special{color push  Black}
 ........\TU/texgyretermes(0)/m/n/12.045 .
-........\special{color pop}
 ........\kern -0.0002
 ........\kern 0.0002
+........\special{color pop}
 .....\kern 0.0
 .....\glue 2.00749
 .....\special{pdf:bann<</Type/Annot/Subtype/Link/Border[0 0 0]/H/I/C[1 0 0]/A<</S/GoTo/D(figure.caption.13)>>>>}
@@ -2276,6 +2334,8 @@ Completed box being shipped out [5]
 .....\kern -0.0002
 .....\kern 0.0002
 .....\special{pdf:eann}
+.....\kern -0.0002
+.....\kern 0.0002
 .....\penalty 10000
 .....\glue(\parfillskip) 0.0 plus 1.0fil
 .....\glue(\rightskip) 0.0
@@ -2323,6 +2383,8 @@ Completed box being shipped out [5]
 .....\kern -0.00017
 .....\kern 0.00017
 .....\special{pdf:eann}
+.....\kern -0.00017
+.....\kern 0.00017
 .....\rule(14.05243+6.02255)x0.0
 .....\kern 0.0
 .....\glue 2.00749
@@ -2334,9 +2396,9 @@ Completed box being shipped out [5]
 .......\hbox(1.2045+0.13248)x3.01125
 ........\special{color push  Black}
 ........\TU/texgyretermes(0)/m/n/12.045 .
-........\special{color pop}
 ........\kern -0.0002
 ........\kern 0.0002
+........\special{color pop}
 .....\kern 0.0
 .....\glue 2.00749
 .....\special{pdf:bann<</Type/Annot/Subtype/Link/Border[0 0 0]/H/I/C[1 0 0]/A<</S/GoTo/D(table.caption.14)>>>>}
@@ -2344,6 +2406,8 @@ Completed box being shipped out [5]
 .....\kern -0.0002
 .....\kern 0.0002
 .....\special{pdf:eann}
+.....\kern -0.0002
+.....\kern 0.0002
 .....\penalty 10000
 .....\glue(\parfillskip) 0.0 plus 1.0fil
 .....\glue(\rightskip) 0.0
@@ -4339,6 +4403,8 @@ Completed box being shipped out [2]
 .....\kern -0.0002
 .....\kern 0.0002
 .....\special{pdf:eann}
+.....\kern -0.0002
+.....\kern 0.0002
 .....\penalty 10000
 .....\TU/FandolSong(0)/m/n/12.045 ”
 .....\penalty 10000
@@ -4356,6 +4422,8 @@ Completed box being shipped out [2]
 .....\kern -0.0002
 .....\kern 0.0002
 .....\special{pdf:eann}
+.....\kern -0.0002
+.....\kern 0.0002
 .....\penalty 10000
 .....\TU/FandolSong(0)/m/n/12.045 ”
 .....\penalty 10000
@@ -4364,9 +4432,6 @@ Completed box being shipped out [2]
 .....\penalty 10000
 .....\glue -6.0225 plus 6.0225 minus 7.04631
 .....\TU/FandolSong(0)/m/n/12.045 “式
-.....\kern 0.0
-.....\kern -0.00017
-.....\kern 0.00017
 .....\hbox(9.636+2.40898)x39.14624
 ......\kern 0.0
 ......\glue 7.63654 minus 6.0225
@@ -4383,6 +4448,8 @@ Completed box being shipped out [2]
 ......\kern -0.0002
 ......\kern 0.0002
 ......\special{pdf:eann}
+......\kern -0.0002
+......\kern 0.0002
 ......\penalty 10000
 ......\TU/FandolSong(0)/m/n/12.045 ）
 ......\rule(0.0+0.0)x-7.63654
@@ -4392,6 +4459,8 @@ Completed box being shipped out [2]
 ......\kern 0.99623
 ......\glue 7.63654 minus 6.0225
 ......\penalty 0
+.....\kern -0.0002
+.....\kern 0.0002
 .....\penalty 10000
 .....\TU/FandolSong(0)/m/n/12.045 ”
 .....\rule(0.0+0.0)x-7.04633
@@ -5880,9 +5949,9 @@ Completed box being shipped out [4]
 .......\kern 0.0002
 .......\special{pdf:eann}
 ......\TU/texgyretermes(0)/m/n/9.03375 ]
-......\special{color pop}
 ......\kern -0.0002
 ......\kern 0.0002
+......\special{color pop}
 .....\penalty 10000
 .....\glue 0.5
 .....\kern 0.0
@@ -7497,10 +7566,12 @@ Completed box being shipped out [9]
 .....\penalty 10000
 .....\glue 3.01125 plus 1.50562 minus 1.00374
 .....\TU/texgyretermes(0)/m/n/12.045 2.1
+.....\hbox(0.0+0.0)x0.0
 .....\kern -0.0002
 .....\kern 0.0002
-.....\hbox(0.0+0.0)x0.0
 .....\special{pdf:eann}
+.....\kern -0.0002
+.....\kern 0.0002
 .....\glue 3.01125 plus 1.50562 minus 1.00374
 .....\TU/FandolSong(0)/m/n/12.045 和
 .....\special{pdf:bann<</Type/Annot/Subtype/Link/Border[0 0 0]/H/I/C[1 0 0]/A<</S/GoTo/D(table.caption.14)>>>>}
@@ -7511,10 +7582,12 @@ Completed box being shipped out [9]
 .....\penalty 10000
 .....\glue 3.01125 plus 1.50562 minus 1.00374
 .....\TU/texgyretermes(0)/m/n/12.045 2.1
+.....\hbox(0.0+0.0)x0.0
 .....\kern -0.0002
 .....\kern 0.0002
-.....\hbox(0.0+0.0)x0.0
 .....\special{pdf:eann}
+.....\kern -0.0002
+.....\kern 0.0002
 .....\penalty 10000
 .....\TU/FandolSong(0)/m/n/12.045 。
 .....\rule(0.0+0.0)x-7.75697
@@ -7554,6 +7627,8 @@ Completed box being shipped out [9]
 ......\penalty 0
 .....\hbox(0.0+0.0)x0.0
 .....\special{pdf:eann}
+.....\kern -0.0002
+.....\kern 0.0002
 .....\penalty 10000
 .....\TU/FandolSong(0)/m/n/12.045 ，
 .....\rule(0.0+0.0)x-8.33514
@@ -7569,14 +7644,16 @@ Completed box being shipped out [9]
 .....\penalty 10000
 .....\glue 3.01125 plus 1.50562 minus 1.00374
 .....\TU/texgyretermes(0)/m/n/12.045 3
+.....\hbox(0.0+0.0)x0.0
 .....\kern -0.0002
 .....\kern 0.0002
-.....\hbox(0.0+0.0)x0.0
 .....\glue 3.01125 plus 1.50562 minus 1.00374
 .....\TU/FandolSong(0)/m/n/12.045 页
 .....\kern -0.00017
 .....\kern 0.00017
 .....\special{pdf:eann}
+.....\kern -0.00017
+.....\kern 0.00017
 .....\penalty 10000
 .....\TU/FandolSong(0)/m/n/12.045 。
 .....\rule(0.0+0.0)x-7.75697
@@ -7611,6 +7688,8 @@ Completed box being shipped out [9]
 ......\kern 0.0002
 .....\hbox(0.0+0.0)x0.0
 .....\special{pdf:eann}
+.....\kern -0.0002
+.....\kern 0.0002
 .....\penalty 10000
 .....\TU/FandolSong(0)/m/n/12.045 。
 .....\rule(0.0+0.0)x-7.75697
@@ -7633,10 +7712,12 @@ Completed box being shipped out [9]
 .....\penalty 10000
 .....\glue 3.01125 plus 1.50562 minus 1.00374
 .....\TU/texgyretermes(0)/m/n/12.045 2.1
+.....\hbox(0.0+0.0)x0.0
 .....\kern -0.0002
 .....\kern 0.0002
-.....\hbox(0.0+0.0)x0.0
 .....\special{pdf:eann}
+.....\kern -0.0002
+.....\kern 0.0002
 .....\glue 3.01125 plus 1.50562 minus 1.00374
 .....\TU/texgyretermes(0)/m/n/12.045 and
 .....\glue 3.01125 plus 1.50562 minus 1.00374
@@ -7647,10 +7728,12 @@ Completed box being shipped out [9]
 .....\penalty 10000
 .....\glue 3.01125 plus 1.50562 minus 1.00374
 .....\TU/texgyretermes(0)/m/n/12.045 2.1
+.....\hbox(0.0+0.0)x0.0
 .....\kern -0.0002
 .....\kern 0.0002
-.....\hbox(0.0+0.0)x0.0
 .....\special{pdf:eann}
+.....\kern -0.0002
+.....\kern 0.0002
 .....\TU/texgyretermes(0)/m/n/12.045 .
 .....\glue 4.01498 plus 4.51685 minus 0.33458
 .....\TU/texgyretermes(0)/m/n/12.045 See
@@ -7670,6 +7753,8 @@ Completed box being shipped out [9]
 ......\kern 0.0002
 .....\hbox(0.0+0.0)x0.0
 .....\special{pdf:eann}
+.....\kern -0.0002
+.....\kern 0.0002
 .....\TU/texgyretermes(0)/m/n/12.045 ,
 .....\glue 3.01125 plus 1.88202 minus 0.80298
 .....\special{pdf:bann<</Type/Annot/Subtype/Link/Border[0 0 0]/H/I/C[1 0 0]/A<</S/GoTo/D(equation.2.1)>>>>}
@@ -7679,10 +7764,12 @@ Completed box being shipped out [9]
 .....\penalty 10000
 .....\glue 3.01125 plus 1.50562 minus 1.00374
 .....\TU/texgyretermes(0)/m/n/12.045 3
+.....\hbox(0.0+0.0)x0.0
 .....\kern -0.0002
 .....\kern 0.0002
-.....\hbox(0.0+0.0)x0.0
 .....\special{pdf:eann}
+.....\kern -0.0002
+.....\kern 0.0002
 .....\TU/texgyretermes(0)/m/n/12.045 .
 .....\penalty 10000
 .....\glue(\parfillskip) 0.0 plus 1.0fil
