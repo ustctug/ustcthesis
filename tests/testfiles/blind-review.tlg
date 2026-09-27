@@ -369,7 +369,7 @@ Completed box being shipped out [3]
 ....\special{color pop}
 ..\glue 15.6491
 ..\glue(\lineskip) 0.0
-..\vbox(700.50723+0.0)x417.11752, glue set 106.21338fil
+..\vbox(700.50723+0.0)x417.11752, glue set 104.56337fil
 ...\glue(\topskip) 12.0
 ...\rule(0.0+0.0)x*
 ...\penalty 10000
@@ -378,10 +378,10 @@ Completed box being shipped out [3]
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 10.6799
-...\hbox(9.3951+25.92041)x417.11752
+...\hbox(9.3951+27.57059)x417.11752
 ....\glue(\leftskip) 0.0 plus 1.0fil
 ....\hbox(0.0+0.0)x0.0
-....\vbox(9.3951+25.92041)x417.11752
+....\vbox(9.3951+27.57059)x417.11752
 .....\hbox(9.3951+4.14307)x417.11752, glue set 185.45222fill
 ......\hbox(0.0+0.0)x0.0
 ......\rule(*+*)x0.0
@@ -460,7 +460,7 @@ Completed box being shipped out [3]
 .....\glue(\parskip) 0.0
 .....\glue(\parskip) 0.0
 .....\glue(\baselineskip) 2.04807
-.....\hbox(9.46736+4.23943)x417.11752, glue set 185.42001fill
+.....\hbox(9.46736+5.8896)x417.11752, glue set 185.42001fill
 ......\hbox(0.0+0.0)x0.0
 ......\rule(*+*)x0.0
 ......\penalty 10000
@@ -510,10 +510,15 @@ Completed box being shipped out [3]
 ......\glue 8.39537 minus 6.0225
 ......\glue 6.02249
 ......\mathon
-......\vbox(0.0+3.97446)x30.11249
-.......\hbox(0.0+0.0)x30.11249
-........\hbox(0.0+0.0)x30.11249, glue set 15.05624fil
+......\vbox(9.27464+5.8896)x30.11249
+.......\hbox(9.27464+1.91515)x30.11249
+........\hbox(9.27464+1.91515)x30.11249, glue set 2.50938fil
 .........\glue 0.0 plus 1.0fil minus 1.0fil
+.........\TU/FandolSong(0)/m/n/12.045 公
+.........\glue 1.00374
+.........\TU/FandolSong(0)/m/n/12.045 开
+.........\kern -0.00017
+.........\kern 0.00017
 .........\glue 0.0 plus 1.0fil minus 1.0fil
 .......\kern2.38467
 .......\rule(0.79489+0.0)x*

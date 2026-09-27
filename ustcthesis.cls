@@ -1532,7 +1532,7 @@
 \tl_new:N \l__ustc_department_tl
 \tl_new:N \l__ustc_discipline_tl
 \tl_new:N \l__ustc_research_direction_tl
-\tl_new:N \l__ustc_secret_level_tl
+\str_new:N \l__ustc_secret_level_str
 \tl_new:N \l__ustc_secret_year_tl
 \clist_new:N \l__ustc_keywords_clist
 \clist_new:N \l__ustc_keywords_en_clist
@@ -1552,7 +1552,7 @@
     department .tl_set:N = \l__ustc_department_tl ,
     discipline .tl_set:N = \l__ustc_discipline_tl ,
     research-direction .tl_set:N = \l__ustc_research_direction_tl ,
-    secret-level .tl_set:N = \l__ustc_secret_level_tl ,
+    secret-level .str_set:N = \l__ustc_secret_level_str ,
     secret-year .tl_set:N = \l__ustc_secret_year_tl ,
     keywords  .clist_set:N = \l__ustc_keywords_clist ,
     keywords* .clist_set:N = \l__ustc_keywords_en_clist ,
@@ -1654,7 +1654,7 @@
     department = 院系 ,
     discipline = 学科专业 ,
     research-direction = 研究方向 ,
-    secret-level = { } ,
+    secret-level = { 公开 } ,
   }
 
 % 版本 v3.2 开始使用 \cs{ustcsetup} 设置接口，
@@ -1836,7 +1836,7 @@
           UDC 分类号： \enskip
           \__ustc_underline:nn { 2.5 em } { \tl_use:N \l__ustc_udc_tl } \hfill
           密 \skip_horizontal:n { 33.7 bp } 级： \enskip
-          \__ustc_underline:nn { 2.5 em } { \tl_use:N \l__ustc_secret_level_tl }
+          \__ustc_underline:nn { 2.5 em } { \str_use:N \l__ustc_secret_level_str }
           \hspace * { 5.4 bp } \par
         }
       \par
@@ -2207,7 +2207,7 @@
       \tl_use:N \c__ustc_authorization_tl \par
     \group_end:
     \skip_vertical:n { 12 bp }
-    \tl_if_empty:NTF \l__ustc_secret_level_tl
+    \str_if_eq:VnTF \l__ustc_secret_level_str { 公开 }
       {
         \__ustc_checkbox: \hbox:n { } 公开 \quad
         $\square$ \hbox:n { } 控阅
