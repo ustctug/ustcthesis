@@ -20,8 +20,8 @@
 \IfFormatAtLeastTF{2020-10-01}{}
   {\ClassError{ustcthesis}{TeX Live 2021 or later version is required.}{}}
 
-\newcommand\ustcthesisversion{5.0.1}
-\ProvidesExplClass{ustcthesis}{2026-07-25}{\ustcthesisversion}{USTC thesis template}
+\newcommand\ustcthesisversion{5.0.2}
+\ProvidesExplClass{ustcthesis}{2026-09-27}{\ustcthesisversion}{USTC thesis template}
 
 \prop_gput:Nnn \g_msg_module_type_prop { ustcthesis } { Class }
 
