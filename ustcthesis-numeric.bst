@@ -8,7 +8,7 @@
 %% -------------------------------------------------------------------
 %% GB/T 7714 BibTeX Style
 %% https://github.com/zepinglee/gbt7714-bibtex-style
-%% Version: 2026-07-01 v3.0.0
+%% Version: 2026-09-27 v3.1.1
 %% -------------------------------------------------------------------
 %% Copyright (C) 2016-2026 by Zeping Lee <zepinglee AT gmail DOT com>
 %% -------------------------------------------------------------------
@@ -89,7 +89,7 @@ FUNCTION {load.config}
   #0 'control.initialize.pinyin :=
   "byentry" 'control.cite.lang :=  % byentry / chinese / english / macro
   #0 'control.year.before.title :=
-  "period" 'control.name.year.delim :=  % comma / period
+  "comma" 'control.name.year.delim :=  % comma / period
   #1 'control.sentence.case.title :=
   #1 'control.sentence.case.booktitle :=
   #0 'control.sentence.case.journal :=
@@ -124,6 +124,7 @@ FUNCTION {load.config}
 
 ENTRY
   { address
+    applicationnumber
     archiveprefix
     author
     bookauthor
@@ -141,12 +142,14 @@ ENTRY
     entrymediumid
     entrysubtype
     entrytypeid
-    eventtitle
     eprint
     eprinttype
+    eventtitle
     holder
     howpublished
     institution
+    isbn
+    issn
     journal
     journalsubtitle
     journaltitle
@@ -165,6 +168,7 @@ ENTRY
     number
     organization
     pages
+    pagetotal
     publisher
     scale
     school
@@ -174,10 +178,12 @@ ENTRY
     title
     titleaddon
     translator
+    type
     url
     urldate
     version
     volume
+    volumetotal
     year
     CTL_bib_punct
     CTL_convert_punct
@@ -513,6 +519,15 @@ FUNCTION {add.colon.by.language}
 { is.lang.cjk
     { "：" * }
     { ": " * }
+  if$
+}
+
+FUNCTION {add.semicolon}
+{ "bylanguage" control.bib.punct =
+  is.lang.cjk and
+  "GB" control.bib.punct = or
+    { "；" * }
+    { "; " * }
   if$
 }
 
@@ -1442,6 +1457,7 @@ FUNCTION {set.entry.numbered}
   type$ "patent" = or
   type$ "regulation" = or
   type$ "report" = or
+  type$ "standard" = or
   type$ "techreport" = or
     { #1 'entry.numbered := }
     { #0 'entry.numbered := }
@@ -1450,28 +1466,9 @@ FUNCTION {set.entry.numbered}
 
 INTEGERS { nameptr namesleft numnames name.lang }
 
-FUNCTION {is.lowercase.word}
-{ #1
-    { #0 > }
-    { duplicate$ #1 #1 substring$ chr.to.int$
-      duplicate$ #96 >
-      swap$      #123 <
-      and
-        { #2 global.max$ substring$
-          duplicate$ empty$
-            { #0 }
-            { #1 }
-          if$
-        }
-        { #0 }
-      if$
-    }
-  while$
-  empty$
-}
-
-FUNCTION {is.single.pinyin}
-{ " " swap$ * " " *
+FUNCTION {is.single.syllable.pinyin}
+{ "l" change.case$
+  " " swap$ * " " *
   duplicate$
   pinyin.table1 swap$ contains
     { pop$ #1 }
@@ -1484,22 +1481,16 @@ FUNCTION {is.single.pinyin}
   if$
 }
 
-FUNCTION {is.single.pinyin.word}
-{ duplicate$ is.lowercase.word
-    'is.single.pinyin
-    { pop$ #0 }
-  if$
-}
-
-FUNCTION {is.double.pinyin}
-{ duplicate$ string.length 'a :=
+FUNCTION {is.double.syllable.pinyin}
+{ "l" change.case$
+  duplicate$ string.length 'a :=
   #1
     { a #0 > and }
-    { duplicate$ #1 a substring$ is.single.pinyin
+    { duplicate$ #1 a substring$ is.single.syllable.pinyin
         { duplicate$ a #1 + global.max$ substring$
           duplicate$ empty$
             { pop$ #0 }
-            { is.single.pinyin
+            { is.single.syllable.pinyin
                 { #0 }
                 { a #1 - 'a :=
                   #1
@@ -1519,17 +1510,10 @@ FUNCTION {is.double.pinyin}
   t a #1 + #1 substring$
   duplicate$ empty$
     'pop$
-    { " " swap$ * * }
+    { "~" swap$ * * }
   if$
   't :=
   a #0 >
-}
-
-FUNCTION {is.double.pinyin.word}
-{ duplicate$ is.lowercase.word
-    'is.double.pinyin
-    { pop$ #0 }
-  if$
 }
 
 FUNCTION {extract.before}
@@ -1566,34 +1550,58 @@ FUNCTION {extract.after}
 
 FUNCTION {format.western.given.name}
 { s nameptr "{ f.}" format.name$
-  control.initialize.with.hyphen
-    'skip$
-    { duplicate$ "-" contains
-        { "-" " " find.replace
-          "u" change.case$
-        }
+  duplicate$ "-" contains
+    { control.initialize.with.hyphen
         'skip$
+        { "-" " " find.replace }
+      if$
+      smart.upper.case
+    }
+    'skip$
+  if$
+  s nameptr "{ jj}" format.name$ *
+  "." "" find.replace
+}
+
+FUNCTION {is.capitalized}
+{ duplicate$ #1 #1 substring$ is.upper.ascii
+    { #2 global.max$ substring$ is.all.lower }
+    { pop$ #0 }
+  if$
+}
+
+FUNCTION {is.hyphenated.pinyin}
+{ duplicate$ "-" extract.before
+  duplicate$ is.capitalized
+    { is.single.syllable.pinyin
+        { duplicate$ #1 #1 substring$ 't :=
+          "-" extract.after
+          duplicate$ is.capitalized
+            { duplicate$ #1 #1 substring$ t "-" * swap$ * 't :=
+              is.single.syllable.pinyin
+            }
+            { pop$ #0 }
+          if$
+        }
+        { pop$ #0 }
       if$
     }
+    { pop$ pop$ #0 }
   if$
-  s nameptr "{, jj}" format.name$ *
-  "." "" find.replace
 }
 
 FUNCTION {is.family.name.pinyin}
 { s nameptr "{ll}" format.name$
   duplicate$ empty$
     { pop$ #0 }
-    { "l" change.case$
-      duplicate$ "-" contains
-        { duplicate$ "-" extract.before is.single.pinyin.word
-            { "-" extract.after is.single.pinyin.word }
+    { duplicate$ "-" contains
+        { is.hyphenated.pinyin }
+        { % This function is toooo slow.
+          % is.double.syllable.pinyin
+          duplicate$ is.capitalized
+            { is.single.syllable.pinyin }
             { pop$ #0 }
           if$
-        }
-        { % 这个函数实在太慢了
-          % is.double.pinyin
-          is.single.pinyin.word
         }
       if$
     }
@@ -1604,20 +1612,35 @@ FUNCTION {is.given.name.pinyin}
 { s nameptr "{ff}" format.name$
   duplicate$ empty$
     { pop$ #0 }
-    { "l" change.case$
-      "’" "'" find.replace
-      duplicate$ "'" contains
-        { duplicate$ "'" extract.before
-          duplicate$ #1 #1 substring$ 't :=
-          is.single.pinyin.word
-            { "'" extract.after
-              duplicate$ #1 #1 substring$ t " " * swap$ * 't :=
-              is.single.pinyin.word
+    { duplicate$ "-" contains
+        { is.hyphenated.pinyin }
+        { "’" "'" find.replace
+          duplicate$ "'" contains
+            { duplicate$ "'" extract.before
+              duplicate$ is.capitalized
+                { duplicate$ #1 #1 substring$ 't :=
+                  is.single.syllable.pinyin
+                    { "'" extract.after
+                      duplicate$ is.all.lower
+                        { duplicate$ #1 #1 substring$ t "~" * swap$ * 't :=
+                          is.single.syllable.pinyin
+                        }
+                        { pop$ #0 }
+                      if$
+                    }
+                    { pop$ #0 }
+                  if$
+                }
+                { pop$ #0 }
+              if$
             }
-            { pop$ #0 }
+            { duplicate$ is.capitalized
+                { is.double.syllable.pinyin }
+                { pop$ #0 }
+              if$
+            }
           if$
         }
-        'is.double.pinyin.word
       if$
     }
   if$
@@ -1643,7 +1666,7 @@ FUNCTION {format.latin.name}
   control.check.pinyin
     { is.name.pinyin
         { control.initialize.pinyin
-            { " " t "u" change.case$ * }
+            { " " t smart.upper.case * }
             { s nameptr "{ ff}" format.name$ }
           if$
         }
@@ -1662,7 +1685,7 @@ FUNCTION {format.name}
   duplicate$ lang.zh = swap$ lang.ja = or
     { pop$
       s nameptr "{vv~}{ll}" format.name$
-      s nameptr "{ff}{, jj}" format.name$
+          s nameptr "{ff}{ jj}" format.name$
       duplicate$ get.str.lang
       duplicate$ lang.zh = swap$ lang.ja = or
         { * }
@@ -1671,7 +1694,7 @@ FUNCTION {format.name}
     }
     { lang.ru =
         { s nameptr "{vv~}{ll}" format.name$
-          s nameptr "{ff}{, jj}" format.name$
+          s nameptr "{ff}{ jj}" format.name$
           "." "" find.replace
           duplicate$ empty$
             'pop$
@@ -1765,7 +1788,8 @@ FUNCTION {format.editors}
     { "editor" warn.empty.field
       format.anonymous
     }
-    { editor format.names }
+    { editor format.names
+    }
   if$
 }
 
@@ -1775,7 +1799,7 @@ FUNCTION {format.authors.editors}
         { "author and editor" warn.empty.field
           format.anonymous
         }
-        { editor format.names }
+        { format.editors }
       if$
     }
     { author format.names }
@@ -1959,46 +1983,61 @@ FUNCTION {add.link}
   if$
 }
 
-FUNCTION {format.tr.number}
-{ ""
-  number empty$
-    'skip$
-    { type$ "patent" = control.patent.country and
-        { country empty$ not
-            { country * }
-            { nationality empty$ not
-                { nationality * }
-                { address empty$ not
-                    { address * }
-                    { location empty$ not
-                        { location * }
+FUNCTION {format.patent.country}
+{ control.patent.country
+    { country empty$
+        { nationality empty$
+            { address empty$
+                { location empty$
+                    { entry.lang lang.zh =
+                        { "中国" }
                         { "" }
-                        { entry.lang lang.zh =
-                            { "中国" * }
-                            'skip$
-                          if$
-                        }
                       if$
                     }
+                    { location }
                   if$
                 }
+                { address }
               if$
             }
+            { nationality }
           if$
         }
-        'skip$
+        { country }
       if$
-      duplicate$ empty$
-        'skip$
-        'add.comma
-      if$
-      number
-      duplicate$ get.str.lang lang.zh =
-        'format.punctuations
-        'skip$
-      if$
-      *
     }
+    { "" }
+  if$
+}
+
+FUNCTION {either.or}
+{ swap$
+  duplicate$ empty$
+    { pop$
+      duplicate$ empty$
+        { pop$ "" }
+        'skip$
+      if$
+    }
+    { swap$ pop$ }
+  if$
+}
+
+FUNCTION {format.tr.number}
+{ type$ "patent" =
+    { format.patent.country
+      applicationnumber number either.or
+      duplicate$ empty$
+        'pop$
+        { swap$
+          duplicate$ empty$
+            'pop$
+            { add.comma swap$ * }
+          if$
+        }
+      if$
+    }
+    { number field.or.null }
   if$
 }
 
@@ -2047,18 +2086,44 @@ FUNCTION {format.title}
 { title empty$
     { "" }
     { format.title.subtitle.titleaddon
-      control.sentence.case.title
-        'change.sentence.case
-        'skip$
+      type$ "periodical" =
+        { duplicate$ "." contains not
+          control.sentence.case.journal and
+            'change.sentence.case
+            'skip$
+          if$
+        }
+        { control.sentence.case.title
+            'change.sentence.case
+            'skip$
+          if$
+        }
       if$
       format.punctuations
       control.link.title
         'add.link
         'skip$
       if$
-      entry.numbered number empty$ not and
-        { add.colon
-          format.tr.number *
+      entry.numbered
+        { format.tr.number
+          duplicate$ empty$
+            'pop$
+            {
+              type$ "standard" =
+                {
+                  is.lang.cjk
+                    { "\quad " }
+                    { " " }
+                  if$
+                  * swap$ *
+                }
+                {
+                  swap$ add.colon
+                  swap$ *
+                }
+              if$
+            }
+          if$
         }
         'skip$
       if$
@@ -2238,8 +2303,27 @@ FUNCTION {format.btitle}
         'add.link
         'skip$
       if$
-      entry.numbered number empty$ not and
-        { add.colon format.tr.number * }
+      entry.numbered
+        { format.tr.number
+          duplicate$ empty$
+            'pop$
+            {
+              type$ "standard" =
+                {
+                  is.lang.cjk
+                    { "\quad " }
+                    { " " }
+                  if$
+                  * swap$ *
+                }
+                {
+                  swap$ add.colon
+                  swap$ *
+                }
+              if$
+            }
+          if$
+        }
         'skip$
       if$
       type$ "map" =
@@ -2353,14 +2437,7 @@ FUNCTION {remove.dots}
 }
 
 FUNCTION {format.journal.title}
-{ journal empty$
-    { journaltitle empty$
-        { "" }
-        { journaltitle }
-      if$
-    }
-    { journal }
-  if$
+{ journal journaltitle either.or
   journalsubtitle empty$
     'skip$
     { duplicate$ empty$
@@ -2379,7 +2456,8 @@ FUNCTION {format.journal.title}
       journaltitleaddon *
     }
   if$
-  control.sentence.case.journal
+  duplicate$ "." contains not
+  control.sentence.case.journal and
     'change.sentence.case
     'skip$
   if$
@@ -2394,12 +2472,7 @@ FUNCTION {format.short.journal}
         'skip$
       if$
     }
-    { shortjournal
-      control.journal.dots
-        'skip$
-        'remove.dots
-      if$
-    }
+    { shortjournal }
   if$
 }
 
@@ -2413,17 +2486,13 @@ FUNCTION {get.journal.title}
             { pop$ format.short.journal }
           if$
         }
-        { shortjournal empty$ control.journal.dots not and
-            'remove.dots
-            { duplicate$ shortjournal field.or.null = control.journal.dots not and
-                'remove.dots
-                'skip$
-              if$
-            }
-          if$
-        }
+        'skip$
       if$
     }
+  if$
+  control.journal.dots
+    'skip$
+    'remove.dots
   if$
 }
 
@@ -2489,31 +2558,11 @@ FUNCTION {set.entry.type.id}
                 }
               if$
             }
-            { entrysubtype "newspaper" =
-                { pop$ "N" 'entry.type.id := }
-                { entrysubtype "inproceedings" =
-                    { pop$ "C" 'entry.type.id := }
-                    { entrysubtype "report" =
-                        { pop$ "R" 'entry.type.id := }
-                        { entrysubtype "techreport" =
-                            { pop$ "R" 'entry.type.id := }
-                            { entrysubtype "standard" =
-                                { pop$ "S" 'entry.type.id := }
-                                { entrysubtype "patent" =
-                                    { pop$ "P" 'entry.type.id := }
-                                    { entrysubtype "dataset" =
-                                        { pop$ "DS" 'entry.type.id := }
-                                        { 'entry.type.id := }
-                                      if$
-                                    }
-                                  if$
-                                }
-                              if$
-                            }
-                          if$
-                        }
-                      if$
-                    }
+            { entrysubtype "archive" =
+                { pop$ "A" 'entry.type.id := }
+                { entrysubtype "newspaper" =
+                    { pop$ "N" 'entry.type.id := }
+                    { 'entry.type.id := }
                   if$
                 }
               if$
@@ -2661,12 +2710,15 @@ FUNCTION {format.edition}
 FUNCTION {format.version}
 { version empty$
     { "" }
-    { version #1 #1 substring$
-      duplicate$ "V" =
-        { pop$ version }
+    { version #1 #1 substring$ "l" change.case$
+      duplicate$ is.digit
+        { pop$
+          "V" version *
+        }
         { "v" =
+          version #2 #1 substring$ is.digit and
             { "V" version #2 global.max$ substring$ * }
-            { "V" version * }
+            { version }
           if$
         }
       if$
@@ -2768,7 +2820,11 @@ FUNCTION {format.date}
         { date "/" extract.before "-" extract.before
           date "/" contains
             { "-" normalize.year.dash *
-              date "/" extract.after "-" extract.before *
+              date "/" extract.after "-" extract.before
+              duplicate$ #1 #1 substring$ is.digit  % EDTF: 1984/..
+                { * }
+                'pop$
+              if$
             }
             'skip$
           if$
@@ -2784,7 +2840,7 @@ FUNCTION {format.date}
 
 FUNCTION {format.full.date}
 { date empty$
-    { year }
+    { year field.or.null }
     { control.year.before.title
         { date }
         { date #1 #4 substring$
@@ -2812,7 +2868,11 @@ FUNCTION {format.lab.date}
         { date "/" extract.before "-" extract.before
           date "/" contains
             { "-" normalize.year.dash *
-              date "/" extract.after "-" extract.before *
+              date "/" extract.after "-" extract.before
+              duplicate$ #1 #1 substring$ is.digit
+                { * }
+                'pop$
+              if$
             }
             'skip$
           if$
@@ -2827,10 +2887,7 @@ FUNCTION {format.lab.date}
 FUNCTION {format.creation.modification.date}
 { date empty$
     {
-      year empty$
-        { "" }
-        { year}
-      if$
+      year field.or.null
     }
     { date }
   if$
@@ -2876,6 +2933,11 @@ FUNCTION {format.pages}
       if$
     }
   if$
+}
+
+FUNCTION {set.pages.punct}
+{
+  bbl.pages.colon set.punct
 }
 
 FUNCTION {format.dimensions}
@@ -2969,19 +3031,6 @@ FUNCTION {format.url}
       if$
     }
     { "" }
-  if$
-}
-
-FUNCTION {either.or}
-{ swap$
-  duplicate$ empty$
-    { pop$
-      duplicate$ empty$
-        { pop$ "" }
-        'skip$
-      if$
-    }
-    { swap$ pop$ }
   if$
 }
 
@@ -3130,8 +3179,8 @@ FUNCTION {article.journal}
     }
     {
       volume empty$ number empty$ and date field.or.null text.length$ #9 > and
-        { format.full.date "date" output.check }
-        { format.date "year" output.check  }
+        { format.full.date output }
+        { format.date output }
       if$
       format.journal.volume output
       "" set.punct
@@ -3181,7 +3230,7 @@ FUNCTION {book}
   new.block
   format.address.publisher output
   format.date output
-  bbl.pages.colon set.punct
+  set.pages.punct
   format.pages output
   format.url output
   format.doi output
@@ -3256,7 +3305,7 @@ FUNCTION {inbook}
       new.block
       format.address.publisher output
       format.date output
-      bbl.pages.colon set.punct
+      set.pages.punct
       format.pages output
       format.url output
       format.doi output
@@ -3286,7 +3335,7 @@ FUNCTION {incollection}
   new.block
   format.address.publisher output
   format.date output
-  bbl.pages.colon set.punct
+  set.pages.punct
   format.pages output
   format.url output
   format.doi output
@@ -3316,7 +3365,7 @@ FUNCTION {inproceedings}
     }
   if$
   format.date output
-  bbl.pages.colon set.punct
+  set.pages.punct
   format.pages output
   format.url output
   format.doi output
@@ -3326,6 +3375,27 @@ FUNCTION {inproceedings}
 }
 
 FUNCTION {conference} { inproceedings }
+
+FUNCTION {format.inventors}
+{ author empty$
+    { "" }
+    { entry.lang lang.zh =
+        { "发明者" add.colon }
+        { langid language either.or "l" change.case$ "german" =
+            { "Erfinder" add.colon }
+            { author num.names$ #1 >
+                { "Inventors" }
+                { "Inventor" }
+              if$
+              add.colon
+            }
+          if$
+        }
+      if$
+      author format.names *
+    }
+  if$
+}
 
 FUNCTION {patent}
 { "P" set.entry.type.id
@@ -3392,7 +3462,7 @@ FUNCTION {proceedings}
   new.block
   format.address.publisher output
   format.date output
-  bbl.pages.colon set.punct
+  set.pages.punct
   format.pages output
   format.url output
   format.doi output
@@ -3436,7 +3506,7 @@ FUNCTION {thesis}
   new.block
   format.address.publisher output
   format.date output
-  bbl.pages.colon set.punct
+  set.pages.punct
   format.pages output
   format.url output
   format.doi output
@@ -3569,7 +3639,7 @@ FUNCTION {map}
       new.block
       format.address.publisher output
       format.date output
-      bbl.pages.colon set.punct
+      set.pages.punct
       format.pages output
       new.block
       format.dimensions output
@@ -3604,11 +3674,6 @@ FUNCTION {software}
 FUNCTION {standard}
 { "S" set.entry.type.id
   output.bibitem
-  number field.or.null output
-  is.lang.cjk
-    { "\quad " set.punct }
-    { " " set.punct }
-  if$
   format.btitle "title" output.check
   new.block
   format.url output
@@ -3898,10 +3963,6 @@ FUNCTION {control.pass}
     'GBT7714BSTCTL
     'skip$
   if$
-}
-
-FUNCTION {control.check}
-{ % TODO
 }
 
 MACRO {jan} {"January"}
@@ -4278,8 +4339,6 @@ EXECUTE {init.state.consts}
 EXECUTE {load.config}
 
 ITERATE {control.pass}
-
-EXECUTE {control.check}
 
 EXECUTE {init.seq}
 
