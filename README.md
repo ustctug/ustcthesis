@@ -26,8 +26,6 @@
 
 - GitHub Releases：<https://github.com/ustctug/ustcthesis/releases>
 
-- 校内镜像：<https://git.lug.ustc.edu.cn/ustctug/ustcthesis>
-
 - TexPage 模板 <https://texpage.com/template/fe69d6fc-f811-4b8c-824f-7848a07c9551>
 
 - LoongTeX <https://www.loongtex.com/>
