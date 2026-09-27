@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - 参考文献：带连字符拼音姓名（如“Li Jiang-Ning”）改为按照拼音规则处理（[zepinglee/gbt7714-bibtex-style#207](https://github.com/zepinglee/gbt7714-bibtex-style/issues/207)）。
+- 更新密级的格式（同步研究生院 2026-09-21 的修改）。
 
 ### Fixed
 

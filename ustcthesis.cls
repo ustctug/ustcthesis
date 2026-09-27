@@ -1828,7 +1828,11 @@
           \__ustc_underline:nn { 2.5 em } { \tl_use:N \l__ustc_clc_tl } \hfill
           \__ustc_set_cjk_space:n { 3.2 bp }
           学校代码： \enskip
-          \__ustc_underline:nn { 2.5 em } { \tl_use:N \l__ustc_school_code_tl }
+          \dim_set:Nn \l_tmpa_dim { 2.5 em }
+          \str_if_eq:VnF \l__ustc_secret_level_str { 公开 }
+            { \dim_set:Nn \l_tmpa_dim { 5 em } }
+
+          \__ustc_underline:nn { \l_tmpa_dim } { \tl_use:N \l__ustc_school_code_tl }
           \hspace * { 5.4 bp } \par
           \skip_vertical:n { 6 bp }
           \hspace * { 5.4 bp }
@@ -1836,7 +1840,23 @@
           UDC 分类号： \enskip
           \__ustc_underline:nn { 2.5 em } { \tl_use:N \l__ustc_udc_tl } \hfill
           密 \skip_horizontal:n { 33.7 bp } 级： \enskip
-          \__ustc_underline:nn { 2.5 em } { \str_use:N \l__ustc_secret_level_str }
+          \__ustc_underline:nn { \l_tmpa_dim }
+            {
+              \str_case:NnF \l__ustc_secret_level_str
+                {
+                  { 公开 } { \str_use:N \l__ustc_secret_level_str }
+                  { 限制 }
+                    {
+                      \str_use:N \l__ustc_secret_level_str
+                      \tl_use:N \l__ustc_secret_year_tl 年
+                    }
+                }
+                {
+                  \str_use:N \l__ustc_secret_level_str \relax
+                  \symbol { "2605 } \relax
+                  \tl_use:N \l__ustc_secret_year_tl 年
+                }
+            }
           \hspace * { 5.4 bp } \par
         }
       \par
