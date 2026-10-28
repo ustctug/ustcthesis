@@ -33,7 +33,7 @@ Completed box being shipped out [1]
 ....\special{color pop}
 ..\glue 15.6491
 ..\glue(\lineskip) 0.0
-..\vbox(700.50723+0.0)x417.11752, glue set 101.11269fil
+..\vbox(700.50723+0.0)x417.11752, glue set 60.52339fil
 ...\write-{}
 ...\write-{}
 ...\glue(\topskip) 12.0
@@ -86,14 +86,40 @@ Completed box being shipped out [1]
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0
 ....\glue(\rightskip) 0.0 plus 1.0fil
-...\glue 83.31125
-...\special{color push cmyk 1 0.8 0 0}
+...\glue 19.07124
+...\glue(\parskip) 0.0
+...\glue(\parskip) 0.0
+...\glue(\baselineskip) 2.45116
+...\hbox(19.272+4.81798)x417.11752, glue set 151.56183fil
+....\glue(\leftskip) 0.0 plus 1.0fil
+....\hbox(0.0+0.0)x0.0
+....\rule(0.0+0.0)x-15.27306
+....\TU/FandolSong(0)/m/n/24.09 （专
+....\glue 0.0 plus 2.11183
+....\TU/FandolSong(0)/m/n/24.09 业
+....\glue 0.0 plus 2.11183
+....\TU/FandolSong(0)/m/n/24.09 学
+....\glue 0.0 plus 2.11183
+....\TU/FandolSong(0)/m/n/24.09 位
+....\penalty 10000
+....\TU/FandolSong(0)/m/n/24.09 ）
+....\rule(0.0+0.0)x-15.27306
+....\kern 0.00093
+....\kern -0.00093
+....\kern -0.99623
+....\kern 0.99623
+....\penalty 10000
+....\glue(\parfillskip) 0.0
+....\glue(\rightskip) 0.0 plus 1.0fil
+...\glue 78.2925
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\lineskip) 1.0
-...\hbox(178.6675+0.0)x417.11752, glue set 119.22545fil
+...\hbox(178.6675+0.0)x417.11752, glue set 118.22171fil
 ....\glue(\leftskip) 0.0 plus 1.0fil
 ....\hbox(0.0+0.0)x0.0
+....\glue 2.00749
+....\special{color push cmyk 1 0.8 0 0}
 ....\hbox(178.6675+0.0)x178.66663
 .....\hbox(178.66705+0.0)x178.66705
 ......\hbox(178.66705+0.0)x178.66705
