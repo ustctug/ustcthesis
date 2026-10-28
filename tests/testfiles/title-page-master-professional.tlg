@@ -33,7 +33,7 @@ Completed box being shipped out [1]
 ....\special{color pop}
 ..\glue 15.6491
 ..\glue(\lineskip) 0.0
-..\vbox(700.50723+0.0)x417.11752, glue set 60.52339fil
+..\vbox(700.50723+0.0)x417.11752, glue set 70.86093fil
 ...\write-{}
 ...\write-{}
 ...\glue(\topskip) 12.0
@@ -63,24 +63,25 @@ Completed box being shipped out [1]
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0
 ....\glue(\rightskip) 0.0 plus 1.0fil
-...\glue -3.51312
+...\glue 10.03749
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
-...\glue(\baselineskip) 28.07689
-...\hbox(42.38635+9.59383)x417.11752, glue set 58.99997fil
+...\glue(\baselineskip) 24.95723
+...\hbox(37.67676+8.52785)x417.11752, glue set 74.05624fil
 ....\glue(\leftskip) 0.0 plus 1.0fil
 ....\hbox(0.0+0.0)x0.0
-....\TU/FandolHei(0)/m/n/54.2025 硕
+....\glue 6.02249
+....\TU/FandolHei(0)/m/n/48.18 硕
 ....\glue -5.21948
-....\TU/FandolHei(0)/m/n/54.2025 士
+....\TU/FandolHei(0)/m/n/48.18 士
 ....\glue -5.21948
-....\TU/FandolHei(0)/m/n/54.2025 学
+....\TU/FandolHei(0)/m/n/48.18 学
 ....\glue -5.21948
-....\TU/FandolHei(0)/m/n/54.2025 位
+....\TU/FandolHei(0)/m/n/48.18 位
 ....\glue -5.21948
-....\TU/FandolHei(0)/m/n/54.2025 论
+....\TU/FandolHei(0)/m/n/48.18 论
 ....\glue -5.21948
-....\TU/FandolHei(0)/m/n/54.2025 文
+....\TU/FandolHei(0)/m/n/48.18 文
 ....\kern -0.00017
 ....\kern 0.00017
 ....\penalty 10000
@@ -89,7 +90,7 @@ Completed box being shipped out [1]
 ...\glue 19.07124
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
-...\glue(\baselineskip) 2.45116
+...\glue(\baselineskip) 3.51714
 ...\hbox(19.272+4.81798)x417.11752, glue set 151.56183fil
 ....\glue(\leftskip) 0.0 plus 1.0fil
 ....\hbox(0.0+0.0)x0.0
@@ -137,7 +138,7 @@ Completed box being shipped out [1]
 ....\glue(\parfillskip) 0.0
 ....\glue(\rightskip) 0.0 plus 1.0fil
 ...\special{color pop}
-...\glue 70.2625
+...\glue 54.2025
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 7.227
@@ -480,11 +481,11 @@ Completed box being shipped out [3]
 ....\special{color pop}
 ..\glue 15.6491
 ..\glue(\lineskip) 0.0
-..\vbox(700.50723+0.0)x417.11752, glue set 77.66574fil
+..\vbox(700.50723+0.0)x417.11752, glue set 90.21132fil
 ...\glue(\topskip) 12.0
 ...\rule(0.0+0.0)x*
 ...\penalty 10000
-...\glue 0.0
+...\glue -20.075
 ...\glue 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
@@ -666,7 +667,7 @@ Completed box being shipped out [3]
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0
 ....\glue(\rightskip) 0.0 plus 1.0fil
-...\glue -0.50186
+...\glue 17.06374
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 12.5268
@@ -718,10 +719,10 @@ Completed box being shipped out [3]
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\lineskip) 1.0
-...\hbox(20.51262+146.10988)x417.11752
+...\hbox(20.51262+136.07237)x417.11752
 ....\glue(\leftskip) 0.0 plus 1.0fil
 ....\hbox(0.0+0.0)x0.0
-....\vbox(20.51262+146.10988)x417.11752, glue set 107.32903fil
+....\vbox(20.51262+136.07237)x417.11752, glue set 131.21826fil
 .....\hbox(20.51262+4.85411)x417.11752, glue set 112.37648fil
 ......\glue(\leftskip) 0.0 plus 1.0fil
 ......\hbox(0.0+0.0)x0.0
@@ -736,35 +737,6 @@ Completed box being shipped out [3]
 ......\glue 16.41531 minus 13.04874
 ......\rule(0.0+0.0)x-16.41531
 ......\TU/FandolHei(0)/b/n/26.09749 （中
-......\glue 0.0 plus 3.98097
-......\TU/FandolHei(0)/b/n/26.09749 文
-......\penalty 10000
-......\TU/FandolHei(0)/b/n/26.09749 ）
-......\rule(0.0+0.0)x-16.41533
-......\kern 0.001
-......\kern -0.001
-......\kern -0.99623
-......\kern 0.99623
-......\penalty 10000
-......\glue(\parfillskip) 0.0
-......\glue(\rightskip) 0.0 plus 1.0fil
-.....\glue(\parskip) 0.0
-.....\glue(\parskip) 0.0
-.....\glue(\baselineskip) 8.56001
-.....\hbox(20.51262+4.85411)x417.11752, glue set 112.37648fil
-......\glue(\leftskip) 0.0 plus 1.0fil
-......\hbox(0.0+0.0)x0.0
-......\TU/FandolHei(0)/b/n/26.09749 论
-......\glue 0.0 plus 3.98097
-......\TU/FandolHei(0)/b/n/26.09749 文
-......\glue 0.0 plus 3.98097
-......\TU/FandolHei(0)/b/n/26.09749 题
-......\glue 0.0 plus 3.98097
-......\TU/FandolHei(0)/b/n/26.09749 名
-......\glue 0.0 plus 3.98097
-......\glue 16.41531 minus 13.04874
-......\rule(0.0+0.0)x-16.41531
-......\TU/FandolHei(0)/b/n/26.09749 （英
 ......\glue 0.0 plus 3.98097
 ......\TU/FandolHei(0)/b/n/26.09749 文
 ......\penalty 10000
