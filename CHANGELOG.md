@@ -7,11 +7,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- 新增 `author*`、`supervisor*`、`practice-supervisor*`、`department*`、`discipline*`、`research-direction*` 等英文题名页信息选项。
+
 ### Changed
 
 - 同步研究生院 2026-10-24 修改。
     - 封面加了“学术/专业学位”。
     - 更新封面和中文题名页的布局，移除英文题名。
+    - 添加英文题名页。
 
 ## [5.0.2] - 2026-09-27
 
