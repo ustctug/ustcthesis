@@ -1777,8 +1777,14 @@
         \__ustc_set_cjk_space:n { - 5.2 bp }
         \__ustc_thesis_name: \par
       \group_end:
-      \skip_vertical:n { 83 bp }
+      \skip_vertical:n { 19 bp }
       \group_begin:
+        \fontsize { 24 bp } { 31.2 bp } \selectfont
+        \__ustc_degree_type: \par
+      \group_end:
+      \skip_vertical:n { 78 bp }
+      \group_begin:
+        \skip_horizontal:n { 2 bp }
         \bool_if:NF \l__ustc_badge_color_black_bool
           { \color { ustcblue } }
         \includegraphics [ height = 178 bp ] { figures/ustc-logo.pdf } \par
@@ -1871,11 +1877,7 @@
       \skip_vertical:n { 5 bp }
       \group_begin:
         \fontsize { 24 bp } { 31.2 bp } \selectfont
-        （
-        \str_if_eq:VnTF \l__ustc_degree_type_str { academic }
-          { 学术 }
-          { 专业 }
-        学位） \par
+        \__ustc_degree_type: \par
       \group_end:
       \skip_vertical:n { 45 bp }
       % 如果题名过长，需要调整字体大小
@@ -2136,6 +2138,15 @@
         { bachelor } { 学士 }
       }
     学位论文
+  }
+
+\cs_set:Nn \__ustc_degree_type:
+  {
+    （
+    \str_if_eq:VnTF \l__ustc_degree_type_str { academic }
+      { 学术 }
+      { 专业 }
+    学位）
   }
 
 % 定义校徽颜色
