@@ -1735,7 +1735,7 @@
   }
 
 % 重新定义 \cs{maketitle}
-% 分别生成中、英文封面。
+% 分别生成封面、题名页。
 \cs_set:Npn \maketitle
   {
     \pagenumbering { Alph }
@@ -1758,7 +1758,7 @@
       { \__ustc_title_page_bachelor: }
   }
 
-% 中文封面：
+% 封面：
 % 密级仿宋 14 磅；
 % 论文类型黑体 56 磅；
 % 论文题目黑体 26 磅加粗居中，单倍行距；
@@ -1771,10 +1771,11 @@
       \centering
       \vspace * { - 10 bp }
       \includegraphics [ width = 296 bp ] { figures/ustc-name.pdf } \par
-      \skip_vertical:n { - 3.5 bp }
+      \skip_vertical:n { 10 bp }
       \group_begin:
-        \sffamily \fontsize { 54 bp } { 70.2 bp } \selectfont
+        \sffamily \fontsize { 48 bp } { 62.4 bp } \selectfont
         \__ustc_set_cjk_space:n { - 5.2 bp }
+        \skip_horizontal:n { 6 bp }
         \__ustc_thesis_name: \par
       \group_end:
       \skip_vertical:n { 19 bp }
@@ -1789,7 +1790,7 @@
           { \color { ustcblue } }
         \includegraphics [ height = 178 bp ] { figures/ustc-logo.pdf } \par
       \group_end:
-      \skip_vertical:n { 70 bp }
+      \skip_vertical:n { 54 bp }
       \parbox [ t ] { \textwidth }
         {
           \skip_horizontal:n { 48 bp }
@@ -1817,14 +1818,14 @@
     \end { titlepage }
   }
 
-% 英文封面
+% 中文题名页
 \cs_set:Npn \__ustc_title_page_graduate:
   {
     \begin { titlepage }
       \ustcsetup { language = chinese }
       \__ustc_pdf_bookmark:n { 题名页 }
       \centering
-      \vspace * { \c_zero_dim }
+      \vspace * { - 20 bp }
       \parbox [ t ] { \textwidth }
         {
           \hspace * { 5.4 bp }
@@ -1837,7 +1838,6 @@
           \dim_set:Nn \l_tmpa_dim { 2.5 em }
           \str_if_eq:VnF \l__ustc_secret_level_str { 公开 }
             { \dim_set:Nn \l_tmpa_dim { 5 em } }
-
           \__ustc_underline:nn { \l_tmpa_dim } { \tl_use:N \l__ustc_school_code_tl }
           \hspace * { 5.4 bp } \par
           \skip_vertical:n { 6 bp }
@@ -1868,7 +1868,7 @@
       \par
       \skip_vertical:n { 34 bp }
       \includegraphics [ width = 296 bp ] { figures/ustc-name.pdf } \par
-      \skip_vertical:n { - .5 bp }
+      \skip_vertical:n { 17 bp }
       \group_begin:
         \fontsize { 24 bp } { 31.2 bp } \selectfont
         \__ustc_set_cjk_space:n { 19.2 bp }
@@ -1880,44 +1880,12 @@
         \__ustc_degree_type: \par
       \group_end:
       \skip_vertical:n { 45 bp }
-      % 如果题名过长，需要调整字体大小
-      \dim_set:Nn \l_tmpa_dim { 26 bp }  % 原始字号
-      \dim_set:Nn \l_tmpb_dim { 33.8 bp }  % 原始行距
-      \vbox_set:Nn \l_tmpb_box
-        {
-          \parbox [ t ] { \textwidth }
-            {
-              \centering
-              \heiti \bfseries
-              \fontsize { \l_tmpa_dim } { \l_tmpb_dim } \selectfont
-              \tl_use:N \l__ustc_title_tl \par
-              \tl_use:N \l__ustc_title_en_tl \par
-            }
-        }
-      \dim_while_do:nNnn
-        { \box_ht:N \l_tmpb_box + \box_dp:N \l_tmpb_box } > { 150 bp }
-        {
-          \dim_add:Nn \l_tmpa_dim { - 1 bp }
-          \dim_set:Nn \l_tmpb_dim { 1.3 \l_tmpa_dim }
-          \vbox_set:Nn \l_tmpb_box
-            {
-              \parbox [ t ] { \textwidth }
-                {
-                  \centering
-                  \heiti \bfseries
-                  \fontsize { \l_tmpa_dim } { \l_tmpb_dim } \selectfont
-                  \tl_use:N \l__ustc_title_tl \par
-                  \tl_use:N \l__ustc_title_en_tl \par
-                }
-            }
-        }
-      \parbox [ t ] [ 166 bp ] { \textwidth }
+      \parbox [ t ] [ 156 bp ] { \textwidth }
         {
           \centering
           \heiti \bfseries
-          \fontsize { \l_tmpa_dim } { \l_tmpb_dim } \selectfont
+          \fontsize { 26 bp } { 33.8 bp } \selectfont
           \tl_use:N \l__ustc_title_tl \par
-          \tl_use:N \l__ustc_title_en_tl \par
         } \par
       \parbox [ t ] { \textwidth }
         {

@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - 同步研究生院 2026-10-24 修改。
     - 封面加了“学术/专业学位”。
+    - 更新封面和中文题名页的布局，移除英文题名。
 
 ## [5.0.2] - 2026-09-27
 
