@@ -9,7 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- 新增 `author*`、`supervisor*`、`practice-supervisor*`、`department*`、`discipline*`、`research-direction*` 等英文题名页信息选项。
+- 新增英文题名页信息选项 `author*`、`supervisor*`、`practice-supervisor*`、`department*`、`discipline*`、`research-direction*`、`secret-level`。
 
 ### Changed
 

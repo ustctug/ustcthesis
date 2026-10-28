@@ -1539,6 +1539,7 @@
 \tl_new:N \l__ustc_research_direction_tl
 \tl_new:N \l__ustc_research_direction_en_tl
 \str_new:N \l__ustc_secret_level_str
+\str_new:N \l__ustc_secret_level_en_str
 \tl_new:N \l__ustc_secret_year_tl
 \clist_new:N \l__ustc_keywords_clist
 \clist_new:N \l__ustc_keywords_en_clist
@@ -1565,6 +1566,7 @@
     research-direction .tl_set:N = \l__ustc_research_direction_tl ,
     research-direction* .tl_set:N = \l__ustc_research_direction_en_tl ,
     secret-level .str_set:N = \l__ustc_secret_level_str ,
+    secret-level* .str_set:N = \l__ustc_secret_level_en_str ,
     secret-year .tl_set:N = \l__ustc_secret_year_tl ,
     keywords  .clist_set:N = \l__ustc_keywords_clist ,
     keywords* .clist_set:N = \l__ustc_keywords_en_clist ,
@@ -1603,7 +1605,6 @@
 \clist_map_inline:nn
   {
     speciality* , advisor* ,
-    secret-level*
   }
   {
     \keys_define:nn { ustc }
@@ -1648,24 +1649,26 @@
 
 \keys_set:nn { ustc }
   {
-    title  = 论文题名 ,
-    title* = Title of the Thesis ,
-    author = 学生姓名 ,
-    supervisor = 导师姓名 ,
-    practice-supervisor = { } ,
+    title  = { 论文题名 } ,
+    title* = { Title~ of~ the~ Dissertation } ,
+    author = { 学生姓名 } ,
+    author = { Student~ Name } ,
+    supervisor = { 导师姓名 } ,
+    supervisor* = { Supervisor~ Name } ,
     date =
       {
         \int_use:N \c_sys_year_int -
         \int_use:N \c_sys_month_int -
         \int_use:N \c_sys_day_int
       } ,
-    clc = { } ,
-    udc = { } ,
-    school-code = 10358 ,
-    student-id = { } ,
-    department = 院系 ,
-    discipline = 学科专业 ,
-    research-direction = 研究方向 ,
+    school-code = { 10358 } ,
+    student-id = { PB11001000 } ,
+    department = { 院系 } ,
+    department = { School/Department } ,
+    discipline = { 学科专业 } ,
+    discipline = { Discipline~ \& Major } ,
+    research-direction = { 研究方向 } ,
+    research-direction = { Research~ Direction } ,
     secret-level = { 公开 } ,
   }
 

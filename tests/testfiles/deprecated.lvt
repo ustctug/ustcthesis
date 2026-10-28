@@ -6,15 +6,7 @@
 % Deprecated since 2026-06-09
 \ustcsetup{
   speciality  = {专业},
-}
-
-% Obsolete since 2026-06-09
-\ustcsetup{
-  author* = {Li Si},
   speciality* = {Discipline},
-  supervisor* = {Prof. Zhang San},
-  practice-supervisor* = {Prof. Zhang San},
-  secret-level* = {Secret},
 }
 
 % Deprecated since 2025-01-04
