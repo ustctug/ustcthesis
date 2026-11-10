@@ -1644,7 +1644,6 @@
         \int_use:N \c_sys_day_int
       } ,
     school-code = { 10358 } ,
-    secret-level = { 公开 } ,
   }
 
 % 版本 v3.2 开始使用 \cs{ustcsetup} 设置接口，
@@ -1827,7 +1826,7 @@
           \__ustc_set_cjk_space:n { 3.2 bp }
           学校代码： \enskip
           \dim_set:Nn \l_tmpa_dim { 2.5 em }
-          \str_if_eq:VnF \l__ustc_secret_level_str { 公开 }
+          \__ustc_if_secret_level_open:F
             { \dim_set:Nn \l_tmpa_dim { 5 em } }
           \__ustc_underline:nn { \l_tmpa_dim } { \tl_use:N \l__ustc_school_code_tl }
           \hspace * { 5.4 bp } \par
@@ -1841,6 +1840,7 @@
             {
               \str_case:NnF \l__ustc_secret_level_str
                 {
+                  { } { }
                   { 公开 } { \str_use:N \l__ustc_secret_level_str }
                   { 限制 }
                     {
@@ -1906,6 +1906,16 @@
     \end { titlepage }
   }
 
+% 密级未设置或设置为“公开”时，视为公开
+\prg_new_conditional:Npnn \__ustc_if_secret_level_open: { F , TF }
+  {
+    \bool_lazy_or:nnTF
+      { \str_if_empty_p:N \l__ustc_secret_level_str }
+      { \str_if_eq_p:Vn \l__ustc_secret_level_str { 公开 } }
+      { \prg_return_true: }
+      { \prg_return_false: }
+  }
+
 % 英文题名页
 \cs_set:Npn \__ustc_title_page_graduate_en:
   {
@@ -1924,7 +1934,7 @@
           \__ustc_set_cjk_space:n { 3.2 bp }
           University~ Code： \enskip
           \dim_set:Nn \l_tmpa_dim { 2.5 em }
-          \str_if_eq:VnF \l__ustc_secret_level_str { 公开 }
+          \__ustc_if_secret_level_open:F
             { \dim_set:Nn \l_tmpa_dim { 5 em } }
           \__ustc_underline:nn { \l_tmpa_dim } { \tl_use:N \l__ustc_school_code_tl }
           \hspace * { 5.4 bp } \par
@@ -1938,6 +1948,7 @@
             {
               \str_case:NnF \l__ustc_secret_level_str
                 {
+                  { } { }
                   { 公开 } { \str_use:N \l__ustc_secret_level_en_str }
                   { 限制 }
                     {
@@ -2341,7 +2352,7 @@
       \tl_use:N \c__ustc_authorization_tl \par
     \group_end:
     \skip_vertical:n { 12 bp }
-    \str_if_eq:VnTF \l__ustc_secret_level_str { 公开 }
+    \__ustc_if_secret_level_open:TF
       {
         \__ustc_checkbox: \hbox:n { } 公开 \quad
         $\square$ \hbox:n { } 控阅

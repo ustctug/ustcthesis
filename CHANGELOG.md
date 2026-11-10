@@ -18,6 +18,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
     - 更新封面和中文题名页的布局，移除英文题名。
     - 添加英文题名页。
 
+- 题名页的密级默认不再显示“公开”。
+
 ## [5.0.2] - 2026-09-27
 
 ### Changed
