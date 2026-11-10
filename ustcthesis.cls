@@ -2540,7 +2540,7 @@
       \skip_vertical:n { 12 bp }
       \group_begin:
         \__ustc_set_cjk_space:n { 0.25 bp }
-        \textbf { 1. \enskip 使用的人工智能工具的部分和用途 } \par
+        \textbf { 1. \enskip 使用人工智能工具的部分和用途 } \par
       \group_end:
       具体用途：
       \underline { \skip_horizontal:n { 1.75 em } #1 \skip_horizontal:n { 1.75 em } }
