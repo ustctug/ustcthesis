@@ -49,7 +49,7 @@ Completed box being shipped out [1]
 ....\special{color pop}
 ..\glue 15.6491
 ..\glue(\lineskip) 0.0
-..\vbox(700.50723+0.0)x417.11752, glue set 253.09407fil
+..\vbox(700.50723+0.0)x417.11752, glue set 253.09369fil
 ...\write-{}
 ...\write-{}
 ...\write-{}
@@ -284,7 +284,7 @@ Completed box being shipped out [1]
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 8.45158
-...\hbox(9.636+3.97446)x417.11752, glue set 57.38164fil
+...\hbox(9.636+3.97484)x417.11752, glue set 57.38164fil
 ....\hbox(0.0+0.0)x24.09
 ....\TU/FandolSong(0)/m/n/12.045 具
 ....\glue 0.0 plus 0.61353
@@ -301,14 +301,12 @@ Completed box being shipped out [1]
 ....\kern -0.99649
 ....\kern 0.99649
 ....\glue 8.39537 minus 6.0225
-....\mathon
-....\vbox(0.0+3.97446)x42.15747
+....\vbox(0.0+3.97484)x42.15747
 .....\hbox(0.0+0.0)x42.15747
 ......\glue 21.07874
 ......\glue 21.07874
-.....\kern2.38467
-.....\rule(0.79489+0.0)x*
-....\mathoff
+.....\kern 2.3849
+.....\rule(0.79497+0.0)x*
 ....\glue 7.63654 minus 6.0225
 ....\rule(0.0+0.0)x-7.63654
 ....\TU/FandolSong(0)/m/n/12.045 （例
@@ -365,7 +363,7 @@ Completed box being shipped out [1]
 ...\glue 12.045
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
-...\glue(\baselineskip) 6.8018
+...\glue(\baselineskip) 6.80142
 ...\hbox(9.29874+1.98741)x417.11752, glue set 267.55885fil
 ....\hbox(0.0+0.0)x24.09
 ....\TU/texgyretermes(0)/b/n/12.045 2.
@@ -898,7 +896,7 @@ Completed box being shipped out [1]
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 8.49977
-...\hbox(9.38306+3.97446)x417.11752, glue set 284.32137fil
+...\hbox(9.38306+3.97484)x417.11752, glue set 284.32137fil
 ....\glue(\leftskip) 0.0 plus 1.0fil
 ....\hbox(0.0+0.0)x0.0
 ....\TU/FandolSong(0)/m/n/12.045 作
@@ -917,22 +915,20 @@ Completed box being shipped out [1]
 ....\kern 0.99649
 ....\glue 8.39537 minus 6.0225
 ....\glue 1.20456
-....\mathon
-....\vbox(0.0+3.97446)x69.86102
+....\vbox(0.0+3.97484)x69.86102
 .....\hbox(0.0+0.0)x69.86102
 ......\hbox(0.0+0.0)x69.86102, glue set 34.93051fil
 .......\glue 0.0 plus 1.0fil minus 1.0fil
 .......\glue 0.0 plus 1.0fil minus 1.0fil
-.....\kern2.38467
-.....\rule(0.79489+0.0)x*
-....\mathoff
+.....\kern 2.3849
+.....\rule(0.79497+0.0)x*
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0
 ....\glue(\rightskip) 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
-...\glue(\baselineskip) 6.77771
-...\hbox(9.32283+3.97446)x417.11752, glue set 285.32529fil
+...\glue(\baselineskip) 6.77733
+...\hbox(9.32283+3.97484)x417.11752, glue set 285.32529fil
 ....\glue(\leftskip) 0.0 plus 1.0fil
 ....\hbox(0.0+0.0)x0.0
 ....\TU/FandolSong(0)/m/n/12.045 日
@@ -947,41 +943,35 @@ Completed box being shipped out [1]
 ....\kern 0.99649
 ....\glue 8.39537 minus 6.0225
 ....\glue 1.80667
-....\mathon
-....\vbox(0.0+3.97446)x25.89667
+....\vbox(0.0+3.97484)x25.89667
 .....\hbox(0.0+0.0)x25.89667
 ......\hbox(0.0+0.0)x25.89667, glue set 12.94833fil
 .......\glue 0.0 plus 1.0fil minus 1.0fil
 .......\glue 0.0 plus 1.0fil minus 1.0fil
-.....\kern2.38467
-.....\rule(0.79489+0.0)x*
-....\mathoff
+.....\kern 2.3849
+.....\rule(0.79497+0.0)x*
 ....\hbox(0.0+0.0)x0.0
 ....\TU/FandolSong(0)/m/n/12.045 年
 ....\kern -0.00017
 ....\kern 0.00017
-....\mathon
-....\vbox(0.0+3.97446)x15.65852
+....\vbox(0.0+3.97484)x15.65852
 .....\hbox(0.0+0.0)x15.65852
 ......\hbox(0.0+0.0)x15.65852, glue set 7.82927fil
 .......\glue 0.0 plus 1.0fil minus 1.0fil
 .......\glue 0.0 plus 1.0fil minus 1.0fil
-.....\kern2.38467
-.....\rule(0.79489+0.0)x*
-....\mathoff
+.....\kern 2.3849
+.....\rule(0.79497+0.0)x*
 ....\hbox(0.0+0.0)x0.0
 ....\TU/FandolSong(0)/m/n/12.045 月
 ....\kern -0.00017
 ....\kern 0.00017
-....\mathon
-....\vbox(0.0+3.97446)x15.65852
+....\vbox(0.0+3.97484)x15.65852
 .....\hbox(0.0+0.0)x15.65852
 ......\hbox(0.0+0.0)x15.65852, glue set 7.82927fil
 .......\glue 0.0 plus 1.0fil minus 1.0fil
 .......\glue 0.0 plus 1.0fil minus 1.0fil
-.....\kern2.38467
-.....\rule(0.79489+0.0)x*
-....\mathoff
+.....\kern 2.3849
+.....\rule(0.79497+0.0)x*
 ....\hbox(0.0+0.0)x0.0
 ....\TU/FandolSong(0)/m/n/12.045 日
 ....\kern -0.00017

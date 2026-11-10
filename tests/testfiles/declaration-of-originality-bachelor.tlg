@@ -112,7 +112,7 @@ Completed box being shipped out [1]
 ....\special{color pop}
 ..\glue 15.6491
 ..\glue(\lineskip) 0.0
-..\vbox(700.50723+0.0)x417.11752, glue set 368.98468fil
+..\vbox(700.50723+0.0)x417.11752, glue set 368.9843fil
 ...\write-{}
 ...\write-{}
 ...\write-{}
@@ -569,7 +569,7 @@ Completed box being shipped out [1]
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 8.47568
-...\hbox(9.38306+3.97446)x417.11752, glue set 260.53255fil
+...\hbox(9.38306+3.97484)x417.11752, glue set 260.53255fil
 ....\glue(\leftskip) 0.0 plus 1.0fil
 ....\hbox(0.0+0.0)x0.0
 ....\TU/FandolSong(0)/m/n/12.045 作
@@ -587,23 +587,21 @@ Completed box being shipped out [1]
 ....\kern -0.99649
 ....\kern 0.99649
 ....\glue 8.39537 minus 6.0225
-....\mathon
-....\vbox(0.0+3.97446)x96.35999
+....\vbox(0.0+3.97484)x96.35999
 .....\hbox(0.0+0.0)x96.35999
 ......\hbox(0.0+0.0)x96.35999, glue set 48.18fil
 .......\glue 0.0 plus 1.0fil minus 1.0fil
 .......\glue 0.0 plus 1.0fil minus 1.0fil
-.....\kern2.38467
-.....\rule(0.79489+0.0)x*
-....\mathoff
+.....\kern 2.3849
+.....\rule(0.79497+0.0)x*
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0
 ....\glue(\rightskip) 0.0
 ...\glue 16.06
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
-...\glue(\baselineskip) 6.77771
-...\hbox(9.32283+3.97446)x417.11752, glue set 260.53255fil
+...\glue(\baselineskip) 6.77733
+...\hbox(9.32283+3.97484)x417.11752, glue set 260.53255fil
 ....\glue(\leftskip) 0.0 plus 1.0fil
 ....\hbox(0.0+0.0)x0.0
 ....\TU/FandolSong(0)/m/n/12.045 签
@@ -621,15 +619,13 @@ Completed box being shipped out [1]
 ....\kern -0.99649
 ....\kern 0.99649
 ....\glue 8.39537 minus 6.0225
-....\mathon
-....\vbox(0.0+3.97446)x96.35999
+....\vbox(0.0+3.97484)x96.35999
 .....\hbox(0.0+0.0)x96.35999
 ......\hbox(0.0+0.0)x96.35999, glue set 48.18fil
 .......\glue 0.0 plus 1.0fil minus 1.0fil
 .......\glue 0.0 plus 1.0fil minus 1.0fil
-.....\kern2.38467
-.....\rule(0.79489+0.0)x*
-....\mathoff
+.....\kern 2.3849
+.....\rule(0.79497+0.0)x*
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0
 ....\glue(\rightskip) 0.0
