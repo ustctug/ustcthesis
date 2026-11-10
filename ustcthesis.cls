@@ -1541,7 +1541,7 @@
 \tl_new:N \l__ustc_research_direction_en_tl
 \str_new:N \l__ustc_secret_level_str
 \str_new:N \l__ustc_secret_level_en_str
-\tl_new:N \l__ustc_secret_year_tl
+\int_new:N \l__ustc_secret_year_int
 \clist_new:N \l__ustc_keywords_clist
 \clist_new:N \l__ustc_keywords_en_clist
 
@@ -1568,7 +1568,7 @@
     research-direction* .tl_set:N = \l__ustc_research_direction_en_tl ,
     secret-level .str_set:N = \l__ustc_secret_level_str ,
     secret-level* .str_set:N = \l__ustc_secret_level_en_str ,
-    secret-year .tl_set:N = \l__ustc_secret_year_tl ,
+    secret-year .int_set:N = \l__ustc_secret_year_int ,
     keywords  .clist_set:N = \l__ustc_keywords_clist ,
     keywords* .clist_set:N = \l__ustc_keywords_en_clist ,
   }
@@ -1845,13 +1845,13 @@
                   { 限制 }
                     {
                       \str_use:N \l__ustc_secret_level_str
-                      \tl_use:N \l__ustc_secret_year_tl 年
+                      \int_use:N \l__ustc_secret_year_int 年
                     }
                 }
                 {
                   \str_use:N \l__ustc_secret_level_str \relax
                   \symbol { "2605 } \relax
-                  \tl_use:N \l__ustc_secret_year_tl 年
+                  \int_use:N \l__ustc_secret_year_int 年
                 }
             }
           \hspace * { 5.4 bp } \par
@@ -1953,13 +1953,13 @@
                   { 限制 }
                     {
                       \str_use:N \l__ustc_secret_level_en_str
-                      \tl_use:N \l__ustc_secret_year_tl 年
+                      \int_use:N \l__ustc_secret_year_int 年
                     }
                 }
                 {
                   \str_use:N \l__ustc_secret_level_en_str \relax
                   \symbol { "2605 } \relax
-                  \tl_use:N \l__ustc_secret_year_tl 年
+                  \int_use:N \l__ustc_secret_year_int 年
                 }
             }
           \hspace * { 5.4 bp } \par
@@ -2353,18 +2353,27 @@
     \group_end:
     \skip_vertical:n { 12 bp }
     \__ustc_if_secret_level_open:TF
-      {
-        \__ustc_checkbox: \hbox:n { } 公开 \quad
-        $\square$ \hbox:n { } 控阅
-        （ \__ustc_underline:nn { 2 em } { } 年）
-      }
-      {
-        $\square$ \hbox:n { } 公开 \quad
-        \__ustc_checkbox: \hbox:n { } 控阅（
-        \__ustc_underline:nn { 2 em }
-          { \tl_use:N \l__ustc_secret_year_tl }
-        年）
-      }
+      { \__ustc_checkbox: }
+      { $\square$ }
+    \skip_horizontal:n { .6 em } 公开
+    \skip_horizontal:n { 3.5 em }
+    \__ustc_if_secret_level_open:TF
+      { $\square$ }
+      { \__ustc_checkbox: }
+    \skip_horizontal:n { .6 em } 控阅
+    （
+    \int_compare:nNnTF { \l__ustc_secret_year_int } = { 1 }
+      { \__ustc_checkbox: }
+      { $\square$ }
+    \skip_horizontal:n { .1 em } 1 年 \skip_horizontal:n { 1.1 em }
+    \int_compare:nNnTF { \l__ustc_secret_year_int } = { 2 }
+      { \__ustc_checkbox: }
+      { $\square$ }
+    \skip_horizontal:n { .1 em } 2 年 \skip_horizontal:n { 1.1 em }
+    \int_compare:nNnTF { \l__ustc_secret_year_int } = { 3 }
+      { \__ustc_checkbox: }
+      { $\square$ }
+    \skip_horizontal:n { .1 em } 3 年）
     \par
     \skip_vertical:n { 29 bp }
     \noindent

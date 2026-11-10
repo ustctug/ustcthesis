@@ -939,7 +939,7 @@ Completed box being shipped out [1]
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 8.17455
-...\hbox(9.636+3.97484)x417.11752, glue set 258.29218fil
+...\hbox(9.636+2.40898)x417.11752, glue set 123.62865fil
 ....\hbox(0.0+0.0)x24.09
 ....\hbox(7.43178+1.22858)x0.0, glue set - 10.29854fil
 .....\hbox(7.43178+1.22858)x10.29854
@@ -952,17 +952,17 @@ Completed box being shipped out [1]
 ....\mathon
 ....\TU/XITSMath-Regular(1)/m/n/12.045 glyph#1600
 ....\mathoff
-....\hbox(0.0+0.0)x0.0
+....\glue 7.22707
 ....\TU/FandolSong(0)/m/n/12.045 公
 ....\glue 0.0 plus 0.61353
 ....\TU/FandolSong(0)/m/n/12.045 开
 ....\kern -0.00017
 ....\kern 0.00017
-....\glue 12.045
+....\glue 42.15749
 ....\mathon
 ....\TU/XITSMath-Regular(1)/m/n/12.045 glyph#1600
 ....\mathoff
-....\hbox(0.0+0.0)x0.0
+....\glue 7.22707
 ....\TU/FandolSong(0)/m/n/12.045 控
 ....\glue 0.0 plus 0.61353
 ....\TU/FandolSong(0)/m/n/12.045 阅
@@ -976,13 +976,32 @@ Completed box being shipped out [1]
 ....\kern 0.99622
 ....\penalty 10000
 ....\glue 0.0
-....\vbox(0.0+3.97484)x24.09
-.....\hbox(0.0+0.0)x24.09
-......\hbox(0.0+0.0)x24.09, glue set 12.045fil
-.......\glue 0.0 plus 1.0fil minus 1.0fil
-.......\glue 0.0 plus 1.0fil minus 1.0fil
-.....\kern 2.3849
-.....\rule(0.79497+0.0)x*
+....\mathon
+....\TU/XITSMath-Regular(1)/m/n/12.045 glyph#1600
+....\mathoff
+....\glue 1.20456
+....\TU/texgyretermes(0)/m/n/12.045 1
+....\glue 3.01125 plus 1.50562 minus 1.00374
+....\TU/FandolSong(0)/m/n/12.045 年
+....\kern -0.00017
+....\kern 0.00017
+....\glue 13.24956
+....\mathon
+....\TU/XITSMath-Regular(1)/m/n/12.045 glyph#1600
+....\mathoff
+....\glue 1.20456
+....\TU/texgyretermes(0)/m/n/12.045 2
+....\glue 3.01125 plus 1.50562 minus 1.00374
+....\TU/FandolSong(0)/m/n/12.045 年
+....\kern -0.00017
+....\kern 0.00017
+....\glue 13.24956
+....\mathon
+....\TU/XITSMath-Regular(1)/m/n/12.045 glyph#1600
+....\mathoff
+....\glue 1.20456
+....\TU/texgyretermes(0)/m/n/12.045 3
+....\glue 3.01125 plus 1.50562 minus 1.00374
 ....\TU/FandolSong(0)/m/n/12.045 年
 ....\penalty 10000
 ....\TU/FandolSong(0)/m/n/12.045 ）
@@ -997,7 +1016,7 @@ Completed box being shipped out [1]
 ...\glue 29.10875
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
-...\glue(\baselineskip) 6.7171
+...\glue(\baselineskip) 8.28296
 ...\hbox(9.38306+3.97484)x417.11752, glue set 13.6101fil
 ....\TU/FandolSong(0)/m/n/12.045 作
 ....\glue 0.0 plus 0.61353

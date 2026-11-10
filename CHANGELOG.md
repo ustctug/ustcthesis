@@ -17,6 +17,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
     - 封面加了“学术/专业学位”。
     - 更新封面和中文题名页的布局，移除英文题名。
     - 添加英文题名页。
+    - 修改了使用授权声明中控阅年份。
 
 - 题名页的密级默认不再显示“公开”。
 
