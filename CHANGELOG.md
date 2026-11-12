@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [5.1.0] - 2026-11-12
+
 ### Added
 
 - 新增英文题名页信息选项 `author*`、`supervisor*`、`practice-supervisor*`、`department*`、`discipline*`、`research-direction*`、`secret-level*`。
@@ -27,7 +29,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - 参考文献：带连字符拼音姓名（如“Li Jiang-Ning”）改为按照拼音规则处理（[zepinglee/gbt7714-bibtex-style#207](https://github.com/zepinglee/gbt7714-bibtex-style/issues/207)）。
-- 更新密级的格式（同步研究生院 2026-09-21 的修改）。
+- 更新密级的格式（同步[研究生院 2026-09-21](https://github.com/ustctug/ustcthesis/issues/503#issuecomment-5856465056) 的修改）。
 
 ### Fixed
 
@@ -563,7 +565,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - 优化图注、算法的行距。
 - 二级以下节标题编号下采用“1.”、“(1)”、“①”。
 
-[Unreleased]: https://github.com/ustctug/ustcthesis/compare/v5.0.2...HEAD
+[Unreleased]: https://github.com/ustctug/ustcthesis/compare/v5.1.0...HEAD
+[5.1.0]: https://github.com/ustctug/ustcthesis/compare/v5.0.2...v5.1.0
 [5.0.2]: https://github.com/ustctug/ustcthesis/compare/v5.0.1...v5.0.2
 [5.0.1]: https://github.com/ustctug/ustcthesis/compare/v5.0.0...v5.0.1
 [5.0.0]: https://github.com/ustctug/ustcthesis/compare/v4.1.0...v5.0.0
