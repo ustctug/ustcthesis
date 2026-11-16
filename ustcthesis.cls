@@ -300,9 +300,7 @@
 \clist_map_inline:nn { degree , fontset , output }
   {
     \keys_define:nn { ustc }
-      {
-        #1 .code:n = { \msg_error:nnnn { ustcthesis } { load-only } {##1} } ,
-      }
+      { #1 .code:n = { \msg_error:nnn { ustcthesis } { load-only } {#1} } }
   }
 
 \msg_new:nnn { ustcthesis } { load-only }
