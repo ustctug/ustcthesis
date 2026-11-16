@@ -188,7 +188,7 @@
              & \file{Makefile}           & GNU make 的配置文件          \\
              & \file{.vscode/}           & VS Code 的配置文件           \\
              & \file{build.lua}          & l3build 的配置文件           \\
-             & \file{test}               & l3build 的测试文件           \\
+             & \file{tests/}             & l3build 的测试文件           \\
     \bottomrule
   \end{tabular}
 \end{table}
@@ -338,7 +338,7 @@ Windows 用户可能无法使用GNU make，使用 |latexmk| 也是一个比较�
 \end{latex}
 
 \DescribeOption{eqn-paren-style}
-数学公式的编号（\cs{eqref}）使用全角括号或半角括号，该选项仅在 \opt{langugage = chinese}
+数学公式的编号（\cs{eqref}）使用全角括号或半角括号，该选项仅在 \opt{language = chinese}
 时有效。 可选：
 \begin{itemize}
   \item \opt{full} 全角括号（中文默认）
@@ -396,7 +396,8 @@ Windows 用户可能无法使用GNU make，使用 |latexmk| 也是一个比较�
 开始。
 
 \DescribeMacro{\maketitle}
-封面由 \cs{maketitle} 命令生成，其中的各项信息使用 \cs{ustcsetup} 命令以
+研究生学位论文的 \cs{maketitle} 命令依次生成封面、中文题名页和英文题名页，
+本科生学位论文只生成扉页（内封）。其中的各项信息使用 \cs{ustcsetup} 命令以
 key-value 的方式填写，如：
 \begin{latex}
   \ustcsetup{
@@ -439,8 +440,8 @@ key-value 的方式填写，如：
 
 有几点说明：
 \begin{itemize}
-  \item \cs{ustcsetup} 使用 \pkg{kvsetkeys} 机制，配置项之间不能有空行，否则会报错。
-  \item 其中带 |*| 后缀的选项用于设置英文封面。
+  \item \cs{ustcsetup} 使用 \pkg{l3keys} 机制，配置项之间不能有空行，否则会报错。
+  \item 其中带 |*| 后缀的选项用于设置英文题名页。
   \item 导师姓名 \opt{supervisor} 允许多个姓名，使用“,”（西文逗号 U+002C）隔开。
   \item 专业/工程学位需要填写实践导师 \opt{practice-supervisor}。
   \item 提交日期 \opt{date} 应使用 ISO 格式（yyyy-mm-dd），默认为当前日期。
@@ -456,7 +457,21 @@ key-value 的方式填写，如：
   \declarationoforiginality[file=figures/scan-statement.pdf]
 \end{latex}
 
+\DescribeMacro{\declarationofaiusage}
+使用 \cs{declarationofaiusage} 命令生成“使用人工智能工具声明”，
+该命令仅对研究生学位论文有效。
+可选参数 \opt{purpose} 用于说明使用人工智能工具的具体用途，
+如 \opt{purpose=文献检索}、\opt{purpose=语言润色}、\opt{purpose=数据处理}；
+默认为 \opt{purpose=none}，此时生成“未使用人工智能工具声明”。
+用户也可以使用可选参数 \opt{file} 插入手签或扫描后的声明页，
+此时 \opt{purpose} 仅用于设置 PDF 书签。例如：
+\begin{latex}
+  \declarationofaiusage[purpose=语言润色]
+  % \declarationofaiusage[purpose=none, file=figures/declaration-of-ai-usage.pdf]
+\end{latex}
+
 \subsection{摘要和章节}
+\DescribeEnv{innovations}
 \DescribeEnv{abstract}
 \DescribeEnv{abstract*}
 \DescribeEnv{notation}
@@ -466,6 +481,7 @@ key-value 的方式填写，如：
 \DescribeEnv{theachievements}
 对于特殊的章节，\cls{ustcthesis} 还提供了相应的环境：
 \begin{itemize}
+  \item 创新性说明：\env{innovations}
   \item 中文摘要：\env{abstract}
   \item 英文摘要：\env{abstract*}
   \item 符号和缩略语说明：\env{notation}
@@ -474,6 +490,15 @@ key-value 的方式填写，如：
   \item 科研成果（用于盲审）：\env{achievements*}
   \item 科研成果列表：\env{theachievements}
 \end{itemize}
+
+\env{innovations} 环境用于博士学位论文的创新性说明，需要在 \cs{frontmatter} 之前使用。
+学术博士的标题为“创新性说明”，专业博士和工程博士的标题为“创新性及应用性说明”，
+其他学位论文无需此说明。例如：
+\begin{latex}
+  \begin{innovations}
+    学术博士学位论文应当体现作者具有独立从事科学研究工作的能力……
+  \end{innovations}
+\end{latex}
 
 \DescribeOption{keywords}
 \DescribeOption{keywords*}
@@ -509,7 +534,9 @@ key-value 的方式填写，如：
 需要作者注意写在合适的地方。
 
 \DescribeMacro{\figurenote}
-本模板还提供了 \cs{note}\marg{notes} 命令，用于在图表中添加注释。
+\DescribeMacro{\tablenote}
+本模板提供了 \cs{figurenote}\marg{notes} 和 \cs{tablenote}\marg{notes} 命令，
+分别用于在插图和表格中添加注释。旧版的 \cs{note} 命令已废弃，请改用这两个命令。
 
 关于图片的并排，推荐使用较新的 \pkg{subcaption} 宏包，不建议使用
 \pkg{subfigure} 或 \pkg{subfig}。
@@ -523,13 +550,13 @@ key-value 的方式填写，如：
 
 《撰写手册》要求数学符号遵循 GB/T 3102.11—1993《物理科学和技术中使用的数学符号》
 \footnote{原 GB 3102.11—1993，自 2017 年 3 月 23 日起，该标准转为推荐性标准。}。
-该标准参照采纳 ISO 31-11:1992 \footnote{目前已更新为 ISO 80000-2:2019。}，
+该标准参照采纳 ISO 31-11:1992\footnote{目前已更新为 ISO 80000-2:2019。}，
 但是与 \TeX{} 默认的美国数学学会（AMS）的习惯有许多差异。
 这将在下文详细论述。
 
 \DescribeOption{math-style}
 用户可以通过设置 \opt{math-style} 选择数学符号样式（可选：
-\opt{TeX}（默认），\opt{GB}（默认）和 \opt{ISO}），比如：
+\opt{TeX}（默认）、\opt{GB} 和 \opt{ISO}），比如：
 \begin{latex}
   \ustcsetup{
     math-style = GB,
@@ -544,7 +571,7 @@ key-value 的方式填写，如：
     有限增量符号 $\increment x$ 固定使用正体，推荐使用 \cs{increment} 表示。
   \item \DescribeOption{less-than-or-equal}
     小于等于号和大于等于号的字形，可选：\opt{slanted}、\opt{horizontal}。
-    这将控制 \cs{le}、\cs{ge}、\cs{leq} 和 \cs{geq} 的符号
+    这将控制 \cs{le} 和 \cs{ge} 符号
     是“$\leqslant$、$\geqslant$”还是“$\leq$、$\geq$”。
   \item \DescribeOption{integral}
     积分号的正/斜体，可选：\opt{upright}、\opt{slanted}。
@@ -554,7 +581,7 @@ key-value 的方式填写，如：
     积分号上下限的位置，可选：\opt{true}（在上下）、\opt{false}（在右侧）。
     这个设置只影响行间公式，行内公式统一居右侧，不受影响。
   \item \DescribeOption{partial}
-    偏微分符号的正/斜体，可选：\opt{upright}、\opt{slanted}。
+    偏微分符号的正/斜体，可选：\opt{upright}、\opt{italic}。
   \item \DescribeOption{math-ellipsis}
     省略号 \cs{dots} 的样式，可选：\opt{centered}（按照中文的习惯固定居中）、
     \opt{lower} 和 \opt{AMS}（取决于前后符号的位置）。
@@ -588,7 +615,7 @@ key-value 的方式填写，如：
 需要注意，上述关于数学符号风格的设置在设置数学字体（\opt{math-font}）时才会生效。
 
 \DescribeOption{math-font}
-模板使用默认使用 XITS Math 作为数学字体。
+模板默认使用 XITS Math 作为数学字体。
 用户也可以使用 \opt{math-font} 选项切换其他数学字体，可选：
 \opt{stix}（STIX Two Math）、
 \opt{libertinus}（Libertinus Math）、
@@ -687,7 +714,7 @@ key-value 的方式填写，如：
   \item 根据 \pkg{natbib} 的文档，\opt{sectionbib} 参数（将参考文献的标题改为节标题）
     需要传给 \pkg{natbib} 而不是 \pkg{chapterbib}。
     模板作了设置，如载入 \pkg{chapterbib}，\pkg{natbib} 就会有 \opt{sectionbib} 的效果。
-  \item 每章的内容需要写在单独的 \file{tex} 文件，并且在主文档中使用 \cs{include}，
+  \item 每章的内容需要写在单独的 \file{.tex} 文件，并且在主文档中使用 \cs{include}，
     不带 \file{.tex} 后缀。
   \item 每章都要使用 \cs{bibliographystyle} 和 \cs{bibliography} 命令。
 \end{enumerate}
