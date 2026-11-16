@@ -1885,26 +1885,41 @@
   {
     \parbox [ t ] { \textwidth }
       {
-        \hspace * { 5.4 bp }
+        \mode_leave_vertical:
         \fontsize { 12 bp } { 15.6 bp } \selectfont
-        \__ustc_set_cjk_space:n { 1 bp }
-        中图分类号 \kern .2 em \relax ： \enskip
-        \__ustc_underline:nn { 2.5 em } { \tl_use:N \l__ustc_clc_tl } \hfill
-        \__ustc_set_cjk_space:n { 3.2 bp }
-        学校代码： \enskip
-        \dim_set:Nn \l_tmpa_dim { 2.5 em }
-        \__ustc_if_secret_level_open:F
-          { \dim_set:Nn \l_tmpa_dim { 5 em } }
-        \__ustc_underline:nn { \l_tmpa_dim } { \tl_use:N \l__ustc_school_code_tl }
+        %
+        \__ustc_set_field_width:Nn \l_tmpa_dim
+          { { \l__ustc_clc_tl } , { \l__ustc_udc_tl } }
+        \__ustc_set_field_width:Nn \l_tmpb_dim
+          { { \l__ustc_school_code_tl } , { \__ustc_secret_level_zh: } }
+        %
+        \hspace * { 5.4 bp }
+        \__ustc_spread_text:nn { 5.5 em } { 中图分类号 } ： \enskip
+        \__ustc_underline:nn { \l_tmpa_dim } { \l__ustc_clc_tl } \hfill
+        \__ustc_spread_text:nn { 4.81 em } { 学校代码 } ： \enskip
+        \__ustc_underline:nn { \l_tmpb_dim } { \l__ustc_school_code_tl }
         \hspace * { 5.4 bp } \par
         \skip_vertical:n { 6 bp }
+        \mode_leave_vertical:
         \hspace * { 5.4 bp }
-        \__ustc_set_cjk_space:n { 1 bp }
-        UDC 分类号： \enskip
-        \__ustc_underline:nn { 2.5 em } { \tl_use:N \l__ustc_udc_tl } \hfill
-        密 \skip_horizontal:n { 33.7 bp } 级： \enskip
-        \__ustc_underline:nn { \l_tmpa_dim } { \__ustc_secret_level_zh: }
+        \__ustc_spread_text:nn { 5.5 em } { UDC~分类号 } ： \enskip
+        \__ustc_underline:nn { \l_tmpa_dim } { \l__ustc_udc_tl } \hfill
+        \__ustc_spread_text:nn { 4.81 em } { 密级 } ： \enskip
+        \__ustc_underline:nn { \l_tmpb_dim } { \__ustc_secret_level_zh: }
         \hspace * { 5.4 bp } \par
+      }
+  }
+
+% 计算题名页字段的宽度：取 2.5em 与所给内容宽度的较大者
+% #1：宽度寄存器， #2：待测宽度的内容列表
+\cs_new_protected:Npn \__ustc_set_field_width:Nn #1#2
+  {
+    \dim_set:Nn #1 { 2.5 em }
+    \clist_map_inline:nn {#2}
+      {
+        \hbox_set:Nn \l_tmpa_box {##1}
+        \dim_compare:nNnT { \box_wd:N \l_tmpa_box } > { #1 }
+          { \dim_set:Nn #1 { \box_wd:N \l_tmpa_box } }
       }
   }
 
@@ -1918,14 +1933,21 @@
         { 限制 }
           {
             \str_use:N \l__ustc_secret_level_str
-            \int_use:N \l__ustc_secret_year_int 年
+            \__ustc_secret_year_zh:
           }
       }
       {
-        \str_use:N \l__ustc_secret_level_str \relax
-        \symbol { "2605 } \relax
-        \int_use:N \l__ustc_secret_year_int 年
+        \str_use:N \l__ustc_secret_level_str
+        \symbol { "2605 }
+        \__ustc_secret_year_zh:
       }
+  }
+
+% 保密/控阅年限，未设置时不显示。
+\cs_new:Npn \__ustc_secret_year_zh:
+  {
+    \int_compare:nNnT { \l__ustc_secret_year_int } > { 0 }
+      { \int_use:N \l__ustc_secret_year_int 年 }
   }
 
 \cs_new:Npn \__ustc_spread_text:nn #1#2
@@ -2019,26 +2041,26 @@
   {
     \parbox [ t ] { \textwidth }
       {
-        \hspace * { 5.4 bp }
+        \mode_leave_vertical:
         \fontsize { 12 bp } { 15.6 bp } \selectfont
-        \__ustc_set_cjk_space:n { 1 bp }
+        %
+        \__ustc_set_field_width:Nn \l_tmpa_dim
+          { { \l__ustc_clc_tl } , { \l__ustc_udc_tl } }
+        \__ustc_set_field_width:Nn \l_tmpb_dim
+          { { \l__ustc_school_code_tl } , { \__ustc_secret_level_en: } }
+        %
+        \hspace * { 5.4 bp }
         CLC~ No.： \enskip
-        \__ustc_underline:nn { 2.5 em } { \tl_use:N \l__ustc_clc_tl } \hfill
-        \__ustc_set_cjk_space:n { 3.2 bp }
+        \__ustc_underline:nn { \l_tmpa_dim } { \l__ustc_clc_tl } \hfill
         University~ Code： \enskip
-        \dim_set:Nn \l_tmpa_dim { 2.5 em }
-        \__ustc_if_secret_level_open:F
-          { \dim_set:Nn \l_tmpa_dim { 5 em } }
-        \__ustc_underline:nn { \l_tmpa_dim } { \tl_use:N \l__ustc_school_code_tl }
+        \__ustc_underline:nn { \l_tmpb_dim } { \l__ustc_school_code_tl }
         \hspace * { 5.4 bp } \par
         \skip_vertical:n { 6 bp }
         \hspace * { 5.4 bp }
-        \__ustc_set_cjk_space:n { 1 bp }
         UDC~ No.： \enskip
-        \__ustc_underline:nn { 2.5 em } { \tl_use:N \l__ustc_udc_tl } \hfill
+        \__ustc_underline:nn { \l_tmpa_dim } { \l__ustc_udc_tl } \hfill
         Security~ Level： \enskip
-        \__ustc_underline:nn { \l_tmpa_dim }
-          { \__ustc_secret_level_en: }
+        \__ustc_underline:nn { \l_tmpb_dim } { \__ustc_secret_level_en: }
         \hspace * { 5.4 bp } \par
       }
   }
@@ -2052,14 +2074,26 @@
         { 公开 } { \str_use:N \l__ustc_secret_level_en_str }
         { 限制 }
           {
-            \str_use:N \l__ustc_secret_level_en_str
-            \int_use:N \l__ustc_secret_year_int 年
+            \str_use:N \l__ustc_secret_level_en_str \c_space_tl
+            \__ustc_secret_year_en:
           }
       }
       {
-        \str_use:N \l__ustc_secret_level_en_str \relax
-        \symbol { "2605 } \relax
-        \int_use:N \l__ustc_secret_year_int 年
+        \str_use:N \l__ustc_secret_level_en_str
+        \symbol { "2605 }
+        \__ustc_secret_year_en:
+      }
+  }
+
+% 保密/控阅年限，未设置时不显示。
+\cs_new:Npn \__ustc_secret_year_en:
+  {
+    \int_compare:nNnT { \l__ustc_secret_year_int } > { 0 }
+      {
+        \int_use:N \l__ustc_secret_year_int \c_space_tl
+        \int_compare:nNnTF { \l__ustc_secret_year_int } > { 1 }
+          { years }
+          { year }
       }
   }
 
