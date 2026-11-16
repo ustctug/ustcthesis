@@ -8,7 +8,7 @@
 %% -------------------------------------------------------------------
 %% GB/T 7714 BibTeX Style
 %% https://github.com/zepinglee/gbt7714-bibtex-style
-%% Version: 2026-09-27 v3.1.1
+%% Version: 2026-11-16 v3.1.2
 %% -------------------------------------------------------------------
 %% Copyright (C) 2016-2026 by Zeping Lee <zepinglee AT gmail DOT com>
 %% -------------------------------------------------------------------
@@ -278,7 +278,7 @@ FUNCTION {init.state.consts}
   "ta tai tan tang tao te teng ti tian tiao tie ting tong tou tu tuan tui tun tuo " *
   "wa wai wan wang wei wen weng wo wu " *
   "xi xia xian xiang xiao xie xin xing xiong xiu xu xuan xue xun " *
-  "ya yan yang yao ye yi yin ying yong you yu yuan yue yun " *
+  "ya yan yang yao ye yi yin ying yo yong you yu yuan yue yun " *
   "za zai zan zang zao ze zei zen zeng zha zhai zhan zhang zhao zhe zhei zhen zheng zhi zhong zhou zhu zhua zhuai zhuan zhuang zhui zhun zhuo zi zong zou zu zuan zui zun zuo " *
   'pinyin.table3 :=
 }
@@ -417,16 +417,16 @@ FUNCTION {bbl.sine.nomine}
 
 FUNCTION {bbl.sine.loco.sine.nomine}
 { entry.lang lang.zh =
-    { "出版地不详: 出版者不详" }
-    { "S.l.: s.n." }
+    { "出版地不详：出版者不详" }
+    { "S.l.：s.n." }
   if$
 }
 
 FUNCTION {default.self.tokens} { ":,-'’–—?.!()[]" }
 
-FUNCTION {latin.upper} { "ÀÁÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØÙÚÛÜÝÞŸĀĂĄĆĈĊČĎĐĒĔĖĘĚĜĞĠĢĤĦĨĪĬĮİIĴĶĹĻĽĿŁŃŅŇŊŌŎŐŒŔŖŘŚŜŞŠŢŤŦŨŪŬŮŰŲŴŶŸŹŻŽ" }
+FUNCTION {latin.upper} { "ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØÙÚÛÜÝÞĀĂĄĆĈĊČĎĐĒĔĖĘĚĜĞĠĢĤĦĨĪĬĮİĲĴĶĹĻĽĿŁŃŅŇŊŌŎŐŒŔŖŘŚŜŞŠŢŤŦŨŪŬŮŰŲŴŶŸŹŻŽ" }
 
-FUNCTION {latin.lower} { "àáãäåæçèéêëìíîïðñòóôõöøùúûüýþÿāăąćĉċčďđēĕėęěĝğġģĥħĩīĭįiıĵķĺļľŀłńņňŋōŏőœŕŗřśŝşšţťŧũūŭůűųŵŷÿźżž" }
+FUNCTION {latin.lower} { "àáâãäåæçèéêëìíîïðñòóôõöøùúûüýþāăąćĉċčďđēĕėęěĝğġģĥħĩīĭįi̇ĳĵķĺļľŀłńņňŋōŏőœŕŗřśŝşšţťŧũūŭůűųŵŷÿźżž" }
 
 FUNCTION {range.delimiters} { "-–—～" }
 
@@ -1158,12 +1158,20 @@ FUNCTION {all.to.upper}
 
 FUNCTION {command.to.upper}
 { duplicate$ "" =
-    { "command.to.lower: Empty string is not a texchar!" warning$ }
+    { "command.to.upper: Empty string is not a texchar!" warning$ }
     { duplicate$ #1 #1 substring$ #92 int.to.chr$ =
         { duplicate$ is.special.char.command
-             'all.to.upper
-             'skip$
-           if$
+            { duplicate$ "\i" =
+                { pop$ "I" }
+                { duplicate$ "\j" =
+                    { pop$ "J" }
+                    'all.to.upper
+                  if$
+                }
+              if$
+            }
+            'skip$
+          if$
         }
         'to.upper
       if$
@@ -1549,15 +1557,28 @@ FUNCTION {extract.after}
 }
 
 FUNCTION {format.western.given.name}
-{ s nameptr "{ f.}" format.name$
-  duplicate$ "-" contains
-    { control.initialize.with.hyphen
-        'skip$
-        { "-" " " find.replace }
-      if$
-      smart.upper.case
-    }
+{ s nameptr "{ff}" format.name$
+  duplicate$ #1 #1 substring$
+  duplicate$ empty$
+    { pop$ " " }
     'skip$
+  if$
+  chr.to.int$ #128 <
+    { pop$
+      s nameptr "{ f.}" format.name$
+      duplicate$ "-" contains
+        { control.initialize.with.hyphen
+            'skip$
+            { "-" " " find.replace }
+          if$
+          smart.upper.case
+        }
+        'skip$
+      if$
+    }
+    % A non-ASCII initial cannot be abbreviated by format.name$ safely;
+    % keep the full given name instead of emitting a broken UTF-8 byte.
+    { " " swap$ * }
   if$
   s nameptr "{ jj}" format.name$ *
   "." "" find.replace
@@ -1631,7 +1652,7 @@ FUNCTION {is.given.name.pinyin}
                     { pop$ #0 }
                   if$
                 }
-                { pop$ #0 }
+                { pop$ pop$ #0 }
               if$
             }
             { duplicate$ is.capitalized
@@ -1682,12 +1703,16 @@ FUNCTION {format.name}
 { s nameptr "{vv~}{ll}{,~ff}{, jj}" format.name$
   get.str.lang
   duplicate$
-  duplicate$ lang.zh = swap$ lang.ja = or
+  duplicate$ lang.zh =
+  swap$ duplicate$ lang.ja =
+  swap$ lang.ko = or or
     { pop$
       s nameptr "{vv~}{ll}" format.name$
           s nameptr "{ff}{ jj}" format.name$
       duplicate$ get.str.lang
-      duplicate$ lang.zh = swap$ lang.ja = or
+      duplicate$ lang.zh =
+      swap$ duplicate$ lang.ja =
+      swap$ lang.ko = or or
         { * }
         { pop$ }
       if$
@@ -1722,7 +1747,8 @@ FUNCTION {format.names}
     { namesleft #0 > }
     { format.name 't :=
       nameptr #1 >
-        { numnames control.max.bib.names >
+        { control.max.bib.names #0 >
+          numnames control.max.bib.names > and
           nameptr control.min.bib.names > and
             { "others" 't :=
               #1 'namesleft :=
@@ -1819,11 +1845,14 @@ FUNCTION {format.lab.name}
 { s nameptr "{vv~}{ll}{,~ff}{, jj}" format.name$
   get.str.lang
   duplicate$ lang.zh =
-  swap$ lang.ja = or
+  swap$ duplicate$ lang.ja =
+  swap$ lang.ko = or or
     { s nameptr "{vv~}{ll}" format.name$
       s nameptr "{ff}{, jj}" format.name$
       duplicate$ get.str.lang
-      duplicate$ lang.zh = swap$ lang.ja = or
+      duplicate$ lang.zh =
+      swap$ duplicate$ lang.ja =
+      swap$ lang.ko = or or
         { * }
         'pop$
       if$
@@ -2205,7 +2234,8 @@ FUNCTION {format.bvolume}
 FUNCTION {format.maintitle}
 { maintitle empty$
     { "" }
-    { mainsubtitle empty$
+    { maintitle
+      mainsubtitle empty$
         'skip$
         { add.colon.by.language mainsubtitle * }
       if$
@@ -2220,7 +2250,7 @@ FUNCTION {format.maintitle}
 FUNCTION {format.maintitle.volume}
 { maintitle empty$
     { "" }
-    { maintitle
+    { format.maintitle
       volume empty$
         'skip$
         { add.colon.by.language
@@ -2346,34 +2376,20 @@ FUNCTION {format.booktitle}
 { booktitle empty$
     { "" }
     { booktitle
+      booksubtitle empty$
+        'skip$
+        { ": " * booksubtitle * }
+      if$
+      booktitleaddon empty$
+        'skip$
+        { ": " * booktitleaddon * }
+      if$
       control.sentence.case.booktitle
         'change.sentence.case
         'skip$
       if$
-      booksubtitle empty$
-        'skip$
-        { add.colon
-          booksubtitle
-          control.sentence.case.booktitle
-            { "l" change.case$ }
-            'skip$
-          if$
-          *
-        }
-      if$
-      emphasize.book.title
-      booktitleaddon empty$
-        'skip$
-        { add.colon
-          booktitleaddon
-          control.sentence.case.booktitle
-            { "l" change.case$ }
-            'skip$
-          if$
-          *
-        }
-      if$
       format.punctuations
+      emphasize.book.title
     }
   if$
 }
@@ -2511,15 +2527,24 @@ FUNCTION {check.arxiv.preprint}
       while$
       charptr #0 >
         { x charptr #6 + global.max$ substring$ 'x :=
+          { x empty$ not
+            { x #1 #1 substring$ " " = }
+            { #0 }
+            if$
+          }
+            { x #2 global.max$ substring$ 'x := }
+          while$
           x string.length #1 + 'len :=
           #1 'charptr :=
             { charptr len <
               x charptr #1 substring$ " " = not and
               x charptr #1 substring$ "[" = not and
+              x charptr #1 substring$ ";" = not and
+              x charptr #1 substring$ "," = not and
             }
             { charptr #1 + 'charptr := }
           while$
-          x #1 charptr substring$
+          x #1 charptr #1 - substring$
           duplicate$ empty$
             'pop$
             { "\url{https://arxiv.org/abs/" swap$ * "}" * 'entry.url := }
@@ -2766,7 +2791,7 @@ FUNCTION {format.address.publisher}
       entry.has.url.or.doi not control.unknown.publisher and
         { format.publisher empty$ not
             { bbl.sine.loco make.brackets add.colon format.publisher * }
-            { bbl.sine.loco.sine.nomine make.brackets }
+            { bbl.sine.loco.sine.nomine format.punctuations make.brackets }
           if$
         }
         { format.publisher empty$ not
@@ -2989,11 +3014,16 @@ FUNCTION {format.newspaper.pages}
 FUNCTION {check.electronic}
 { entry.url empty$
     { url empty$
-        { howpublished field.or.null #1 #5 substring$ "\url{" =
-            { howpublished 'entry.url := }
-            { note field.or.null #1 #5 substring$ "\url{" =
-                { note "}" extract.before "}" * 'entry.url := }
-                'skip$
+        { archiveprefix eprinttype either.or "l" change.case$ "arxiv" =
+          eprint empty$ not and
+            { "\url{https://arxiv.org/abs/" eprint * "}" * 'entry.url := }
+            { howpublished field.or.null #1 #5 substring$ "\url{" =
+                { howpublished 'entry.url := }
+                { note field.or.null #1 #5 substring$ "\url{" =
+                    { note "}" extract.before "}" * 'entry.url := }
+                    'skip$
+                  if$
+                }
               if$
             }
           if$
@@ -3005,6 +3035,18 @@ FUNCTION {check.electronic}
   if$
 }
 
+FUNCTION {strip.doi.prefix}
+{ "https://doi.org/" "" find.replace
+  "http://doi.org/" "" find.replace
+  "https://dx.doi.org/" "" find.replace
+  "http://dx.doi.org/" "" find.replace
+}
+
+FUNCTION {strip.cstr.prefix}
+{ "https://cstr.cn/" "" find.replace
+  "http://cstr.cn/" "" find.replace
+}
+
 FUNCTION {format.url}
 { control.url require.url or
     { entry.url empty$
@@ -3012,10 +3054,10 @@ FUNCTION {format.url}
             { cstr empty$
                 { doi empty$
                     'skip$
-                    { "\url{https://doi.org/" doi * "}" * 'entry.url := }
+                    { "\url{https://doi.org/" doi strip.doi.prefix * "}" * 'entry.url := }
                   if$
                 }
-                { "\url{https://cstr.cn/" cstr * "}" * 'entry.url := }
+                { "\url{https://cstr.cn/" cstr strip.cstr.prefix * "}" * 'entry.url := }
               if$
             }
             'skip$
@@ -3042,7 +3084,7 @@ FUNCTION {format.doi}
             { control.url require.url or
               entry.url doi contains and
                 { "" }
-                { new.block "DOI:\doi{" doi * "}" * }
+                { new.block "DOI:\doi{" doi strip.doi.prefix * "}" * }
               if$
             }
           if$
@@ -3050,7 +3092,7 @@ FUNCTION {format.doi}
         { control.url require.url or
           entry.url cstr contains and
             { "" }
-            { new.block "CSTR:\cstr{" cstr * "}" * }
+            { new.block "CSTR:\cstr{" cstr strip.cstr.prefix * "}" * }
           if$
         }
       if$
@@ -3078,14 +3120,6 @@ FUNCTION {format.eprint}
         }
       if$
     }
-  if$
-  entry.url empty$
-    { duplicate$ "l" change.case$ "arxiv" = entry.eprint empty$ not and
-        { "\url{https://arxiv.org/abs/" entry.eprint * "}" * 'entry.url := }
-        'skip$
-      if$
-    }
-    'skip$
   if$
   control.eprint eprint empty$ not and
     { duplicate$ empty$
@@ -3143,7 +3177,12 @@ FUNCTION {link.close}
         'skip$
         { "" set.punct
           "}" output
-          before.all 'output.state :=
+          % A following URL is typeset right after the closing brace, while a
+          % DOI/CSTR identifier needs a new block with a sentence period.
+          url empty$
+            { after.block 'output.state := }
+            { before.all 'output.state := }
+          if$
         }
       if$
     }
@@ -3769,7 +3808,7 @@ FUNCTION {boolean.to.int}
   if$
 }
 
-FUNCTION {GBT7714BSTCTL}
+FUNCTION {read.ctl}
 { CTL_bib_punct empty$
     'skip$
     { CTL_bib_punct 'control.bib.punct := }
@@ -3958,9 +3997,12 @@ FUNCTION {GBT7714BSTCTL}
   if$
 }
 
+FUNCTION {GBT7714BSTCTL}
+{ }
+
 FUNCTION {control.pass}
 { type$ "gbt7714bstctl" =
-    'GBT7714BSTCTL
+    'read.ctl
     'skip$
   if$
 }
@@ -4052,7 +4094,8 @@ FUNCTION {format.lab.names}
     { namesleft #0 > }
     { format.lab.name 't :=
       nameptr #1 >
-        { numnames control.max.cite.names >
+        { control.max.cite.names #0 >
+          numnames control.max.cite.names > and
           nameptr control.min.cite.names > and
             { "others" 't :=
               #1 'namesleft :=
