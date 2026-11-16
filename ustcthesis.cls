@@ -4357,7 +4357,7 @@
         \cs_set_eq:NN \overbrace \LaTeXoverbrace
       }
       { }
-    \cs_set:Npn \MT_extended_eqref:n #1
+    \cs_set_protected_nopar:Npn \MT_extended_eqref:n #1
       {
         \bool_if:NT \l__ustc_language_chinese_bool
           {
@@ -4372,7 +4372,6 @@
               { \ignorespaces }
           }
       }
-    \EQ_MakeRobust \MT_extended_eqref:n
   }
 
 

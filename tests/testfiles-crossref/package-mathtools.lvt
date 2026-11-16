@@ -48,5 +48,11 @@
   \label{eq:example}
 \end{equation}
 
+% `showonlyrefs` 下 `\eqref` 必须是 robust/protected 的，
+% 否则在 caption 等移动参数中会报错。
+\begin{figure}
+  \caption{式 \eqref{eq:example}}
+\end{figure}
+
 \OMIT
 \end{document}
