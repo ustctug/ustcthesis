@@ -17,6 +17,10 @@ for config in build crossref bibtex biblatex; do
         else
             l3build save --halt-on-error --config "tests/config-$config" "$test" || exit 1;
         fi
+        if [ ! -f "$build_dir/$test.xdv" ]; then
+            echo "error: $build_dir/$test.xdv was not generated" >&2;
+            exit 1;
+        fi
         output_path="$build_dir/$test.pdf";
         xdvipdfmx "$build_dir/$test.xdv" -o "$output_path";
         if [ -f "$baseline_path" ]; then

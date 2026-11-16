@@ -8,7 +8,7 @@ module = "ustcthesis"
 testfiledir = "./tests/testfiles"
 testsuppdir = "./tests/support"
 
-demofiles = {"main.tex", "bib", "chapters"}
+demofiles = {"main.tex", "ustcsetup.tex", "chapters", "figures"}
 installfiles = {"*.cls", "*.bst", "*.bbx", "*.cbx", "figures"}
 sourcefiles = {"*.cls", "*.bst", "*.bbx", "*.cbx", "figures"}
 tagfiles = {"*.cls", "ustcthesis-doc.tex", "CHANGELOG.md"}

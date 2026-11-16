@@ -2,24 +2,23 @@ MAIN = main
 NAME = ustcthesis
 CLSFILES = $(NAME).cls
 BSTFILES = $(NAME)-numeric.bst $(NAME)-authoryear.bst
+BBXFILES = $(NAME)-numeric.bbx $(NAME)-authoryear.bbx
+CBXFILES = $(NAME)-numeric.cbx $(NAME)-authoryear.cbx
 
 SHELL = bash
 LATEXMK = latexmk -xelatex
 VERSION = $(shell cat $(NAME).cls | egrep -o "\\ustcthesisversion{[0-9.]+[0-9a-z.-]*" \
 	  | egrep -o "[0-9.]+[0-9a-z.-]*")
-TEXMF = $(shell kpsewhich --var-value TEXMFHOME)
 
-.PHONY : main cls doc test save clean all install distclean zip FORCE_MAKE
+.PHONY : main doc test save clean cleanall all install zip FORCE_MAKE
 
 main : $(MAIN).pdf
 
 all : main doc
 
-cls : $(CLSFILES) $(BSTFILES)
-
 doc : $(NAME)-doc.pdf
 
-$(MAIN).pdf : $(MAIN).tex $(CLSFILES) $(BSTFILES) FORCE_MAKE
+$(MAIN).pdf : $(MAIN).tex $(CLSFILES) $(BSTFILES) $(BBXFILES) $(CBXFILES) FORCE_MAKE
 	$(LATEXMK) $<
 
 $(NAME)-doc.pdf : $(NAME)-doc.tex FORCE_MAKE
@@ -33,16 +32,14 @@ save:
 
 clean : FORCE_MAKE
 	$(LATEXMK) -c $(MAIN).tex $(NAME)-doc.tex
+	rm -rf build/
 
 cleanall :
 	$(LATEXMK) -C $(MAIN).tex $(NAME)-doc.tex
+	l3build clean
 
-install : cls doc
-	mkdir -p $(TEXMF)/{doc,source,tex}/latex/$(NAME)
-	mkdir -p $(TEXMF)/bibtex/bst/$(NAME)
-	cp $(BSTFILES) $(TEXMF)/bibtex/bst/$(NAME)
-	cp $(NAME)-doc.pdf $(TEXMF)/doc/latex/$(NAME)/$(NAME).pdf
-	cp $(CLSFILES) $(TEXMF)/tex/latex/$(NAME)
+install : doc
+	l3build install --full
 
 zip : main doc
 	ln -sf . $(NAME)
