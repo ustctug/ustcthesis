@@ -338,6 +338,7 @@
 \RequirePackage [ perpage ] { footmisc }
 \RequirePackage { geometry }
 \RequirePackage { graphicx }
+\RequirePackage { multirow }
 \RequirePackage { notoccite }
 \RequirePackage { pdfpages }
 \RequirePackage { titletoc }
