@@ -3,9 +3,8 @@
 
 \input{info}
 \ustcsetup{
-  secret-level       = {限制},
-  secret-level*      = {Restricted},
-  secret-year        = {2},
+  secret-level = {control},
+  secret-year  = {2},
 }
 
 \begin{document}

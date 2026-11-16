@@ -1568,7 +1568,6 @@
 \tl_new:N \l__ustc_research_direction_tl
 \tl_new:N \l__ustc_research_direction_en_tl
 \str_new:N \l__ustc_secret_level_str
-\str_new:N \l__ustc_secret_level_en_str
 \int_new:N \l__ustc_secret_year_int
 \clist_new:N \l__ustc_keywords_clist
 \clist_new:N \l__ustc_keywords_en_clist
@@ -1594,8 +1593,7 @@
     discipline* .tl_set:N = \l__ustc_discipline_en_tl ,
     research-direction .tl_set:N = \l__ustc_research_direction_tl ,
     research-direction* .tl_set:N = \l__ustc_research_direction_en_tl ,
-    secret-level .str_set:N = \l__ustc_secret_level_str ,
-    secret-level* .str_set:N = \l__ustc_secret_level_en_str ,
+    secret-level .code:n = { \__ustc_set_secret_level:n {#1} } ,
     secret-year .int_set:N = \l__ustc_secret_year_int ,
     keywords  .clist_set:N = \l__ustc_keywords_clist ,
     keywords* .clist_set:N = \l__ustc_keywords_en_clist ,
@@ -1632,6 +1630,7 @@
 \__ustc_define_deprecated_key:nnn { advisor* } { 2025-01-04 } { practice-supervisor* }
 \__ustc_define_deprecated_key:nnn { professional-type } { 2025-01-04 } { }
 \__ustc_define_deprecated_key:nnn { professional-type* } { 2025-01-04 } { }
+\__ustc_define_deprecated_key:nnn { secret-level* } { 2026-11-16 } { }
 
 % \tl_set:Ne was not available until 2023-06-05.
 \cs_if_exist:NF \tl_set:Ne
@@ -1660,6 +1659,33 @@
 \msg_new:nnn { ustcthesis } { invalid-date }
   { The~ date~ "#1"~ is~ invalid.~ Expecting~ ISO~ format~ "YYYY-MM-DD". }
 
+\cs_new:Npn \__ustc_set_secret_level:n #1
+  {
+    \exp_args:NNe \str_set:Nn \l__ustc_secret_level_str
+      { \tl_trim_spaces:n {#1} }
+    \str_case:VnF \l__ustc_secret_level_str
+      {
+        { open } { }
+        { control } { }
+        { confidential } { }
+        { classified } { }
+        { most-confidential } { }
+        { } { \str_set:Nn \l__ustc_secret_level_str { open } }
+        { 公开 } { \str_set:Nn \l__ustc_secret_level_str { open } }
+        { 限制 } { \str_set:Nn \l__ustc_secret_level_str { control } }
+        { 秘密 } { \str_set:Nn \l__ustc_secret_level_str { confidential } }
+        { 机密 } { \str_set:Nn \l__ustc_secret_level_str { classified } }
+        { 绝密 } { \str_set:Nn \l__ustc_secret_level_str { most-confidential } }
+      }
+      { \msg_error:nnn { ustcthesis } { invalid-secret-level } {#1} }
+  }
+
+\msg_new:nnn { ustcthesis } { invalid-secret-level }
+  {
+    The~ secret~ level~ "#1"~ is~ invalid.~ Expecting~ one~ of~ "open",~
+    "control",~ "confidential",~ "classified",~ "most-confidential".
+  }
+
 \msg_new:nnn { ustcthesis } { obsolete }
   { The~ #1~ is~ no~ longer~ required~ and~ is~ obsolete~ since~ #2. }
 
@@ -1672,6 +1698,7 @@
         \int_use:N \c_sys_day_int
       } ,
     school-code = { 10358 } ,
+    secret-level = open ,
   }
 
 % 版本 v3.2 开始使用 \cs{ustcsetup} 设置接口，
@@ -1926,20 +1953,19 @@
 % 中文密级
 \cs_new:Npn \__ustc_secret_level_zh:
   {
-    \str_case:NnF \l__ustc_secret_level_str
+    \str_case:VnTF \l__ustc_secret_level_str
       {
-        { } { }
-        { 公开 } { \str_use:N \l__ustc_secret_level_str }
-        { 限制 }
-          {
-            \str_use:N \l__ustc_secret_level_str
-            \__ustc_secret_year_zh:
-          }
+        { confidential } { 秘密 }
+        { classified } { 机密 }
+        { most-confidential } { 绝密 }
       }
+      { \symbol { "2605 } \__ustc_secret_year_zh: }
       {
-        \str_use:N \l__ustc_secret_level_str
-        \symbol { "2605 }
-        \__ustc_secret_year_zh:
+        \str_case:Nn \l__ustc_secret_level_str
+          {
+            { open } { }
+            { control } { 限制~ \__ustc_secret_year_zh: }
+          }
       }
   }
 
@@ -1985,16 +2011,6 @@
             \__ustc_info_item:n { 论文提交日期 } \__ustc_format_date_zh: \par
           }
       }
-  }
-
-% 密级未设置或设置为“公开”时，视为公开
-\prg_new_conditional:Npnn \__ustc_if_secret_level_open: { F , TF }
-  {
-    \bool_lazy_or:nnTF
-      { \str_if_empty_p:N \l__ustc_secret_level_str }
-      { \str_if_eq_p:Vn \l__ustc_secret_level_str { 公开 } }
-      { \prg_return_true: }
-      { \prg_return_false: }
   }
 
 % 英文题名页
@@ -2068,20 +2084,19 @@
 % 英文密级
 \cs_new:Npn \__ustc_secret_level_en:
   {
-    \str_case:NnF \l__ustc_secret_level_str
+    \str_case:VnTF \l__ustc_secret_level_str
       {
-        { } { }
-        { 公开 } { \str_use:N \l__ustc_secret_level_en_str }
-        { 限制 }
-          {
-            \str_use:N \l__ustc_secret_level_en_str \c_space_tl
-            \__ustc_secret_year_en:
-          }
+        { confidential } { Confidential }
+        { classified } { Classified }
+        { most-confidential } { Most~ Confidential }
       }
+      { \symbol { "2605 } \__ustc_secret_year_en: }
       {
-        \str_use:N \l__ustc_secret_level_en_str
-        \symbol { "2605 }
-        \__ustc_secret_year_en:
+        \str_case:Nn \l__ustc_secret_level_str
+          {
+            { open } { }
+            { control } { Control~ \__ustc_secret_year_en: }
+          }
       }
   }
 
@@ -2483,12 +2498,12 @@
       \tl_use:N \c__ustc_authorization_tl \par
     \group_end:
     \skip_vertical:n { 12 bp }
-    \__ustc_if_secret_level_open:TF
+    \str_if_eq:VnTF \l__ustc_secret_level_str { open }
       { \__ustc_checkbox: }
       { $\square$ }
     \skip_horizontal:n { .6 em } 公开
     \skip_horizontal:n { 3.5 em }
-    \__ustc_if_secret_level_open:TF
+    \str_if_eq:VnTF \l__ustc_secret_level_str { open }
       { $\square$ }
       { \__ustc_checkbox: }
     \skip_horizontal:n { .6 em } 控阅

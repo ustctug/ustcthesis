@@ -10,6 +10,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - 中英文题名页顶部的下划线改为纵向对齐。
+- 设置密级时改为使用固定值：`open`、`control`、`confidential`、`classified`、`most-confidential`。
+
+### Deprecated
+
+- 英文密级选项 `secret-level*` 已过时。
 
 ### Fixed
 
