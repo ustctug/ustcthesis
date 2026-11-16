@@ -2190,10 +2190,18 @@ Completed box being shipped out [6]
 .........\glue 0.0 plus 1.0fil minus 1.0fil
 ........\glue 0.0 plus 1.0fill
 ........\vbox(9.59077+4.11038)x417.11752
-.........\hbox(9.59077+4.11038)x417.11752, glue set 190.22026fil
+.........\hbox(9.59077+4.11038)x417.11752, glue set 143.08295fil
 ..........\glue(\leftskip) 0.0 plus 1.0fil
 ..........\hbox(0.0+0.0)x0.0
-..........\TU/texgyretermes(0)/m/n/10.53937 Notation
+..........\TU/texgyretermes(0)/m/n/10.53937 List
+..........\glue 2.63484 plus 1.31741 minus 0.87828
+..........\TU/texgyretermes(0)/m/n/10.53937 of
+..........\glue 2.63484 plus 1.31741 minus 0.87828
+..........\TU/texgyretermes(0)/m/n/10.53937 Symbols
+..........\glue 2.63484 plus 1.31741 minus 0.87828
+..........\TU/texgyretermes(0)/m/n/10.53937 and
+..........\glue 2.63484 plus 1.31741 minus 0.87828
+..........\TU/texgyretermes(0)/m/n/10.53937 Acronyms
 ..........\kern -0.0002
 ..........\kern 0.0002
 ..........\rule(9.59077+4.11038)x0.0
@@ -2218,7 +2226,7 @@ Completed box being shipped out [6]
 ..\glue(\lineskip) 0.0
 ..\vbox(700.50723+0.0)x417.11752, glue set 526.8031fil
 ...\write-{}
-...\marks1{\__mark_value:nn {11}{Notation}}
+...\marks1{\__mark_value:nn {11}{List of Symbols and Acronyms}}
 ...\marks2{\__mark_value:nn {12}{}}
 ...\write-{}
 ...\glue(\topskip) 12.0
@@ -2228,10 +2236,18 @@ Completed box being shipped out [6]
 ...\glue 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
-...\glue(\baselineskip) 9.17026
-...\hbox(11.70773+0.24089)x417.11752, glue set 178.73535fil
+...\glue(\baselineskip) 8.88116
+...\hbox(11.99683+3.50107)x417.11752, glue set 100.88452fil
 ....\glue(\leftskip) 0.0 plus 1.0fil
-....\TU/texgyreheros(0)/m/n/16.06 Notation
+....\TU/texgyreheros(0)/m/n/16.06 List
+....\glue 4.46468 plus 2.23233 minus 1.48822
+....\TU/texgyreheros(0)/m/n/16.06 of
+....\glue 4.46468 plus 2.23233 minus 1.48822
+....\TU/texgyreheros(0)/m/n/16.06 Symbols
+....\glue 4.46468 plus 2.23233 minus 1.48822
+....\TU/texgyreheros(0)/m/n/16.06 and
+....\glue 4.46468 plus 2.23233 minus 1.48822
+....\TU/texgyreheros(0)/m/n/16.06 Acronyms
 ....\kern -0.0002
 ....\kern 0.0002
 ....\penalty 10000
@@ -2241,7 +2257,7 @@ Completed box being shipped out [6]
 ...\glue 19.07124
 ...\glue(\parskip) 0.0 plus 0.2
 ...\glue(\parskip) 0.0
-...\glue(\baselineskip) 10.52332
+...\glue(\baselineskip) 7.26314
 ...\hbox(9.31079+3.01152)x308.71254, glue set 222.40988fil, shifted 72.26999
 ....\hbox(5.31184+3.01152)x14.03267
 .....\glue 0.0

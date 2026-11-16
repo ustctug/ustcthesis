@@ -100,7 +100,7 @@ Completed box being shipped out [1]
 ....\special{pdf:outline [] 0<</Title(\376\377\000A\000B\000S\000T\000R\000A\000C\000T)/A<</S/GoTo/D(ustcchapter.3.0)>>>>}
 ....\special{pdf:outline [] 0<</Title(\376\377\166\356\137\125)/A<</S/GoTo/D(ustcchapter.4.0)>>>>}
 ....\special{pdf:outline [] 0<</Title(\376\377\143\322\126\376\124\214\226\104\210\150\156\005\123\125)/A<</S/GoTo/D(ustcchapter.5.0)>>>>}
-....\special{pdf:outline [] 0<</Title(\376\377\173\046\123\367\213\364\146\016)/A<</S/GoTo/D(ustcchapter.6.0)>>>>}
+....\special{pdf:outline [] 0<</Title(\376\377\173\046\123\367\124\214\177\051\165\145\213\355\213\364\146\016)/A<</S/GoTo/D(ustcchapter.6.0)>>>>}
 ....\special{pdf:outline [] 0<</Title(\376\377\173\054\0001\172\340\000\040\137\025\212\000)/A<</S/GoTo/D(chapter.1)>>>>}
 ....\special{pdf:outline [-] 1<</Title(\376\377\0001\000.\0001\000\040\133\146\117\115\213\272\145\207\116\055\166\204\136\070\211\301\225\356\230\230\122\006\147\220)/A<</S/GoTo/D(section.1.1)>>>>}
 ....\special{pdf:outline [-] 2<</Title(\376\377\0001\000.\0001\000.\0001\000\040\136\070\211\301\121\205\133\271\225\356\230\230)/A<</S/GoTo/D(subsection.1.1.1)>>>>}
@@ -2536,12 +2536,20 @@ Completed box being shipped out [6]
 ..........\glue 0.0 plus 1.0fil minus 1.0fil
 .........\glue 0.0 plus 1.0fill
 .........\vbox(9.59077+4.11038)x417.11752
-..........\hbox(9.59077+4.11038)x417.11752, glue set 187.48003fil
+..........\hbox(9.59077+4.11038)x417.11752, glue set 166.40129fil
 ...........\glue(\leftskip) 0.0 plus 1.0fil
 ...........\hbox(0.0+0.0)x0.0
 ...........\TU/FandolSong(0)/m/n/10.53937 符
 ...........\glue 0.0 plus 0.44923
 ...........\TU/FandolSong(0)/m/n/10.53937 号
+...........\glue 0.0 plus 0.44923
+...........\TU/FandolSong(0)/m/n/10.53937 和
+...........\glue 0.0 plus 0.44923
+...........\TU/FandolSong(0)/m/n/10.53937 缩
+...........\glue 0.0 plus 0.44923
+...........\TU/FandolSong(0)/m/n/10.53937 略
+...........\glue 0.0 plus 0.44923
+...........\TU/FandolSong(0)/m/n/10.53937 语
 ...........\glue 0.0 plus 0.44923
 ...........\TU/FandolSong(0)/m/n/10.53937 说
 ...........\glue 0.0 plus 0.44923
@@ -2571,9 +2579,9 @@ Completed box being shipped out [6]
 ...\vbox(700.50723+0.0)x417.11752, glue set 526.8031fil
 ....\write-{}
 ....\special{pdf:dest (section*.11) [@thispage /XYZ @xpos @ypos null]}
-....\write3{\protect \BOOKMARK [0][]{ustcchapter.6.0}{\376\377\173\046\123\367\213\364\146\016}{}% 6}
+....\write3{\protect \BOOKMARK [0][]{ustcchapter.6.0}{\376\377\173\046\123\367\124\214\177\051\165\145\213\355\213\364\146\016}{}% 6}
 ....\special{pdf:dest (ustcchapter.6.0) [@thispage /XYZ @xpos @ypos null]}
-....\marks1{\__mark_value:nn {11}{符号说明}}
+....\marks1{\__mark_value:nn {11}{符号和缩略语说明}}
 ....\marks2{\__mark_value:nn {12}{}}
 ....\write-{}
 ....\special{pdf:dest (chapter*.12) [@thispage /XYZ @xpos @ypos null]}
@@ -2585,11 +2593,19 @@ Completed box being shipped out [6]
 ....\glue(\parskip) 0.0
 ....\glue(\parskip) 0.0
 ....\glue(\baselineskip) 8.44756
-....\hbox(12.43044+2.79442)x417.11752, glue set 176.43877fil
+....\hbox(12.43044+2.79442)x417.11752, glue set 144.31877fil
 .....\glue(\leftskip) 0.0 plus 1.0fil
 .....\TU/FandolHei(0)/m/n/16.06 符
 .....\glue 0.0 plus 1.37729
 .....\TU/FandolHei(0)/m/n/16.06 号
+.....\glue 0.0 plus 1.37729
+.....\TU/FandolHei(0)/m/n/16.06 和
+.....\glue 0.0 plus 1.37729
+.....\TU/FandolHei(0)/m/n/16.06 缩
+.....\glue 0.0 plus 1.37729
+.....\TU/FandolHei(0)/m/n/16.06 略
+.....\glue 0.0 plus 1.37729
+.....\TU/FandolHei(0)/m/n/16.06 语
 .....\glue 0.0 plus 1.37729
 .....\TU/FandolHei(0)/m/n/16.06 说
 .....\glue 0.0 plus 1.37729

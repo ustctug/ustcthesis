@@ -1925,10 +1925,18 @@ Completed box being shipped out [3]
 ...\glue 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
-...\glue(\baselineskip) 19.95255
-...\hbox(13.1712+0.271)x417.11752, glue set 175.00743fil
+...\glue(\baselineskip) 19.62733
+...\hbox(13.49641+3.93869)x417.11752, glue set 87.42526fil
 ....\glue(\leftskip) 0.0 plus 1.0fil
-....\TU/texgyreheros(0)/m/n/18.06749 Notation
+....\TU/texgyreheros(0)/m/n/18.06749 List
+....\glue 5.02277 plus 2.51138 minus 1.67426
+....\TU/texgyreheros(0)/m/n/18.06749 of
+....\glue 5.02277 plus 2.51138 minus 1.67426
+....\TU/texgyreheros(0)/m/n/18.06749 Symbols
+....\glue 5.02277 plus 2.51138 minus 1.67426
+....\TU/texgyreheros(0)/m/n/18.06749 and
+....\glue 5.02277 plus 2.51138 minus 1.67426
+....\TU/texgyreheros(0)/m/n/18.06749 Acronyms
 ....\kern -0.0002
 ....\kern 0.0002
 ....\penalty 10000
@@ -1938,7 +1946,7 @@ Completed box being shipped out [3]
 ...\glue 19.07124
 ...\glue(\parskip) 0.0 plus 0.2
 ...\glue(\parskip) 0.0
-...\glue(\baselineskip) 10.49321
+...\glue(\baselineskip) 6.82552
 ...\hbox(9.31079+3.01152)x308.71254, glue set 222.40988fil, shifted 72.26999
 ....\hbox(5.31184+3.01152)x14.03267
 .....\glue 0.0

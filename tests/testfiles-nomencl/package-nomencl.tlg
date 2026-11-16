@@ -61,12 +61,20 @@ Completed box being shipped out [1]
 .........\glue 0.0 plus 1.0fil minus 1.0fil
 ........\glue 0.0 plus 1.0fill
 ........\vbox(9.59077+4.11038)x417.11752
-.........\hbox(9.59077+4.11038)x417.11752, glue set 187.48003fil
+.........\hbox(9.59077+4.11038)x417.11752, glue set 166.40129fil
 ..........\glue(\leftskip) 0.0 plus 1.0fil
 ..........\hbox(0.0+0.0)x0.0
 ..........\TU/FandolSong(0)/m/n/10.53937 符
 ..........\glue 0.0 plus 0.44923
 ..........\TU/FandolSong(0)/m/n/10.53937 号
+..........\glue 0.0 plus 0.44923
+..........\TU/FandolSong(0)/m/n/10.53937 和
+..........\glue 0.0 plus 0.44923
+..........\TU/FandolSong(0)/m/n/10.53937 缩
+..........\glue 0.0 plus 0.44923
+..........\TU/FandolSong(0)/m/n/10.53937 略
+..........\glue 0.0 plus 0.44923
+..........\TU/FandolSong(0)/m/n/10.53937 语
 ..........\glue 0.0 plus 0.44923
 ..........\TU/FandolSong(0)/m/n/10.53937 说
 ..........\glue 0.0 plus 0.44923
@@ -98,7 +106,7 @@ Completed box being shipped out [1]
 ...\write-{}
 ...\write-{}
 ...\write-{}
-...\marks1{\__mark_value:nn {1}{符号说明}}
+...\marks1{\__mark_value:nn {1}{符号和缩略语说明}}
 ...\marks2{\__mark_value:nn {2}{}}
 ...\write-{}
 ...\glue(\topskip) 12.0
@@ -109,11 +117,19 @@ Completed box being shipped out [1]
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 8.44756
-...\hbox(12.43044+2.79442)x417.11752, glue set 176.43877fil
+...\hbox(12.43044+2.79442)x417.11752, glue set 144.31877fil
 ....\glue(\leftskip) 0.0 plus 1.0fil
 ....\TU/FandolHei(0)/m/n/16.06 符
 ....\glue 0.0 plus 1.37729
 ....\TU/FandolHei(0)/m/n/16.06 号
+....\glue 0.0 plus 1.37729
+....\TU/FandolHei(0)/m/n/16.06 和
+....\glue 0.0 plus 1.37729
+....\TU/FandolHei(0)/m/n/16.06 缩
+....\glue 0.0 plus 1.37729
+....\TU/FandolHei(0)/m/n/16.06 略
+....\glue 0.0 plus 1.37729
+....\TU/FandolHei(0)/m/n/16.06 语
 ....\glue 0.0 plus 1.37729
 ....\TU/FandolHei(0)/m/n/16.06 说
 ....\glue 0.0 plus 1.37729

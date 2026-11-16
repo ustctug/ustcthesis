@@ -464,7 +464,7 @@
         \cs_set:Npn \listtablename { 附表清单 }
         \tl_set:Nn \l__ustc_list_figure_table_name_tl { 插图和附表清单 }
         \tl_set:Nn \l__ustc_list_algorithm_name_tl { 算法清单 }
-        \tl_set:Nn \l__ustc_notation_name_tl { 符号说明 }
+        \tl_set:Nn \l__ustc_notation_name_tl { 符号和缩略语说明 }
         \cs_set:Npn \appendixname { 附录 }
         \tl_set:Nn \l__ustc_achievements_name_tl
           { 在读期间取得的科研成果 }
@@ -477,7 +477,8 @@
         \tl_set:Nn \l__ustc_list_figure_table_name_tl
           { List~ of~ Figures~ and~ Tables }
         \tl_set:Nn \l__ustc_list_algorithm_name_tl { List~ of~ Algorithms }
-        \tl_set:Nn \l__ustc_notation_name_tl { Notation }
+        \tl_set:Nn \l__ustc_notation_name_tl
+          { List~ of~ Symbols~ and~ Acronyms }
         \cs_set:Npn \bibname { Bibliography }
         \cs_set:Npn \appendixname { Appendix }
         \tl_set:Nn \l__ustc_acknowledgments_name_tl { Acknowledgments }
@@ -2972,7 +2973,7 @@
 
 % 默认的 \cs{chapter*} 生成的章标题没有编号、不更改页眉，
 % 也不添加进目录或 PDF 书签。
-% 然而像摘要、目录、符号说明这样的章节，它们不需要编号、不加入目录，
+% 然而像摘要、目录、符符号和缩略语说明这样的章节，它们不需要编号、不加入目录，
 % 但是需要修改页眉，并且加入 PDF 标签。
 % 所以我们新定义 \cs{__ustc_chapter:w} 用于处理这些章节。
 \NewDocumentCommand \__ustc_chapter:w { o m }
