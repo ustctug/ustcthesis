@@ -1331,12 +1331,19 @@
         \DeclareRobustCommand \mathellipsis
           { \mathinner { \ldotp \ldotp \ldotp } }
       }
-    \cs_set_eq:NN \__ustc_save_real_part: \Re
-    \cs_set_eq:NN \__ustc_save_imaginary_part: \Im
-    \bool_if:NT \l__ustc_real_part_roman_bool
+    \cs_if_exist:NF \__ustc_save_real_part:
+      {
+        \cs_set_eq:NN \__ustc_save_real_part: \Re
+        \cs_set_eq:NN \__ustc_save_imaginary_part: \Im
+      }
+    \bool_if:NTF \l__ustc_real_part_roman_bool
       {
         \cs_set_protected:Npn \Re { \operatorname { Re } }
         \cs_set_protected:Npn \Im { \operatorname { Im } }
+      }
+      {
+        \cs_set_eq:NN \Re \__ustc_save_real_part:
+        \cs_set_eq:NN \Im \__ustc_save_imaginary_part:
       }
   }
 
@@ -1373,12 +1380,19 @@
         \DeclareRobustCommand \mathellipsis
           { \mathinner { \ldotp \ldotp \ldotp } }
       }
-    \cs_set_eq:NN \__ustc_save_real_part: \Re
-    \cs_set_eq:NN \__ustc_save_imaginary_part: \Im
-    \bool_if:NT \l__ustc_real_part_roman_bool
+    \cs_if_exist:NF \__ustc_save_real_part:
+      {
+        \cs_set_eq:NN \__ustc_save_real_part: \Re
+        \cs_set_eq:NN \__ustc_save_imaginary_part: \Im
+      }
+    \bool_if:NTF \l__ustc_real_part_roman_bool
       {
         \cs_set_protected:Npn \Re { \operatorname { Re } }
         \cs_set_protected:Npn \Im { \operatorname { Im } }
+      }
+      {
+        \cs_set_eq:NN \Re \__ustc_save_real_part:
+        \cs_set_eq:NN \Im \__ustc_save_imaginary_part:
       }
     \RequirePackage { bm }
     \cs_set_protected:Npn \symup ##1 { { \mathrm {##1} } }
