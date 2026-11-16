@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [5.1.1] - 2026-11-16
+
 ### Changed
 
 - 中英文题名页顶部的下划线改为纵向对齐。
@@ -37,20 +39,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
-- 同步研究生院 2026-10-24 修改。
-    - 封面加了“学术/专业学位”。
+- 同步研究生院 2026-10-24 的修改。
+    - 封面新增“学术学位/专业学位”。
     - 更新封面和中文题名页的布局，移除英文题名。
     - 添加英文题名页。
-    - 修改了使用授权声明中控阅年份。
+    - 修改了使用授权声明中的控阅年份。
     - 修改了 AI 工具使用声明页的内容。
-
 - 题名页的密级默认不再显示“公开”。
 
 ## [5.0.2] - 2026-09-27
 
 ### Changed
 
-- 参考文献：带连字符拼音姓名（如“Li Jiang-Ning”）改为按照拼音规则处理（[zepinglee/gbt7714-bibtex-style#207](https://github.com/zepinglee/gbt7714-bibtex-style/issues/207)）。
+- 参考文献：带连字符的拼音姓名（如“Li Jiang-Ning”）改为按拼音规则处理（[zepinglee/gbt7714-bibtex-style#207](https://github.com/zepinglee/gbt7714-bibtex-style/issues/207)）。
 - 更新密级的格式（同步[研究生院 2026-09-21](https://github.com/ustctug/ustcthesis/issues/503#issuecomment-5856465056) 的修改）。
 
 ### Fixed
@@ -69,14 +70,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - 添加“使用人工智能工具声明” `\declarationofaiusage`。
 - 添加 BibTeX 模式的 `\addbibresource` 和 `\printbibliography` 命令。
-- BibTeX 顺序编码制的样式名称改为 `ustcthesis-numeric.bst`。
-- `biblatex-numeric` 添加 `inline = true / false` 选项控制格式为上标或行内。
+- biblatex `ustcthesis-numeric` 样式添加 `inline = true / false` 选项，控制引用格式为上标或行内。
 
 ### Changed
 
 - “学科专业”的选项改为 `discipline`。
 - 章节标题中的英文和数字改用无衬线字体（Arial）。
 - 参考文献格式改为 GB/T 7714—2025 版。
+- BibTeX 顺序编码制的样式名称改为 `ustcthesis-numeric.bst`。
 
 ### Deprecated
 
@@ -215,14 +216,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - 空白页添加页码（研究生院 2024-12-05 Word 模板修改，[#390](https://github.com/ustctug/ustcthesis/issues/390#issuecomment-2652974038)）。
 - 修改符号说明的页脚样式（研究生院 2024-12-05 Word 模板修改，[#411](https://github.com/ustctug/ustcthesis/issues/411#issuecomment-2656237617)）。
 - 图注较短时居中（[#414](https://github.com/ustctug/ustcthesis/issues/414)）。
-- 修改章节标题的格式（研究生院 2024-12-05 Word 模板修改，[#411](https://github.com/ustctug/ustcthesis/issues/390#issuecomment-2677732743)）。
+- 修改章节标题的格式（研究生院 2024-12-05 Word 模板修改，[#390](https://github.com/ustctug/ustcthesis/issues/390#issuecomment-2677732743)）。
 
 ## [4.0.0-beta.5] - 2025-02-10
 
 ### Fixed
 
 - 修正英文摘要标题“ABSTRACT”的粗体（[#411](https://github.com/ustctug/ustcthesis/issues/411#issuecomment-2577181494)）。
-- 修正中文封面的“企业导师”（[#411](https://github.com/ustctug/ustcthesis/issues/390#issuecomment-2646114373)）。
+- 修正中文封面的“企业导师”（[#390](https://github.com/ustctug/ustcthesis/issues/390#issuecomment-2646114373)）。
 
 ## [4.0.0-beta.4] - 2025-01-05
 
@@ -383,7 +384,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - 修正附录章节的编号。
 - 修正参考文献中期刊的页码前的空格（[#264](https://github.com/ustctug/ustcthesis/issues/264)）。
 
-
 ## [3.2.1] - 2020-04-03
 
 ### Added
@@ -400,20 +400,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [3.2] - 2020-01-01
 
+### Added
+
+- 导入 goodfeli/dlbook_notation 的 `math-commands.tex`。
+
 ### Changed
 
 - 使用 `\ustcsetup` 进行设置。
 - 目录开启于奇数页。
 
-### Added
-
-- 导入 goodfeli/dlbook_notation 的 `math-commands.tex`。
-
 ## [3.1.06] - 2019-05-01
 
 ### Fixed
 
-- 处理 `hyperref` 与 `unicode-math` 的兼容性问题 - [#223](https://github.com/ustctug/ustcthesis/issues/223)。
+- 处理 `hyperref` 与 `unicode-math` 的兼容性问题（[#223](https://github.com/ustctug/ustcthesis/issues/223)）。
 
 ## [3.1.05] - 2019-04-21
 
@@ -425,27 +425,27 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
-- 禁止扩大段间距 - [#209](https://github.com/ustctug/ustcthesis/issues/209)。
+- 禁止扩大段间距（[#209](https://github.com/ustctug/ustcthesis/issues/209)）。
 - 修正图表标题与正文之间的距离。
 
 ## [3.1.03] - 2019-01-01
 
 ### Fixed
 
-- 修正英文模式下的 Unicode 引号字体 - [CTeX-org/ctex-kit#309](https://github.com/CTeX-org/ctex-kit/issues/389)。
+- 修正英文模式下的 Unicode 引号字体（[CTeX-org/ctex-kit#389](https://github.com/CTeX-org/ctex-kit/issues/389)）。
 - 修正算法的格式。
 - 修正图表清单的格式。
 
 ## [3.1.02] - 2018-10-30
 
+### Added
+
+- 支持 `siunitx` 宏包。
+- 支持 `nomencl` 宏包。
+
 ### Changed
 
 - 取消依赖 `hyperref`。
-
-### Added
-
-- 支持 `siunix` 宏包。
-- 支持 `nomencl` 宏包。
 
 ### Fixed
 
@@ -532,7 +532,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
-- 更正“专业学位类型"的字体。
+- 更正“专业学位类型”的字体。
 - 专业学位的封面更正为“专业领域”。
 
 ## [3.0.4] - 2018-03-30
@@ -565,7 +565,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - 更正范数命令失效的错误。
 - 更正 paragraph 的前后距离。
 
-
 ## [3.0] - 2017-07-01
 
 ### Added
@@ -587,7 +586,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - 优化图注、算法的行距。
 - 二级以下节标题编号下采用“1.”、“(1)”、“①”。
 
-[Unreleased]: https://github.com/ustctug/ustcthesis/compare/v5.1.0...HEAD
+[Unreleased]: https://github.com/ustctug/ustcthesis/compare/v5.1.1...HEAD
+[5.1.1]: https://github.com/ustctug/ustcthesis/compare/v5.1.0...v5.1.1
 [5.1.0]: https://github.com/ustctug/ustcthesis/compare/v5.0.2...v5.1.0
 [5.0.2]: https://github.com/ustctug/ustcthesis/compare/v5.0.1...v5.0.2
 [5.0.1]: https://github.com/ustctug/ustcthesis/compare/v5.0.0...v5.0.1
@@ -612,7 +612,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [3.3.1]: https://github.com/ustctug/ustcthesis/compare/v3.3.0...v3.3.1
 [3.3.0]: https://github.com/ustctug/ustcthesis/compare/v3.2.1...v3.3.0
 [3.2.1]: https://github.com/ustctug/ustcthesis/compare/v3.2...v3.2.1
-[3.2]: https://github.com/ustctug/ustcthesis/compare/v3.2...v3.1.06
+[3.2]: https://github.com/ustctug/ustcthesis/compare/v3.1.06...v3.2
 [3.1.06]: https://github.com/ustctug/ustcthesis/compare/v3.1.05...v3.1.06
 [3.1.05]: https://github.com/ustctug/ustcthesis/compare/v3.1.04...v3.1.05
 [3.1.04]: https://github.com/ustctug/ustcthesis/compare/v3.1.03...v3.1.04
