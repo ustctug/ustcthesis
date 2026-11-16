@@ -15,7 +15,7 @@
 
 \NeedsTeXFormat{LaTeX2e}[2020-10-01]
 
-% 检查 LaTeXe kernel 版本
+% 检查 LaTeX2e kernel 版本
 \providecommand\IfFormatAtLeastTF{\@ifl@t@r\fmtversion}
 \IfFormatAtLeastTF{2020-10-01}{}
   {\ClassError{ustcthesis}{TeX Live 2021 or later version is required.}{}}
@@ -69,9 +69,9 @@
   }
 
 
-% \subsection{处理选项}
+% ## 处理选项
 
-% 提供一个 \cs{ustcsetup} 命令支持 \emph{key-value} 的方式来设置。
+% 提供一个 `\ustcsetup` 命令支持 *key-value* 的方式来设置。
 % `\l__ustc_setup_hook_tl` 用于延迟 math-font 的设置。
 \tl_new:N \l__ustc_setup_hook_tl
 \NewDocumentCommand \ustcsetup { m }
@@ -299,6 +299,8 @@
 \__ustc_define_deprecated_option:nnn { colorlogo } { badge-color } { blue }
 \__ustc_define_deprecated_option:nnn { bwlogo } { badge-color } { black }
 
+% 封面、题名页和声明页单面打印，正文部分应从另页右页开始，
+% 每一章应另起页，故使用 `openany`。
 \PassOptionsToClass { openany } { ctexbook }
 
 % 处理选项。
@@ -329,15 +331,15 @@
   { unknown .undefine: }
 
 
-% \subsection{加载文档类和宏包}
+% ## 加载文档类和宏包
 
-% 载入 \cls{ctexbook} 文档类，注意要求为 2.4.9 或更高的版本。
+% 载入 `ctexbook` 文档类，注意要求为 2.4.9 或更高的版本。
 \LoadClass
   [ UTF8 , a4paper , scheme = plain , zihao = - 4 , fontset = none ]
   { ctexbook }
 
 % 建议在模板开始处载入全部宏包，不要轻易改变加载顺序。
-% \pkg{hyperref} 在导言区的最后由用户手动载入。
+% `hyperref` 在导言区的最后由用户手动载入。
 \RequirePackage { amsmath }
 \RequirePackage { caption }
 \RequirePackage { color }
@@ -353,7 +355,7 @@
 \RequirePackage { titletoc }
 \RequirePackage { url }
 
-% 如果用户在导言区未调用 \pkg{biblatex}，则自动调用 \pkg{natbib}。
+% 如果用户在导言区未调用 `biblatex`，则自动调用 `natbib`。
 \hook_gput_code:nnn { begindocument / before } { . }
   {
     \IfPackageLoadedTF { biblatex }
@@ -362,11 +364,11 @@
   }
 
 
-% \subsection{处理语言}
+% ## 处理语言
 
-% 定义 \l__ustc_language_str，当在导言区修改 \option{language} 时，
+% 定义 `\l__ustc_language_str`，当在导言区修改 `language` 时，
 % 保存为论文的主要语言；
-% \cs{__ustc_reset_main_language:} 则用于正文中恢复为主要语言。
+% `\__ustc_reset_main_language:` 则用于正文中恢复为主要语言。
 \str_set_eq:NN \l__ustc_main_language_str \l__ustc_language_str
 \bool_set_eq:NN \l__ustc_main_language_chinese_bool
   \l__ustc_language_chinese_bool
@@ -443,7 +445,7 @@
 \tl_put_right:Nn \l__ustc_language_hook_tl { \__ustc_set_punctuations: }
 
 
-% 根据语言设置各章节的名称，只有在导言区设置 \option{language} 时会修改，
+% 根据语言设置各章节的名称，只有在导言区设置 `language` 时会修改，
 % 而在正文局部切换语言时则不变。
 
 \tl_new:N \l__ustc_list_figure_table_name_tl
@@ -452,8 +454,8 @@
 \tl_new:N \l__ustc_algorithm_name_tl
 \tl_new:N \l__ustc_acknowledgments_name_tl
 \tl_new:N \l__ustc_achievements_name_tl
-% 参考文献标题：`biblatex` 会在 \cs{begin{document}} 时用自身的语言串覆盖
-% \cs{bibname}，因此 biblatex 的标题不能用 \cs{bibname}，要用模板自己维护的名字。
+% 参考文献标题：`biblatex` 会在 `\begin{document}` 时用自身的语言串覆盖
+% `\bibname`，因此 biblatex 的标题不能用 `\bibname`，要用模板自己维护的名字。
 \tl_new:N \l__ustc_bib_name_tl
 
 \cs_new:Npn \__ustc_set_chapter_names:
@@ -525,37 +527,13 @@
 \tl_put_right:Nn \l__ustc_language_hook_tl { \__ustc_set_names: }
 
 
-% \subsection{字体}
+% ## 字体
 
 % 字号
 
 % 正文字号12 bp，研究生行距20 bp，本科生行距 20 bp；
-% 其他命令的行距按照相同的的比例设置，如表~\ref{tab:fontsize}。
-% \begin{table}
-%   \centering
-%   \caption{标准字体命令与字号、行距的对应}
-%   \label{tab:fontsize}
-%   \begin{tabular}{lllll}
-%     \toprule
-%     字体命令          & 字号 & bp   & 研究生行距 & 本科生行距 \\
-%     \midrule
-%     \cs{tiny}         & 小六 & 6.5  & 10.83      & 11.92      \\
-%     \cs{scriptsize}   & 六号 & 7.5  & 12.5       & 13.75      \\
-%     \cs{footnotesize} & 小五 & 9    & 15         & 16.5       \\
-%     \cs{small}        & 五号 & 10.5 & 17.5       & 19.25      \\
-%     \cs{normalsize}   & 小四 & 12   & 20         & 22         \\
-%     \cs{large}        & 小三 & 15   & 25         & 27.5       \\
-%     \cs{Large}        & 小二 & 18   & 30         & 33         \\
-%     \cs{LARGE}        & 二号 & 22   & 36.67      & 40.33      \\
-%     \cs{huge}         & 小一 & 24   & 40         & 44         \\
-%     \cs{Huge}         & 一号 & 26   & 43.33      & 47.67      \\
-%     \bottomrule
-%   \end{tabular}
-% \end{table}
-%
 % 表达式的行距根据需要采用，段前6磅、段后6磅。
-%
-% 注意重定义 \normalsize 应在 \pkg{unicode-math} 的 \cs{setmathfont} 前。
+% 注意重定义 `\normalsize` 应在 `unicode-math` 的 `\setmathfont` 前。
 \cs_set:Npn \normalsize
   {
     \@setfontsize \normalsize { 12 bp } { 20 bp }
@@ -564,7 +542,7 @@
     \skip_set_eq:NN \belowdisplayshortskip \abovedisplayshortskip
     \skip_set_eq:NN \belowdisplayskip \abovedisplayskip
     \cs_set_eq:NN \@listi \@listI
-    % 注意第~\ref{sec:list} 节去掉了列表的间距，所以不再修改 \cs{@listi}。
+    % 注意下文“列表”一节去掉了列表的间距，所以不再修改 `\@listi`。
   }
 \normalsize
 \cs_if_exist:NT \MakeRobust
@@ -590,7 +568,7 @@
       { \prg_return_false: }
   }
 
-% 处理 \opt{fontset}
+% 处理 `fontset`
 \str_if_eq:VnT \l__ustc_fontset_str { auto }
   {
     \sys_if_platform_windows:TF
@@ -777,7 +755,7 @@
       ]
   }
 
-% Latin Modern
+% Computer Modern
 \cs_new:Npn \__ustc_set_font_cm: { }
 
 % newtx 字体
@@ -1014,7 +992,7 @@
   { \__ustc_set_math_style: }
 \tl_gput_right:Nn \l__ustc_math_style_hook_tl { \__ustc_set_math_style: }
 
-% 针对 \pkg{unicode-math} 逐项配置数学符号。
+% 针对 `unicode-math` 逐项配置数学符号。
 
 \cs_new:Npn \__ustc_set_unimath_leq:
   {
@@ -1114,15 +1092,15 @@
             \cs_set_eq:NN \__ustc_save_real_part: \Re
             \cs_set_eq:NN \__ustc_save_imaginary_part: \Im
           }
-        % 兼容旧的粗体命令：\pkg{bm} 的 \cs{bm} 和 \pkg{amsmath} 的 \cs{boldsymbol}。
+        % 兼容旧的粗体命令：`bm` 的 `\bm` 和 `amsmath` 的 `\boldsymbol`。
         \DeclareRobustCommand \bm [ 1 ] { { \symbfit {##1} } }
         \DeclareRobustCommand \boldsymbol [ 1 ] { { \symbfit {##1} } }
-        % 兼容 \pkg{amsfonts} 和 \pkg{amssymb} 中的一些命令。
+        % 兼容 `amsfonts` 和 `amssymb` 中的一些命令。
         \cs_new:Npn \square { \mdlgwhtsquare }
         \cs_new:Npn \blacksquare { \mdlgblksquare }
         \hook_gput_code:nnn { begindocument } { . }
           { \cs_set:Npn \checkmark { \ensuremath { ✓ } } }
-        % 兼容 \pkg{amsthm} 的 \cs{qedsymbol}。
+        % 兼容 `amsthm` 的 `\qedsymbol`。
         \cs_set:Npn \__ustc_qed: { \ensuremath { \QED } }
       }
   }
@@ -1448,16 +1426,16 @@
   }
 
 
-% \subsection{纸张和页面}
-% 使用 \pkg{geometry} 宏包设置纸张和页面。
+% ## 纸张和页面
+% 使用 `geometry` 宏包设置纸张和页面。
 
 % 纸张：A4；
 
 % 纸张大小：标准A4（21.0 cm×29.7 cm）尺寸。
 % 页边距：上、下、左、右、装订线的页边距分别为：2.54 cm，2.54 cm，3.17 cm，3.17 cm，0 cm。装订线位置：左。左右对称页边距。
-% 页眉距边界 2.0 cm
-% 页脚距边界 1.5 cm
-% headheight 为 14.65 bp ≈ 0.49 cm，headsep 为 2.54 - 1.5 - 0.49 = 0.55 cm。
+% 页眉距边界 1.5 cm
+% 页脚距边界 1.75 cm
+% headheight 为 13.65 bp ≈ 0.49 cm，headsep 为 2.54 - 1.5 - 0.49 = 0.55 cm。
 \geometry
   {
     paper      = a4paper ,
@@ -1477,15 +1455,15 @@
 \cs_set_eq:NN \sectionmark \use_none:n
 \cs_set:Npn \headrulewidth { 0.75 bp }
 
-% 使用 \pkg{fancy} 需要先调用 |\pagestyle{fancy}| 再修改 \cs{chaptermark} 和
-% \cs{sectionmark}。
+% 使用 `fancyhdr` 需要先调用 `\pagestyle{fancy}` 再修改 `\chaptermark` 和
+% `\sectionmark`。
 \pagestyle { fancy }
-% 重定义默认的 |plain| page style，显示页眉和页脚。
+% 重定义默认的 `plain` page style，显示页眉和页脚。
 \fancypagestyle { plain }
   {
     \fancyhf { }
-    % 页眉与该部分的章标题相同，宋体 10.5 磅（五号）居中。
-    % 页码：宋体 10.5 磅、页面下脚居中。
+    % 页眉：内容为章级标题，五号字体，单倍行距，居中。
+    % 页码：采用五号Times New Roman体，单倍行距，居中。
     \bool_if:NTF \l__ustc_degree_graduate_bool
       {
         \fancyhead [ C ] { \__ustc_header_font: \leftmark }
@@ -1510,7 +1488,7 @@
 
 \pagestyle { plain }
 
-% |headings| 只有页眉，没有页脚，用于本科生的 front matter。
+% `headings` 只有页眉，没有页脚，用于本科生的 front matter。
 \fancypagestyle { headings } { \fancyfoot { } }
 
 % 设置特殊的 page style 不改变任何内容，用于每章首页。
@@ -1525,7 +1503,9 @@
     \fancyfoot [ C ] { \__ustc_header_font: \thepage }
   }
 
-% 控制下一个 `\cleardoublepage` 的空白页是否还有页眉页脚
+% 封面、题名页、声明页单面打印，之后的空白页不加页码。
+% 正文第 1 章之前留的空白页不需加页眉（包括页眉线），但需有连续编的页码。
+% 控制下一个 `\cleardoublepage` 的空白页是否有页码。
 \bool_new:N \g__ustc_title_page_bool
 
 \cs_set_nopar:Npn \cleardoublepage
@@ -1555,7 +1535,7 @@
     \fi
   }
 
-% 研究生要求从“中文摘要”开始页码用大写罗马数字，
+% 研究生页码：从“摘要”开始至“第1章”前结束，页码用罗马数字“I、II、III……”表示；
 % 而本科生的 frontmatter（只有致谢）不编页码，从目录开始页码用阿拉伯数字。
 \cs_set:Npn \frontmatter
   {
@@ -1567,7 +1547,7 @@
       { \pagestyle { headings } }
   }
 
-% 研究生要求“第 1 章”要另页起，但是本科生要求另面起。
+% 研究生正文第 1 章应以奇数页开始，若第 1 章之前的内容是奇数页结束，则需留空白页。
 \cs_set:Npn \mainmatter
   {
     \bool_if:NTF \l__ustc_degree_graduate_bool
@@ -1580,10 +1560,11 @@
     \@mainmattertrue
   }
 
+% 附录的标题格式与正文的章标题相同。
 \tl_gput_right:Nn \appendix { \@mainmattertrue }
 
 
-% \subsection{封面}
+% ## 封面
 
 
 % 定义用户接口：
@@ -1673,7 +1654,7 @@
 \__ustc_define_deprecated_key:nnn { professional-type* } { 2025-01-04 } { }
 \__ustc_define_deprecated_key:nnn { secret-level* } { 2026-11-16 } { }
 
-% \tl_set:Ne was not available until 2023-06-05.
+% `\tl_set:Ne` was not available until 2023-06-05.
 \cs_if_exist:NF \tl_set:Ne
   { \cs_generate_variant:Nn \tl_set:Nn { Ne } }
 
@@ -1742,7 +1723,7 @@
     secret-level = open ,
   }
 
-% 版本 v3.2 开始使用 \cs{ustcsetup} 设置接口，
+% 版本 v3.2 开始使用 `\ustcsetup` 设置接口，
 % 兼容旧版本的命令式设置。
 % Deprecated since 2020-07-01.
 \cs_new:Npn \__ustc_def_info_cmd:nn #1#2
@@ -1819,8 +1800,8 @@
     \tl_set:Nn \l__ustc_keywords_en_text_tl {#1}
   }
 
-% 重新定义 \cs{maketitle}
-% 分别生成封面、题名页。
+% 重新定义 `\maketitle`
+% 研究生生成封面、中文题名页和英文题名页；本科生只生成扉页（内封）。
 \cs_set:Npn \maketitle
   {
     \pagenumbering { Alph }
@@ -1847,11 +1828,7 @@
       { \__ustc_title_page_bachelor: }
   }
 
-% 封面：
-% 密级仿宋 14 磅；
-% 论文类型黑体 56 磅；
-% 论文题目黑体 26 磅加粗居中，单倍行距；
-% 作者姓名宋体 16 磅，1.5 倍行距；
+% 封面
 \cs_new:Npn \__ustc_cover_graduate:
   {
     \begin { titlepage }
@@ -2388,7 +2365,7 @@
     \group_end:
   }
 
-% 重定义 \env{titlepage} 环境，不修改页码。
+% 重定义 `titlepage` 环境，不修改页码。
 \RenewDocumentEnvironment { titlepage } { }
   {
     \cleardoublepage
@@ -2410,7 +2387,7 @@
     \bool_gset_true:N \g__ustc_title_page_bool
   }
 
-% 添加 PDF 书签，在 \pkg{hyperref} 载入后才有效。
+% 添加 PDF 书签，在 `hyperref` 载入后才有效。
 \cs_new:Npn \__ustc_pdf_bookmark:n #1 { }
 
 \cs_new:Npn \__ustc_thesis_name:
@@ -2455,7 +2432,7 @@
 
 % 定义校徽颜色
 %
-% 推迟定义颜色以避免调用 \pkg{xcolor} 时的警告
+% 推迟定义颜色以避免调用 `xcolor` 时的警告
 \hook_gput_code:nnn { begindocument } { . }
   { \definecolor { ustcblue } { cmyk } { 1 , 0.8 , 0 , 0 } }
 
@@ -2498,9 +2475,9 @@
   }
 
 
-% \subsection{原创性声明}
+% ## 原创性和使用授权声明
 
-% 定义原创性声明
+% 定义原创性和使用授权声明
 \tl_new:N \l__ustc_originality_file_tl
 
 \NewDocumentCommand \declarationoforiginality { O { } }
@@ -2694,7 +2671,7 @@
   }
 
 
-% \subsection{使用人工智能工具声明}
+% ## 使用人工智能工具声明
 
 \str_new:N \l__ustc_ai_usage_purpose_str
 \tl_new:N \l__ustc_ai_usage_file_tl
@@ -2825,7 +2802,7 @@
     \end { titlepage }
   }
 
-% \subsection{章节标题}
+% ## 章节标题
 
 % 研究生一般不建议使用三级节标题，不得使用三级以下节标题。
 % 本科生允许至四级节标题。
@@ -2833,7 +2810,7 @@
   { \setcounter { secnumdepth } { 3 } }
   { \setcounter { secnumdepth } { 4 } }
 
-% 用 \pkg{ctex} 的接口设置全部章节标题格式。
+% 用 `ctex` 的接口设置全部章节标题格式。
 \ctexset
   {
     % 各章标题，例如：“第1章  引言”。
@@ -2914,8 +2891,8 @@
       {
         %
         % 论文的致谢、目录、摘要和参考文献等标题用小二号（18 bp）黑体字，居中，
-        % 这通过 \cs{if@mainmatter} 区分。
-        % 正文中的标题分章、节、段三级；章、节标题居中，段标题居左，
+        % 这通过 `\if@mainmatter` 区分。
+        % 正文中的标题分章、节、段三级；章标题居中，节、段标题居左，
         % 分别用三号（16 bp）黑体、小三（15 bp）黑体、四号（14 bp）黑体。
         chapter =
           {
@@ -3011,11 +2988,11 @@
 
 \__ustc_set_section_style:
 
-% 默认的 \cs{chapter*} 生成的章标题没有编号、不更改页眉，
+% 默认的 `\chapter*` 生成的章标题没有编号、不更改页眉，
 % 也不添加进目录或 PDF 书签。
 % 然而像摘要、目录、符符号和缩略语说明这样的章节，它们不需要编号、不加入目录，
 % 但是需要修改页眉，并且加入 PDF 标签。
-% 所以我们新定义 \cs{__ustc_chapter:w} 用于处理这些章节。
+% 所以我们新定义 `\__ustc_chapter:w` 用于处理这些章节。
 \NewDocumentCommand \__ustc_chapter:w { o m }
   {
     \if@openright
@@ -3036,7 +3013,7 @@
   }
 
 
-% \subsection{创新性说明}
+% ## 创新性说明
 
 \NewDocumentEnvironment { innovations } { +b }
   {
@@ -3053,18 +3030,22 @@
   { }
 
 
-% \subsection{摘要}
+% ## 摘要
 
+% 中文摘要
 \NewDocumentEnvironment { abstract } { }
   {
     \ustcsetup { language = chinese }
     \__ustc_chapter:w { 摘要 }
   }
   {
+    % 关键词与摘要内容同页间隔一行。
     \par \null \par
+    % “关键词：”本身加粗，左对齐，悬挂缩进4个字符。
     \dim_set:Nn \hangindent { 4 em }
     \noindent
     \textbf { 关键词： }
+    % 每个关键词之间用分号间隔。
     \clist_if_empty:NTF \l__ustc_keywords_clist
       { \tl_use:N \l__ustc_keywords_text_tl }
       { \clist_use:Nn \l__ustc_keywords_clist { ； } }
@@ -3072,7 +3053,7 @@
     \__ustc_reset_main_language:
   }
 
-% 英文摘要环境
+% 英文摘要
 \NewDocumentEnvironment { abstract* } { }
   { \__ustc_abstract_en_begin: }
   { \__ustc_abstract_en_end: }
@@ -3125,14 +3106,17 @@
 % 英文摘要的关键词
 \cs_new:Npn \__ustc_abstract_en_end:
   {
+    % 英文关键词与摘要内容同页间隔一行，
     \par \null \par
     \group_begin:
+      % “KEYWORDS:”本身大写加粗，左对齐，悬挂缩进 6.5 个字符，
       \dim_set:Nn \hangindent { 6.5 em }
       \noindent
       \bool_if:NTF \l__ustc_degree_graduate_bool
         { \textbf { KEYWORDS } : }
         { \textbf { Key~ Words: } }
       \space
+      % 关键词之间用半角逗号加空一格间隔。
       \clist_if_empty:NTF \l__ustc_keywords_en_clist
         { \tl_use:N \l__ustc_keywords_en_text_tl }
         {
@@ -3157,7 +3141,7 @@
   }
 
 
-% \subsection{目录}
+% ## 目录
 
 % 研究生规定目录另面起；
 % 本科生规定从目录开始编页码，所以必须另页起。
@@ -3173,7 +3157,7 @@
     \@starttoc { toc }
   }
 
-% 下面用 \pkg{titletoc} 宏包设置目录内容的格式。
+% 下面用 `titletoc` 宏包设置目录内容的格式。
 % 先定义目录线：
 \cs_new:Npn \__ustc_leaders:
   {
@@ -3184,8 +3168,8 @@
 
 \contentsmargin { \c_zero_dim }
 
-% 目录中的章标题行采用黑体小四号字，固定行距 20 磅，段前 6 磅，段后 0 磅；
-% 其他内容采用宋体小四号字，行距 20 磅，段前、段后均为 0 磅。
+% 目录中的章标题行采用小四号字，中文采用黑体，英文和数字采用 Arial 体，固定行距 20 磅，段前 6 磅，段后 0 磅；
+% 其他内容采用宋体小四号字，英文和数字用 Times New Roman 体，行距 20 磅，段前、段后均为 0 磅。
 % 章标题行居左书写，一级节标题行缩进 1 个汉字符，二级节标题行缩进 2 个汉字符。
 % 带有序号的各级标题，其序号与题名之间均空一字符，行末右顶格。
 \bool_if:NTF \l__ustc_degree_graduate_bool
@@ -3204,7 +3188,10 @@
       { \__ustc_leaders: \thecontentspage }
   }
   {
-    % 本科生的目录使用小四宋体（同正文字体），其他同研究生的格式相近。
+    % 本科生
+    % 小四宋体，固定行距 20 磅，段前、段后 0 磅；
+    % 章标题左顶格并加粗，节标题 缩进 2 字符，段标题缩进 4 字符；
+    % 行末右顶格。
     \titlecontents { chapter }
       [ \c_zero_dim ] { \bfseries }
       { \contentspush { \thecontentslabel \quad } } { }
@@ -3258,9 +3245,8 @@
   }
 
 
-% \subsection{符号说明}
+% ## 符号和缩略语说明
 
-% 研究生规定符号说明另页起，标题字体字号等同论文正文，
 \NewDocumentEnvironment { notation } { }
   { \__ustc_chapter:w { \tl_use:N \l__ustc_notation_name_tl } }
   { }
@@ -3284,22 +3270,22 @@
   { \endlist }
 
 
-% \subsection{正文}
+% ## 正文
 
-% \cs{sloppy} 可以减少“overfull boxes”。
+% `\sloppy` 可以减少“overfull boxes”。
 \sloppy
 
-% 禁止扩大段间距。（\href{https://github.com/ustctug/ustcthesis/issues/209}{
-%   ustctug/ustcthesis\#209}）
+% 禁止扩大段间距。
+% 参见 [ustctug/ustcthesis#209](https://github.com/ustctug/ustcthesis/issues/209)。
 \raggedbottom
 
-% 段间距 0 磅。
+% 正文文字段前 0磅，段后0磅。
 \skip_zero:N \parskip
 
-% 首段缩进。
+% 正文文字段落首行左缩进 2 个汉字符。
 \ctexset { autoindent = 2 }
 
-% 首段缩进。
+% 标题后的首段也要缩进。
 \cs_set_eq:NN \@afterindentfalse \@afterindenttrue
 \@afterindenttrue
 
@@ -3307,7 +3293,7 @@
 \urlstyle { same }
 
 % 设置参考文献表的 URL 断行
-% 参考 `biblatex` 的 \biburlsetup
+% 参考 `biblatex` 的 `\biburlsetup`
 % <https://github.com/plk/biblatex/blob/dev/tex/latex/biblatex/biblatex.def>
 \mathchardef \UrlBigBreakPenalty = 100 \relax
 \mathchardef \UrlBreakPenalty = 200 \relax
@@ -3394,9 +3380,9 @@
   { \exp_args:Ne \symbol { \int_eval:n { #1 + "245F } } }
 
 % LaTeX 默认脚注按章计数，即每章的开始才重置脚注计数器；我们修改为按页计数。
-% 简单的|\@addtoreset{footnote}{page}|并不可靠，
-% \footnote{\url{https://texfaq.org/FAQ-footnpp.html}}
-% 所以我们使用 \pkg{footmisc} 宏包。
+% 简单的 `\@addtoreset{footnote}{page}` 并不可靠
+% （参见 <https://texfaq.org/FAQ-footnpp.html>），
+% 所以我们使用 `footmisc` 宏包。
 
 % 脚注线长为版心宽度的四分之一：
 \cs_set_nopar:Npn \footnoterule
@@ -3415,8 +3401,7 @@
   }
 
 
-% \subsection{列表}
-% \label{sec:list}
+% ## 列表
 
 % 调整列表中各项之间过大的间距。
 \skip_zero:N \partopsep
@@ -3450,7 +3435,7 @@
   }
 
 
-% \subsection{浮动体}
+% ## 浮动体
 
 % 图题采用宋体，加粗，字号 11 pt，居中书写，单倍行距，段前6磅，段后0磅，
 % 图序与图名之间空一个汉字符，
@@ -3458,9 +3443,9 @@
 % 表题置于表的上方，采用宋体，加粗，字号11 pt，居中书写，单倍行距，段前6磅，段后0磅。
 % 表序与表名之间空一个汉字符。
 
-% 本科生：表格、插图标题用小四宋体，Word 模板中行距为 22 pt。
+% 本科生：表格、插图标题用小四宋体。
 
-% 使用 \pkg{caption} 宏包设置图、表的格式：
+% 使用 `caption` 宏包设置图、表的格式：
 \DeclareCaptionFont { caption-title } { \__ustc_caption_title_font: }
 \DeclareCaptionFont { caption } { \__ustc_caption_font: }
 
@@ -3492,7 +3477,7 @@
     tableposition  = top ,
   }
 
-% 表单元格中的文字采用 11 pt 宋体字，单倍行距，段前3磅，段后3磅。
+% 表单元格中的文字采用宋体，字号11pt，单倍行距，段前3磅，段后3磅。
 % 对于中文，`\arraystretch` 需要设为 1 + (3 pt + 3 pt) / (11 pt * 1.3) ~= 1.42。
 % 对于英文，`\arraystretch` 需要设为 1 + (3 pt + 3 pt) / (11 pt * 1.15) ~= 1.47。
 %
@@ -3566,13 +3551,13 @@
 
 % 不宜将多个插图连续排版，插图与文字论述段落应穿插排版。
 
-% 修改默认的浮动体描述符为 |htbp|。
+% 修改默认的浮动体描述符为 `htbp`。
 % 根据 <https://texfaq.org/FAQ-floats> 的建议，不应删除 `p`。
 \cs_set_nopar:Npn \fps@figure { htbp }
 \cs_set_nopar:Npn \fps@table { htbp }
 
-% \LaTeX{} 对放置浮动体的要求比较强，这里按照 UK TeX FAQ 的建议
-% \footnote{\url{https://texfaq.org/FAQ-floats}} 对其适当放宽。
+% LaTeX 对放置浮动体的要求比较强，这里按照 UK TeX FAQ 的建议
+% （<https://texfaq.org/FAQ-floats>）对其适当放宽。
 \cs_set:Npn \topfraction { .85 }  % .7
 \cs_set:Npn \bottomfraction { .7 }  % .3
 \cs_set:Npn \textfraction { .15 }  % .2
@@ -3591,10 +3576,9 @@
 \skip_set:Nn \intextsep { 10 bp }
 
 % 由于 LaTeX2e kernel 的问题，图表等浮动体与文字前后的距离不一致，需要进行 patch。
-% 参考 \href{https://github.com/tuna/thuthesis/issues/614}{tuna/thuthesis/issues\#614}、
-% \url{https://www.zhihu.com/question/46618031} 和
-% \url{https://tex.stackexchange.com/a/40363/82731}。
-%    \begin{macrocode}
+% 参考 [tuna/thuthesis/issues#614](https://github.com/tuna/thuthesis/issues/614)、
+% <https://www.zhihu.com/question/46618031> 和
+% <https://tex.stackexchange.com/a/40363/82731>。
 \ctex_patch_cmd:Nnn \@addtocurcol
   { \vskip \intextsep }
   {
@@ -3626,7 +3610,7 @@
 \ctex_patch_cmd:Nnn \@getpen { \@M } { \@Mi }
 
 
-% \subsection{表达式}
+% ## 表达式
 
 % 重定义 `\eqref`，使`式~\eqref` 这样的写法不产生额外的空格。
 % \DeclareRobustCommand{\eqref}[1]{\textup{\tagform@{\ref{#1}}}}
@@ -3666,9 +3650,10 @@
   }
 
 
-% \subsection{参考文献}
+% ## 参考文献
 
-% 参考文献列表格式：宋体 10.5 磅，行距 20 磅，续行缩进两字，左对齐。
+% 参考文献内容部分五号字体，中文用宋体，英文用 Times New Roman 体，
+% 固定行距 20 磅，段前 0 磅、段后 0 磅。
 % 本科生依然是小四宋体。
 \cs_new:Npn \__ustc_bib_font:
   {
@@ -3708,7 +3693,7 @@
 
 \clist_new:N \g__ustc_bib_files_clist
 
-% \str_set:Ne was not available until 2023-06-05.
+% `\str_set:Ne` was not available until 2023-06-05.
 \cs_if_exist:NF \str_set:Ne
   { \cs_generate_variant:Nn \str_set:Nn  { Ne } }
 
@@ -3764,7 +3749,7 @@
   }
 
 
-% \subsection{致谢}
+% ## 致谢
 
 % 致谢环境。盲审版的内容为空。
 \NewDocumentEnvironment { acknowledgments } { +b }
@@ -3793,7 +3778,7 @@
   { \end { acknowledgments } }
 
 
-% \subsection{科研成果}
+% ## 科研成果
 
 % 科研成果环境：
 \NewDocumentEnvironment { achievements } { +b }
@@ -3867,7 +3852,7 @@
 
 
 
-% \subsection{其他宏包的设置}
+% ## 其他宏包的设置
 
 % 这些宏包并非格式要求，但是为了方便同学们使用，在这里进行简单设置。
 
@@ -3914,7 +3899,7 @@
 \__ustc_package_conflict:nn { unicode-math } { upgreek }
 
 
-% \subsubsection{\pkg{algorithm} 和 \pkg{algorithmic} 宏包}
+% ### `algorithm` 和 `algorithmic` 宏包
 
 % 按章节编号。
 \PassOptionsToPackage { chapter } { algorithm }
@@ -3951,7 +3936,7 @@
   }
 
 
-% \subsubsection{\pkg{algorithm2e} 宏包}
+% ### `algorithm2e` 宏包
 
 % 按章节编号。
 \PassOptionsToPackage { algochapter } { algorithm2e }
@@ -4001,9 +3986,9 @@
   }
 
 
-% \subsubsection{\pkg{amsthm} 宏包}
+% ### `amsthm` 宏包
 
-% \pkg{amsthm} 需要在 \pkg{newtx} 前载入，参考 \pkg{newtx} 的文档。
+% `amsthm` 需要在 `newtx` 前载入，参考 `newtx` 的文档。
 \__ustc_at_begin_package:nn { amsthm }
   {
     \IfPackageLoadedTF { newtxmath }
@@ -4075,8 +4060,8 @@
     \newtheorem { example }                 { \l__ustc_example_name_tl }
       [ chapter ]
     \newtheorem* { remark }                 { \l__ustc_remark_name_tl }
-    % \pkg{amsthm} 单独定义了 proof 环境，这里重新定义以满足格式要求。
-    % 原本模仿 \pkg{amsthm} 写成 |\item[\hskip\labelsep\hskip2em #1\hskip1em]|，
+    % `amsthm` 单独定义了 proof 环境，这里重新定义以满足格式要求。
+    % 原本模仿 `amsthm` 写成 `\item[\hskip\labelsep\hskip2em #1\hskip1em]`，
     % 但是却会多出一些间隙。
     \RenewDocumentEnvironment { proof } { O { \l__ustc_proof_name_tl } }
       {
@@ -4100,7 +4085,7 @@
   }
 
 
-% \subsubsection{\pkg{biblatex} 宏包}
+% ### `biblatex` 宏包
 
 \__ustc_at_begin_package:nn { biblatex }
   {
@@ -4117,7 +4102,7 @@
       { }
     %
     % `citestyle=ustcthesis-inline` 已过时，
-    % 改为 `citestyle=ustcthesis-numeric, autocite=inline`
+    % 改为 `citestyle=ustcthesis-numeric, inline=true`
     \IfPackageLoadedWithOptionsTF { biblatex } { citestyle=ustcthesis-inline }
       {
         \__ustc_deprecated:nnn { citestyle~ "ustcthesis-inline" }
@@ -4144,7 +4129,7 @@
   }
 
 
-% \subsubsection{\pkg{bicaption} 宏包}
+% ### `bicaption` 宏包
 
 % 若有英文图题，另起一行置于中文图题下方。
 \__ustc_at_begin_package:nn { bicaption }
@@ -4163,7 +4148,7 @@
   }
 
 
-% \subsubsection{\pkg{chapterbib} 宏包}
+% ### `chapterbib` 宏包
 
 \__ustc_at_begin_package:nn { chapterbib }
   {
@@ -4185,7 +4170,7 @@
   }
 
 
-% \subsubsection{\pkg{hyperref} 宏包}
+% ### `hyperref` 宏包
 
 \__ustc_at_end_package:nn { hyperref }
   {
@@ -4199,7 +4184,7 @@
         psdextra           = true ,
       }
     %
-    % 如果为 \opt{pdf} 样式，设置 hyperlink 颜色
+    % 如果为 `output=electronic` 样式，设置 hyperlink 颜色
     \bool_if:NTF \l__ustc_output_electronic_bool
       { \hypersetup { colorlinks = true } }
       { \hypersetup { hidelinks } }
@@ -4225,7 +4210,7 @@
           { ustcchapter. \int_use:N \g__ustc_bookmark_int }
       }
     %
-    % 在 PDF 字符串中去掉换行，以减少 \pkg{hyperref} 的警告信息。
+    % 在 PDF 字符串中去掉换行，以减少 `hyperref` 的警告信息。
     \pdfstringdefDisableCommands
       {
         \cs_set_eq:NN \\ \@empty
@@ -4235,8 +4220,8 @@
       }
   }
 %
-% 设置中文的 \cs{autoref}。
-% \footnote{\url{https://tex.stackexchange.com/a/66150/82731}}
+% 设置中文的 `\autoref`。
+% 参考 <https://tex.stackexchange.com/a/66150/82731>。
 \char_set_catcode_active:n { 126 }  % Make `~` active
 \__ustc_at_end_package:nn { hyperref }
   {
@@ -4312,7 +4297,7 @@
     \tl_put_right:Nn \l__ustc_language_hook_tl
       { \__ustc_set_hyperref_autoref_names: }
     %
-    % 本科生需要在 \tableofcontents 处切换 \pagenumbering，
+    % 本科生需要在 `\tableofcontents` 处切换 `\pagenumbering`，
     % 在使用了 notoccite 后会导致 PDF 书签的页码有误（#293），
     % 所以需要补充 <https://tex.stackexchange.com/a/593839/82731> 的 patch。
     % LuaTeX 不需要这个 patch。
@@ -4321,7 +4306,7 @@
         \cs_set_nopar:Npn \HyPL@StorePageLabel #1
           {
             \group_begin:
-              % \exp_args:NNe: Make compatible with TeX Live 2022
+              % `\exp_args:NNe`: Make compatible with TeX Live 2022
               \exp_args:NNe \cs_set_nopar:Npn \Hy@tempa
                 { \the \Hy@abspage << #1 >> }
               \immediate \write \@mainaux
@@ -4332,9 +4317,9 @@
   }
 
 
-% \subsubsection{\pkg{longtable} 宏包}
+% ### `longtable` 宏包
 
-% 对 \pkg{longtable} 跨页表格进行相同的设置。
+% 对 `longtable` 跨页表格进行相同的设置。
 \__ustc_at_end_package:nn { longtable }
   {
     \AtBeginEnvironment { longtable }
@@ -4345,13 +4330,13 @@
   }
 
 
-% \subsubsection{\pkg{mathtools} 宏包}
+% ### `mathtools` 宏包
 
-% \pkg{mathtools} 会修改 \pkg{unicode-math} 的 `\underbrace` 和 `\overbrace`，
+% `mathtools` 会修改 `unicode-math` 的 `\underbrace` 和 `\overbrace`，
 % 需要还原为 `\LaTeXunderbrace` 和 `\LaTeXoverbrace`，
-% 参考 \url{https://tex.stackexchange.com/q/521394/82731}。
+% 参考 <https://tex.stackexchange.com/q/521394/82731>。
 %
-% \pkg{mathtools} 的 `showonlyrefs` 选项修改了 `\eqref`，
+% `mathtools` 的 `showonlyrefs` 选项修改了 `\eqref`，
 % 需要重新处理括号与前后文字的空白。
 % 见 <https://github.com/tuna/thuthesis/issues/1043>。
 \__ustc_at_end_package:nn { mathtools }
@@ -4380,7 +4365,7 @@
   }
 
 
-% \subsubsection{\pkg{natbib} 宏包}
+% ### `natbib` 宏包
 
 \PassOptionsToPackage { compress } { natbib }
 
@@ -4420,24 +4405,24 @@
     \cs_new:Npn \bibstyle@authoryear
       {
         \bibpunct
-          % \NAT@cmt: The delimiter preceding a post-note
+          % `\NAT@cmt`: The delimiter preceding a post-note
           [ \ifustc@cite@punct@full ， \else ,~ \fi ]
           { \ifustc@cite@punct@full （ \else ( \fi }
           { \ifustc@cite@punct@full ） \else ) \fi }
-          % \NAT@sep: The delimiter between multiple cites
+          % `\NAT@sep`: The delimiter between multiple cites
           { \ifustc@cite@punct@full ； \else ; \fi }
           { a }
-          % \NAT@aysep: The delimiter between author and year
+          % `\NAT@aysep`: The delimiter between author and year
           { \ifustc@cite@punct@full ， \else , \fi }
-          % \NAT@yrsep: The delimiter between years with same author
+          % `\NAT@yrsep`: The delimiter between years with same author
           { \ifustc@cite@punct@full ， \else , \fi }
         \cs_gset_nopar:Npn \NAT@spacechar
           { \ifustc@cite@punct@full \else \  \fi }
       }
     \cs_new:cpn { bibstyle@author-year } { \bibstyle@authoryear }
     %
-    % 几种引用样式，与 \file{bst} 文件名保持一致，
-    % 这样在使用 \cs{bibliographystyle} 选择参考文献表的样式时也会设置对应的引用样式。
+    % 几种引用样式，与 `bst` 文件名保持一致，
+    % 这样在使用 `\bibliographystyle` 选择参考文献表的样式时也会设置对应的引用样式。
     \cs_new:cpn { bibstyle@ustcthesis-numeric } { \bibstyle@super }
     \cs_new:cpn { bibstyle@ustcthesis-authoryear } { \bibstyle@authoryear }
     % 兼容过时的样式名称
@@ -4470,7 +4455,7 @@
           { \NAT@fullfalse \NAT@citetp }
       }
     %
-    % 兼容 RevTeX 的 \cs{onlinecite} 命令。
+    % 兼容 RevTeX 的 `\onlinecite` 命令。
     \DeclareRobustCommand \onlinecite
       {
         \begingroup
@@ -4507,7 +4492,8 @@
     \skip_set:Nn \bibsep { \c_zero_dim plus .2 pt }
     % 参考文献表的编号居左。
     \cs_set_nopar:Npn \@biblabel #1 { [ #1 ] \hfill }
-    % 顺序编码制悬挂缩进 2.5 字符
+    % 顺序编码制采用悬挂格式，将序号悬挂在外。
+    % 示例中悬挂缩进 2.5 字符。
     \cs_set:Npn \NAT@bibsetnum #1
       {
         % \settowidth\labelwidth{\@biblabel{#1}}%
@@ -4532,7 +4518,7 @@
     \cs_new_nopar:Npn \bibrangedash { - }
     \cs_new_nopar:Npn \multiciterangedelim { \bibrangedash }
     %
-    % 将 super 式 \cs{citep} 引用的页码置于括号外。
+    % 将 super 式 `\citep` 引用的页码置于括号外。
     \cs_set:Npn \NAT@citesuper #1#2#3
       {
         \ifNAT@swa
@@ -4553,7 +4539,7 @@
         \endgroup
       }
     %
-    % 将 numbers 式 \cs{citep} 引用的页码置于括号外并改为上标。
+    % 将 numbers 式 `\citep` 引用的页码置于括号外并改为上标。
     \cs_set:Npn \NAT@citenum #1#2#3
       {
         \ifNAT@swa
@@ -4572,7 +4558,7 @@
         \endgroup
       }
     %
-    % 将 author-year 式 \cs{citep} 引用的页码置于括号外并改为上标：
+    % 将 author-year 式 `\citep` 引用的页码置于括号外并改为上标：
     \cs_set:Npn \NAT@cite #1#2#3
       {
         \ifNAT@swa
@@ -4590,9 +4576,9 @@
         \endgroup
       }
     %
-    % 为了将参考文献加入目录和 pdf 书签，重新定义 \pkg{natbib} 的 \cmd{bibsection}
-    % 另外如果调用了 \pkg{chapterbib} 或者使用了 \opt{sectionbib} 参数，
-    % 需要使用节标题 \cs{section}。
+    % 为了将参考文献加入目录和 pdf 书签，重新定义 `natbib` 的 `\bibsection`
+    % 另外如果调用了 `chapterbib` 或者使用了 `sectionbib` 参数，
+    % 需要使用节标题 `\section`。
     \cs_new:Npn \__ustc_bib_heading_section:
       {
         \group_begin:
@@ -4610,7 +4596,7 @@
   }
 \ExplSyntaxOff
 
-% 在 filehook 中无法使用 \cs{patchcmd}，所以只能手动重定义。
+% 在 filehook 中无法使用 `\patchcmd`，所以只能手动重定义。
 % `\NAT@citexnum` 的定义中有 `:` 字符，在 LaTeX3 中会被错误地处理为命令的一部分，
 % 所以这里关闭 LaTeX3 语法。
 \@nameuse{__ustc_at_end_package:nn}{natbib}{
@@ -4652,7 +4638,7 @@
           }{%
             \advance\@tempcnta by\@ne
             \@ifnum{\NAT@nm=\@tempcnta}{%
-              % 在顺序编码制下，\pkg{natbib} 只有在三个以上连续文献引用才会使用连接号，
+              % 在顺序编码制下，`natbib` 只有在三个以上连续文献引用才会使用连接号，
               % 这里修改为允许两个引用使用连接号。
               % 参考 https://tex.stackexchange.com/a/86991/82731 。
               %
@@ -4693,7 +4679,7 @@
       }%
         \@ifnum{\NAT@cmprs>\z@}{\NAT@last@yr}{}%
         \ifNAT@swa\else
-          % 将 numeric 式 \cs{citet} 引用的页码置于括号外并改为上标。
+          % 将 numeric 式 `\citet` 引用的页码置于括号外并改为上标。
           %
           % \@ifnum{\NAT@ctype=\z@}{%
           %   \if*#2*\else\NAT@cmt#2\fi
@@ -4701,7 +4687,7 @@
           \NAT@mbox{\NAT@@close}%
           \@ifnum{\NAT@ctype=\z@}{%
             \if*#2*\else
-              % 仿照 super 模式的 \NAT@mbox
+              % 仿照 super 模式的 `\NAT@mbox`
               \unskip\nobreak\textsuperscript{#2}%
             \fi
           }{}%
@@ -4710,7 +4696,7 @@
     }{#1}{#2}%
   }%
   %
-  % 将 author-year 式 \cs{citet} 引用的页码置于括号外并改为上标。
+  % 将 author-year 式 `\citet` 引用的页码置于括号外并改为上标。
   \def\NAT@citex%
     [#1][#2]#3{%
     \NAT@reset@parser
@@ -4748,7 +4734,7 @@
               \else
                 % \unskip
                 %
-                % 如果用全角符号，\unksip 会破坏“（张三，1984，1985）” 年份之间逗号后的空白
+                % 如果用全角符号，`\unskip` 会破坏“（张三，1984，1985）” 年份之间逗号后的空白
                 \ifustc@cite@punct@full\else
                   \unskip
                 \fi
@@ -4785,7 +4771,7 @@
               \else
                 % \unskip
                 %
-                % 如果用全角符号，\unksip 会破坏“张三（1984，1985）” 年份之间逗号后的空白
+                % 如果用全角符号，`\unskip` 会破坏“张三（1984，1985）” 年份之间逗号后的空白
                 \ifustc@cite@punct@full\else
                   \unskip
                 \fi
@@ -4812,7 +4798,7 @@
         \fi
       \fi
       }}\ifNAT@swa\else
-        % 将 author-year 式 \cs{citet} 引用的页码置于括号外并改为上标。
+        % 将 author-year 式 `\citet` 引用的页码置于括号外并改为上标。
         %
         % \if*#2*\else\NAT@cmt#2\fi
         \if\relax\NAT@date\relax\else
@@ -4827,7 +4813,7 @@
 \ExplSyntaxOn
 
 
-% \subsubsection{\pkg{nomencl} 宏包}
+% ### `nomencl` 宏包
 
 \PassOptionsToPackage { notocbasic } { nomencl }
 
@@ -4870,15 +4856,14 @@
   }
 
 
-% \subsubsection{\pkg{siunitx} 宏包}
+% ### `siunitx` 宏包
 
 \__ustc_at_end_package:nn { siunitx }
   {
-    % 兼容 v3.0.0 之前的命令。
+    % 兼容 v3.0.0 之前的 siunitx（补上 v3 中新增的命令名）。
     \@ifpackagelater { siunitx } { 2021-05-17 }
       { }
       {
-        % TODO: check the meaning of \si
         \cs_if_exist:NF \unit
           { \cs_new_eq:NN \unit \si }
         \cs_if_exist:NF \qty
@@ -4938,9 +4923,9 @@
   }
 
 
-% \subsubsection{\pkg{siunitx} 宏包}
+% ### `threeparttable` 宏包
 
-% 设置 \pkg{threeparttable} 表注的默认字号。
+% 设置 `threeparttable` 表注的默认字号。
 \__ustc_at_end_package:nn { threeparttable }
   {
     \AtBeginEnvironment { tablenotes }
