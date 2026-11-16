@@ -78,7 +78,7 @@
   {
     \tl_clear:N \l__ustc_setup_hook_tl
     \keys_set:nn { ustc } {#1}
-    \tl_use:N \l__ustc_setup_hook_tl
+    \l__ustc_setup_hook_tl
   }
 
 
@@ -129,7 +129,7 @@
         \str_if_eq:VnTF \l__ustc_degree_str { bachelor }
           { \bool_set_false:N \l__ustc_degree_graduate_bool }
           { \bool_set_true:N \l__ustc_degree_graduate_bool }
-        \tl_use:N \l__ustc_degree_hook_tl
+        \l__ustc_degree_hook_tl
       } ,
     fontset .choices:nn =
       { auto , windows , mac , ubuntu , fandol , none }
@@ -149,7 +149,7 @@
         \str_if_eq:VnTF \l__ustc_language_str { chinese }
           { \bool_set_true:N \l__ustc_language_chinese_bool }
           { \bool_set_false:N \l__ustc_language_chinese_bool }
-        \tl_use:N \l__ustc_language_hook_tl
+        \l__ustc_language_hook_tl
       } ,
     review .bool_set:N = \l__ustc_review_bool ,
     reviewer .bool_set:N = \l__ustc_reviewer_bool ,
@@ -160,25 +160,25 @@
       }
       {
         \str_set:Nn \l__ustc_font_str {#1}
-        \tl_use:N \l__ustc_font_hook_tl
+        \l__ustc_font_hook_tl
       } ,
     cjk-font .choices:nn =
       { auto , windows , mac , noto , fandol , none }
       {
         \str_set:Nn \l__ustc_cjk_font_str {#1}
-        \tl_use:N \l__ustc_cjk_font_hook_tl
+        \l__ustc_cjk_font_hook_tl
       } ,
     math-font .choices:nn =
       { auto , stix , xits , libertinus , newcm , cm , lm , newtx , none }
       {
         \str_set:Nn \l__ustc_math_font_str {#1}
-        \tl_use:N \l__ustc_math_font_hook_tl
+        \l__ustc_math_font_hook_tl
       } ,
     math-style .choices:nn =
       { TeX, ISO , GB }
       {
         \str_set:Nn \l__ustc_math_style_str {#1}
-        \tl_use:N \l__ustc_math_style_hook_tl
+        \l__ustc_math_style_hook_tl
       } ,
     uppercase-greek .choice: ,
     uppercase-greek / italic .code:n =
@@ -213,7 +213,7 @@
       { super , inline , authoryear }
       {
         \str_set:Nn \l__ustc_cite_style_str {#1}
-        \tl_use:N \l__ustc_cite_style_hook_tl
+        \l__ustc_cite_style_hook_tl
       } ,
     section-style .choice: ,
     section-style / chinese .code:n =
@@ -389,7 +389,7 @@
         \str_set_eq:NN \l__ustc_main_language_str \l__ustc_language_str
         \bool_set_eq:NN \l__ustc_main_language_chinese_bool
           \l__ustc_language_chinese_bool
-        \tl_use:N \l__ustc_main_language_hook_tl
+        \l__ustc_main_language_hook_tl
       }
   }
 
@@ -1648,8 +1648,10 @@
 
 \__ustc_define_deprecated_key:nnn { speciality } { 2026-06-09 } { discipline }
 \__ustc_define_deprecated_key:nnn { speciality* } { 2026-06-09 } { discipline* }
-\__ustc_define_deprecated_key:nnn { advisor } { 2025-01-04 } { practice-supervisor }
-\__ustc_define_deprecated_key:nnn { advisor* } { 2025-01-04 } { practice-supervisor* }
+\__ustc_define_deprecated_key:nnn { advisor } { 2025-01-04 }
+  { practice-supervisor }
+\__ustc_define_deprecated_key:nnn { advisor* } { 2025-01-04 }
+  { practice-supervisor* }
 \__ustc_define_deprecated_key:nnn { professional-type } { 2025-01-04 } { }
 \__ustc_define_deprecated_key:nnn { professional-type* } { 2025-01-04 } { }
 \__ustc_define_deprecated_key:nnn { secret-level* } { 2026-11-16 } { }
@@ -1659,8 +1661,8 @@
   { \cs_generate_variant:Nn \tl_set:Nn { Ne } }
 
 % `\regex_if_match:nnTF` was not available until 2025-05-19.
-\cs_if_exist:NF \regex_if_match:nVTF
-  { \cs_new_protected:Npn \regex_if_match:nVTF { \regex_match:nVTF } }
+\cs_if_exist:NF \regex_if_match:nVTF  % noqa: w210
+  { \cs_new_protected:Npn \regex_if_match:nVTF { \regex_match:nVTF } }  % noqa: w210
 
 \cs_if_exist:NF \regex_match:nVTF
   { \prg_generate_conditional_variant:Nnn \regex_match:nn { nV } { TF } }  % noqa: w202
@@ -1873,10 +1875,8 @@
             % 1.5 行 = 16 bp * 1.3 * 1.5
             \fontsize { 16 bp } { 31.2 bp } \selectfont
             \dim_set:Nn \hangindent { 6 em }
-            \textsf { 论文题名： } \quad
-            \tl_use:N \l__ustc_title_tl \par
-            \textsf { 学生姓名： } \quad
-            \tl_use:N \l__ustc_author_tl \par
+            \textsf { 论文题名： } \quad \l__ustc_title_tl \par
+            \textsf { 学生姓名： } \quad \l__ustc_author_tl \par
             \textsf { 导 \qquad 师： } \quad
             \clist_use:Nn \l__ustc_supervisor_clist { \quad } \par
             \clist_if_empty:NF \l__ustc_practice_supervisor_clist
@@ -1918,7 +1918,7 @@
           \centering
           \heiti \bfseries
           \fontsize { 26 bp } { 33.8 bp } \selectfont
-          \tl_use:N \l__ustc_title_tl \par
+          \l__ustc_title_tl \par
         } \par
       \__ustc_title_page_graduate_zh_bottom_info: \par
       \__ustc_reset_main_language:
@@ -2014,8 +2014,8 @@
             \fontsize { 16 bp } { 26.8 bp } \selectfont
             \cs_set:Npn \__ustc_info_item:n ##1
               { \textsf { \__ustc_spread_text:nn { 7em } {##1} ： } }
-            \__ustc_info_item:n { 学生姓名 } \tl_use:N \l__ustc_author_tl \par
-            \__ustc_info_item:n { 学号 } \tl_use:N \l__ustc_student_id_tl \par
+            \__ustc_info_item:n { 学生姓名 } \l__ustc_author_tl \par
+            \__ustc_info_item:n { 学号 } \l__ustc_student_id_tl \par
             \__ustc_info_item:n { 导师姓名 }
               \clist_use:Nn \l__ustc_supervisor_clist { \quad } \par
             \clist_if_empty:NF \l__ustc_practice_supervisor_clist
@@ -2024,9 +2024,9 @@
                 \clist_use:Nn \l__ustc_practice_supervisor_clist { \quad }
                 \par
               }
-            \__ustc_info_item:n { 院系 } \tl_use:N \l__ustc_department_tl \par
-            \__ustc_info_item:n { 学科专业 } \tl_use:N \l__ustc_discipline_tl \par
-            \__ustc_info_item:n { 研究方向 } \tl_use:N \l__ustc_research_direction_tl \par
+            \__ustc_info_item:n { 院系 } \l__ustc_department_tl \par
+            \__ustc_info_item:n { 学科专业 } \l__ustc_discipline_tl \par
+            \__ustc_info_item:n { 研究方向 } \l__ustc_research_direction_tl \par
             \__ustc_info_item:n { 论文提交日期 } \__ustc_format_date_zh: \par
           }
       }
@@ -2148,7 +2148,7 @@
     \centering
     \sffamily \bfseries
     \fontsize { \l_tmpa_dim } { \l_tmpb_dim } \selectfont
-    \tl_use:N \l__ustc_title_en_tl \par
+    \l__ustc_title_en_tl \par
   }
 
 % 英文题名页底部的作者信息
@@ -2161,25 +2161,30 @@
         \parbox [ t ] { \l_tmpa_dim }
           {
             \fontsize { 16 bp } { 26.8 bp } \selectfont
-            Student~ Name:~ \tl_use:N \l__ustc_author_en_tl \par
-            Student~ ID:~ \tl_use:N \l__ustc_student_id_tl \par
-            Supervisor
-              \int_compare:nNnT { \clist_count:N \l__ustc_supervisor_en_clist } > { 1 }
-                { s }
-              :~
-              \clist_use:Nn \l__ustc_supervisor_en_clist { ,~ } \par
+            Student~ Name:~ \l__ustc_author_en_tl \par
+            Student~ ID:~ \l__ustc_student_id_tl \par
+            \int_compare:nNnTF
+              { \clist_count:N \l__ustc_supervisor_en_clist } > { 1 }
+              { Supervisors }
+              { Supervisor }
+            :~
+            \clist_use:Nn \l__ustc_supervisor_en_clist { ,~ } \par
             \clist_if_empty:NF \l__ustc_practice_supervisor_en_clist
               {
-                Practice~ Supervisor
-                \int_compare:nNnT { \clist_count:N \l__ustc_practice_supervisor_en_clist } > { 1 }
-                  { s }
+                Practice~
+                \int_compare:nNnTF
+                  { \clist_count:N \l__ustc_practice_supervisor_en_clist }
+                  >
+                  { 1 }
+                  { Supervisors }
+                  { Supervisor }
                 :~
                 \clist_use:Nn \l__ustc_practice_supervisor_en_clist { ,~ }
                 \par
               }
-            School/Department:~ \tl_use:N \l__ustc_department_en_tl \par
-            Discipline~ \&~ Major:~ \tl_use:N \l__ustc_discipline_en_tl \par
-            Research~ Direction:~ \tl_use:N \l__ustc_research_direction_en_tl \par
+            School/Department:~ \l__ustc_department_en_tl \par
+            Discipline~ \&~ Major:~ \l__ustc_discipline_en_tl \par
+            Research~ Direction:~ \l__ustc_research_direction_en_tl \par
             Dissertation~ Submission~ Date:~ \__ustc_format_date_en: \par
           }
       }
@@ -2257,7 +2262,7 @@
         \parbox [ t ] { 325 bp }
           {
             \centering \fontsize { 15 bp } { 40 bp } \selectfont
-            \tl_use:N \l__ustc_title_tl
+            \l__ustc_title_tl
           }
       }
     \box_set_dp:Nn \l__ustc_title_box { \c_zero_dim }
@@ -2272,7 +2277,7 @@
         \parbox [ t ] { 325 bp }
           {
             \centering \fontsize { 15 bp } { 40 bp } \selectfont
-            \tl_use:N \l__ustc_title_en_tl
+            \l__ustc_title_en_tl
           }
       }
     \box_set_dp:Nn \l__ustc_title_box { \c_zero_dim }
@@ -2282,14 +2287,11 @@
 % 外封表格的院系、姓名等信息行
 \cs_new:Npn \__ustc_cover_bachelor_info_rows:
   {
-    院 \quad 系 & \multicolumn { 3 } { c }
-      { \tl_use:N \l__ustc_department_tl } \\
+    院 \quad 系 & \multicolumn { 3 } { c } { \l__ustc_department_tl } \\
     \cline { 2 - 4 }
     \noalign { \skip_vertical:n { 24 bp } }
-    姓 \quad 名 & \multicolumn { 1 } { c }
-      { \tl_use:N \l__ustc_author_tl } &
-    学 \quad 号 & \multicolumn { 1 } { c }
-      { \tl_use:N \l__ustc_student_id_tl } \\
+    姓 \quad 名 & \multicolumn { 1 } { c } { \l__ustc_author_tl } &
+    学 \quad 号 & \multicolumn { 1 } { c } { \l__ustc_student_id_tl } \\
     \cline { 2 - 2 }
     \cline { 4 - 4 }
     \noalign { \skip_vertical:n { 24 bp } }
@@ -2297,8 +2299,7 @@
       { \clist_use:Nn \l__ustc_supervisor_clist { \quad } } \\
     \cline { 2 - 4 }
     \noalign { \skip_vertical:n { 24 bp } }
-    日 \quad 期 &
-      \multicolumn { 3 } { c } { \__ustc_format_date_zh_arabic: } \\
+    日 \quad 期 & \multicolumn { 3 } { c } { \__ustc_format_date_zh_arabic: } \\
     \cline { 2 - 4 }
   }
 
@@ -2328,7 +2329,7 @@
         {
           \centering \sffamily \bfseries
           \fontsize { 26 bp } { 46.8 bp } \selectfont
-          \tl_use:N \l__ustc_title_tl \par
+          \l__ustc_title_tl \par
         }
       \par
       \__ustc_title_page_bachelor_info:
@@ -2344,21 +2345,17 @@
       \dim_zero:N \tabcolsep
       \dim_set:Nn \arrayrulewidth { 0.5 pt }
       \begin { tabular } { p { 90 bp } c }
-        作者姓名： &
-          \makebox [ 238 bp ] { \tl_use:N \l__ustc_author_tl } \\
+        作者姓名： & \makebox [ 238 bp ] { \l__ustc_author_tl } \\
         \cline { 2 - 2 }
-        学 \qquad 号： &
-          \makebox [ 238 bp ] { \tl_use:N \l__ustc_student_id_tl } \\
+        学 \qquad 号： & \makebox [ 238 bp ] { \l__ustc_student_id_tl } \\
         \cline { 2 - 2 }
-        专 \qquad 业： &
-          \makebox [ 238 bp ] { \tl_use:N \l__ustc_discipline_tl } \\
+        专 \qquad 业： & \makebox [ 238 bp ] { \l__ustc_discipline_tl } \\
         \cline { 2 - 2 }
         导 \qquad 师： &
           \makebox [ 238 bp ]
             { \clist_use:Nn \l__ustc_supervisor_clist { \quad } } \\
         \cline { 2 - 2 }
-        完成时间： &
-          \makebox [ 238 bp ] { \__ustc_format_date_zh_arabic: } \\
+        完成时间： & \makebox [ 238 bp ] { \__ustc_format_date_zh_arabic: } \\
         \cline { 2 - 2 }
       \end { tabular }
       \par
@@ -2445,7 +2442,7 @@
         \exp_args:Ne \zhnumber { \int_use:N \l__ustc_month_int } 月
         \exp_args:Ne \zhnumber { \int_use:N \l__ustc_day_int } 日
       }
-      { \tl_use:N \l__ustc_date_text_tl }
+      { \l__ustc_date_text_tl }
   }
 
 % 处理日期格式
@@ -2457,7 +2454,7 @@
         \__ustc_pad_zero:N \l__ustc_month_int -
         \__ustc_pad_zero:N \l__ustc_day_int
       }
-      { \tl_use:N \l__ustc_date_text_tl }
+      { \l__ustc_date_text_tl }
   }
 
 \cs_new:Npn \__ustc_pad_zero:N #1
@@ -2494,7 +2491,7 @@
         \cleardoublepage
         \__ustc_pdf_bookmark:n { 原创性和使用授权声明 }
         \includepdf [ pagecommand = { \thispagestyle { empty } } ]
-          { \tl_use:N \l__ustc_originality_file_tl }
+          { \l__ustc_originality_file_tl }
         \bool_gset_true:N \g__ustc_title_page_bool
       }
   }
@@ -2521,7 +2518,7 @@
   {
     \group_begin:
       \__ustc_set_cjk_space:n { \c_zero_dim plus .1 pt minus .1 pt }
-      \tl_use:N \c__ustc_originality_graduate_tl \par
+      \c__ustc_originality_graduate_tl \par
     \group_end:
     \skip_vertical:n { 38 bp }
     \noindent
@@ -2535,7 +2532,7 @@
     \@makechapterhead { 中国科学技术大学学位论文使用授权声明 }
     \group_begin:
       \__ustc_set_cjk_space:n { \c_zero_dim plus .1 pt minus .1 pt }
-      \tl_use:N \c__ustc_authorization_tl \par
+      \c__ustc_authorization_tl \par
     \group_end:
     \skip_vertical:n { 12 bp }
     \str_if_eq:VnTF \l__ustc_secret_level_str { open }
@@ -2582,7 +2579,7 @@
       \group_begin:
         \fontsize { 12 bp } { 20 bp } \selectfont
         \__ustc_set_cjk_space:n { \c_zero_dim plus .1 pt minus .1 pt }
-        \tl_use:N \c__ustc_originality_bachelor_tl \par
+        \c__ustc_originality_bachelor_tl \par
       \group_end:
       \skip_vertical:n { 38 bp }
       \group_begin:
@@ -2598,8 +2595,7 @@
 \tl_const:Nn \c__ustc_originality_graduate_tl
   {
     本人声明所呈交的学位论文，是本人在导师指导下进行研究工作所取得的成果。
-    除已特别加以标注和致谢的地方外，论文中不包含任何他人已经发表或撰写过的
-    研究成果。
+    除已特别加以标注和致谢的地方外，论文中不包含任何他人已经发表或撰写过的研究成果。
     与我一同工作的同志对本研究所做的贡献均已在论文中作了明确的说明。
   }
 
@@ -2607,21 +2603,21 @@
 \tl_const:Nn \c__ustc_authorization_tl
   {
     作为申请学位的条件之一，学位论文著作权拥有者授权中国科学技术大学拥有学位论文的部分使用权，
-    即：学校有权按有关规定向国家有关部门或机构送交论文的复印件和电子版，
-    允许论文被查阅和借阅，可以将学位论文编入《中国学位论文全文数据库》等有关数据库进行检索，
+    即：学校有权按有关规定向国家有关部门或机构送交论文的复印件和电子版，允许论文被查阅和借阅，
+    可以将学位论文编入《中国学位论文全文数据库》等有关数据库进行检索，
     可以采用影印、缩印或扫描等复制手段保存、汇编学位论文。
     本人提交的电子文档的内容和纸质论文的内容相一致，
-    如因不符而引起的学术声誉损失由本人自负。 \par
+    如因不符而引起的学术声誉损失由本人自负。\par
     控阅的学位论文在解除控阅后也遵守此规定。
   }
 
 % 本科生声明内容
 \tl_const:Nn \c__ustc_originality_bachelor_tl
   {
-    本人郑重承诺：所呈交的本科毕业论文，是本人在导师指导下进行研究工作
-    所取得的成果。除已特别加以标注和致谢的地方外，论文中不包含任何他人已经
-    发表或撰写过的研究成果。与我一同工作的同志对本研究所做的贡献均已在论文
-    中作了明确的说明。如出现侵犯他人知识产权的行为，由本人承担相应法律责任。
+    本人郑重承诺：所呈交的本科毕业论文，是本人在导师指导下进行研究工作所取得的成果。
+    除已特别加以标注和致谢的地方外，论文中不包含任何他人已经发表或撰写过的研究成果。
+    与我一同工作的同志对本研究所做的贡献均已在论文中作了明确的说明。
+    如出现侵犯他人知识产权的行为，由本人承担相应法律责任。
     本人承诺不存在抄袭、伪造、篡改、代写、买卖毕业论文(设计)等违纪行为。
   }
 
@@ -2698,7 +2694,7 @@
               { \__ustc_pdf_bookmark:n { 未使用人工智能工具声明 } }
               { \__ustc_pdf_bookmark:n { 使用人工智能工具声明  } }
             \includepdf [ pagecommand = { \thispagestyle { empty } } ]
-              { \tl_use:N \l__ustc_ai_usage_file_tl }
+              { \l__ustc_ai_usage_file_tl }
             \bool_gset_true:N \g__ustc_title_page_bool
           }
       }
@@ -2734,7 +2730,8 @@
         \textbf { 1. \enskip 使用人工智能工具的部分和用途 } \par
       \group_end:
       具体用途：
-      \underline { \skip_horizontal:n { 1.75 em } #1 \skip_horizontal:n { 1.75 em } }
+      \underline
+        { \skip_horizontal:n { 1.75 em } #1 \skip_horizontal:n { 1.75 em } }
       （例如：文献检索、语言润色、数据处理等） \par
       \skip_vertical:n { 12 bp }
       \group_begin:
@@ -3047,7 +3044,7 @@
     \textbf { 关键词： }
     % 每个关键词之间用分号间隔。
     \clist_if_empty:NTF \l__ustc_keywords_clist
-      { \tl_use:N \l__ustc_keywords_text_tl }
+      { \l__ustc_keywords_text_tl }
       { \clist_use:Nn \l__ustc_keywords_clist { ； } }
     \par
     \__ustc_reset_main_language:
@@ -3118,7 +3115,7 @@
       \space
       % 关键词之间用半角逗号加空一格间隔。
       \clist_if_empty:NTF \l__ustc_keywords_en_clist
-        { \tl_use:N \l__ustc_keywords_en_text_tl }
+        { \l__ustc_keywords_en_text_tl }
         {
           \bool_if:NTF \l__ustc_degree_graduate_bool
             { \clist_use:Nn \l__ustc_keywords_en_clist { ,~ } }
@@ -3239,7 +3236,7 @@
 
 \NewDocumentCommand \listoffiguresandtables { }
   {
-    \__ustc_chapter:w { \tl_use:N \l__ustc_list_figure_table_name_tl }
+    \__ustc_chapter:w { \l__ustc_list_figure_table_name_tl }
     \@starttoc { lof }
     \@starttoc { lot }
   }
@@ -3248,7 +3245,7 @@
 % ## 符号和缩略语说明
 
 \NewDocumentEnvironment { notation } { }
-  { \__ustc_chapter:w { \tl_use:N \l__ustc_notation_name_tl } }
+  { \__ustc_chapter:w { \l__ustc_notation_name_tl } }
   { }
 
 \cs_new_nopar:Npn \notationlabel #1 { #1 \hfil }
@@ -3683,7 +3680,7 @@
         \file_if_exist:nTF { \l_tmpa_tl .bst }
           {
             \__ustc_deprecated:nnn { style~ name~ " #1 " } { 2026-03-30 }
-              { " \tl_use:N \l_tmpa_tl " }
+              { " \l_tmpa_tl " }
             \exp_args:NV \__ustc_save_bib_style:n \l_tmpa_tl
           }
           { \__ustc_save_bib_style:n {#1} }
@@ -3755,7 +3752,7 @@
 \NewDocumentEnvironment { acknowledgments } { +b }
   {
     \@mainmatterfalse
-    \chapter { \tl_use:N \l__ustc_acknowledgments_name_tl }
+    \chapter { \l__ustc_acknowledgments_name_tl }
     \bool_if:NF \l__ustc_review_bool
       {
         #1 \par
@@ -3788,7 +3785,7 @@
         \bool_if:NF \l__ustc_review_bool
           {
             \@mainmatterfalse
-            \chapter { \tl_use:N \l__ustc_achievements_name_tl }
+            \chapter { \l__ustc_achievements_name_tl }
             \fontsize { 12 bp } { 16 bp } \selectfont
             #1 \par
           }
@@ -3804,7 +3801,7 @@
         \bool_if:NT \l__ustc_review_bool
           {
             \@mainmatterfalse
-            \chapter { \tl_use:N \l__ustc_achievements_name_tl }
+            \chapter { \l__ustc_achievements_name_tl }
             \fontsize { 12 bp } { 16 bp } \selectfont
             #1 \par
           }
@@ -3906,7 +3903,7 @@
 
 \__ustc_at_end_package:nn { algorithm }
   {
-    \floatname { algorithm  } { \tl_use:N \l__ustc_algorithm_name_tl }
+    \floatname { algorithm  } { \l__ustc_algorithm_name_tl }
     %
     % 设置算法环境的格式。
     \captionsetup [ algorithm ]
@@ -3916,7 +3913,7 @@
       }
     %
     % 设置算法清单的格式
-    \cs_set:Npn \listalgorithmname { \tl_use:N \l__ustc_list_algorithm_name_tl }
+    \cs_set:Npn \listalgorithmname { \l__ustc_list_algorithm_name_tl }
     \cs_set:Npn \listofalgorithms
       {
         \__ustc_chapter:w { \listalgorithmname }
@@ -3927,10 +3924,7 @@
       [ \c_zero_skip ] { }
       {
         \contentspush
-          {
-            \tl_use:N \l__ustc_algorithm_name_tl \nobreakspace
-            \thecontentslabel \quad
-          }
+          { \l__ustc_algorithm_name_tl \nobreakspace \thecontentslabel \quad }
       } { }
       { \__ustc_leaders: \thecontentspage }
   }
@@ -3943,9 +3937,9 @@
 
 \__ustc_at_end_package:nn { algorithm2e }
   {
-    \SetAlgorithmName { \tl_use:N \l__ustc_algorithm_name_tl }
-      { \tl_use:N \l__ustc_algorithm_name_tl }
-      { \tl_use:N \l__ustc_list_algorithm_name_tl }
+    \SetAlgorithmName { \l__ustc_algorithm_name_tl }
+      { \l__ustc_algorithm_name_tl }
+      { \l__ustc_list_algorithm_name_tl }
     %
     % 设置算法环境的格式。
     \SetAlFnt { \__ustc_table_font: }
@@ -3977,10 +3971,7 @@
       [ \c_zero_skip ] { }
       {
         \contentspush
-          {
-            \tl_use:N \l__ustc_algorithm_name_tl \nobreakspace
-            \thecontentslabel \quad
-          }
+          { \l__ustc_algorithm_name_tl \nobreakspace \thecontentslabel \quad }
       } { }
       { \__ustc_leaders: \thecontentspage }
   }
@@ -4118,7 +4109,7 @@
     \cs_set_nopar:Npn \bibfont { \__ustc_bib_font: }
     \skip_set:Nn \bibhang { 21 bp }
     \skip_set:Nn \bibitemsep { \c_zero_dim plus .2 pt }
-    \defbibheading { bibliography } [ \tl_use:N \l__ustc_bib_name_tl ]
+    \defbibheading { bibliography } [ \l__ustc_bib_name_tl ]
       { \__ustc_bib_heading:n {#1} }
     \cs_if_exist:NF \inlinecite
       { \newrobustcmd * { \inlinecite } { \parencite } }
@@ -4263,7 +4254,10 @@
           { 第 \nobreakspace ##1 \space 行 \null }
         \cs_set_nopar:Npn \theoremautorefname { 定理 }
         \cs_set_nopar:Npn \HyRef@autopageref ##1
-          { \hyperref [ {##1} ] { 第 \nobreakspace \pageref * { ##1 } \space 页 } }
+          {
+            \hyperref [ {##1} ]
+              { 第 \nobreakspace \pageref * { ##1 } \space 页 }
+          }
       }
     \cs_new:Npn \__ustc_set_hyperref_autoref_names_en:
       {
@@ -4833,7 +4827,7 @@
             \tocbasic@listhead { \list@fname }
           }
           {
-            \__ustc_chapter:w { \tl_use:N \l__ustc_notation_name_tl }
+            \__ustc_chapter:w { \l__ustc_notation_name_tl }
           }
         \nompreamble
         \legacy_if:nTF { @nomentbl }
