@@ -50,9 +50,9 @@
 
 % 兼容 LaTeX3 2024-06-01 之前的版本。
 \cs_if_exist:NF \IfPackageLoadedTF
-  { \cs_set_eq:NN \IfPackageLoadedTF \@ifpackageloaded }
+  { \cs_new_eq:NN \IfPackageLoadedTF \@ifpackageloaded }
 \cs_if_exist:NF \IfPackageLoadedWithOptionsTF
-  { \cs_set_eq:NN \IfPackageLoadedWithOptionsTF \@ifpackagewith }
+  { \cs_new_eq:NN \IfPackageLoadedWithOptionsTF \@ifpackagewith }
 
 \IfFormatAtLeastTF { 2021-11-15 }
   {
@@ -678,7 +678,7 @@
   }
 
 % XITS 字体。
-\cs_set:Npn \__ustc_set_font_xits:
+\cs_new:Npn \__ustc_set_font_xits:
   {
     \setmainfont { XITS }
       [
@@ -1085,7 +1085,7 @@
       }
   }
 
-\cs_set:Npn \__ustc_set_unimath_style:
+\cs_new:Npn \__ustc_set_unimath_style:
   {
     \bool_if:NTF \l__ustc_slanted_greek_bool
       { \unimathsetup { math-style = ISO } }
@@ -1340,8 +1340,8 @@
       }
     \cs_if_exist:NF \__ustc_save_real_part:
       {
-        \cs_set_eq:NN \__ustc_save_real_part: \Re
-        \cs_set_eq:NN \__ustc_save_imaginary_part: \Im
+        \cs_new_eq:NN \__ustc_save_real_part: \Re
+        \cs_new_eq:NN \__ustc_save_imaginary_part: \Im
       }
     \bool_if:NTF \l__ustc_real_part_roman_bool
       {
@@ -1389,8 +1389,8 @@
       }
     \cs_if_exist:NF \__ustc_save_real_part:
       {
-        \cs_set_eq:NN \__ustc_save_real_part: \Re
-        \cs_set_eq:NN \__ustc_save_imaginary_part: \Im
+        \cs_new_eq:NN \__ustc_save_real_part: \Re
+        \cs_new_eq:NN \__ustc_save_imaginary_part: \Im
       }
     \bool_if:NTF \l__ustc_real_part_roman_bool
       {
@@ -1514,7 +1514,7 @@
 \fancypagestyle { headings } { \fancyfoot { } }
 
 % 设置特殊的 page style 不改变任何内容，用于每章首页。
-\cs_set:Npn \ps@chapter { }
+\cs_new:Npn \ps@chapter { }
 \ctexset { chapter / pagestyle = chapter }
 
 % 空白页不需加页眉（包括页眉线），但需有连续编的页码。
@@ -1914,7 +1914,7 @@
   }
 
 % 中文题名页
-\cs_set:Npn \__ustc_title_page_graduate_zh:
+\cs_new:Npn \__ustc_title_page_graduate_zh:
   {
     \begin { titlepage }
       \ustcsetup { language = chinese }
@@ -2056,7 +2056,7 @@
   }
 
 % 英文题名页
-\cs_set:Npn \__ustc_title_page_graduate_en:
+\cs_new:Npn \__ustc_title_page_graduate_en:
   {
     \begin { titlepage }
       \ustcsetup { language = english }
@@ -2413,7 +2413,7 @@
 % 添加 PDF 书签，在 \pkg{hyperref} 载入后才有效。
 \cs_new:Npn \__ustc_pdf_bookmark:n #1 { }
 
-\cs_set:Nn \__ustc_thesis_name:
+\cs_new:Npn \__ustc_thesis_name:
   {
     \str_case:Vn \l__ustc_degree_str
       {
@@ -2424,7 +2424,7 @@
     学位论文
   }
 
-\cs_set:Nn \__ustc_thesis_name_en:
+\cs_new:Npn \__ustc_thesis_name_en:
   {
     \str_case:Vn \l__ustc_degree_str
       {
@@ -2435,7 +2435,7 @@
     Dissertation
   }
 
-\cs_set:Nn \__ustc_degree_type:
+\cs_new:Npn \__ustc_degree_type:
   {
     （
     \str_if_eq:VnTF \l__ustc_degree_type_str { academic }
@@ -2444,7 +2444,7 @@
     学位）
   }
 
-\cs_set:Nn \__ustc_degree_type_en:
+\cs_new:Npn \__ustc_degree_type_en:
   {
     (
     \str_if_eq:VnTF \l__ustc_degree_type_str { academic }
@@ -3540,7 +3540,7 @@
 % 多个图注则须顺序编号，注序左缩进2字，与注文之间空一字符，续行悬挂缩进左对齐，两端对齐。
 % \let\ustc@figure@note@font\ustc@caption@font
 
-\cs_set:Npn \figurenote #1
+\cs_new:Npn \figurenote #1
   {
     \group_begin:
       \captionsetup
@@ -3553,7 +3553,7 @@
       \caption * {#1}
     \group_end:
   }
-\cs_set_eq:NN \tablenote \figurenote
+\cs_new_eq:NN \tablenote \figurenote
 
 % 兼容旧版的 `\note` 命令。
 \NewDocumentCommand \note { m }
@@ -3683,7 +3683,7 @@
     \chapter {#1}
   }
 
-\cs_set_eq:NN \__ustc_save_bib_style:n \bibliographystyle
+\cs_new_eq:NN \__ustc_save_bib_style:n \bibliographystyle
 
 \prop_const_from_keyval:Nn \c__ustc_bib_style_prop
   {
@@ -4172,9 +4172,6 @@
         The~ "sectionbib"~ option~ of~ "chapterbib"~ will~ not~ work~
         when~ natbib~ is~ also~ loaded.
       }
-    % \IfPackageLoadedWithOptionsTF was not available until 2024-06-01.
-    \cs_if_exist:NF \IfPackageLoadedWithOptionsTF
-      { \cs_set_eq:NN \IfPackageLoadedWithOptionsTF \@ifpackagewith }
     \IfPackageLoadedWithOptionsTF { chapterbib } { sectionbib }
       { \msg_error:nn { ustcthesis } { chapterbib-sectionbib-conflict } }
       { }
@@ -4437,15 +4434,15 @@
         \cs_gset_nopar:Npn \NAT@spacechar
           { \ifustc@cite@punct@full \else \  \fi }
       }
-    \cs_set:cpn { bibstyle@author-year } { \bibstyle@authoryear }
+    \cs_new:cpn { bibstyle@author-year } { \bibstyle@authoryear }
     %
     % 几种引用样式，与 \file{bst} 文件名保持一致，
     % 这样在使用 \cs{bibliographystyle} 选择参考文献表的样式时也会设置对应的引用样式。
-    \cs_set:cpn { bibstyle@ustcthesis-numeric } { \bibstyle@super }
-    \cs_set:cpn { bibstyle@ustcthesis-authoryear } { \bibstyle@authoryear }
+    \cs_new:cpn { bibstyle@ustcthesis-numeric } { \bibstyle@super }
+    \cs_new:cpn { bibstyle@ustcthesis-authoryear } { \bibstyle@authoryear }
     % 兼容过时的样式名称
-    \cs_set:cpn { bibstyle@ustcthesis-numerical } { \bibstyle@super }
-    \cs_set:cpn { bibstyle@ustcthesis-bachelor } { \bibstyle@super }
+    \cs_new:cpn { bibstyle@ustcthesis-numerical } { \bibstyle@super }
+    \cs_new:cpn { bibstyle@ustcthesis-bachelor } { \bibstyle@super }
     %
     % 如果载入 `natbib` 前设置了 `cite-style`，这里先进行配置。
     % https://github.com/ustctug/ustcthesis/issues/327
@@ -4883,13 +4880,13 @@
       {
         % TODO: check the meaning of \si
         \cs_if_exist:NF \unit
-          { \cs_set_eq:NN \unit \si }
+          { \cs_new_eq:NN \unit \si }
         \cs_if_exist:NF \qty
-          { \cs_set_eq:NN \qty \SI }
+          { \cs_new_eq:NN \qty \SI }
         \cs_if_exist:NF \qtylist
-          { \cs_set_eq:NN \qtylist \SIlist }
+          { \cs_new_eq:NN \qtylist \SIlist }
         \cs_if_exist:NF \qtyrange
-          { \cs_set_eq:NN \qtyrange \SIrange }
+          { \cs_new_eq:NN \qtyrange \SIrange }
       }
     \cs_new:Npn \__ustc_set_siunitx_language:
       {
