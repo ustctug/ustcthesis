@@ -859,7 +859,7 @@
     \setCJKfamilyfont { zhsong } { Noto~ Serif~ CJK~ SC }
       [
         UprightFont    = *~ Light ,
-        UprightFont    = *~ Bold ,
+        BoldFont       = *~ Bold ,
         Script         = CJK ,
       ]
     \setCJKfamilyfont { zhhei } { Noto~ Sans~ CJK~ SC }
