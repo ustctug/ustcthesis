@@ -1,0 +1,27 @@
+\input{regression-test}
+\documentclass[degree=bachelor, fontset=fandol]{ustcthesis}
+
+% 在导言区（而不是类选项中）修改主要语言，章节名称和编号样式也应随之改变。
+\ustcsetup{language=english}
+
+\pagestyle{empty}
+\setlength\parindent{0pt}
+
+\begin{document}
+\START
+\showoutput
+
+\makeatletter
+\typeout{CONTENTS: \contentsname}
+\typeout{BIBNAME: \bibname}
+\typeout{APPENDIX: \appendixname}
+\makeatother
+
+\mainmatter
+\chapter{Introduction}
+\section{Section}
+Text.
+
+\clearpage
+\OMIT
+\end{document}

@@ -216,9 +216,17 @@
       } ,
     section-style .choice: ,
     section-style / chinese .code:n =
-      { \bool_set_true:N \l__ustc_section_style_chinese_bool } ,
+      {
+        \bool_set_true:N \l__ustc_section_style_chinese_bool
+        \cs_if_exist:NT \__ustc_set_section_style:
+          { \__ustc_set_section_style: }
+      } ,
     section-style / arabic .code:n =
-      { \bool_set_false:N \l__ustc_section_style_chinese_bool } ,
+      {
+        \bool_set_false:N \l__ustc_section_style_chinese_bool
+        \cs_if_exist:NT \__ustc_set_section_style:
+          { \__ustc_set_section_style: }
+      } ,
     badge-color .choice: ,
     badge-color / blue .code:n =
       { \bool_set_false:N \l__ustc_badge_color_black_bool } ,
@@ -369,6 +377,7 @@
         \str_set_eq:NN \l__ustc_main_language_str \l__ustc_language_str
         \bool_set_eq:NN \l__ustc_main_language_chinese_bool
           \l__ustc_language_chinese_bool
+        \tl_use:N \l__ustc_main_language_hook_tl
       }
   }
 
@@ -2749,29 +2758,56 @@
             runin      = false ,
           } ,
       }
-    %
-    % 本科生的阿拉伯数字式标题的格式与研究生几乎一致，只有中文数字式需要修改。
-    \bool_if:NT \l__ustc_section_style_chinese_bool
+  }
+
+\cs_new_protected:Npn \__ustc_set_section_style:
+  {
+    \str_if_eq:VnT \l__ustc_degree_str { bachelor }
       {
-        \ctexset
+        \bool_if:NTF \l__ustc_section_style_chinese_bool
           {
-            chapter =
+            \ctexset
               {
-                number = \chinese { chapter } ,
-              } ,
-            section =
+                chapter =
+                  {
+                    number = \chinese { chapter } ,
+                  } ,
+                section =
+                  {
+                    name   = { 第 , 节 } ,
+                    number = \chinese { section } ,
+                  } ,
+                subsection =
+                  {
+                    number    = \chinese { subsection } ,
+                    aftername = { 、 } ,
+                  } ,
+              }
+          }
+          {
+            \ctexset
               {
-                name   = { 第 , 节 } ,
-                number = \chinese { section } ,
-              } ,
-            subsection =
-              {
-                number    = \chinese { subsection } ,
-                aftername = { 、 } ,
-              } ,
+                chapter =
+                  {
+                    number = \thechapter ,
+                  } ,
+                section =
+                  {
+                    name      = { } ,
+                    number    = \thesection ,
+                    aftername = \quad ,
+                  } ,
+                subsection =
+                  {
+                    number    = \thesubsection ,
+                    aftername = \quad ,
+                  } ,
+              }
           }
       }
   }
+
+\__ustc_set_section_style:
 
 % 默认的 \cs{chapter*} 生成的章标题没有编号、不更改页眉，
 % 也不添加进目录或 PDF 书签。
