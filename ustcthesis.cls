@@ -1990,7 +1990,8 @@
     \parbox [ t ] { \textwidth }
       {
         \skip_horizontal:n { 43.5 bp }
-        \parbox [ t ] { 368 bp }
+        \dim_set:Nn \l_tmpa_dim { \textwidth - 43.5 bp }
+        \parbox [ t ] { \l_tmpa_dim }
           {
             \fontsize { 16 bp } { 26.8 bp } \selectfont
             \cs_set:Npn \__ustc_info_item:n ##1
@@ -2138,7 +2139,8 @@
     \parbox [ t ] { \textwidth }
       {
         \skip_horizontal:n { 49 bp }
-        \parbox [ t ] { 368 bp }
+        \dim_set:Nn \l_tmpa_dim { \textwidth - 49 bp }
+        \parbox [ t ] { \l_tmpa_dim }
           {
             \fontsize { 16 bp } { 26.8 bp } \selectfont
             Student~ Name:~ \tl_use:N \l__ustc_author_en_tl \par

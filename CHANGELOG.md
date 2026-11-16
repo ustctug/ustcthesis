@@ -21,6 +21,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - 修正了 `output=electronic` 选项输出双面打印格式的错误。
 - 修正盲审模式 `review=true` 下英文题名页仍然显示作者和导师姓名的问题。
 - 修正英文题名过长时溢出固定高度题名框、与下方信息重叠的问题。
+- 修正英文题名页右侧信息栏超出右侧版心的问题。
 
 ## [5.1.0] - 2026-11-12
 
