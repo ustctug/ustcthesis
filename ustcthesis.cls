@@ -1734,8 +1734,11 @@
         \ustcsetup
           {
             author  = { } ,
+            author*  = { } ,
             supervisor  = { } ,
+            supervisor*  = { } ,
             practice-supervisor  = { } ,
+            practice-supervisor*  = { } ,
             student-id = { } ,
           }
       }

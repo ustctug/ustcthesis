@@ -956,17 +956,11 @@ Overfull \hbox (1.44621pt too wide) in paragraph at lines ...
 .\hbox(0.0+0.0)x0.0
 .\glue 49.18375
 .\vbox(10.96898+161.6278)x369.37999
-..\hbox(10.96898+0.22482)x369.37999, glue set 178.11613fil
+..\hbox(10.96898+0.22482)x369.37999, glue set 274.19238fil
 ...\hbox(0.0+0.0)x0.0
 ...\TU/texgyretermes(0)/m/n/16.06 Student
 ...\glue 4.015 plus 2.00749 minus 1.33833
 ...\TU/texgyretermes(0)/m/n/16.06 Name:
-...\glue 5.35333 plus 4.01498 minus 0.66916
-...\TU/texgyretermes(0)/m/n/16.06 Student
-...\glue 4.015 plus 2.00749 minus 1.33833
-...\TU/texgyretermes(0)/m/n/16.06 Name
-...\kern -0.0002
-...\kern 0.0002
 ...\penalty 10000
 ...\glue(\parfillskip) 0.0 plus 1.0fil
 ...\glue(\rightskip) 0.0
@@ -983,30 +977,16 @@ Overfull \hbox (1.44621pt too wide) in paragraph at lines ...
 ...\glue(\rightskip) 0.0
 ..\glue(\parskip) 0.0
 ..\glue(\parskip) 0.0
-..\glue(\baselineskip) 15.7067
-..\hbox(10.96898+3.50107)x369.37999, glue set 80.87817fil
+..\glue(\baselineskip) 15.81912
+..\hbox(10.85655+3.485)x369.37999, glue set 295.00613fil
 ...\hbox(0.0+0.0)x0.0
-...\TU/texgyretermes(0)/m/n/16.06 Supervisors:
-...\glue 5.35333 plus 4.01498 minus 0.66916
-...\TU/texgyretermes(0)/m/n/16.06 Prof.
-...\glue 5.35333 plus 6.02248 minus 0.4461
-...\TU/texgyretermes(0)/m/n/16.06 Hong
-...\glue 4.015 plus 2.00749 minus 1.33833
-...\TU/texgyretermes(0)/m/n/16.06 Zhuan,
-...\glue 4.015 plus 2.50935 minus 1.07066
-...\TU/texgyretermes(0)/m/n/16.06 Prof.
-...\glue 5.35333 plus 6.02248 minus 0.4461
-...\TU/texgyretermes(0)/m/n/16.06 Li
-...\glue 4.015 plus 2.00749 minus 1.33833
-...\TU/texgyretermes(0)/m/n/16.06 Shi
-...\kern -0.0002
-...\kern 0.0002
+...\TU/texgyretermes(0)/m/n/16.06 Supervisor:
 ...\penalty 10000
 ...\glue(\parfillskip) 0.0 plus 1.0fil
 ...\glue(\rightskip) 0.0
 ..\glue(\parskip) 0.0
 ..\glue(\parskip) 0.0
-..\glue(\baselineskip) 12.43045
+..\glue(\baselineskip) 12.44652
 ..\hbox(10.96898+3.485)x369.37999, glue set 109.44357fil
 ...\hbox(0.0+0.0)x0.0
 ...\TU/texgyretermes(0)/m/n/16.06 School/Department:
@@ -1316,17 +1296,11 @@ Completed box being shipped out [5]
 ......\hbox(0.0+0.0)x0.0
 ......\glue 49.18375
 ......\vbox(10.96898+161.6278)x369.37999
-.......\hbox(10.96898+0.22482)x369.37999, glue set 178.11613fil
+.......\hbox(10.96898+0.22482)x369.37999, glue set 274.19238fil
 ........\hbox(0.0+0.0)x0.0
 ........\TU/texgyretermes(0)/m/n/16.06 Student
 ........\glue 4.015 plus 2.00749 minus 1.33833
 ........\TU/texgyretermes(0)/m/n/16.06 Name:
-........\glue 5.35333 plus 4.01498 minus 0.66916
-........\TU/texgyretermes(0)/m/n/16.06 Student
-........\glue 4.015 plus 2.00749 minus 1.33833
-........\TU/texgyretermes(0)/m/n/16.06 Name
-........\kern -0.0002
-........\kern 0.0002
 ........\penalty 10000
 ........\glue(\parfillskip) 0.0 plus 1.0fil
 ........\glue(\rightskip) 0.0
@@ -1343,30 +1317,16 @@ Completed box being shipped out [5]
 ........\glue(\rightskip) 0.0
 .......\glue(\parskip) 0.0
 .......\glue(\parskip) 0.0
-.......\glue(\baselineskip) 15.7067
-.......\hbox(10.96898+3.50107)x369.37999, glue set 80.87817fil
+.......\glue(\baselineskip) 15.81912
+.......\hbox(10.85655+3.485)x369.37999, glue set 295.00613fil
 ........\hbox(0.0+0.0)x0.0
-........\TU/texgyretermes(0)/m/n/16.06 Supervisors:
-........\glue 5.35333 plus 4.01498 minus 0.66916
-........\TU/texgyretermes(0)/m/n/16.06 Prof.
-........\glue 5.35333 plus 6.02248 minus 0.4461
-........\TU/texgyretermes(0)/m/n/16.06 Hong
-........\glue 4.015 plus 2.00749 minus 1.33833
-........\TU/texgyretermes(0)/m/n/16.06 Zhuan,
-........\glue 4.015 plus 2.50935 minus 1.07066
-........\TU/texgyretermes(0)/m/n/16.06 Prof.
-........\glue 5.35333 plus 6.02248 minus 0.4461
-........\TU/texgyretermes(0)/m/n/16.06 Li
-........\glue 4.015 plus 2.00749 minus 1.33833
-........\TU/texgyretermes(0)/m/n/16.06 Shi
-........\kern -0.0002
-........\kern 0.0002
+........\TU/texgyretermes(0)/m/n/16.06 Supervisor:
 ........\penalty 10000
 ........\glue(\parfillskip) 0.0 plus 1.0fil
 ........\glue(\rightskip) 0.0
 .......\glue(\parskip) 0.0
 .......\glue(\parskip) 0.0
-.......\glue(\baselineskip) 12.43045
+.......\glue(\baselineskip) 12.44652
 .......\hbox(10.96898+3.485)x369.37999, glue set 109.44357fil
 ........\hbox(0.0+0.0)x0.0
 ........\TU/texgyretermes(0)/m/n/16.06 School/Department:
