@@ -2040,13 +2040,7 @@
         \__ustc_degree_type_en: \par
       \group_end:
       \skip_vertical:n { 70.5 bp }
-      \parbox [ t ] [ 129 bp ] { \textwidth }
-        {
-          \centering
-          \sffamily \bfseries
-          \fontsize { 26 bp } { 29.9 bp } \selectfont
-          \tl_use:N \l__ustc_title_en_tl \par
-        } \par
+      \__ustc_title_page_graduate_en_title: \par
       \__ustc_title_page_graduate_en_bottom_info: \par
       \__ustc_reset_main_language:
     \end { titlepage }
@@ -2110,6 +2104,32 @@
           { years }
           { year }
       }
+  }
+
+% 英文题名较长时自动缩小字号，避免溢出固定高度的题名框。
+\cs_new:Npn \__ustc_title_page_graduate_en_title:
+  {
+    \dim_set:Nn \l_tmpa_dim { 26 bp }
+    \dim_set:Nn \l_tmpb_dim { 29.9 bp }
+    \vbox_set:Nn \l_tmpa_box
+      { \parbox [ t ] { \textwidth } { \__ustc_title_en: } }
+    \dim_while_do:nNnn
+      { \box_ht:N \l_tmpa_box + \box_dp:N \l_tmpa_box } > { 129 bp }
+      {
+        \dim_add:Nn \l_tmpa_dim { - 1 bp }
+        \dim_set:Nn \l_tmpb_dim { 1.15 \l_tmpa_dim }
+        \vbox_set:Nn \l_tmpa_box
+          { \parbox [ t ] { \textwidth } { \__ustc_title_en: } }
+      }
+    \parbox [ t ] [ 129 bp ] { \textwidth } { \__ustc_title_en: }
+  }
+
+\cs_new:Npn \__ustc_title_en:
+  {
+    \centering
+    \sffamily \bfseries
+    \fontsize { \l_tmpa_dim } { \l_tmpb_dim } \selectfont
+    \tl_use:N \l__ustc_title_en_tl \par
   }
 
 % 英文题名页底部的作者信息
