@@ -452,6 +452,9 @@
 \tl_new:N \l__ustc_algorithm_name_tl
 \tl_new:N \l__ustc_acknowledgments_name_tl
 \tl_new:N \l__ustc_achievements_name_tl
+% 参考文献标题：`biblatex` 会在 \cs{begin{document}} 时用自身的语言串覆盖
+% \cs{bibname}，因此 biblatex 的标题不能用 \cs{bibname}，要用模板自己维护的名字。
+\tl_new:N \l__ustc_bib_name_tl
 
 \cs_new:Npn \__ustc_set_chapter_names:
   {
@@ -461,11 +464,14 @@
           {
             \cs_set:Npn \contentsname { 目录 }
             \tl_set:Nn \bibname { 参考文献 }
+            \tl_set:Nn \l__ustc_bib_name_tl { 参考文献 }
             \tl_set:Nn \l__ustc_acknowledgments_name_tl { 致谢 }
           }
           {
             \cs_set:Npn \contentsname { 目 \quad 录 }
             \tl_set:Nn \bibname { 参 \enspace 考 \enspace 文 \enspace 献 }
+            \tl_set:Nn \l__ustc_bib_name_tl
+              { 参 \enspace 考 \enspace 文 \enspace 献 }
             \tl_set:Nn \l__ustc_acknowledgments_name_tl { 致 \quad 谢 }
           }
         \ctexset { chapter / name = { 第 , 章 } }
@@ -489,6 +495,7 @@
         \tl_set:Nn \l__ustc_notation_name_tl
           { List~ of~ Symbols~ and~ Acronyms }
         \cs_set:Npn \bibname { Bibliography }
+        \tl_set:Nn \l__ustc_bib_name_tl { Bibliography }
         \cs_set:Npn \appendixname { Appendix }
         \tl_set:Nn \l__ustc_acknowledgments_name_tl { Acknowledgments }
         \tl_set:Nn \l__ustc_achievements_name_tl { Research~ Achievements }
@@ -4126,7 +4133,8 @@
     \cs_set_nopar:Npn \bibfont { \__ustc_bib_font: }
     \skip_set:Nn \bibhang { 21 bp }
     \skip_set:Nn \bibitemsep { \c_zero_dim plus .2 pt }
-    \defbibheading { bibliography } [ \bibname ] { \__ustc_bib_heading:n {#1} }
+    \defbibheading { bibliography } [ \tl_use:N \l__ustc_bib_name_tl ]
+      { \__ustc_bib_heading:n {#1} }
     \cs_if_exist:NF \inlinecite
       { \newrobustcmd * { \inlinecite } { \parencite } }
     %

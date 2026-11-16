@@ -27,6 +27,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - 修正符号和缩略语说明的格式。
 - 修正文档类选项中单独给出的数学风格子选项（如 `uppercase-greek=italic`）被默认的 `math-style=TeX` 覆盖的问题。
 - 修正 `newtx`、`cm` 数学字体下切换 `real-part` 后 `\Re`、`\Im` 未恢复为 Fraktur 体的问题。
+- 修正 `biblatex` 的参考文献标题。
 
 ## [5.1.0] - 2026-11-12
 

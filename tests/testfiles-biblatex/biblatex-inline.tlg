@@ -606,8 +606,8 @@ Completed box being shipped out [2]
 ..\vbox(700.50723+0.0)x417.11752, glue set >20000.0fil
 ...\write-{}
 ...\write-{}
-...\write1{\@writefile{toc}{\protect \contentsline {chapter}{Bibliography}{\thepage }{}\protected@file@percent }}
-...\marks1{\__mark_value:nn {1}{Bibliography}}
+...\write1{\@writefile{toc}{\protect \contentsline {chapter}{参考文献}{\thepage }{}\protected@file@percent }}
+...\marks1{\__mark_value:nn {1}{参考文献}}
 ...\marks2{\__mark_value:nn {2}{}}
 ...\glue(\topskip) 12.0
 ...\rule(0.0+0.0)x*
@@ -616,12 +616,18 @@ Completed box being shipped out [2]
 ...\glue 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
-...\glue(\baselineskip) 9.17026
-...\hbox(11.70773+3.50107)x417.11752, glue set 164.57846fil
+...\glue(\baselineskip) 8.27089
+...\hbox(12.6071+3.01927)x417.11752, glue set 176.43877fil
 ....\glue(\leftskip) 0.0 plus 1.0fil
-....\TU/texgyreheros(0)/m/n/16.06 Bibliography
-....\kern -0.0002
-....\kern 0.0002
+....\TU/FandolHei(0)/m/n/16.06 参
+....\glue 0.0 plus 1.37729
+....\TU/FandolHei(0)/m/n/16.06 考
+....\glue 0.0 plus 1.37729
+....\TU/FandolHei(0)/m/n/16.06 文
+....\glue 0.0 plus 1.37729
+....\TU/FandolHei(0)/m/n/16.06 献
+....\kern -0.00017
+....\kern 0.00017
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0
 ....\glue(\rightskip) 0.0 plus 1.0fil
@@ -629,7 +635,7 @@ Completed box being shipped out [2]
 ...\glue 19.07124
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
-...\glue(\baselineskip) 8.41646
+...\glue(\baselineskip) 8.89825
 ...\hbox(8.15747+1.84438)x387.55893, glue set 271.92519fil, shifted 29.5586
 ....\hbox(7.12462+1.64412)x0.0
 .....\glue 0.0
