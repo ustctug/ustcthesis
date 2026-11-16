@@ -1264,6 +1264,25 @@
 \tl_new:N \l__ustc_save_tt_default_tl
 \cs_new:Npn \__ustc_set_math_font_newtx:
   {
+    \__ustc_set_math_font_newtx_save_font:
+    \bool_if:NT \l__ustc_slanted_greek_bool
+      { \PassOptionsToPackage { slantedGreek } { newtxmath } }
+    \bool_if:NT \l__ustc_integral_upright_bool
+      { \PassOptionsToPackage { upint } { newtxmath } }
+    \RequirePackage { newtxmath }
+    \__ustc_set_math_font_newtx_symbols:
+    \RequirePackage { bm }
+    \__ustc_set_math_font_newtx_restore_font:
+    \cs_set_protected:Npn \symup ##1 { { \mathrm {##1} } }
+    \cs_set_protected:Npn \symbf ##1 { { \bm {##1} } }
+    \cs_set_protected:Npn \symbfsf ##1 { { \bm {##1} } }
+    \cs_set_eq:NN \increment \upDelta
+    \cs_set:Npn \__ustc_qed: { \openbox }
+  }
+
+% 暂时切换为 NewTX 的 Type 1 字体
+\cs_new:Npn \__ustc_set_math_font_newtx_save_font:
+  {
     \str_if_eq:VnF \l__ustc_font_str { newtx }
       {
         \tl_set_eq:NN \l__ustc_save_encoding_default_tl \encodingdefault
@@ -1275,11 +1294,11 @@
         \tl_set:Nn \sfdefault { qhv }
         \tl_set:Nn \ttdefault { ntxtt }
       }
-    \bool_if:NT \l__ustc_slanted_greek_bool
-      { \PassOptionsToPackage { slantedGreek } { newtxmath } }
-    \bool_if:NT \l__ustc_integral_upright_bool
-      { \PassOptionsToPackage { upint } { newtxmath } }
-    \RequirePackage { newtxmath }
+  }
+
+% 根据数学样式选项调整 NewTX 的符号
+\cs_new:Npn \__ustc_set_math_font_newtx_symbols:
+  {
     \bool_if:NT \l__ustc_leq_slanted_bool
       {
         \cs_set_protected_nopar:Npn \le { \leqslant }
@@ -1306,7 +1325,11 @@
         \cs_set:Nn \Re { \operatorname { Re } }
         \cs_set:Nn \Im { \operatorname { Im } }
       }
-    \RequirePackage { bm }
+  }
+
+% 恢复 NewTX 之前的字体
+\cs_new:Npn \__ustc_set_math_font_newtx_restore_font:
+  {
     \str_if_eq:VnF \l__ustc_font_str { newtx }
       {
         \tl_set_eq:NN \encodingdefault \l__ustc_save_encoding_default_tl
@@ -1314,11 +1337,6 @@
         \tl_set_eq:NN \sfdefault \l__ustc_save_sf_default_tl
         \tl_set_eq:NN \ttdefault \l__ustc_save_tt_default_tl
       }
-    \cs_set_protected:Npn \symup ##1 { { \mathrm {##1} } }
-    \cs_set_protected:Npn \symbf ##1 { { \bm {##1} } }
-    \cs_set_protected:Npn \symbfsf ##1 { { \bm {##1} } }
-    \cs_set_eq:NN \increment \upDelta
-    \cs_set:Npn \__ustc_qed: { \openbox }
   }
 
 % Computer Modern
@@ -1755,7 +1773,7 @@
     \bool_if:NTF \l__ustc_degree_graduate_bool
       {
         \__ustc_cover_graduate:
-        \__ustc_title_page_graduate:
+        \__ustc_title_page_graduate_zh:
         \__ustc_title_page_graduate_en:
       }
       { \__ustc_title_page_bachelor: }
@@ -1794,82 +1812,48 @@
         \includegraphics [ height = 178 bp ] { figures/ustc-logo.pdf } \par
       \group_end:
       \skip_vertical:n { 54 bp }
-      \parbox [ t ] { \textwidth }
-        {
-          \skip_horizontal:n { 48 bp }
-          \parbox [ t ] { 368 bp }
-            {
-              % 1.5 行 = 16 bp * 1.3 * 1.5
-              \fontsize { 16 bp } { 31.2 bp } \selectfont
-              \dim_set:Nn \hangindent { 6 em }
-              \textsf { 论文题名： } \quad
-              \tl_use:N \l__ustc_title_tl \par
-              \textsf { 学生姓名： } \quad
-              \tl_use:N \l__ustc_author_tl \par
-              \textsf { 导 \qquad 师： } \quad
-              \clist_use:Nn \l__ustc_supervisor_clist { \quad } \par
-              \clist_if_empty:NF \l__ustc_practice_supervisor_clist
-                {
-                  \textsf { 实践导师： } \quad
-                  \clist_use:Nn \l__ustc_practice_supervisor_clist { \quad }
-                  \par
-                }
-              \textsf { 提交日期： } \quad \__ustc_format_date_zh: \par
-            }
-        }
+      \__ustc_cover_graduate_info:
       \__ustc_reset_main_language:
     \end { titlepage }
   }
 
+% 封面信息栏
+\cs_new:Npn \__ustc_cover_graduate_info:
+  {
+    \parbox [ t ] { \textwidth }
+      {
+        \skip_horizontal:n { 48 bp }
+        \parbox [ t ] { 368 bp }
+          {
+            % 1.5 行 = 16 bp * 1.3 * 1.5
+            \fontsize { 16 bp } { 31.2 bp } \selectfont
+            \dim_set:Nn \hangindent { 6 em }
+            \textsf { 论文题名： } \quad
+            \tl_use:N \l__ustc_title_tl \par
+            \textsf { 学生姓名： } \quad
+            \tl_use:N \l__ustc_author_tl \par
+            \textsf { 导 \qquad 师： } \quad
+            \clist_use:Nn \l__ustc_supervisor_clist { \quad } \par
+            \clist_if_empty:NF \l__ustc_practice_supervisor_clist
+              {
+                \textsf { 实践导师： } \quad
+                \clist_use:Nn \l__ustc_practice_supervisor_clist { \quad }
+                \par
+              }
+            \textsf { 提交日期： } \quad \__ustc_format_date_zh: \par
+          }
+      }
+  }
+
 % 中文题名页
-\cs_set:Npn \__ustc_title_page_graduate:
+\cs_set:Npn \__ustc_title_page_graduate_zh:
   {
     \begin { titlepage }
       \ustcsetup { language = chinese }
       \__ustc_pdf_bookmark:n { 题名页 }
       \centering
       \vspace * { - 20 bp }
-      \parbox [ t ] { \textwidth }
-        {
-          \hspace * { 5.4 bp }
-          \fontsize { 12 bp } { 15.6 bp } \selectfont
-          \__ustc_set_cjk_space:n { 1 bp }
-          中图分类号 \kern .2 em \relax ： \enskip
-          \__ustc_underline:nn { 2.5 em } { \tl_use:N \l__ustc_clc_tl } \hfill
-          \__ustc_set_cjk_space:n { 3.2 bp }
-          学校代码： \enskip
-          \dim_set:Nn \l_tmpa_dim { 2.5 em }
-          \__ustc_if_secret_level_open:F
-            { \dim_set:Nn \l_tmpa_dim { 5 em } }
-          \__ustc_underline:nn { \l_tmpa_dim } { \tl_use:N \l__ustc_school_code_tl }
-          \hspace * { 5.4 bp } \par
-          \skip_vertical:n { 6 bp }
-          \hspace * { 5.4 bp }
-          \__ustc_set_cjk_space:n { 1 bp }
-          UDC 分类号： \enskip
-          \__ustc_underline:nn { 2.5 em } { \tl_use:N \l__ustc_udc_tl } \hfill
-          密 \skip_horizontal:n { 33.7 bp } 级： \enskip
-          \__ustc_underline:nn { \l_tmpa_dim }
-            {
-              \str_case:NnF \l__ustc_secret_level_str
-                {
-                  { } { }
-                  { 公开 } { \str_use:N \l__ustc_secret_level_str }
-                  { 限制 }
-                    {
-                      \str_use:N \l__ustc_secret_level_str
-                      \int_use:N \l__ustc_secret_year_int 年
-                    }
-                }
-                {
-                  \str_use:N \l__ustc_secret_level_str \relax
-                  \symbol { "2605 } \relax
-                  \int_use:N \l__ustc_secret_year_int 年
-                }
-            }
-          \hspace * { 5.4 bp } \par
-        }
-      \par
+      \__ustc_title_page_graduate_zh_top_info: \par
       \skip_vertical:n { 34 bp }
       \includegraphics [ width = 296 bp ] { figures/ustc-name.pdf } \par
       \skip_vertical:n { 17 bp }
@@ -1891,32 +1875,94 @@
           \fontsize { 26 bp } { 33.8 bp } \selectfont
           \tl_use:N \l__ustc_title_tl \par
         } \par
-      \parbox [ t ] { \textwidth }
-        {
-          \skip_horizontal:n { 43.5 bp }
-          \parbox [ t ] { 368 bp }
-            {
-              \fontsize { 16 bp } { 26.8 bp } \selectfont
-              \cs_set:Npn \__ustc_info_item:n ##1
-                { \textsf { \__ustc_spread_text:nn { 7em } {##1} ： } }
-              \__ustc_info_item:n { 学生姓名 } \tl_use:N \l__ustc_author_tl \par
-              \__ustc_info_item:n { 学号 } \tl_use:N \l__ustc_student_id_tl \par
-              \__ustc_info_item:n { 导师姓名 }
-                \clist_use:Nn \l__ustc_supervisor_clist { \quad } \par
-              \clist_if_empty:NF \l__ustc_practice_supervisor_clist
-                {
-                  \__ustc_info_item:n { 实践导师姓名 }
-                  \clist_use:Nn \l__ustc_practice_supervisor_clist { \quad }
-                  \par
-                }
-              \__ustc_info_item:n { 院系 } \tl_use:N \l__ustc_department_tl \par
-              \__ustc_info_item:n { 学科专业 } \tl_use:N \l__ustc_discipline_tl \par
-              \__ustc_info_item:n { 研究方向 } \tl_use:N \l__ustc_research_direction_tl \par
-              \__ustc_info_item:n { 论文提交日期 } \__ustc_format_date_zh: \par
-            }
-        }
+      \__ustc_title_page_graduate_zh_bottom_info: \par
       \__ustc_reset_main_language:
     \end { titlepage }
+  }
+
+% 中文题名页顶部的分类信息
+\cs_new:Npn \__ustc_title_page_graduate_zh_top_info:
+  {
+    \parbox [ t ] { \textwidth }
+      {
+        \hspace * { 5.4 bp }
+        \fontsize { 12 bp } { 15.6 bp } \selectfont
+        \__ustc_set_cjk_space:n { 1 bp }
+        中图分类号 \kern .2 em \relax ： \enskip
+        \__ustc_underline:nn { 2.5 em } { \tl_use:N \l__ustc_clc_tl } \hfill
+        \__ustc_set_cjk_space:n { 3.2 bp }
+        学校代码： \enskip
+        \dim_set:Nn \l_tmpa_dim { 2.5 em }
+        \__ustc_if_secret_level_open:F
+          { \dim_set:Nn \l_tmpa_dim { 5 em } }
+        \__ustc_underline:nn { \l_tmpa_dim } { \tl_use:N \l__ustc_school_code_tl }
+        \hspace * { 5.4 bp } \par
+        \skip_vertical:n { 6 bp }
+        \hspace * { 5.4 bp }
+        \__ustc_set_cjk_space:n { 1 bp }
+        UDC 分类号： \enskip
+        \__ustc_underline:nn { 2.5 em } { \tl_use:N \l__ustc_udc_tl } \hfill
+        密 \skip_horizontal:n { 33.7 bp } 级： \enskip
+        \__ustc_underline:nn { \l_tmpa_dim } { \__ustc_secret_level_zh: }
+        \hspace * { 5.4 bp } \par
+      }
+  }
+
+% 中文密级
+\cs_new:Npn \__ustc_secret_level_zh:
+  {
+    \str_case:NnF \l__ustc_secret_level_str
+      {
+        { } { }
+        { 公开 } { \str_use:N \l__ustc_secret_level_str }
+        { 限制 }
+          {
+            \str_use:N \l__ustc_secret_level_str
+            \int_use:N \l__ustc_secret_year_int 年
+          }
+      }
+      {
+        \str_use:N \l__ustc_secret_level_str \relax
+        \symbol { "2605 } \relax
+        \int_use:N \l__ustc_secret_year_int 年
+      }
+  }
+
+\cs_new:Npn \__ustc_spread_text:nn #1#2
+  {
+    \group_begin:
+      \__ustc_set_cjk_space:n { \c_zero_dim plus 2 filll minus 1 filll }
+      \hbox_to_wd:nn {#1} {#2}
+    \group_end:
+  }
+
+% 中文题名页底部的作者信息
+\cs_new:Npn \__ustc_title_page_graduate_zh_bottom_info:
+  {
+    \parbox [ t ] { \textwidth }
+      {
+        \skip_horizontal:n { 43.5 bp }
+        \parbox [ t ] { 368 bp }
+          {
+            \fontsize { 16 bp } { 26.8 bp } \selectfont
+            \cs_set:Npn \__ustc_info_item:n ##1
+              { \textsf { \__ustc_spread_text:nn { 7em } {##1} ： } }
+            \__ustc_info_item:n { 学生姓名 } \tl_use:N \l__ustc_author_tl \par
+            \__ustc_info_item:n { 学号 } \tl_use:N \l__ustc_student_id_tl \par
+            \__ustc_info_item:n { 导师姓名 }
+              \clist_use:Nn \l__ustc_supervisor_clist { \quad } \par
+            \clist_if_empty:NF \l__ustc_practice_supervisor_clist
+              {
+                \__ustc_info_item:n { 实践导师姓名 }
+                \clist_use:Nn \l__ustc_practice_supervisor_clist { \quad }
+                \par
+              }
+            \__ustc_info_item:n { 院系 } \tl_use:N \l__ustc_department_tl \par
+            \__ustc_info_item:n { 学科专业 } \tl_use:N \l__ustc_discipline_tl \par
+            \__ustc_info_item:n { 研究方向 } \tl_use:N \l__ustc_research_direction_tl \par
+            \__ustc_info_item:n { 论文提交日期 } \__ustc_format_date_zh: \par
+          }
+      }
   }
 
 % 密级未设置或设置为“公开”时，视为公开
@@ -1937,47 +1983,7 @@
       \__ustc_pdf_bookmark:n { Title~ page }
       \centering
       \vspace * { - 20 bp }
-      \parbox [ t ] { \textwidth }
-        {
-          \hspace * { 5.4 bp }
-          \fontsize { 12 bp } { 15.6 bp } \selectfont
-          \__ustc_set_cjk_space:n { 1 bp }
-          CLC~ No.： \enskip
-          \__ustc_underline:nn { 2.5 em } { \tl_use:N \l__ustc_clc_tl } \hfill
-          \__ustc_set_cjk_space:n { 3.2 bp }
-          University~ Code： \enskip
-          \dim_set:Nn \l_tmpa_dim { 2.5 em }
-          \__ustc_if_secret_level_open:F
-            { \dim_set:Nn \l_tmpa_dim { 5 em } }
-          \__ustc_underline:nn { \l_tmpa_dim } { \tl_use:N \l__ustc_school_code_tl }
-          \hspace * { 5.4 bp } \par
-          \skip_vertical:n { 6 bp }
-          \hspace * { 5.4 bp }
-          \__ustc_set_cjk_space:n { 1 bp }
-          UDC~ No.： \enskip
-          \__ustc_underline:nn { 2.5 em } { \tl_use:N \l__ustc_udc_tl } \hfill
-          Security~ Level： \enskip
-          \__ustc_underline:nn { \l_tmpa_dim }
-            {
-              \str_case:NnF \l__ustc_secret_level_str
-                {
-                  { } { }
-                  { 公开 } { \str_use:N \l__ustc_secret_level_en_str }
-                  { 限制 }
-                    {
-                      \str_use:N \l__ustc_secret_level_en_str
-                      \int_use:N \l__ustc_secret_year_int 年
-                    }
-                }
-                {
-                  \str_use:N \l__ustc_secret_level_en_str \relax
-                  \symbol { "2605 } \relax
-                  \int_use:N \l__ustc_secret_year_int 年
-                }
-            }
-          \hspace * { 5.4 bp } \par
-        }
-      \par
+      \__ustc_title_page_graduate_en_top_info: \par
       \skip_vertical:n { 35 bp }
       \group_begin:
         \fontsize { 20 bp } { 23 bp } \selectfont
@@ -2003,54 +2009,100 @@
           \fontsize { 26 bp } { 29.9 bp } \selectfont
           \tl_use:N \l__ustc_title_en_tl \par
         } \par
-      \parbox [ t ] { \textwidth }
-        {
-          \skip_horizontal:n { 49 bp }
-          \parbox [ t ] { 368 bp }
-            {
-              \fontsize { 16 bp } { 26.8 bp } \selectfont
-              Student~ Name:~ \tl_use:N \l__ustc_author_en_tl \par
-              Student~ ID:~ \tl_use:N \l__ustc_student_id_tl \par
-              Supervisor
-                \int_compare:nNnT { \clist_count:N \l__ustc_supervisor_en_clist } > { 1 }
-                  { s }
-                :~
-                \clist_use:Nn \l__ustc_supervisor_en_clist { ,~ } \par
-              \clist_if_empty:NF \l__ustc_practice_supervisor_en_clist
-                {
-                  Practice~ Supervisor
-                  \int_compare:nNnT { \clist_count:N \l__ustc_practice_supervisor_en_clist } > { 1 }
-                    { s }
-                  :~
-                  \clist_use:Nn \l__ustc_practice_supervisor_en_clist { ,~ }
-                  \par
-                }
-              School/Department:~ \tl_use:N \l__ustc_department_en_tl \par
-              Discipline~ \&~ Major:~ \tl_use:N \l__ustc_discipline_en_tl \par
-              Research~ Direction:~ \tl_use:N \l__ustc_research_direction_en_tl \par
-              Dissertation~ Submission~ Date:~ \__ustc_format_date_en: \par
-            }
-        }
+      \__ustc_title_page_graduate_en_bottom_info: \par
       \__ustc_reset_main_language:
     \end { titlepage }
   }
 
-
-\cs_new:Npn \__ustc_spread_text:nn #1#2
+% 英文题名页顶部的分类信息
+\cs_new:Npn \__ustc_title_page_graduate_en_top_info:
   {
-    \group_begin:
-      \__ustc_set_cjk_space:n { \c_zero_dim plus 2 filll minus 1 filll }
-      \hbox_to_wd:nn {#1} {#2}
-    \group_end:
+    \parbox [ t ] { \textwidth }
+      {
+        \hspace * { 5.4 bp }
+        \fontsize { 12 bp } { 15.6 bp } \selectfont
+        \__ustc_set_cjk_space:n { 1 bp }
+        CLC~ No.： \enskip
+        \__ustc_underline:nn { 2.5 em } { \tl_use:N \l__ustc_clc_tl } \hfill
+        \__ustc_set_cjk_space:n { 3.2 bp }
+        University~ Code： \enskip
+        \dim_set:Nn \l_tmpa_dim { 2.5 em }
+        \__ustc_if_secret_level_open:F
+          { \dim_set:Nn \l_tmpa_dim { 5 em } }
+        \__ustc_underline:nn { \l_tmpa_dim } { \tl_use:N \l__ustc_school_code_tl }
+        \hspace * { 5.4 bp } \par
+        \skip_vertical:n { 6 bp }
+        \hspace * { 5.4 bp }
+        \__ustc_set_cjk_space:n { 1 bp }
+        UDC~ No.： \enskip
+        \__ustc_underline:nn { 2.5 em } { \tl_use:N \l__ustc_udc_tl } \hfill
+        Security~ Level： \enskip
+        \__ustc_underline:nn { \l_tmpa_dim }
+          { \__ustc_secret_level_en: }
+        \hspace * { 5.4 bp } \par
+      }
+  }
+
+% 英文密级
+\cs_new:Npn \__ustc_secret_level_en:
+  {
+    \str_case:NnF \l__ustc_secret_level_str
+      {
+        { } { }
+        { 公开 } { \str_use:N \l__ustc_secret_level_en_str }
+        { 限制 }
+          {
+            \str_use:N \l__ustc_secret_level_en_str
+            \int_use:N \l__ustc_secret_year_int 年
+          }
+      }
+      {
+        \str_use:N \l__ustc_secret_level_en_str \relax
+        \symbol { "2605 } \relax
+        \int_use:N \l__ustc_secret_year_int 年
+      }
+  }
+
+% 英文题名页底部的作者信息
+\cs_new:Npn \__ustc_title_page_graduate_en_bottom_info:
+  {
+    \parbox [ t ] { \textwidth }
+      {
+        \skip_horizontal:n { 49 bp }
+        \parbox [ t ] { 368 bp }
+          {
+            \fontsize { 16 bp } { 26.8 bp } \selectfont
+            Student~ Name:~ \tl_use:N \l__ustc_author_en_tl \par
+            Student~ ID:~ \tl_use:N \l__ustc_student_id_tl \par
+            Supervisor
+              \int_compare:nNnT { \clist_count:N \l__ustc_supervisor_en_clist } > { 1 }
+                { s }
+              :~
+              \clist_use:Nn \l__ustc_supervisor_en_clist { ,~ } \par
+            \clist_if_empty:NF \l__ustc_practice_supervisor_en_clist
+              {
+                Practice~ Supervisor
+                \int_compare:nNnT { \clist_count:N \l__ustc_practice_supervisor_en_clist } > { 1 }
+                  { s }
+                :~
+                \clist_use:Nn \l__ustc_practice_supervisor_en_clist { ,~ }
+                \par
+              }
+            School/Department:~ \tl_use:N \l__ustc_department_en_tl \par
+            Discipline~ \&~ Major:~ \tl_use:N \l__ustc_discipline_en_tl \par
+            Research~ Direction:~ \tl_use:N \l__ustc_research_direction_en_tl \par
+            Dissertation~ Submission~ Date:~ \__ustc_format_date_en: \par
+          }
+      }
   }
 
 % 本科生的外封，用于学校制本厂统一印制彩色外封
 \NewDocumentCommand { \makecover } { }
-  { \__ustc_cover: }
+  { \__ustc_cover_bachelor: }
 
 \box_new:N \l__ustc_title_box
 
-\cs_new:Npn \__ustc_cover:
+\cs_new:Npn \__ustc_cover_bachelor:
   {
     \begin { titlepage }
       \ustcsetup { language = chinese }
@@ -2063,76 +2115,102 @@
         \bfseries \fontsize { 15 bp } { 16 bp } \selectfont
         \dim_zero:N \tabcolsep
         \dim_set:Nn \arrayrulewidth { 1.5 pt }
-        \begin { tabular } { l p { 140 bp } l p { 140 bp } }
-          题 \quad 目 &
-            \multicolumn { 3 } { c }
-              {
-                \multirow [ t ] { 2 } { 325 bp }
-                  {
-                    \hbox_set:Nn \l__ustc_title_box
-                      {
-                        \parbox [ t ] { 325 bp }
-                          {
-                            \centering \fontsize { 15 bp } { 40 bp } \selectfont
-                            \tl_use:N \l__ustc_title_tl
-                          }
-                      }
-                    \box_set_dp:Nn \l__ustc_title_box { \c_zero_dim }
-                    \box_use:N \l__ustc_title_box
-                  }
-              } \\
-          \cline { 2 - 4 }
-          \noalign { \skip_vertical:n { 24 bp } }
-          & & & \\
-          \cline { 2 - 4 }
-          \noalign { \skip_vertical:n { 24 bp } }
-          英 \quad 文 &
-            \multicolumn { 3 } { c }
-              {
-                \multirow [ t ] { 3 } { 325 bp }
-                  {
-                    \savebox \l__ustc_title_box
-                      {
-                        \parbox [ t ] { 325 bp }
-                          {
-                            \centering \fontsize { 15 bp } { 40 bp } \selectfont
-                            \tl_use:N \l__ustc_title_en_tl
-                          }
-                      }
-                    \box_set_dp:Nn \l__ustc_title_box { \c_zero_dim }
-                    \box_use:N \l__ustc_title_box
-                  }
-              } \\
-          \cline { 2 - 4 }
-          \noalign { \skip_vertical:n { 24 bp } }
-          题 \quad 目 & & & \\
-          \cline { 2 - 4 }
-          \noalign { \skip_vertical:n { 24 bp } }
-          & & & \\
-          \cline { 2 - 4 }
-          \noalign { \skip_vertical:n { 24 bp } }
-          院 \quad 系 & \multicolumn { 3 } { c }
-            { \tl_use:N \l__ustc_department_tl } \\
-          \cline { 2 - 4 }
-          \noalign { \skip_vertical:n { 24 bp } }
-          姓 \quad 名 & \multicolumn { 1 } { c }
-            { \tl_use:N \l__ustc_author_tl } &
-          学 \quad 号 & \multicolumn { 1 } { c }
-            { \tl_use:N \l__ustc_student_id_tl } \\
-          \cline { 2 - 2 }
-          \cline { 4 - 4 }
-          \noalign { \skip_vertical:n { 24 bp } }
-          导 \quad 师 & \multicolumn { 3 } { c }
-            { \clist_use:Nn \l__ustc_supervisor_clist { \quad } } \\
-          \cline { 2 - 4 }
-          \noalign { \skip_vertical:n { 24 bp } }
-          日 \quad 期 &
-            \multicolumn { 3 } { c } { \__ustc_format_date_zh_arabic: } \\
-          \cline { 2 - 4 }
-        \end { tabular }
+        \__ustc_cover_bachelor_table:
       \group_end:
       \__ustc_reset_main_language:
     \end { titlepage }
+  }
+
+% 外封表格
+\cs_new:Npn \__ustc_cover_bachelor_table:
+  {
+    \begin { tabular } { l p { 140 bp } l p { 140 bp } }
+      \__ustc_cover_bachelor_title_rows:
+      \__ustc_cover_bachelor_info_rows:
+    \end { tabular }
+  }
+
+% 外封表格的题名行
+\cs_new:Npn \__ustc_cover_bachelor_title_rows:
+  {
+    题 \quad 目 &
+      \multicolumn { 3 } { c }
+        {
+          \multirow [ t ] { 2 } { 325 bp }
+            { \__ustc_cover_bachelor_title_cell: }
+        } \\
+    \cline { 2 - 4 }
+    \noalign { \skip_vertical:n { 24 bp } }
+    & & & \\
+    \cline { 2 - 4 }
+    \noalign { \skip_vertical:n { 24 bp } }
+    英 \quad 文 &
+      \multicolumn { 3 } { c }
+        {
+          \multirow [ t ] { 3 } { 325 bp }
+            { \__ustc_cover_bachelor_title_en_cell: }
+        } \\
+    \cline { 2 - 4 }
+    \noalign { \skip_vertical:n { 24 bp } }
+    题 \quad 目 & & & \\
+    \cline { 2 - 4 }
+    \noalign { \skip_vertical:n { 24 bp } }
+    & & & \\
+    \cline { 2 - 4 }
+    \noalign { \skip_vertical:n { 24 bp } }
+  }
+
+% 外封题目栏中固定宽度的中文题名盒子
+\cs_new:Npn \__ustc_cover_bachelor_title_cell:
+  {
+    \hbox_set:Nn \l__ustc_title_box
+      {
+        \parbox [ t ] { 325 bp }
+          {
+            \centering \fontsize { 15 bp } { 40 bp } \selectfont
+            \tl_use:N \l__ustc_title_tl
+          }
+      }
+    \box_set_dp:Nn \l__ustc_title_box { \c_zero_dim }
+    \box_use:N \l__ustc_title_box
+  }
+
+% 外封题目栏中固定宽度的英文题名盒子
+\cs_new:Npn \__ustc_cover_bachelor_title_en_cell:
+  {
+    \savebox \l__ustc_title_box
+      {
+        \parbox [ t ] { 325 bp }
+          {
+            \centering \fontsize { 15 bp } { 40 bp } \selectfont
+            \tl_use:N \l__ustc_title_en_tl
+          }
+      }
+    \box_set_dp:Nn \l__ustc_title_box { \c_zero_dim }
+    \box_use:N \l__ustc_title_box
+  }
+
+% 外封表格的院系、姓名等信息行
+\cs_new:Npn \__ustc_cover_bachelor_info_rows:
+  {
+    院 \quad 系 & \multicolumn { 3 } { c }
+      { \tl_use:N \l__ustc_department_tl } \\
+    \cline { 2 - 4 }
+    \noalign { \skip_vertical:n { 24 bp } }
+    姓 \quad 名 & \multicolumn { 1 } { c }
+      { \tl_use:N \l__ustc_author_tl } &
+    学 \quad 号 & \multicolumn { 1 } { c }
+      { \tl_use:N \l__ustc_student_id_tl } \\
+    \cline { 2 - 2 }
+    \cline { 4 - 4 }
+    \noalign { \skip_vertical:n { 24 bp } }
+    导 \quad 师 & \multicolumn { 3 } { c }
+      { \clist_use:Nn \l__ustc_supervisor_clist { \quad } } \\
+    \cline { 2 - 4 }
+    \noalign { \skip_vertical:n { 24 bp } }
+    日 \quad 期 &
+      \multicolumn { 3 } { c } { \__ustc_format_date_zh_arabic: } \\
+    \cline { 2 - 4 }
   }
 
 % 本科生的扉页（内封）
@@ -2164,32 +2242,38 @@
           \tl_use:N \l__ustc_title_tl \par
         }
       \par
-      \group_begin:
-        \skip_horizontal:n { 10 bp }
-        \heiti \fontsize { 16 bp } { 31.7 bp } \selectfont
-        \dim_zero:N \tabcolsep
-        \dim_set:Nn \arrayrulewidth { 0.5 pt }
-        \begin { tabular } { p { 90 bp } c }
-          作者姓名： &
-            \makebox [ 238 bp ] { \tl_use:N \l__ustc_author_tl } \\
-          \cline { 2 - 2 }
-          学 \qquad 号： &
-            \makebox [ 238 bp ] { \tl_use:N \l__ustc_student_id_tl } \\
-          \cline { 2 - 2 }
-          专 \qquad 业： &
-            \makebox [ 238 bp ] { \tl_use:N \l__ustc_discipline_tl } \\
-          \cline { 2 - 2 }
-          导 \qquad 师： &
-            \makebox [ 238 bp ]
-              { \clist_use:Nn \l__ustc_supervisor_clist { \quad } } \\
-          \cline { 2 - 2 }
-          完成时间： &
-            \makebox [ 238 bp ] { \__ustc_format_date_zh_arabic: } \\
-          \cline { 2 - 2 }
-        \end { tabular }
-        \par
-      \group_end:
+      \__ustc_title_page_bachelor_info:
     \end { titlepage }
+  }
+
+% 本科生的扉页信息栏
+\cs_new:Npn \__ustc_title_page_bachelor_info:
+  {
+    \group_begin:
+      \skip_horizontal:n { 10 bp }
+      \heiti \fontsize { 16 bp } { 31.7 bp } \selectfont
+      \dim_zero:N \tabcolsep
+      \dim_set:Nn \arrayrulewidth { 0.5 pt }
+      \begin { tabular } { p { 90 bp } c }
+        作者姓名： &
+          \makebox [ 238 bp ] { \tl_use:N \l__ustc_author_tl } \\
+        \cline { 2 - 2 }
+        学 \qquad 号： &
+          \makebox [ 238 bp ] { \tl_use:N \l__ustc_student_id_tl } \\
+        \cline { 2 - 2 }
+        专 \qquad 业： &
+          \makebox [ 238 bp ] { \tl_use:N \l__ustc_discipline_tl } \\
+        \cline { 2 - 2 }
+        导 \qquad 师： &
+          \makebox [ 238 bp ]
+            { \clist_use:Nn \l__ustc_supervisor_clist { \quad } } \\
+        \cline { 2 - 2 }
+        完成时间： &
+          \makebox [ 238 bp ] { \__ustc_format_date_zh_arabic: } \\
+        \cline { 2 - 2 }
+      \end { tabular }
+      \par
+    \group_end:
   }
 
 % 重定义 \env{titlepage} 环境，不修改页码。
@@ -2873,40 +2957,56 @@
 
 % 英文摘要环境
 \NewDocumentEnvironment { abstract* } { }
+  { \__ustc_abstract_en_begin: }
+  { \__ustc_abstract_en_end: }
+
+% 英文摘要的标题
+\cs_new:Npn \__ustc_abstract_en_begin:
   {
     \ustcsetup { language = english }
     \bool_if:NTF \l__ustc_degree_graduate_bool
-      {
-        \group_begin:
-          \ctexset
-            {
-              chapter =
-                {
-                  format =
-                    {
-                      \centering \sffamily \bfseries
-                      \fontsize { 16 bp } { 18.4 bp } \selectfont
-                    } ,
-                  beforeskip = 9 bp ,
-                  afterskip  = 17 bp ,
-                }
-            }
-          \__ustc_chapter:w { ABSTRACT }
-        \group_end:
-      }
-      {
-        \group_begin:
-          % 本科生的英文摘要使用小二号衬线体
-          \ctexset
-            {
-              chapter / format =
-                { \centering \fontsize { 18 bp } { 33 bp } \selectfont }
-            }
-          \__ustc_chapter:w { ABSTRACT }
-        \group_end:
-      }
+      { \__ustc_abstract_en_heading_graduate: }
+      { \__ustc_abstract_en_heading_bachelor: }
     \ctexset { autoindent = 2 em }
   }
+
+% 英文摘要中研究生的标题格式
+\cs_new:Npn \__ustc_abstract_en_heading_graduate:
+  {
+    \group_begin:
+      \ctexset
+        {
+          chapter =
+            {
+              format =
+                {
+                  \centering \sffamily \bfseries
+                  \fontsize { 16 bp } { 18.4 bp } \selectfont
+                } ,
+              beforeskip = 9 bp ,
+              afterskip  = 17 bp ,
+            }
+        }
+      \__ustc_chapter:w { ABSTRACT }
+    \group_end:
+  }
+
+% 英文摘要中本科生的标题格式
+\cs_new:Npn \__ustc_abstract_en_heading_bachelor:
+  {
+    \group_begin:
+      % 本科生的英文摘要使用小二号衬线体
+      \ctexset
+        {
+          chapter / format =
+            { \centering \fontsize { 18 bp } { 33 bp } \selectfont }
+        }
+      \__ustc_chapter:w { ABSTRACT }
+    \group_end:
+  }
+
+% 英文摘要的关键词
+\cs_new:Npn \__ustc_abstract_en_end:
   {
     \par \null \par
     \group_begin:
@@ -4026,61 +4126,65 @@
     \cs_new:Npn \__ustc_set_hyperref_autoref_names:
       {
         \bool_if:NTF \l__ustc_language_chinese_bool
+          { \__ustc_set_hyperref_autoref_names_zh: }
+          { \__ustc_set_hyperref_autoref_names_en: }
+      }
+    \cs_new:Npn \__ustc_set_hyperref_autoref_names_zh:
+      {
+        \cs_set_nopar:Npn \equationautorefname ~ ##1 \null
           {
-            \cs_set_nopar:Npn \equationautorefname ~ ##1 \null
-              {
-                \bool_if:NTF \l__ustc_eqn_paren_style_full_bool
-                  { 公式 \nobreak \tagform@ {##1} \null }
-                  { 公式 \nobreakspace \tagform@ {##1} \null }
-              }
-            \cs_set_nopar:Npn \footnoteautorefname { 脚注 }
-            \cs_set_nopar:Npn \itemautorefname ~ ##1 \null
-              { 第 \nobreakspace ##1 \space 项 \null }
-            \cs_set_nopar:Npn \figureautorefname { 图 }
-            \cs_set_nopar:Npn \tableautorefname { 表 }
-            \cs_set_nopar:Npn \partautorefname ~ ##1 \null
-              { 第 \nobreakspace ##1 \space 部分 \null }
-            \cs_set_nopar:Npn \appendixautorefname { 附录 }
-            \cs_set_nopar:Npn \chapterautorefname ~ ##1 \null
-              { 第 \nobreakspace ##1 \space 章 \null }
-            \cs_set_nopar:Npn \sectionautorefname ~ ##1 \null
-              { 第 \nobreakspace ##1 \space 节 \null }
-            \cs_set_nopar:Npn \subsectionautorefname ~ ##1 \null
-              { 第 \nobreakspace ##1 \space 节 \null }
-            \cs_set_nopar:Npn \subsubsectionautorefname ~ ##1 \null
-              { 第 \nobreakspace ##1 \space 节 \null }
-            \cs_set_nopar:Npn \paragraphautorefname ~ ##1 \null
-              { 第 \nobreakspace ##1 \space 段 \null }
-            \cs_set_nopar:Npn \subparagraphautorefname ~ ##1 \null
-              { 第 \nobreakspace ##1 \space 段 \null }
-            \cs_set_nopar:Npn \FancyVerbLineautorefname ~ ##1 \null
-              { 第 \nobreakspace ##1 \space 行 \null }
-            \cs_set_nopar:Npn \theoremautorefname { 定理 }
-            \cs_set_nopar:Npn \HyRef@autopageref ##1
-              { \hyperref [ {##1} ] { 第 \nobreakspace \pageref * { ##1 } \space 页 } }
+            \bool_if:NTF \l__ustc_eqn_paren_style_full_bool
+              { 公式 \nobreak \tagform@ {##1} \null }
+              { 公式 \nobreakspace \tagform@ {##1} \null }
           }
+        \cs_set_nopar:Npn \footnoteautorefname { 脚注 }
+        \cs_set_nopar:Npn \itemautorefname ~ ##1 \null
+          { 第 \nobreakspace ##1 \space 项 \null }
+        \cs_set_nopar:Npn \figureautorefname { 图 }
+        \cs_set_nopar:Npn \tableautorefname { 表 }
+        \cs_set_nopar:Npn \partautorefname ~ ##1 \null
+          { 第 \nobreakspace ##1 \space 部分 \null }
+        \cs_set_nopar:Npn \appendixautorefname { 附录 }
+        \cs_set_nopar:Npn \chapterautorefname ~ ##1 \null
+          { 第 \nobreakspace ##1 \space 章 \null }
+        \cs_set_nopar:Npn \sectionautorefname ~ ##1 \null
+          { 第 \nobreakspace ##1 \space 节 \null }
+        \cs_set_nopar:Npn \subsectionautorefname ~ ##1 \null
+          { 第 \nobreakspace ##1 \space 节 \null }
+        \cs_set_nopar:Npn \subsubsectionautorefname ~ ##1 \null
+          { 第 \nobreakspace ##1 \space 节 \null }
+        \cs_set_nopar:Npn \paragraphautorefname ~ ##1 \null
+          { 第 \nobreakspace ##1 \space 段 \null }
+        \cs_set_nopar:Npn \subparagraphautorefname ~ ##1 \null
+          { 第 \nobreakspace ##1 \space 段 \null }
+        \cs_set_nopar:Npn \FancyVerbLineautorefname ~ ##1 \null
+          { 第 \nobreakspace ##1 \space 行 \null }
+        \cs_set_nopar:Npn \theoremautorefname { 定理 }
+        \cs_set_nopar:Npn \HyRef@autopageref ##1
+          { \hyperref [ {##1} ] { 第 \nobreakspace \pageref * { ##1 } \space 页 } }
+      }
+    \cs_new:Npn \__ustc_set_hyperref_autoref_names_en:
+      {
+        \cs_set_nopar:Npn \equationautorefname ~ ##1 \null
+          { Equation \nobreakspace \tagform@ {##1} \null }
+        \cs_set_nopar:Npn \footnoteautorefname { footnote }
+        \cs_set_nopar:Npn \itemautorefname { item }
+        \cs_set_nopar:Npn \figureautorefname { Figure }
+        \cs_set_nopar:Npn \tableautorefname { Table }
+        \cs_set_nopar:Npn \partautorefname { Part }
+        \cs_set_nopar:Npn \appendixautorefname { Appendix }
+        \cs_set_nopar:Npn \chapterautorefname { chapter }
+        \cs_set_nopar:Npn \sectionautorefname { section }
+        \cs_set_nopar:Npn \subsectionautorefname { subsection }
+        \cs_set_nopar:Npn \subsubsectionautorefname { subsubsection }
+        \cs_set_nopar:Npn \paragraphautorefname { paragraph }
+        \cs_set_nopar:Npn \subparagraphautorefname { subparagraph }
+        \cs_set_nopar:Npn \FancyVerbLineautorefname { line }
+        \cs_set_nopar:Npn \theoremautorefname { Theorem }
+        \cs_set_nopar:Npn \HyRef@autopageref ##1
           {
-            \cs_set_nopar:Npn \equationautorefname ~ ##1 \null
-              { Equation \nobreakspace \tagform@ {##1} \null }
-            \cs_set_nopar:Npn \footnoteautorefname { footnote }
-            \cs_set_nopar:Npn \itemautorefname { item }
-            \cs_set_nopar:Npn \figureautorefname { Figure }
-            \cs_set_nopar:Npn \tableautorefname { Table }
-            \cs_set_nopar:Npn \partautorefname { Part }
-            \cs_set_nopar:Npn \appendixautorefname { Appendix }
-            \cs_set_nopar:Npn \chapterautorefname { chapter }
-            \cs_set_nopar:Npn \sectionautorefname { section }
-            \cs_set_nopar:Npn \subsectionautorefname { subsection }
-            \cs_set_nopar:Npn \subsubsectionautorefname { subsubsection }
-            \cs_set_nopar:Npn \paragraphautorefname { paragraph }
-            \cs_set_nopar:Npn \subparagraphautorefname { subparagraph }
-            \cs_set_nopar:Npn \FancyVerbLineautorefname { line }
-            \cs_set_nopar:Npn \theoremautorefname { Theorem }
-            \cs_set_nopar:Npn \HyRef@autopageref ##1
-              {
-                \hyperref [ { ##1 } ]
-                  { \HyRef@autopagerefname \pageref * {##1} }
-              }
+            \hyperref [ { ##1 } ]
+              { \HyRef@autopagerefname \pageref * {##1} }
           }
       }
   }
