@@ -51,6 +51,8 @@
 % 兼容 LaTeX3 2024-06-01 之前的版本。
 \cs_if_exist:NF \IfPackageLoadedTF
   { \cs_set_eq:NN \IfPackageLoadedTF \@ifpackageloaded }
+\cs_if_exist:NF \IfPackageLoadedWithOptionsTF
+  { \cs_set_eq:NN \IfPackageLoadedWithOptionsTF \@ifpackagewith }
 
 \IfFormatAtLeastTF { 2021-11-15 }
   {
