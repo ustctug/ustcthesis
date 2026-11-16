@@ -1335,8 +1335,8 @@
     \cs_set_eq:NN \__ustc_save_imaginary_part: \Im
     \bool_if:NT \l__ustc_real_part_roman_bool
       {
-        \cs_set:Nn \Re { \operatorname { Re } }
-        \cs_set:Nn \Im { \operatorname { Im } }
+        \cs_set_protected:Npn \Re { \operatorname { Re } }
+        \cs_set_protected:Npn \Im { \operatorname { Im } }
       }
   }
 
@@ -1377,8 +1377,8 @@
     \cs_set_eq:NN \__ustc_save_imaginary_part: \Im
     \bool_if:NT \l__ustc_real_part_roman_bool
       {
-        \cs_set:Nn \Re { \operatorname { Re } }
-        \cs_set:Nn \Im { \operatorname { Im } }
+        \cs_set_protected:Npn \Re { \operatorname { Re } }
+        \cs_set_protected:Npn \Im { \operatorname { Im } }
       }
     \RequirePackage { bm }
     \cs_set_protected:Npn \symup ##1 { { \mathrm {##1} } }
