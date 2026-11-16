@@ -7,9 +7,9 @@ Package fontspec Info:
 (fontspec)              
 (fontspec)             - 'normal' (m/n) with NFSS spec.: <->"[FandolHei-Regular.otf]/OT:language=dflt;"
 (fontspec)             - 'bold' (b/n) with NFSS spec.: <->"[FandolHei-Bold.otf]/OT:language=dflt;"
-(main-loft.lof)
+(list-of-figures-and-tables.lof)
 \tf@lof=\write...
-(main-loft.lot)
+(list-of-figures-and-tables.lot)
 \tf@lot=\write...
 Completed box being shipped out [1]
 \vbox(722.98453+4.11038)x435.04271
