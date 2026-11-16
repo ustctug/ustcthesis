@@ -4434,7 +4434,7 @@
     % 几种引用样式，与 \file{bst} 文件名保持一致，
     % 这样在使用 \cs{bibliographystyle} 选择参考文献表的样式时也会设置对应的引用样式。
     \cs_set:cpn { bibstyle@ustcthesis-numeric } { \bibstyle@super }
-    \cs_set:cpn { bibstyle@ustcthesis-authoryear } { \foo \bibstyle@authoryear }
+    \cs_set:cpn { bibstyle@ustcthesis-authoryear } { \bibstyle@authoryear }
     % 兼容过时的样式名称
     \cs_set:cpn { bibstyle@ustcthesis-numerical } { \bibstyle@super }
     \cs_set:cpn { bibstyle@ustcthesis-bachelor } { \bibstyle@super }
