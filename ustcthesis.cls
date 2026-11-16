@@ -2530,18 +2530,9 @@
       { \__ustc_checkbox: }
     \skip_horizontal:n { .6 em } 控阅
     （
-    \int_compare:nNnTF { \l__ustc_secret_year_int } = { 1 }
-      { \__ustc_checkbox: }
-      { $\square$ }
-    \skip_horizontal:n { .1 em } 1 年 \skip_horizontal:n { 1.1 em }
-    \int_compare:nNnTF { \l__ustc_secret_year_int } = { 2 }
-      { \__ustc_checkbox: }
-      { $\square$ }
-    \skip_horizontal:n { .1 em } 2 年 \skip_horizontal:n { 1.1 em }
-    \int_compare:nNnTF { \l__ustc_secret_year_int } = { 3 }
-      { \__ustc_checkbox: }
-      { $\square$ }
-    \skip_horizontal:n { .1 em } 3 年）
+    \__ustc_print_control_year:n { 1 } \skip_horizontal:n { 1.1 em }
+    \__ustc_print_control_year:n { 2 } \skip_horizontal:n { 1.1 em }
+    \__ustc_print_control_year:n { 3 } ）
     \par
     \skip_vertical:n { 29 bp }
     \noindent
@@ -2627,6 +2618,20 @@
         \raisebox { - 0.2 ex } { \skip_horizontal:n { 0.1 em } $ \checkmark $ }
       }
     $\square$
+  }
+
+% 控阅年限的勾选框，仅在选择了“控阅”时才可能勾选。
+\cs_new:Npn \__ustc_print_control_year:n #1
+  {
+    \str_if_eq:VnTF \l__ustc_secret_level_str { open }
+      { $\square$ }
+      {
+        \int_compare:nNnTF { \l__ustc_secret_year_int } = {#1}
+          { \__ustc_checkbox: }
+          { $\square$ }
+      }
+    \skip_horizontal:n { .1 em }
+    #1 年
   }
 
 % Deprecated commands
