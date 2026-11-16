@@ -1800,7 +1800,7 @@
             {
               % 1.5 行 = 16 bp * 1.3 * 1.5
               \fontsize { 16 bp } { 31.2 bp } \selectfont
-              \skip_set:Nn \hangindent { 6 em }
+              \dim_set:Nn \hangindent { 6 em }
               \textsf { 论文题名： } \quad
               \tl_use:N \l__ustc_title_tl \par
               \textsf { 学生姓名： } \quad
@@ -3053,7 +3053,7 @@
   {
     \list { }
       {
-        \dim_set:Nn \itemsep { 3 bp }
+        \skip_set:Nn \itemsep { 3 bp }
         \dim_set:Nn \labelwidth {#1}
         \dim_set:Nn \labelsep { 1 em }
         \dim_set:Nn \leftmargin { \labelwidth + \labelsep + 3 em }
@@ -3199,7 +3199,7 @@
 % \label{sec:list}
 
 % 调整列表中各项之间过大的间距。
-\skip_set_eq:NN \partopsep \c_zero_skip
+\skip_zero:N \partopsep
 
 \cs_new:Npn \__ustc_no_list_sep:
   {
@@ -3863,7 +3863,7 @@
         \par
         \pushQED { \qed }
         \normalfont \topsep 6 \p@ \@plus 6 \p@ \relax
-        \dim_set_eq:NN \labelsep { 1 em }
+        \dim_set:Nn \labelsep { 1 em }
         \trivlist
         \item
           [
@@ -4621,7 +4621,7 @@
           {
             \dim_set_eq:NN \labelwidth \nom@tempdim
             \dim_set:Nn \leftmargin { \labelwidth + \labelsep }
-            \dim_set_eq:NN \itemsep \nomitemsep
+            \skip_set_eq:NN \itemsep \nomitemsep
             \cs_set_eq:NN \makelabel \nomlabel
           }
       }
