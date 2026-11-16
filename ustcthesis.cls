@@ -101,6 +101,7 @@
 \tl_new:N \l__ustc_cjk_font_hook_tl
 \str_new:N \l__ustc_math_font_str
 \tl_new:N \l__ustc_math_font_hook_tl
+\bool_new:N \l__ustc_math_font_set_bool
 
 \str_new:N \l__ustc_math_style_str
 \tl_new:N \l__ustc_math_style_hook_tl
@@ -1391,18 +1392,25 @@
   }
 
 \cs_new:Npn \__ustc_set_math_font:
-  { \use:c { __ustc_set_math_font_ \l__ustc_math_font_str : } }
+  {
+    \bool_set_true:N \l__ustc_math_font_set_bool
+    \use:c { __ustc_set_math_font_ \l__ustc_math_font_str : }
+  }
 \tl_put_right:Nn \l__ustc_math_font_hook_tl
   { \tl_put_right:Nn \l__ustc_setup_hook_tl { \__ustc_set_math_font: } }
-\cs_new:Npn \__ustc_set_math_font_auto:
+\cs_new:Npn \__ustc_apply_math_font:
   {
     \str_if_eq:VnT \l__ustc_math_font_str { auto }
       { \ustcsetup { math-font = xits } }
+    \bool_if:NF \l__ustc_math_font_set_bool
+      { \__ustc_set_math_font: }
   }
-\__ustc_at_begin_package:nn { siunitx } { \__ustc_set_math_font_auto: }
+% `\__ustc_set_math_font:` 按选项名调用对应的字体设置命令，`auto` 单独处理。
+\cs_new_eq:NN \__ustc_set_math_font_auto: \__ustc_apply_math_font:
+\__ustc_at_begin_package:nn { siunitx } { \__ustc_apply_math_font: }
 \hook_gput_code:nnn { begindocument / before } { . }
   {
-    \__ustc_set_math_font_auto:
+    \__ustc_apply_math_font:
     \cs_if_exist:NF \square
       { \RequirePackage { amssymb } }
   }
