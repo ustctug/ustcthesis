@@ -1,6 +1,6 @@
 save_file () {
     test="$1";
-    for config in build crossref nomencl bibtex biblatex; do
+    for config in build crossref bibtex biblatex; do
         if [[ "$config" == "build" ]]; then
             test_dir="tests/testfiles";
         else
@@ -35,12 +35,12 @@ save_config () {
 
 
 if [[ $# -eq 0 ]]; then
-    for config in build crossref nomencl bibtex biblatex; do
+    for config in build crossref bibtex biblatex; do
         save_config $config;
     done
 else
     case $1 in
-        build|crossref|nomencl|bibtex|biblatex)
+        build|crossref|bibtex|biblatex)
             save_config "$1";
             ;;
 

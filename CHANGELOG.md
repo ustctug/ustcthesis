@@ -24,6 +24,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - 修正英文题名页右侧信息栏超出右侧版心的问题。
 - 修正使用授权声明中未选择“控阅”时仍勾选控阅年限的问题。
 - 修正“符号和缩略语说明”的标题名称。
+- 修正符号和缩略语说明的格式。
 
 ## [5.1.0] - 2026-11-12
 

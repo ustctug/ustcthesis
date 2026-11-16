@@ -2,7 +2,7 @@ test="$(basename $1 .lvt)";
 baseline_dir="tests/baseline";
 diff_dir="tests/diff";
 baseline_path="$baseline_dir/$test.pdf";
-for config in build crossref nomencl bibtex biblatex; do
+for config in build crossref bibtex biblatex; do
     if [[ "$config" == "build" ]]; then
         test_dir="tests/testfiles";
         build_dir="build/test";

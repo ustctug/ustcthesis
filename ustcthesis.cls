@@ -3231,11 +3231,13 @@
   {
     \list { }
       {
-        \skip_set:Nn \itemsep { 3 bp }
+        \skip_zero:N \topsep
+        \skip_zero:N \partopsep
+        \skip_zero:N \itemsep
+        \skip_zero:N \parsep
+        \dim_set:Nn \leftmargin {#1}
+        \dim_zero:N \labelsep
         \dim_set:Nn \labelwidth {#1}
-        \dim_set:Nn \labelsep { 1 em }
-        \dim_set:Nn \leftmargin { \labelwidth + \labelsep + 3 em }
-        \dim_set:Nn \rightmargin { 3 em }
         \cs_set_eq:NN \makelabel \notationlabel
       }
   }
@@ -4795,22 +4797,38 @@
 \__ustc_at_end_package:nn { nomencl }
   {
     \tl_set_eq:NN \nomname \l__ustc_notation_name_tl
+    \skip_zero:N \nomitemsep
+    \dim_set:Nn \nomlabelwidth { 2.8 cm }
     \cs_set:Npn \thenomenclature
       {
-        \__ustc_chapter:w { \tl_use:N \l__ustc_notation_name_tl }
-        \nompreamble
-        \list { }
+        \cs_if_exist:NF \listofnlsname
+          { \cs_new_nopar:Npn \listofnlsname { \nomname } }
+        \legacy_if:nTF { @nomencl@tocbasic }
           {
-            \dim_set_eq:NN \labelwidth \nom@tempdim
-            \dim_set:Nn \leftmargin { \labelwidth + \labelsep }
-            \skip_set_eq:NN \itemsep \nomitemsep
-            \cs_set_eq:NN \makelabel \nomlabel
+            \cs_set_eq:NN \list@fname \listofnlsname
+            \cs_set_nopar:Npn \@currext { nls }
+            \tocbasic@listhead { \list@fname }
           }
-      }
-    \cs_set:Npn \endthenomenclature
-      {
-        \endlist
-        \nompostamble
+          {
+            \__ustc_chapter:w { \tl_use:N \l__ustc_notation_name_tl }
+          }
+        \nompreamble
+        \legacy_if:nTF { @nomentbl }
+          {
+            \cs_set_eq:NN \itemOrig \item
+            \cs_set_nopar:Npn \item { \cs_gset_nopar:Npn \item { \\ } }
+            \exp_args:No \longtable \@nomtableformat
+          }
+          {
+            \list { }
+              {
+                \dim_set_eq:NN \labelwidth \nom@tempdim
+                \dim_zero:N \labelsep
+                \dim_set_eq:NN \leftmargin \labelwidth
+                \skip_set_eq:NN \itemsep \nomitemsep
+                \cs_set_eq:NN \makelabel \nomlabel
+              }
+          }
       }
   }
 
