@@ -283,7 +283,6 @@
 \__ustc_define_deprecated_option:nnn { bwlogo } { badge-color } { black }
 
 \PassOptionsToClass { openany } { ctexbook }
-\PassOptionsToClass { twoside } { ctexbook }
 
 % 处理选项。
 % \IfFormatAtLeastTF { 2022-06-01 }
@@ -294,8 +293,9 @@
     \ProcessKeysOptions { ustc }
   }
 
-\bool_if:NT \l__ustc_output_electronic_bool
-  {\PassOptionsToPackage { oneside } { ctexbook } }
+\bool_if:NTF \l__ustc_output_electronic_bool
+  { \PassOptionsToClass { oneside } { ctexbook } }
+  { \PassOptionsToClass { twoside } { ctexbook } }
 
 \PassOptionsToPackage { no-math } { fontspec }
 

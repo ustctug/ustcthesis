@@ -1,0 +1,27 @@
+\input{regression-test}
+\documentclass[degree=doctor, fontset=fandol, output=electronic]{ustcthesis}
+
+\pagestyle{empty}
+\setlength\parindent{0pt}
+
+\begin{document}
+\START
+\showoutput
+
+% 电子版应为单面排版
+\makeatletter
+\TEST{twoside}{
+  \if@twoside
+    \TRUE
+  \else
+    \FALSE
+  \fi
+}
+\makeatother
+
+\chapter{测试}
+电子版为单面排版。
+
+\clearpage
+\OMIT
+\end{document}

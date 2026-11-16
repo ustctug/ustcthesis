@@ -1,0 +1,123 @@
+This is a generated file for the l3build validation system.
+Don't change this file in any respect.
+============================================================
+TEST 1: twoside
+============================================================
+FALSE
+============================================================
+第1章
+Package fontspec Info: 
+(fontspec)             Font family 'FandolHei(0)' created for font 'FandolHei' with options [Extension={.otf},UprightFont={*-Regular},BoldFont={*-Bold}].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.: <->"[FandolHei-Regular.otf]/OT:language=dflt;"
+(fontspec)             - 'bold' (b/n) with NFSS spec.: <->"[FandolHei-Bold.otf]/OT:language=dflt;"
+Completed box being shipped out [1]
+\vbox(722.98453+0.0)x435.04271
+.\hbox(0.0+0.0)x0.0
+..\kern -72.26999
+..\vbox(0.0+0.0)x0.0, glue set 72.26999fil
+...\kern -72.26999
+...\hbox(0.0+0.0)x0.0
+....\hbox(0.0+0.0)x0.0, shifted 845.04684
+.....\kern 0.0
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+....\glue 0.0 plus 1.0fil minus 1.0fil
+...\glue 0.0 plus 1.0fil minus 1.0fil
+.\glue -29.59128
+.\vbox(752.5758+0.0)x417.11752, shifted 17.92519
+..\vbox(13.942+0.0)x417.11752, glue set 13.942fil
+...\glue 0.0 plus 1.0fil
+...\hbox(0.0+0.0)x417.11752
+....\special{color push  Black}
+....\hbox(0.0+0.0)x417.11752
+....\special{color pop}
+..\glue 15.6491
+..\glue(\lineskip) 0.0
+..\vbox(700.50723+0.0)x417.11752, glue set 619.19846fil
+...\write-{}
+...\write-{}
+...\write1{\pp@pagectr{footnote}{1}{\theabspage }{\thepage }}
+...\write1{\@writefile{toc}{\protect \contentsline {chapter}{\protect \numberline {第1章}测试}{\thepage }{}\protected@file@percent }}
+...\marks1{\__mark_value:nn {1}{第1章\hskip 1em\relax 测试}}
+...\marks2{\__mark_value:nn {2}{}}
+...\glue(\topskip) 12.0
+...\rule(0.0+0.0)x*
+...\penalty 10000
+...\glue 7.02625
+...\glue 0.0
+...\glue(\parskip) 0.0
+...\glue(\parskip) 0.0
+...\glue(\baselineskip) 8.30301
+...\hbox(12.57498+2.8426)x417.11752, glue set 159.47942fil
+....\glue(\leftskip) 0.0 plus 1.0fil
+....\TU/FandolHei(0)/m/n/16.06 第
+....\glue 4.46468 plus 2.23233 minus 1.48822
+....\TU/texgyreheros(0)/m/n/16.06 1
+....\glue 4.46468 plus 2.23233 minus 1.48822
+....\TU/FandolHei(0)/m/n/16.06 章
+....\kern -0.00017
+....\kern 0.00017
+....\glue 16.06
+....\TU/FandolHei(0)/m/n/16.06 测
+....\glue 0.0 plus 1.37729
+....\TU/FandolHei(0)/m/n/16.06 试
+....\kern -0.00017
+....\kern 0.00017
+....\penalty 10000
+....\glue(\parfillskip) 0.0
+....\glue(\rightskip) 0.0 plus 1.0fil
+...\penalty 10000
+...\glue 19.07124
+...\glue(\parskip) 0.0
+...\glue(\parskip) 0.0
+...\glue(\baselineskip) 7.87343
+...\hbox(9.35896+2.19217)x417.11752, glue set 316.46951fil
+....\hbox(0.0+0.0)x0.0
+....\TU/FandolSong(0)/m/n/12.045 电
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 子
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 版
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 为
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 单
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 面
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 排
+....\glue 0.0 plus 0.61353
+....\TU/FandolSong(0)/m/n/12.045 版
+....\penalty 10000
+....\TU/FandolSong(0)/m/n/12.045 。
+....\rule(0.0+0.0)x-7.75697
+....\kern 0.00047
+....\kern -0.00047
+....\kern -0.18753
+....\kern 0.18753
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\glue 0.0 plus 1.0fil
+...\glue 0.0
+...\glue 0.0 plus 0.0001fil
+..\glue(\baselineskip) 22.47748
+..\hbox(0.0+0.0)x417.11752
+...\special{color push  Black}
+...\hbox(0.0+0.0)x417.11752
+...\special{color pop}
+.\kern -722.98453
+.\hbox(0.0+0.0)x0.0
+..\kern -72.26999
+..\vbox(0.0+0.0)x0.0, glue set 72.26999fil
+...\kern -72.26999
+...\hbox(0.0+0.0)x0.0
+....\hbox(0.0+0.0)x0.0, shifted 845.04684
+.....\kern 0.0
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+....\glue 0.0 plus 1.0fil minus 1.0fil
+...\glue 0.0 plus 1.0fil minus 1.0fil
+.\kern 722.98453
+.\kern 0.0

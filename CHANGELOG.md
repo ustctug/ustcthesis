@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+
+- 修正了 `output=electronic` 选项输出双面打印格式的错误。
+
 ## [5.1.0] - 2026-11-12
 
 ### Added
