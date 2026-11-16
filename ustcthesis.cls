@@ -253,7 +253,15 @@
     font        = auto ,
     cjk-font    = auto ,
     math-font   = auto ,
+    % `math-style = TeX` 展开为下列各项子选项；用户可以在文档类选项中单独覆盖。
     math-style  = TeX ,
+    uppercase-greek    = upright ,
+    less-than-or-equal = horizontal ,
+    integral           = slanted ,
+    integral-limits    = false ,
+    partial            = italic ,
+    math-ellipsis      = AMS ,
+    real-part          = fraktur ,
     % TODO: make arabic default
     section-style = chinese ,
     badge-color = blue ,
@@ -993,7 +1001,10 @@
       }
   }
 
-\__ustc_set_math_style:
+% `math-style = TeX` 的默认值已在选项默认值中逐项设置，这里只处理显式指定的
+% 其他数学风格，以免覆盖用户在文档类选项中单独设置的子选项。
+\str_if_eq:VnF \l__ustc_math_style_str { TeX }
+  { \__ustc_set_math_style: }
 \tl_gput_right:Nn \l__ustc_math_style_hook_tl { \__ustc_set_math_style: }
 
 % 针对 \pkg{unicode-math} 逐项配置数学符号。
