@@ -1982,7 +1982,7 @@
       }
       { \symbol { "2605 } \__ustc_secret_year_zh: }
       {
-        \str_case:Nn \l__ustc_secret_level_str
+        \str_case:Vn \l__ustc_secret_level_str
           {
             { open } { }
             { control } { 限制~ \__ustc_secret_year_zh: }
@@ -2108,7 +2108,7 @@
       }
       { \symbol { "2605 } \__ustc_secret_year_en: }
       {
-        \str_case:Nn \l__ustc_secret_level_str
+        \str_case:Vn \l__ustc_secret_level_str
           {
             { open } { }
             { control } { Control~ \__ustc_secret_year_en: }
@@ -2705,8 +2705,9 @@
 
 \keys_define:nn { ustc/ai-usage }
   {
-    purpose .str_set:N = \l__ustc_ai_usage_purpose_str ,
-    file .str_set:N = \l__ustc_ai_usage_file_tl ,
+    purpose .code:n =
+      { \str_set:Nn \l__ustc_ai_usage_purpose_str {#1} } ,
+    file .tl_set:N = \l__ustc_ai_usage_file_tl ,
   }
 
 \cs_new:Npn \__ustc_set_cjk_space:n #1
