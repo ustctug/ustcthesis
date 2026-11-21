@@ -13,12 +13,12 @@
 % Repository: <https://github.com/ustctug/ustcthesis>
 %
 
-\NeedsTeXFormat{LaTeX2e}[2020-10-01]
+\NeedsTeXFormat{LaTeX2e}[2016/10/01]
 
 % 检查 LaTeX2e kernel 版本
 \providecommand\IfFormatAtLeastTF{\@ifl@t@r\fmtversion}
-\IfFormatAtLeastTF{2020-10-01}{}
-  {\ClassError{ustcthesis}{TeX Live 2021 or later version is required.}{}}
+\IfFormatAtLeastTF{2016/10/01}{}
+  {\ClassError{ustcthesis}{TeX Live 2017 or later version is required.}{}}
 
 \newcommand\ustcthesisversion{5.1.1}
 \ProvidesExplClass{ustcthesis}{2026-11-16}{\ustcthesisversion}{USTC thesis template}
@@ -783,20 +783,17 @@
   }
 
 % Windows 的中易字体。
-% 注意：`AutoFakeBold` 需要写成数值，不能写成 `true`。`true` 在 XeLaTeX 下
-% 会被 xeCJK 解释为使用默认的伪粗程度，但在 LuaLaTeX 下会被原样传给
-% luaotfload 的 `embolden` 字体特性，而后者只接受数值，从而导致编译失败。
 \cs_new:Npn \__ustc_set_cjk_font_windows:
   {
     \setCJKmainfont { SimSun }
       [
-        AutoFakeBold = 4 ,
+        AutoFakeBold = true ,
         ItalicFont   = KaiTi ,
       ]
-    \setCJKsansfont { SimHei } [ AutoFakeBold = 4 ]
+    \setCJKsansfont { SimHei } [ AutoFakeBold = true ]
     \setCJKmonofont { FangSong }
-    \setCJKfamilyfont { zhsong } { SimSun } [ AutoFakeBold = 4 ]
-    \setCJKfamilyfont { zhhei } { SimHei } [ AutoFakeBold = 4 ]
+    \setCJKfamilyfont { zhsong } { SimSun } [ AutoFakeBold = true ]
+    \setCJKfamilyfont { zhhei } { SimHei } [ AutoFakeBold = true ]
     \setCJKfamilyfont { zhkai } { KaiTi }
     \setCJKfamilyfont { zhfs } { FangSong }
   }
@@ -1982,7 +1979,7 @@
       }
       { \symbol { "2605 } \__ustc_secret_year_zh: }
       {
-        \str_case:Vn \l__ustc_secret_level_str
+        \str_case:Nn \l__ustc_secret_level_str
           {
             { open } { }
             { control } { 限制~ \__ustc_secret_year_zh: }
@@ -2108,7 +2105,7 @@
       }
       { \symbol { "2605 } \__ustc_secret_year_en: }
       {
-        \str_case:Vn \l__ustc_secret_level_str
+        \str_case:Nn \l__ustc_secret_level_str
           {
             { open } { }
             { control } { Control~ \__ustc_secret_year_en: }
@@ -2705,9 +2702,8 @@
 
 \keys_define:nn { ustc/ai-usage }
   {
-    purpose .code:n =
-      { \str_set:Nn \l__ustc_ai_usage_purpose_str {#1} } ,
-    file .tl_set:N = \l__ustc_ai_usage_file_tl ,
+    purpose .str_set:N = \l__ustc_ai_usage_purpose_str ,
+    file .str_set:N = \l__ustc_ai_usage_file_tl ,
   }
 
 \cs_new:Npn \__ustc_set_cjk_space:n #1
