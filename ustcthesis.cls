@@ -1979,7 +1979,7 @@
       }
       { \symbol { "2605 } \__ustc_secret_year_zh: }
       {
-        \str_case:Nn \l__ustc_secret_level_str
+        \str_case:Vn \l__ustc_secret_level_str
           {
             { open } { }
             { control } { 限制~ \__ustc_secret_year_zh: }
@@ -2105,7 +2105,7 @@
       }
       { \symbol { "2605 } \__ustc_secret_year_en: }
       {
-        \str_case:Nn \l__ustc_secret_level_str
+        \str_case:Vn \l__ustc_secret_level_str
           {
             { open } { }
             { control } { Control~ \__ustc_secret_year_en: }
