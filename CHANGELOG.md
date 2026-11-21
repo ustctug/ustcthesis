@@ -20,6 +20,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+- 修正 `fontset=windows` 时伪粗体在 LuaLaTeX 中导致编译失败的问题。
 - 修正了 `output=electronic` 选项输出双面打印格式的错误。
 - 修正盲审模式 `review=true` 下英文题名页仍然显示作者和导师姓名的问题。
 - 修正英文题名过长时溢出固定高度题名框、与下方信息重叠的问题。

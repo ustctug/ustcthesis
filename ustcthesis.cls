@@ -783,17 +783,20 @@
   }
 
 % Windows 的中易字体。
+% 注意：`AutoFakeBold` 需要写成数值，不能写成 `true`。`true` 在 XeLaTeX 下
+% 会被 xeCJK 解释为使用默认的伪粗程度，但在 LuaLaTeX 下会被原样传给
+% luaotfload 的 `embolden` 字体特性，而后者只接受数值，从而导致编译失败。
 \cs_new:Npn \__ustc_set_cjk_font_windows:
   {
     \setCJKmainfont { SimSun }
       [
-        AutoFakeBold = true ,
+        AutoFakeBold = 4 ,
         ItalicFont   = KaiTi ,
       ]
-    \setCJKsansfont { SimHei } [ AutoFakeBold = true ]
+    \setCJKsansfont { SimHei } [ AutoFakeBold = 4 ]
     \setCJKmonofont { FangSong }
-    \setCJKfamilyfont { zhsong } { SimSun } [ AutoFakeBold = true ]
-    \setCJKfamilyfont { zhhei } { SimHei } [ AutoFakeBold = true ]
+    \setCJKfamilyfont { zhsong } { SimSun } [ AutoFakeBold = 4 ]
+    \setCJKfamilyfont { zhhei } { SimHei } [ AutoFakeBold = 4 ]
     \setCJKfamilyfont { zhkai } { KaiTi }
     \setCJKfamilyfont { zhfs } { FangSong }
   }
