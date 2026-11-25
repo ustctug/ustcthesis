@@ -106,7 +106,7 @@ Completed box being shipped out [1]
 ....\special{color pop}
 ..\glue 15.6491
 ..\glue(\lineskip) 0.0
-..\vbox(700.50723+0.0)x417.11752, glue set 504.77055fil
+..\vbox(700.50723+0.0)x417.11752, glue set 484.6977fil
 ...\write-{}
 ...\glue(\topskip) 3.63672
 ...\hbox(8.36328+2.59953)x417.11752, glue set 259.35043fil
@@ -235,9 +235,9 @@ Completed box being shipped out [1]
 ....\rule(0.0+0.0)x-8.23878
 ....\glue 8.23878 minus 6.14296
 ....\glue 0.0 plus 0.61353
-....\TU/SongtiSC(0)/m/it/12.045 斜
+....\TU/KaitiSC(0)/m/n/12.045 斜
 ....\glue 0.0 plus 0.61353
-....\TU/SongtiSC(0)/m/it/12.045 体
+....\TU/KaitiSC(0)/m/n/12.045 体
 ....\kern 0.0
 ....\kern -0.00017
 ....\kern 0.00017
@@ -246,13 +246,13 @@ Completed box being shipped out [1]
 ....\rule(0.0+0.0)x-8.23878
 ....\glue 8.23878 minus 6.14296
 ....\glue 0.0 plus 0.61353
-....\TU/SongtiSC(0)/b/it/12.045 加
+....\TU/KaitiSC(0)/b/n/12.045 加
 ....\glue 0.0 plus 0.61353
-....\TU/SongtiSC(0)/b/it/12.045 粗
+....\TU/KaitiSC(0)/b/n/12.045 粗
 ....\glue 0.0 plus 0.61353
-....\TU/SongtiSC(0)/b/it/12.045 斜
+....\TU/KaitiSC(0)/b/n/12.045 斜
 ....\glue 0.0 plus 0.61353
-....\TU/SongtiSC(0)/b/it/12.045 体
+....\TU/KaitiSC(0)/b/n/12.045 体
 ....\kern 0.0
 ....\kern -0.00017
 ....\kern 0.00017
@@ -397,7 +397,35 @@ Completed box being shipped out [1]
 ....\glue(\rightskip) 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
-...\glue(\baselineskip) 18.56938
+...\glue(\baselineskip) 8.60817
+...\hbox(9.96121+1.65015)x417.11752, glue set 320.75754fil
+....\hbox(0.0+0.0)x0.0
+....\TU/KaitiSC(0)/m/n/12.045 楷
+....\glue 0.0 plus 0.61353
+....\TU/KaitiSC(0)/m/n/12.045 体
+....\kern 0.0
+....\glue 0.0 plus 0.61353
+....\TU/KaitiSC(0)/b/n/12.045 楷
+....\glue 0.0 plus 0.61353
+....\TU/KaitiSC(0)/b/n/12.045 体
+....\kern 0.0
+....\glue 0.0 plus 0.61353
+....\TU/KaitiSC(0)/m/n/12.045 楷
+....\glue 0.0 plus 0.61353
+....\TU/KaitiSC(0)/m/n/12.045 体
+....\kern 0.0
+....\glue 0.0 plus 0.61353
+....\TU/STFangsong(0)/b/n/12.045 仿
+....\glue 0.0 plus 0.61353
+....\TU/STFangsong(0)/b/n/12.045 宋
+....\kern -0.00017
+....\kern 0.00017
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\glue(\parskip) 0.0
+...\glue(\parskip) 0.0
+...\glue(\baselineskip) 18.42485
 ...\hbox(0.0+0.0)x417.11752, glue set 417.11752fil
 ....\hbox(0.0+0.0)x0.0
 ....\penalty 10000

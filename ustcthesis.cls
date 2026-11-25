@@ -801,23 +801,114 @@
     \setCJKfamilyfont { zhfs } { FangSong }
   }
 
+% macOS 的按需下载字体可能位于 luaotfload 的搜索路径之外，见 #516。
+% 在各版本的字体资源包中查找指定文件（参见 CTeX 的 macnew 字库）。
+\char_set_catcode_space:n { 32 }
+\cs_new:Npn \__ustc_mac_asset_dir:n #1{%
+  \lua_now:n{
+    local lfs = require("lfs")
+    local function entries(path)
+      local ok, iter, state = pcall(lfs.dir, path)
+      if ok then return iter, state end
+      return function() end
+    end
+    local root = "/System/Library/AssetsV2"
+    for _, base in ipairs({root, root .. "/PreinstalledAssetsV2/InstallWithOs"}) do
+      for collection in entries(base) do
+        if collection:match("^com_apple_MobileAsset_Font[0-9]*$") then
+          local path = base .. "/" .. collection
+          for asset in entries(path) do
+            local dir = path .. "/" .. asset .. "/AssetData/"
+            if asset:match("[.]asset$") and lfs.attributes(dir .. "#1", "mode") == "file" then
+              tex.sprint(-2, dir)
+              return
+            end
+          end
+        end
+      end
+    end
+  }%
+}
+\char_set_catcode_ignore:n { 32 }
+
+\cs_new_protected:Npn \__ustc_get_mac_font_dir:nnN #1#2#3
+  {
+    \tl_clear:N #3
+    \sys_if_engine_luatex:T
+      {
+        \clist_map_inline:nn {#1}
+          {
+            \fontspec_font_if_exist:nF {##1}
+              {
+                \tl_set:Nx #3 { \__ustc_mac_asset_dir:n {#2} }
+                \clist_map_break:
+              }
+          }
+      }
+  }
+\tl_new:N \l__ustc_mac_kaiti_dir_tl
+\tl_new:N \l__ustc_mac_fangsong_dir_tl
+
+% 正文字体的斜体与楷体字族使用相同的常规和粗体字形。
+\cs_new_protected:Npn \__ustc_set_mac_kaiti:nn #1#2
+  {
+    \setCJKmainfont { Songti~ SC }
+      [
+        UprightFont = *~ Light ,
+        BoldFont    = *~ Bold ,
+        #1
+      ]
+    \setCJKfamilyfont { zhkai } { Kaiti~ SC } [#2]
+  }
+
+\cs_new_protected:Npn \__ustc_set_mac_fangsong:nn #1#2
+  {
+    \setCJKmonofont {#1} [#2]
+    \setCJKfamilyfont { zhfs } {#1} [#2]
+  }
+
 % macOS 的华文字体。
 \cs_new:Npn \__ustc_set_cjk_font_mac:
   {
     \defaultCJKfontfeatures { }
-    \setCJKmainfont { Songti~ SC }
-      [
-        UprightFont    = *~ Light ,
-        BoldFont       = *~ Bold ,
-        ItalicFont     = Kaiti~ SC~ Regular ,
-        BoldItalicFont = Kaiti~ SC~ Bold ,
-      ]
+    \__ustc_get_mac_font_dir:nnN { Kaiti~ SC~ Regular , Kaiti~ SC~ Bold }
+      { Kaiti.ttc } \l__ustc_mac_kaiti_dir_tl
+    \tl_if_empty:NTF \l__ustc_mac_kaiti_dir_tl
+      {
+        \__ustc_set_mac_kaiti:nn
+          { ItalicFont = Kaiti~ SC~ Regular , BoldItalicFont = Kaiti~ SC~ Bold }
+          { UprightFont = *~ Regular , BoldFont = *~ Bold }
+      }
+      {
+        % Kaiti.ttc 的索引 0 和 3 分别对应简体楷体的常规和粗体字重。
+        \__ustc_set_mac_kaiti:nn
+          {
+            ItalicFont         = Kaiti.ttc ,
+            ItalicFeatures     = { Path = \l__ustc_mac_kaiti_dir_tl , FontIndex = 0 } ,
+            BoldItalicFont     = Kaiti.ttc ,
+            BoldItalicFeatures = { Path = \l__ustc_mac_kaiti_dir_tl , FontIndex = 3 } ,
+          }
+          {
+            Path         = \l__ustc_mac_kaiti_dir_tl ,
+            FontIndex    = 0 ,
+            UprightFont  = Kaiti.ttc ,
+            BoldFont     = Kaiti.ttc ,
+            BoldFeatures = { FontIndex = 3 } ,
+          }
+      }
     \setCJKsansfont { Heiti~ SC }
       [
         UprightFont    = *~ Light ,
         BoldFont       = *~ Medium ,
       ]
-    \setCJKmonofont { STFangsong }
+    \__ustc_get_mac_font_dir:nnN { STFangsong } { STFANGSO.ttf }
+      \l__ustc_mac_fangsong_dir_tl
+    \tl_if_empty:NTF \l__ustc_mac_fangsong_dir_tl
+      { \__ustc_set_mac_fangsong:nn { STFangsong } { } }
+      {
+        \__ustc_set_mac_fangsong:nn { STFANGSO.ttf }
+          { Path = \l__ustc_mac_fangsong_dir_tl }
+      }
     \setCJKfamilyfont { zhsong } { Songti~ SC }
       [
         UprightFont    = *~ Light ,
@@ -827,12 +918,6 @@
       [
         UprightFont    = *~ Light ,
         BoldFont       = *~ Medium ,
-      ]
-    \setCJKfamilyfont { zhfs } { STFangsong }
-    \setCJKfamilyfont { zhkai } { Kaiti~ SC }
-      [
-        UprightFont    = *~ Regular ,
-        BoldFont       = *~ Bold ,
       ]
   }
 

@@ -16,6 +16,10 @@
 \textrm{中文字体，\textbf{加粗}，\textit{斜体}，\textbf{\textit{加粗斜体}}}\par
 \textsf{无衬线字体，\textbf{加粗无衬线}，\textit{斜体无衬线}，\textbf{\textit{加粗斜体无衬线}}}\par
 \texttt{等宽字体，\textbf{加粗等宽}，\textit{斜体等宽}，\textbf{\textit{加粗斜体等宽}}}\par
+% \showoutput 会记录各字形，省略 fontspec 首次加载字族时的诊断信息。
+\OMIT
+{\kaishu 楷体\textbf{楷体}\textit{楷体}}{\fangsong 仿宋}\par
+\TIMO
 
 \begin{equation*}
   \mathcal{F}(\xi) = \int_{-\infty}^{\infty} f(x) e^{-2\pi i x \xi} \, dx
