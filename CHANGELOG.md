@@ -9,7 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
-- 修正 macOS 下 LuaLaTeX 找不到已下载的楷体和仿宋的问题（[#516](https://github.com/ustctug/ustcthesis/issues/516)）。
+- 修正新版 macOS 下 LuaLaTeX 找不到已下载的楷体和仿宋的问题（[#516](https://github.com/ustctug/ustcthesis/issues/516)）。
 
 ## [5.1.1] - 2026-11-16
 
